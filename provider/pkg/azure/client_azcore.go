@@ -4,6 +4,8 @@ package azure
 
 import (
 	"context"
+	"fmt"
+	"io"
 	"net/http"
 	"time"
 
@@ -33,7 +35,7 @@ func NewAzCoreClient(tenantId, userAgent string) AzureClient {
 	}
 
 	return &azCoreClient{
-		host:     cloud.AzurePublic.Services[cloud.ResourceManager].Endpoint,
+		host:     cloud.AzurePublic.Services[cloud.ResourceManager].Endpoint, // TODO,tkappler other clouds
 		pipeline: pipeline,
 	}
 }
@@ -140,9 +142,65 @@ func (c *azCoreClient) Patch(ctx context.Context, id string, bodyProps map[strin
 // CanCreate asserts that a resource with a given ID and API version can be created
 // or returns an error otherwise.
 func (c *azCoreClient) CanCreate(ctx context.Context, id, path, apiVersion, readMethod string,
-	isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error {
-	// TODO: not implemented
-	return nil
+	isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool,
+) error {
+	req, err := runtime.NewRequest(ctx, readMethod, runtime.JoinPaths(c.host, id, path))
+	if err != nil {
+		return err
+	}
+	reqQP := req.Raw().URL.Query()
+	reqQP.Set("api-version", apiVersion)
+	req.Raw().URL.RawQuery = reqQP.Encode()
+	req.Raw().Header.Set("Accept", "application/json")
+	resp, err := c.pipeline.Do(req)
+	if err != nil {
+		return err
+	}
+
+	switch {
+	case http.StatusOK == resp.StatusCode && isSingletonResource:
+		// Singleton resources always exist, so OK is expected.
+		return nil
+	case http.StatusOK == resp.StatusCode && hasDefaultBody:
+		// This resource is automatically created with a parent and set to its default state. It can be deleted though.
+		// Validate that its current shape is in the default state to avoid unintended adoption and destructive
+		// actions.
+		// NOTE: We may reconsider and relax this restriction when we get more examples of such resources.
+		// The difference between "take any singleton resource as-is" and "require default body for deletable resources"
+		// isn't very principled but is based on what subjectively feels best for the current examples.
+		var outputs map[string]interface{}
+		if err := runtime.UnmarshalAsJSON(resp, &outputs); err != nil {
+			return err
+		}
+		if !isDefaultResponse(outputs) {
+			return fmt.Errorf("cannot create already existing subresource '%s'", id)
+		}
+		return nil
+	case http.StatusNoContent == resp.StatusCode:
+		if readMethod == "HEAD" {
+			return fmt.Errorf("cannot create already existing resource '%s'", id)
+		}
+		// A few "linking" resources, like private endpoint connections, return 204 as "does not exist" status code.
+		// Treat them as such unless it's a HEAD method treated above.
+		return nil
+	case http.StatusOK == resp.StatusCode:
+		// Usually, 200 means that the resource already exists and we shouldn't try to create it.
+		// However, unfortunately, some APIs return 200 with an empty body for non-existing resources.
+		// Our strategy here is to try to parse the response body and see if it's a valid non-empty JSON.
+		// If it is, we assume the resource exists.
+		var outputs map[string]interface{}
+		err := runtime.UnmarshalAsJSON(resp, &outputs)
+		if err == nil && len(outputs) > 0 {
+			return fmt.Errorf("cannot create already existing resource '%s'", id)
+		}
+		return nil
+	case http.StatusNotFound == resp.StatusCode:
+		return nil
+	default:
+		defer resp.Body.Close()
+		body, _ := io.ReadAll(resp.Body)
+		return fmt.Errorf("cannot check existence of resource '%s': status code %d, %s", id, resp.StatusCode, body)
+	}
 }
 
 func newAzureCredentials() (*azidentity.ChainedTokenCredential, error) {
