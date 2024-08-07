@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'SalesforceServiceCloudV2'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private SalesforceServiceCloudV2LinkedServiceResponse(
@@ -84,7 +88,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            string? version)
         {
             Annotations = annotations;
             ApiVersion = apiVersion;
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             EnvironmentUrl = environmentUrl;
             Parameters = parameters;
             Type = type;
+            Version = version;
         }
     }
 }

@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Web linked service properties.
         /// </summary>
         public readonly object TypeProperties;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private WebLinkedServiceResponse(
@@ -54,7 +58,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object typeProperties)
+            object typeProperties,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -62,6 +68,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Parameters = parameters;
             Type = type;
             TypeProperties = typeProperties;
+            Version = version;
         }
     }
 }

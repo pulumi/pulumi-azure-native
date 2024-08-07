@@ -65,6 +65,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'GoogleBigQueryV2'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GoogleBigQueryV2LinkedServiceResponse(
@@ -90,7 +94,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? refreshToken,
 
-            string type)
+            string type,
+
+            string? version)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ProjectId = projectId;
             RefreshToken = refreshToken;
             Type = type;
+            Version = version;
         }
     }
 }

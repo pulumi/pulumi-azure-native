@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The username of the TeamDesk source. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private TeamDeskLinkedServiceResponse(
@@ -84,7 +88,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object url,
 
-            object? userName)
+            object? userName,
+
+            string? version)
         {
             Annotations = annotations;
             ApiToken = apiToken;
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Type = type;
             Url = url;
             UserName = userName;
+            Version = version;
         }
     }
 }

@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// URL for Azure Search service. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object Url;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureSearchLinkedServiceResponse(
@@ -66,7 +70,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            object url)
+            object url,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -76,6 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Parameters = parameters;
             Type = type;
             Url = url;
+            Version = version;
         }
     }
 }

@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Portal
         public string DashboardName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.Portal
         public Input<string> DashboardName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -76,31 +76,31 @@ namespace Pulumi.AzureNative.Portal
     public sealed class GetDashboardResult
     {
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The dashboard lenses.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.DashboardLensResponse> Lenses;
-        /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The dashboard metadata.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
-        /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource tags
+        /// The resource-specific properties for this resource.
+        /// </summary>
+        public readonly Outputs.DashboardPropertiesWithProvisioningStateResponse Properties;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -108,23 +108,23 @@ namespace Pulumi.AzureNative.Portal
         private GetDashboardResult(
             string id,
 
-            ImmutableArray<Outputs.DashboardLensResponse> lenses,
-
             string location,
 
-            ImmutableDictionary<string, object>? metadata,
-
             string name,
+
+            Outputs.DashboardPropertiesWithProvisioningStateResponse properties,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             Id = id;
-            Lenses = lenses;
             Location = location;
-            Metadata = metadata;
             Name = name;
+            Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

@@ -106,6 +106,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("username", required: true)]
         public Input<object> Username { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public ConcurLinkedServiceArgs()
         {
         }

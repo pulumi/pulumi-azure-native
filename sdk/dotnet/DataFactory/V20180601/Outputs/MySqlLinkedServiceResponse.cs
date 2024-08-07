@@ -77,6 +77,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Username for authentication. Type: string.
         /// </summary>
         public readonly object? Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private MySqlLinkedServiceResponse(
@@ -108,7 +112,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? useSystemTrustStore,
 
-            object? username)
+            object? username,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Type = type;
             UseSystemTrustStore = useSystemTrustStore;
             Username = username;
+            Version = version;
         }
     }
 }

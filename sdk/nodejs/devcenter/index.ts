@@ -15,6 +15,11 @@ export type Catalog = import("./catalog").Catalog;
 export const Catalog: typeof import("./catalog").Catalog = null as any;
 utilities.lazyLoad(exports, ["Catalog"], () => require("./catalog"));
 
+export { CurationProfileArgs } from "./curationProfile";
+export type CurationProfile = import("./curationProfile").CurationProfile;
+export const CurationProfile: typeof import("./curationProfile").CurationProfile = null as any;
+utilities.lazyLoad(exports, ["CurationProfile"], () => require("./curationProfile"));
+
 export { DevBoxDefinitionArgs } from "./devBoxDefinition";
 export type DevBoxDefinition = import("./devBoxDefinition").DevBoxDefinition;
 export const DevBoxDefinition: typeof import("./devBoxDefinition").DevBoxDefinition = null as any;
@@ -59,6 +64,11 @@ export { GetCatalogSyncErrorDetailsArgs, GetCatalogSyncErrorDetailsResult, GetCa
 export const getCatalogSyncErrorDetails: typeof import("./getCatalogSyncErrorDetails").getCatalogSyncErrorDetails = null as any;
 export const getCatalogSyncErrorDetailsOutput: typeof import("./getCatalogSyncErrorDetails").getCatalogSyncErrorDetailsOutput = null as any;
 utilities.lazyLoad(exports, ["getCatalogSyncErrorDetails","getCatalogSyncErrorDetailsOutput"], () => require("./getCatalogSyncErrorDetails"));
+
+export { GetCurationProfileArgs, GetCurationProfileResult, GetCurationProfileOutputArgs } from "./getCurationProfile";
+export const getCurationProfile: typeof import("./getCurationProfile").getCurationProfile = null as any;
+export const getCurationProfileOutput: typeof import("./getCurationProfile").getCurationProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getCurationProfile","getCurationProfileOutput"], () => require("./getCurationProfile"));
 
 export { GetCustomizationTaskErrorDetailsArgs, GetCustomizationTaskErrorDetailsResult, GetCustomizationTaskErrorDetailsOutputArgs } from "./getCustomizationTaskErrorDetails";
 export const getCustomizationTaskErrorDetails: typeof import("./getCustomizationTaskErrorDetails").getCustomizationTaskErrorDetails = null as any;
@@ -213,6 +223,7 @@ import * as v20240201 from "./v20240201";
 import * as v20240501preview from "./v20240501preview";
 import * as v20240601preview from "./v20240601preview";
 import * as v20240701preview from "./v20240701preview";
+import * as v20240801preview from "./v20240801preview";
 
 export {
     v20221111preview,
@@ -223,6 +234,7 @@ export {
     v20240501preview,
     v20240601preview,
     v20240701preview,
+    v20240801preview,
 };
 
 const _module = {
@@ -233,6 +245,8 @@ const _module = {
                 return new AttachedNetworkByDevCenter(name, <any>undefined, { urn })
             case "azure-native:devcenter:Catalog":
                 return new Catalog(name, <any>undefined, { urn })
+            case "azure-native:devcenter:CurationProfile":
+                return new CurationProfile(name, <any>undefined, { urn })
             case "azure-native:devcenter:DevBoxDefinition":
                 return new DevBoxDefinition(name, <any>undefined, { urn })
             case "azure-native:devcenter:DevCenter":

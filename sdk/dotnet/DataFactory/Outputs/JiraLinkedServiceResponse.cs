@@ -69,6 +69,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The user name that you use to access Jira Service.
         /// </summary>
         public readonly object Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private JiraLinkedServiceResponse(
@@ -96,7 +100,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? usePeerVerification,
 
-            object username)
+            object username,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             UseHostVerification = useHostVerification;
             UsePeerVerification = usePeerVerification;
             Username = username;
+            Version = version;
         }
     }
 }

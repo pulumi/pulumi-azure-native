@@ -10,23 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Portal
 {
     /// <summary>
-    /// Tenant configuration.
+    /// The tenant configuration resource definition.
     /// Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:portal:TenantConfiguration")]
     public partial class TenantConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
-        /// </summary>
-        [Output("enforcePrivateMarkdownStorage")]
-        public Output<bool?> EnforcePrivateMarkdownStorage { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource-specific properties for this resource.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.ConfigurationPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -85,16 +91,16 @@ namespace Pulumi.AzureNative.Portal
     public sealed class TenantConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration name. Value must be 'default'
+        /// The name of the Configuration
         /// </summary>
         [Input("configurationName")]
         public Input<string>? ConfigurationName { get; set; }
 
         /// <summary>
-        /// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        [Input("enforcePrivateMarkdownStorage")]
-        public Input<bool>? EnforcePrivateMarkdownStorage { get; set; }
+        [Input("properties")]
+        public Input<Inputs.ConfigurationPropertiesArgs>? Properties { get; set; }
 
         public TenantConfigurationArgs()
         {

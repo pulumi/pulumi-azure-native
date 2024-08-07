@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview.Inputs
         public Input<Inputs.MarkdownPartMetadataSettingsArgs>? Settings { get; set; }
 
         /// <summary>
-        /// The type of dashboard part.
+        /// The dashboard part metadata type.
         /// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         /// </summary>
         [Input("type", required: true)]

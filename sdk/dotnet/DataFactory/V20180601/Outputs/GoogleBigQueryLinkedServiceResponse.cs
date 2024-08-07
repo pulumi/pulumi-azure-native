@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.Type: boolean (or Expression with resultType boolean).
         /// </summary>
         public readonly object? UseSystemTrustStore;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GoogleBigQueryLinkedServiceResponse(
@@ -120,7 +124,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            object? useSystemTrustStore)
+            object? useSystemTrustStore,
+
+            string? version)
         {
             AdditionalProjects = additionalProjects;
             Annotations = annotations;
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             TrustedCertPath = trustedCertPath;
             Type = type;
             UseSystemTrustStore = useSystemTrustStore;
+            Version = version;
         }
     }
 }

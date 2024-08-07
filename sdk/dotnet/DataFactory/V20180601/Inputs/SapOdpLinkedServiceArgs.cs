@@ -161,6 +161,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? UserName { get; set; }
 
         /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        /// <summary>
         /// SNC X509 certificate file path. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("x509CertificatePath")]

@@ -121,7 +121,7 @@ class Plan(pulumi.CustomResource):
         Represents a devcenter plan resource.
         Azure REST API version: 2024-05-01-preview.
 
-        Other available API versions: 2024-06-01-preview, 2024-07-01-preview.
+        Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +141,7 @@ class Plan(pulumi.CustomResource):
         Represents a devcenter plan resource.
         Azure REST API version: 2024-05-01-preview.
 
-        Other available API versions: 2024-06-01-preview, 2024-07-01-preview.
+        Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PlanArgs args: The arguments to use to populate this resource's properties.
@@ -183,7 +183,7 @@ class Plan(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Plan"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:Plan"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Plan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Plan"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:Plan"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Plan"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Plan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Plan, __self__).__init__(
             'azure-native:devcenter:Plan',

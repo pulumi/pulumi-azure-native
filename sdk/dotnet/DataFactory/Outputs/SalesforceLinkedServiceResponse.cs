@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private SalesforceLinkedServiceResponse(
@@ -84,7 +88,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? username)
+            object? username,
+
+            string? version)
         {
             Annotations = annotations;
             ApiVersion = apiVersion;
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             SecurityToken = securityToken;
             Type = type;
             Username = username;
+            Version = version;
         }
     }
 }

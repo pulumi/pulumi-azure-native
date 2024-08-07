@@ -69,6 +69,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'AzureMLService'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureMLServiceLinkedServiceResponse(
@@ -96,7 +100,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? tenant,
 
-            string type)
+            string type,
+
+            string? version)
         {
             Annotations = annotations;
             Authentication = authentication;
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             SubscriptionId = subscriptionId;
             Tenant = tenant;
             Type = type;
+            Version = version;
         }
     }
 }

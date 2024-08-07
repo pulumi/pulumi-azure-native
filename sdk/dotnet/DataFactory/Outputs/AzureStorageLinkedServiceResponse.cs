@@ -57,6 +57,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'AzureStorage'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureStorageLinkedServiceResponse(
@@ -78,7 +82,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? sasUri,
 
-            string type)
+            string type,
+
+            string? version)
         {
             AccountKey = accountKey;
             Annotations = annotations;
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             SasToken = sasToken;
             SasUri = sasUri;
             Type = type;
+            Version = version;
         }
     }
 }

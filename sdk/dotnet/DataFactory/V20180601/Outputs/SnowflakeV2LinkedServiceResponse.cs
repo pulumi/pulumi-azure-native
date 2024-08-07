@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? User;
         /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
+        /// <summary>
         /// The name of the Snowflake warehouse.
         /// </summary>
         public readonly object Warehouse;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? user,
 
+            string? version,
+
             object warehouse)
         {
             AccountIdentifier = accountIdentifier;
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             TenantId = tenantId;
             Type = type;
             User = user;
+            Version = version;
             Warehouse = warehouse;
         }
     }

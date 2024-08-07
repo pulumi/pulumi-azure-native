@@ -101,6 +101,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private SapTableLinkedServiceResponse(
@@ -144,7 +148,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            object? userName)
+            object? userName,
+
+            string? version)
         {
             Annotations = annotations;
             ClientId = clientId;
@@ -167,6 +173,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             SystemNumber = systemNumber;
             Type = type;
             UserName = userName;
+            Version = version;
         }
     }
 }

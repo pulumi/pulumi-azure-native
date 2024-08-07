@@ -69,6 +69,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The Update Resource REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UpdateResourceEndpoint;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureMLLinkedServiceResponse(
@@ -96,7 +100,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            object? updateResourceEndpoint)
+            object? updateResourceEndpoint,
+
+            string? version)
         {
             Annotations = annotations;
             ApiKey = apiKey;
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Tenant = tenant;
             Type = type;
             UpdateResourceEndpoint = updateResourceEndpoint;
+            Version = version;
         }
     }
 }

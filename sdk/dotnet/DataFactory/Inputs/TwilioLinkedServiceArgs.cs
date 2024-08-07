@@ -70,6 +70,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("userName", required: true)]
         public Input<object> UserName { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public TwilioLinkedServiceArgs()
         {
         }

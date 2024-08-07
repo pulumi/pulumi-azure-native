@@ -65,6 +65,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
         /// </summary>
         public readonly object Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private EloquaLinkedServiceResponse(
@@ -90,7 +94,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? usePeerVerification,
 
-            object username)
+            object username,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             UseHostVerification = useHostVerification;
             UsePeerVerification = usePeerVerification;
             Username = username;
+            Version = version;
         }
     }
 }

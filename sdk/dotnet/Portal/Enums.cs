@@ -8,6 +8,39 @@ using Pulumi;
 namespace Pulumi.AzureNative.Portal
 {
     /// <summary>
+    /// The dashboard part metadata type.
+    /// </summary>
+    [EnumType]
+    public readonly struct DashboardPartMetadataType : IEquatable<DashboardPartMetadataType>
+    {
+        private readonly string _value;
+
+        private DashboardPartMetadataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The markdown part type.
+        /// </summary>
+        public static DashboardPartMetadataType Markdown { get; } = new DashboardPartMetadataType("Extension/HubsExtension/PartType/MarkdownPart");
+
+        public static bool operator ==(DashboardPartMetadataType left, DashboardPartMetadataType right) => left.Equals(right);
+        public static bool operator !=(DashboardPartMetadataType left, DashboardPartMetadataType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardPartMetadataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardPartMetadataType other && Equals(other);
+        public bool Equals(DashboardPartMetadataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Size of terminal font.
     /// </summary>
     [EnumType]

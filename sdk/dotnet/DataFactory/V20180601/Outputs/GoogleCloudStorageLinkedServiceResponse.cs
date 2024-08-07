@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'GoogleCloudStorage'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GoogleCloudStorageLinkedServiceResponse(
@@ -72,7 +76,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? serviceUrl,
 
-            string type)
+            string type,
+
+            string? version)
         {
             AccessKeyId = accessKeyId;
             Annotations = annotations;
@@ -83,6 +89,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             SecretAccessKey = secretAccessKey;
             ServiceUrl = serviceUrl;
             Type = type;
+            Version = version;
         }
     }
 }

@@ -64,6 +64,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("typeProperties", required: true)]
         public object TypeProperties { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public WebLinkedServiceArgs()
         {
         }

@@ -155,6 +155,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? Username { get; set; }
 
         /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        /// <summary>
         /// The namespace on ZooKeeper under which Hive Server 2 nodes are added.
         /// </summary>
         [Input("zooKeeperNameSpace")]

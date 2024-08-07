@@ -714,6 +714,9 @@
     "Snapshot": "2023-07-01-preview",
     "Volume": "2023-07-01-preview"
   },
+  "Contoso": {
+    "Employee": "2021-10-01-preview"
+  },
   "CostManagement": {
     "Budget": "2023-04-01-preview",
     "CloudConnector": "2019-03-01-preview",
@@ -939,6 +942,7 @@
   "DevCenter": {
     "AttachedNetworkByDevCenter": "2023-04-01",
     "Catalog": "2023-04-01",
+    "CurationProfile": "2024-08-01-preview",
     "DevBoxDefinition": "2023-04-01",
     "DevCenter": "2023-04-01",
     "EncryptionSet": "2024-05-01-preview",
@@ -1373,6 +1377,16 @@
   "IoTFirmwareDefense": {
     "Firmware": "2023-02-08-preview",
     "Workspace": "2023-02-08-preview"
+  },
+  "IoTOperations": {
+    "Broker": "2024-07-01-preview",
+    "BrokerAuthentication": "2024-07-01-preview",
+    "BrokerAuthorization": "2024-07-01-preview",
+    "BrokerListener": "2024-07-01-preview",
+    "DataFlow": "2024-07-01-preview",
+    "DataFlowEndpoint": "2024-07-01-preview",
+    "DataFlowProfile": "2024-07-01-preview",
+    "Instance": "2024-07-01-preview"
   },
   "IoTOperationsDataProcessor": {
     "Dataset": "2023-10-04-preview",

@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'CosmosDb'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private CosmosDbLinkedServiceResponse(
@@ -120,7 +124,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? tenant,
 
-            string type)
+            string type,
+
+            string? version)
         {
             AccountEndpoint = accountEndpoint;
             AccountKey = accountKey;
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             ServicePrincipalId = servicePrincipalId;
             Tenant = tenant;
             Type = type;
+            Version = version;
         }
     }
 }

@@ -102,6 +102,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? Username;
         /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
+        /// <summary>
         /// The namespace on ZooKeeper under which Hive Server 2 nodes are added.
         /// </summary>
         public readonly object? ZooKeeperNameSpace;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? username,
 
+            string? version,
+
             object? zooKeeperNameSpace)
         {
             AllowHostNameCNMismatch = allowHostNameCNMismatch;
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             UseNativeQuery = useNativeQuery;
             UseSystemTrustStore = useSystemTrustStore;
             Username = username;
+            Version = version;
             ZooKeeperNameSpace = zooKeeperNameSpace;
         }
     }

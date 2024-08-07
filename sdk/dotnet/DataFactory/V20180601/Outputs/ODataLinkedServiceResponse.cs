@@ -93,6 +93,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// User name of the OData service. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private ODataLinkedServiceResponse(
@@ -132,7 +136,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object url,
 
-            object? userName)
+            object? userName,
+
+            string? version)
         {
             AadResourceId = aadResourceId;
             AadServicePrincipalCredentialType = aadServicePrincipalCredentialType;
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Type = type;
             Url = url;
             UserName = userName;
+            Version = version;
         }
     }
 }

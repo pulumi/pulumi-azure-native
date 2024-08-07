@@ -65,6 +65,7 @@ import * as containerinstance from "./containerinstance";
 import * as containerregistry from "./containerregistry";
 import * as containerservice from "./containerservice";
 import * as containerstorage from "./containerstorage";
+import * as contoso from "./contoso";
 import * as costmanagement from "./costmanagement";
 import * as customerinsights from "./customerinsights";
 import * as customproviders from "./customproviders";
@@ -132,6 +133,7 @@ import * as integrationspaces from "./integrationspaces";
 import * as intune from "./intune";
 import * as iotcentral from "./iotcentral";
 import * as iotfirmwaredefense from "./iotfirmwaredefense";
+import * as iotoperations from "./iotoperations";
 import * as iotoperationsdataprocessor from "./iotoperationsdataprocessor";
 import * as iotoperationsmq from "./iotoperationsmq";
 import * as iotoperationsorchestrator from "./iotoperationsorchestrator";
@@ -295,6 +297,7 @@ export {
     containerregistry,
     containerservice,
     containerstorage,
+    contoso,
     costmanagement,
     customerinsights,
     customproviders,
@@ -362,6 +365,7 @@ export {
     intune,
     iotcentral,
     iotfirmwaredefense,
+    iotoperations,
     iotoperationsdataprocessor,
     iotoperationsmq,
     iotoperationsorchestrator,

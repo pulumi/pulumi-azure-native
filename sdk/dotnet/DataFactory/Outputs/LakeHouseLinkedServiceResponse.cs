@@ -66,6 +66,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
+        /// <summary>
         /// The ID of Microsoft Fabric workspace. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? WorkspaceId;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
+            string? version,
+
             object? workspaceId)
         {
             Annotations = annotations;
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ServicePrincipalKey = servicePrincipalKey;
             Tenant = tenant;
             Type = type;
+            Version = version;
             WorkspaceId = workspaceId;
         }
     }

@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
     public sealed class GetTenantConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The configuration name. Value must be 'default'
+        /// The name of the Configuration
         /// </summary>
         [Input("configurationName", required: true)]
         public string ConfigurationName { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
     public sealed class GetTenantConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The configuration name. Value must be 'default'
+        /// The name of the Configuration
         /// </summary>
         [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
@@ -58,11 +58,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
     public sealed class GetTenantConfigurationResult
     {
         /// <summary>
-        /// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
-        /// </summary>
-        public readonly bool? EnforcePrivateMarkdownStorage;
-        /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -70,23 +66,34 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The resource-specific properties for this resource.
+        /// </summary>
+        public readonly Outputs.ConfigurationPropertiesResponse Properties;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetTenantConfigurationResult(
-            bool? enforcePrivateMarkdownStorage,
-
             string id,
 
             string name,
 
+            Outputs.ConfigurationPropertiesResponse properties,
+
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
-            EnforcePrivateMarkdownStorage = enforcePrivateMarkdownStorage;
             Id = id;
             Name = name;
+            Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

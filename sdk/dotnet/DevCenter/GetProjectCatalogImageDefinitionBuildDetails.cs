@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Build details
         /// Azure REST API version: 2024-07-01-preview.
+        /// 
+        /// Other available API versions: 2024-08-01-preview.
         /// </summary>
         public static Task<GetProjectCatalogImageDefinitionBuildDetailsResult> InvokeAsync(GetProjectCatalogImageDefinitionBuildDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectCatalogImageDefinitionBuildDetailsResult>("azure-native:devcenter:getProjectCatalogImageDefinitionBuildDetails", args ?? new GetProjectCatalogImageDefinitionBuildDetailsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Build details
         /// Azure REST API version: 2024-07-01-preview.
+        /// 
+        /// Other available API versions: 2024-08-01-preview.
         /// </summary>
         public static Output<GetProjectCatalogImageDefinitionBuildDetailsResult> Invoke(GetProjectCatalogImageDefinitionBuildDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogImageDefinitionBuildDetailsResult>("azure-native:devcenter:getProjectCatalogImageDefinitionBuildDetails", args ?? new GetProjectCatalogImageDefinitionBuildDetailsInvokeArgs(), options.WithDefaults());

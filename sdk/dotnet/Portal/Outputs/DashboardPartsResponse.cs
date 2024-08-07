@@ -17,19 +17,19 @@ namespace Pulumi.AzureNative.Portal.Outputs
     public sealed class DashboardPartsResponse
     {
         /// <summary>
-        /// The dashboard's part metadata.
+        /// The dashboard part's metadata.
         /// </summary>
-        public readonly Outputs.DashboardPartMetadataResponse? Metadata;
+        public readonly Outputs.MarkdownPartMetadataResponse? Metadata;
         /// <summary>
         /// The dashboard's part position.
         /// </summary>
-        public readonly Outputs.DashboardPartsResponsePosition Position;
+        public readonly Outputs.DashboardPartsPositionResponse Position;
 
         [OutputConstructor]
         private DashboardPartsResponse(
-            Outputs.DashboardPartMetadataResponse? metadata,
+            Outputs.MarkdownPartMetadataResponse? metadata,
 
-            Outputs.DashboardPartsResponsePosition position)
+            Outputs.DashboardPartsPositionResponse position)
         {
             Metadata = metadata;
             Position = position;

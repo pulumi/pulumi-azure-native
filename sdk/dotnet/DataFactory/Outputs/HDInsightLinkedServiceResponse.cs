@@ -69,6 +69,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// HDInsight cluster user name. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private HDInsightLinkedServiceResponse(
@@ -96,7 +100,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? userName)
+            object? userName,
+
+            string? version)
         {
             Annotations = annotations;
             ClusterUri = clusterUri;
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Password = password;
             Type = type;
             UserName = userName;
+            Version = version;
         }
     }
 }

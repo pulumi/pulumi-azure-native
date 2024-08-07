@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The Dynamics AX (or Dynamics 365 Finance and Operations) instance OData endpoint.
         /// </summary>
         public readonly object Url;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private DynamicsAXLinkedServiceResponse(
@@ -84,7 +88,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            object url)
+            object url,
+
+            string? version)
         {
             AadResourceId = aadResourceId;
             Annotations = annotations;
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Tenant = tenant;
             Type = type;
             Url = url;
+            Version = version;
         }
     }
 }

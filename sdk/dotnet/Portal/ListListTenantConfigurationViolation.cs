@@ -40,11 +40,11 @@ namespace Pulumi.AzureNative.Portal
     public sealed class ListListTenantConfigurationViolationResult
     {
         /// <summary>
-        /// The URL to use for getting the next set of results.
+        /// The link to the next page of items
         /// </summary>
         public readonly string? NextLink;
         /// <summary>
-        /// The array of violations.
+        /// The Violation items on this page
         /// </summary>
         public readonly ImmutableArray<Outputs.ViolationResponse> Value;
 

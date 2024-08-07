@@ -73,6 +73,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         /// </summary>
         public readonly object? UseEncryptedEndpoints;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private QuickBooksLinkedServiceResponse(
@@ -102,7 +106,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? useEncryptedEndpoints)
+            object? useEncryptedEndpoints,
+
+            string? version)
         {
             AccessToken = accessToken;
             AccessTokenSecret = accessTokenSecret;
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Parameters = parameters;
             Type = type;
             UseEncryptedEndpoints = useEncryptedEndpoints;
+            Version = version;
         }
     }
 }

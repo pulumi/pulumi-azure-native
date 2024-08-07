@@ -94,6 +94,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("usePeerVerification")]
         public Input<object>? UsePeerVerification { get; set; }
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public MagentoLinkedServiceArgs()
         {
         }

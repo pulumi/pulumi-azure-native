@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AmazonRedshiftLinkedServiceResponse(
@@ -84,7 +88,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? username)
+            object? username,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Server = server;
             Type = type;
             Username = username;
+            Version = version;
         }
     }
 }

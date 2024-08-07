@@ -250,6 +250,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("userName")]
         public Input<object>? UserName { get; set; }
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public AzureSqlDatabaseLinkedServiceArgs()
         {
         }

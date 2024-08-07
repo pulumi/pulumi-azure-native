@@ -57,6 +57,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'SharePointOnlineList'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private SharePointOnlineListLinkedServiceResponse(
@@ -78,7 +82,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object tenantId,
 
-            string type)
+            string type,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             SiteUrl = siteUrl;
             TenantId = tenantId;
             Type = type;
+            Version = version;
         }
     }
 }

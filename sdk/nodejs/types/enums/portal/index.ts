@@ -3,10 +3,24 @@
 
 // Export sub-modules:
 import * as v20181001 from "./v20181001";
+import * as v20200901preview from "./v20200901preview";
 
 export {
     v20181001,
+    v20200901preview,
 };
+
+export const DashboardPartMetadataType = {
+    /**
+     * The markdown part type.
+     */
+    Markdown: "Extension/HubsExtension/PartType/MarkdownPart",
+} as const;
+
+/**
+ * The dashboard part metadata type.
+ */
+export type DashboardPartMetadataType = (typeof DashboardPartMetadataType)[keyof typeof DashboardPartMetadataType];
 
 export const FontSize = {
     NotSpecified: "NotSpecified",

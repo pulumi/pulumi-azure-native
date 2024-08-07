@@ -77,6 +77,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'AzureDataLakeStore'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureDataLakeStoreLinkedServiceResponse(
@@ -108,7 +112,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? tenant,
 
-            string type)
+            string type,
+
+            string? version)
         {
             AccountName = accountName;
             Annotations = annotations;
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             SubscriptionId = subscriptionId;
             Tenant = tenant;
             Type = type;
+            Version = version;
         }
     }
 }

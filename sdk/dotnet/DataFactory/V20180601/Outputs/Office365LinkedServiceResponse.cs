@@ -57,6 +57,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'Office365'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private Office365LinkedServiceResponse(
@@ -78,7 +82,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object servicePrincipalTenantId,
 
-            string type)
+            string type,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             ServicePrincipalKey = servicePrincipalKey;
             ServicePrincipalTenantId = servicePrincipalTenantId;
             Type = type;
+            Version = version;
         }
     }
 }

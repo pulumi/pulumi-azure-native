@@ -46,6 +46,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
+        /// <summary>
         /// The resource ID of the Synapse workspace. The format should be: /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.Synapse/workspaces/{workspaceName}. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? WorkspaceResourceId;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
+            string? version,
+
             object? workspaceResourceId)
         {
             Annotations = annotations;
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Endpoint = endpoint;
             Parameters = parameters;
             Type = type;
+            Version = version;
             WorkspaceResourceId = workspaceResourceId;
         }
     }

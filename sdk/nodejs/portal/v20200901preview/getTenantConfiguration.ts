@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -17,27 +20,31 @@ export function getTenantConfiguration(args: GetTenantConfigurationArgs, opts?: 
 
 export interface GetTenantConfigurationArgs {
     /**
-     * The configuration name. Value must be 'default'
+     * The name of the Configuration
      */
     configurationName: string;
 }
 
 /**
- * Tenant configuration.
+ * The tenant configuration resource definition.
  */
 export interface GetTenantConfigurationResult {
     /**
-     * When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
-     */
-    readonly enforcePrivateMarkdownStorage?: boolean;
-    /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * The resource-specific properties for this resource.
+     */
+    readonly properties: outputs.portal.v20200901preview.ConfigurationPropertiesResponse;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.portal.v20200901preview.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -52,7 +59,7 @@ export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputA
 
 export interface GetTenantConfigurationOutputArgs {
     /**
-     * The configuration name. Value must be 'default'
+     * The name of the Configuration
      */
     configurationName: pulumi.Input<string>;
 }

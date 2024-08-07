@@ -65,6 +65,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Username for authentication. Type: string.
         /// </summary>
         public readonly object? Uid;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private VerticaLinkedServiceResponse(
@@ -90,7 +94,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? uid)
+            object? uid,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Server = server;
             Type = type;
             Uid = uid;
+            Version = version;
         }
     }
 }

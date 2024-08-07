@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview.Inputs
         /// The content of markdown part.
         /// </summary>
         [Input("content")]
-        public Input<Inputs.MarkdownPartMetadataContentArgs>? Content { get; set; }
+        public Input<Inputs.MarkdownPartMetadataSettingsContentArgs>? Content { get; set; }
 
         public MarkdownPartMetadataSettingsArgs()
         {

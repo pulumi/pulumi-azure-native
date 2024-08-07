@@ -131,6 +131,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? User { get; set; }
 
         /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        /// <summary>
         /// The name of the Snowflake warehouse.
         /// </summary>
         [Input("warehouse", required: true)]

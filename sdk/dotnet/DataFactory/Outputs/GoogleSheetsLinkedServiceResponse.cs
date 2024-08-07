@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'GoogleSheets'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GoogleSheetsLinkedServiceResponse(
@@ -60,7 +64,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            string? version)
         {
             Annotations = annotations;
             ApiToken = apiToken;
@@ -69,6 +75,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             Type = type;
+            Version = version;
         }
     }
 }

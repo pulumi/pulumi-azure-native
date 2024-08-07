@@ -70,6 +70,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         /// </summary>
         public readonly object? UsePeerVerification;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private XeroLinkedServiceResponse(
@@ -97,7 +101,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? useHostVerification,
 
-            object? usePeerVerification)
+            object? usePeerVerification,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             UseEncryptedEndpoints = useEncryptedEndpoints;
             UseHostVerification = useHostVerification;
             UsePeerVerification = usePeerVerification;
+            Version = version;
         }
     }
 }

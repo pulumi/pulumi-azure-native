@@ -65,6 +65,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'AzureBatch'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureBatchLinkedServiceResponse(
@@ -90,7 +94,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object poolName,
 
-            string type)
+            string type,
+
+            string? version)
         {
             AccessKey = accessKey;
             AccountName = accountName;
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Parameters = parameters;
             PoolName = poolName;
             Type = type;
+            Version = version;
         }
     }
 }

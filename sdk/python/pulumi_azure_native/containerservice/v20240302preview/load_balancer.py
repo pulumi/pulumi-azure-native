@@ -259,7 +259,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice:LoadBalancer"), pulumi.Alias(type_="azure-native:containerservice/v20240402preview:LoadBalancer"), pulumi.Alias(type_="azure-native:containerservice/v20240502preview:LoadBalancer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice:LoadBalancer"), pulumi.Alias(type_="azure-native:containerservice/v20240402preview:LoadBalancer"), pulumi.Alias(type_="azure-native:containerservice/v20240502preview:LoadBalancer"), pulumi.Alias(type_="azure-native:containerservice/v20240602preview:LoadBalancer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancer, __self__).__init__(
             'azure-native:containerservice/v20240302preview:LoadBalancer',

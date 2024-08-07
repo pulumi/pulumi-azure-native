@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'Asana'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AsanaLinkedServiceResponse(
@@ -60,7 +64,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            string? version)
         {
             Annotations = annotations;
             ApiToken = apiToken;
@@ -69,6 +75,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             Type = type;
+            Version = version;
         }
     }
 }

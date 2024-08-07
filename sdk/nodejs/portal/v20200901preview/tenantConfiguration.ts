@@ -2,10 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Tenant configuration.
+ * The tenant configuration resource definition.
  */
 export class TenantConfiguration extends pulumi.CustomResource {
     /**
@@ -35,13 +38,17 @@ export class TenantConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
-     */
-    public readonly enforcePrivateMarkdownStorage!: pulumi.Output<boolean | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The resource-specific properties for this resource.
+     */
+    public readonly properties!: pulumi.Output<outputs.portal.v20200901preview.ConfigurationPropertiesResponse>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.portal.v20200901preview.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -59,12 +66,14 @@ export class TenantConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["enforcePrivateMarkdownStorage"] = args ? args.enforcePrivateMarkdownStorage : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["enforcePrivateMarkdownStorage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -79,11 +88,11 @@ export class TenantConfiguration extends pulumi.CustomResource {
  */
 export interface TenantConfigurationArgs {
     /**
-     * The configuration name. Value must be 'default'
+     * The name of the Configuration
      */
     configurationName?: pulumi.Input<string>;
     /**
-     * When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+     * The resource-specific properties for this resource.
      */
-    enforcePrivateMarkdownStorage?: pulumi.Input<boolean>;
+    properties?: pulumi.Input<inputs.portal.v20200901preview.ConfigurationPropertiesArgs>;
 }

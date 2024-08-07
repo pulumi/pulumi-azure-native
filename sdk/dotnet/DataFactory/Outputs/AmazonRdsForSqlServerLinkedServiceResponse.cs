@@ -137,6 +137,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AmazonRdsForSqlServerLinkedServiceResponse(
@@ -198,7 +202,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? userName)
+            object? userName,
+
+            string? version)
         {
             AlwaysEncryptedSettings = alwaysEncryptedSettings;
             Annotations = annotations;
@@ -230,6 +236,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             TrustServerCertificate = trustServerCertificate;
             Type = type;
             UserName = userName;
+            Version = version;
         }
     }
 }
