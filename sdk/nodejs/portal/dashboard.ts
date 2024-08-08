@@ -41,27 +41,27 @@ export class Dashboard extends pulumi.CustomResource {
     }
 
     /**
-     * The dashboard lenses.
-     */
-    public readonly lenses!: pulumi.Output<outputs.portal.DashboardLensResponse[] | undefined>;
-    /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The dashboard metadata.
-     */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
-    /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Resource tags
+     * The resource-specific properties for this resource.
+     */
+    public readonly properties!: pulumi.Output<outputs.portal.DashboardPropertiesWithProvisioningStateResponse>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.portal.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -80,18 +80,18 @@ export class Dashboard extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["dashboardName"] = args ? args.dashboardName : undefined;
-            resourceInputs["lenses"] = args ? args.lenses : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["lenses"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -111,23 +111,19 @@ export interface DashboardArgs {
      */
     dashboardName?: pulumi.Input<string>;
     /**
-     * The dashboard lenses.
-     */
-    lenses?: pulumi.Input<pulumi.Input<inputs.portal.DashboardLensArgs>[]>;
-    /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The dashboard metadata.
+     * The resource-specific properties for this resource.
      */
-    metadata?: pulumi.Input<{[key: string]: any}>;
+    properties?: pulumi.Input<inputs.portal.DashboardPropertiesWithProvisioningStateArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

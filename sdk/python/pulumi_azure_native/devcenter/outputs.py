@@ -35,6 +35,7 @@ __all__ = [
     'ManagedServiceIdentityResponse',
     'ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment',
     'ProjectNetworkSettingsResponse',
+    'ResourcePolicyResponse',
     'SkuResponse',
     'StopOnDisconnectConfigurationResponse',
     'SyncStatsResponse',
@@ -890,6 +891,41 @@ class ProjectNetworkSettingsResponse(dict):
         Indicates whether pools in this Dev Center can use Microsoft Hosted Networks. Defaults to Enabled if not set.
         """
         return pulumi.get(self, "microsoft_hosted_network_enable_status")
+
+
+@pulumi.output_type
+class ResourcePolicyResponse(dict):
+    """
+    A resource policy.
+    """
+    def __init__(__self__, *,
+                 filter: Optional[str] = None,
+                 resources: Optional[str] = None):
+        """
+        A resource policy.
+        :param str filter: Optional. When specified, this expression is used to filter the resources.
+        :param str resources: Resources that are included and shared as a part of a curation profile.
+        """
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[str]:
+        """
+        Optional. When specified, this expression is used to filter the resources.
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[str]:
+        """
+        Resources that are included and shared as a part of a curation profile.
+        """
+        return pulumi.get(self, "resources")
 
 
 @pulumi.output_type

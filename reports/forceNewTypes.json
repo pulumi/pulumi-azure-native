@@ -5005,6 +5005,76 @@
     "Property": "scope"
   },
   {
+    "Module": "iotoperations",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "AdvancedSettings",
+    "Property": "advanced"
+  },
+  {
+    "Module": "iotoperations",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "Cardinality",
+    "Property": "cardinality"
+  },
+  {
+    "Module": "iotoperations",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "DiskBackedMessageBuffer",
+    "Property": "diskBackedMessageBuffer"
+  },
+  {
+    "Module": "iotoperations",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "GenerateResourceLimits",
+    "Property": "generateResourceLimits"
+  },
+  {
+    "Module": "iotoperations",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "BrokerProperties",
+    "Property": "memoryProfile"
+  },
+  {
+    "Module": "iotoperations/v20240701preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "AdvancedSettings",
+    "Property": "advanced"
+  },
+  {
+    "Module": "iotoperations/v20240701preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "Cardinality",
+    "Property": "cardinality"
+  },
+  {
+    "Module": "iotoperations/v20240701preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "DiskBackedMessageBuffer",
+    "Property": "diskBackedMessageBuffer"
+  },
+  {
+    "Module": "iotoperations/v20240701preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "GenerateResourceLimits",
+    "Property": "generateResourceLimits"
+  },
+  {
+    "Module": "iotoperations/v20240701preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "BrokerProperties",
+    "Property": "memoryProfile"
+  },
+  {
     "Module": "kusto",
     "Provider": "Kusto",
     "ResourceName": "Cluster",
@@ -46400,6 +46470,13 @@
     "Provider": "MachineLearningServices",
     "ResourceName": "Job",
     "ReferenceName": "JobResources",
+    "Property": "instanceTypes"
+  },
+  {
+    "Module": "machinelearningservices/v20240701preview",
+    "Provider": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobResources",
     "Property": "resources"
   },
   {
@@ -48550,6 +48627,13 @@
     "ResourceName": "Schedule",
     "ReferenceName": "QueueSettings",
     "Property": "queueSettings"
+  },
+  {
+    "Module": "machinelearningservices/v20240701preview",
+    "Provider": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobResources",
+    "Property": "instanceTypes"
   },
   {
     "Module": "machinelearningservices/v20240701preview",

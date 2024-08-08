@@ -16,37 +16,37 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
     public partial class Dashboard : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The dashboard lenses.
-        /// </summary>
-        [Output("lenses")]
-        public Output<ImmutableArray<Outputs.DashboardLensResponse>> Lenses { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The dashboard metadata.
-        /// </summary>
-        [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// The resource-specific properties for this resource.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.DashboardPropertiesWithProvisioningStateResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -109,38 +109,20 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
         [Input("dashboardName")]
         public Input<string>? DashboardName { get; set; }
 
-        [Input("lenses")]
-        private InputList<Inputs.DashboardLensArgs>? _lenses;
-
         /// <summary>
-        /// The dashboard lenses.
-        /// </summary>
-        public InputList<Inputs.DashboardLensArgs> Lenses
-        {
-            get => _lenses ?? (_lenses = new InputList<Inputs.DashboardLensArgs>());
-            set => _lenses = value;
-        }
-
-        /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
-        /// The dashboard metadata.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("properties")]
+        public Input<Inputs.DashboardPropertiesWithProvisioningStateArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -149,7 +131,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

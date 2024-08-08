@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The Account SID of Twilio service. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private TwilioLinkedServiceResponse(
@@ -60,7 +64,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object userName)
+            object userName,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -69,6 +75,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Password = password;
             Type = type;
             UserName = userName;
+            Version = version;
         }
     }
 }

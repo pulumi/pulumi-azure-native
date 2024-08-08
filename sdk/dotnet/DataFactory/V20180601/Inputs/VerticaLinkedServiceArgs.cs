@@ -100,6 +100,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("uid")]
         public Input<object>? Uid { get; set; }
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public VerticaLinkedServiceArgs()
         {
         }

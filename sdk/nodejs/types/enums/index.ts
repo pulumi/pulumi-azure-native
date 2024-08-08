@@ -111,6 +111,7 @@ import * as importexport from "./importexport";
 import * as insights from "./insights";
 import * as iotcentral from "./iotcentral";
 import * as iotfirmwaredefense from "./iotfirmwaredefense";
+import * as iotoperations from "./iotoperations";
 import * as iotoperationsmq from "./iotoperationsmq";
 import * as iotoperationsorchestrator from "./iotoperationsorchestrator";
 import * as keyvault from "./keyvault";
@@ -315,6 +316,7 @@ export {
     insights,
     iotcentral,
     iotfirmwaredefense,
+    iotoperations,
     iotoperationsmq,
     iotoperationsorchestrator,
     keyvault,

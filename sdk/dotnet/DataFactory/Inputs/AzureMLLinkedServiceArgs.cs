@@ -106,6 +106,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("updateResourceEndpoint")]
         public Input<object>? UpdateResourceEndpoint { get; set; }
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public AzureMLLinkedServiceArgs()
         {
         }

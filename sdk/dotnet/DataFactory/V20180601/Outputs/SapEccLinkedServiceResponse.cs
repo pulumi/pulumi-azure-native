@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The username for Basic authentication. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private SapEccLinkedServiceResponse(
@@ -72,7 +76,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object url,
 
-            object? username)
+            object? username,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -83,6 +89,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Type = type;
             Url = url;
             Username = username;
+            Version = version;
         }
     }
 }

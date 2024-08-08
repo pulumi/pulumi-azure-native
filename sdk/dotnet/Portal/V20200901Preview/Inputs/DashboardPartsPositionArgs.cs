@@ -21,17 +21,11 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview.Inputs
         [Input("colSpan", required: true)]
         public Input<int> ColSpan { get; set; } = null!;
 
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
         /// The dashboard part's metadata.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// The dashboard's part row span.

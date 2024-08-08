@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Portal.Outputs
         /// <summary>
         /// The dashboard len's metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// The lens order.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Portal.Outputs
 
         [OutputConstructor]
         private DashboardLensResponse(
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             int order,
 

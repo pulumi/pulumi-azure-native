@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The user name used to connect to the Phoenix server.
         /// </summary>
         public readonly object? Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private PhoenixLinkedServiceResponse(
@@ -120,7 +124,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? useSystemTrustStore,
 
-            object? username)
+            object? username,
+
+            string? version)
         {
             AllowHostNameCNMismatch = allowHostNameCNMismatch;
             AllowSelfSignedServerCert = allowSelfSignedServerCert;
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Type = type;
             UseSystemTrustStore = useSystemTrustStore;
             Username = username;
+            Version = version;
         }
     }
 }

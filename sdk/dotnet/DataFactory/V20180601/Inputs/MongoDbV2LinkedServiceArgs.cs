@@ -70,6 +70,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public MongoDbV2LinkedServiceArgs()
         {
         }

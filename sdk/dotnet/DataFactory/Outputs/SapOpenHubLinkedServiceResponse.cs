@@ -81,6 +81,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Username to access the SAP BW server where the open hub destination is located. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private SapOpenHubLinkedServiceResponse(
@@ -114,7 +118,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? userName)
+            object? userName,
+
+            string? version)
         {
             Annotations = annotations;
             ClientId = clientId;
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             SystemNumber = systemNumber;
             Type = type;
             UserName = userName;
+            Version = version;
         }
     }
 }

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetTenantConfigurationResult',
@@ -24,35 +25,30 @@ __all__ = [
 @pulumi.output_type
 class GetTenantConfigurationResult:
     """
-    Tenant configuration.
+    The tenant configuration resource definition.
     """
-    def __init__(__self__, enforce_private_markdown_storage=None, id=None, name=None, type=None):
-        if enforce_private_markdown_storage and not isinstance(enforce_private_markdown_storage, bool):
-            raise TypeError("Expected argument 'enforce_private_markdown_storage' to be a bool")
-        pulumi.set(__self__, "enforce_private_markdown_storage", enforce_private_markdown_storage)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="enforcePrivateMarkdownStorage")
-    def enforce_private_markdown_storage(self) -> Optional[bool]:
-        """
-        When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
-        """
-        return pulumi.get(self, "enforce_private_markdown_storage")
-
-    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -63,6 +59,22 @@ class GetTenantConfigurationResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ConfigurationPropertiesResponse':
+        """
+        The resource-specific properties for this resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -79,9 +91,10 @@ class AwaitableGetTenantConfigurationResult(GetTenantConfigurationResult):
         if False:
             yield self
         return GetTenantConfigurationResult(
-            enforce_private_markdown_storage=self.enforce_private_markdown_storage,
             id=self.id,
             name=self.name,
+            properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -92,7 +105,7 @@ def get_tenant_configuration(configuration_name: Optional[str] = None,
     Azure REST API version: 2020-09-01-preview.
 
 
-    :param str configuration_name: The configuration name. Value must be 'default'
+    :param str configuration_name: The name of the Configuration
     """
     __args__ = dict()
     __args__['configurationName'] = configuration_name
@@ -100,9 +113,10 @@ def get_tenant_configuration(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:portal:getTenantConfiguration', __args__, opts=opts, typ=GetTenantConfigurationResult).value
 
     return AwaitableGetTenantConfigurationResult(
-        enforce_private_markdown_storage=pulumi.get(__ret__, 'enforce_private_markdown_storage'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 
 
@@ -114,6 +128,6 @@ def get_tenant_configuration_output(configuration_name: Optional[pulumi.Input[st
     Azure REST API version: 2020-09-01-preview.
 
 
-    :param str configuration_name: The configuration name. Value must be 'default'
+    :param str configuration_name: The name of the Configuration
     """
     ...

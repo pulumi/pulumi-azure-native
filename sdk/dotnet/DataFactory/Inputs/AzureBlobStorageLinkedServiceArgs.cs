@@ -142,6 +142,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public AzureBlobStorageLinkedServiceArgs()
         {
         }

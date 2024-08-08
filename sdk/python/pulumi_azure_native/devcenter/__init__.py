@@ -8,6 +8,7 @@ import typing
 from ._enums import *
 from .attached_network_by_dev_center import *
 from .catalog import *
+from .curation_profile import *
 from .dev_box_definition import *
 from .dev_center import *
 from .encryption_set import *
@@ -17,6 +18,7 @@ from .get_attached_network_by_dev_center import *
 from .get_catalog import *
 from .get_catalog_dev_box_definition_error_details import *
 from .get_catalog_sync_error_details import *
+from .get_curation_profile import *
 from .get_customization_task_error_details import *
 from .get_dev_box_definition import *
 from .get_dev_center import *
@@ -66,6 +68,8 @@ if typing.TYPE_CHECKING:
     v20240601preview = __v20240601preview
     import pulumi_azure_native.devcenter.v20240701preview as __v20240701preview
     v20240701preview = __v20240701preview
+    import pulumi_azure_native.devcenter.v20240801preview as __v20240801preview
+    v20240801preview = __v20240801preview
 else:
     v20221111preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20221111preview')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.devcenter.v20230401')
@@ -75,4 +79,5 @@ else:
     v20240501preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20240501preview')
     v20240601preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20240601preview')
     v20240701preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20240701preview')
+    v20240801preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20240801preview')
 

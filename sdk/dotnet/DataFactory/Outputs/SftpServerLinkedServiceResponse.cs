@@ -81,6 +81,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private SftpServerLinkedServiceResponse(
@@ -114,7 +118,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? userName)
+            object? userName,
+
+            string? version)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             SkipHostKeyValidation = skipHostKeyValidation;
             Type = type;
             UserName = userName;
+            Version = version;
         }
     }
 }

@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['TenantConfigurationArgs', 'TenantConfiguration']
 
@@ -20,22 +22,22 @@ __all__ = ['TenantConfigurationArgs', 'TenantConfiguration']
 class TenantConfigurationArgs:
     def __init__(__self__, *,
                  configuration_name: Optional[pulumi.Input[str]] = None,
-                 enforce_private_markdown_storage: Optional[pulumi.Input[bool]] = None):
+                 properties: Optional[pulumi.Input['ConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a TenantConfiguration resource.
-        :param pulumi.Input[str] configuration_name: The configuration name. Value must be 'default'
-        :param pulumi.Input[bool] enforce_private_markdown_storage: When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+        :param pulumi.Input[str] configuration_name: The name of the Configuration
+        :param pulumi.Input['ConfigurationPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
         if configuration_name is not None:
             pulumi.set(__self__, "configuration_name", configuration_name)
-        if enforce_private_markdown_storage is not None:
-            pulumi.set(__self__, "enforce_private_markdown_storage", enforce_private_markdown_storage)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The configuration name. Value must be 'default'
+        The name of the Configuration
         """
         return pulumi.get(self, "configuration_name")
 
@@ -44,16 +46,16 @@ class TenantConfigurationArgs:
         pulumi.set(self, "configuration_name", value)
 
     @property
-    @pulumi.getter(name="enforcePrivateMarkdownStorage")
-    def enforce_private_markdown_storage(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['ConfigurationPropertiesArgs']]:
         """
-        When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "enforce_private_markdown_storage")
+        return pulumi.get(self, "properties")
 
-    @enforce_private_markdown_storage.setter
-    def enforce_private_markdown_storage(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enforce_private_markdown_storage", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ConfigurationPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class TenantConfiguration(pulumi.CustomResource):
@@ -62,16 +64,16 @@ class TenantConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
-                 enforce_private_markdown_storage: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[Union['ConfigurationPropertiesArgs', 'ConfigurationPropertiesArgsDict']]] = None,
                  __props__=None):
         """
-        Tenant configuration.
+        The tenant configuration resource definition.
         Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] configuration_name: The configuration name. Value must be 'default'
-        :param pulumi.Input[bool] enforce_private_markdown_storage: When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+        :param pulumi.Input[str] configuration_name: The name of the Configuration
+        :param pulumi.Input[Union['ConfigurationPropertiesArgs', 'ConfigurationPropertiesArgsDict']] properties: The resource-specific properties for this resource.
         """
         ...
     @overload
@@ -80,7 +82,7 @@ class TenantConfiguration(pulumi.CustomResource):
                  args: Optional[TenantConfigurationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Tenant configuration.
+        The tenant configuration resource definition.
         Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
 
         :param str resource_name: The name of the resource.
@@ -99,7 +101,7 @@ class TenantConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
-                 enforce_private_markdown_storage: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[Union['ConfigurationPropertiesArgs', 'ConfigurationPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -110,8 +112,9 @@ class TenantConfiguration(pulumi.CustomResource):
             __props__ = TenantConfigurationArgs.__new__(TenantConfigurationArgs)
 
             __props__.__dict__["configuration_name"] = configuration_name
-            __props__.__dict__["enforce_private_markdown_storage"] = enforce_private_markdown_storage
+            __props__.__dict__["properties"] = properties
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20190101preview:TenantConfiguration"), pulumi.Alias(type_="azure-native:portal/v20200901preview:TenantConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -137,18 +140,11 @@ class TenantConfiguration(pulumi.CustomResource):
 
         __props__ = TenantConfigurationArgs.__new__(TenantConfigurationArgs)
 
-        __props__.__dict__["enforce_private_markdown_storage"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return TenantConfiguration(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="enforcePrivateMarkdownStorage")
-    def enforce_private_markdown_storage(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
-        """
-        return pulumi.get(self, "enforce_private_markdown_storage")
 
     @property
     @pulumi.getter
@@ -157,6 +153,22 @@ class TenantConfiguration(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ConfigurationPropertiesResponse']:
+        """
+        The resource-specific properties for this resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -27,22 +27,22 @@ class GetDashboardResult:
     """
     The shared dashboard resource definition.
     """
-    def __init__(__self__, id=None, lenses=None, location=None, metadata=None, name=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if lenses and not isinstance(lenses, list):
-            raise TypeError("Expected argument 'lenses' to be a list")
-        pulumi.set(__self__, "lenses", lenses)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if metadata and not isinstance(metadata, dict):
-            raise TypeError("Expected argument 'metadata' to be a dict")
-        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -54,47 +54,47 @@ class GetDashboardResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def lenses(self) -> Optional[Sequence['outputs.DashboardLensResponse']]:
-        """
-        The dashboard lenses.
-        """
-        return pulumi.get(self, "lenses")
-
-    @property
-    @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
-        """
-        The dashboard metadata.
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
+    def properties(self) -> 'outputs.DashboardPropertiesWithProvisioningStateResponse':
+        """
+        The resource-specific properties for this resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -102,7 +102,7 @@ class GetDashboardResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -114,10 +114,10 @@ class AwaitableGetDashboardResult(GetDashboardResult):
             yield self
         return GetDashboardResult(
             id=self.id,
-            lenses=self.lenses,
             location=self.location,
-            metadata=self.metadata,
             name=self.name,
+            properties=self.properties,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -130,7 +130,7 @@ def get_dashboard(dashboard_name: Optional[str] = None,
 
 
     :param str dashboard_name: The name of the dashboard.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['dashboardName'] = dashboard_name
@@ -140,10 +140,10 @@ def get_dashboard(dashboard_name: Optional[str] = None,
 
     return AwaitableGetDashboardResult(
         id=pulumi.get(__ret__, 'id'),
-        lenses=pulumi.get(__ret__, 'lenses'),
         location=pulumi.get(__ret__, 'location'),
-        metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 
@@ -157,6 +157,6 @@ def get_dashboard_output(dashboard_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str dashboard_name: The name of the dashboard.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

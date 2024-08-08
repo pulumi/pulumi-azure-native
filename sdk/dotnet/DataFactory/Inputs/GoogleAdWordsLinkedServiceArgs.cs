@@ -154,6 +154,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("useSystemTrustStore")]
         public Input<object>? UseSystemTrustStore { get; set; }
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public GoogleAdWordsLinkedServiceArgs()
         {
         }

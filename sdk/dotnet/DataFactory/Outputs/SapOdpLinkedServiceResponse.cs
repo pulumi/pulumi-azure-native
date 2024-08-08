@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? UserName;
         /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
+        /// <summary>
         /// SNC X509 certificate file path. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? X509CertificatePath;
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? userName,
 
+            string? version,
+
             object? x509CertificatePath)
         {
             Annotations = annotations;
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             SystemNumber = systemNumber;
             Type = type;
             UserName = userName;
+            Version = version;
             X509CertificatePath = x509CertificatePath;
         }
     }

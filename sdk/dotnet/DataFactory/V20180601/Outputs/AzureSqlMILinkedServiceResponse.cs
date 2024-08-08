@@ -165,6 +165,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The user name to be used when connecting to server. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureSqlMILinkedServiceResponse(
@@ -240,7 +244,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            object? userName)
+            object? userName,
+
+            string? version)
         {
             AlwaysEncryptedSettings = alwaysEncryptedSettings;
             Annotations = annotations;
@@ -279,6 +285,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             TrustServerCertificate = trustServerCertificate;
             Type = type;
             UserName = userName;
+            Version = version;
         }
     }
 }

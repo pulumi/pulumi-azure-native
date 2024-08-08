@@ -89,6 +89,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// User name to access the Common Data Service for Apps instance. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private CommonDataServiceForAppsLinkedServiceResponse(
@@ -126,7 +130,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? username)
+            object? username,
+
+            string? version)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;
@@ -146,6 +152,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ServiceUri = serviceUri;
             Type = type;
             Username = username;
+            Version = version;
         }
     }
 }

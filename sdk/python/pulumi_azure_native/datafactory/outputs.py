@@ -852,7 +852,8 @@ class AmazonMWSLinkedServiceResponse(dict):
                  secret_key: Optional[Any] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Amazon Marketplace Web Service linked service.
         :param Any access_key_id: The access key id used to access data.
@@ -871,6 +872,7 @@ class AmazonMWSLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "access_key_id", access_key_id)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -897,6 +899,8 @@ class AmazonMWSLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="accessKeyId")
@@ -1018,6 +1022,14 @@ class AmazonMWSLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -1327,7 +1339,8 @@ class AmazonRdsForOracleLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 password: Optional[Any] = None):
+                 password: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         AmazonRdsForOracle database.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -1339,6 +1352,7 @@ class AmazonRdsForOracleLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The Azure key vault secret reference of password in connection string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AmazonRdsForOracle')
@@ -1354,6 +1368,8 @@ class AmazonRdsForOracleLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -1419,6 +1435,14 @@ class AmazonRdsForOracleLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -1896,7 +1920,8 @@ class AmazonRdsForSqlServerLinkedServiceResponse(dict):
                  pooling: Optional[Any] = None,
                  server: Optional[Any] = None,
                  trust_server_certificate: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Amazon RDS for SQL Server linked service.
         :param str type: Type of linked service.
@@ -1930,6 +1955,7 @@ class AmazonRdsForSqlServerLinkedServiceResponse(dict):
         :param Any server: The name or network address of the instance of SQL Server to which to connect, used by recommended version. Type: string (or Expression with resultType string).
         :param Any trust_server_certificate: Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
         :param Any user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AmazonRdsForSqlServer')
         if always_encrypted_settings is not None:
@@ -1990,6 +2016,8 @@ class AmazonRdsForSqlServerLinkedServiceResponse(dict):
             pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -2231,6 +2259,14 @@ class AmazonRdsForSqlServerLinkedServiceResponse(dict):
         The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -2625,7 +2661,8 @@ class AmazonRedshiftLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Amazon Redshift.
         :param Any database: The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
@@ -2640,6 +2677,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the Amazon Redshift source.
         :param Any port: The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
         :param Any username: The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "server", server)
@@ -2660,6 +2698,8 @@ class AmazonRedshiftLinkedServiceResponse(dict):
             pulumi.set(__self__, "port", port)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -2749,6 +2789,14 @@ class AmazonRedshiftLinkedServiceResponse(dict):
         The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -3092,7 +3140,8 @@ class AmazonS3CompatibleLinkedServiceResponse(dict):
                  force_path_style: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  secret_access_key: Optional[Any] = None,
-                 service_url: Optional[Any] = None):
+                 service_url: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Amazon S3 Compatible.
         :param str type: Type of linked service.
@@ -3106,6 +3155,7 @@ class AmazonS3CompatibleLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Amazon S3 Compatible Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the Amazon S3 Compatible Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AmazonS3Compatible')
         if access_key_id is not None:
@@ -3126,6 +3176,8 @@ class AmazonS3CompatibleLinkedServiceResponse(dict):
             pulumi.set(__self__, "secret_access_key", secret_access_key)
         if service_url is not None:
             pulumi.set(__self__, "service_url", service_url)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -3207,6 +3259,14 @@ class AmazonS3CompatibleLinkedServiceResponse(dict):
         This value specifies the endpoint to access with the Amazon S3 Compatible Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_url")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -3775,7 +3835,8 @@ class AmazonS3LinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  secret_access_key: Optional[Any] = None,
                  service_url: Optional[Any] = None,
-                 session_token: Optional[Any] = None):
+                 session_token: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Amazon S3.
         :param str type: Type of linked service.
@@ -3790,6 +3851,7 @@ class AmazonS3LinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the S3 Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] session_token: The session token for the S3 temporary security credential.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AmazonS3')
         if access_key_id is not None:
@@ -3812,6 +3874,8 @@ class AmazonS3LinkedServiceResponse(dict):
             pulumi.set(__self__, "service_url", service_url)
         if session_token is not None:
             pulumi.set(__self__, "session_token", session_token)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -3901,6 +3965,14 @@ class AmazonS3LinkedServiceResponse(dict):
         The session token for the S3 temporary security credential.
         """
         return pulumi.get(self, "session_token")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -4233,7 +4305,8 @@ class AppFiguresLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for AppFigures.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_key: The client key for the AppFigures source.
@@ -4245,6 +4318,7 @@ class AppFiguresLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "client_key", client_key)
         pulumi.set(__self__, "password", password)
@@ -4258,6 +4332,8 @@ class AppFiguresLinkedServiceResponse(dict):
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="clientKey")
@@ -4323,6 +4399,14 @@ class AppFiguresLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -4518,7 +4602,8 @@ class AsanaLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Asana.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the Asana source.
@@ -4529,6 +4614,7 @@ class AsanaLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "api_token", api_token)
         pulumi.set(__self__, "type", 'Asana')
@@ -4542,6 +4628,8 @@ class AsanaLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="apiToken")
@@ -4599,6 +4687,14 @@ class AsanaLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -5258,7 +5354,8 @@ class AzureBatchLinkedServiceResponse(dict):
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Azure Batch linked service.
         :param Any account_name: The Azure Batch account name. Type: string (or Expression with resultType string).
@@ -5274,6 +5371,7 @@ class AzureBatchLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "batch_uri", batch_uri)
@@ -5294,6 +5392,8 @@ class AzureBatchLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="accountName")
@@ -5391,6 +5491,14 @@ class AzureBatchLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -5844,7 +5952,8 @@ class AzureBlobFSLinkedServiceResponse(dict):
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
                  tenant: Optional[Any] = None,
-                 url: Optional[Any] = None):
+                 url: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Azure Data Lake Storage Gen2 linked service.
         :param str type: Type of linked service.
@@ -5865,6 +5974,7 @@ class AzureBlobFSLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Storage Gen2 account.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param Any url: Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AzureBlobFS')
         if account_key is not None:
@@ -5899,6 +6009,8 @@ class AzureBlobFSLinkedServiceResponse(dict):
             pulumi.set(__self__, "tenant", tenant)
         if url is not None:
             pulumi.set(__self__, "url", url)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -6036,6 +6148,14 @@ class AzureBlobFSLinkedServiceResponse(dict):
         Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -6766,7 +6886,8 @@ class AzureBlobStorageLinkedServiceResponse(dict):
                  service_endpoint: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
-                 tenant: Optional[Any] = None):
+                 tenant: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         The azure blob storage linked service.
         :param str type: Type of linked service.
@@ -6789,6 +6910,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Data Warehouse.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AzureBlobStorage')
         if account_key is not None:
@@ -6827,6 +6949,8 @@ class AzureBlobStorageLinkedServiceResponse(dict):
             pulumi.set(__self__, "service_principal_key", service_principal_key)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -6980,6 +7104,14 @@ class AzureBlobStorageLinkedServiceResponse(dict):
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -7575,7 +7707,8 @@ class AzureDataExplorerLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
-                 tenant: Optional[Any] = None):
+                 tenant: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Azure Data Explorer (Kusto) linked service.
         :param Any database: Database name for connection. Type: string (or Expression with resultType string).
@@ -7590,6 +7723,7 @@ class AzureDataExplorerLinkedServiceResponse(dict):
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure Data Explorer. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Kusto.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -7610,6 +7744,8 @@ class AzureDataExplorerLinkedServiceResponse(dict):
             pulumi.set(__self__, "service_principal_key", service_principal_key)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -7699,6 +7835,14 @@ class AzureDataExplorerLinkedServiceResponse(dict):
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -8199,7 +8343,8 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
                  resource_group_name: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
-                 subscription_id: Optional[Any] = None):
+                 subscription_id: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Azure Data Lake Analytics linked service.
         :param Any account_name: The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
@@ -8216,6 +8361,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
         :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Analytics account.
         :param Any subscription_id: Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "tenant", tenant)
@@ -8240,6 +8386,8 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
             pulumi.set(__self__, "service_principal_key", service_principal_key)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="accountName")
@@ -8345,6 +8493,14 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
         Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -8576,7 +8732,8 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
                  subscription_id: Optional[Any] = None,
-                 tenant: Optional[Any] = None):
+                 tenant: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Azure Data Lake Store linked service.
         :param Any data_lake_store_uri: Data Lake Store service URI. Type: string (or Expression with resultType string).
@@ -8595,6 +8752,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against the Azure Data Lake Store account.
         :param Any subscription_id: Data Lake Store account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "data_lake_store_uri", data_lake_store_uri)
         pulumi.set(__self__, "type", 'AzureDataLakeStore')
@@ -8624,6 +8782,8 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="dataLakeStoreUri")
@@ -8745,6 +8905,14 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -9721,6 +9889,7 @@ class AzureDatabricksDeltaLakeLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None,
                  workspace_resource_id: Optional[Any] = None):
         """
         Azure Databricks Delta Lake linked service.
@@ -9735,6 +9904,7 @@ class AzureDatabricksDeltaLakeLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         :param Any workspace_resource_id: Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "domain", domain)
@@ -9755,6 +9925,8 @@ class AzureDatabricksDeltaLakeLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
         if workspace_resource_id is not None:
             pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
@@ -9838,6 +10010,14 @@ class AzureDatabricksDeltaLakeLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="workspaceResourceId")
@@ -10198,6 +10378,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
                  new_cluster_version: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  policy_id: Optional[Any] = None,
+                 version: Optional[str] = None,
                  workspace_resource_id: Optional[Any] = None):
         """
         Azure Databricks linked service.
@@ -10225,6 +10406,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
         :param Any new_cluster_version: If not using an existing interactive cluster, this specifies the Spark version of a new job cluster or instance pool nodes created for each run of this activity. Required if instancePoolId is specified. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any policy_id: The policy id for limiting the ability to configure clusters based on a user defined set of rules. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         :param Any workspace_resource_id: Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "domain", domain)
@@ -10271,6 +10453,8 @@ class AzureDatabricksLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
         if workspace_resource_id is not None:
             pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
@@ -10460,6 +10644,14 @@ class AzureDatabricksLinkedServiceResponse(dict):
         return pulumi.get(self, "policy_id")
 
     @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
+
+    @property
     @pulumi.getter(name="workspaceResourceId")
     def workspace_resource_id(self) -> Optional[Any]:
         """
@@ -10523,7 +10715,8 @@ class AzureFileStorageLinkedServiceResponse(dict):
                  sas_uri: Optional[Any] = None,
                  service_endpoint: Optional[Any] = None,
                  snapshot: Optional[Any] = None,
-                 user_id: Optional[Any] = None):
+                 user_id: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Azure File Storage linked service.
         :param str type: Type of linked service.
@@ -10544,6 +10737,7 @@ class AzureFileStorageLinkedServiceResponse(dict):
         :param Any service_endpoint: File service endpoint of the Azure File Storage resource. It is mutually exclusive with connectionString, sasUri property.
         :param Any snapshot: The azure file share snapshot version. Type: string (or Expression with resultType string).
         :param Any user_id: User ID to logon the server. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AzureFileStorage')
         if account_key is not None:
@@ -10578,6 +10772,8 @@ class AzureFileStorageLinkedServiceResponse(dict):
             pulumi.set(__self__, "snapshot", snapshot)
         if user_id is not None:
             pulumi.set(__self__, "user_id", user_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -10715,6 +10911,14 @@ class AzureFileStorageLinkedServiceResponse(dict):
         User ID to logon the server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -11311,7 +11515,8 @@ class AzureFunctionLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  function_key: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 resource_id: Optional[Any] = None):
+                 resource_id: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Azure Function linked service.
         :param Any function_app_url: The endpoint of the Azure Function App. URL will be in the format https://<accountName>.azurewebsites.net. Type: string (or Expression with resultType string).
@@ -11326,6 +11531,7 @@ class AzureFunctionLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] function_key: Function or Host key for Azure Function App.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any resource_id: Allowed token audiences for azure function. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "function_app_url", function_app_url)
         pulumi.set(__self__, "type", 'AzureFunction')
@@ -11347,6 +11553,8 @@ class AzureFunctionLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="functionAppUrl")
@@ -11437,6 +11645,14 @@ class AzureFunctionLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "resource_id")
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
+
 
 @pulumi.output_type
 class AzureKeyVaultLinkedServiceResponse(dict):
@@ -11469,7 +11685,8 @@ class AzureKeyVaultLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Azure Key Vault linked service.
         :param Any base_url: The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
@@ -11480,6 +11697,7 @@ class AzureKeyVaultLinkedServiceResponse(dict):
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "base_url", base_url)
         pulumi.set(__self__, "type", 'AzureKeyVault')
@@ -11493,6 +11711,8 @@ class AzureKeyVaultLinkedServiceResponse(dict):
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="baseUrl")
@@ -11550,6 +11770,14 @@ class AzureKeyVaultLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -12112,7 +12340,8 @@ class AzureMLLinkedServiceResponse(dict):
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
                  tenant: Optional[Any] = None,
-                 update_resource_endpoint: Optional[Any] = None):
+                 update_resource_endpoint: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Azure ML Studio Web Service linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_key: The API key for accessing the Azure ML model endpoint.
@@ -12129,6 +12358,7 @@ class AzureMLLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML Studio web service.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param Any update_resource_endpoint: The Update Resource REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "ml_endpoint", ml_endpoint)
@@ -12153,6 +12383,8 @@ class AzureMLLinkedServiceResponse(dict):
             pulumi.set(__self__, "tenant", tenant)
         if update_resource_endpoint is not None:
             pulumi.set(__self__, "update_resource_endpoint", update_resource_endpoint)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -12259,6 +12491,14 @@ class AzureMLLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "update_resource_endpoint")
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
+
 
 @pulumi.output_type
 class AzureMLServiceLinkedServiceResponse(dict):
@@ -12307,7 +12547,8 @@ class AzureMLServiceLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
-                 tenant: Optional[Any] = None):
+                 tenant: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Azure ML Service linked service.
         :param Any ml_workspace_name: Azure ML Service workspace name. Type: string (or Expression with resultType string).
@@ -12324,6 +12565,7 @@ class AzureMLServiceLinkedServiceResponse(dict):
         :param Any service_principal_id: The ID of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "ml_workspace_name", ml_workspace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -12347,6 +12589,8 @@ class AzureMLServiceLinkedServiceResponse(dict):
             pulumi.set(__self__, "service_principal_key", service_principal_key)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="mlWorkspaceName")
@@ -12452,6 +12696,14 @@ class AzureMLServiceLinkedServiceResponse(dict):
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -12721,7 +12973,8 @@ class AzureMariaDBLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
+                 pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 version: Optional[str] = None):
         """
         Azure Database for MariaDB linked service.
         :param str type: Type of linked service.
@@ -12733,6 +12986,7 @@ class AzureMariaDBLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AzureMariaDB')
         if annotations is not None:
@@ -12749,6 +13003,8 @@ class AzureMariaDBLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if pwd is not None:
             pulumi.set(__self__, "pwd", pwd)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -12814,6 +13070,14 @@ class AzureMariaDBLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "pwd")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -13123,7 +13387,8 @@ class AzureMySqlLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
+                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 version: Optional[str] = None):
         """
         Azure MySQL database linked service.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -13135,6 +13400,7 @@ class AzureMySqlLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureMySql')
@@ -13150,6 +13416,8 @@ class AzureMySqlLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -13215,6 +13483,14 @@ class AzureMySqlLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -13673,7 +13949,8 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
+                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 version: Optional[str] = None):
         """
         Azure PostgreSQL linked service.
         :param str type: Type of linked service.
@@ -13685,6 +13962,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AzurePostgreSql')
         if annotations is not None:
@@ -13701,6 +13979,8 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -13766,6 +14046,14 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -14619,7 +14907,8 @@ class AzureSearchLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  key: Optional[Any] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Windows Azure Search Service.
         :param str type: Type of linked service.
@@ -14631,6 +14920,7 @@ class AzureSearchLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] key: Admin Key for Azure Search service
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AzureSearch')
         pulumi.set(__self__, "url", url)
@@ -14646,6 +14936,8 @@ class AzureSearchLinkedServiceResponse(dict):
             pulumi.set(__self__, "key", key)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -14711,6 +15003,14 @@ class AzureSearchLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -14819,7 +15119,8 @@ class AzureSqlDWLinkedServiceResponse(dict):
                  service_principal_key: Optional[Any] = None,
                  tenant: Optional[Any] = None,
                  trust_server_certificate: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Azure SQL Data Warehouse linked service.
         :param str type: Type of linked service.
@@ -14859,6 +15160,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param Any trust_server_certificate: Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
         :param Any user_name: The user name to be used when connecting to server. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AzureSqlDW')
         if annotations is not None:
@@ -14931,6 +15233,8 @@ class AzureSqlDWLinkedServiceResponse(dict):
             pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -15221,6 +15525,14 @@ class AzureSqlDWLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
+
 
 @pulumi.output_type
 class AzureSqlDWTableDatasetResponse(dict):
@@ -15481,7 +15793,8 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
                  service_principal_key: Optional[Any] = None,
                  tenant: Optional[Any] = None,
                  trust_server_certificate: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Microsoft Azure SQL Database linked service.
         :param str type: Type of linked service.
@@ -15522,6 +15835,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param Any trust_server_certificate: Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
         :param Any user_name: The user name to be used when connecting to server. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AzureSqlDatabase')
         if always_encrypted_settings is not None:
@@ -15596,6 +15910,8 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
             pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -15894,6 +16210,14 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
+
 
 @pulumi.output_type
 class AzureSqlMILinkedServiceResponse(dict):
@@ -16004,7 +16328,8 @@ class AzureSqlMILinkedServiceResponse(dict):
                  service_principal_key: Optional[Any] = None,
                  tenant: Optional[Any] = None,
                  trust_server_certificate: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Azure SQL Managed Instance linked service.
         :param str type: Type of linked service.
@@ -16045,6 +16370,7 @@ class AzureSqlMILinkedServiceResponse(dict):
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param Any trust_server_certificate: Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
         :param Any user_name: The user name to be used when connecting to server. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AzureSqlMI')
         if always_encrypted_settings is not None:
@@ -16119,6 +16445,8 @@ class AzureSqlMILinkedServiceResponse(dict):
             pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -16416,6 +16744,14 @@ class AzureSqlMILinkedServiceResponse(dict):
         The user name to be used when connecting to server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -17230,7 +17566,8 @@ class AzureStorageLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  sas_token: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
-                 sas_uri: Optional[Any] = None):
+                 sas_uri: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         The storage account linked service.
         :param str type: Type of linked service.
@@ -17244,6 +17581,7 @@ class AzureStorageLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' sas_token: The Azure key vault secret reference of sasToken in sas uri.
         :param Any sas_uri: SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AzureStorage')
         if account_key is not None:
@@ -17264,6 +17602,8 @@ class AzureStorageLinkedServiceResponse(dict):
             pulumi.set(__self__, "sas_token", sas_token)
         if sas_uri is not None:
             pulumi.set(__self__, "sas_uri", sas_uri)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -17346,6 +17686,14 @@ class AzureStorageLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "sas_uri")
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
+
 
 @pulumi.output_type
 class AzureSynapseArtifactsLinkedServiceResponse(dict):
@@ -17379,6 +17727,7 @@ class AzureSynapseArtifactsLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None,
                  workspace_resource_id: Optional[Any] = None):
         """
         Azure Synapse Analytics (Artifacts) linked service.
@@ -17390,6 +17739,7 @@ class AzureSynapseArtifactsLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         :param Any workspace_resource_id: The resource ID of the Synapse workspace. The format should be: /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.Synapse/workspaces/{workspaceName}. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -17404,6 +17754,8 @@ class AzureSynapseArtifactsLinkedServiceResponse(dict):
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
         if workspace_resource_id is not None:
             pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
@@ -17463,6 +17815,14 @@ class AzureSynapseArtifactsLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="workspaceResourceId")
@@ -17986,7 +18346,8 @@ class AzureTableStorageLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  sas_token: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
                  sas_uri: Optional[Any] = None,
-                 service_endpoint: Optional[Any] = None):
+                 service_endpoint: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         The azure table storage linked service.
         :param str type: Type of linked service.
@@ -18002,6 +18363,7 @@ class AzureTableStorageLinkedServiceResponse(dict):
         :param 'AzureKeyVaultSecretReferenceResponse' sas_token: The Azure key vault secret reference of sasToken in sas uri.
         :param Any sas_uri: SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Any service_endpoint: Table service endpoint of the Azure Table Storage resource. It is mutually exclusive with connectionString, sasUri property.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AzureTableStorage')
         if account_key is not None:
@@ -18026,6 +18388,8 @@ class AzureTableStorageLinkedServiceResponse(dict):
             pulumi.set(__self__, "sas_uri", sas_uri)
         if service_endpoint is not None:
             pulumi.set(__self__, "service_endpoint", service_endpoint)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -18123,6 +18487,14 @@ class AzureTableStorageLinkedServiceResponse(dict):
         Table service endpoint of the Azure Table Storage resource. It is mutually exclusive with connectionString, sasUri property.
         """
         return pulumi.get(self, "service_endpoint")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -19317,7 +19689,8 @@ class CassandraLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Cassandra data source.
         :param Any host: Host name for connection. Type: string (or Expression with resultType string).
@@ -19332,6 +19705,7 @@ class CassandraLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any port: The port for the connection. Type: integer (or Expression with resultType integer).
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Cassandra')
@@ -19353,6 +19727,8 @@ class CassandraLinkedServiceResponse(dict):
             pulumi.set(__self__, "port", port)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -19442,6 +19818,14 @@ class CassandraLinkedServiceResponse(dict):
         Username for authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -20151,7 +20535,8 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
                  service_principal_credential_type: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_uri: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Common Data Service for Apps linked service.
         :param Any authentication_type: The authentication type to connect to Common Data Service for Apps server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
@@ -20173,6 +20558,7 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param Any service_uri: The URL to the Microsoft Common Data Service for Apps server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         :param Any username: User name to access the Common Data Service for Apps instance. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "deployment_type", deployment_type)
@@ -20207,6 +20593,8 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
             pulumi.set(__self__, "service_uri", service_uri)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -20352,6 +20740,14 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
         User name to access the Common Data Service for Apps instance. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -20752,7 +21148,8 @@ class ConcurLinkedServiceResponse(dict):
                  password: Optional[Any] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Concur Service linked service.
         :param Any client_id: Application client_id supplied by Concur App Management.
@@ -20769,6 +21166,7 @@ class ConcurLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "type", 'Concur')
@@ -20793,6 +21191,8 @@ class ConcurLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="clientId")
@@ -20898,6 +21298,14 @@ class ConcurLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -21949,7 +22357,8 @@ class CosmosDbLinkedServiceResponse(dict):
                  service_principal_credential: Optional[Any] = None,
                  service_principal_credential_type: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
-                 tenant: Optional[Any] = None):
+                 tenant: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Microsoft Azure Cosmos Database (CosmosDB) linked service.
         :param str type: Type of linked service.
@@ -21970,6 +22379,7 @@ class CosmosDbLinkedServiceResponse(dict):
         :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string.
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'CosmosDb')
         if account_endpoint is not None:
@@ -22004,6 +22414,8 @@ class CosmosDbLinkedServiceResponse(dict):
             pulumi.set(__self__, "service_principal_id", service_principal_id)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -22141,6 +22553,14 @@ class CosmosDbLinkedServiceResponse(dict):
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -22312,7 +22732,8 @@ class CosmosDbMongoDbApiLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  is_server_version_above32: Optional[Any] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for CosmosDB (MongoDB API) data source.
         :param Any connection_string: The CosmosDB (MongoDB API) connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -22324,6 +22745,7 @@ class CosmosDbMongoDbApiLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param Any is_server_version_above32: Whether the CosmosDB (MongoDB API) server version is higher than 3.2. The default value is false. Type: boolean (or Expression with resultType boolean).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "database", database)
@@ -22338,6 +22760,8 @@ class CosmosDbMongoDbApiLinkedServiceResponse(dict):
             pulumi.set(__self__, "is_server_version_above32", is_server_version_above32)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -22403,6 +22827,14 @@ class CosmosDbMongoDbApiLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -23178,7 +23610,8 @@ class CouchbaseLinkedServiceResponse(dict):
                  cred_string: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Couchbase server linked service.
         :param str type: Type of linked service.
@@ -23190,6 +23623,7 @@ class CouchbaseLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Couchbase')
         if annotations is not None:
@@ -23206,6 +23640,8 @@ class CouchbaseLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -23271,6 +23707,14 @@ class CouchbaseLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -23912,7 +24356,8 @@ class CustomDataSourceLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Custom linked service.
         :param str type: Type of linked service.
@@ -23921,6 +24366,7 @@ class CustomDataSourceLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'CustomDataSource')
         if annotations is not None:
@@ -23931,6 +24377,8 @@ class CustomDataSourceLinkedServiceResponse(dict):
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -23972,6 +24420,14 @@ class CustomDataSourceLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -25734,7 +26190,8 @@ class DataworldLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Dataworld.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the Dataworld source.
@@ -25745,6 +26202,7 @@ class DataworldLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "api_token", api_token)
         pulumi.set(__self__, "type", 'Dataworld')
@@ -25758,6 +26216,8 @@ class DataworldLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="apiToken")
@@ -25816,6 +26276,14 @@ class DataworldLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
+
 
 @pulumi.output_type
 class Db2LinkedServiceResponse(dict):
@@ -25863,7 +26331,8 @@ class Db2LinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  server: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for DB2 data source.
         :param str type: Type of linked service.
@@ -25881,6 +26350,7 @@ class Db2LinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any server: Server name for connection. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         :param Any username: Username for authentication. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Db2')
         if annotations is not None:
@@ -25909,6 +26379,8 @@ class Db2LinkedServiceResponse(dict):
             pulumi.set(__self__, "server", server)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -26022,6 +26494,14 @@ class Db2LinkedServiceResponse(dict):
         Username for authentication. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -27777,7 +28257,8 @@ class DrillLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
+                 pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 version: Optional[str] = None):
         """
         Drill server linked service.
         :param str type: Type of linked service.
@@ -27789,6 +28270,7 @@ class DrillLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Drill')
         if annotations is not None:
@@ -27805,6 +28287,8 @@ class DrillLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if pwd is not None:
             pulumi.set(__self__, "pwd", pwd)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -27870,6 +28354,14 @@ class DrillLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "pwd")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -28198,7 +28690,8 @@ class DynamicsAXLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Dynamics AX linked service.
         :param Any aad_resource_id: Specify the resource you are requesting authorization. Type: string (or Expression with resultType string).
@@ -28213,6 +28706,7 @@ class DynamicsAXLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "aad_resource_id", aad_resource_id)
         pulumi.set(__self__, "service_principal_id", service_principal_id)
@@ -28230,6 +28724,8 @@ class DynamicsAXLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="aadResourceId")
@@ -28319,6 +28815,14 @@ class DynamicsAXLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -28802,7 +29306,8 @@ class DynamicsCrmLinkedServiceResponse(dict):
                  service_principal_credential_type: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_uri: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Dynamics CRM linked service.
         :param Any authentication_type: The authentication type to connect to Dynamics CRM server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
@@ -28825,6 +29330,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param Any service_uri: The URL to the Microsoft Dynamics CRM server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         :param Any username: User name to access the Dynamics CRM instance. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "deployment_type", deployment_type)
@@ -28861,6 +29367,8 @@ class DynamicsCrmLinkedServiceResponse(dict):
             pulumi.set(__self__, "service_uri", service_uri)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -29014,6 +29522,14 @@ class DynamicsCrmLinkedServiceResponse(dict):
         User name to access the Dynamics CRM instance. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -29498,7 +30014,8 @@ class DynamicsLinkedServiceResponse(dict):
                  service_principal_credential_type: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_uri: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Dynamics linked service.
         :param Any authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
@@ -29521,6 +30038,7 @@ class DynamicsLinkedServiceResponse(dict):
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param Any service_uri: The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
         :param Any username: User name to access the Dynamics instance. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "deployment_type", deployment_type)
@@ -29557,6 +30075,8 @@ class DynamicsLinkedServiceResponse(dict):
             pulumi.set(__self__, "service_uri", service_uri)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -29710,6 +30230,14 @@ class DynamicsLinkedServiceResponse(dict):
         User name to access the Dynamics instance. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -30039,7 +30567,8 @@ class EloquaLinkedServiceResponse(dict):
                  password: Optional[Any] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Eloqua server linked service.
         :param Any endpoint: The endpoint of the Eloqua server. (i.e. eloqua.example.com)
@@ -30055,6 +30584,7 @@ class EloquaLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "type", 'Eloqua')
@@ -30077,6 +30607,8 @@ class EloquaLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -30174,6 +30706,14 @@ class EloquaLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -32876,7 +33416,8 @@ class FileServerLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_id: Optional[Any] = None):
+                 user_id: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         File system linked service.
         :param Any host: Host name of the server. Type: string (or Expression with resultType string).
@@ -32889,6 +33430,7 @@ class FileServerLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to logon the server.
         :param Any user_id: User ID to logon the server. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'FileServer')
@@ -32906,6 +33448,8 @@ class FileServerLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if user_id is not None:
             pulumi.set(__self__, "user_id", user_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -32979,6 +33523,14 @@ class FileServerLinkedServiceResponse(dict):
         User ID to logon the server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -34499,7 +35051,8 @@ class FtpServerLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         A FTP server Linked Service.
         :param Any host: Host name of the FTP server. Type: string (or Expression with resultType string).
@@ -34516,6 +35069,7 @@ class FtpServerLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to logon the FTP server.
         :param Any port: The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any user_name: Username to logon the FTP server. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'FtpServer')
@@ -34541,6 +35095,8 @@ class FtpServerLinkedServiceResponse(dict):
             pulumi.set(__self__, "port", port)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -34646,6 +35202,14 @@ class FtpServerLinkedServiceResponse(dict):
         Username to logon the FTP server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -35070,7 +35634,8 @@ class GoogleAdWordsLinkedServiceResponse(dict):
                  refresh_token: Optional[Any] = None,
                  support_legacy_data_types: Optional[Any] = None,
                  trusted_cert_path: Optional[Any] = None,
-                 use_system_trust_store: Optional[Any] = None):
+                 use_system_trust_store: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Google AdWords service linked service.
         :param str type: Type of linked service.
@@ -35095,6 +35660,7 @@ class GoogleAdWordsLinkedServiceResponse(dict):
         :param Any support_legacy_data_types: Specifies whether to use the legacy data type mappings, which maps float, int32 and int64 from Google to string. Do not set this to true unless you want to keep backward compatibility with legacy driver's data type mappings. Type: boolean (or Expression with resultType boolean).
         :param Any trusted_cert_path: (Deprecated) The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
         :param Any use_system_trust_store: (Deprecated) Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'GoogleAdWords')
         if annotations is not None:
@@ -35137,6 +35703,8 @@ class GoogleAdWordsLinkedServiceResponse(dict):
             pulumi.set(__self__, "trusted_cert_path", trusted_cert_path)
         if use_system_trust_store is not None:
             pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -35306,6 +35874,14 @@ class GoogleAdWordsLinkedServiceResponse(dict):
         (Deprecated) Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_system_trust_store")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -35640,7 +36216,8 @@ class GoogleBigQueryLinkedServiceResponse(dict):
                  refresh_token: Optional[Any] = None,
                  request_google_drive_scope: Optional[Any] = None,
                  trusted_cert_path: Optional[Any] = None,
-                 use_system_trust_store: Optional[Any] = None):
+                 use_system_trust_store: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Google BigQuery service linked service.
         :param str authentication_type: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
@@ -35661,6 +36238,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
         :param Any request_google_drive_scope: Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false. Type: string (or Expression with resultType string).
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.Type: boolean (or Expression with resultType boolean).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "project", project)
@@ -35693,6 +36271,8 @@ class GoogleBigQueryLinkedServiceResponse(dict):
             pulumi.set(__self__, "trusted_cert_path", trusted_cert_path)
         if use_system_trust_store is not None:
             pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -35830,6 +36410,14 @@ class GoogleBigQueryLinkedServiceResponse(dict):
         Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_system_trust_store")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -36177,7 +36765,8 @@ class GoogleBigQueryV2LinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  key_file_content: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 refresh_token: Optional[Any] = None):
+                 refresh_token: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Google BigQuery service linked service.
         :param str authentication_type: The OAuth 2.0 authentication mechanism used for authentication.
@@ -36193,6 +36782,7 @@ class GoogleBigQueryV2LinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] key_file_content: The content of the .json key file that is used to authenticate the service account. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] refresh_token: The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "project_id", project_id)
@@ -36215,6 +36805,8 @@ class GoogleBigQueryV2LinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if refresh_token is not None:
             pulumi.set(__self__, "refresh_token", refresh_token)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -36312,6 +36904,14 @@ class GoogleBigQueryV2LinkedServiceResponse(dict):
         The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
         """
         return pulumi.get(self, "refresh_token")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -36636,7 +37236,8 @@ class GoogleCloudStorageLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  secret_access_key: Optional[Any] = None,
-                 service_url: Optional[Any] = None):
+                 service_url: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Google Cloud Storage.
         :param str type: Type of linked service.
@@ -36649,6 +37250,7 @@ class GoogleCloudStorageLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Google Cloud Storage Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the Google Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'GoogleCloudStorage')
         if access_key_id is not None:
@@ -36667,6 +37269,8 @@ class GoogleCloudStorageLinkedServiceResponse(dict):
             pulumi.set(__self__, "secret_access_key", secret_access_key)
         if service_url is not None:
             pulumi.set(__self__, "service_url", service_url)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -36740,6 +37344,14 @@ class GoogleCloudStorageLinkedServiceResponse(dict):
         This value specifies the endpoint to access with the Google Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_url")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -37071,7 +37683,8 @@ class GoogleSheetsLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for GoogleSheets.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the GoogleSheets source.
@@ -37082,6 +37695,7 @@ class GoogleSheetsLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "api_token", api_token)
         pulumi.set(__self__, "type", 'GoogleSheets')
@@ -37095,6 +37709,8 @@ class GoogleSheetsLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="apiToken")
@@ -37153,6 +37769,14 @@ class GoogleSheetsLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "parameters")
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
+
 
 @pulumi.output_type
 class GreenplumLinkedServiceResponse(dict):
@@ -37188,7 +37812,8 @@ class GreenplumLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
+                 pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 version: Optional[str] = None):
         """
         Greenplum Database linked service.
         :param str type: Type of linked service.
@@ -37200,6 +37825,7 @@ class GreenplumLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Greenplum')
         if annotations is not None:
@@ -37216,6 +37842,8 @@ class GreenplumLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if pwd is not None:
             pulumi.set(__self__, "pwd", pwd)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -37281,6 +37909,14 @@ class GreenplumLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "pwd")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -37620,7 +38256,8 @@ class HBaseLinkedServiceResponse(dict):
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
                  trusted_cert_path: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         HBase server linked service.
         :param str authentication_type: The authentication mechanism to use to connect to the HBase server.
@@ -37640,6 +38277,7 @@ class HBaseLinkedServiceResponse(dict):
         :param Any port: The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any username: The user name used to connect to the HBase instance.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -37670,6 +38308,8 @@ class HBaseLinkedServiceResponse(dict):
             pulumi.set(__self__, "trusted_cert_path", trusted_cert_path)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -37799,6 +38439,14 @@ class HBaseLinkedServiceResponse(dict):
         The user name used to connect to the HBase instance.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -38371,7 +39019,8 @@ class HDInsightLinkedServiceResponse(dict):
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         HDInsight linked service.
         :param Any cluster_uri: HDInsight cluster URI. Type: string (or Expression with resultType string).
@@ -38388,6 +39037,7 @@ class HDInsightLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: HDInsight cluster password.
         :param Any user_name: HDInsight cluster user name. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "cluster_uri", cluster_uri)
         pulumi.set(__self__, "type", 'HDInsight')
@@ -38413,6 +39063,8 @@ class HDInsightLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="clusterUri")
@@ -38518,6 +39170,14 @@ class HDInsightLinkedServiceResponse(dict):
         HDInsight cluster user name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -38860,7 +39520,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
                  tenant: Any,
                  time_to_live: Any,
                  type: str,
-                 version: Any,
+                 version: str,
                  additional_linked_service_names: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
                  annotations: Optional[Sequence[Any]] = None,
                  cluster_name_prefix: Optional[Any] = None,
@@ -38902,7 +39562,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         :param Any time_to_live: The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'HDInsightOnDemand'.
-        :param Any version: Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         :param Sequence['LinkedServiceReferenceResponse'] additional_linked_service_names: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
@@ -39065,9 +39725,9 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> Any:
+    def version(self) -> str:
         """
-        Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
+        Version of the linked service.
         """
         return pulumi.get(self, "version")
 
@@ -40121,7 +40781,8 @@ class HdfsLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Hadoop Distributed File System (HDFS) linked service.
         :param str type: Type of linked service.
@@ -40135,6 +40796,7 @@ class HdfsLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Windows authentication.
         :param Any user_name: User name for Windows authentication. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Hdfs')
         pulumi.set(__self__, "url", url)
@@ -40154,6 +40816,8 @@ class HdfsLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -40235,6 +40899,14 @@ class HdfsLinkedServiceResponse(dict):
         User name for Windows authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -40700,6 +41372,7 @@ class HiveLinkedServiceResponse(dict):
                  use_native_query: Optional[Any] = None,
                  use_system_trust_store: Optional[Any] = None,
                  username: Optional[Any] = None,
+                 version: Optional[str] = None,
                  zoo_keeper_name_space: Optional[Any] = None):
         """
         Hive Server linked service.
@@ -40725,6 +41398,7 @@ class HiveLinkedServiceResponse(dict):
         :param Any use_native_query: Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         :param Any username: The user name that you use to access Hive Server.
+        :param str version: Version of the linked service.
         :param Any zoo_keeper_name_space: The namespace on ZooKeeper under which Hive Server 2 nodes are added.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -40766,6 +41440,8 @@ class HiveLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
         if zoo_keeper_name_space is not None:
             pulumi.set(__self__, "zoo_keeper_name_space", zoo_keeper_name_space)
 
@@ -40937,6 +41613,14 @@ class HiveLinkedServiceResponse(dict):
         The user name that you use to access Hive Server.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="zooKeeperNameSpace")
@@ -41490,7 +42174,8 @@ class HttpLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for an HTTP source.
         :param str type: Type of linked service.
@@ -41508,6 +42193,7 @@ class HttpLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
         :param Any user_name: User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'HttpServer')
         pulumi.set(__self__, "url", url)
@@ -41535,6 +42221,8 @@ class HttpLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -41648,6 +42336,14 @@ class HttpLinkedServiceResponse(dict):
         User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -42028,7 +42724,8 @@ class HubspotLinkedServiceResponse(dict):
                  refresh_token: Optional[Any] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Hubspot Service linked service.
         :param Any client_id: The client ID associated with your Hubspot application.
@@ -42045,6 +42742,7 @@ class HubspotLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "type", 'Hubspot')
@@ -42070,6 +42768,8 @@ class HubspotLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="clientId")
@@ -42175,6 +42875,14 @@ class HubspotLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -42657,7 +43365,8 @@ class ImpalaLinkedServiceResponse(dict):
                  port: Optional[Any] = None,
                  trusted_cert_path: Optional[Any] = None,
                  use_system_trust_store: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Impala server linked service.
         :param str authentication_type: The authentication type to use.
@@ -42677,6 +43386,7 @@ class ImpalaLinkedServiceResponse(dict):
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         :param Any username: The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -42707,6 +43417,8 @@ class ImpalaLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -42836,6 +43548,14 @@ class ImpalaLinkedServiceResponse(dict):
         The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -43164,7 +43884,8 @@ class InformixLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Informix linked service.
         :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.
@@ -43179,6 +43900,7 @@ class InformixLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic authentication.
         :param Any user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'Informix')
@@ -43200,6 +43922,8 @@ class InformixLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -43289,6 +44013,14 @@ class InformixLinkedServiceResponse(dict):
         User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -44537,7 +45269,8 @@ class JiraLinkedServiceResponse(dict):
                  port: Optional[Any] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Jira Service linked service.
         :param Any host: The IP address or host name of the Jira service. (e.g. jira.example.com)
@@ -44554,6 +45287,7 @@ class JiraLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Jira')
@@ -44578,6 +45312,8 @@ class JiraLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -44683,6 +45419,14 @@ class JiraLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -45695,6 +46439,7 @@ class LakeHouseLinkedServiceResponse(dict):
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
                  tenant: Optional[Any] = None,
+                 version: Optional[str] = None,
                  workspace_id: Optional[Any] = None):
         """
         Microsoft Fabric LakeHouse linked service.
@@ -45711,6 +46456,7 @@ class LakeHouseLinkedServiceResponse(dict):
         :param Any service_principal_id: The ID of the application used to authenticate against Microsoft Fabric LakeHouse. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against Microsoft Fabric LakeHouse.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         :param Any workspace_id: The ID of Microsoft Fabric workspace. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'LakeHouse')
@@ -45736,6 +46482,8 @@ class LakeHouseLinkedServiceResponse(dict):
             pulumi.set(__self__, "service_principal_key", service_principal_key)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
 
@@ -45835,6 +46583,14 @@ class LakeHouseLinkedServiceResponse(dict):
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="workspaceId")
@@ -47298,7 +48054,8 @@ class MagentoLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Magento server linked service.
         :param Any host: The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
@@ -47313,6 +48070,7 @@ class MagentoLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Magento')
@@ -47334,6 +48092,8 @@ class MagentoLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -47423,6 +48183,14 @@ class MagentoLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -49198,7 +49966,8 @@ class MariaDBLinkedServiceResponse(dict):
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
                  port: Optional[Any] = None,
                  server: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         MariaDB server linked service.
         :param str type: Type of linked service.
@@ -49215,6 +49984,7 @@ class MariaDBLinkedServiceResponse(dict):
         :param Any port: The port for the connection. Type: integer.
         :param Any server: Server name for connection. Type: string.
         :param Any username: Username for authentication. Type: string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'MariaDB')
         if annotations is not None:
@@ -49241,6 +50011,8 @@ class MariaDBLinkedServiceResponse(dict):
             pulumi.set(__self__, "server", server)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -49346,6 +50118,14 @@ class MariaDBLinkedServiceResponse(dict):
         Username for authentication. Type: string.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -49667,7 +50447,8 @@ class MarketoLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Marketo server linked service.
         :param Any client_id: The client Id of your Marketo service.
@@ -49683,6 +50464,7 @@ class MarketoLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -49705,6 +50487,8 @@ class MarketoLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="clientId")
@@ -49802,6 +50586,14 @@ class MarketoLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -50153,7 +50945,8 @@ class MicrosoftAccessLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Microsoft Access linked service.
         :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.
@@ -50168,6 +50961,7 @@ class MicrosoftAccessLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic authentication.
         :param Any user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'MicrosoftAccess')
@@ -50189,6 +50983,8 @@ class MicrosoftAccessLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -50278,6 +51074,14 @@ class MicrosoftAccessLinkedServiceResponse(dict):
         User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -50845,7 +51649,8 @@ class MongoDbAtlasLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  driver_version: Optional[Any] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for MongoDB Atlas data source.
         :param Any connection_string: The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -50857,6 +51662,7 @@ class MongoDbAtlasLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param Any driver_version: The driver version that you want to choose. Allowed value are v1 and v2. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "database", database)
@@ -50871,6 +51677,8 @@ class MongoDbAtlasLinkedServiceResponse(dict):
             pulumi.set(__self__, "driver_version", driver_version)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -50936,6 +51744,14 @@ class MongoDbAtlasLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -51483,7 +52299,8 @@ class MongoDbLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for MongoDb data source.
         :param Any database_name: The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
@@ -51502,6 +52319,7 @@ class MongoDbLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any port: The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "server", server)
@@ -51530,6 +52348,8 @@ class MongoDbLinkedServiceResponse(dict):
             pulumi.set(__self__, "port", port)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -51651,6 +52471,14 @@ class MongoDbLinkedServiceResponse(dict):
         Username for authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -51940,7 +52768,8 @@ class MongoDbV2LinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for MongoDB data source.
         :param Any connection_string: The MongoDB connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -51951,6 +52780,7 @@ class MongoDbV2LinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "database", database)
@@ -51963,6 +52793,8 @@ class MongoDbV2LinkedServiceResponse(dict):
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -52020,6 +52852,14 @@ class MongoDbV2LinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -52457,7 +53297,8 @@ class MySqlLinkedServiceResponse(dict):
                  server: Optional[Any] = None,
                  ssl_mode: Optional[Any] = None,
                  use_system_trust_store: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for MySQL data source.
         :param str type: Type of linked service.
@@ -52476,6 +53317,7 @@ class MySqlLinkedServiceResponse(dict):
         :param Any ssl_mode: SSL mode for connection. Type: integer. 0: disable, 1: prefer, 2: require, 3: verify-ca, 4: verify-full.
         :param Any use_system_trust_store: Use system trust store for connection. Type: integer. 0: enable, 1: disable.
         :param Any username: Username for authentication. Type: string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'MySql')
         if annotations is not None:
@@ -52506,6 +53348,8 @@ class MySqlLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -52627,6 +53471,14 @@ class MySqlLinkedServiceResponse(dict):
         Username for authentication. Type: string.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -52936,7 +53788,8 @@ class NetezzaLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
+                 pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 version: Optional[str] = None):
         """
         Netezza linked service.
         :param str type: Type of linked service.
@@ -52948,6 +53801,7 @@ class NetezzaLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Netezza')
         if annotations is not None:
@@ -52964,6 +53818,8 @@ class NetezzaLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if pwd is not None:
             pulumi.set(__self__, "pwd", pwd)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -53029,6 +53885,14 @@ class NetezzaLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "pwd")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -53510,7 +54374,8 @@ class ODataLinkedServiceResponse(dict):
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
                  tenant: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Open Data Protocol (OData) linked service.
         :param str type: Type of linked service.
@@ -53533,6 +54398,7 @@ class ODataLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: Specify the secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
         :param Any tenant: Specify the tenant information (domain name or tenant ID) under which your application resides. Type: string (or Expression with resultType string).
         :param Any user_name: User name of the OData service. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'OData')
         pulumi.set(__self__, "url", url)
@@ -53570,6 +54436,8 @@ class ODataLinkedServiceResponse(dict):
             pulumi.set(__self__, "tenant", tenant)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -53723,6 +54591,14 @@ class ODataLinkedServiceResponse(dict):
         User name of the OData service. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -54037,7 +54913,8 @@ class OdbcLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Open Database Connectivity (ODBC) linked service.
         :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.
@@ -54052,6 +54929,7 @@ class OdbcLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic authentication.
         :param Any user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'Odbc')
@@ -54073,6 +54951,8 @@ class OdbcLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -54162,6 +55042,14 @@ class OdbcLinkedServiceResponse(dict):
         User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -54765,7 +55653,8 @@ class Office365LinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Office365 linked service.
         :param Any office365_tenant_id: Azure tenant ID to which the Office 365 account belongs. Type: string (or Expression with resultType string).
@@ -54779,6 +55668,7 @@ class Office365LinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "office365_tenant_id", office365_tenant_id)
         pulumi.set(__self__, "service_principal_id", service_principal_id)
@@ -54795,6 +55685,8 @@ class Office365LinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="office365TenantId")
@@ -54876,6 +55768,14 @@ class Office365LinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -55096,7 +55996,8 @@ class OracleCloudStorageLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  secret_access_key: Optional[Any] = None,
-                 service_url: Optional[Any] = None):
+                 service_url: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Oracle Cloud Storage.
         :param str type: Type of linked service.
@@ -55109,6 +56010,7 @@ class OracleCloudStorageLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Oracle Cloud Storage Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the Oracle Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'OracleCloudStorage')
         if access_key_id is not None:
@@ -55127,6 +56029,8 @@ class OracleCloudStorageLinkedServiceResponse(dict):
             pulumi.set(__self__, "secret_access_key", secret_access_key)
         if service_url is not None:
             pulumi.set(__self__, "service_url", service_url)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -55200,6 +56104,14 @@ class OracleCloudStorageLinkedServiceResponse(dict):
         This value specifies the endpoint to access with the Oracle Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_url")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -55532,7 +56444,8 @@ class OracleLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
+                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 version: Optional[str] = None):
         """
         Oracle database.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -55544,6 +56457,7 @@ class OracleLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'Oracle')
@@ -55559,6 +56473,8 @@ class OracleLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -55624,6 +56540,14 @@ class OracleLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -55750,7 +56674,8 @@ class OracleServiceCloudLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Oracle Service Cloud linked service.
         :param Any host: The URL of the Oracle Service Cloud instance.
@@ -55766,6 +56691,7 @@ class OracleServiceCloudLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "password", password)
@@ -55787,6 +56713,8 @@ class OracleServiceCloudLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -55884,6 +56812,14 @@ class OracleServiceCloudLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -57901,7 +58837,8 @@ class PaypalLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Paypal Service linked service.
         :param Any client_id: The client ID associated with your PayPal application.
@@ -57917,6 +58854,7 @@ class PaypalLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "host", host)
@@ -57939,6 +58877,8 @@ class PaypalLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="clientId")
@@ -58036,6 +58976,14 @@ class PaypalLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -58366,7 +59314,8 @@ class PhoenixLinkedServiceResponse(dict):
                  port: Optional[Any] = None,
                  trusted_cert_path: Optional[Any] = None,
                  use_system_trust_store: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Phoenix server linked service.
         :param str authentication_type: The authentication mechanism used to connect to the Phoenix server.
@@ -58387,6 +59336,7 @@ class PhoenixLinkedServiceResponse(dict):
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         :param Any username: The user name used to connect to the Phoenix server.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -58419,6 +59369,8 @@ class PhoenixLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -58556,6 +59508,14 @@ class PhoenixLinkedServiceResponse(dict):
         The user name used to connect to the Phoenix server.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -59175,7 +60135,8 @@ class PostgreSqlLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
+                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 version: Optional[str] = None):
         """
         Linked service for PostgreSQL data source.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -59187,6 +60148,7 @@ class PostgreSqlLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'PostgreSql')
@@ -59202,6 +60164,8 @@ class PostgreSqlLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -59267,6 +60231,14 @@ class PostgreSqlLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -59620,7 +60592,8 @@ class PostgreSqlV2LinkedServiceResponse(dict):
                  ssl_key: Optional[Any] = None,
                  ssl_password: Optional[Any] = None,
                  timezone: Optional[Any] = None,
-                 trust_server_certificate: Optional[Any] = None):
+                 trust_server_certificate: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for PostgreSQLV2 data source.
         :param Any database: Database name for connection. Type: string.
@@ -59648,6 +60621,7 @@ class PostgreSqlV2LinkedServiceResponse(dict):
         :param Any ssl_password: Password for a key for a client certificate. Type: string.
         :param Any timezone: Gets or sets the session timezone. Type: string.
         :param Any trust_server_certificate: Whether to trust the server certificate without validating it. Type: boolean.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "server", server)
@@ -59692,6 +60666,8 @@ class PostgreSqlV2LinkedServiceResponse(dict):
             pulumi.set(__self__, "timezone", timezone)
         if trust_server_certificate is not None:
             pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -59885,6 +60861,14 @@ class PostgreSqlV2LinkedServiceResponse(dict):
         Whether to trust the server certificate without validating it. Type: boolean.
         """
         return pulumi.get(self, "trust_server_certificate")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -60511,7 +61495,8 @@ class PrestoLinkedServiceResponse(dict):
                  time_zone_id: Optional[Any] = None,
                  trusted_cert_path: Optional[Any] = None,
                  use_system_trust_store: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Presto server linked service.
         :param str authentication_type: The authentication mechanism used to connect to the Presto server.
@@ -60534,6 +61519,7 @@ class PrestoLinkedServiceResponse(dict):
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         :param Any username: The user name used to connect to the Presto server.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "catalog", catalog)
@@ -60568,6 +61554,8 @@ class PrestoLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -60721,6 +61709,14 @@ class PrestoLinkedServiceResponse(dict):
         The user name used to connect to the Presto server.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -61164,7 +62160,8 @@ class QuickBooksLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  endpoint: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 use_encrypted_endpoints: Optional[Any] = None):
+                 use_encrypted_endpoints: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         QuickBooks server linked service.
         :param str type: Type of linked service.
@@ -61182,6 +62179,7 @@ class QuickBooksLinkedServiceResponse(dict):
         :param Any endpoint: The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'QuickBooks')
         if access_token is not None:
@@ -61210,6 +62208,8 @@ class QuickBooksLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if use_encrypted_endpoints is not None:
             pulumi.set(__self__, "use_encrypted_endpoints", use_encrypted_endpoints)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -61323,6 +62323,14 @@ class QuickBooksLinkedServiceResponse(dict):
         Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         """
         return pulumi.get(self, "use_encrypted_endpoints")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -61632,7 +62640,8 @@ class QuickbaseLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Quickbase.
         :param str type: Type of linked service.
@@ -61644,6 +62653,7 @@ class QuickbaseLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Quickbase')
         pulumi.set(__self__, "url", url)
@@ -61658,6 +62668,8 @@ class QuickbaseLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -61723,6 +62735,14 @@ class QuickbaseLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -62451,7 +63471,8 @@ class ResponsysLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Responsys linked service.
         :param Any client_id: The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
@@ -62467,6 +63488,7 @@ class ResponsysLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -62489,6 +63511,8 @@ class ResponsysLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="clientId")
@@ -62586,6 +63610,14 @@ class ResponsysLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -63124,7 +64156,8 @@ class RestServiceLinkedServiceResponse(dict):
                  service_principal_key: Optional[Any] = None,
                  tenant: Optional[Any] = None,
                  token_endpoint: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Rest Service linked service.
         :param str authentication_type: Type of authentication used to connect to the REST service.
@@ -63151,6 +64184,7 @@ class RestServiceLinkedServiceResponse(dict):
         :param Any tenant: The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides. Type: string (or Expression with resultType string).
         :param Any token_endpoint: The token endpoint of the authorization server to acquire access token. Type: string (or Expression with resultType string).
         :param Any user_name: The user name used in Basic authentication type. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "type", 'RestService')
@@ -63195,6 +64229,8 @@ class RestServiceLinkedServiceResponse(dict):
             pulumi.set(__self__, "token_endpoint", token_endpoint)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -63380,6 +64416,14 @@ class RestServiceLinkedServiceResponse(dict):
         The user name used in Basic authentication type. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -64378,7 +65422,8 @@ class SalesforceLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  security_token: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Salesforce.
         :param str type: Type of linked service.
@@ -64393,6 +65438,7 @@ class SalesforceLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication of the Salesforce instance.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] security_token: The security token is optional to remotely access Salesforce instance.
         :param Any username: The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Salesforce')
         if annotations is not None:
@@ -64415,6 +65461,8 @@ class SalesforceLinkedServiceResponse(dict):
             pulumi.set(__self__, "security_token", security_token)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -64505,6 +65553,14 @@ class SalesforceLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "username")
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
+
 
 @pulumi.output_type
 class SalesforceMarketingCloudLinkedServiceResponse(dict):
@@ -64554,7 +65610,8 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Salesforce Marketing Cloud linked service.
         :param str type: Type of linked service.
@@ -64570,6 +65627,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'SalesforceMarketingCloud')
         if annotations is not None:
@@ -64594,6 +65652,8 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -64691,6 +65751,14 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -65148,7 +66216,8 @@ class SalesforceServiceCloudLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  security_token: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Salesforce Service Cloud.
         :param str type: Type of linked service.
@@ -65164,6 +66233,7 @@ class SalesforceServiceCloudLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication of the Salesforce instance.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] security_token: The security token is optional to remotely access Salesforce instance.
         :param Any username: The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'SalesforceServiceCloud')
         if annotations is not None:
@@ -65188,6 +66258,8 @@ class SalesforceServiceCloudLinkedServiceResponse(dict):
             pulumi.set(__self__, "security_token", security_token)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -65285,6 +66357,14 @@ class SalesforceServiceCloudLinkedServiceResponse(dict):
         The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -65770,7 +66850,8 @@ class SalesforceServiceCloudV2LinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  environment_url: Optional[Any] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Salesforce Service Cloud V2.
         :param str type: Type of linked service.
@@ -65785,6 +66866,7 @@ class SalesforceServiceCloudV2LinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any environment_url: The URL of Salesforce Service Cloud instance. For example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'SalesforceServiceCloudV2')
         if annotations is not None:
@@ -65807,6 +66889,8 @@ class SalesforceServiceCloudV2LinkedServiceResponse(dict):
             pulumi.set(__self__, "environment_url", environment_url)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -65896,6 +66980,14 @@ class SalesforceServiceCloudV2LinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -66723,7 +67815,8 @@ class SalesforceV2LinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  environment_url: Optional[Any] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Salesforce V2.
         :param str type: Type of linked service.
@@ -66738,6 +67831,7 @@ class SalesforceV2LinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any environment_url: The URL of Salesforce instance. For example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'SalesforceV2')
         if annotations is not None:
@@ -66760,6 +67854,8 @@ class SalesforceV2LinkedServiceResponse(dict):
             pulumi.set(__self__, "environment_url", environment_url)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -66849,6 +67945,14 @@ class SalesforceV2LinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -67372,7 +68476,8 @@ class SapBWLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         SAP Business Warehouse Linked Service.
         :param Any client_id: Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
@@ -67387,6 +68492,7 @@ class SapBWLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP BW server.
         :param Any user_name: Username to access the SAP BW server. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "server", server)
@@ -67406,6 +68512,8 @@ class SapBWLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="clientId")
@@ -67495,6 +68603,14 @@ class SapBWLinkedServiceResponse(dict):
         Username to access the SAP BW server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -67789,7 +68905,8 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for SAP Cloud for Customer.
         :param str type: Type of linked service.
@@ -67802,6 +68919,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication.
         :param Any username: The username for Basic authentication. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'SapCloudForCustomer')
         pulumi.set(__self__, "url", url)
@@ -67819,6 +68937,8 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -67892,6 +69012,14 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
         The username for Basic authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -68362,7 +69490,8 @@ class SapEccLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for SAP ERP Central Component(SAP ECC).
         :param str type: Type of linked service.
@@ -68375,6 +69504,7 @@ class SapEccLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication.
         :param Any username: The username for Basic authentication. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'SapEcc')
         pulumi.set(__self__, "url", url)
@@ -68392,6 +69522,8 @@ class SapEccLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -68465,6 +69597,14 @@ class SapEccLinkedServiceResponse(dict):
         The username for Basic authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -68792,7 +69932,8 @@ class SapHanaLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  server: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         SAP HANA Linked Service.
         :param str type: Type of linked service.
@@ -68807,6 +69948,7 @@ class SapHanaLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP HANA server.
         :param Any server: Host name of the SAP HANA server. Type: string (or Expression with resultType string).
         :param Any user_name: Username to access the SAP HANA server. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'SapHana')
         if annotations is not None:
@@ -68829,6 +69971,8 @@ class SapHanaLinkedServiceResponse(dict):
             pulumi.set(__self__, "server", server)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -68918,6 +70062,14 @@ class SapHanaLinkedServiceResponse(dict):
         Username to access the SAP HANA server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -69348,6 +70500,7 @@ class SapOdpLinkedServiceResponse(dict):
                  system_id: Optional[Any] = None,
                  system_number: Optional[Any] = None,
                  user_name: Optional[Any] = None,
+                 version: Optional[str] = None,
                  x509_certificate_path: Optional[Any] = None):
         """
         SAP ODP Linked Service.
@@ -69374,6 +70527,7 @@ class SapOdpLinkedServiceResponse(dict):
         :param Any system_id: SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
         :param Any system_number: System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         :param Any user_name: Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         :param Any x509_certificate_path: SNC X509 certificate file path. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SapOdp')
@@ -69419,6 +70573,8 @@ class SapOdpLinkedServiceResponse(dict):
             pulumi.set(__self__, "system_number", system_number)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
         if x509_certificate_path is not None:
             pulumi.set(__self__, "x509_certificate_path", x509_certificate_path)
 
@@ -69598,6 +70754,14 @@ class SapOdpLinkedServiceResponse(dict):
         Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="x509CertificatePath")
@@ -69985,7 +71149,8 @@ class SapOpenHubLinkedServiceResponse(dict):
                  server: Optional[Any] = None,
                  system_id: Optional[Any] = None,
                  system_number: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         SAP Business Warehouse Open Hub Destination Linked Service.
         :param str type: Type of linked service.
@@ -70005,6 +71170,7 @@ class SapOpenHubLinkedServiceResponse(dict):
         :param Any system_id: SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
         :param Any system_number: System number of the BW system where the open hub destination is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         :param Any user_name: Username to access the SAP BW server where the open hub destination is located. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'SapOpenHub')
         if annotations is not None:
@@ -70037,6 +71203,8 @@ class SapOpenHubLinkedServiceResponse(dict):
             pulumi.set(__self__, "system_number", system_number)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -70166,6 +71334,14 @@ class SapOpenHubLinkedServiceResponse(dict):
         Username to access the SAP BW server where the open hub destination is located. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -70581,7 +71757,8 @@ class SapTableLinkedServiceResponse(dict):
                  snc_qop: Optional[Any] = None,
                  system_id: Optional[Any] = None,
                  system_number: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         SAP Table Linked Service.
         :param str type: Type of linked service.
@@ -70606,6 +71783,7 @@ class SapTableLinkedServiceResponse(dict):
         :param Any system_id: SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
         :param Any system_number: System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         :param Any user_name: Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'SapTable')
         if annotations is not None:
@@ -70648,6 +71826,8 @@ class SapTableLinkedServiceResponse(dict):
             pulumi.set(__self__, "system_number", system_number)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -70817,6 +71997,14 @@ class SapTableLinkedServiceResponse(dict):
         Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -72606,7 +73794,8 @@ class ServiceNowLinkedServiceResponse(dict):
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
                  use_peer_verification: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         ServiceNow server linked service.
         :param str authentication_type: The authentication type to use.
@@ -72625,6 +73814,7 @@ class ServiceNowLinkedServiceResponse(dict):
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         :param Any username: The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -72653,6 +73843,8 @@ class ServiceNowLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -72774,6 +73966,14 @@ class ServiceNowLinkedServiceResponse(dict):
         The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -73094,7 +74294,8 @@ class ServiceNowV2LinkedServiceResponse(dict):
                  grant_type: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         ServiceNowV2 server linked service.
         :param str authentication_type: The authentication type to use.
@@ -73111,6 +74312,7 @@ class ServiceNowV2LinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name for Basic and OAuth2 authentication.
         :param Any username: The user name used to connect to the ServiceNowV2 server for Basic and OAuth2 authentication.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -73135,6 +74337,8 @@ class ServiceNowV2LinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -73240,6 +74444,14 @@ class ServiceNowV2LinkedServiceResponse(dict):
         The user name used to connect to the ServiceNowV2 server for Basic and OAuth2 authentication.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -74112,7 +75324,8 @@ class SftpServerLinkedServiceResponse(dict):
                  private_key_content: Optional[Any] = None,
                  private_key_path: Optional[Any] = None,
                  skip_host_key_validation: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         A linked service for an SSH File Transfer Protocol (SFTP) server. 
         :param Any host: The SFTP server host name. Type: string (or Expression with resultType string).
@@ -74132,6 +75345,7 @@ class SftpServerLinkedServiceResponse(dict):
         :param Any private_key_path: The SSH private key file path for SshPublicKey authentication. Only valid for on-premises copy. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format. Type: string (or Expression with resultType string).
         :param Any skip_host_key_validation: If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
         :param Any user_name: The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Sftp')
@@ -74163,6 +75377,8 @@ class SftpServerLinkedServiceResponse(dict):
             pulumi.set(__self__, "skip_host_key_validation", skip_host_key_validation)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -74292,6 +75508,14 @@ class SftpServerLinkedServiceResponse(dict):
         The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -74457,7 +75681,8 @@ class SharePointOnlineListLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         SharePoint Online List linked service.
         :param Any service_principal_id: The application (client) ID of your application registered in Azure Active Directory. Make sure to grant SharePoint site permission to this application. Type: string (or Expression with resultType string).
@@ -74471,6 +75696,7 @@ class SharePointOnlineListLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "service_principal_id", service_principal_id)
         pulumi.set(__self__, "service_principal_key", service_principal_key)
@@ -74487,6 +75713,8 @@ class SharePointOnlineListLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="servicePrincipalId")
@@ -74568,6 +75796,14 @@ class SharePointOnlineListLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -74872,7 +76108,8 @@ class ShopifyLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Shopify Service linked service.
         :param Any host: The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
@@ -74887,6 +76124,7 @@ class ShopifyLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "type", 'Shopify')
@@ -74908,6 +76146,8 @@ class ShopifyLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -74997,6 +76237,14 @@ class ShopifyLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -75359,7 +76607,8 @@ class SmartsheetLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Smartsheet.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the Smartsheet source.
@@ -75370,6 +76619,7 @@ class SmartsheetLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "api_token", api_token)
         pulumi.set(__self__, "type", 'Smartsheet')
@@ -75383,6 +76633,8 @@ class SmartsheetLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="apiToken")
@@ -75440,6 +76692,14 @@ class SmartsheetLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -75774,7 +77034,8 @@ class SnowflakeLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
+                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 version: Optional[str] = None):
         """
         Snowflake linked service.
         :param Any connection_string: The connection string of snowflake. Type: string, SecureString.
@@ -75786,6 +77047,7 @@ class SnowflakeLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'Snowflake')
@@ -75801,6 +77063,8 @@ class SnowflakeLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -75866,6 +77130,14 @@ class SnowflakeLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -76331,7 +77603,8 @@ class SnowflakeV2LinkedServiceResponse(dict):
                  private_key_passphrase: Optional[Any] = None,
                  scope: Optional[Any] = None,
                  tenant_id: Optional[Any] = None,
-                 user: Optional[Any] = None):
+                 user: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Snowflake linked service.
         :param Any account_identifier: The account identifier of your Snowflake account, e.g. xy12345.east-us-2.azure
@@ -76353,6 +77626,7 @@ class SnowflakeV2LinkedServiceResponse(dict):
         :param Any scope: The scope of the application registered in Azure Active Directory for AADServicePrincipal authentication.
         :param Any tenant_id: The tenant ID of the application registered in Azure Active Directory for AADServicePrincipal authentication.
         :param Any user: The name of the Snowflake user.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "account_identifier", account_identifier)
         pulumi.set(__self__, "database", database)
@@ -76388,6 +77662,8 @@ class SnowflakeV2LinkedServiceResponse(dict):
             pulumi.set(__self__, "tenant_id", tenant_id)
         if user is not None:
             pulumi.set(__self__, "user", user)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="accountIdentifier")
@@ -76533,6 +77809,14 @@ class SnowflakeV2LinkedServiceResponse(dict):
         The name of the Snowflake user.
         """
         return pulumi.get(self, "user")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -76917,7 +78201,8 @@ class SparkLinkedServiceResponse(dict):
                  thrift_transport_protocol: Optional[str] = None,
                  trusted_cert_path: Optional[Any] = None,
                  use_system_trust_store: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Spark Server linked service.
         :param str authentication_type: The authentication method used to access the Spark server.
@@ -76940,6 +78225,7 @@ class SparkLinkedServiceResponse(dict):
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         :param Any username: The user name that you use to access Spark Server.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "host", host)
@@ -76975,6 +78261,8 @@ class SparkLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -77128,6 +78416,14 @@ class SparkLinkedServiceResponse(dict):
         The user name that you use to access Spark Server.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -78633,7 +79929,8 @@ class SqlServerLinkedServiceResponse(dict):
                  pooling: Optional[Any] = None,
                  server: Optional[Any] = None,
                  trust_server_certificate: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         SQL Server linked service.
         :param str type: Type of linked service.
@@ -78668,6 +79965,7 @@ class SqlServerLinkedServiceResponse(dict):
         :param Any server: The name or network address of the instance of SQL Server to which to connect, used by recommended version. Type: string (or Expression with resultType string).
         :param Any trust_server_certificate: Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
         :param Any user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'SqlServer')
         if always_encrypted_settings is not None:
@@ -78730,6 +80028,8 @@ class SqlServerLinkedServiceResponse(dict):
             pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -78979,6 +80279,14 @@ class SqlServerLinkedServiceResponse(dict):
         The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -80343,7 +81651,8 @@ class SquareLinkedServiceResponse(dict):
                  redirect_uri: Optional[Any] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Square Service linked service.
         :param str type: Type of linked service.
@@ -80361,6 +81670,7 @@ class SquareLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Square')
         if annotations is not None:
@@ -80389,6 +81699,8 @@ class SquareLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -80502,6 +81814,14 @@ class SquareLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -81737,7 +83057,8 @@ class SybaseLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  schema: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Sybase data source.
         :param Any database: Database name for connection. Type: string (or Expression with resultType string).
@@ -81753,6 +83074,7 @@ class SybaseLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any schema: Schema name for connection. Type: string (or Expression with resultType string).
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "server", server)
@@ -81775,6 +83097,8 @@ class SybaseLinkedServiceResponse(dict):
             pulumi.set(__self__, "schema", schema)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -81872,6 +83196,14 @@ class SybaseLinkedServiceResponse(dict):
         Username for authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -83149,7 +84481,8 @@ class TeamDeskLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for TeamDesk.
         :param str authentication_type: The authentication type to use.
@@ -83164,6 +84497,7 @@ class TeamDeskLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the TeamDesk source.
         :param Any user_name: The username of the TeamDesk source. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "type", 'TeamDesk')
@@ -83184,6 +84518,8 @@ class TeamDeskLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -83274,6 +84610,14 @@ class TeamDeskLinkedServiceResponse(dict):
         """
         return pulumi.get(self, "user_name")
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
+
 
 @pulumi.output_type
 class TeradataLinkedServiceResponse(dict):
@@ -83314,7 +84658,8 @@ class TeradataLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  server: Optional[Any] = None,
-                 username: Optional[Any] = None):
+                 username: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Teradata data source.
         :param str type: Type of linked service.
@@ -83329,6 +84674,7 @@ class TeradataLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Teradata')
         if annotations is not None:
@@ -83351,6 +84697,8 @@ class TeradataLinkedServiceResponse(dict):
             pulumi.set(__self__, "server", server)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -83440,6 +84788,14 @@ class TeradataLinkedServiceResponse(dict):
         Username for authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -84547,7 +85903,8 @@ class TwilioLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Twilio.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The auth token of Twilio service.
@@ -84558,6 +85915,7 @@ class TwilioLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "type", 'Twilio')
@@ -84570,6 +85928,8 @@ class TwilioLinkedServiceResponse(dict):
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -84627,6 +85987,14 @@ class TwilioLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -85151,7 +86519,8 @@ class VerticaLinkedServiceResponse(dict):
                  port: Optional[Any] = None,
                  pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
                  server: Optional[Any] = None,
-                 uid: Optional[Any] = None):
+                 uid: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Vertica linked service.
         :param str type: Type of linked service.
@@ -85167,6 +86536,7 @@ class VerticaLinkedServiceResponse(dict):
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         :param Any server: Server name for connection. Type: string.
         :param Any uid: Username for authentication. Type: string.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Vertica')
         if annotations is not None:
@@ -85191,6 +86561,8 @@ class VerticaLinkedServiceResponse(dict):
             pulumi.set(__self__, "server", server)
         if uid is not None:
             pulumi.set(__self__, "uid", uid)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -85288,6 +86660,14 @@ class VerticaLinkedServiceResponse(dict):
         Username for authentication. Type: string.
         """
         return pulumi.get(self, "uid")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -85754,6 +87134,7 @@ class WarehouseLinkedServiceResponse(dict):
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
                  tenant: Optional[Any] = None,
+                 version: Optional[str] = None,
                  workspace_id: Optional[Any] = None):
         """
         Microsoft Fabric Warehouse linked service.
@@ -85771,6 +87152,7 @@ class WarehouseLinkedServiceResponse(dict):
         :param Any service_principal_id: The ID of the application used to authenticate against Microsoft Fabric Warehouse. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against Microsoft Fabric Warehouse.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         :param Any workspace_id: The ID of Microsoft Fabric workspace. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "artifact_id", artifact_id)
@@ -85796,6 +87178,8 @@ class WarehouseLinkedServiceResponse(dict):
             pulumi.set(__self__, "service_principal_key", service_principal_key)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
 
@@ -85903,6 +87287,14 @@ class WarehouseLinkedServiceResponse(dict):
         The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="workspaceId")
@@ -87285,7 +88677,8 @@ class WebLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 version: Optional[str] = None):
         """
         Web linked service.
         :param str type: Type of linked service.
@@ -87295,6 +88688,7 @@ class WebLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Web')
         pulumi.set(__self__, "type_properties", type_properties)
@@ -87306,6 +88700,8 @@ class WebLinkedServiceResponse(dict):
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -87355,6 +88751,14 @@ class WebLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -87775,7 +89179,8 @@ class XeroLinkedServiceResponse(dict):
                  private_key: Optional[Any] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Xero Service linked service.
         :param str type: Type of linked service.
@@ -87793,6 +89198,7 @@ class XeroLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Xero')
         if annotations is not None:
@@ -87819,6 +89225,8 @@ class XeroLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -87925,6 +89333,14 @@ class XeroLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -88660,7 +90076,8 @@ class ZendeskLinkedServiceResponse(dict):
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 user_name: Optional[Any] = None):
+                 user_name: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Linked service for Zendesk.
         :param str authentication_type: The authentication type to use.
@@ -88675,6 +90092,7 @@ class ZendeskLinkedServiceResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the Zendesk source.
         :param Any user_name: The username of the Zendesk source. Type: string (or Expression with resultType string).
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "type", 'Zendesk')
@@ -88695,6 +90113,8 @@ class ZendeskLinkedServiceResponse(dict):
             pulumi.set(__self__, "password", password)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -88784,6 +90204,14 @@ class ZendeskLinkedServiceResponse(dict):
         The username of the Zendesk source. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -88885,7 +90313,8 @@ class ZohoLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
-                 use_peer_verification: Optional[Any] = None):
+                 use_peer_verification: Optional[Any] = None,
+                 version: Optional[str] = None):
         """
         Zoho server linked service.
         :param str type: Type of linked service.
@@ -88901,6 +90330,7 @@ class ZohoLinkedServiceResponse(dict):
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
         :param Any use_peer_verification: Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
+        :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Zoho')
         if access_token is not None:
@@ -88925,6 +90355,8 @@ class ZohoLinkedServiceResponse(dict):
             pulumi.set(__self__, "use_host_verification", use_host_verification)
         if use_peer_verification is not None:
             pulumi.set(__self__, "use_peer_verification", use_peer_verification)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -89022,6 +90454,14 @@ class ZohoLinkedServiceResponse(dict):
         Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
         """
         return pulumi.get(self, "use_peer_verification")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the linked service.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

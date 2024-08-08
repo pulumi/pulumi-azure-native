@@ -115,6 +115,8 @@ if typing.TYPE_CHECKING:
     containerservice = __containerservice
     import pulumi_azure_native.containerstorage as __containerstorage
     containerstorage = __containerstorage
+    import pulumi_azure_native.contoso as __contoso
+    contoso = __contoso
     import pulumi_azure_native.costmanagement as __costmanagement
     costmanagement = __costmanagement
     import pulumi_azure_native.customerinsights as __customerinsights
@@ -249,6 +251,8 @@ if typing.TYPE_CHECKING:
     iotcentral = __iotcentral
     import pulumi_azure_native.iotfirmwaredefense as __iotfirmwaredefense
     iotfirmwaredefense = __iotfirmwaredefense
+    import pulumi_azure_native.iotoperations as __iotoperations
+    iotoperations = __iotoperations
     import pulumi_azure_native.iotoperationsdataprocessor as __iotoperationsdataprocessor
     iotoperationsdataprocessor = __iotoperationsdataprocessor
     import pulumi_azure_native.iotoperationsmq as __iotoperationsmq
@@ -517,6 +521,7 @@ else:
     containerregistry = _utilities.lazy_import('pulumi_azure_native.containerregistry')
     containerservice = _utilities.lazy_import('pulumi_azure_native.containerservice')
     containerstorage = _utilities.lazy_import('pulumi_azure_native.containerstorage')
+    contoso = _utilities.lazy_import('pulumi_azure_native.contoso')
     costmanagement = _utilities.lazy_import('pulumi_azure_native.costmanagement')
     customerinsights = _utilities.lazy_import('pulumi_azure_native.customerinsights')
     customproviders = _utilities.lazy_import('pulumi_azure_native.customproviders')
@@ -584,6 +589,7 @@ else:
     intune = _utilities.lazy_import('pulumi_azure_native.intune')
     iotcentral = _utilities.lazy_import('pulumi_azure_native.iotcentral')
     iotfirmwaredefense = _utilities.lazy_import('pulumi_azure_native.iotfirmwaredefense')
+    iotoperations = _utilities.lazy_import('pulumi_azure_native.iotoperations')
     iotoperationsdataprocessor = _utilities.lazy_import('pulumi_azure_native.iotoperationsdataprocessor')
     iotoperationsmq = _utilities.lazy_import('pulumi_azure_native.iotoperationsmq')
     iotoperationsorchestrator = _utilities.lazy_import('pulumi_azure_native.iotoperationsorchestrator')
@@ -5419,6 +5425,21 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20240602preview",
+  "fqn": "pulumi_azure_native.containerservice.v20240602preview",
+  "classes": {
+   "azure-native:containerservice/v20240602preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20240602preview:LoadBalancer": "LoadBalancer",
+   "azure-native:containerservice/v20240602preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20240602preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20240602preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20240602preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20240602preview:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20240602preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerstorage",
   "fqn": "pulumi_azure_native.containerstorage",
   "classes": {
@@ -5435,6 +5456,22 @@ _utilities.register(
    "azure-native:containerstorage/v20230701preview:Pool": "Pool",
    "azure-native:containerstorage/v20230701preview:Snapshot": "Snapshot",
    "azure-native:containerstorage/v20230701preview:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "contoso",
+  "fqn": "pulumi_azure_native.contoso",
+  "classes": {
+   "azure-native:contoso:Employee": "Employee"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "contoso/v20211001preview",
+  "fqn": "pulumi_azure_native.contoso.v20211001preview",
+  "classes": {
+   "azure-native:contoso/v20211001preview:Employee": "Employee"
   }
  },
  {
@@ -7110,6 +7147,7 @@ _utilities.register(
   "classes": {
    "azure-native:devcenter:AttachedNetworkByDevCenter": "AttachedNetworkByDevCenter",
    "azure-native:devcenter:Catalog": "Catalog",
+   "azure-native:devcenter:CurationProfile": "CurationProfile",
    "azure-native:devcenter:DevBoxDefinition": "DevBoxDefinition",
    "azure-native:devcenter:DevCenter": "DevCenter",
    "azure-native:devcenter:EncryptionSet": "EncryptionSet",
@@ -7270,6 +7308,29 @@ _utilities.register(
    "azure-native:devcenter/v20240701preview:ProjectCatalog": "ProjectCatalog",
    "azure-native:devcenter/v20240701preview:ProjectEnvironmentType": "ProjectEnvironmentType",
    "azure-native:devcenter/v20240701preview:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devcenter/v20240801preview",
+  "fqn": "pulumi_azure_native.devcenter.v20240801preview",
+  "classes": {
+   "azure-native:devcenter/v20240801preview:AttachedNetworkByDevCenter": "AttachedNetworkByDevCenter",
+   "azure-native:devcenter/v20240801preview:Catalog": "Catalog",
+   "azure-native:devcenter/v20240801preview:CurationProfile": "CurationProfile",
+   "azure-native:devcenter/v20240801preview:DevBoxDefinition": "DevBoxDefinition",
+   "azure-native:devcenter/v20240801preview:DevCenter": "DevCenter",
+   "azure-native:devcenter/v20240801preview:EncryptionSet": "EncryptionSet",
+   "azure-native:devcenter/v20240801preview:EnvironmentType": "EnvironmentType",
+   "azure-native:devcenter/v20240801preview:Gallery": "Gallery",
+   "azure-native:devcenter/v20240801preview:NetworkConnection": "NetworkConnection",
+   "azure-native:devcenter/v20240801preview:Plan": "Plan",
+   "azure-native:devcenter/v20240801preview:PlanMember": "PlanMember",
+   "azure-native:devcenter/v20240801preview:Pool": "Pool",
+   "azure-native:devcenter/v20240801preview:Project": "Project",
+   "azure-native:devcenter/v20240801preview:ProjectCatalog": "ProjectCatalog",
+   "azure-native:devcenter/v20240801preview:ProjectEnvironmentType": "ProjectEnvironmentType",
+   "azure-native:devcenter/v20240801preview:Schedule": "Schedule"
   }
  },
  {
@@ -9677,6 +9738,36 @@ _utilities.register(
   "classes": {
    "azure-native:iotfirmwaredefense/v20240110:Firmware": "Firmware",
    "azure-native:iotfirmwaredefense/v20240110:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "iotoperations",
+  "fqn": "pulumi_azure_native.iotoperations",
+  "classes": {
+   "azure-native:iotoperations:Broker": "Broker",
+   "azure-native:iotoperations:BrokerAuthentication": "BrokerAuthentication",
+   "azure-native:iotoperations:BrokerAuthorization": "BrokerAuthorization",
+   "azure-native:iotoperations:BrokerListener": "BrokerListener",
+   "azure-native:iotoperations:DataFlow": "DataFlow",
+   "azure-native:iotoperations:DataFlowEndpoint": "DataFlowEndpoint",
+   "azure-native:iotoperations:DataFlowProfile": "DataFlowProfile",
+   "azure-native:iotoperations:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "iotoperations/v20240701preview",
+  "fqn": "pulumi_azure_native.iotoperations.v20240701preview",
+  "classes": {
+   "azure-native:iotoperations/v20240701preview:Broker": "Broker",
+   "azure-native:iotoperations/v20240701preview:BrokerAuthentication": "BrokerAuthentication",
+   "azure-native:iotoperations/v20240701preview:BrokerAuthorization": "BrokerAuthorization",
+   "azure-native:iotoperations/v20240701preview:BrokerListener": "BrokerListener",
+   "azure-native:iotoperations/v20240701preview:DataFlow": "DataFlow",
+   "azure-native:iotoperations/v20240701preview:DataFlowEndpoint": "DataFlowEndpoint",
+   "azure-native:iotoperations/v20240701preview:DataFlowProfile": "DataFlowProfile",
+   "azure-native:iotoperations/v20240701preview:Instance": "Instance"
   }
  },
  {

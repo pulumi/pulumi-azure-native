@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'AzureDataExplorer'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureDataExplorerLinkedServiceResponse(
@@ -84,7 +88,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? tenant,
 
-            string type)
+            string type,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ServicePrincipalKey = servicePrincipalKey;
             Tenant = tenant;
             Type = type;
+            Version = version;
         }
     }
 }

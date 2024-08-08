@@ -112,6 +112,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("useEncryptedEndpoints")]
         public Input<object>? UseEncryptedEndpoints { get; set; }
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public QuickBooksLinkedServiceArgs()
         {
         }

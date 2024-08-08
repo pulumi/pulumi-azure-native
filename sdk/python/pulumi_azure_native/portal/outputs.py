@@ -17,16 +17,75 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConfigurationPropertiesResponse',
     'ConsolePropertiesResponse',
     'DashboardLensResponse',
-    'DashboardPartMetadataResponse',
+    'DashboardPartsPositionResponse',
     'DashboardPartsResponse',
-    'DashboardPartsResponsePosition',
+    'DashboardPropertiesWithProvisioningStateResponse',
+    'MarkdownPartMetadataResponse',
+    'MarkdownPartMetadataSettingsContentResponse',
+    'MarkdownPartMetadataSettingsContentSettingsResponse',
+    'MarkdownPartMetadataSettingsResponse',
     'StorageProfileResponse',
+    'SystemDataResponse',
     'TerminalSettingsResponse',
     'UserPropertiesResponse',
     'ViolationResponse',
 ]
+
+@pulumi.output_type
+class ConfigurationPropertiesResponse(dict):
+    """
+    Tenant Configuration Properties with Provisioning state
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "enforcePrivateMarkdownStorage":
+            suggest = "enforce_private_markdown_storage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 enforce_private_markdown_storage: Optional[bool] = None):
+        """
+        Tenant Configuration Properties with Provisioning state
+        :param str provisioning_state: The status of the last operation.
+        :param bool enforce_private_markdown_storage: When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if enforce_private_markdown_storage is not None:
+            pulumi.set(__self__, "enforce_private_markdown_storage", enforce_private_markdown_storage)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="enforcePrivateMarkdownStorage")
+    def enforce_private_markdown_storage(self) -> Optional[bool]:
+        """
+        When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+        """
+        return pulumi.get(self, "enforce_private_markdown_storage")
+
 
 @pulumi.output_type
 class ConsolePropertiesResponse(dict):
@@ -99,12 +158,12 @@ class DashboardLensResponse(dict):
     def __init__(__self__, *,
                  order: int,
                  parts: Sequence['outputs.DashboardPartsResponse'],
-                 metadata: Optional[Mapping[str, Any]] = None):
+                 metadata: Optional[Any] = None):
         """
         A dashboard lens.
         :param int order: The lens order.
         :param Sequence['DashboardPartsResponse'] parts: The dashboard parts.
-        :param Mapping[str, Any] metadata: The dashboard len's metadata.
+        :param Any metadata: The dashboard len's metadata.
         """
         pulumi.set(__self__, "order", order)
         pulumi.set(__self__, "parts", parts)
@@ -129,7 +188,7 @@ class DashboardLensResponse(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         The dashboard len's metadata.
         """
@@ -137,87 +196,7 @@ class DashboardLensResponse(dict):
 
 
 @pulumi.output_type
-class DashboardPartMetadataResponse(dict):
-    """
-    A dashboard part metadata.
-    """
-    def __init__(__self__, *,
-                 type: str,
-                 inputs: Optional[Sequence[Any]] = None,
-                 settings: Optional[Mapping[str, Any]] = None):
-        """
-        A dashboard part metadata.
-        :param str type: The type of dashboard part.
-        :param Sequence[Any] inputs: Inputs to dashboard part.
-        :param Mapping[str, Any] settings: Settings of dashboard part.
-        """
-        pulumi.set(__self__, "type", type)
-        if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
-        if settings is not None:
-            pulumi.set(__self__, "settings", settings)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of dashboard part.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def inputs(self) -> Optional[Sequence[Any]]:
-        """
-        Inputs to dashboard part.
-        """
-        return pulumi.get(self, "inputs")
-
-    @property
-    @pulumi.getter
-    def settings(self) -> Optional[Mapping[str, Any]]:
-        """
-        Settings of dashboard part.
-        """
-        return pulumi.get(self, "settings")
-
-
-@pulumi.output_type
-class DashboardPartsResponse(dict):
-    """
-    A dashboard part.
-    """
-    def __init__(__self__, *,
-                 position: 'outputs.DashboardPartsResponsePosition',
-                 metadata: Optional['outputs.DashboardPartMetadataResponse'] = None):
-        """
-        A dashboard part.
-        :param 'DashboardPartsResponsePosition' position: The dashboard's part position.
-        :param 'DashboardPartMetadataResponse' metadata: The dashboard's part metadata.
-        """
-        pulumi.set(__self__, "position", position)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-
-    @property
-    @pulumi.getter
-    def position(self) -> 'outputs.DashboardPartsResponsePosition':
-        """
-        The dashboard's part position.
-        """
-        return pulumi.get(self, "position")
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional['outputs.DashboardPartMetadataResponse']:
-        """
-        The dashboard's part metadata.
-        """
-        return pulumi.get(self, "metadata")
-
-
-@pulumi.output_type
-class DashboardPartsResponsePosition(dict):
+class DashboardPartsPositionResponse(dict):
     """
     The dashboard's part position.
     """
@@ -230,14 +209,14 @@ class DashboardPartsResponsePosition(dict):
             suggest = "row_span"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardPartsResponsePosition. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DashboardPartsPositionResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DashboardPartsResponsePosition.__key_warning(key)
+        DashboardPartsPositionResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DashboardPartsResponsePosition.__key_warning(key)
+        DashboardPartsPositionResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -245,14 +224,14 @@ class DashboardPartsResponsePosition(dict):
                  row_span: int,
                  x: int,
                  y: int,
-                 metadata: Optional[Mapping[str, Any]] = None):
+                 metadata: Optional[Any] = None):
         """
         The dashboard's part position.
         :param int col_span: The dashboard's part column span.
         :param int row_span: The dashboard's part row span.
         :param int x: The dashboard's part x coordinate.
         :param int y: The dashboard's part y coordinate.
-        :param Mapping[str, Any] metadata: The dashboard part's metadata.
+        :param Any metadata: The dashboard part's metadata.
         """
         pulumi.set(__self__, "col_span", col_span)
         pulumi.set(__self__, "row_span", row_span)
@@ -295,11 +274,292 @@ class DashboardPartsResponsePosition(dict):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, Any]]:
+    def metadata(self) -> Optional[Any]:
         """
         The dashboard part's metadata.
         """
         return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class DashboardPartsResponse(dict):
+    """
+    A dashboard part.
+    """
+    def __init__(__self__, *,
+                 position: 'outputs.DashboardPartsPositionResponse',
+                 metadata: Optional['outputs.MarkdownPartMetadataResponse'] = None):
+        """
+        A dashboard part.
+        :param 'DashboardPartsPositionResponse' position: The dashboard's part position.
+        :param 'MarkdownPartMetadataResponse' metadata: The dashboard part's metadata.
+        """
+        pulumi.set(__self__, "position", position)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def position(self) -> 'outputs.DashboardPartsPositionResponse':
+        """
+        The dashboard's part position.
+        """
+        return pulumi.get(self, "position")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.MarkdownPartMetadataResponse']:
+        """
+        The dashboard part's metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class DashboardPropertiesWithProvisioningStateResponse(dict):
+    """
+    Dashboard Properties with Provisioning state
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardPropertiesWithProvisioningStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardPropertiesWithProvisioningStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardPropertiesWithProvisioningStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 lenses: Optional[Sequence['outputs.DashboardLensResponse']] = None,
+                 metadata: Optional[Any] = None):
+        """
+        Dashboard Properties with Provisioning state
+        :param str provisioning_state: The status of the last operation.
+        :param Sequence['DashboardLensResponse'] lenses: The dashboard lenses.
+        :param Any metadata: The dashboard metadata.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if lenses is not None:
+            pulumi.set(__self__, "lenses", lenses)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def lenses(self) -> Optional[Sequence['outputs.DashboardLensResponse']]:
+        """
+        The dashboard lenses.
+        """
+        return pulumi.get(self, "lenses")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The dashboard metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class MarkdownPartMetadataResponse(dict):
+    """
+    Markdown part metadata.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 inputs: Optional[Sequence[Any]] = None,
+                 settings: Optional['outputs.MarkdownPartMetadataSettingsResponse'] = None):
+        """
+        Markdown part metadata.
+        :param str type: The dashboard part metadata type.
+               Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
+        :param Sequence[Any] inputs: Input to dashboard part.
+        :param 'MarkdownPartMetadataSettingsResponse' settings: Markdown part settings.
+        """
+        pulumi.set(__self__, "type", 'Extension/HubsExtension/PartType/MarkdownPart')
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The dashboard part metadata type.
+        Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[Sequence[Any]]:
+        """
+        Input to dashboard part.
+        """
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.MarkdownPartMetadataSettingsResponse']:
+        """
+        Markdown part settings.
+        """
+        return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
+class MarkdownPartMetadataSettingsContentResponse(dict):
+    """
+    The content of markdown part.
+    """
+    def __init__(__self__, *,
+                 settings: Optional['outputs.MarkdownPartMetadataSettingsContentSettingsResponse'] = None):
+        """
+        The content of markdown part.
+        :param 'MarkdownPartMetadataSettingsContentSettingsResponse' settings: The setting of the content of markdown part.
+        """
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.MarkdownPartMetadataSettingsContentSettingsResponse']:
+        """
+        The setting of the content of markdown part.
+        """
+        return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
+class MarkdownPartMetadataSettingsContentSettingsResponse(dict):
+    """
+    The setting of the content of markdown part.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "markdownSource":
+            suggest = "markdown_source"
+        elif key == "markdownUri":
+            suggest = "markdown_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MarkdownPartMetadataSettingsContentSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MarkdownPartMetadataSettingsContentSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MarkdownPartMetadataSettingsContentSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: Optional[str] = None,
+                 markdown_source: Optional[int] = None,
+                 markdown_uri: Optional[str] = None,
+                 subtitle: Optional[str] = None,
+                 title: Optional[str] = None):
+        """
+        The setting of the content of markdown part.
+        :param str content: The content of the markdown part.
+        :param int markdown_source: The source of the content of the markdown part.
+        :param str markdown_uri: The uri of markdown content.
+        :param str subtitle: The subtitle of the markdown part.
+        :param str title: The title of the markdown part.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if markdown_source is not None:
+            pulumi.set(__self__, "markdown_source", markdown_source)
+        if markdown_uri is not None:
+            pulumi.set(__self__, "markdown_uri", markdown_uri)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The content of the markdown part.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="markdownSource")
+    def markdown_source(self) -> Optional[int]:
+        """
+        The source of the content of the markdown part.
+        """
+        return pulumi.get(self, "markdown_source")
+
+    @property
+    @pulumi.getter(name="markdownUri")
+    def markdown_uri(self) -> Optional[str]:
+        """
+        The uri of markdown content.
+        """
+        return pulumi.get(self, "markdown_uri")
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[str]:
+        """
+        The subtitle of the markdown part.
+        """
+        return pulumi.get(self, "subtitle")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the markdown part.
+        """
+        return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class MarkdownPartMetadataSettingsResponse(dict):
+    """
+    Markdown part settings.
+    """
+    def __init__(__self__, *,
+                 content: Optional['outputs.MarkdownPartMetadataSettingsContentResponse'] = None):
+        """
+        Markdown part settings.
+        :param 'MarkdownPartMetadataSettingsContentResponse' content: The content of markdown part.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional['outputs.MarkdownPartMetadataSettingsContentResponse']:
+        """
+        The content of markdown part.
+        """
+        return pulumi.get(self, "content")
 
 
 @pulumi.output_type
@@ -368,6 +628,116 @@ class StorageProfileResponse(dict):
         Full resource ID of storage account.
         """
         return pulumi.get(self, "storage_account_resource_id")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

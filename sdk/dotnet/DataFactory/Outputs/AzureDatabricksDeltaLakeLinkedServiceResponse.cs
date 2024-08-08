@@ -58,6 +58,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
+        /// <summary>
         /// Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? WorkspaceResourceId;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
+            string? version,
+
             object? workspaceResourceId)
         {
             AccessToken = accessToken;
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             Type = type;
+            Version = version;
             WorkspaceResourceId = workspaceResourceId;
         }
     }

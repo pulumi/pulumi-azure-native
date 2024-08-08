@@ -15,17 +15,11 @@ namespace Pulumi.AzureNative.Portal.Inputs
     /// </summary>
     public sealed class DashboardLensArgs : global::Pulumi.ResourceArgs
     {
-        [Input("metadata")]
-        private InputMap<object>? _metadata;
-
         /// <summary>
         /// The dashboard len's metadata.
         /// </summary>
-        public InputMap<object> Metadata
-        {
-            get => _metadata ?? (_metadata = new InputMap<object>());
-            set => _metadata = value;
-        }
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// The lens order.

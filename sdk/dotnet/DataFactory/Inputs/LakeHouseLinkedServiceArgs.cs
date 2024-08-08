@@ -101,6 +101,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        /// <summary>
         /// The ID of Microsoft Fabric workspace. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("workspaceId")]

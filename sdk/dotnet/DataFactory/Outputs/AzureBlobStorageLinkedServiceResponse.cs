@@ -93,6 +93,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'AzureBlobStorage'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureBlobStorageLinkedServiceResponse(
@@ -132,7 +136,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? tenant,
 
-            string type)
+            string type,
+
+            string? version)
         {
             AccountKey = accountKey;
             AccountKind = accountKind;
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ServicePrincipalKey = servicePrincipalKey;
             Tenant = tenant;
             Type = type;
+            Version = version;
         }
     }
 }

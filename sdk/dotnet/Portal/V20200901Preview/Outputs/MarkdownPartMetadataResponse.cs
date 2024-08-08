@@ -23,9 +23,9 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview.Outputs
         /// <summary>
         /// Markdown part settings.
         /// </summary>
-        public readonly Outputs.MarkdownPartMetadataResponseSettings? Settings;
+        public readonly Outputs.MarkdownPartMetadataSettingsResponse? Settings;
         /// <summary>
-        /// The type of dashboard part.
+        /// The dashboard part metadata type.
         /// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         /// </summary>
         public readonly string Type;
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview.Outputs
         private MarkdownPartMetadataResponse(
             ImmutableArray<object> inputs,
 
-            Outputs.MarkdownPartMetadataResponseSettings? settings,
+            Outputs.MarkdownPartMetadataSettingsResponse? settings,
 
             string type)
         {

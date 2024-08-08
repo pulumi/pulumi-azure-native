@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.DevCenter.V20231001Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240501preview:NetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240601preview:NetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:NetworkConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:NetworkConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

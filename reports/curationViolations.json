@@ -100,6 +100,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "Contoso",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "Dashboard",
     "Detail": "expected no additions but found some"
   },
@@ -213,6 +217,10 @@
   },
   {
     "Provider": "IoTFirmwareDefense",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "IoTOperations",
     "Detail": "expected tracking stable but found preview"
   },
   {

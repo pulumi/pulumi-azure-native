@@ -110,6 +110,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
+        /// <summary>
         /// Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? WorkspaceResourceId;
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
+            string? version,
+
             object? workspaceResourceId)
         {
             AccessToken = accessToken;
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Parameters = parameters;
             PolicyId = policyId;
             Type = type;
+            Version = version;
             WorkspaceResourceId = workspaceResourceId;
         }
     }

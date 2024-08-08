@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'AmazonS3'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AmazonS3LinkedServiceResponse(
@@ -84,7 +88,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? sessionToken,
 
-            string type)
+            string type,
+
+            string? version)
         {
             AccessKeyId = accessKeyId;
             Annotations = annotations;
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             ServiceUrl = serviceUrl;
             SessionToken = sessionToken;
             Type = type;
+            Version = version;
         }
     }
 }

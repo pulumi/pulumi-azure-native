@@ -77,6 +77,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
         /// </summary>
         public readonly object? Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private ServiceNowLinkedServiceResponse(
@@ -108,7 +112,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? usePeerVerification,
 
-            object? username)
+            object? username,
+
+            string? version)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             UseHostVerification = useHostVerification;
             UsePeerVerification = usePeerVerification;
             Username = username;
+            Version = version;
         }
     }
 }

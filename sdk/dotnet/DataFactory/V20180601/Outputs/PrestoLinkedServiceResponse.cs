@@ -93,6 +93,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The user name used to connect to the Presto server.
         /// </summary>
         public readonly object? Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private PrestoLinkedServiceResponse(
@@ -132,7 +136,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? useSystemTrustStore,
 
-            object? username)
+            object? username,
+
+            string? version)
         {
             AllowHostNameCNMismatch = allowHostNameCNMismatch;
             AllowSelfSignedServerCert = allowSelfSignedServerCert;
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Type = type;
             UseSystemTrustStore = useSystemTrustStore;
             Username = username;
+            Version = version;
         }
     }
 }

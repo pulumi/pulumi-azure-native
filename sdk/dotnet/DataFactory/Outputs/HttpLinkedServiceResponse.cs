@@ -73,6 +73,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private HttpLinkedServiceResponse(
@@ -102,7 +106,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object url,
 
-            object? userName)
+            object? userName,
+
+            string? version)
         {
             Annotations = annotations;
             AuthHeaders = authHeaders;
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Type = type;
             Url = url;
             UserName = userName;
+            Version = version;
         }
     }
 }

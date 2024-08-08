@@ -77,6 +77,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Username for authentication. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private MongoDbLinkedServiceResponse(
@@ -108,7 +112,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            object? username)
+            object? username,
+
+            string? version)
         {
             AllowSelfSignedServerCert = allowSelfSignedServerCert;
             Annotations = annotations;
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Server = server;
             Type = type;
             Username = username;
+            Version = version;
         }
     }
 }

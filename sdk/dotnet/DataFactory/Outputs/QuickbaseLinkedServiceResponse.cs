@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The user token for the Quickbase source.
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> UserToken;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private QuickbaseLinkedServiceResponse(
@@ -66,7 +70,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object url,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> userToken)
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> userToken,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -76,6 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Type = type;
             Url = url;
             UserToken = userToken;
+            Version = version;
         }
     }
 }

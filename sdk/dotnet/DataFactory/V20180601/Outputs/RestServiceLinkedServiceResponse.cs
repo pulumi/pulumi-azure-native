@@ -109,6 +109,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The user name used in Basic authentication type. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private RestServiceLinkedServiceResponse(
@@ -156,7 +160,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object url,
 
-            object? userName)
+            object? userName,
+
+            string? version)
         {
             AadResourceId = aadResourceId;
             Annotations = annotations;
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Type = type;
             Url = url;
             UserName = userName;
+            Version = version;
         }
     }
 }

@@ -69,6 +69,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Username to logon the FTP server. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private FtpServerLinkedServiceResponse(
@@ -96,7 +100,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? userName)
+            object? userName,
+
+            string? version)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Port = port;
             Type = type;
             UserName = userName;
+            Version = version;
         }
     }
 }

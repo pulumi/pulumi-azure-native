@@ -71,6 +71,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        /// <summary>
         /// The resource ID of the Synapse workspace. The format should be: /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.Synapse/workspaces/{workspaceName}. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("workspaceResourceId")]

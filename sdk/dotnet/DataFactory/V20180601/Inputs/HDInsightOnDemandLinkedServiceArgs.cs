@@ -251,10 +251,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
+        /// Version of the linked service.
         /// </summary>
         [Input("version", required: true)]
-        public Input<object> Version { get; set; } = null!;
+        public Input<string> Version { get; set; } = null!;
 
         /// <summary>
         /// The ARM resource ID for the vNet to which the cluster should be joined after creation. Type: string (or Expression with resultType string).

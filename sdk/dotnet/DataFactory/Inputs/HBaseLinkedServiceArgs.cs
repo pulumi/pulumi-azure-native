@@ -124,6 +124,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("username")]
         public Input<object>? Username { get; set; }
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public HBaseLinkedServiceArgs()
         {
         }

@@ -101,6 +101,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// (Deprecated) Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         public readonly object? UseSystemTrustStore;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GoogleAdWordsLinkedServiceResponse(
@@ -144,7 +148,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? useSystemTrustStore)
+            object? useSystemTrustStore,
+
+            string? version)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;
@@ -167,6 +173,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             TrustedCertPath = trustedCertPath;
             Type = type;
             UseSystemTrustStore = useSystemTrustStore;
+            Version = version;
         }
     }
 }

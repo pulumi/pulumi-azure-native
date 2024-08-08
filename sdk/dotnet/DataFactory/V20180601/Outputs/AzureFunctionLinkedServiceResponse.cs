@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'AzureFunction'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureFunctionLinkedServiceResponse(
@@ -84,7 +88,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? resourceId,
 
-            string type)
+            string type,
+
+            string? version)
         {
             Annotations = annotations;
             Authentication = authentication;
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Parameters = parameters;
             ResourceId = resourceId;
             Type = type;
+            Version = version;
         }
     }
 }

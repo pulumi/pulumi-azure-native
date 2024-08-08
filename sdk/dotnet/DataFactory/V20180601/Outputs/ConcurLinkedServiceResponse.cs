@@ -69,6 +69,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The user name that you use to access Concur Service.
         /// </summary>
         public readonly object Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private ConcurLinkedServiceResponse(
@@ -96,7 +100,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? usePeerVerification,
 
-            object username)
+            object username,
+
+            string? version)
         {
             Annotations = annotations;
             ClientId = clientId;
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             UseHostVerification = useHostVerification;
             UsePeerVerification = usePeerVerification;
             Username = username;
+            Version = version;
         }
     }
 }

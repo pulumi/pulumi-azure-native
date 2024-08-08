@@ -31,6 +31,9 @@ export const TenantConfiguration: typeof import("./tenantConfiguration").TenantC
 utilities.lazyLoad(exports, ["TenantConfiguration"], () => require("./tenantConfiguration"));
 
 
+// Export enums:
+export * from "../../types/enums/portal/v20200901preview";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

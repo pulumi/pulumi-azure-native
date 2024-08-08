@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Url;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureBlobFSLinkedServiceResponse(
@@ -120,7 +124,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            object? url)
+            object? url,
+
+            string? version)
         {
             AccountKey = accountKey;
             Annotations = annotations;
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Tenant = tenant;
             Type = type;
             Url = url;
+            Version = version;
         }
     }
 }

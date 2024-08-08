@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The username of the Appfigures source. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AppFiguresLinkedServiceResponse(
@@ -66,7 +70,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            object userName)
+            object userName,
+
+            string? version)
         {
             Annotations = annotations;
             ClientKey = clientKey;
@@ -76,6 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Password = password;
             Type = type;
             UserName = userName;
+            Version = version;
         }
     }
 }

@@ -65,6 +65,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'AzureTableStorage'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureTableStorageLinkedServiceResponse(
@@ -90,7 +94,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? serviceEndpoint,
 
-            string type)
+            string type,
+
+            string? version)
         {
             AccountKey = accountKey;
             Annotations = annotations;
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             SasUri = sasUri;
             ServiceEndpoint = serviceEndpoint;
             Type = type;
+            Version = version;
         }
     }
 }

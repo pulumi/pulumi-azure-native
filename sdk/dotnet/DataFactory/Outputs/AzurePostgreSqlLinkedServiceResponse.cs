@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'AzurePostgreSql'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzurePostgreSqlLinkedServiceResponse(
@@ -66,7 +70,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.AzureKeyVaultSecretReferenceResponse? password,
 
-            string type)
+            string type,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -76,6 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Parameters = parameters;
             Password = password;
             Type = type;
+            Version = version;
         }
     }
 }

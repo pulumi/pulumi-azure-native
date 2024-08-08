@@ -24,6 +24,8 @@ __all__ = [
     'ManagedServiceIdentityArgsDict',
     'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs',
     'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict',
+    'ResourcePolicyArgs',
+    'ResourcePolicyArgsDict',
     'SkuArgs',
     'SkuArgsDict',
     'StopOnDisconnectConfigurationArgs',
@@ -255,6 +257,62 @@ class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs:
     @roles.setter
     def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "roles", value)
+
+
+if not MYPY:
+    class ResourcePolicyArgsDict(TypedDict):
+        """
+        A resource policy.
+        """
+        filter: NotRequired[pulumi.Input[str]]
+        """
+        Optional. When specified, this expression is used to filter the resources.
+        """
+        resources: NotRequired[pulumi.Input[str]]
+        """
+        Resources that are included and shared as a part of a curation profile.
+        """
+elif False:
+    ResourcePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourcePolicyArgs:
+    def __init__(__self__, *,
+                 filter: Optional[pulumi.Input[str]] = None,
+                 resources: Optional[pulumi.Input[str]] = None):
+        """
+        A resource policy.
+        :param pulumi.Input[str] filter: Optional. When specified, this expression is used to filter the resources.
+        :param pulumi.Input[str] resources: Resources that are included and shared as a part of a curation profile.
+        """
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. When specified, this expression is used to filter the resources.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resources that are included and shared as a part of a curation profile.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resources", value)
 
 
 if not MYPY:

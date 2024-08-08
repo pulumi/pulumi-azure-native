@@ -27,13 +27,13 @@ export interface ListListTenantConfigurationViolationArgs {
  */
 export interface ListListTenantConfigurationViolationResult {
     /**
-     * The URL to use for getting the next set of results.
+     * The link to the next page of items
      */
     readonly nextLink?: string;
     /**
-     * The array of violations.
+     * The Violation items on this page
      */
-    readonly value?: outputs.portal.ViolationResponse[];
+    readonly value: outputs.portal.ViolationResponse[];
 }
 /**
  * Gets list of items that violate tenant's configuration.

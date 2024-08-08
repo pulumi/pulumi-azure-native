@@ -94,6 +94,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("url", required: true)]
         public Input<object> Url { get; set; } = null!;
 
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public DynamicsAXLinkedServiceArgs()
         {
         }

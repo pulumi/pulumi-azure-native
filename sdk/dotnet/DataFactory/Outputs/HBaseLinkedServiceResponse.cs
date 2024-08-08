@@ -81,6 +81,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The user name used to connect to the HBase instance.
         /// </summary>
         public readonly object? Username;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private HBaseLinkedServiceResponse(
@@ -114,7 +118,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? username)
+            object? username,
+
+            string? version)
         {
             AllowHostNameCNMismatch = allowHostNameCNMismatch;
             AllowSelfSignedServerCert = allowSelfSignedServerCert;
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             TrustedCertPath = trustedCertPath;
             Type = type;
             Username = username;
+            Version = version;
         }
     }
 }

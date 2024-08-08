@@ -158,9 +158,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
+        /// Version of the linked service.
         /// </summary>
-        public readonly object Version;
+        public readonly string Version;
         /// <summary>
         /// The ARM resource ID for the vNet to which the cluster should be joined after creation. Type: string (or Expression with resultType string).
         /// </summary>
@@ -246,7 +246,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object version,
+            string version,
 
             object? virtualNetworkId,
 

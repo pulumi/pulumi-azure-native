@@ -39,15 +39,15 @@ class ListListTenantConfigurationViolationResult:
     @pulumi.getter(name="nextLink")
     def next_link(self) -> Optional[str]:
         """
-        The URL to use for getting the next set of results.
+        The link to the next page of items
         """
         return pulumi.get(self, "next_link")
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.ViolationResponse']]:
+    def value(self) -> Sequence['outputs.ViolationResponse']:
         """
-        The array of violations.
+        The Violation items on this page
         """
         return pulumi.get(self, "value")
 

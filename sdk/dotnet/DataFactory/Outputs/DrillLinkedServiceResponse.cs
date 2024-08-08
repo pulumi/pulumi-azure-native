@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Expected value is 'Drill'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private DrillLinkedServiceResponse(
@@ -66,7 +70,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.AzureKeyVaultSecretReferenceResponse? pwd,
 
-            string type)
+            string type,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -76,6 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Parameters = parameters;
             Pwd = pwd;
             Type = type;
+            Version = version;
         }
     }
 }

@@ -5,12 +5,23 @@
 from enum import Enum
 
 __all__ = [
+    'DashboardPartMetadataType',
     'FontSize',
     'FontStyle',
     'OsType',
     'ProvisioningState',
     'ShellType',
 ]
+
+
+class DashboardPartMetadataType(str, Enum):
+    """
+    The dashboard part metadata type.
+    """
+    MARKDOWN = "Extension/HubsExtension/PartType/MarkdownPart"
+    """
+    The markdown part type.
+    """
 
 
 class FontSize(str, Enum):

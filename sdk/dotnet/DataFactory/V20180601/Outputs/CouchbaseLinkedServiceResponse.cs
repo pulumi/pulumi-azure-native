@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Expected value is 'Couchbase'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private CouchbaseLinkedServiceResponse(
@@ -66,7 +70,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            string type)
+            string type,
+
+            string? version)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
@@ -76,6 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             Type = type;
+            Version = version;
         }
     }
 }

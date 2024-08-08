@@ -161,6 +161,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The user name to be used when connecting to server. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureSqlDWLinkedServiceResponse(
@@ -234,7 +238,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
-            object? userName)
+            object? userName,
+
+            string? version)
         {
             Annotations = annotations;
             ApplicationIntent = applicationIntent;
@@ -272,6 +278,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             TrustServerCertificate = trustServerCertificate;
             Type = type;
             UserName = userName;
+            Version = version;
         }
     }
 }

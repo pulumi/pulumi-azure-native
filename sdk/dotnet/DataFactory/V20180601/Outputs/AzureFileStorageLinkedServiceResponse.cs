@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// User ID to logon the server. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserId;
+        /// <summary>
+        /// Version of the linked service.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private AzureFileStorageLinkedServiceResponse(
@@ -120,7 +124,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            object? userId)
+            object? userId,
+
+            string? version)
         {
             AccountKey = accountKey;
             Annotations = annotations;
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Snapshot = snapshot;
             Type = type;
             UserId = userId;
+            Version = version;
         }
     }
 }

@@ -13,18 +13,23 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
+from ._enums import *
 
 __all__ = [
+    'ConfigurationPropertiesArgs',
+    'ConfigurationPropertiesArgsDict',
     'DashboardLensArgs',
     'DashboardLensArgsDict',
     'DashboardPartsPositionArgs',
     'DashboardPartsPositionArgsDict',
     'DashboardPartsArgs',
     'DashboardPartsArgsDict',
-    'MarkdownPartMetadataContentArgs',
-    'MarkdownPartMetadataContentArgsDict',
-    'MarkdownPartMetadataSettingsSettingsArgs',
-    'MarkdownPartMetadataSettingsSettingsArgsDict',
+    'DashboardPropertiesWithProvisioningStateArgs',
+    'DashboardPropertiesWithProvisioningStateArgsDict',
+    'MarkdownPartMetadataSettingsContentSettingsArgs',
+    'MarkdownPartMetadataSettingsContentSettingsArgsDict',
+    'MarkdownPartMetadataSettingsContentArgs',
+    'MarkdownPartMetadataSettingsContentArgsDict',
     'MarkdownPartMetadataSettingsArgs',
     'MarkdownPartMetadataSettingsArgsDict',
     'MarkdownPartMetadataArgs',
@@ -32,6 +37,42 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Tenant Configuration Properties with Provisioning state
+        """
+        enforce_private_markdown_storage: NotRequired[pulumi.Input[bool]]
+        """
+        When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+        """
+elif False:
+    ConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 enforce_private_markdown_storage: Optional[pulumi.Input[bool]] = None):
+        """
+        Tenant Configuration Properties with Provisioning state
+        :param pulumi.Input[bool] enforce_private_markdown_storage: When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+        """
+        if enforce_private_markdown_storage is not None:
+            pulumi.set(__self__, "enforce_private_markdown_storage", enforce_private_markdown_storage)
+
+    @property
+    @pulumi.getter(name="enforcePrivateMarkdownStorage")
+    def enforce_private_markdown_storage(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+        """
+        return pulumi.get(self, "enforce_private_markdown_storage")
+
+    @enforce_private_markdown_storage.setter
+    def enforce_private_markdown_storage(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforce_private_markdown_storage", value)
+
 
 if not MYPY:
     class DashboardLensArgsDict(TypedDict):
@@ -46,7 +87,7 @@ if not MYPY:
         """
         The dashboard parts.
         """
-        metadata: NotRequired[pulumi.Input[Mapping[str, Any]]]
+        metadata: NotRequired[Any]
         """
         The dashboard len's metadata.
         """
@@ -58,12 +99,12 @@ class DashboardLensArgs:
     def __init__(__self__, *,
                  order: pulumi.Input[int],
                  parts: pulumi.Input[Sequence[pulumi.Input['DashboardPartsArgs']]],
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 metadata: Optional[Any] = None):
         """
         A dashboard lens.
         :param pulumi.Input[int] order: The lens order.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardPartsArgs']]] parts: The dashboard parts.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The dashboard len's metadata.
+        :param Any metadata: The dashboard len's metadata.
         """
         pulumi.set(__self__, "order", order)
         pulumi.set(__self__, "parts", parts)
@@ -96,14 +137,14 @@ class DashboardLensArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Any]:
         """
         The dashboard len's metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
 
 
@@ -128,7 +169,7 @@ if not MYPY:
         """
         The dashboard's part y coordinate.
         """
-        metadata: NotRequired[pulumi.Input[Mapping[str, Any]]]
+        metadata: NotRequired[Any]
         """
         The dashboard part's metadata.
         """
@@ -142,14 +183,14 @@ class DashboardPartsPositionArgs:
                  row_span: pulumi.Input[int],
                  x: pulumi.Input[int],
                  y: pulumi.Input[int],
-                 metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 metadata: Optional[Any] = None):
         """
         The dashboard's part position.
         :param pulumi.Input[int] col_span: The dashboard's part column span.
         :param pulumi.Input[int] row_span: The dashboard's part row span.
         :param pulumi.Input[int] x: The dashboard's part x coordinate.
         :param pulumi.Input[int] y: The dashboard's part y coordinate.
-        :param pulumi.Input[Mapping[str, Any]] metadata: The dashboard part's metadata.
+        :param Any metadata: The dashboard part's metadata.
         """
         pulumi.set(__self__, "col_span", col_span)
         pulumi.set(__self__, "row_span", row_span)
@@ -208,14 +249,14 @@ class DashboardPartsPositionArgs:
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def metadata(self) -> Optional[Any]:
         """
         The dashboard part's metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
 
 
@@ -275,43 +316,63 @@ class DashboardPartsArgs:
 
 
 if not MYPY:
-    class MarkdownPartMetadataContentArgsDict(TypedDict):
+    class DashboardPropertiesWithProvisioningStateArgsDict(TypedDict):
         """
-        The content of markdown part.
+        Dashboard Properties with Provisioning state
         """
-        settings: NotRequired[pulumi.Input['MarkdownPartMetadataSettingsSettingsArgsDict']]
+        lenses: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardLensArgsDict']]]]
         """
-        The setting of the content of markdown part.
+        The dashboard lenses.
+        """
+        metadata: NotRequired[Any]
+        """
+        The dashboard metadata.
         """
 elif False:
-    MarkdownPartMetadataContentArgsDict: TypeAlias = Mapping[str, Any]
+    DashboardPropertiesWithProvisioningStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class MarkdownPartMetadataContentArgs:
+class DashboardPropertiesWithProvisioningStateArgs:
     def __init__(__self__, *,
-                 settings: Optional[pulumi.Input['MarkdownPartMetadataSettingsSettingsArgs']] = None):
+                 lenses: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardLensArgs']]]] = None,
+                 metadata: Optional[Any] = None):
         """
-        The content of markdown part.
-        :param pulumi.Input['MarkdownPartMetadataSettingsSettingsArgs'] settings: The setting of the content of markdown part.
+        Dashboard Properties with Provisioning state
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardLensArgs']]] lenses: The dashboard lenses.
+        :param Any metadata: The dashboard metadata.
         """
-        if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+        if lenses is not None:
+            pulumi.set(__self__, "lenses", lenses)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['MarkdownPartMetadataSettingsSettingsArgs']]:
+    def lenses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardLensArgs']]]]:
         """
-        The setting of the content of markdown part.
+        The dashboard lenses.
         """
-        return pulumi.get(self, "settings")
+        return pulumi.get(self, "lenses")
 
-    @settings.setter
-    def settings(self, value: Optional[pulumi.Input['MarkdownPartMetadataSettingsSettingsArgs']]):
-        pulumi.set(self, "settings", value)
+    @lenses.setter
+    def lenses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardLensArgs']]]]):
+        pulumi.set(self, "lenses", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The dashboard metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
 
 
 if not MYPY:
-    class MarkdownPartMetadataSettingsSettingsArgsDict(TypedDict):
+    class MarkdownPartMetadataSettingsContentSettingsArgsDict(TypedDict):
         """
         The setting of the content of markdown part.
         """
@@ -336,10 +397,10 @@ if not MYPY:
         The title of the markdown part.
         """
 elif False:
-    MarkdownPartMetadataSettingsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+    MarkdownPartMetadataSettingsContentSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class MarkdownPartMetadataSettingsSettingsArgs:
+class MarkdownPartMetadataSettingsContentSettingsArgs:
     def __init__(__self__, *,
                  content: Optional[pulumi.Input[str]] = None,
                  markdown_source: Optional[pulumi.Input[int]] = None,
@@ -427,11 +488,47 @@ class MarkdownPartMetadataSettingsSettingsArgs:
 
 
 if not MYPY:
+    class MarkdownPartMetadataSettingsContentArgsDict(TypedDict):
+        """
+        The content of markdown part.
+        """
+        settings: NotRequired[pulumi.Input['MarkdownPartMetadataSettingsContentSettingsArgsDict']]
+        """
+        The setting of the content of markdown part.
+        """
+elif False:
+    MarkdownPartMetadataSettingsContentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MarkdownPartMetadataSettingsContentArgs:
+    def __init__(__self__, *,
+                 settings: Optional[pulumi.Input['MarkdownPartMetadataSettingsContentSettingsArgs']] = None):
+        """
+        The content of markdown part.
+        :param pulumi.Input['MarkdownPartMetadataSettingsContentSettingsArgs'] settings: The setting of the content of markdown part.
+        """
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input['MarkdownPartMetadataSettingsContentSettingsArgs']]:
+        """
+        The setting of the content of markdown part.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input['MarkdownPartMetadataSettingsContentSettingsArgs']]):
+        pulumi.set(self, "settings", value)
+
+
+if not MYPY:
     class MarkdownPartMetadataSettingsArgsDict(TypedDict):
         """
         Markdown part settings.
         """
-        content: NotRequired[pulumi.Input['MarkdownPartMetadataContentArgsDict']]
+        content: NotRequired[pulumi.Input['MarkdownPartMetadataSettingsContentArgsDict']]
         """
         The content of markdown part.
         """
@@ -441,24 +538,24 @@ elif False:
 @pulumi.input_type
 class MarkdownPartMetadataSettingsArgs:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input['MarkdownPartMetadataContentArgs']] = None):
+                 content: Optional[pulumi.Input['MarkdownPartMetadataSettingsContentArgs']] = None):
         """
         Markdown part settings.
-        :param pulumi.Input['MarkdownPartMetadataContentArgs'] content: The content of markdown part.
+        :param pulumi.Input['MarkdownPartMetadataSettingsContentArgs'] content: The content of markdown part.
         """
         if content is not None:
             pulumi.set(__self__, "content", content)
 
     @property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input['MarkdownPartMetadataContentArgs']]:
+    def content(self) -> Optional[pulumi.Input['MarkdownPartMetadataSettingsContentArgs']]:
         """
         The content of markdown part.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input['MarkdownPartMetadataContentArgs']]):
+    def content(self, value: Optional[pulumi.Input['MarkdownPartMetadataSettingsContentArgs']]):
         pulumi.set(self, "content", value)
 
 
@@ -469,7 +566,7 @@ if not MYPY:
         """
         type: pulumi.Input[str]
         """
-        The type of dashboard part.
+        The dashboard part metadata type.
         Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         """
         inputs: NotRequired[pulumi.Input[Sequence[Any]]]
@@ -491,7 +588,7 @@ class MarkdownPartMetadataArgs:
                  settings: Optional[pulumi.Input['MarkdownPartMetadataSettingsArgs']] = None):
         """
         Markdown part metadata.
-        :param pulumi.Input[str] type: The type of dashboard part.
+        :param pulumi.Input[str] type: The dashboard part metadata type.
                Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         :param pulumi.Input[Sequence[Any]] inputs: Input to dashboard part.
         :param pulumi.Input['MarkdownPartMetadataSettingsArgs'] settings: Markdown part settings.
@@ -506,7 +603,7 @@ class MarkdownPartMetadataArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of dashboard part.
+        The dashboard part metadata type.
         Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         """
         return pulumi.get(self, "type")
