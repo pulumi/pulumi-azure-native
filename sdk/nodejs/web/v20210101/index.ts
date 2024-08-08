@@ -15,10 +15,20 @@ export const getWebAppFtpAllowed: typeof import("./getWebAppFtpAllowed").getWebA
 export const getWebAppFtpAllowedOutput: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowedOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppFtpAllowed","getWebAppFtpAllowedOutput"], () => require("./getWebAppFtpAllowed"));
 
+export { GetWebAppFtpAllowedSlotArgs, GetWebAppFtpAllowedSlotResult, GetWebAppFtpAllowedSlotOutputArgs } from "./getWebAppFtpAllowedSlot";
+export const getWebAppFtpAllowedSlot: typeof import("./getWebAppFtpAllowedSlot").getWebAppFtpAllowedSlot = null as any;
+export const getWebAppFtpAllowedSlotOutput: typeof import("./getWebAppFtpAllowedSlot").getWebAppFtpAllowedSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppFtpAllowedSlot","getWebAppFtpAllowedSlotOutput"], () => require("./getWebAppFtpAllowedSlot"));
+
 export { GetWebAppScmAllowedArgs, GetWebAppScmAllowedResult, GetWebAppScmAllowedOutputArgs } from "./getWebAppScmAllowed";
 export const getWebAppScmAllowed: typeof import("./getWebAppScmAllowed").getWebAppScmAllowed = null as any;
 export const getWebAppScmAllowedOutput: typeof import("./getWebAppScmAllowed").getWebAppScmAllowedOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppScmAllowed","getWebAppScmAllowedOutput"], () => require("./getWebAppScmAllowed"));
+
+export { GetWebAppScmAllowedSlotArgs, GetWebAppScmAllowedSlotResult, GetWebAppScmAllowedSlotOutputArgs } from "./getWebAppScmAllowedSlot";
+export const getWebAppScmAllowedSlot: typeof import("./getWebAppScmAllowedSlot").getWebAppScmAllowedSlot = null as any;
+export const getWebAppScmAllowedSlotOutput: typeof import("./getWebAppScmAllowedSlot").getWebAppScmAllowedSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppScmAllowedSlot","getWebAppScmAllowedSlotOutput"], () => require("./getWebAppScmAllowedSlot"));
 
 export { ListSiteIdentifiersAssignedToHostNameArgs, ListSiteIdentifiersAssignedToHostNameResult, ListSiteIdentifiersAssignedToHostNameOutputArgs } from "./listSiteIdentifiersAssignedToHostName";
 export const listSiteIdentifiersAssignedToHostName: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostName = null as any;
@@ -35,10 +45,20 @@ export type WebAppFtpAllowed = import("./webAppFtpAllowed").WebAppFtpAllowed;
 export const WebAppFtpAllowed: typeof import("./webAppFtpAllowed").WebAppFtpAllowed = null as any;
 utilities.lazyLoad(exports, ["WebAppFtpAllowed"], () => require("./webAppFtpAllowed"));
 
+export { WebAppFtpAllowedSlotArgs } from "./webAppFtpAllowedSlot";
+export type WebAppFtpAllowedSlot = import("./webAppFtpAllowedSlot").WebAppFtpAllowedSlot;
+export const WebAppFtpAllowedSlot: typeof import("./webAppFtpAllowedSlot").WebAppFtpAllowedSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppFtpAllowedSlot"], () => require("./webAppFtpAllowedSlot"));
+
 export { WebAppScmAllowedArgs } from "./webAppScmAllowed";
 export type WebAppScmAllowed = import("./webAppScmAllowed").WebAppScmAllowed;
 export const WebAppScmAllowed: typeof import("./webAppScmAllowed").WebAppScmAllowed = null as any;
 utilities.lazyLoad(exports, ["WebAppScmAllowed"], () => require("./webAppScmAllowed"));
+
+export { WebAppScmAllowedSlotArgs } from "./webAppScmAllowedSlot";
+export type WebAppScmAllowedSlot = import("./webAppScmAllowedSlot").WebAppScmAllowedSlot;
+export const WebAppScmAllowedSlot: typeof import("./webAppScmAllowedSlot").WebAppScmAllowedSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppScmAllowedSlot"], () => require("./webAppScmAllowedSlot"));
 
 
 // Export enums:
@@ -52,8 +72,12 @@ const _module = {
                 return new WebAppDiagnosticLogsConfigurationSlot(name, <any>undefined, { urn })
             case "azure-native:web/v20210101:WebAppFtpAllowed":
                 return new WebAppFtpAllowed(name, <any>undefined, { urn })
+            case "azure-native:web/v20210101:WebAppFtpAllowedSlot":
+                return new WebAppFtpAllowedSlot(name, <any>undefined, { urn })
             case "azure-native:web/v20210101:WebAppScmAllowed":
                 return new WebAppScmAllowed(name, <any>undefined, { urn })
+            case "azure-native:web/v20210101:WebAppScmAllowedSlot":
+                return new WebAppScmAllowedSlot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
