@@ -217,6 +217,7 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 								Ref: "#/types/azure-native:foobar/v20200101:FooType",
 							},
 						},
+						"p6": {Ref: "#/types/azure-native:foobar/v20200101:FooType", ForceNew: true},
 					},
 				},
 			},
@@ -229,6 +230,7 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 				Properties: map[string]resources.AzureAPIProperty{
 					"ps1": {},
 					"ps2": {ForceNew: true},
+					"ps3": {},
 				},
 			}, true, nil
 		}
@@ -293,6 +295,16 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 					},
 				},
 			},
+			"p6": {
+				Object: &resource.ObjectDiff{
+					Deletes: map[resource.PropertyKey]resource.PropertyValue{
+						"ps1": {V: "removed"},
+					},
+					Adds: map[resource.PropertyKey]resource.PropertyValue{
+						"ps3": {V: "added"},
+					},
+				},
+			},
 		},
 	}
 	actual := calculateDetailedDiff(&res, lookupType, &diff)
@@ -304,6 +316,9 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 		"p4.ps1":    {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
 		"p5[0].ps1": {Kind: rpc.PropertyDiff_UPDATE},
 		"p5[0].ps2": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		"p6":        {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		"p6.ps1":    {Kind: rpc.PropertyDiff_DELETE},
+		"p6.ps3":    {Kind: rpc.PropertyDiff_ADD},
 	}
 	assert.Equal(t, expected, actual)
 }
