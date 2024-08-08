@@ -10,6 +10,9 @@ var forceNewMap = map[string]map[string]codegen.StringSet{
 	"Authorization": {
 		"RoleAssignment": codegen.NewStringSet("principalId", "scope"),
 	},
+	"Automation": {
+		"JobSchedule": codegen.NewStringSet("parameters"),
+	},
 	"Cdn": {
 		"Profile": codegen.NewStringSet(
 			"location",
