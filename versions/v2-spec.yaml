@@ -1831,6 +1831,7 @@ Web:
         WebAppDeployment: "2022-09-01"
         WebAppDeploymentSlot: "2022-09-01"
         WebAppDiagnosticLogsConfiguration: "2022-09-01"
+        WebAppDiagnosticLogsConfigurationSlot: "2023-12-01"
         WebAppDomainOwnershipIdentifier: "2022-09-01"
         WebAppDomainOwnershipIdentifierSlot: "2022-09-01"
         WebAppFtpAllowed: "2022-09-01"

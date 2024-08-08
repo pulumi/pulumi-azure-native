@@ -15,6 +15,11 @@ export const getAppServiceEnvironment: typeof import("./getAppServiceEnvironment
 export const getAppServiceEnvironmentOutput: typeof import("./getAppServiceEnvironment").getAppServiceEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getAppServiceEnvironment","getAppServiceEnvironmentOutput"], () => require("./getAppServiceEnvironment"));
 
+export { GetWebAppDiagnosticLogsConfigurationSlotArgs, GetWebAppDiagnosticLogsConfigurationSlotResult, GetWebAppDiagnosticLogsConfigurationSlotOutputArgs } from "./getWebAppDiagnosticLogsConfigurationSlot";
+export const getWebAppDiagnosticLogsConfigurationSlot: typeof import("./getWebAppDiagnosticLogsConfigurationSlot").getWebAppDiagnosticLogsConfigurationSlot = null as any;
+export const getWebAppDiagnosticLogsConfigurationSlotOutput: typeof import("./getWebAppDiagnosticLogsConfigurationSlot").getWebAppDiagnosticLogsConfigurationSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppDiagnosticLogsConfigurationSlot","getWebAppDiagnosticLogsConfigurationSlotOutput"], () => require("./getWebAppDiagnosticLogsConfigurationSlot"));
+
 export { GetWebAppFtpAllowedArgs, GetWebAppFtpAllowedResult, GetWebAppFtpAllowedOutputArgs } from "./getWebAppFtpAllowed";
 export const getWebAppFtpAllowed: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowed = null as any;
 export const getWebAppFtpAllowedOutput: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowedOutput = null as any;
@@ -29,6 +34,11 @@ export { ListSiteIdentifiersAssignedToHostNameArgs, ListSiteIdentifiersAssignedT
 export const listSiteIdentifiersAssignedToHostName: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostName = null as any;
 export const listSiteIdentifiersAssignedToHostNameOutput: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostNameOutput = null as any;
 utilities.lazyLoad(exports, ["listSiteIdentifiersAssignedToHostName","listSiteIdentifiersAssignedToHostNameOutput"], () => require("./listSiteIdentifiersAssignedToHostName"));
+
+export { WebAppDiagnosticLogsConfigurationSlotArgs } from "./webAppDiagnosticLogsConfigurationSlot";
+export type WebAppDiagnosticLogsConfigurationSlot = import("./webAppDiagnosticLogsConfigurationSlot").WebAppDiagnosticLogsConfigurationSlot;
+export const WebAppDiagnosticLogsConfigurationSlot: typeof import("./webAppDiagnosticLogsConfigurationSlot").WebAppDiagnosticLogsConfigurationSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppDiagnosticLogsConfigurationSlot"], () => require("./webAppDiagnosticLogsConfigurationSlot"));
 
 export { WebAppFtpAllowedArgs } from "./webAppFtpAllowed";
 export type WebAppFtpAllowed = import("./webAppFtpAllowed").WebAppFtpAllowed;
@@ -50,6 +60,8 @@ const _module = {
         switch (type) {
             case "azure-native:web/v20190801:AppServiceEnvironment":
                 return new AppServiceEnvironment(name, <any>undefined, { urn })
+            case "azure-native:web/v20190801:WebAppDiagnosticLogsConfigurationSlot":
+                return new WebAppDiagnosticLogsConfigurationSlot(name, <any>undefined, { urn })
             case "azure-native:web/v20190801:WebAppFtpAllowed":
                 return new WebAppFtpAllowed(name, <any>undefined, { urn })
             case "azure-native:web/v20190801:WebAppScmAllowed":

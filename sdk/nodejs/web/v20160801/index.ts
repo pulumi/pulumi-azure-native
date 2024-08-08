@@ -10,6 +10,11 @@ export const getWebApp: typeof import("./getWebApp").getWebApp = null as any;
 export const getWebAppOutput: typeof import("./getWebApp").getWebAppOutput = null as any;
 utilities.lazyLoad(exports, ["getWebApp","getWebAppOutput"], () => require("./getWebApp"));
 
+export { GetWebAppDiagnosticLogsConfigurationSlotArgs, GetWebAppDiagnosticLogsConfigurationSlotResult, GetWebAppDiagnosticLogsConfigurationSlotOutputArgs } from "./getWebAppDiagnosticLogsConfigurationSlot";
+export const getWebAppDiagnosticLogsConfigurationSlot: typeof import("./getWebAppDiagnosticLogsConfigurationSlot").getWebAppDiagnosticLogsConfigurationSlot = null as any;
+export const getWebAppDiagnosticLogsConfigurationSlotOutput: typeof import("./getWebAppDiagnosticLogsConfigurationSlot").getWebAppDiagnosticLogsConfigurationSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppDiagnosticLogsConfigurationSlot","getWebAppDiagnosticLogsConfigurationSlotOutput"], () => require("./getWebAppDiagnosticLogsConfigurationSlot"));
+
 export { GetWebAppFunctionArgs, GetWebAppFunctionResult, GetWebAppFunctionOutputArgs } from "./getWebAppFunction";
 export const getWebAppFunction: typeof import("./getWebAppFunction").getWebAppFunction = null as any;
 export const getWebAppFunctionOutput: typeof import("./getWebAppFunction").getWebAppFunctionOutput = null as any;
@@ -110,6 +115,11 @@ export type WebAppBackupConfigurationSlot = import("./webAppBackupConfigurationS
 export const WebAppBackupConfigurationSlot: typeof import("./webAppBackupConfigurationSlot").WebAppBackupConfigurationSlot = null as any;
 utilities.lazyLoad(exports, ["WebAppBackupConfigurationSlot"], () => require("./webAppBackupConfigurationSlot"));
 
+export { WebAppDiagnosticLogsConfigurationSlotArgs } from "./webAppDiagnosticLogsConfigurationSlot";
+export type WebAppDiagnosticLogsConfigurationSlot = import("./webAppDiagnosticLogsConfigurationSlot").WebAppDiagnosticLogsConfigurationSlot;
+export const WebAppDiagnosticLogsConfigurationSlot: typeof import("./webAppDiagnosticLogsConfigurationSlot").WebAppDiagnosticLogsConfigurationSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppDiagnosticLogsConfigurationSlot"], () => require("./webAppDiagnosticLogsConfigurationSlot"));
+
 export { WebAppFunctionArgs } from "./webAppFunction";
 export type WebAppFunction = import("./webAppFunction").WebAppFunction;
 export const WebAppFunction: typeof import("./webAppFunction").WebAppFunction = null as any;
@@ -159,6 +169,8 @@ const _module = {
                 return new WebAppBackupConfiguration(name, <any>undefined, { urn })
             case "azure-native:web/v20160801:WebAppBackupConfigurationSlot":
                 return new WebAppBackupConfigurationSlot(name, <any>undefined, { urn })
+            case "azure-native:web/v20160801:WebAppDiagnosticLogsConfigurationSlot":
+                return new WebAppDiagnosticLogsConfigurationSlot(name, <any>undefined, { urn })
             case "azure-native:web/v20160801:WebAppFunction":
                 return new WebAppFunction(name, <any>undefined, { urn })
             case "azure-native:web/v20160801:WebAppInstanceFunctionSlot":

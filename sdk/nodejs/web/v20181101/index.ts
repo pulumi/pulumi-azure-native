@@ -10,6 +10,11 @@ export const getWebApp: typeof import("./getWebApp").getWebApp = null as any;
 export const getWebAppOutput: typeof import("./getWebApp").getWebAppOutput = null as any;
 utilities.lazyLoad(exports, ["getWebApp","getWebAppOutput"], () => require("./getWebApp"));
 
+export { GetWebAppDiagnosticLogsConfigurationSlotArgs, GetWebAppDiagnosticLogsConfigurationSlotResult, GetWebAppDiagnosticLogsConfigurationSlotOutputArgs } from "./getWebAppDiagnosticLogsConfigurationSlot";
+export const getWebAppDiagnosticLogsConfigurationSlot: typeof import("./getWebAppDiagnosticLogsConfigurationSlot").getWebAppDiagnosticLogsConfigurationSlot = null as any;
+export const getWebAppDiagnosticLogsConfigurationSlotOutput: typeof import("./getWebAppDiagnosticLogsConfigurationSlot").getWebAppDiagnosticLogsConfigurationSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppDiagnosticLogsConfigurationSlot","getWebAppDiagnosticLogsConfigurationSlotOutput"], () => require("./getWebAppDiagnosticLogsConfigurationSlot"));
+
 export { GetWebAppDomainOwnershipIdentifierArgs, GetWebAppDomainOwnershipIdentifierResult, GetWebAppDomainOwnershipIdentifierOutputArgs } from "./getWebAppDomainOwnershipIdentifier";
 export const getWebAppDomainOwnershipIdentifier: typeof import("./getWebAppDomainOwnershipIdentifier").getWebAppDomainOwnershipIdentifier = null as any;
 export const getWebAppDomainOwnershipIdentifierOutput: typeof import("./getWebAppDomainOwnershipIdentifier").getWebAppDomainOwnershipIdentifierOutput = null as any;
@@ -70,6 +75,11 @@ export type WebApp = import("./webApp").WebApp;
 export const WebApp: typeof import("./webApp").WebApp = null as any;
 utilities.lazyLoad(exports, ["WebApp"], () => require("./webApp"));
 
+export { WebAppDiagnosticLogsConfigurationSlotArgs } from "./webAppDiagnosticLogsConfigurationSlot";
+export type WebAppDiagnosticLogsConfigurationSlot = import("./webAppDiagnosticLogsConfigurationSlot").WebAppDiagnosticLogsConfigurationSlot;
+export const WebAppDiagnosticLogsConfigurationSlot: typeof import("./webAppDiagnosticLogsConfigurationSlot").WebAppDiagnosticLogsConfigurationSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppDiagnosticLogsConfigurationSlot"], () => require("./webAppDiagnosticLogsConfigurationSlot"));
+
 export { WebAppDomainOwnershipIdentifierArgs } from "./webAppDomainOwnershipIdentifier";
 export type WebAppDomainOwnershipIdentifier = import("./webAppDomainOwnershipIdentifier").WebAppDomainOwnershipIdentifier;
 export const WebAppDomainOwnershipIdentifier: typeof import("./webAppDomainOwnershipIdentifier").WebAppDomainOwnershipIdentifier = null as any;
@@ -95,6 +105,8 @@ const _module = {
         switch (type) {
             case "azure-native:web/v20181101:WebApp":
                 return new WebApp(name, <any>undefined, { urn })
+            case "azure-native:web/v20181101:WebAppDiagnosticLogsConfigurationSlot":
+                return new WebAppDiagnosticLogsConfigurationSlot(name, <any>undefined, { urn })
             case "azure-native:web/v20181101:WebAppDomainOwnershipIdentifier":
                 return new WebAppDomainOwnershipIdentifier(name, <any>undefined, { urn })
             case "azure-native:web/v20181101:WebAppDomainOwnershipIdentifierSlot":

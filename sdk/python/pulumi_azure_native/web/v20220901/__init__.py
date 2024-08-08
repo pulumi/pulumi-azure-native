@@ -31,6 +31,7 @@ from .get_web_app import *
 from .get_web_app_deployment import *
 from .get_web_app_deployment_slot import *
 from .get_web_app_diagnostic_logs_configuration import *
+from .get_web_app_diagnostic_logs_configuration_slot import *
 from .get_web_app_domain_ownership_identifier import *
 from .get_web_app_domain_ownership_identifier_slot import *
 from .get_web_app_ftp_allowed import *
@@ -125,6 +126,7 @@ from .web_app_connection_strings_slot import *
 from .web_app_deployment import *
 from .web_app_deployment_slot import *
 from .web_app_diagnostic_logs_configuration import *
+from .web_app_diagnostic_logs_configuration_slot import *
 from .web_app_domain_ownership_identifier import *
 from .web_app_domain_ownership_identifier_slot import *
 from .web_app_ftp_allowed import *

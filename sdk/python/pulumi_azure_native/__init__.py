@@ -17892,6 +17892,7 @@ _utilities.register(
    "azure-native:web:WebAppDeployment": "WebAppDeployment",
    "azure-native:web:WebAppDeploymentSlot": "WebAppDeploymentSlot",
    "azure-native:web:WebAppDiagnosticLogsConfiguration": "WebAppDiagnosticLogsConfiguration",
+   "azure-native:web:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web:WebAppDomainOwnershipIdentifier": "WebAppDomainOwnershipIdentifier",
    "azure-native:web:WebAppDomainOwnershipIdentifierSlot": "WebAppDomainOwnershipIdentifierSlot",
    "azure-native:web:WebAppFtpAllowed": "WebAppFtpAllowed",
@@ -17962,6 +17963,7 @@ _utilities.register(
    "azure-native:web/v20160801:WebApp": "WebApp",
    "azure-native:web/v20160801:WebAppBackupConfiguration": "WebAppBackupConfiguration",
    "azure-native:web/v20160801:WebAppBackupConfigurationSlot": "WebAppBackupConfigurationSlot",
+   "azure-native:web/v20160801:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20160801:WebAppFunction": "WebAppFunction",
    "azure-native:web/v20160801:WebAppInstanceFunctionSlot": "WebAppInstanceFunctionSlot",
    "azure-native:web/v20160801:WebAppPremierAddOn": "WebAppPremierAddOn",
@@ -17982,10 +17984,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "web/v20180201",
+  "fqn": "pulumi_azure_native.web.v20180201",
+  "classes": {
+   "azure-native:web/v20180201:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "web/v20181101",
   "fqn": "pulumi_azure_native.web.v20181101",
   "classes": {
    "azure-native:web/v20181101:WebApp": "WebApp",
+   "azure-native:web/v20181101:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20181101:WebAppDomainOwnershipIdentifier": "WebAppDomainOwnershipIdentifier",
    "azure-native:web/v20181101:WebAppDomainOwnershipIdentifierSlot": "WebAppDomainOwnershipIdentifierSlot",
    "azure-native:web/v20181101:WebAppSlot": "WebAppSlot"
@@ -17997,6 +18008,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.web.v20190801",
   "classes": {
    "azure-native:web/v20190801:AppServiceEnvironment": "AppServiceEnvironment",
+   "azure-native:web/v20190801:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20190801:WebAppFtpAllowed": "WebAppFtpAllowed",
    "azure-native:web/v20190801:WebAppScmAllowed": "WebAppScmAllowed"
   }
@@ -18006,6 +18018,7 @@ _utilities.register(
   "mod": "web/v20200601",
   "fqn": "pulumi_azure_native.web.v20200601",
   "classes": {
+   "azure-native:web/v20200601:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20200601:WebAppFtpAllowed": "WebAppFtpAllowed",
    "azure-native:web/v20200601:WebAppScmAllowed": "WebAppScmAllowed"
   }
@@ -18015,6 +18028,7 @@ _utilities.register(
   "mod": "web/v20200901",
   "fqn": "pulumi_azure_native.web.v20200901",
   "classes": {
+   "azure-native:web/v20200901:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20200901:WebAppFtpAllowed": "WebAppFtpAllowed",
    "azure-native:web/v20200901:WebAppScmAllowed": "WebAppScmAllowed"
   }
@@ -18045,6 +18059,7 @@ _utilities.register(
    "azure-native:web/v20201001:WebAppDeployment": "WebAppDeployment",
    "azure-native:web/v20201001:WebAppDeploymentSlot": "WebAppDeploymentSlot",
    "azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration": "WebAppDiagnosticLogsConfiguration",
+   "azure-native:web/v20201001:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20201001:WebAppDomainOwnershipIdentifier": "WebAppDomainOwnershipIdentifier",
    "azure-native:web/v20201001:WebAppDomainOwnershipIdentifierSlot": "WebAppDomainOwnershipIdentifierSlot",
    "azure-native:web/v20201001:WebAppFtpAllowed": "WebAppFtpAllowed",
@@ -18083,6 +18098,7 @@ _utilities.register(
   "mod": "web/v20201201",
   "fqn": "pulumi_azure_native.web.v20201201",
   "classes": {
+   "azure-native:web/v20201201:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20201201:WebAppFtpAllowed": "WebAppFtpAllowed",
    "azure-native:web/v20201201:WebAppScmAllowed": "WebAppScmAllowed"
   }
@@ -18092,6 +18108,7 @@ _utilities.register(
   "mod": "web/v20210101",
   "fqn": "pulumi_azure_native.web.v20210101",
   "classes": {
+   "azure-native:web/v20210101:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20210101:WebAppFtpAllowed": "WebAppFtpAllowed",
    "azure-native:web/v20210101:WebAppScmAllowed": "WebAppScmAllowed"
   }
@@ -18102,6 +18119,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.web.v20210115",
   "classes": {
    "azure-native:web/v20210115:AppServiceEnvironment": "AppServiceEnvironment",
+   "azure-native:web/v20210115:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20210115:WebAppFtpAllowed": "WebAppFtpAllowed",
    "azure-native:web/v20210115:WebAppScmAllowed": "WebAppScmAllowed"
   }
@@ -18114,6 +18132,7 @@ _utilities.register(
    "azure-native:web/v20210201:StaticSite": "StaticSite",
    "azure-native:web/v20210201:WebAppAuthSettingsV2": "WebAppAuthSettingsV2",
    "azure-native:web/v20210201:WebAppAuthSettingsV2Slot": "WebAppAuthSettingsV2Slot",
+   "azure-native:web/v20210201:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20210201:WebAppFtpAllowed": "WebAppFtpAllowed",
    "azure-native:web/v20210201:WebAppScmAllowed": "WebAppScmAllowed"
   }
@@ -18123,6 +18142,7 @@ _utilities.register(
   "mod": "web/v20210301",
   "fqn": "pulumi_azure_native.web.v20210301",
   "classes": {
+   "azure-native:web/v20210301:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20210301:WebAppFtpAllowed": "WebAppFtpAllowed",
    "azure-native:web/v20210301:WebAppScmAllowed": "WebAppScmAllowed"
   }
@@ -18132,6 +18152,7 @@ _utilities.register(
   "mod": "web/v20220301",
   "fqn": "pulumi_azure_native.web.v20220301",
   "classes": {
+   "azure-native:web/v20220301:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20220301:WebAppFtpAllowed": "WebAppFtpAllowed",
    "azure-native:web/v20220301:WebAppScmAllowed": "WebAppScmAllowed"
   }
@@ -18171,6 +18192,7 @@ _utilities.register(
    "azure-native:web/v20220901:WebAppDeployment": "WebAppDeployment",
    "azure-native:web/v20220901:WebAppDeploymentSlot": "WebAppDeploymentSlot",
    "azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration": "WebAppDiagnosticLogsConfiguration",
+   "azure-native:web/v20220901:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20220901:WebAppDomainOwnershipIdentifier": "WebAppDomainOwnershipIdentifier",
    "azure-native:web/v20220901:WebAppDomainOwnershipIdentifierSlot": "WebAppDomainOwnershipIdentifierSlot",
    "azure-native:web/v20220901:WebAppFtpAllowed": "WebAppFtpAllowed",
@@ -18241,6 +18263,7 @@ _utilities.register(
    "azure-native:web/v20230101:WebAppDeployment": "WebAppDeployment",
    "azure-native:web/v20230101:WebAppDeploymentSlot": "WebAppDeploymentSlot",
    "azure-native:web/v20230101:WebAppDiagnosticLogsConfiguration": "WebAppDiagnosticLogsConfiguration",
+   "azure-native:web/v20230101:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20230101:WebAppDomainOwnershipIdentifier": "WebAppDomainOwnershipIdentifier",
    "azure-native:web/v20230101:WebAppDomainOwnershipIdentifierSlot": "WebAppDomainOwnershipIdentifierSlot",
    "azure-native:web/v20230101:WebAppFtpAllowed": "WebAppFtpAllowed",
@@ -18311,6 +18334,7 @@ _utilities.register(
    "azure-native:web/v20231201:WebAppDeployment": "WebAppDeployment",
    "azure-native:web/v20231201:WebAppDeploymentSlot": "WebAppDeploymentSlot",
    "azure-native:web/v20231201:WebAppDiagnosticLogsConfiguration": "WebAppDiagnosticLogsConfiguration",
+   "azure-native:web/v20231201:WebAppDiagnosticLogsConfigurationSlot": "WebAppDiagnosticLogsConfigurationSlot",
    "azure-native:web/v20231201:WebAppDomainOwnershipIdentifier": "WebAppDomainOwnershipIdentifier",
    "azure-native:web/v20231201:WebAppDomainOwnershipIdentifierSlot": "WebAppDomainOwnershipIdentifierSlot",
    "azure-native:web/v20231201:WebAppFtpAllowed": "WebAppFtpAllowed",

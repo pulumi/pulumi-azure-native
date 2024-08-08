@@ -8,6 +8,7 @@ __all__ = [
     'ClientCredentialMethod',
     'CookieExpirationConvention',
     'ForwardProxyConvention',
+    'LogLevel',
     'ManagedServiceIdentityType',
     'StagingEnvironmentPolicy',
     'UnauthenticatedClientActionV2',
@@ -36,6 +37,17 @@ class ForwardProxyConvention(str, Enum):
     NO_PROXY = "NoProxy"
     STANDARD = "Standard"
     CUSTOM = "Custom"
+
+
+class LogLevel(str, Enum):
+    """
+    Log level.
+    """
+    OFF = "Off"
+    VERBOSE = "Verbose"
+    INFORMATION = "Information"
+    WARNING = "Warning"
+    ERROR = "Error"
 
 
 class ManagedServiceIdentityType(str, Enum):
