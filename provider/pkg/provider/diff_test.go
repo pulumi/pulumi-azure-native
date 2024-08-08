@@ -5,7 +5,6 @@ package provider
 import (
 	"encoding/json"
 	"fmt"
-	"strings"
 	"testing"
 	"unicode"
 
@@ -201,91 +200,169 @@ func TestCalculateDiffReplacesPathParameters(t *testing.T) {
 }
 
 func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
-	res := resources.AzureAPIResource{
-		PutParameters: []resources.AzureAPIParameter{
-			{
-				Location: "body",
-				Name:     "bodyProperties",
-				Body: &resources.AzureAPIType{
-					Properties: map[string]resources.AzureAPIProperty{
-						"p1": {Type: "string"},
-						"p2": {Type: "number", ForceNew: true},
-						"p3": {Ref: "#/types/azure-native:foobar/v20200101:FooType"},
-						"p4": {Ref: "#/types/azure-native:foobar/v20200101:FooType", ForceNew: true},
-						"p5": {
-							Items: &resources.AzureAPIProperty{
-								Ref: "#/types/azure-native:foobar/v20200101:FooType",
-							},
+	const topLevelProperty = "p1"
+
+	oldToNew := resource.ValueDiff{
+		Old: resource.PropertyValue{V: "oldvalue"},
+		New: resource.PropertyValue{V: "newvalue"},
+	}
+
+	test := func(t *testing.T, property resources.AzureAPIProperty, refProperties map[string]resources.AzureAPIProperty, diff resource.ObjectDiff, expected map[string]*rpc.PropertyDiff) {
+		res := resources.AzureAPIResource{
+			PutParameters: []resources.AzureAPIParameter{
+				{
+					Location: "body",
+					Name:     "bodyProperties",
+					Body: &resources.AzureAPIType{
+						Properties: map[string]resources.AzureAPIProperty{
+							topLevelProperty: property,
 						},
+					},
+				},
+			},
+		}
+
+		lookupType := func(t string) (*resources.AzureAPIType, bool, error) {
+			return &resources.AzureAPIType{
+				Properties: refProperties,
+			}, true, nil
+		}
+
+		actual := calculateDetailedDiff(&res, lookupType, &diff)
+		assert.Equal(t, expected, actual)
+	}
+
+	t.Run("primitive property", func(t *testing.T) {
+		property := resources.AzureAPIProperty{Type: "string"}
+		diff := resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				topLevelProperty: oldToNew,
+			},
+		}
+		expected := map[string]*rpc.PropertyDiff{
+			topLevelProperty: {Kind: rpc.PropertyDiff_UPDATE},
+		}
+		test(t, property, nil, diff, expected)
+	})
+
+	t.Run("primitive property with forceNew", func(t *testing.T) {
+		property := resources.AzureAPIProperty{Type: "string", ForceNew: true}
+		diff := resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				topLevelProperty: oldToNew,
+			},
+		}
+		expected := map[string]*rpc.PropertyDiff{
+			topLevelProperty: {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		}
+		test(t, property, nil, diff, expected)
+	})
+
+	t.Run("object with updates", func(t *testing.T) {
+		property := resources.AzureAPIProperty{Ref: "#/types/foo"}
+		refProperties := map[string]resources.AzureAPIProperty{
+			"inner1": {},
+			"inner2": {ForceNew: true},
+		}
+		diff := resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				topLevelProperty: {
+					Object: &resource.ObjectDiff{
+						Updates: map[resource.PropertyKey]resource.ValueDiff{
+							"inner1": oldToNew,
+							"inner2": oldToNew,
+						},
+					},
+				},
+			},
+		}
+		expected := map[string]*rpc.PropertyDiff{
+			topLevelProperty + ".inner1": {Kind: rpc.PropertyDiff_UPDATE},
+			topLevelProperty + ".inner2": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		}
+		test(t, property, refProperties, diff, expected)
+	})
+
+	t.Run("object with updates and forceNew", func(t *testing.T) {
+		property := resources.AzureAPIProperty{Ref: "#/types/foo", ForceNew: true}
+		refProperties := map[string]resources.AzureAPIProperty{
+			"inner1": {},
+		}
+		diff := resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				topLevelProperty: {
+					Object: &resource.ObjectDiff{
+						Updates: map[resource.PropertyKey]resource.ValueDiff{
+							"inner1": oldToNew,
+						},
+					},
+				},
+			},
+		}
+		expected := map[string]*rpc.PropertyDiff{
+			topLevelProperty + ".inner1": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		}
+		test(t, property, refProperties, diff, expected)
+	})
+
+	diffObjectHasPropertyAddedAndDeleted := resource.ObjectDiff{
+		Updates: map[resource.PropertyKey]resource.ValueDiff{
+			topLevelProperty: {
+				Object: &resource.ObjectDiff{
+					Deletes: map[resource.PropertyKey]resource.PropertyValue{
+						"inner1": {V: "removed"},
+					},
+					Adds: map[resource.PropertyKey]resource.PropertyValue{
+						"inner3": {V: "added"},
 					},
 				},
 			},
 		},
 	}
-	fooTypeName := "azure-native:foobar/v20200101:FooType"
-	lookupType := func(t string) (*resources.AzureAPIType, bool, error) {
-		if strings.HasSuffix(t, fooTypeName) {
-			return &resources.AzureAPIType{
-				Properties: map[string]resources.AzureAPIProperty{
-					"ps1": {},
-					"ps2": {ForceNew: true},
-				},
-			}, true, nil
+
+	t.Run("object with additions and deletions only", func(t *testing.T) {
+		property := resources.AzureAPIProperty{Ref: "#/types/foo"}
+		refProperties := map[string]resources.AzureAPIProperty{
+			"inner1": {},
 		}
-		return nil, false, nil
-	}
+		expected := map[string]*rpc.PropertyDiff{
+			topLevelProperty + ".inner1": {Kind: rpc.PropertyDiff_DELETE},
+			topLevelProperty + ".inner3": {Kind: rpc.PropertyDiff_ADD},
+		}
+		test(t, property, refProperties, diffObjectHasPropertyAddedAndDeleted, expected)
+	})
 
-	_, ok, err := lookupType(fooTypeName)
-	require.NoError(t, err)
-	require.True(t, ok)
+	t.Run("object with additions and deletions only and forceNew", func(t *testing.T) {
+		property := resources.AzureAPIProperty{Ref: "#/types/foo", ForceNew: true}
+		refProperties := map[string]resources.AzureAPIProperty{
+			"inner1": {},
+		}
+		expected := map[string]*rpc.PropertyDiff{
+			topLevelProperty:             {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+			topLevelProperty + ".inner1": {Kind: rpc.PropertyDiff_DELETE},
+			topLevelProperty + ".inner3": {Kind: rpc.PropertyDiff_ADD},
+		}
+		test(t, property, refProperties, diffObjectHasPropertyAddedAndDeleted, expected)
+	})
 
-	diff := resource.ObjectDiff{
-		Updates: map[resource.PropertyKey]resource.ValueDiff{
-			"p1": {
-				Old: resource.PropertyValue{V: "oldvalue"},
-				New: resource.PropertyValue{V: "newvalue"},
-			},
-			"p2": {
-				Old: resource.PropertyValue{V: 1},
-				New: resource.PropertyValue{V: 2},
-			},
-			"p3": {
-				Object: &resource.ObjectDiff{
-					Updates: map[resource.PropertyKey]resource.ValueDiff{
-						"ps1": {
-							Old: resource.PropertyValue{V: "oldvalue"},
-							New: resource.PropertyValue{V: "newvalue"},
-						},
-						"ps2": {
-							Old: resource.PropertyValue{V: "oldvalue"},
-							New: resource.PropertyValue{V: "newvalue"},
-						},
-					},
-				},
-			},
-			"p4": {
-				Object: &resource.ObjectDiff{
-					Updates: map[resource.PropertyKey]resource.ValueDiff{
-						"ps1": {
-							Old: resource.PropertyValue{V: "oldvalue"},
-							New: resource.PropertyValue{V: "newvalue"},
-						},
-					},
-				},
-			},
-			"p5": {
-				Array: &resource.ArrayDiff{
-					Updates: map[int]resource.ValueDiff{
-						0: {
-							Object: &resource.ObjectDiff{
-								Updates: map[resource.PropertyKey]resource.ValueDiff{
-									"ps1": {
-										Old: resource.PropertyValue{V: "oldvalue"},
-										New: resource.PropertyValue{V: "newvalue"},
-									},
-									"ps2": {
-										Old: resource.PropertyValue{V: "oldvalue"},
-										New: resource.PropertyValue{V: "newvalue"},
+	t.Run("array of object with updates", func(t *testing.T) {
+		property := resources.AzureAPIProperty{
+			Items: &resources.AzureAPIProperty{Ref: "#/types/foo"},
+		}
+		refProperties := map[string]resources.AzureAPIProperty{
+			"inner1": {},
+			"inner2": {ForceNew: true},
+		}
+		diff := resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				topLevelProperty: {
+					Array: &resource.ArrayDiff{
+						Updates: map[int]resource.ValueDiff{
+							0: {
+								Object: &resource.ObjectDiff{
+									Updates: map[resource.PropertyKey]resource.ValueDiff{
+										"inner1": oldToNew,
+										"inner2": oldToNew,
 									},
 								},
 							},
@@ -293,19 +370,13 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 					},
 				},
 			},
-		},
-	}
-	actual := calculateDetailedDiff(&res, lookupType, &diff)
-	expected := map[string]*rpc.PropertyDiff{
-		"p1":        {Kind: rpc.PropertyDiff_UPDATE},
-		"p2":        {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
-		"p3.ps1":    {Kind: rpc.PropertyDiff_UPDATE},
-		"p3.ps2":    {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
-		"p4.ps1":    {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
-		"p5[0].ps1": {Kind: rpc.PropertyDiff_UPDATE},
-		"p5[0].ps2": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
-	}
-	assert.Equal(t, expected, actual)
+		}
+		expected := map[string]*rpc.PropertyDiff{
+			topLevelProperty + "[0].inner1": {Kind: rpc.PropertyDiff_UPDATE},
+			topLevelProperty + "[0].inner2": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
+		}
+		test(t, property, refProperties, diff, expected)
+	})
 }
 
 func TestApplyDiff(t *testing.T) {

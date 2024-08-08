@@ -344,13 +344,23 @@ func (d *differ) calculateValueDiff(v *resource.ValueDiff, diffBase, replaceBase
 	detailedDiff := map[string]*rpc.PropertyDiff{}
 	switch {
 	case v.Object != nil:
+		objectNeedsReplace := d.replaceKeys.Has(replaceBase)
 		subDiff := d.calculateObjectDiff(v.Object, diffBase+".", replaceBase+".")
+
 		for sk, sv := range subDiff {
-			if sv.Kind == rpc.PropertyDiff_UPDATE && d.replaceKeys.Has(replaceBase) {
+			if sv.Kind == rpc.PropertyDiff_UPDATE && objectNeedsReplace {
 				// If the parent property causes a replacement, all child properties cause a replacement.
 				sv.Kind = rpc.PropertyDiff_UPDATE_REPLACE
 			}
 			detailedDiff[sk] = sv
+		}
+
+		// Any addition or removal of properties to an object marked as ForceNew causes its replacement.
+		for _, sv := range subDiff {
+			if (sv.Kind == rpc.PropertyDiff_ADD || sv.Kind == rpc.PropertyDiff_DELETE) && objectNeedsReplace {
+				detailedDiff[diffBase] = &rpc.PropertyDiff{Kind: rpc.PropertyDiff_UPDATE_REPLACE}
+				break
+			}
 		}
 	case v.Array != nil:
 		for idx, item := range v.Array.Updates {
