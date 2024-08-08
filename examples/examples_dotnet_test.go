@@ -5,11 +5,13 @@
 package examples
 
 import (
+	"os"
 	"path/filepath"
 	"testing"
 
 	pexamples "github.com/pulumi/examples/misc/test/definitions"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/stretchr/testify/require"
 )
 
 func TestAccAppServiceDockerDotnet(t *testing.T) {
@@ -63,6 +65,11 @@ func TestPulumiExamples(t *testing.T) {
 }
 
 func getCsharpBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	if os.Getenv("PULUMI_LOCAL_NUGET") == "" {
+		nugetPath, err := filepath.Abs("../nuget")
+		require.NoErrorf(t, err, "could not resolve nuget path")
+		os.Setenv("PULUMI_LOCAL_NUGET", nugetPath)
+	}
 	base := getBaseOptions(t)
 	baseCsharp := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{

@@ -16,7 +16,7 @@ return await Pulumi.Deployment.RunAsync(() =>
     var dashboard = new Dashboard("dash", new()
     {
         ResourceGroupName = resourceGroup.Name,
-        Properties = new()
+        Properties = new DashboardPropertiesWithProvisioningStateArgs
         {
             Lenses = new[]
             {
@@ -27,18 +27,18 @@ return await Pulumi.Deployment.RunAsync(() =>
                     {
                         new DashboardPartsArgs
                         {
-                            Metadata = new DashboardPartMetadataArgs
+                            Metadata = new MarkdownPartMetadataArgs
                             {
                                 Inputs = new InputList<object>(),
-                                Settings = {
-                                    ["content"] = new Dictionary<string, object> {
-                                        ["settings"] = new Dictionary<string, object> {
-                                            ["content"] =  @"<div style='line-height:50px;'>
+                                Settings = new MarkdownPartMetadataSettingsArgs {
+                                    Content = new MarkdownPartMetadataSettingsContentArgs {
+                                        Settings = new MarkdownPartMetadataSettingsContentSettingsArgs {
+                                            Content = @"<div style='line-height:50px;'>
     <span style='font-size:16px;font-weight:bold'>AZURE RESOURCE INVENTORY - </span>
     <span>This section gives you an overview of all your Azure resources across all subscriptions that you can access.</span>
     </div>",
-                                            ["subtitle"] = "",
-                                            ["title"] = "",
+                                            Subtitle = "",
+                                            Title = "",
                                         }
                                     }
                                 },
@@ -54,7 +54,7 @@ return await Pulumi.Deployment.RunAsync(() =>
                         },
                         new DashboardPartsArgs
                         {
-                            Metadata = new DashboardPartMetadataArgs
+                            Metadata = new MarkdownPartMetadataArgs
                             {
                                 Inputs = new[]
                                 {
@@ -63,38 +63,38 @@ return await Pulumi.Deployment.RunAsync(() =>
                                         { "name", "partTitle" },
                                         { "value", "Count of all my Azure resources" },
                                     },
-                                    new Dictionary<string, object>                                
+                                    new Dictionary<string, object>
                                     {
                                         { "name", "query" },
                                         { "value", "summarize Resources=count()" },
                                     },
-                                    new Dictionary<string, object>                                
+                                    new Dictionary<string, object>
                                     {
                                         { "isOptional", true },
                                         { "name", "chartType" },
                                     },
-                                    new Dictionary<string, object>                                
+                                    new Dictionary<string, object>
                                     {
                                         { "isOptional", true },
                                         { "name", "isShared" },
                                     },
-                                    new Dictionary<string, object>                                
+                                    new Dictionary<string, object>
                                     {
                                         { "isOptional", true },
                                         { "name", "queryId" },
                                     },
-                                    new Dictionary<string, object>                                
+                                    new Dictionary<string, object>
                                     {
                                         { "isOptional", true },
                                         { "name", "formatResults" },
                                     },
-                                    new Dictionary<string, object>                                
+                                    new Dictionary<string, object>
                                     {
                                         { "isOptional", true },
                                         { "name", "queryScope" },
                                     },
                                 },
-                                Settings = new Dictionary<string, object>(),
+                                Settings = new MarkdownPartMetadataSettingsArgs {},
                                 Type = "Extension/HubsExtension/PartType/MarkdownPart",
                             },
                             Position = new DashboardPartsPositionArgs
@@ -122,7 +122,7 @@ return await Pulumi.Deployment.RunAsync(() =>
                 },
             },
         },
-        Tags = 
+        Tags =
         {
             ["hidden-title"] = "Test Dashboard",
         },
