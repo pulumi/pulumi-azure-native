@@ -34,7 +34,6 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/urn"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
@@ -314,8 +313,7 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 			if body == nil {
 				return nil, fmt.Errorf("error preparing body for %s: %v", label, err)
 			}
-			// Log the error and continue with whatever was convertible.
-			k.host.Log(ctx, diag.Warning, urn.URN(""), fmt.Sprintf("error preparing body for %s: %v", label, err))
+			// Ignore the error if we've got a body as it's just a warning
 		}
 
 		var response any
@@ -905,7 +903,7 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 		if bodyParams == nil {
 			return id, nil, bodyError
 		}
-		k.host.Log(ctx, diag.Warning, resource.URN(req.GetUrn()), bodyError.Error())
+		// Ignore the error if we've got a body as it's just a warning
 	}
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
@@ -1336,7 +1334,7 @@ func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.Update
 		if bodyParams == nil {
 			return nil, bodyError
 		}
-		k.host.Log(ctx, diag.Warning, resource.URN(req.GetUrn()), bodyError.Error())
+		// Ignore the error if we've got a body as it's just a warning
 	}
 
 	ctx, cancel := azureContext(ctx, req.Timeout)
