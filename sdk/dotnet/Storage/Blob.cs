@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Storage
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the storage blob. Must be unique within the storage container the blob is located.
+        /// The name of the storage blob. Must be unique within the storage container the blob is located. If this property is not specified it will be set to the name of the resource.
         /// </summary>
         [Input("blobName")]
         public Input<string>? BlobName { get; set; }

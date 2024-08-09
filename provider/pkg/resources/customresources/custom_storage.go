@@ -322,7 +322,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 				blobName: {
-					Description: "The name of the storage blob. Must be unique within the storage container the blob is located.",
+					Description: "The name of the storage blob. Must be unique within the storage container the blob is located. If this property is not specified it will be set to the name of the resource.",
 					TypeSpec:    schema.TypeSpec{Type: "string"},
 				},
 				containerName: {
