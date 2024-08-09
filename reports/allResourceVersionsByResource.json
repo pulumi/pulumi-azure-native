@@ -9167,7 +9167,8 @@
       "2016-03-31"
     ],
     "FirewallRule": [
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-06-01-preview"
     ],
     "GraphResourceGraph": [
       "2021-07-01-preview",
@@ -9264,7 +9265,8 @@
       "2023-09-15-preview",
       "2023-11-15-preview",
       "2024-02-15-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-06-01-preview"
     ],
     "MongoClusterFirewallRule": [
       "2023-03-01-preview",
@@ -9457,7 +9459,8 @@
       "2024-02-15-preview",
       "2024-03-01-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-06-01-preview"
     ],
     "Service": [
       "2021-04-01-preview",
@@ -9865,7 +9868,8 @@
       "2023-09-15-preview",
       "2023-11-15-preview",
       "2024-02-15-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-06-01-preview"
     ],
     "listNotebookWorkspaceConnectionInfo": [
       "2019-08-01",
