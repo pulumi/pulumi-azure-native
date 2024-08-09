@@ -32,6 +32,19 @@ export const ForwardProxyConvention = {
  */
 export type ForwardProxyConvention = (typeof ForwardProxyConvention)[keyof typeof ForwardProxyConvention];
 
+export const LogLevel = {
+    Off: "Off",
+    Verbose: "Verbose",
+    Information: "Information",
+    Warning: "Warning",
+    Error: "Error",
+} as const;
+
+/**
+ * Log level.
+ */
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+
 export const ManagedServiceIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
