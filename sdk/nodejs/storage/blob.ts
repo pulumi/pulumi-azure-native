@@ -125,7 +125,7 @@ export interface BlobArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The name of the storage blob. Must be unique within the storage container the blob is located.
+     * The name of the storage blob. Must be unique within the storage container the blob is located. If this property is not specified it will be set to the name of the resource.
      */
     blobName?: pulumi.Input<string>;
     /**
