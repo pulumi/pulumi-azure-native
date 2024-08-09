@@ -201,7 +201,7 @@ def get_mongo_cluster(mongo_cluster_name: Optional[str] = None,
     Gets information about a mongo cluster.
     Azure REST API version: 2023-03-15-preview.
 
-    Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview.
+    Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-06-01-preview.
 
 
     :param str mongo_cluster_name: The name of the mongo cluster.
@@ -237,7 +237,7 @@ def get_mongo_cluster_output(mongo_cluster_name: Optional[pulumi.Input[str]] = N
     Gets information about a mongo cluster.
     Azure REST API version: 2023-03-15-preview.
 
-    Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview.
+    Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-06-01-preview.
 
 
     :param str mongo_cluster_name: The name of the mongo cluster.

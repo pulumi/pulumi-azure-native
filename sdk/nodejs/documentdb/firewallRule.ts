@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Represents a mongo cluster firewall rule.
  * Azure REST API version: 2024-03-01-preview.
+ *
+ * Other available API versions: 2024-06-01-preview.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -104,7 +106,7 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20230301preview:FirewallRule" }, { type: "azure-native:documentdb/v20230315preview:FirewallRule" }, { type: "azure-native:documentdb/v20230915preview:FirewallRule" }, { type: "azure-native:documentdb/v20231115preview:FirewallRule" }, { type: "azure-native:documentdb/v20240215preview:FirewallRule" }, { type: "azure-native:documentdb/v20240301preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20230301preview:FirewallRule" }, { type: "azure-native:documentdb/v20230315preview:FirewallRule" }, { type: "azure-native:documentdb/v20230915preview:FirewallRule" }, { type: "azure-native:documentdb/v20231115preview:FirewallRule" }, { type: "azure-native:documentdb/v20240215preview:FirewallRule" }, { type: "azure-native:documentdb/v20240301preview:FirewallRule" }, { type: "azure-native:documentdb/v20240601preview:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }

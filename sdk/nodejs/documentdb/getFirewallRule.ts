@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about a mongo cluster firewall rule.
  * Azure REST API version: 2024-03-01-preview.
+ *
+ * Other available API versions: 2024-06-01-preview.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
 
@@ -72,6 +74,8 @@ export interface GetFirewallRuleResult {
 /**
  * Gets information about a mongo cluster firewall rule.
  * Azure REST API version: 2024-03-01-preview.
+ *
+ * Other available API versions: 2024-06-01-preview.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))

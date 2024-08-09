@@ -116,6 +116,8 @@ class FirewallRule(pulumi.CustomResource):
         Represents a mongo cluster firewall rule.
         Azure REST API version: 2024-03-01-preview.
 
+        Other available API versions: 2024-06-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
@@ -133,6 +135,8 @@ class FirewallRule(pulumi.CustomResource):
         """
         Represents a mongo cluster firewall rule.
         Azure REST API version: 2024-03-01-preview.
+
+        Other available API versions: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.
@@ -180,7 +184,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20230301preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240301preview:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20230301preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240301preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240601preview:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azure-native:documentdb:FirewallRule',

@@ -21,6 +21,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240701Preview.Outputs
         /// </summary>
         public readonly string? Category;
         public readonly string? Destination;
+        public readonly ImmutableArray<string> ParentRuleNames;
         /// <summary>
         /// Type of a managed network Outbound Rule of a machine learning workspace.
         /// </summary>
@@ -37,12 +38,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240701Preview.Outputs
 
             string? destination,
 
+            ImmutableArray<string> parentRuleNames,
+
             string? status,
 
             string type)
         {
             Category = category;
             Destination = destination;
+            ParentRuleNames = parentRuleNames;
             Status = status;
             Type = type;
         }

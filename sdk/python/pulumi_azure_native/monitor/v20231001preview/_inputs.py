@@ -20,6 +20,8 @@ __all__ = [
     'AzureMonitorWorkspaceLogsApiConfigArgsDict',
     'AzureMonitorWorkspaceLogsExporterArgs',
     'AzureMonitorWorkspaceLogsExporterArgsDict',
+    'AzureResourceManagerCommonTypesExtendedLocationArgs',
+    'AzureResourceManagerCommonTypesExtendedLocationArgsDict',
     'BatchProcessorArgs',
     'BatchProcessorArgsDict',
     'CacheConfigurationArgs',
@@ -28,8 +30,6 @@ __all__ = [
     'ConcurrencyConfigurationArgsDict',
     'ExporterArgs',
     'ExporterArgsDict',
-    'ExtendedLocationArgs',
-    'ExtendedLocationArgsDict',
     'NetworkingConfigurationArgs',
     'NetworkingConfigurationArgsDict',
     'NetworkingRouteArgs',
@@ -229,6 +229,60 @@ class AzureMonitorWorkspaceLogsExporterArgs:
     @concurrency.setter
     def concurrency(self, value: Optional[pulumi.Input['ConcurrencyConfigurationArgs']]):
         pulumi.set(self, "concurrency", value)
+
+
+if not MYPY:
+    class AzureResourceManagerCommonTypesExtendedLocationArgsDict(TypedDict):
+        """
+        The complex type of the extended location.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the extended location.
+        """
+        type: pulumi.Input[Union[str, 'ExtendedLocationType']]
+        """
+        The type of the extended location.
+        """
+elif False:
+    AzureResourceManagerCommonTypesExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureResourceManagerCommonTypesExtendedLocationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'ExtendedLocationType']]):
+        """
+        The complex type of the extended location.
+        :param pulumi.Input[str] name: The name of the extended location.
+        :param pulumi.Input[Union[str, 'ExtendedLocationType']] type: The type of the extended location.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ExtendedLocationType']]:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ExtendedLocationType']]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:
@@ -499,60 +553,6 @@ class ExporterArgs:
     @tcp.setter
     def tcp(self, value: Optional[pulumi.Input['TcpExporterArgs']]):
         pulumi.set(self, "tcp", value)
-
-
-if not MYPY:
-    class ExtendedLocationArgsDict(TypedDict):
-        """
-        The extended location info.
-        """
-        name: pulumi.Input[str]
-        """
-        The name of extended location.
-        """
-        type: pulumi.Input[Union[str, 'ExtendedLocationType']]
-        """
-        The type of extended location.
-        """
-elif False:
-    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ExtendedLocationArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 type: pulumi.Input[Union[str, 'ExtendedLocationType']]):
-        """
-        The extended location info.
-        :param pulumi.Input[str] name: The name of extended location.
-        :param pulumi.Input[Union[str, 'ExtendedLocationType']] type: The type of extended location.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of extended location.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'ExtendedLocationType']]:
-        """
-        The type of extended location.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'ExtendedLocationType']]):
-        pulumi.set(self, "type", value)
 
 
 if not MYPY:

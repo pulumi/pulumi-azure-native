@@ -14670,7 +14670,25 @@ class FqdnOutboundRuleResponse(dict):
     """
     FQDN Outbound Rule for the managed network of a machine learning workspace.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parentRuleNames":
+            suggest = "parent_rule_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FqdnOutboundRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FqdnOutboundRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FqdnOutboundRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 parent_rule_names: Sequence[str],
                  type: str,
                  category: Optional[str] = None,
                  destination: Optional[str] = None,
@@ -14682,6 +14700,7 @@ class FqdnOutboundRuleResponse(dict):
         :param str category: Category of a managed network Outbound Rule of a machine learning workspace.
         :param str status: Type of a managed network Outbound Rule of a machine learning workspace.
         """
+        pulumi.set(__self__, "parent_rule_names", parent_rule_names)
         pulumi.set(__self__, "type", 'FQDN')
         if category is not None:
             pulumi.set(__self__, "category", category)
@@ -14689,6 +14708,11 @@ class FqdnOutboundRuleResponse(dict):
             pulumi.set(__self__, "destination", destination)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="parentRuleNames")
+    def parent_rule_names(self) -> Sequence[str]:
+        return pulumi.get(self, "parent_rule_names")
 
     @property
     @pulumi.getter
@@ -27343,8 +27367,8 @@ class PrivateEndpointOutboundRuleResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "parentRuleName":
-            suggest = "parent_rule_name"
+        if key == "parentRuleNames":
+            suggest = "parent_rule_names"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointOutboundRuleResponse. Access the value via the '{suggest}' property getter instead.")
@@ -27358,21 +27382,20 @@ class PrivateEndpointOutboundRuleResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 parent_rule_name: str,
+                 parent_rule_names: Sequence[str],
                  type: str,
                  category: Optional[str] = None,
                  destination: Optional['outputs.PrivateEndpointDestinationResponse'] = None,
                  status: Optional[str] = None):
         """
         Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
-        :param str parent_rule_name: The dependency rule name.
         :param str type: Type of a managed network Outbound Rule of a machine learning workspace.
                Expected value is 'PrivateEndpoint'.
         :param str category: Category of a managed network Outbound Rule of a machine learning workspace.
         :param 'PrivateEndpointDestinationResponse' destination: Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
         :param str status: Type of a managed network Outbound Rule of a machine learning workspace.
         """
-        pulumi.set(__self__, "parent_rule_name", parent_rule_name)
+        pulumi.set(__self__, "parent_rule_names", parent_rule_names)
         pulumi.set(__self__, "type", 'PrivateEndpoint')
         if category is not None:
             pulumi.set(__self__, "category", category)
@@ -27382,12 +27405,9 @@ class PrivateEndpointOutboundRuleResponse(dict):
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="parentRuleName")
-    def parent_rule_name(self) -> str:
-        """
-        The dependency rule name.
-        """
-        return pulumi.get(self, "parent_rule_name")
+    @pulumi.getter(name="parentRuleNames")
+    def parent_rule_names(self) -> Sequence[str]:
+        return pulumi.get(self, "parent_rule_names")
 
     @property
     @pulumi.getter
@@ -31162,7 +31182,25 @@ class ServiceTagOutboundRuleResponse(dict):
     """
     Service Tag Outbound Rule for the managed network of a machine learning workspace.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parentRuleNames":
+            suggest = "parent_rule_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceTagOutboundRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceTagOutboundRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceTagOutboundRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 parent_rule_names: Sequence[str],
                  type: str,
                  category: Optional[str] = None,
                  destination: Optional['outputs.ServiceTagDestinationResponse'] = None,
@@ -31175,6 +31213,7 @@ class ServiceTagOutboundRuleResponse(dict):
         :param 'ServiceTagDestinationResponse' destination: Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
         :param str status: Type of a managed network Outbound Rule of a machine learning workspace.
         """
+        pulumi.set(__self__, "parent_rule_names", parent_rule_names)
         pulumi.set(__self__, "type", 'ServiceTag')
         if category is not None:
             pulumi.set(__self__, "category", category)
@@ -31182,6 +31221,11 @@ class ServiceTagOutboundRuleResponse(dict):
             pulumi.set(__self__, "destination", destination)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="parentRuleNames")
+    def parent_rule_names(self) -> Sequence[str]:
+        return pulumi.get(self, "parent_rule_names")
 
     @property
     @pulumi.getter

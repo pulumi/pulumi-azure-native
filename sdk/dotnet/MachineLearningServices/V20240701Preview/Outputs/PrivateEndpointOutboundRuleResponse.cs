@@ -24,10 +24,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240701Preview.Outputs
         /// Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
         /// </summary>
         public readonly Outputs.PrivateEndpointDestinationResponse? Destination;
-        /// <summary>
-        /// The dependency rule name.
-        /// </summary>
-        public readonly string ParentRuleName;
+        public readonly ImmutableArray<string> Fqdns;
         public readonly ImmutableArray<string> ParentRuleNames;
         /// <summary>
         /// Type of a managed network Outbound Rule of a machine learning workspace.
@@ -45,7 +42,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240701Preview.Outputs
 
             Outputs.PrivateEndpointDestinationResponse? destination,
 
-            string parentRuleName,
+            ImmutableArray<string> fqdns,
 
             ImmutableArray<string> parentRuleNames,
 
@@ -55,7 +52,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240701Preview.Outputs
         {
             Category = category;
             Destination = destination;
-            ParentRuleName = parentRuleName;
+            Fqdns = fqdns;
             ParentRuleNames = parentRuleNames;
             Status = status;
             Type = type;

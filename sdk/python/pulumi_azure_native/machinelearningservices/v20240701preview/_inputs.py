@@ -26423,7 +26423,7 @@ if not MYPY:
         """
         Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
         """
-        parent_rule_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         status: NotRequired[pulumi.Input[Union[str, 'RuleStatus']]]
         """
         Type of a managed network Outbound Rule of a machine learning workspace.
@@ -26437,7 +26437,7 @@ class PrivateEndpointOutboundRuleArgs:
                  type: pulumi.Input[str],
                  category: Optional[pulumi.Input[Union[str, 'RuleCategory']]] = None,
                  destination: Optional[pulumi.Input['PrivateEndpointDestinationArgs']] = None,
-                 parent_rule_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[Union[str, 'RuleStatus']]] = None):
         """
         Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
@@ -26452,8 +26452,8 @@ class PrivateEndpointOutboundRuleArgs:
             pulumi.set(__self__, "category", category)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
-        if parent_rule_names is not None:
-            pulumi.set(__self__, "parent_rule_names", parent_rule_names)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -26495,13 +26495,13 @@ class PrivateEndpointOutboundRuleArgs:
         pulumi.set(self, "destination", value)
 
     @property
-    @pulumi.getter(name="parentRuleNames")
-    def parent_rule_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "parent_rule_names")
+    @pulumi.getter
+    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "fqdns")
 
-    @parent_rule_names.setter
-    def parent_rule_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "parent_rule_names", value)
+    @fqdns.setter
+    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "fqdns", value)
 
     @property
     @pulumi.getter

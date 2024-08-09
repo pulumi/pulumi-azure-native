@@ -27,7 +27,7 @@ class PipelineGroupArgs:
                  receivers: pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]],
                  resource_group_name: pulumi.Input[str],
                  service: pulumi.Input['ServiceArgs'],
-                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 extended_location: Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]] = None,
                  pipeline_group_name: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class PipelineGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]] receivers: The receivers specified for a pipeline group instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ServiceArgs'] service: The service section for a given pipeline group instance.
-        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location for given pipeline group.
+        :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The extended location for given pipeline group.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]] networking_configurations: Networking configurations for the pipeline group instance.
         :param pulumi.Input[str] pipeline_group_name: The name of pipeline group. The name is case insensitive.
@@ -127,14 +127,14 @@ class PipelineGroupArgs:
 
     @property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+    def extended_location(self) -> Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']]:
         """
         The extended location for given pipeline group.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+    def extended_location(self, value: Optional[pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @property
@@ -204,7 +204,7 @@ class PipelineGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  exporters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExporterArgs', 'ExporterArgsDict']]]]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkingConfigurationArgs', 'NetworkingConfigurationArgsDict']]]]] = None,
                  pipeline_group_name: Optional[pulumi.Input[str]] = None,
@@ -221,7 +221,7 @@ class PipelineGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExporterArgs', 'ExporterArgsDict']]]] exporters: The exporters specified for a pipeline group instance.
-        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location for given pipeline group.
+        :param pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']] extended_location: The extended location for given pipeline group.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkingConfigurationArgs', 'NetworkingConfigurationArgsDict']]]] networking_configurations: Networking configurations for the pipeline group instance.
         :param pulumi.Input[str] pipeline_group_name: The name of pipeline group. The name is case insensitive.
@@ -257,7 +257,7 @@ class PipelineGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  exporters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExporterArgs', 'ExporterArgsDict']]]]] = None,
-                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkingConfigurationArgs', 'NetworkingConfigurationArgsDict']]]]] = None,
                  pipeline_group_name: Optional[pulumi.Input[str]] = None,
@@ -350,7 +350,7 @@ class PipelineGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+    def extended_location(self) -> pulumi.Output[Optional['outputs.AzureResourceManagerCommonTypesExtendedLocationResponse']]:
         """
         The extended location for given pipeline group.
         """

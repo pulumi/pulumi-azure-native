@@ -21,11 +21,11 @@ __all__ = [
     'AzureMonitorWorkspaceLogsExporterResponse',
     'AzureMonitorWorkspaceResponseDefaultIngestionSettings',
     'AzureMonitorWorkspaceResponseMetrics',
+    'AzureResourceManagerCommonTypesExtendedLocationResponse',
     'BatchProcessorResponse',
     'CacheConfigurationResponse',
     'ConcurrencyConfigurationResponse',
     'ExporterResponse',
-    'ExtendedLocationResponse',
     'NetworkingConfigurationResponse',
     'NetworkingRouteResponse',
     'OtlpReceiverResponse',
@@ -272,6 +272,39 @@ class AzureMonitorWorkspaceResponseMetrics(dict):
 
 
 @pulumi.output_type
+class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
+    """
+    The complex type of the extended location.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        The complex type of the extended location.
+        :param str name: The name of the extended location.
+        :param str type: The type of the extended location.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class BatchProcessorResponse(dict):
     """
     Batch processor.
@@ -511,39 +544,6 @@ class ExporterResponse(dict):
         TCP based exporter. Used for pipelineGroup exporter.
         """
         return pulumi.get(self, "tcp")
-
-
-@pulumi.output_type
-class ExtendedLocationResponse(dict):
-    """
-    The extended location info.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 type: str):
-        """
-        The extended location info.
-        :param str name: The name of extended location.
-        :param str type: The type of extended location.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of extended location.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of extended location.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

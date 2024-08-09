@@ -7,26 +7,26 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.Monitor.V20231001Preview.Outputs
+namespace Pulumi.AzureNative.Monitor.Outputs
 {
 
     /// <summary>
-    /// The extended location info.
+    /// The complex type of the extended location.
     /// </summary>
     [OutputType]
-    public sealed class ExtendedLocationResponse
+    public sealed class AzureResourceManagerCommonTypesExtendedLocationResponse
     {
         /// <summary>
-        /// The name of extended location.
+        /// The name of the extended location.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of extended location.
+        /// The type of the extended location.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
-        private ExtendedLocationResponse(
+        private AzureResourceManagerCommonTypesExtendedLocationResponse(
             string name,
 
             string type)

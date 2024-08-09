@@ -9848,6 +9848,12 @@
       "listDatabaseAccountConnectionStrings",
       "listDatabaseAccountKeys",
       "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2024-06-01-preview": [
+      "FirewallRule",
+      "MongoCluster",
+      "PrivateEndpointConnection",
+      "listMongoClusterConnectionStrings"
     ]
   },
   "DomainRegistration": {

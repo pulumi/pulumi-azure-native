@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Monitor.V20231001Preview
         /// <summary>
         /// The extended location for given pipeline group.
         /// </summary>
-        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        public readonly Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse? ExtendedLocation;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Monitor.V20231001Preview
         private GetPipelineGroupResult(
             ImmutableArray<Outputs.ExporterResponse> exporters,
 
-            Outputs.ExtendedLocationResponse? extendedLocation,
+            Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse? extendedLocation,
 
             string id,
 

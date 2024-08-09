@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20240301Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240601preview:FirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

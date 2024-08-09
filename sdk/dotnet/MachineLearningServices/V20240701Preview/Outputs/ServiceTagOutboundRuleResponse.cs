@@ -24,6 +24,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240701Preview.Outputs
         /// Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
         /// </summary>
         public readonly Outputs.ServiceTagDestinationResponse? Destination;
+        public readonly ImmutableArray<string> ParentRuleNames;
         /// <summary>
         /// Type of a managed network Outbound Rule of a machine learning workspace.
         /// </summary>
@@ -40,12 +41,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240701Preview.Outputs
 
             Outputs.ServiceTagDestinationResponse? destination,
 
+            ImmutableArray<string> parentRuleNames,
+
             string? status,
 
             string type)
         {
             Category = category;
             Destination = destination;
+            ParentRuleNames = parentRuleNames;
             Status = status;
             Type = type;
         }

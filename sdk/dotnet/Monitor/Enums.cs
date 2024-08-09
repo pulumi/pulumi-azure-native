@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
-    /// The type of extended location.
+    /// The type of the extended location.
     /// </summary>
     [EnumType]
     public readonly struct ExtendedLocationType : IEquatable<ExtendedLocationType>
@@ -58,7 +58,11 @@ namespace Pulumi.AzureNative.Monitor
         }
 
         /// <summary>
-        /// Custom location.
+        /// Azure Edge Zones location type
+        /// </summary>
+        public static ExtendedLocationType EdgeZone { get; } = new ExtendedLocationType("EdgeZone");
+        /// <summary>
+        /// Azure Custom Locations type
         /// </summary>
         public static ExtendedLocationType CustomLocation { get; } = new ExtendedLocationType("CustomLocation");
 

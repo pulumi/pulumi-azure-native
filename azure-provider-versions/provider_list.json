@@ -1916,6 +1916,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-03-01",
           "2024-02-02-preview",
           "2023-11-02-preview",
           "2023-08-01-preview",
@@ -7867,6 +7868,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -7885,6 +7887,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies/operationresults",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -7903,6 +7906,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies/validate",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -7921,6 +7925,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnections",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -7939,6 +7944,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnections/operationresults",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -7957,6 +7963,7 @@
       {
         "resourceType": "RedisEnterprise/privateLinkResources",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -8000,6 +8007,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-03-01",
@@ -8052,6 +8060,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -8094,6 +8103,7 @@
       {
         "resourceType": "locations/operationsStatus",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -8112,6 +8122,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-03-01",
@@ -8147,6 +8158,7 @@
       {
         "resourceType": "redisEnterprise",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -8165,6 +8177,7 @@
       {
         "resourceType": "redisEnterprise/databases",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01-preview",
           "2024-02-01",
           "2023-11-01",
@@ -20689,7 +20702,6 @@
         "resourceType": "checkNameAvailability",
         "apiVersions": [
           "2024-04-01-preview",
-          "2023-09-01-preview",
           "2023-07-01",
           "2022-12-01-preview",
           "2022-10-01",
@@ -20701,7 +20713,6 @@
         "resourceType": "locations",
         "apiVersions": [
           "2024-04-01-preview",
-          "2023-09-01-preview",
           "2023-07-01",
           "2022-12-01-preview",
           "2022-10-01",
@@ -20713,7 +20724,6 @@
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
           "2024-04-01-preview",
-          "2023-09-01-preview",
           "2023-07-01",
           "2022-12-01-preview",
           "2022-10-01",
@@ -20725,7 +20735,6 @@
         "resourceType": "operations",
         "apiVersions": [
           "2024-04-01-preview",
-          "2023-09-01-preview",
           "2023-07-01",
           "2022-12-01-preview",
           "2022-10-01",
@@ -20737,7 +20746,6 @@
         "resourceType": "registeredSubscriptions",
         "apiVersions": [
           "2024-04-01-preview",
-          "2023-09-01-preview",
           "2023-07-01",
           "2022-12-01-preview",
           "2022-10-01",
@@ -22218,6 +22226,7 @@
       {
         "resourceType": "addresses",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-02-01",
           "2023-05-01-preview",
           "2022-05-01-preview",
@@ -22227,6 +22236,7 @@
       {
         "resourceType": "listConfigurations",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-02-01",
           "2023-05-01-preview",
           "2022-05-01-preview",
@@ -22236,6 +22246,7 @@
       {
         "resourceType": "listProductFamilies",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-02-01",
           "2023-05-01-preview",
           "2022-05-01-preview",
@@ -22245,6 +22256,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-02-01",
           "2023-05-01-preview",
           "2022-05-01-preview",
@@ -22302,6 +22314,7 @@
       {
         "resourceType": "locations/operationresults",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-02-01",
           "2023-05-01-preview",
           "2022-05-01-preview",
@@ -22311,6 +22324,7 @@
       {
         "resourceType": "locations/orders",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-02-01",
           "2023-05-01-preview",
           "2022-05-01-preview",
@@ -22318,8 +22332,15 @@
         ]
       },
       {
+        "resourceType": "locations/validateInputs",
+        "apiVersions": [
+          "2024-07-01-preview"
+        ]
+      },
+      {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-02-01",
           "2023-05-01-preview",
           "2022-05-01-preview",
@@ -22329,6 +22350,7 @@
       {
         "resourceType": "orderItems",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-02-01",
           "2023-05-01-preview",
           "2022-05-01-preview",
@@ -22338,6 +22360,7 @@
       {
         "resourceType": "orders",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-02-01",
           "2023-05-01-preview",
           "2022-05-01-preview",
@@ -22347,6 +22370,7 @@
       {
         "resourceType": "productFamiliesMetadata",
         "apiVersions": [
+          "2024-07-01-preview",
           "2024-02-01",
           "2023-05-01-preview",
           "2022-05-01-preview",
@@ -26838,6 +26862,7 @@
       {
         "resourceType": "clusters",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26860,6 +26885,7 @@
       {
         "resourceType": "clusters/attacheddatabaseconfigurations",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26878,6 +26904,7 @@
       {
         "resourceType": "clusters/databases",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26900,6 +26927,7 @@
       {
         "resourceType": "clusters/databases/dataconnections",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26937,6 +26965,7 @@
       {
         "resourceType": "clusters/databases/principalassignments",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26954,6 +26983,7 @@
       {
         "resourceType": "clusters/databases/scripts",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26967,6 +26997,7 @@
       {
         "resourceType": "clusters/managedPrivateEndpoints",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26979,6 +27010,7 @@
       {
         "resourceType": "clusters/principalassignments",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -26996,12 +27028,14 @@
       {
         "resourceType": "clusters/sandboxCustomImages",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15"
         ]
       },
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -27024,6 +27058,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -27046,6 +27081,7 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -27068,6 +27104,7 @@
       {
         "resourceType": "locations/skus",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -27077,6 +27114,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-04-13",
           "2023-08-15",
           "2023-05-02",
           "2022-12-29",
@@ -49685,6 +49723,34 @@
         ]
       },
       {
+        "resourceType": "servers/databases/replicationLinks",
+        "apiVersions": [
+          "2023-08-01-preview",
+          "2023-05-01-preview",
+          "2023-02-01-preview",
+          "2022-11-01-preview",
+          "2022-08-01-preview",
+          "2022-05-01-preview",
+          "2022-02-01-preview",
+          "2021-11-01-preview",
+          "2021-11-01",
+          "2021-08-01-preview",
+          "2021-05-01-preview",
+          "2021-02-01-preview",
+          "2020-11-01-preview",
+          "2020-08-01-preview",
+          "2020-02-02-preview",
+          "2019-06-01-preview",
+          "2018-06-01-preview",
+          "2017-10-01-preview",
+          "2017-03-01-preview",
+          "2015-05-01-preview",
+          "2014-04-01-preview",
+          "2014-04-01",
+          "2014-01-01"
+        ]
+      },
+      {
         "resourceType": "servers/databases/securityAlertPolicies",
         "apiVersions": [
           "2023-08-01-preview",
@@ -52462,6 +52528,7 @@
           "2024-06-01-preview",
           "2024-04-01-preview",
           "2024-01-01",
+          "2023-11-01-preview",
           "2022-08-01",
           "2022-07-20-preview",
           "2022-04-13-preview",

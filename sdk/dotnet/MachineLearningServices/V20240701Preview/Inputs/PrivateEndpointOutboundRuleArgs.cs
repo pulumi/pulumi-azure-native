@@ -27,12 +27,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240701Preview.Inputs
         [Input("destination")]
         public Input<Inputs.PrivateEndpointDestinationArgs>? Destination { get; set; }
 
-        [Input("parentRuleNames")]
-        private InputList<string>? _parentRuleNames;
-        public InputList<string> ParentRuleNames
+        [Input("fqdns")]
+        private InputList<string>? _fqdns;
+        public InputList<string> Fqdns
         {
-            get => _parentRuleNames ?? (_parentRuleNames = new InputList<string>());
-            set => _parentRuleNames = value;
+            get => _fqdns ?? (_fqdns = new InputList<string>());
+            set => _fqdns = value;
         }
 
         /// <summary>

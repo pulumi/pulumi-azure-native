@@ -32,11 +32,15 @@ class ExporterType(str, Enum):
 
 class ExtendedLocationType(str, Enum):
     """
-    The type of extended location.
+    The type of the extended location.
+    """
+    EDGE_ZONE = "EdgeZone"
+    """
+    Azure Edge Zones location type
     """
     CUSTOM_LOCATION = "CustomLocation"
     """
-    Custom location.
+    Azure Custom Locations type
     """
 
 

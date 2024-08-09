@@ -11,25 +11,25 @@ namespace Pulumi.AzureNative.Monitor.Inputs
 {
 
     /// <summary>
-    /// The extended location info.
+    /// The complex type of the extended location.
     /// </summary>
-    public sealed class ExtendedLocationArgs : global::Pulumi.ResourceArgs
+    public sealed class AzureResourceManagerCommonTypesExtendedLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of extended location.
+        /// The name of the extended location.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of extended location.
+        /// The type of the extended location.
         /// </summary>
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Monitor.ExtendedLocationType> Type { get; set; } = null!;
 
-        public ExtendedLocationArgs()
+        public AzureResourceManagerCommonTypesExtendedLocationArgs()
         {
         }
-        public static new ExtendedLocationArgs Empty => new ExtendedLocationArgs();
+        public static new AzureResourceManagerCommonTypesExtendedLocationArgs Empty => new AzureResourceManagerCommonTypesExtendedLocationArgs();
     }
 }

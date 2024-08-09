@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Monitor
         /// The extended location for given pipeline group.
         /// </summary>
         [Output("extendedLocation")]
-        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+        public Output<Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.Monitor
         /// The extended location for given pipeline group.
         /// </summary>
         [Input("extendedLocation")]
-        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+        public Input<Inputs.AzureResourceManagerCommonTypesExtendedLocationArgs>? ExtendedLocation { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

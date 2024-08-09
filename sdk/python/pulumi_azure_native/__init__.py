@@ -8001,6 +8001,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "documentdb/v20240601preview",
+  "fqn": "pulumi_azure_native.documentdb.v20240601preview",
+  "classes": {
+   "azure-native:documentdb/v20240601preview:FirewallRule": "FirewallRule",
+   "azure-native:documentdb/v20240601preview:MongoCluster": "MongoCluster",
+   "azure-native:documentdb/v20240601preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "domainregistration",
   "fqn": "pulumi_azure_native.domainregistration",
   "classes": {

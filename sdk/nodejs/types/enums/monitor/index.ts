@@ -28,13 +28,17 @@ export type ExporterType = (typeof ExporterType)[keyof typeof ExporterType];
 
 export const ExtendedLocationType = {
     /**
-     * Custom location.
+     * Azure Edge Zones location type
+     */
+    EdgeZone: "EdgeZone",
+    /**
+     * Azure Custom Locations type
      */
     CustomLocation: "CustomLocation",
 } as const;
 
 /**
- * The type of extended location.
+ * The type of the extended location.
  */
 export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
 

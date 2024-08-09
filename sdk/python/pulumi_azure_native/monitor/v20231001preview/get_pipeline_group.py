@@ -81,7 +81,7 @@ class GetPipelineGroupResult:
 
     @property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+    def extended_location(self) -> Optional['outputs.AzureResourceManagerCommonTypesExtendedLocationResponse']:
         """
         The extended location for given pipeline group.
         """
