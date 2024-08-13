@@ -4018,6 +4018,27 @@
       "Secret",
       "SecurityPolicy",
       "getProfileSupportedOptimizationTypes"
+    ],
+    "2024-06-01-preview": [
+      "AFDCustomDomain",
+      "AFDEndpoint",
+      "AFDOrigin",
+      "AFDOriginGroup",
+      "AFDTargetGroup",
+      "CustomDomain",
+      "Endpoint",
+      "KeyGroup",
+      "Origin",
+      "OriginGroup",
+      "Policy",
+      "Profile",
+      "Route",
+      "Rule",
+      "RuleSet",
+      "Secret",
+      "SecurityPolicy",
+      "TunnelPolicy",
+      "getProfileSupportedOptimizationTypes"
     ]
   },
   "CertificateRegistration": {
@@ -5192,6 +5213,10 @@
       "ManagedCCF"
     ],
     "2023-06-28-preview": [
+      "Ledger",
+      "ManagedCCF"
+    ],
+    "2024-07-09-preview": [
       "Ledger",
       "ManagedCCF"
     ]
@@ -19791,6 +19816,16 @@
       "DeploymentStackAtManagementGroup",
       "DeploymentStackAtResourceGroup",
       "DeploymentStackAtSubscription",
+      "Resource",
+      "ResourceGroup",
+      "TagAtScope"
+    ],
+    "2024-07-01": [
+      "Deployment",
+      "DeploymentAtManagementGroupScope",
+      "DeploymentAtScope",
+      "DeploymentAtSubscriptionScope",
+      "DeploymentAtTenantScope",
       "Resource",
       "ResourceGroup",
       "TagAtScope"
