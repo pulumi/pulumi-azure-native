@@ -93,7 +93,7 @@ export class ManagedCCF extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger:ManagedCCF" }, { type: "azure-native:confidentialledger/v20220908preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230628preview:ManagedCCF" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger:ManagedCCF" }, { type: "azure-native:confidentialledger/v20220908preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230628preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20240709preview:ManagedCCF" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedCCF.__pulumiType, name, resourceInputs, opts);
     }

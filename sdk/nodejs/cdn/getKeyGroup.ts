@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets an existing KeyGroup within a profile.
  * Azure REST API version: 2023-07-01-preview.
  *
- * Other available API versions: 2024-05-01-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
  */
 export function getKeyGroup(args: GetKeyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyGroupResult> {
 
@@ -72,7 +72,7 @@ export interface GetKeyGroupResult {
  * Gets an existing KeyGroup within a profile.
  * Azure REST API version: 2023-07-01-preview.
  *
- * Other available API versions: 2024-05-01-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
  */
 export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyGroupResult> {
     return pulumi.output(args).apply((a: any) => getKeyGroup(a, opts))

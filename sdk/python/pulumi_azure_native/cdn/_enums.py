@@ -63,6 +63,7 @@ __all__ = [
     'SslProtocolOperator',
     'Transform',
     'TransformType',
+    'TunnelType',
     'UrlFileExtensionOperator',
     'UrlFileNameOperator',
     'UrlPathOperator',
@@ -686,6 +687,13 @@ class TransformType(str, Enum):
     URL_DECODE = "UrlDecode"
     URL_ENCODE = "UrlEncode"
     REMOVE_NULLS = "RemoveNulls"
+
+
+class TunnelType(str, Enum):
+    """
+    Protocol this tunnel will use for allowing traffic to backends.
+    """
+    HTTP_CONNECT = "HttpConnect"
 
 
 class UrlFileExtensionOperator(str, Enum):

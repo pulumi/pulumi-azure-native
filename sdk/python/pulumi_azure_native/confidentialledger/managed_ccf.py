@@ -121,7 +121,7 @@ class ManagedCCF(pulumi.CustomResource):
         Managed CCF. Contains the properties of Managed CCF Resource.
         Azure REST API version: 2023-01-26-preview.
 
-        Other available API versions: 2023-06-28-preview.
+        Other available API versions: 2023-06-28-preview, 2024-07-09-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +141,7 @@ class ManagedCCF(pulumi.CustomResource):
         Managed CCF. Contains the properties of Managed CCF Resource.
         Azure REST API version: 2023-01-26-preview.
 
-        Other available API versions: 2023-06-28-preview.
+        Other available API versions: 2023-06-28-preview, 2024-07-09-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagedCCFArgs args: The arguments to use to populate this resource's properties.
@@ -182,7 +182,7 @@ class ManagedCCF(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confidentialledger/v20220908preview:ManagedCCF"), pulumi.Alias(type_="azure-native:confidentialledger/v20230126preview:ManagedCCF"), pulumi.Alias(type_="azure-native:confidentialledger/v20230628preview:ManagedCCF")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confidentialledger/v20220908preview:ManagedCCF"), pulumi.Alias(type_="azure-native:confidentialledger/v20230126preview:ManagedCCF"), pulumi.Alias(type_="azure-native:confidentialledger/v20230628preview:ManagedCCF"), pulumi.Alias(type_="azure-native:confidentialledger/v20240709preview:ManagedCCF")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedCCF, __self__).__init__(
             'azure-native:confidentialledger:ManagedCCF',

@@ -106,6 +106,7 @@ __all__ = [
     'SocketAddrMatchConditionParametersResponse',
     'SslProtocolMatchConditionParametersResponse',
     'SystemDataResponse',
+    'TargetEndpointResponse',
     'UrlFileExtensionMatchConditionParametersResponse',
     'UrlFileNameMatchConditionParametersResponse',
     'UrlPathMatchConditionParametersResponse',
@@ -5823,6 +5824,58 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TargetEndpointResponse(dict):
+    """
+    TargetEndpoint object that forms a traffic endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetFqdn":
+            suggest = "target_fqdn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ports: Optional[Sequence[int]] = None,
+                 target_fqdn: Optional[str] = None):
+        """
+        TargetEndpoint object that forms a traffic endpoint.
+        :param Sequence[int] ports: The Ports to be allowed for the FQDN.
+        :param str target_fqdn: The FQDN for traffic endpoint.
+        """
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if target_fqdn is not None:
+            pulumi.set(__self__, "target_fqdn", target_fqdn)
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[Sequence[int]]:
+        """
+        The Ports to be allowed for the FQDN.
+        """
+        return pulumi.get(self, "ports")
+
+    @property
+    @pulumi.getter(name="targetFqdn")
+    def target_fqdn(self) -> Optional[str]:
+        """
+        The FQDN for traffic endpoint.
+        """
+        return pulumi.get(self, "target_fqdn")
 
 
 @pulumi.output_type

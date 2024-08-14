@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Managed CCF. Contains the properties of Managed CCF Resource.
  * Azure REST API version: 2023-01-26-preview.
  *
- * Other available API versions: 2023-06-28-preview.
+ * Other available API versions: 2023-06-28-preview, 2024-07-09-preview.
  */
 export class ManagedCCF extends pulumi.CustomResource {
     /**
@@ -96,7 +96,7 @@ export class ManagedCCF extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger/v20220908preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230126preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230628preview:ManagedCCF" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger/v20220908preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230126preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20230628preview:ManagedCCF" }, { type: "azure-native:confidentialledger/v20240709preview:ManagedCCF" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedCCF.__pulumiType, name, resourceInputs, opts);
     }

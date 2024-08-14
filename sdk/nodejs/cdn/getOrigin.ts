@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets an existing origin within an endpoint.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
  */
 export function getOrigin(args: GetOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginResult> {
 
@@ -124,7 +124,7 @@ export interface GetOriginResult {
  * Gets an existing origin within an endpoint.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
  */
 export function getOriginOutput(args: GetOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginResult> {
     return pulumi.output(args).apply((a: any) => getOrigin(a, opts))

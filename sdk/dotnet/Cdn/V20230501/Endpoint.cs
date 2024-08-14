@@ -209,6 +209,7 @@ namespace Pulumi.AzureNative.Cdn.V20230501
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:Endpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

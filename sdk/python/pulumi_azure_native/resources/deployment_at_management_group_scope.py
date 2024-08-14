@@ -120,7 +120,7 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
         Deployment information.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
 
-        Other available API versions: 2023-07-01, 2024-03-01.
+        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,7 +140,7 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
         Deployment information.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
 
-        Other available API versions: 2023-07-01, 2024-03-01.
+        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param DeploymentAtManagementGroupScopeArgs args: The arguments to use to populate this resource's properties.
@@ -182,7 +182,7 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20190501:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20190510:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20190701:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20190801:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20191001:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20200601:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20200801:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20201001:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20210101:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20210401:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20220901:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20230701:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20240301:DeploymentAtManagementGroupScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20190501:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20190510:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20190701:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20190801:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20191001:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20200601:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20200801:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20201001:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20210101:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20210401:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20220901:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20230701:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20240301:DeploymentAtManagementGroupScope"), pulumi.Alias(type_="azure-native:resources/v20240701:DeploymentAtManagementGroupScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentAtManagementGroupScope, __self__).__init__(
             'azure-native:resources:DeploymentAtManagementGroupScope',

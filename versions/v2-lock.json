@@ -494,6 +494,7 @@
     "AFDEndpoint": "2023-05-01",
     "AFDOrigin": "2023-05-01",
     "AFDOriginGroup": "2023-05-01",
+    "AFDTargetGroup": "2024-06-01-preview",
     "CustomDomain": "2023-05-01",
     "Endpoint": "2023-05-01",
     "KeyGroup": "2023-07-01-preview",
@@ -506,6 +507,7 @@
     "RuleSet": "2023-05-01",
     "Secret": "2023-05-01",
     "SecurityPolicy": "2023-05-01",
+    "TunnelPolicy": "2024-06-01-preview",
     "getProfileSupportedOptimizationTypes": "2023-05-01"
   },
   "CertificateRegistration": {

@@ -56,7 +56,7 @@ def get_profile_supported_optimization_types(profile_name: Optional[str] = None,
     Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview.
+    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
@@ -80,7 +80,7 @@ def get_profile_supported_optimization_types_output(profile_name: Optional[pulum
     Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview.
+    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.

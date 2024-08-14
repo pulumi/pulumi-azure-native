@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.Cdn.V20230501
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:Profile" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:Profile" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:Profile" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:Profile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
  */
 export function getRuleSet(args: GetRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleSetResult> {
 
@@ -72,7 +72,7 @@ export interface GetRuleSetResult {
  * Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
  */
 export function getRuleSetOutput(args: GetRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleSetResult> {
     return pulumi.output(args).apply((a: any) => getRuleSet(a, opts))

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a deployment.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2023-07-01, 2024-03-01.
+ * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
  */
 export function getDeploymentAtTenantScope(args: GetDeploymentAtTenantScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtTenantScopeResult> {
 
@@ -61,7 +61,7 @@ export interface GetDeploymentAtTenantScopeResult {
  * Gets a deployment.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2023-07-01, 2024-03-01.
+ * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
  */
 export function getDeploymentAtTenantScopeOutput(args: GetDeploymentAtTenantScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtTenantScopeResult> {
     return pulumi.output(args).apply((a: any) => getDeploymentAtTenantScope(a, opts))

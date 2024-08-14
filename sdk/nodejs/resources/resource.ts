@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Resource information.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-05-01.
  *
- * Other available API versions: 2015-11-01, 2023-07-01, 2024-03-01.
+ * Other available API versions: 2015-11-01, 2023-07-01, 2024-03-01, 2024-07-01.
  */
 export class Resource extends pulumi.CustomResource {
     /**
@@ -138,7 +138,7 @@ export class Resource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20151101:Resource" }, { type: "azure-native:resources/v20160201:Resource" }, { type: "azure-native:resources/v20160701:Resource" }, { type: "azure-native:resources/v20160901:Resource" }, { type: "azure-native:resources/v20170510:Resource" }, { type: "azure-native:resources/v20180201:Resource" }, { type: "azure-native:resources/v20180501:Resource" }, { type: "azure-native:resources/v20190301:Resource" }, { type: "azure-native:resources/v20190501:Resource" }, { type: "azure-native:resources/v20190510:Resource" }, { type: "azure-native:resources/v20190701:Resource" }, { type: "azure-native:resources/v20190801:Resource" }, { type: "azure-native:resources/v20191001:Resource" }, { type: "azure-native:resources/v20200601:Resource" }, { type: "azure-native:resources/v20200801:Resource" }, { type: "azure-native:resources/v20201001:Resource" }, { type: "azure-native:resources/v20210101:Resource" }, { type: "azure-native:resources/v20210401:Resource" }, { type: "azure-native:resources/v20220901:Resource" }, { type: "azure-native:resources/v20230701:Resource" }, { type: "azure-native:resources/v20240301:Resource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20151101:Resource" }, { type: "azure-native:resources/v20160201:Resource" }, { type: "azure-native:resources/v20160701:Resource" }, { type: "azure-native:resources/v20160901:Resource" }, { type: "azure-native:resources/v20170510:Resource" }, { type: "azure-native:resources/v20180201:Resource" }, { type: "azure-native:resources/v20180501:Resource" }, { type: "azure-native:resources/v20190301:Resource" }, { type: "azure-native:resources/v20190501:Resource" }, { type: "azure-native:resources/v20190510:Resource" }, { type: "azure-native:resources/v20190701:Resource" }, { type: "azure-native:resources/v20190801:Resource" }, { type: "azure-native:resources/v20191001:Resource" }, { type: "azure-native:resources/v20200601:Resource" }, { type: "azure-native:resources/v20200801:Resource" }, { type: "azure-native:resources/v20201001:Resource" }, { type: "azure-native:resources/v20210101:Resource" }, { type: "azure-native:resources/v20210401:Resource" }, { type: "azure-native:resources/v20220901:Resource" }, { type: "azure-native:resources/v20230701:Resource" }, { type: "azure-native:resources/v20240301:Resource" }, { type: "azure-native:resources/v20240701:Resource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Resource.__pulumiType, name, resourceInputs, opts);
     }

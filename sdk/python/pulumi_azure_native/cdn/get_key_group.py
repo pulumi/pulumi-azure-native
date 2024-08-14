@@ -127,7 +127,7 @@ def get_key_group(key_group_name: Optional[str] = None,
     Gets an existing KeyGroup within a profile.
     Azure REST API version: 2023-07-01-preview.
 
-    Other available API versions: 2024-05-01-preview.
+    Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
 
 
     :param str key_group_name: Name of the KeyGroup under the profile.
@@ -160,7 +160,7 @@ def get_key_group_output(key_group_name: Optional[pulumi.Input[str]] = None,
     Gets an existing KeyGroup within a profile.
     Azure REST API version: 2023-07-01-preview.
 
-    Other available API versions: 2024-05-01-preview.
+    Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
 
 
     :param str key_group_name: Name of the KeyGroup under the profile.

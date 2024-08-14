@@ -92,7 +92,7 @@ def get_tag_at_scope(scope: Optional[str] = None,
     Wrapper resource for tags API requests and responses.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-07-01, 2024-03-01.
+    Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
 
 
     :param str scope: The resource scope.
@@ -116,7 +116,7 @@ def get_tag_at_scope_output(scope: Optional[pulumi.Input[str]] = None,
     Wrapper resource for tags API requests and responses.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-07-01, 2024-03-01.
+    Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
 
 
     :param str scope: The resource scope.

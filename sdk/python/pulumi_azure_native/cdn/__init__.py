@@ -10,12 +10,14 @@ from .afd_custom_domain import *
 from .afd_endpoint import *
 from .afd_origin import *
 from .afd_origin_group import *
+from .afd_target_group import *
 from .custom_domain import *
 from .endpoint import *
 from .get_afd_custom_domain import *
 from .get_afd_endpoint import *
 from .get_afd_origin import *
 from .get_afd_origin_group import *
+from .get_afd_target_group import *
 from .get_custom_domain import *
 from .get_endpoint import *
 from .get_key_group import *
@@ -29,6 +31,7 @@ from .get_rule import *
 from .get_rule_set import *
 from .get_secret import *
 from .get_security_policy import *
+from .get_tunnel_policy import *
 from .key_group import *
 from .origin import *
 from .origin_group import *
@@ -39,6 +42,7 @@ from .rule import *
 from .rule_set import *
 from .secret import *
 from .security_policy import *
+from .tunnel_policy import *
 from ._inputs import *
 from . import outputs
 
@@ -54,10 +58,13 @@ if typing.TYPE_CHECKING:
     v20240201 = __v20240201
     import pulumi_azure_native.cdn.v20240501preview as __v20240501preview
     v20240501preview = __v20240501preview
+    import pulumi_azure_native.cdn.v20240601preview as __v20240601preview
+    v20240601preview = __v20240601preview
 else:
     v20200901 = _utilities.lazy_import('pulumi_azure_native.cdn.v20200901')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.cdn.v20230501')
     v20230701preview = _utilities.lazy_import('pulumi_azure_native.cdn.v20230701preview')
     v20240201 = _utilities.lazy_import('pulumi_azure_native.cdn.v20240201')
     v20240501preview = _utilities.lazy_import('pulumi_azure_native.cdn.v20240501preview')
+    v20240601preview = _utilities.lazy_import('pulumi_azure_native.cdn.v20240601preview')
 

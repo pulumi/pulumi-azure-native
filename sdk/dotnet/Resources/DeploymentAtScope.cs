@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources
     /// Deployment information.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
     /// 
-    /// Other available API versions: 2023-07-01, 2024-03-01.
+    /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentAtScope")]
     public partial class DeploymentAtScope : global::Pulumi.CustomResource
@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Resources
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20220901:DeploymentAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20230701:DeploymentAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20240301:DeploymentAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20240701:DeploymentAtScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

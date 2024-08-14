@@ -158,7 +158,7 @@ class SecurityPolicy(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20200901:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20210601:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20230501:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20240201:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:SecurityPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20200901:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20210601:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20230501:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20240201:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:SecurityPolicy"), pulumi.Alias(type_="azure-native:cdn/v20240601preview:SecurityPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityPolicy, __self__).__init__(
             'azure-native:cdn/v20230701preview:SecurityPolicy',

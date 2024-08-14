@@ -1960,6 +1960,36 @@ namespace Pulumi.AzureNative.Cdn
     }
 
     /// <summary>
+    /// Protocol this tunnel will use for allowing traffic to backends.
+    /// </summary>
+    [EnumType]
+    public readonly struct TunnelType : IEquatable<TunnelType>
+    {
+        private readonly string _value;
+
+        private TunnelType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TunnelType HttpConnect { get; } = new TunnelType("HttpConnect");
+
+        public static bool operator ==(TunnelType left, TunnelType right) => left.Equals(right);
+        public static bool operator !=(TunnelType left, TunnelType right) => !left.Equals(right);
+
+        public static explicit operator string(TunnelType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TunnelType other && Equals(other);
+        public bool Equals(TunnelType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes operator to be matched
     /// </summary>
     [EnumType]

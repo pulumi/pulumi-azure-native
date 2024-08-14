@@ -81,6 +81,7 @@ namespace Pulumi.AzureNative.Cdn.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:RuleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:RuleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:RuleSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:RuleSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

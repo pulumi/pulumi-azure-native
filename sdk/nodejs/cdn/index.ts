@@ -25,6 +25,11 @@ export type AFDOriginGroup = import("./afdoriginGroup").AFDOriginGroup;
 export const AFDOriginGroup: typeof import("./afdoriginGroup").AFDOriginGroup = null as any;
 utilities.lazyLoad(exports, ["AFDOriginGroup"], () => require("./afdoriginGroup"));
 
+export { AFDTargetGroupArgs } from "./afdtargetGroup";
+export type AFDTargetGroup = import("./afdtargetGroup").AFDTargetGroup;
+export const AFDTargetGroup: typeof import("./afdtargetGroup").AFDTargetGroup = null as any;
+utilities.lazyLoad(exports, ["AFDTargetGroup"], () => require("./afdtargetGroup"));
+
 export { CustomDomainArgs } from "./customDomain";
 export type CustomDomain = import("./customDomain").CustomDomain;
 export const CustomDomain: typeof import("./customDomain").CustomDomain = null as any;
@@ -54,6 +59,11 @@ export { GetAFDOriginGroupArgs, GetAFDOriginGroupResult, GetAFDOriginGroupOutput
 export const getAFDOriginGroup: typeof import("./getAFDOriginGroup").getAFDOriginGroup = null as any;
 export const getAFDOriginGroupOutput: typeof import("./getAFDOriginGroup").getAFDOriginGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getAFDOriginGroup","getAFDOriginGroupOutput"], () => require("./getAFDOriginGroup"));
+
+export { GetAFDTargetGroupArgs, GetAFDTargetGroupResult, GetAFDTargetGroupOutputArgs } from "./getAFDTargetGroup";
+export const getAFDTargetGroup: typeof import("./getAFDTargetGroup").getAFDTargetGroup = null as any;
+export const getAFDTargetGroupOutput: typeof import("./getAFDTargetGroup").getAFDTargetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getAFDTargetGroup","getAFDTargetGroupOutput"], () => require("./getAFDTargetGroup"));
 
 export { GetCustomDomainArgs, GetCustomDomainResult, GetCustomDomainOutputArgs } from "./getCustomDomain";
 export const getCustomDomain: typeof import("./getCustomDomain").getCustomDomain = null as any;
@@ -120,6 +130,11 @@ export const getSecurityPolicy: typeof import("./getSecurityPolicy").getSecurity
 export const getSecurityPolicyOutput: typeof import("./getSecurityPolicy").getSecurityPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityPolicy","getSecurityPolicyOutput"], () => require("./getSecurityPolicy"));
 
+export { GetTunnelPolicyArgs, GetTunnelPolicyResult, GetTunnelPolicyOutputArgs } from "./getTunnelPolicy";
+export const getTunnelPolicy: typeof import("./getTunnelPolicy").getTunnelPolicy = null as any;
+export const getTunnelPolicyOutput: typeof import("./getTunnelPolicy").getTunnelPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getTunnelPolicy","getTunnelPolicyOutput"], () => require("./getTunnelPolicy"));
+
 export { KeyGroupArgs } from "./keyGroup";
 export type KeyGroup = import("./keyGroup").KeyGroup;
 export const KeyGroup: typeof import("./keyGroup").KeyGroup = null as any;
@@ -170,6 +185,11 @@ export type SecurityPolicy = import("./securityPolicy").SecurityPolicy;
 export const SecurityPolicy: typeof import("./securityPolicy").SecurityPolicy = null as any;
 utilities.lazyLoad(exports, ["SecurityPolicy"], () => require("./securityPolicy"));
 
+export { TunnelPolicyArgs } from "./tunnelPolicy";
+export type TunnelPolicy = import("./tunnelPolicy").TunnelPolicy;
+export const TunnelPolicy: typeof import("./tunnelPolicy").TunnelPolicy = null as any;
+utilities.lazyLoad(exports, ["TunnelPolicy"], () => require("./tunnelPolicy"));
+
 
 // Export enums:
 export * from "../types/enums/cdn";
@@ -180,6 +200,7 @@ import * as v20230501 from "./v20230501";
 import * as v20230701preview from "./v20230701preview";
 import * as v20240201 from "./v20240201";
 import * as v20240501preview from "./v20240501preview";
+import * as v20240601preview from "./v20240601preview";
 
 export {
     v20200901,
@@ -187,6 +208,7 @@ export {
     v20230701preview,
     v20240201,
     v20240501preview,
+    v20240601preview,
 };
 
 const _module = {
@@ -201,6 +223,8 @@ const _module = {
                 return new AFDOrigin(name, <any>undefined, { urn })
             case "azure-native:cdn:AFDOriginGroup":
                 return new AFDOriginGroup(name, <any>undefined, { urn })
+            case "azure-native:cdn:AFDTargetGroup":
+                return new AFDTargetGroup(name, <any>undefined, { urn })
             case "azure-native:cdn:CustomDomain":
                 return new CustomDomain(name, <any>undefined, { urn })
             case "azure-native:cdn:Endpoint":
@@ -225,6 +249,8 @@ const _module = {
                 return new Secret(name, <any>undefined, { urn })
             case "azure-native:cdn:SecurityPolicy":
                 return new SecurityPolicy(name, <any>undefined, { urn })
+            case "azure-native:cdn:TunnelPolicy":
+                return new TunnelPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

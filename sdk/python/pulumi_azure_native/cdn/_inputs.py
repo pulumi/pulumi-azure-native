@@ -180,6 +180,8 @@ __all__ = [
     'SocketAddrMatchConditionParametersArgsDict',
     'SslProtocolMatchConditionParametersArgs',
     'SslProtocolMatchConditionParametersArgsDict',
+    'TargetEndpointArgs',
+    'TargetEndpointArgsDict',
     'UrlFileExtensionMatchConditionParametersArgs',
     'UrlFileExtensionMatchConditionParametersArgsDict',
     'UrlFileNameMatchConditionParametersArgs',
@@ -6715,6 +6717,62 @@ class SslProtocolMatchConditionParametersArgs:
     @transforms.setter
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
         pulumi.set(self, "transforms", value)
+
+
+if not MYPY:
+    class TargetEndpointArgsDict(TypedDict):
+        """
+        TargetEndpoint object that forms a traffic endpoint.
+        """
+        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        The Ports to be allowed for the FQDN.
+        """
+        target_fqdn: NotRequired[pulumi.Input[str]]
+        """
+        The FQDN for traffic endpoint.
+        """
+elif False:
+    TargetEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TargetEndpointArgs:
+    def __init__(__self__, *,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 target_fqdn: Optional[pulumi.Input[str]] = None):
+        """
+        TargetEndpoint object that forms a traffic endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] ports: The Ports to be allowed for the FQDN.
+        :param pulumi.Input[str] target_fqdn: The FQDN for traffic endpoint.
+        """
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if target_fqdn is not None:
+            pulumi.set(__self__, "target_fqdn", target_fqdn)
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The Ports to be allowed for the FQDN.
+        """
+        return pulumi.get(self, "ports")
+
+    @ports.setter
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "ports", value)
+
+    @property
+    @pulumi.getter(name="targetFqdn")
+    def target_fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The FQDN for traffic endpoint.
+        """
+        return pulumi.get(self, "target_fqdn")
+
+    @target_fqdn.setter
+    def target_fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_fqdn", value)
 
 
 if not MYPY:

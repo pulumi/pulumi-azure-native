@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Wrapper resource for tags API requests and responses.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-10-01.
  *
- * Other available API versions: 2023-07-01, 2024-03-01.
+ * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
  */
 export class TagAtScope extends pulumi.CustomResource {
     /**
@@ -80,7 +80,7 @@ export class TagAtScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20191001:TagAtScope" }, { type: "azure-native:resources/v20200601:TagAtScope" }, { type: "azure-native:resources/v20200801:TagAtScope" }, { type: "azure-native:resources/v20201001:TagAtScope" }, { type: "azure-native:resources/v20210101:TagAtScope" }, { type: "azure-native:resources/v20210401:TagAtScope" }, { type: "azure-native:resources/v20220901:TagAtScope" }, { type: "azure-native:resources/v20230701:TagAtScope" }, { type: "azure-native:resources/v20240301:TagAtScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20191001:TagAtScope" }, { type: "azure-native:resources/v20200601:TagAtScope" }, { type: "azure-native:resources/v20200801:TagAtScope" }, { type: "azure-native:resources/v20201001:TagAtScope" }, { type: "azure-native:resources/v20210101:TagAtScope" }, { type: "azure-native:resources/v20210401:TagAtScope" }, { type: "azure-native:resources/v20220901:TagAtScope" }, { type: "azure-native:resources/v20230701:TagAtScope" }, { type: "azure-native:resources/v20240301:TagAtScope" }, { type: "azure-native:resources/v20240701:TagAtScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagAtScope.__pulumiType, name, resourceInputs, opts);
     }

@@ -3683,6 +3683,7 @@ _utilities.register(
    "azure-native:cdn:AFDEndpoint": "AFDEndpoint",
    "azure-native:cdn:AFDOrigin": "AFDOrigin",
    "azure-native:cdn:AFDOriginGroup": "AFDOriginGroup",
+   "azure-native:cdn:AFDTargetGroup": "AFDTargetGroup",
    "azure-native:cdn:CustomDomain": "CustomDomain",
    "azure-native:cdn:Endpoint": "Endpoint",
    "azure-native:cdn:KeyGroup": "KeyGroup",
@@ -3694,7 +3695,8 @@ _utilities.register(
    "azure-native:cdn:Rule": "Rule",
    "azure-native:cdn:RuleSet": "RuleSet",
    "azure-native:cdn:Secret": "Secret",
-   "azure-native:cdn:SecurityPolicy": "SecurityPolicy"
+   "azure-native:cdn:SecurityPolicy": "SecurityPolicy",
+   "azure-native:cdn:TunnelPolicy": "TunnelPolicy"
   }
  },
  {
@@ -3796,6 +3798,31 @@ _utilities.register(
    "azure-native:cdn/v20240501preview:RuleSet": "RuleSet",
    "azure-native:cdn/v20240501preview:Secret": "Secret",
    "azure-native:cdn/v20240501preview:SecurityPolicy": "SecurityPolicy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cdn/v20240601preview",
+  "fqn": "pulumi_azure_native.cdn.v20240601preview",
+  "classes": {
+   "azure-native:cdn/v20240601preview:AFDCustomDomain": "AFDCustomDomain",
+   "azure-native:cdn/v20240601preview:AFDEndpoint": "AFDEndpoint",
+   "azure-native:cdn/v20240601preview:AFDOrigin": "AFDOrigin",
+   "azure-native:cdn/v20240601preview:AFDOriginGroup": "AFDOriginGroup",
+   "azure-native:cdn/v20240601preview:AFDTargetGroup": "AFDTargetGroup",
+   "azure-native:cdn/v20240601preview:CustomDomain": "CustomDomain",
+   "azure-native:cdn/v20240601preview:Endpoint": "Endpoint",
+   "azure-native:cdn/v20240601preview:KeyGroup": "KeyGroup",
+   "azure-native:cdn/v20240601preview:Origin": "Origin",
+   "azure-native:cdn/v20240601preview:OriginGroup": "OriginGroup",
+   "azure-native:cdn/v20240601preview:Policy": "Policy",
+   "azure-native:cdn/v20240601preview:Profile": "Profile",
+   "azure-native:cdn/v20240601preview:Route": "Route",
+   "azure-native:cdn/v20240601preview:Rule": "Rule",
+   "azure-native:cdn/v20240601preview:RuleSet": "RuleSet",
+   "azure-native:cdn/v20240601preview:Secret": "Secret",
+   "azure-native:cdn/v20240601preview:SecurityPolicy": "SecurityPolicy",
+   "azure-native:cdn/v20240601preview:TunnelPolicy": "TunnelPolicy"
   }
  },
  {
@@ -4591,6 +4618,15 @@ _utilities.register(
   "classes": {
    "azure-native:confidentialledger/v20230628preview:Ledger": "Ledger",
    "azure-native:confidentialledger/v20230628preview:ManagedCCF": "ManagedCCF"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "confidentialledger/v20240709preview",
+  "fqn": "pulumi_azure_native.confidentialledger.v20240709preview",
+  "classes": {
+   "azure-native:confidentialledger/v20240709preview:Ledger": "Ledger",
+   "azure-native:confidentialledger/v20240709preview:ManagedCCF": "ManagedCCF"
   }
  },
  {
@@ -14708,6 +14744,21 @@ _utilities.register(
    "azure-native:resources/v20240301:Resource": "Resource",
    "azure-native:resources/v20240301:ResourceGroup": "ResourceGroup",
    "azure-native:resources/v20240301:TagAtScope": "TagAtScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "resources/v20240701",
+  "fqn": "pulumi_azure_native.resources.v20240701",
+  "classes": {
+   "azure-native:resources/v20240701:Deployment": "Deployment",
+   "azure-native:resources/v20240701:DeploymentAtManagementGroupScope": "DeploymentAtManagementGroupScope",
+   "azure-native:resources/v20240701:DeploymentAtScope": "DeploymentAtScope",
+   "azure-native:resources/v20240701:DeploymentAtSubscriptionScope": "DeploymentAtSubscriptionScope",
+   "azure-native:resources/v20240701:DeploymentAtTenantScope": "DeploymentAtTenantScope",
+   "azure-native:resources/v20240701:Resource": "Resource",
+   "azure-native:resources/v20240701:ResourceGroup": "ResourceGroup",
+   "azure-native:resources/v20240701:TagAtScope": "TagAtScope"
   }
  },
  {

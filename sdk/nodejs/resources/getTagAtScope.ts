@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Wrapper resource for tags API requests and responses.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2023-07-01, 2024-03-01.
+ * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
  */
 export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetTagAtScopeResult> {
 
@@ -53,7 +53,7 @@ export interface GetTagAtScopeResult {
  * Wrapper resource for tags API requests and responses.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2023-07-01, 2024-03-01.
+ * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
  */
 export function getTagAtScopeOutput(args: GetTagAtScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagAtScopeResult> {
     return pulumi.output(args).apply((a: any) => getTagAtScope(a, opts))

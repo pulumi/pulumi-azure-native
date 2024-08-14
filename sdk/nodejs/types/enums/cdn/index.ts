@@ -7,6 +7,7 @@ import * as v20230501 from "./v20230501";
 import * as v20230701preview from "./v20230701preview";
 import * as v20240201 from "./v20240201";
 import * as v20240501preview from "./v20240501preview";
+import * as v20240601preview from "./v20240601preview";
 
 export {
     v20200901,
@@ -14,6 +15,7 @@ export {
     v20230701preview,
     v20240201,
     v20240501preview,
+    v20240601preview,
 };
 
 export const AFDEndpointProtocols = {
@@ -749,6 +751,15 @@ export const TransformType = {
  * Describes what transforms were applied before matching.
  */
 export type TransformType = (typeof TransformType)[keyof typeof TransformType];
+
+export const TunnelType = {
+    HttpConnect: "HttpConnect",
+} as const;
+
+/**
+ * Protocol this tunnel will use for allowing traffic to backends.
+ */
+export type TunnelType = (typeof TunnelType)[keyof typeof TunnelType];
 
 export const UrlFileExtensionOperator = {
     Any: "Any",
