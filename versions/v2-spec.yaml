@@ -252,7 +252,9 @@ Capacity: {}
 Cdn:
     tracking: "2023-05-01"
     additions:
+        AFDTargetGroup: 2024-06-01-preview
         KeyGroup: 2023-07-01-preview
+        TunnelPolicy: 2024-06-01-preview
 CertificateRegistration:
     tracking: "2022-09-01"
 ChangeAnalysis:
