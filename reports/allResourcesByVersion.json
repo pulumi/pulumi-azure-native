@@ -14545,6 +14545,22 @@
       "getVolumeGroupIdForLdapUser",
       "listVolumeReplications"
     ],
+    "2024-01-01": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
     "2024-03-01": [
       "Account",
       "Backup",
@@ -18264,6 +18280,20 @@
       "listNetworkManagerDeploymentStatus",
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules"
+    ],
+    "2024-01-01-preview": [
+      "AdminRule",
+      "AdminRuleCollection",
+      "IpamPool",
+      "NetworkManager",
+      "ReachabilityAnalysisIntent",
+      "ReachabilityAnalysisRun",
+      "SecurityAdminConfiguration",
+      "StaticCidr",
+      "VerifierWorkspace",
+      "getIpamPoolUsage",
+      "listIpamPoolAssociatedResources",
+      "listNetworkManagerDeploymentStatus"
     ],
     "2024-02-01": [
       "Policy"

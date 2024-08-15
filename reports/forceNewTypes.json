@@ -49637,6 +49637,34 @@
     "Property": "zones"
   },
   {
+    "Module": "netapp/v20240101",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "Module": "netapp/v20240101",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "Module": "netapp/v20240101",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "Module": "netapp/v20240101",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
     "Module": "netapp/v20240301",
     "Provider": "NetApp",
     "ResourceName": "VolumeGroup",

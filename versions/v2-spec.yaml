@@ -1310,6 +1310,7 @@ Network:
         InterfaceEndpoint: "2019-02-01"
         IpAllocation: "2023-02-01"
         IpGroup: "2023-02-01"
+        IpamPool: 2024-01-01-preview
         LoadBalancer: "2023-02-01"
         LoadBalancerBackendAddressPool: "2023-02-01"
         LocalNetworkGateway: "2023-02-01"
@@ -1346,6 +1347,8 @@ Network:
         Profile: "2022-04-01"
         PublicIPAddress: "2023-02-01"
         PublicIPPrefix: "2023-02-01"
+        ReachabilityAnalysisIntent: 2024-01-01-preview
+        ReachabilityAnalysisRun: 2024-01-01-preview
         RecordSet: "2018-05-01"
         Route: "2023-02-01"
         RouteFilter: "2023-02-01"
@@ -1361,12 +1364,14 @@ Network:
         SecurityUserConfiguration: 2022-04-01-preview
         ServiceEndpointPolicy: "2023-02-01"
         ServiceEndpointPolicyDefinition: "2023-02-01"
+        StaticCidr: 2024-01-01-preview
         StaticMember: "2023-02-01"
         Subnet: "2023-02-01"
         SubscriptionNetworkManagerConnection: "2023-02-01"
         TrafficManagerUserMetricsKey: "2022-04-01"
         UserRule: 2022-04-01-preview
         UserRuleCollection: 2022-04-01-preview
+        VerifierWorkspace: 2024-01-01-preview
         VirtualApplianceSite: "2023-02-01"
         VirtualHub: "2023-02-01"
         VirtualHubBgpConnection: "2023-02-01"
@@ -1392,6 +1397,7 @@ Network:
         getApplicationGatewayBackendHealthOnDemand: "2023-02-01"
         getBastionShareableLink: "2023-02-01"
         getDnsResourceReferenceByTarResources: "2018-05-01"
+        getIpamPoolUsage: 2024-01-01-preview
         getP2sVpnGatewayP2sVpnConnectionHealth: "2023-02-01"
         getP2sVpnGatewayP2sVpnConnectionHealthDetailed: "2023-02-01"
         getVirtualNetworkGatewayAdvertisedRoutes: "2023-02-01"
@@ -1415,6 +1421,7 @@ Network:
         listEffectiveVirtualNetworkByNetworkManager: 2022-04-01-preview
         listFirewallPolicyIdpsSignature: "2023-02-01"
         listFirewallPolicyIdpsSignaturesFilterValue: "2023-02-01"
+        listIpamPoolAssociatedResources: 2024-01-01-preview
         listListEffectiveVirtualNetworkByNetworkGroup: 2022-04-01-preview
         listNetworkManagerDeploymentStatus: "2023-02-01"
         listNetworkManagerEffectiveConnectivityConfigurations: "2023-02-01"
