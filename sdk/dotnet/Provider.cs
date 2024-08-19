@@ -189,8 +189,6 @@ namespace Pulumi.AzureNative
         public ProviderArgs()
         {
             Environment = "public";
-            UseMsi = false;
-            UseOidc = false;
         }
         public static new ProviderArgs Empty => new ProviderArgs();
     }
