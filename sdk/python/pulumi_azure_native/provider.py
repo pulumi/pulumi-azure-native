@@ -92,12 +92,8 @@ class ProviderArgs:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-        if use_msi is None:
-            use_msi = False
         if use_msi is not None:
             pulumi.set(__self__, "use_msi", use_msi)
-        if use_oidc is None:
-            use_oidc = False
         if use_oidc is not None:
             pulumi.set(__self__, "use_oidc", use_oidc)
 
@@ -435,11 +431,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["partner_id"] = partner_id
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tenant_id"] = tenant_id
-            if use_msi is None:
-                use_msi = False
             __props__.__dict__["use_msi"] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
-            if use_oidc is None:
-                use_oidc = False
             __props__.__dict__["use_oidc"] = pulumi.Output.from_input(use_oidc).apply(pulumi.runtime.to_json) if use_oidc is not None else None
         super(Provider, __self__).__init__(
             'azure-native',

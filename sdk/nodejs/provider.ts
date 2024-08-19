@@ -50,8 +50,8 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["partnerId"] = args ? args.partnerId : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["useMsi"] = pulumi.output((args ? args.useMsi : undefined) ?? false).apply(JSON.stringify);
-            resourceInputs["useOidc"] = pulumi.output((args ? args.useOidc : undefined) ?? false).apply(JSON.stringify);
+            resourceInputs["useMsi"] = pulumi.output(args ? args.useMsi : undefined).apply(JSON.stringify);
+            resourceInputs["useOidc"] = pulumi.output(args ? args.useOidc : undefined).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
