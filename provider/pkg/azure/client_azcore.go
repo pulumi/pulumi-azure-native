@@ -15,7 +15,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
-	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 type azCoreClient struct {
@@ -24,13 +24,9 @@ type azCoreClient struct {
 	userAgent string
 }
 
-func NewAzCoreClient(userAgent string) AzureClient {
-	credentials, err := newAzureCredentials()
-	if err != nil {
-		panic(err)
-	}
-
-	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", "v2", credentials,
+func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string) AzureClient {
+	// TODO,tkappler version
+	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", "v2", tokenCredential,
 		runtime.PipelineOptions{}, &arm.ClientOptions{})
 	if err != nil {
 		panic(err)
@@ -284,19 +280,4 @@ func (c *azCoreClient) CanCreate(ctx context.Context, id, path, apiVersion, read
 		body, _ := io.ReadAll(resp.Body)
 		return fmt.Errorf("cannot check existence of resource '%s': status code %d, %s", id, resp.StatusCode, body)
 	}
-}
-
-func newAzureCredentials() (*azidentity.ChainedTokenCredential, error) {
-	cli, err := azidentity.NewAzureCLICredential(&azidentity.AzureCLICredentialOptions{})
-	if err != nil {
-		return nil, err
-	}
-
-	sources := []azcore.TokenCredential{cli}
-	chain, err := azidentity.NewChainedTokenCredential(sources, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return chain, nil
 }
