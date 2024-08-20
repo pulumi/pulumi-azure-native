@@ -9,7 +9,6 @@ __all__ = [
     'InvoiceSectionState',
     'InvoiceSectionStateReasonCode',
     'ProvisioningTenantState',
-    'TargetCloud',
 ]
 
 
@@ -58,14 +57,3 @@ class ProvisioningTenantState(str, Enum):
     BILLING_REQUEST_EXPIRED = "BillingRequestExpired"
     BILLING_REQUEST_DECLINED = "BillingRequestDeclined"
     REVOKED = "Revoked"
-
-
-class TargetCloud(str, Enum):
-    """
-    Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.
-    """
-    OTHER = "Other"
-    INTERNAL = "Internal"
-    US_GOV = "USGov"
-    US_NAT = "USNat"
-    US_SEC = "USSec"

@@ -77,10 +77,8 @@ func main() {
 	switch languages {
 	case "schema":
 		buildSchemaResult, buildSchemaErr := versioning.BuildSchema(buildSchemaArgs)
-		if buildSchemaErr != nil {
-			panic(buildSchemaErr)
-		}
 
+		// Attempt to write out the version metadata before failing as this might help us diagnose the issue.
 		if namespaces == "*" && apiVersions == "" {
 			written, err := buildSchemaResult.Version.WriteTo("versions")
 			if err != nil {
@@ -98,6 +96,10 @@ func main() {
 			}
 		} else {
 			fmt.Println("Note: skipping writing version metadata and reports because DEBUG_CODEGEN_NAMESPACES or DEBUG_CODEGEN_APIVERSIONS is set.")
+		}
+
+		if buildSchemaErr != nil {
+			panic(buildSchemaErr)
 		}
 
 		if codegenSchemaOutputPath == "" {

@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.Network.V20230601
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:SecurityAdminConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:SecurityAdminConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:SecurityAdminConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240101preview:SecurityAdminConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

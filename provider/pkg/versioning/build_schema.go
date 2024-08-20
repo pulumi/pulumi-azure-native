@@ -106,15 +106,32 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		providers = openapi.SingleVersion(providers)
 	}
 
+	buildSchemaReports := BuildSchemaReports{
+		NamingDisambiguations:         diagnostics.NamingDisambiguations,
+		SkippedPOSTEndpoints:          diagnostics.SkippedPOSTEndpoints,
+		PathChangesResult:             pathChanges,
+		AllResourcesByVersion:         versionMetadata.AllResourcesByVersion,
+		AllResourceVersionsByResource: versionMetadata.AllResourceVersionsByResource,
+		Active:                        versionMetadata.Active,
+		Pending:                       versionMetadata.Pending,
+		CurationViolations:            versionMetadata.CurationViolations,
+		AllEndpoints:                  diagnostics.Endpoints,
+	}
+
 	generationResult, err := gen.PulumiSchema(args.RootDir, providers, versionMetadata)
+
 	if err != nil {
 		return &BuildSchemaResult{
 			PackageSpec: schema.PackageSpec{},
 			Metadata:    resources.AzureAPIMetadata{},
 			Version:     versionMetadata,
-			Reports:     BuildSchemaReports{},
+			Reports:     buildSchemaReports,
 		}, err
 	}
+
+	buildSchemaReports.ForceNewTypes = generationResult.ForceNewTypes
+	buildSchemaReports.TypeCaseConflicts = generationResult.TypeCaseConflicts
+	buildSchemaReports.FlattenedPropertyConflicts = generationResult.FlattenedPropertyConflicts
 
 	pkgSpec := generationResult.Schema
 	metadata := generationResult.Metadata
@@ -131,26 +148,11 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		pkgSpec.Version = ""
 	}
 
-	buildSchemaResult := BuildSchemaReports{
-		NamingDisambiguations:         diagnostics.NamingDisambiguations,
-		SkippedPOSTEndpoints:          diagnostics.SkippedPOSTEndpoints,
-		PathChangesResult:             pathChanges,
-		AllResourcesByVersion:         versionMetadata.AllResourcesByVersion,
-		AllResourceVersionsByResource: versionMetadata.AllResourceVersionsByResource,
-		Active:                        versionMetadata.Active,
-		Pending:                       versionMetadata.Pending,
-		CurationViolations:            versionMetadata.CurationViolations,
-		ForceNewTypes:                 generationResult.ForceNewTypes,
-		TypeCaseConflicts:             generationResult.TypeCaseConflicts,
-		FlattenedPropertyConflicts:    generationResult.FlattenedPropertyConflicts,
-		AllEndpoints:                  diagnostics.Endpoints,
-	}
-
 	return &BuildSchemaResult{
 		PackageSpec: *pkgSpec,
 		Metadata:    *metadata,
 		Version:     versionMetadata,
-		Reports:     buildSchemaResult,
+		Reports:     buildSchemaReports,
 	}, nil
 }
 

@@ -430,6 +430,16 @@ export const getIpGroup: typeof import("./getIpGroup").getIpGroup = null as any;
 export const getIpGroupOutput: typeof import("./getIpGroup").getIpGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getIpGroup","getIpGroupOutput"], () => require("./getIpGroup"));
 
+export { GetIpamPoolArgs, GetIpamPoolResult, GetIpamPoolOutputArgs } from "./getIpamPool";
+export const getIpamPool: typeof import("./getIpamPool").getIpamPool = null as any;
+export const getIpamPoolOutput: typeof import("./getIpamPool").getIpamPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getIpamPool","getIpamPoolOutput"], () => require("./getIpamPool"));
+
+export { GetIpamPoolUsageArgs, GetIpamPoolUsageResult, GetIpamPoolUsageOutputArgs } from "./getIpamPoolUsage";
+export const getIpamPoolUsage: typeof import("./getIpamPoolUsage").getIpamPoolUsage = null as any;
+export const getIpamPoolUsageOutput: typeof import("./getIpamPoolUsage").getIpamPoolUsageOutput = null as any;
+utilities.lazyLoad(exports, ["getIpamPoolUsage","getIpamPoolUsageOutput"], () => require("./getIpamPoolUsage"));
+
 export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
 export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
 export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
@@ -615,6 +625,16 @@ export const getPublicIPPrefix: typeof import("./getPublicIPPrefix").getPublicIP
 export const getPublicIPPrefixOutput: typeof import("./getPublicIPPrefix").getPublicIPPrefixOutput = null as any;
 utilities.lazyLoad(exports, ["getPublicIPPrefix","getPublicIPPrefixOutput"], () => require("./getPublicIPPrefix"));
 
+export { GetReachabilityAnalysisIntentArgs, GetReachabilityAnalysisIntentResult, GetReachabilityAnalysisIntentOutputArgs } from "./getReachabilityAnalysisIntent";
+export const getReachabilityAnalysisIntent: typeof import("./getReachabilityAnalysisIntent").getReachabilityAnalysisIntent = null as any;
+export const getReachabilityAnalysisIntentOutput: typeof import("./getReachabilityAnalysisIntent").getReachabilityAnalysisIntentOutput = null as any;
+utilities.lazyLoad(exports, ["getReachabilityAnalysisIntent","getReachabilityAnalysisIntentOutput"], () => require("./getReachabilityAnalysisIntent"));
+
+export { GetReachabilityAnalysisRunArgs, GetReachabilityAnalysisRunResult, GetReachabilityAnalysisRunOutputArgs } from "./getReachabilityAnalysisRun";
+export const getReachabilityAnalysisRun: typeof import("./getReachabilityAnalysisRun").getReachabilityAnalysisRun = null as any;
+export const getReachabilityAnalysisRunOutput: typeof import("./getReachabilityAnalysisRun").getReachabilityAnalysisRunOutput = null as any;
+utilities.lazyLoad(exports, ["getReachabilityAnalysisRun","getReachabilityAnalysisRunOutput"], () => require("./getReachabilityAnalysisRun"));
+
 export { GetRecordSetArgs, GetRecordSetResult, GetRecordSetOutputArgs } from "./getRecordSet";
 export const getRecordSet: typeof import("./getRecordSet").getRecordSet = null as any;
 export const getRecordSetOutput: typeof import("./getRecordSet").getRecordSetOutput = null as any;
@@ -690,6 +710,11 @@ export const getServiceEndpointPolicyDefinition: typeof import("./getServiceEndp
 export const getServiceEndpointPolicyDefinitionOutput: typeof import("./getServiceEndpointPolicyDefinition").getServiceEndpointPolicyDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceEndpointPolicyDefinition","getServiceEndpointPolicyDefinitionOutput"], () => require("./getServiceEndpointPolicyDefinition"));
 
+export { GetStaticCidrArgs, GetStaticCidrResult, GetStaticCidrOutputArgs } from "./getStaticCidr";
+export const getStaticCidr: typeof import("./getStaticCidr").getStaticCidr = null as any;
+export const getStaticCidrOutput: typeof import("./getStaticCidr").getStaticCidrOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticCidr","getStaticCidrOutput"], () => require("./getStaticCidr"));
+
 export { GetStaticMemberArgs, GetStaticMemberResult, GetStaticMemberOutputArgs } from "./getStaticMember";
 export const getStaticMember: typeof import("./getStaticMember").getStaticMember = null as any;
 export const getStaticMemberOutput: typeof import("./getStaticMember").getStaticMemberOutput = null as any;
@@ -719,6 +744,11 @@ export { GetUserRuleCollectionArgs, GetUserRuleCollectionResult, GetUserRuleColl
 export const getUserRuleCollection: typeof import("./getUserRuleCollection").getUserRuleCollection = null as any;
 export const getUserRuleCollectionOutput: typeof import("./getUserRuleCollection").getUserRuleCollectionOutput = null as any;
 utilities.lazyLoad(exports, ["getUserRuleCollection","getUserRuleCollectionOutput"], () => require("./getUserRuleCollection"));
+
+export { GetVerifierWorkspaceArgs, GetVerifierWorkspaceResult, GetVerifierWorkspaceOutputArgs } from "./getVerifierWorkspace";
+export const getVerifierWorkspace: typeof import("./getVerifierWorkspace").getVerifierWorkspace = null as any;
+export const getVerifierWorkspaceOutput: typeof import("./getVerifierWorkspace").getVerifierWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getVerifierWorkspace","getVerifierWorkspaceOutput"], () => require("./getVerifierWorkspace"));
 
 export { GetVirtualApplianceSiteArgs, GetVirtualApplianceSiteResult, GetVirtualApplianceSiteOutputArgs } from "./getVirtualApplianceSite";
 export const getVirtualApplianceSite: typeof import("./getVirtualApplianceSite").getVirtualApplianceSite = null as any;
@@ -900,6 +930,11 @@ export type IpGroup = import("./ipGroup").IpGroup;
 export const IpGroup: typeof import("./ipGroup").IpGroup = null as any;
 utilities.lazyLoad(exports, ["IpGroup"], () => require("./ipGroup"));
 
+export { IpamPoolArgs } from "./ipamPool";
+export type IpamPool = import("./ipamPool").IpamPool;
+export const IpamPool: typeof import("./ipamPool").IpamPool = null as any;
+utilities.lazyLoad(exports, ["IpamPool"], () => require("./ipamPool"));
+
 export { ListActiveConnectivityConfigurationArgs, ListActiveConnectivityConfigurationResult, ListActiveConnectivityConfigurationOutputArgs } from "./listActiveConnectivityConfiguration";
 export const listActiveConnectivityConfiguration: typeof import("./listActiveConnectivityConfiguration").listActiveConnectivityConfiguration = null as any;
 export const listActiveConnectivityConfigurationOutput: typeof import("./listActiveConnectivityConfiguration").listActiveConnectivityConfigurationOutput = null as any;
@@ -964,6 +999,11 @@ export { ListFirewallPolicyIdpsSignaturesFilterValueArgs, ListFirewallPolicyIdps
 export const listFirewallPolicyIdpsSignaturesFilterValue: typeof import("./listFirewallPolicyIdpsSignaturesFilterValue").listFirewallPolicyIdpsSignaturesFilterValue = null as any;
 export const listFirewallPolicyIdpsSignaturesFilterValueOutput: typeof import("./listFirewallPolicyIdpsSignaturesFilterValue").listFirewallPolicyIdpsSignaturesFilterValueOutput = null as any;
 utilities.lazyLoad(exports, ["listFirewallPolicyIdpsSignaturesFilterValue","listFirewallPolicyIdpsSignaturesFilterValueOutput"], () => require("./listFirewallPolicyIdpsSignaturesFilterValue"));
+
+export { ListIpamPoolAssociatedResourcesArgs, ListIpamPoolAssociatedResourcesResult, ListIpamPoolAssociatedResourcesOutputArgs } from "./listIpamPoolAssociatedResources";
+export const listIpamPoolAssociatedResources: typeof import("./listIpamPoolAssociatedResources").listIpamPoolAssociatedResources = null as any;
+export const listIpamPoolAssociatedResourcesOutput: typeof import("./listIpamPoolAssociatedResources").listIpamPoolAssociatedResourcesOutput = null as any;
+utilities.lazyLoad(exports, ["listIpamPoolAssociatedResources","listIpamPoolAssociatedResourcesOutput"], () => require("./listIpamPoolAssociatedResources"));
 
 export { ListListEffectiveVirtualNetworkByNetworkGroupArgs, ListListEffectiveVirtualNetworkByNetworkGroupResult, ListListEffectiveVirtualNetworkByNetworkGroupOutputArgs } from "./listListEffectiveVirtualNetworkByNetworkGroup";
 export const listListEffectiveVirtualNetworkByNetworkGroup: typeof import("./listListEffectiveVirtualNetworkByNetworkGroup").listListEffectiveVirtualNetworkByNetworkGroup = null as any;
@@ -1165,6 +1205,16 @@ export type PublicIPPrefix = import("./publicIPPrefix").PublicIPPrefix;
 export const PublicIPPrefix: typeof import("./publicIPPrefix").PublicIPPrefix = null as any;
 utilities.lazyLoad(exports, ["PublicIPPrefix"], () => require("./publicIPPrefix"));
 
+export { ReachabilityAnalysisIntentArgs } from "./reachabilityAnalysisIntent";
+export type ReachabilityAnalysisIntent = import("./reachabilityAnalysisIntent").ReachabilityAnalysisIntent;
+export const ReachabilityAnalysisIntent: typeof import("./reachabilityAnalysisIntent").ReachabilityAnalysisIntent = null as any;
+utilities.lazyLoad(exports, ["ReachabilityAnalysisIntent"], () => require("./reachabilityAnalysisIntent"));
+
+export { ReachabilityAnalysisRunArgs } from "./reachabilityAnalysisRun";
+export type ReachabilityAnalysisRun = import("./reachabilityAnalysisRun").ReachabilityAnalysisRun;
+export const ReachabilityAnalysisRun: typeof import("./reachabilityAnalysisRun").ReachabilityAnalysisRun = null as any;
+utilities.lazyLoad(exports, ["ReachabilityAnalysisRun"], () => require("./reachabilityAnalysisRun"));
+
 export { RecordSetArgs } from "./recordSet";
 export type RecordSet = import("./recordSet").RecordSet;
 export const RecordSet: typeof import("./recordSet").RecordSet = null as any;
@@ -1240,6 +1290,11 @@ export type ServiceEndpointPolicyDefinition = import("./serviceEndpointPolicyDef
 export const ServiceEndpointPolicyDefinition: typeof import("./serviceEndpointPolicyDefinition").ServiceEndpointPolicyDefinition = null as any;
 utilities.lazyLoad(exports, ["ServiceEndpointPolicyDefinition"], () => require("./serviceEndpointPolicyDefinition"));
 
+export { StaticCidrArgs } from "./staticCidr";
+export type StaticCidr = import("./staticCidr").StaticCidr;
+export const StaticCidr: typeof import("./staticCidr").StaticCidr = null as any;
+utilities.lazyLoad(exports, ["StaticCidr"], () => require("./staticCidr"));
+
 export { StaticMemberArgs } from "./staticMember";
 export type StaticMember = import("./staticMember").StaticMember;
 export const StaticMember: typeof import("./staticMember").StaticMember = null as any;
@@ -1269,6 +1324,11 @@ export { UserRuleCollectionArgs } from "./userRuleCollection";
 export type UserRuleCollection = import("./userRuleCollection").UserRuleCollection;
 export const UserRuleCollection: typeof import("./userRuleCollection").UserRuleCollection = null as any;
 utilities.lazyLoad(exports, ["UserRuleCollection"], () => require("./userRuleCollection"));
+
+export { VerifierWorkspaceArgs } from "./verifierWorkspace";
+export type VerifierWorkspace = import("./verifierWorkspace").VerifierWorkspace;
+export const VerifierWorkspace: typeof import("./verifierWorkspace").VerifierWorkspace = null as any;
+utilities.lazyLoad(exports, ["VerifierWorkspace"], () => require("./verifierWorkspace"));
 
 export { VirtualApplianceSiteArgs } from "./virtualApplianceSite";
 export type VirtualApplianceSite = import("./virtualApplianceSite").VirtualApplianceSite;
@@ -1415,6 +1475,7 @@ import * as v20230801preview from "./v20230801preview";
 import * as v20230901 from "./v20230901";
 import * as v20231101 from "./v20231101";
 import * as v20240101 from "./v20240101";
+import * as v20240101preview from "./v20240101preview";
 import * as v20240201 from "./v20240201";
 import * as v20240601 from "./v20240601";
 
@@ -1454,6 +1515,7 @@ export {
     v20230901,
     v20231101,
     v20240101,
+    v20240101preview,
     v20240201,
     v20240601,
 };
@@ -1550,6 +1612,8 @@ const _module = {
                 return new IpAllocation(name, <any>undefined, { urn })
             case "azure-native:network:IpGroup":
                 return new IpGroup(name, <any>undefined, { urn })
+            case "azure-native:network:IpamPool":
+                return new IpamPool(name, <any>undefined, { urn })
             case "azure-native:network:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
             case "azure-native:network:LoadBalancerBackendAddressPool":
@@ -1620,6 +1684,10 @@ const _module = {
                 return new PublicIPAddress(name, <any>undefined, { urn })
             case "azure-native:network:PublicIPPrefix":
                 return new PublicIPPrefix(name, <any>undefined, { urn })
+            case "azure-native:network:ReachabilityAnalysisIntent":
+                return new ReachabilityAnalysisIntent(name, <any>undefined, { urn })
+            case "azure-native:network:ReachabilityAnalysisRun":
+                return new ReachabilityAnalysisRun(name, <any>undefined, { urn })
             case "azure-native:network:RecordSet":
                 return new RecordSet(name, <any>undefined, { urn })
             case "azure-native:network:Route":
@@ -1650,6 +1718,8 @@ const _module = {
                 return new ServiceEndpointPolicy(name, <any>undefined, { urn })
             case "azure-native:network:ServiceEndpointPolicyDefinition":
                 return new ServiceEndpointPolicyDefinition(name, <any>undefined, { urn })
+            case "azure-native:network:StaticCidr":
+                return new StaticCidr(name, <any>undefined, { urn })
             case "azure-native:network:StaticMember":
                 return new StaticMember(name, <any>undefined, { urn })
             case "azure-native:network:Subnet":
@@ -1662,6 +1732,8 @@ const _module = {
                 return new UserRule(name, <any>undefined, { urn })
             case "azure-native:network:UserRuleCollection":
                 return new UserRuleCollection(name, <any>undefined, { urn })
+            case "azure-native:network:VerifierWorkspace":
+                return new VerifierWorkspace(name, <any>undefined, { urn })
             case "azure-native:network:VirtualApplianceSite":
                 return new VirtualApplianceSite(name, <any>undefined, { urn })
             case "azure-native:network:VirtualHub":

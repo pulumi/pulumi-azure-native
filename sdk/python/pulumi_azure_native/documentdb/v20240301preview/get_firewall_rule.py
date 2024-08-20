@@ -27,36 +27,22 @@ class GetFirewallRuleResult:
     """
     Represents a mongo cluster firewall rule.
     """
-    def __init__(__self__, end_ip_address=None, id=None, name=None, provisioning_state=None, start_ip_address=None, system_data=None, type=None):
-        if end_ip_address and not isinstance(end_ip_address, str):
-            raise TypeError("Expected argument 'end_ip_address' to be a str")
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if start_ip_address and not isinstance(start_ip_address, str):
-            raise TypeError("Expected argument 'start_ip_address' to be a str")
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> str:
-        """
-        The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        """
-        return pulumi.get(self, "end_ip_address")
 
     @property
     @pulumi.getter
@@ -75,20 +61,12 @@ class GetFirewallRuleResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.FirewallRulePropertiesResponse':
         """
-        The provisioning state of the firewall rule.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> str:
-        """
-        The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        """
-        return pulumi.get(self, "start_ip_address")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -113,11 +91,9 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
         if False:
             yield self
         return GetFirewallRuleResult(
-            end_ip_address=self.end_ip_address,
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            start_ip_address=self.start_ip_address,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -142,11 +118,9 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb/v20240301preview:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult).value
 
     return AwaitableGetFirewallRuleResult(
-        end_ip_address=pulumi.get(__ret__, 'end_ip_address'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        start_ip_address=pulumi.get(__ret__, 'start_ip_address'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 

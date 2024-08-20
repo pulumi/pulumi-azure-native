@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Billing.Inputs
         /// Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.
         /// </summary>
         [Input("targetCloud")]
-        public InputUnion<string, Pulumi.AzureNative.Billing.TargetCloud>? TargetCloud { get; set; }
+        public Input<string>? TargetCloud { get; set; }
 
         public InvoiceSectionPropertiesArgs()
         {

@@ -567,6 +567,7 @@
     "ScheduledActions_VirtualMachinesExecuteDeallocate": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeSchedule/locations/{locationparameter}/virtualMachinesExecuteDeallocate",
     "ScheduledActions_VirtualMachinesExecuteHibernate": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeSchedule/locations/{locationparameter}/virtualMachinesExecuteHibernate",
     "ScheduledActions_VirtualMachinesExecuteStart": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeSchedule/locations/{locationparameter}/virtualMachinesExecuteStart",
+    "ScheduledActions_VirtualMachinesGetOperationErrors": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeSchedule/locations/{locationparameter}/virtualMachinesGetOperationErrors",
     "ScheduledActions_VirtualMachinesGetOperationStatus": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeSchedule/locations/{locationparameter}/virtualMachinesGetOperationStatus",
     "ScheduledActions_VirtualMachinesSubmitDeallocate": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeSchedule/locations/{locationparameter}/virtualMachinesSubmitDeallocate",
     "ScheduledActions_VirtualMachinesSubmitHibernate": "/subscriptions/{subscriptionId}/providers/Microsoft.ComputeSchedule/locations/{locationparameter}/virtualMachinesSubmitHibernate",
@@ -2408,9 +2409,11 @@
     "Subscription_CreateSubscriptionInEnrollmentAccount": "/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountName}/providers/Microsoft.Subscription/createSubscription",
     "Subscription_Enable": "/subscriptions/{subscriptionId}/providers/Microsoft.Subscription/enable",
     "Subscription_Rename": "/subscriptions/{subscriptionId}/providers/Microsoft.Subscription/rename",
+    "Subscriptions_AcceptTargetDirectory": "/providers/Microsoft.Subscription/subscriptions/{subscriptionId}/acceptChangeTenant",
     "Subscriptions_Cancel": "/subscriptions/{subscriptionId}/providers/Microsoft.Subscription/cancel",
     "Subscriptions_Enable": "/subscriptions/{subscriptionId}/providers/Microsoft.Subscription/enable",
-    "Subscriptions_Rename": "/subscriptions/{subscriptionId}/providers/Microsoft.Subscription/rename"
+    "Subscriptions_Rename": "/subscriptions/{subscriptionId}/providers/Microsoft.Subscription/rename",
+    "Subscriptions_TargetDirectoryStatus": "/providers/Microsoft.Subscription/subscriptions/{subscriptionId}/changeTenantStatus"
   },
   "Support": {
     "CommunicationsNoSubscription_CheckNameAvailability": "/providers/Microsoft.Support/supportTickets/{supportTicketName}/checkNameAvailability",

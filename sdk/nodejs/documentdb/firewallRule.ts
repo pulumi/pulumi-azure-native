@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a mongo cluster firewall rule.
  * Azure REST API version: 2024-03-01-preview.
  *
- * Other available API versions: 2024-06-01-preview.
+ * Other available API versions: 2024-06-01-preview, 2024-07-01.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -41,21 +41,13 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /**
-     * The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-     */
-    public readonly endIpAddress!: pulumi.Output<string>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the firewall rule.
+     * The resource-specific properties for this resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
-     */
-    public readonly startIpAddress!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.documentdb.FirewallRulePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -76,37 +68,27 @@ export class FirewallRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endIpAddress === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'endIpAddress'");
-            }
             if ((!args || args.mongoClusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mongoClusterName'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startIpAddress === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'startIpAddress'");
-            }
-            resourceInputs["endIpAddress"] = args ? args.endIpAddress : undefined;
             resourceInputs["firewallRuleName"] = args ? args.firewallRuleName : undefined;
             resourceInputs["mongoClusterName"] = args ? args.mongoClusterName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["endIpAddress"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["startIpAddress"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20230301preview:FirewallRule" }, { type: "azure-native:documentdb/v20230315preview:FirewallRule" }, { type: "azure-native:documentdb/v20230915preview:FirewallRule" }, { type: "azure-native:documentdb/v20231115preview:FirewallRule" }, { type: "azure-native:documentdb/v20240215preview:FirewallRule" }, { type: "azure-native:documentdb/v20240301preview:FirewallRule" }, { type: "azure-native:documentdb/v20240601preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20230301preview:FirewallRule" }, { type: "azure-native:documentdb/v20230315preview:FirewallRule" }, { type: "azure-native:documentdb/v20230915preview:FirewallRule" }, { type: "azure-native:documentdb/v20231115preview:FirewallRule" }, { type: "azure-native:documentdb/v20240215preview:FirewallRule" }, { type: "azure-native:documentdb/v20240301preview:FirewallRule" }, { type: "azure-native:documentdb/v20240601preview:FirewallRule" }, { type: "azure-native:documentdb/v20240701:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,10 +99,6 @@ export class FirewallRule extends pulumi.CustomResource {
  */
 export interface FirewallRuleArgs {
     /**
-     * The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-     */
-    endIpAddress: pulumi.Input<string>;
-    /**
      * The name of the mongo cluster firewall rule.
      */
     firewallRuleName?: pulumi.Input<string>;
@@ -129,11 +107,11 @@ export interface FirewallRuleArgs {
      */
     mongoClusterName: pulumi.Input<string>;
     /**
+     * The resource-specific properties for this resource.
+     */
+    properties?: pulumi.Input<inputs.documentdb.FirewallRulePropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
-     */
-    startIpAddress: pulumi.Input<string>;
 }

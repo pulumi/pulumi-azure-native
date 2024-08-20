@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Portal
         /// Gets the Dashboard.
         /// Azure REST API version: 2020-09-01-preview.
         /// 
-        /// Other available API versions: 2019-01-01-preview.
+        /// Other available API versions: 2019-01-01-preview, 2022-12-01-preview.
         /// </summary>
         public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azure-native:portal:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Portal
         /// Gets the Dashboard.
         /// Azure REST API version: 2020-09-01-preview.
         /// 
-        /// Other available API versions: 2019-01-01-preview.
+        /// Other available API versions: 2019-01-01-preview, 2022-12-01-preview.
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("azure-native:portal:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());

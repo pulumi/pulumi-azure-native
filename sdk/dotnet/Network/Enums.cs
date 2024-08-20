@@ -4111,6 +4111,39 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// Network protocol this resource applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkProtocol : IEquatable<NetworkProtocol>
+    {
+        private readonly string _value;
+
+        private NetworkProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkProtocol Any { get; } = new NetworkProtocol("Any");
+        public static NetworkProtocol TCP { get; } = new NetworkProtocol("TCP");
+        public static NetworkProtocol UDP { get; } = new NetworkProtocol("UDP");
+        public static NetworkProtocol ICMP { get; } = new NetworkProtocol("ICMP");
+
+        public static bool operator ==(NetworkProtocol left, NetworkProtocol right) => left.Equals(right);
+        public static bool operator !=(NetworkProtocol left, NetworkProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkProtocol other && Equals(other);
+        public bool Equals(NetworkProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Next step after rule is evaluated. Current supported behaviors are 'Continue'(to next rule) and 'Terminate'.
     /// </summary>
     [EnumType]

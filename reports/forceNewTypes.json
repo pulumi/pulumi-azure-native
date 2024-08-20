@@ -4249,6 +4249,20 @@
     "Property": "restoreParameters"
   },
   {
+    "Module": "documentdb/v20240301preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "CreateMode",
+    "Property": "createMode"
+  },
+  {
+    "Module": "documentdb/v20240301preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
     "Module": "documentdb/v20240515",
     "Provider": "DocumentDB",
     "ResourceName": "CassandraCluster",
@@ -4428,6 +4442,48 @@
     "Provider": "DocumentDB",
     "ResourceName": "TableResourceTable",
     "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240601preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "CreateMode",
+    "Property": "createMode"
+  },
+  {
+    "Module": "documentdb/v20240601preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterReplicaParameters",
+    "Property": "replicaParameters"
+  },
+  {
+    "Module": "documentdb/v20240601preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240701",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "CreateMode",
+    "Property": "createMode"
+  },
+  {
+    "Module": "documentdb/v20240701",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterReplicaParameters",
+    "Property": "replicaParameters"
+  },
+  {
+    "Module": "documentdb/v20240701",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterRestoreParameters",
     "Property": "restoreParameters"
   },
   {
@@ -4823,6 +4879,13 @@
     "Property": "location"
   },
   {
+    "Module": "hybridcompute/v20240710",
+    "Provider": "HybridCompute",
+    "ResourceName": "Machine",
+    "ReferenceName": "TrackedResource",
+    "Property": "location"
+  },
+  {
     "Module": "hybridnetwork",
     "Provider": "HybridNetwork",
     "ResourceName": "ArtifactManifest",
@@ -5073,6 +5136,76 @@
     "ResourceName": "Broker",
     "ReferenceName": "BrokerProperties",
     "Property": "memoryProfile"
+  },
+  {
+    "Module": "iotoperations/v20240815preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "AdvancedSettings",
+    "Property": "advanced"
+  },
+  {
+    "Module": "iotoperations/v20240815preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "Cardinality",
+    "Property": "cardinality"
+  },
+  {
+    "Module": "iotoperations/v20240815preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "DiskBackedMessageBuffer",
+    "Property": "diskBackedMessageBuffer"
+  },
+  {
+    "Module": "iotoperations/v20240815preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "GenerateResourceLimits",
+    "Property": "generateResourceLimits"
+  },
+  {
+    "Module": "iotoperations/v20240815preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "BrokerProperties",
+    "Property": "memoryProfile"
+  },
+  {
+    "Module": "iotoperations/v20240815preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Instance",
+    "ReferenceName": "OperationalMode",
+    "Property": "state"
+  },
+  {
+    "Module": "iotoperations/v20240815preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Instance",
+    "ReferenceName": "OperationalMode",
+    "Property": "state"
+  },
+  {
+    "Module": "iotoperations/v20240815preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Instance",
+    "ReferenceName": "OperationalMode",
+    "Property": "state"
+  },
+  {
+    "Module": "iotoperations/v20240815preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Instance",
+    "ReferenceName": "OperationalMode",
+    "Property": "state"
+  },
+  {
+    "Module": "iotoperations/v20240815preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Instance",
+    "ReferenceName": "OperationalMode",
+    "Property": "state"
   },
   {
     "Module": "kusto",
@@ -49631,6 +49764,34 @@
   },
   {
     "Module": "netapp/v20231101preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
+    "Module": "netapp/v20240101",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "Module": "netapp/v20240101",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "Module": "netapp/v20240101",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "Module": "netapp/v20240101",
     "Provider": "NetApp",
     "ResourceName": "VolumeGroup",
     "ReferenceName": "volumeGroupVolumeProperties",

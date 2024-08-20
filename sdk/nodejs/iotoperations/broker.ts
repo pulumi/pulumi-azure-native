@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Instance broker resource
  * Azure REST API version: 2024-07-01-preview.
+ *
+ * Other available API versions: 2024-08-15-preview.
  */
 export class Broker extends pulumi.CustomResource {
     /**
@@ -95,7 +97,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:Broker" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:Broker" }, { type: "azure-native:iotoperations/v20240815preview:Broker" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Broker.__pulumiType, name, resourceInputs, opts);
     }

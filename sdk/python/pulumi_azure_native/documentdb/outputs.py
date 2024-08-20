@@ -56,6 +56,7 @@ __all__ = [
     'DatabaseRestoreResourceResponse',
     'ExcludedPathResponse',
     'FailoverPolicyResponse',
+    'FirewallRulePropertiesResponse',
     'GraphAPIComputeRegionalServiceResourceResponse',
     'GraphAPIComputeServiceResourcePropertiesResponse',
     'GraphResourceGetPropertiesResponseOptions',
@@ -2656,6 +2657,71 @@ class FailoverPolicyResponse(dict):
         The name of the region in which the database account exists.
         """
         return pulumi.get(self, "location_name")
+
+
+@pulumi.output_type
+class FirewallRulePropertiesResponse(dict):
+    """
+    The properties of a mongo cluster firewall rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endIpAddress":
+            suggest = "end_ip_address"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "startIpAddress":
+            suggest = "start_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_ip_address: str,
+                 provisioning_state: str,
+                 start_ip_address: str):
+        """
+        The properties of a mongo cluster firewall rule.
+        :param str end_ip_address: The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        :param str provisioning_state: The provisioning state of the firewall rule.
+        :param str start_ip_address: The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        """
+        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "start_ip_address", start_ip_address)
+
+    @property
+    @pulumi.getter(name="endIpAddress")
+    def end_ip_address(self) -> str:
+        """
+        The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "end_ip_address")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the firewall rule.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="startIpAddress")
+    def start_ip_address(self) -> str:
+        """
+        The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "start_ip_address")
 
 
 @pulumi.output_type

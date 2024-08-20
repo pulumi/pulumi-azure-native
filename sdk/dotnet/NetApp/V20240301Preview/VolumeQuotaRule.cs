@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.NetApp.V20240301Preview
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:VolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:VolumeQuotaRule" },
                 },
             };

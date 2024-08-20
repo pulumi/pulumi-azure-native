@@ -64113,6 +64113,12 @@ class RestServiceLinkedServiceResponse(dict):
             suggest = "enable_server_certificate_validation"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "servicePrincipalCredentialType":
+            suggest = "service_principal_credential_type"
+        elif key == "servicePrincipalEmbeddedCert":
+            suggest = "service_principal_embedded_cert"
+        elif key == "servicePrincipalEmbeddedCertPassword":
+            suggest = "service_principal_embedded_cert_password"
         elif key == "servicePrincipalId":
             suggest = "service_principal_id"
         elif key == "servicePrincipalKey":
@@ -64152,6 +64158,9 @@ class RestServiceLinkedServiceResponse(dict):
                  password: Optional[Any] = None,
                  resource: Optional[Any] = None,
                  scope: Optional[Any] = None,
+                 service_principal_credential_type: Optional[Any] = None,
+                 service_principal_embedded_cert: Optional[Any] = None,
+                 service_principal_embedded_cert_password: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
                  tenant: Optional[Any] = None,
@@ -64179,6 +64188,9 @@ class RestServiceLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password used in Basic authentication type.
         :param Any resource: The target service or resource to which the access will be requested. Type: string (or Expression with resultType string).
         :param Any scope: The scope of the access required. It describes what kind of access will be requested. Type: string (or Expression with resultType string).
+        :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_embedded_cert: Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_embedded_cert_password: Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
         :param Any service_principal_id: The application's client ID used in AadServicePrincipal authentication type. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The application's key used in AadServicePrincipal authentication type.
         :param Any tenant: The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides. Type: string (or Expression with resultType string).
@@ -64219,6 +64231,12 @@ class RestServiceLinkedServiceResponse(dict):
             pulumi.set(__self__, "resource", resource)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
+        if service_principal_credential_type is not None:
+            pulumi.set(__self__, "service_principal_credential_type", service_principal_credential_type)
+        if service_principal_embedded_cert is not None:
+            pulumi.set(__self__, "service_principal_embedded_cert", service_principal_embedded_cert)
+        if service_principal_embedded_cert_password is not None:
+            pulumi.set(__self__, "service_principal_embedded_cert_password", service_principal_embedded_cert_password)
         if service_principal_id is not None:
             pulumi.set(__self__, "service_principal_id", service_principal_id)
         if service_principal_key is not None:
@@ -64376,6 +64394,30 @@ class RestServiceLinkedServiceResponse(dict):
         The scope of the access required. It describes what kind of access will be requested. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredentialType")
+    def service_principal_credential_type(self) -> Optional[Any]:
+        """
+        The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_credential_type")
+
+    @property
+    @pulumi.getter(name="servicePrincipalEmbeddedCert")
+    def service_principal_embedded_cert(self) -> Optional[Any]:
+        """
+        Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_embedded_cert")
+
+    @property
+    @pulumi.getter(name="servicePrincipalEmbeddedCertPassword")
+    def service_principal_embedded_cert_password(self) -> Optional[Any]:
+        """
+        Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_embedded_cert_password")
 
     @property
     @pulumi.getter(name="servicePrincipalId")
@@ -75649,8 +75691,6 @@ class SharePointOnlineListLinkedServiceResponse(dict):
         suggest = None
         if key == "servicePrincipalId":
             suggest = "service_principal_id"
-        elif key == "servicePrincipalKey":
-            suggest = "service_principal_key"
         elif key == "siteUrl":
             suggest = "site_url"
         elif key == "tenantId":
@@ -75659,6 +75699,14 @@ class SharePointOnlineListLinkedServiceResponse(dict):
             suggest = "connect_via"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "servicePrincipalCredentialType":
+            suggest = "service_principal_credential_type"
+        elif key == "servicePrincipalEmbeddedCert":
+            suggest = "service_principal_embedded_cert"
+        elif key == "servicePrincipalEmbeddedCertPassword":
+            suggest = "service_principal_embedded_cert_password"
+        elif key == "servicePrincipalKey":
+            suggest = "service_principal_key"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SharePointOnlineListLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -75673,7 +75721,6 @@ class SharePointOnlineListLinkedServiceResponse(dict):
 
     def __init__(__self__, *,
                  service_principal_id: Any,
-                 service_principal_key: Any,
                  site_url: Any,
                  tenant_id: Any,
                  type: str,
@@ -75682,11 +75729,14 @@ class SharePointOnlineListLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 service_principal_credential_type: Optional[Any] = None,
+                 service_principal_embedded_cert: Optional[Any] = None,
+                 service_principal_embedded_cert_password: Optional[Any] = None,
+                 service_principal_key: Optional[Any] = None,
                  version: Optional[str] = None):
         """
         SharePoint Online List linked service.
         :param Any service_principal_id: The application (client) ID of your application registered in Azure Active Directory. Make sure to grant SharePoint site permission to this application. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The client secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
         :param Any site_url: The URL of the SharePoint Online site. For example, https://contoso.sharepoint.com/sites/siteName. Type: string (or Expression with resultType string).
         :param Any tenant_id: The tenant ID under which your application resides. You can find it from Azure portal Active Directory overview page. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
@@ -75696,10 +75746,13 @@ class SharePointOnlineListLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_embedded_cert: Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_embedded_cert_password: Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The client secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
         :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "service_principal_id", service_principal_id)
-        pulumi.set(__self__, "service_principal_key", service_principal_key)
         pulumi.set(__self__, "site_url", site_url)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", 'SharePointOnlineList')
@@ -75713,6 +75766,14 @@ class SharePointOnlineListLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if service_principal_credential_type is not None:
+            pulumi.set(__self__, "service_principal_credential_type", service_principal_credential_type)
+        if service_principal_embedded_cert is not None:
+            pulumi.set(__self__, "service_principal_embedded_cert", service_principal_embedded_cert)
+        if service_principal_embedded_cert_password is not None:
+            pulumi.set(__self__, "service_principal_embedded_cert_password", service_principal_embedded_cert_password)
+        if service_principal_key is not None:
+            pulumi.set(__self__, "service_principal_key", service_principal_key)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -75723,14 +75784,6 @@ class SharePointOnlineListLinkedServiceResponse(dict):
         The application (client) ID of your application registered in Azure Active Directory. Make sure to grant SharePoint site permission to this application. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_principal_id")
-
-    @property
-    @pulumi.getter(name="servicePrincipalKey")
-    def service_principal_key(self) -> Any:
-        """
-        The client secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "service_principal_key")
 
     @property
     @pulumi.getter(name="siteUrl")
@@ -75796,6 +75849,38 @@ class SharePointOnlineListLinkedServiceResponse(dict):
         Parameters for linked service.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredentialType")
+    def service_principal_credential_type(self) -> Optional[Any]:
+        """
+        The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_credential_type")
+
+    @property
+    @pulumi.getter(name="servicePrincipalEmbeddedCert")
+    def service_principal_embedded_cert(self) -> Optional[Any]:
+        """
+        Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_embedded_cert")
+
+    @property
+    @pulumi.getter(name="servicePrincipalEmbeddedCertPassword")
+    def service_principal_embedded_cert_password(self) -> Optional[Any]:
+        """
+        Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_embedded_cert_password")
+
+    @property
+    @pulumi.getter(name="servicePrincipalKey")
+    def service_principal_key(self) -> Optional[Any]:
+        """
+        The client secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_key")
 
     @property
     @pulumi.getter

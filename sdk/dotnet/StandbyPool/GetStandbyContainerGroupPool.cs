@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.StandbyPool
         /// Get a StandbyContainerGroupPoolResource
         /// Azure REST API version: 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01-preview.
+        /// Other available API versions: 2024-03-01, 2024-03-01-preview.
         /// </summary>
         public static Task<GetStandbyContainerGroupPoolResult> InvokeAsync(GetStandbyContainerGroupPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStandbyContainerGroupPoolResult>("azure-native:standbypool:getStandbyContainerGroupPool", args ?? new GetStandbyContainerGroupPoolArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.StandbyPool
         /// Get a StandbyContainerGroupPoolResource
         /// Azure REST API version: 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01-preview.
+        /// Other available API versions: 2024-03-01, 2024-03-01-preview.
         /// </summary>
         public static Output<GetStandbyContainerGroupPoolResult> Invoke(GetStandbyContainerGroupPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandbyContainerGroupPoolResult>("azure-native:standbypool:getStandbyContainerGroupPool", args ?? new GetStandbyContainerGroupPoolInvokeArgs(), options.WithDefaults());

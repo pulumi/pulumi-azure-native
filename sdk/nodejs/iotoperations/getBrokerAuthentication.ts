@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a BrokerAuthenticationResource
  * Azure REST API version: 2024-07-01-preview.
+ *
+ * Other available API versions: 2024-08-15-preview.
  */
 export function getBrokerAuthentication(args: GetBrokerAuthenticationArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerAuthenticationResult> {
 
@@ -73,6 +75,8 @@ export interface GetBrokerAuthenticationResult {
 /**
  * Get a BrokerAuthenticationResource
  * Azure REST API version: 2024-07-01-preview.
+ *
+ * Other available API versions: 2024-08-15-preview.
  */
 export function getBrokerAuthenticationOutput(args: GetBrokerAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerAuthenticationResult> {
     return pulumi.output(args).apply((a: any) => getBrokerAuthentication(a, opts))

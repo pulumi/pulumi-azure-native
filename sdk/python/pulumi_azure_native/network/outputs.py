@@ -217,11 +217,14 @@ __all__ = [
     'IPConfigurationBgpPeeringAddressResponse',
     'IPConfigurationProfileResponse',
     'IPConfigurationResponse',
+    'IPTrafficResponse',
     'InboundEndpointIPConfigurationResponse',
     'InboundNatPoolResponse',
     'InboundNatRuleResponse',
+    'IntentContentResponse',
     'InterfaceEndpointResponse',
     'IpTagResponse',
+    'IpamPoolPropertiesResponse',
     'IpsecPolicyResponse',
     'Ipv6CircuitConnectionConfigResponse',
     'Ipv6ExpressRouteCircuitPeeringConfigResponse',
@@ -282,6 +285,7 @@ __all__ = [
     'PerimeterBasedAccessRuleResponse',
     'PolicySettingsResponse',
     'PolicySettingsResponseLogScrubbing',
+    'PoolAssociationResponse',
     'PrivateDnsZoneConfigResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointIPConfigurationResponse',
@@ -303,9 +307,12 @@ __all__ = [
     'QosIpRangeResponse',
     'QosPortRangeResponse',
     'RadiusServerResponse',
+    'ReachabilityAnalysisIntentPropertiesResponse',
+    'ReachabilityAnalysisRunPropertiesResponse',
     'RecordSetResponse',
     'RedirectConfigurationResponse',
     'ReferencedPublicIpAddressResponse',
+    'ResourceBasicsResponse',
     'ResourceNavigationLinkResponse',
     'RetentionPolicyParametersResponse',
     'RouteFilterRuleResponse',
@@ -331,6 +338,7 @@ __all__ = [
     'SkuResponse',
     'SoaRecordResponse',
     'SrvRecordResponse',
+    'StaticCidrPropertiesResponse',
     'StaticRouteResponse',
     'StaticRoutesConfigResponse',
     'SubResourceResponse',
@@ -344,6 +352,7 @@ __all__ = [
     'TunnelConnectionHealthResponse',
     'TxtRecordResponse',
     'VMResponse',
+    'VerifierWorkspacePropertiesResponse',
     'VirtualApplianceAdditionalNicPropertiesResponse',
     'VirtualApplianceNicPropertiesResponse',
     'VirtualApplianceSkuPropertiesResponse',
@@ -19072,6 +19081,91 @@ class IPConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class IPTrafficResponse(dict):
+    """
+    IP traffic information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationIps":
+            suggest = "destination_ips"
+        elif key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "sourceIps":
+            suggest = "source_ips"
+        elif key == "sourcePorts":
+            suggest = "source_ports"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPTrafficResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPTrafficResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPTrafficResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_ips: Sequence[str],
+                 destination_ports: Sequence[str],
+                 protocols: Sequence[str],
+                 source_ips: Sequence[str],
+                 source_ports: Sequence[str]):
+        """
+        IP traffic information.
+        :param Sequence[str] destination_ips: List of destination IP addresses of the traffic..
+        :param Sequence[str] destination_ports: The destination ports of the traffic.
+        :param Sequence[str] source_ips: List of source IP addresses of the traffic..
+        :param Sequence[str] source_ports: The source ports of the traffic.
+        """
+        pulumi.set(__self__, "destination_ips", destination_ips)
+        pulumi.set(__self__, "destination_ports", destination_ports)
+        pulumi.set(__self__, "protocols", protocols)
+        pulumi.set(__self__, "source_ips", source_ips)
+        pulumi.set(__self__, "source_ports", source_ports)
+
+    @property
+    @pulumi.getter(name="destinationIps")
+    def destination_ips(self) -> Sequence[str]:
+        """
+        List of destination IP addresses of the traffic..
+        """
+        return pulumi.get(self, "destination_ips")
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Sequence[str]:
+        """
+        The destination ports of the traffic.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Sequence[str]:
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="sourceIps")
+    def source_ips(self) -> Sequence[str]:
+        """
+        List of source IP addresses of the traffic..
+        """
+        return pulumi.get(self, "source_ips")
+
+    @property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Sequence[str]:
+        """
+        The source ports of the traffic.
+        """
+        return pulumi.get(self, "source_ports")
+
+
+@pulumi.output_type
 class InboundEndpointIPConfigurationResponse(dict):
     """
     IP configuration.
@@ -19566,6 +19660,79 @@ class InboundNatRuleResponse(dict):
 
 
 @pulumi.output_type
+class IntentContentResponse(dict):
+    """
+    Intent information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationResourceId":
+            suggest = "destination_resource_id"
+        elif key == "ipTraffic":
+            suggest = "ip_traffic"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentContentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentContentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentContentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_resource_id: str,
+                 ip_traffic: 'outputs.IPTrafficResponse',
+                 source_resource_id: str,
+                 description: Optional[str] = None):
+        """
+        Intent information.
+        :param str destination_resource_id: Destination resource id of the intent.
+        :param 'IPTrafficResponse' ip_traffic: IP traffic information.
+        :param str source_resource_id: Source resource id of the intent.
+        """
+        pulumi.set(__self__, "destination_resource_id", destination_resource_id)
+        pulumi.set(__self__, "ip_traffic", ip_traffic)
+        pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="destinationResourceId")
+    def destination_resource_id(self) -> str:
+        """
+        Destination resource id of the intent.
+        """
+        return pulumi.get(self, "destination_resource_id")
+
+    @property
+    @pulumi.getter(name="ipTraffic")
+    def ip_traffic(self) -> 'outputs.IPTrafficResponse':
+        """
+        IP traffic information.
+        """
+        return pulumi.get(self, "ip_traffic")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> str:
+        """
+        Source resource id of the intent.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class InterfaceEndpointResponse(dict):
     """
     Interface endpoint resource.
@@ -19786,6 +19953,107 @@ class IpTagResponse(dict):
         The value of the IP tag associated with the public IP. Example: SQL.
         """
         return pulumi.get(self, "tag")
+
+
+@pulumi.output_type
+class IpamPoolPropertiesResponse(dict):
+    """
+    Properties of IpamPool resource properties which are specific to the Pool resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefixes":
+            suggest = "address_prefixes"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "parentPoolName":
+            suggest = "parent_pool_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpamPoolPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpamPoolPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpamPoolPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_prefixes: Sequence[str],
+                 ip_address_type: Sequence[str],
+                 provisioning_state: str,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 parent_pool_name: Optional[str] = None):
+        """
+        Properties of IpamPool resource properties which are specific to the Pool resource.
+        :param Sequence[str] address_prefixes: List of IP address prefixes of the resource.
+        :param Sequence[str] ip_address_type: List of IP address type for the IpamPool.
+        :param str provisioning_state: Provisioning states of a resource.
+        :param str display_name: String representing a friendly name for the resource.
+        :param str parent_pool_name: String representing parent IpamPool resource name. If empty the IpamPool will be a root pool.
+        """
+        pulumi.set(__self__, "address_prefixes", address_prefixes)
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if parent_pool_name is not None:
+            pulumi.set(__self__, "parent_pool_name", parent_pool_name)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Sequence[str]:
+        """
+        List of IP address prefixes of the resource.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Sequence[str]:
+        """
+        List of IP address type for the IpamPool.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning states of a resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        String representing a friendly name for the resource.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="parentPoolName")
+    def parent_pool_name(self) -> Optional[str]:
+        """
+        String representing parent IpamPool resource name. If empty the IpamPool will be a root pool.
+        """
+        return pulumi.get(self, "parent_pool_name")
 
 
 @pulumi.output_type
@@ -25753,6 +26021,114 @@ class PolicySettingsResponseLogScrubbing(dict):
 
 
 @pulumi.output_type
+class PoolAssociationResponse(dict):
+    """
+    IpamPool association information.
+    """
+    def __init__(__self__, *,
+                 address_prefixes: Sequence[str],
+                 created_at: str,
+                 number_of_reserved_ip_addresses: str,
+                 reservation_expires_at: str,
+                 reserved_prefixes: Sequence[str],
+                 resource_id: str,
+                 total_number_of_ip_addresses: str,
+                 description: Optional[str] = None,
+                 pool_id: Optional[str] = None):
+        """
+        IpamPool association information.
+        :param Sequence[str] address_prefixes: List of assigned IP address prefixes in the IpamPool of the associated resource.
+        :param str created_at: Creation time of the association.
+        :param str number_of_reserved_ip_addresses: Total number of reserved IP addresses of the association.
+        :param str reservation_expires_at: Expire time for IP addresses reserved.
+        :param Sequence[str] reserved_prefixes: List of reserved IP address prefixes in the IpamPool of the associated resource.
+        :param str resource_id: Resource id of the associated Azure resource.
+        :param str total_number_of_ip_addresses: Total number of assigned IP addresses of the association.
+        :param str pool_id: IpamPool id for which the resource is associated to.
+        """
+        pulumi.set(__self__, "address_prefixes", address_prefixes)
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "number_of_reserved_ip_addresses", number_of_reserved_ip_addresses)
+        pulumi.set(__self__, "reservation_expires_at", reservation_expires_at)
+        pulumi.set(__self__, "reserved_prefixes", reserved_prefixes)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "total_number_of_ip_addresses", total_number_of_ip_addresses)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if pool_id is not None:
+            pulumi.set(__self__, "pool_id", pool_id)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Sequence[str]:
+        """
+        List of assigned IP address prefixes in the IpamPool of the associated resource.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Creation time of the association.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="numberOfReservedIPAddresses")
+    def number_of_reserved_ip_addresses(self) -> str:
+        """
+        Total number of reserved IP addresses of the association.
+        """
+        return pulumi.get(self, "number_of_reserved_ip_addresses")
+
+    @property
+    @pulumi.getter(name="reservationExpiresAt")
+    def reservation_expires_at(self) -> str:
+        """
+        Expire time for IP addresses reserved.
+        """
+        return pulumi.get(self, "reservation_expires_at")
+
+    @property
+    @pulumi.getter(name="reservedPrefixes")
+    def reserved_prefixes(self) -> Sequence[str]:
+        """
+        List of reserved IP address prefixes in the IpamPool of the associated resource.
+        """
+        return pulumi.get(self, "reserved_prefixes")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        Resource id of the associated Azure resource.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="totalNumberOfIPAddresses")
+    def total_number_of_ip_addresses(self) -> str:
+        """
+        Total number of assigned IP addresses of the association.
+        """
+        return pulumi.get(self, "total_number_of_ip_addresses")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="poolId")
+    def pool_id(self) -> Optional[str]:
+        """
+        IpamPool id for which the resource is associated to.
+        """
+        return pulumi.get(self, "pool_id")
+
+
+@pulumi.output_type
 class PrivateDnsZoneConfigResponse(dict):
     """
     PrivateDnsZoneConfig resource.
@@ -27930,6 +28306,183 @@ class RadiusServerResponse(dict):
 
 
 @pulumi.output_type
+class ReachabilityAnalysisIntentPropertiesResponse(dict):
+    """
+    Represents the Reachability Analysis Intent properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationResourceId":
+            suggest = "destination_resource_id"
+        elif key == "ipTraffic":
+            suggest = "ip_traffic"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReachabilityAnalysisIntentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReachabilityAnalysisIntentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReachabilityAnalysisIntentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_resource_id: str,
+                 ip_traffic: 'outputs.IPTrafficResponse',
+                 provisioning_state: str,
+                 source_resource_id: str,
+                 description: Optional[str] = None):
+        """
+        Represents the Reachability Analysis Intent properties.
+        :param str destination_resource_id: Destination resource id to verify the reachability path of.
+        :param 'IPTrafficResponse' ip_traffic: IP traffic information.
+        :param str provisioning_state: Provisioning states of a resource.
+        :param str source_resource_id: Source resource id to verify the reachability path of.
+        """
+        pulumi.set(__self__, "destination_resource_id", destination_resource_id)
+        pulumi.set(__self__, "ip_traffic", ip_traffic)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="destinationResourceId")
+    def destination_resource_id(self) -> str:
+        """
+        Destination resource id to verify the reachability path of.
+        """
+        return pulumi.get(self, "destination_resource_id")
+
+    @property
+    @pulumi.getter(name="ipTraffic")
+    def ip_traffic(self) -> 'outputs.IPTrafficResponse':
+        """
+        IP traffic information.
+        """
+        return pulumi.get(self, "ip_traffic")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning states of a resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> str:
+        """
+        Source resource id to verify the reachability path of.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ReachabilityAnalysisRunPropertiesResponse(dict):
+    """
+    Represents the Reachability Analysis Run properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "analysisResult":
+            suggest = "analysis_result"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "intentContent":
+            suggest = "intent_content"
+        elif key == "intentId":
+            suggest = "intent_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReachabilityAnalysisRunPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReachabilityAnalysisRunPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReachabilityAnalysisRunPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analysis_result: str,
+                 error_message: str,
+                 intent_content: 'outputs.IntentContentResponse',
+                 intent_id: str,
+                 provisioning_state: str,
+                 description: Optional[str] = None):
+        """
+        Represents the Reachability Analysis Run properties.
+        :param 'IntentContentResponse' intent_content: Intent information.
+        :param str intent_id: Id of the intent resource to run analysis on.
+        :param str provisioning_state: Provisioning states of a resource.
+        """
+        pulumi.set(__self__, "analysis_result", analysis_result)
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "intent_content", intent_content)
+        pulumi.set(__self__, "intent_id", intent_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="analysisResult")
+    def analysis_result(self) -> str:
+        return pulumi.get(self, "analysis_result")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="intentContent")
+    def intent_content(self) -> 'outputs.IntentContentResponse':
+        """
+        Intent information.
+        """
+        return pulumi.get(self, "intent_content")
+
+    @property
+    @pulumi.getter(name="intentId")
+    def intent_id(self) -> str:
+        """
+        Id of the intent resource to run analysis on.
+        """
+        return pulumi.get(self, "intent_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning states of a resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class RecordSetResponse(dict):
     """
     A collective group of information about the record set information.
@@ -28180,6 +28733,41 @@ class ReferencedPublicIpAddressResponse(dict):
         The PublicIPAddress Reference.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ResourceBasicsResponse(dict):
+    """
+    Representation of basic resource information.
+    """
+    def __init__(__self__, *,
+                 address_prefixes: Optional[Sequence[str]] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Representation of basic resource information.
+        :param Sequence[str] address_prefixes: List of IP address prefixes of the resource.
+        :param str resource_id: ResourceId of the Azure resource.
+        """
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        List of IP address prefixes of the resource.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        ResourceId of the Azure resource.
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -30702,6 +31290,94 @@ class SrvRecordResponse(dict):
 
 
 @pulumi.output_type
+class StaticCidrPropertiesResponse(dict):
+    """
+    Properties of static CIDR resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "totalNumberOfIPAddresses":
+            suggest = "total_number_of_ip_addresses"
+        elif key == "addressPrefixes":
+            suggest = "address_prefixes"
+        elif key == "numberOfIPAddressesToAllocate":
+            suggest = "number_of_ip_addresses_to_allocate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StaticCidrPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StaticCidrPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StaticCidrPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 total_number_of_ip_addresses: str,
+                 address_prefixes: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None,
+                 number_of_ip_addresses_to_allocate: Optional[str] = None):
+        """
+        Properties of static CIDR resource.
+        :param str provisioning_state: Provisioning states of a resource.
+        :param str total_number_of_ip_addresses: Total number of IP addresses allocated for the static CIDR resource.
+        :param Sequence[str] address_prefixes: List of IP address prefixes of the resource.
+        :param str number_of_ip_addresses_to_allocate: Number of IP addresses to allocate for a static CIDR resource. The IP addresses will be assigned based on IpamPools available space.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "total_number_of_ip_addresses", total_number_of_ip_addresses)
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if number_of_ip_addresses_to_allocate is not None:
+            pulumi.set(__self__, "number_of_ip_addresses_to_allocate", number_of_ip_addresses_to_allocate)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning states of a resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="totalNumberOfIPAddresses")
+    def total_number_of_ip_addresses(self) -> str:
+        """
+        Total number of IP addresses allocated for the static CIDR resource.
+        """
+        return pulumi.get(self, "total_number_of_ip_addresses")
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        List of IP address prefixes of the resource.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="numberOfIPAddressesToAllocate")
+    def number_of_ip_addresses_to_allocate(self) -> Optional[str]:
+        """
+        Number of IP addresses to allocate for a static CIDR resource. The IP addresses will be assigned based on IpamPools available space.
+        """
+        return pulumi.get(self, "number_of_ip_addresses_to_allocate")
+
+
+@pulumi.output_type
 class StaticRouteResponse(dict):
     """
     List of all Static Routes.
@@ -31735,6 +32411,53 @@ class VMResponse(dict):
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class VerifierWorkspacePropertiesResponse(dict):
+    """
+    Properties of Verifier Workspace resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VerifierWorkspacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VerifierWorkspacePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VerifierWorkspacePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 description: Optional[str] = None):
+        """
+        Properties of Verifier Workspace resource.
+        :param str provisioning_state: Provisioning states of a resource.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning states of a resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type

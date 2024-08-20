@@ -17,7 +17,10 @@ if typing.TYPE_CHECKING:
     v20200901 = __v20200901
     import pulumi_azure_native.subscription.v20211001 as __v20211001
     v20211001 = __v20211001
+    import pulumi_azure_native.subscription.v20240801preview as __v20240801preview
+    v20240801preview = __v20240801preview
 else:
     v20200901 = _utilities.lazy_import('pulumi_azure_native.subscription.v20200901')
     v20211001 = _utilities.lazy_import('pulumi_azure_native.subscription.v20211001')
+    v20240801preview = _utilities.lazy_import('pulumi_azure_native.subscription.v20240801preview')
 

@@ -14,43 +14,30 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['FirewallRuleArgs', 'FirewallRule']
 
 @pulumi.input_type
 class FirewallRuleArgs:
     def __init__(__self__, *,
-                 end_ip_address: pulumi.Input[str],
                  mongo_cluster_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 start_ip_address: pulumi.Input[str],
-                 firewall_rule_name: Optional[pulumi.Input[str]] = None):
+                 firewall_rule_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['FirewallRulePropertiesArgs']] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
-        :param pulumi.Input[str] end_ip_address: The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
         :param pulumi.Input[str] mongo_cluster_name: The name of the mongo cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] start_ip_address: The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
         :param pulumi.Input[str] firewall_rule_name: The name of the mongo cluster firewall rule.
+        :param pulumi.Input['FirewallRulePropertiesArgs'] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
         pulumi.set(__self__, "mongo_cluster_name", mongo_cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
         if firewall_rule_name is not None:
             pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
-
-    @property
-    @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> pulumi.Input[str]:
-        """
-        The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        """
-        return pulumi.get(self, "end_ip_address")
-
-    @end_ip_address.setter
-    def end_ip_address(self, value: pulumi.Input[str]):
-        pulumi.set(self, "end_ip_address", value)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="mongoClusterName")
@@ -77,18 +64,6 @@ class FirewallRuleArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> pulumi.Input[str]:
-        """
-        The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        """
-        return pulumi.get(self, "start_ip_address")
-
-    @start_ip_address.setter
-    def start_ip_address(self, value: pulumi.Input[str]):
-        pulumi.set(self, "start_ip_address", value)
-
-    @property
     @pulumi.getter(name="firewallRuleName")
     def firewall_rule_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -100,28 +75,38 @@ class FirewallRuleArgs:
     def firewall_rule_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "firewall_rule_name", value)
 
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['FirewallRulePropertiesArgs']]:
+        """
+        The resource-specific properties for this resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['FirewallRulePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
 
 class FirewallRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: Optional[pulumi.Input[str]] = None,
                  firewall_rule_name: Optional[pulumi.Input[str]] = None,
                  mongo_cluster_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union['FirewallRulePropertiesArgs', 'FirewallRulePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 start_ip_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Represents a mongo cluster firewall rule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] end_ip_address: The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
         :param pulumi.Input[str] firewall_rule_name: The name of the mongo cluster firewall rule.
         :param pulumi.Input[str] mongo_cluster_name: The name of the mongo cluster.
+        :param pulumi.Input[Union['FirewallRulePropertiesArgs', 'FirewallRulePropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] start_ip_address: The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
         """
         ...
     @overload
@@ -147,11 +132,10 @@ class FirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: Optional[pulumi.Input[str]] = None,
                  firewall_rule_name: Optional[pulumi.Input[str]] = None,
                  mongo_cluster_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union['FirewallRulePropertiesArgs', 'FirewallRulePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 start_ip_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -161,24 +145,18 @@ class FirewallRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FirewallRuleArgs.__new__(FirewallRuleArgs)
 
-            if end_ip_address is None and not opts.urn:
-                raise TypeError("Missing required property 'end_ip_address'")
-            __props__.__dict__["end_ip_address"] = end_ip_address
             __props__.__dict__["firewall_rule_name"] = firewall_rule_name
             if mongo_cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'mongo_cluster_name'")
             __props__.__dict__["mongo_cluster_name"] = mongo_cluster_name
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if start_ip_address is None and not opts.urn:
-                raise TypeError("Missing required property 'start_ip_address'")
-            __props__.__dict__["start_ip_address"] = start_ip_address
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240301preview:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240301preview:FirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240701:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azure-native:documentdb/v20240601preview:FirewallRule',
@@ -202,21 +180,11 @@ class FirewallRule(pulumi.CustomResource):
 
         __props__ = FirewallRuleArgs.__new__(FirewallRuleArgs)
 
-        __props__.__dict__["end_ip_address"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["start_ip_address"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return FirewallRule(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> pulumi.Output[str]:
-        """
-        The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        """
-        return pulumi.get(self, "end_ip_address")
 
     @property
     @pulumi.getter
@@ -227,20 +195,12 @@ class FirewallRule(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.FirewallRulePropertiesResponse']:
         """
-        The provisioning state of the firewall rule.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> pulumi.Output[str]:
-        """
-        The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        """
-        return pulumi.get(self, "start_ip_address")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")

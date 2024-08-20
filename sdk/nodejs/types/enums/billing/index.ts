@@ -62,16 +62,3 @@ export const ProvisioningTenantState = {
  * The state determines whether subscriptions and licenses can be provisioned in the associated tenant. It can be set to 'Pending' to initiate a billing request.
  */
 export type ProvisioningTenantState = (typeof ProvisioningTenantState)[keyof typeof ProvisioningTenantState];
-
-export const TargetCloud = {
-    Other: "Other",
-    Internal: "Internal",
-    USGov: "USGov",
-    USNat: "USNat",
-    USSec: "USSec",
-} as const;
-
-/**
- * Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.
- */
-export type TargetCloud = (typeof TargetCloud)[keyof typeof TargetCloud];

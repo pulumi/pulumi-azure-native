@@ -1718,7 +1718,7 @@ if not MYPY:
         """
         Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
-        target_cloud: NotRequired[pulumi.Input[Union[str, 'TargetCloud']]]
+        target_cloud: NotRequired[pulumi.Input[str]]
         """
         Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.
         """
@@ -1732,14 +1732,14 @@ class InvoiceSectionPropertiesArgs:
                  reason_code: Optional[pulumi.Input[Union[str, 'InvoiceSectionStateReasonCode']]] = None,
                  state: Optional[pulumi.Input[Union[str, 'InvoiceSectionState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_cloud: Optional[pulumi.Input[Union[str, 'TargetCloud']]] = None):
+                 target_cloud: Optional[pulumi.Input[str]] = None):
         """
         An invoice section.
         :param pulumi.Input[str] display_name: The name of the invoice section.
         :param pulumi.Input[Union[str, 'InvoiceSectionStateReasonCode']] reason_code: Reason for the specified invoice section status.
         :param pulumi.Input[Union[str, 'InvoiceSectionState']] state: Identifies the status of an invoice section.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
-        :param pulumi.Input[Union[str, 'TargetCloud']] target_cloud: Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.
+        :param pulumi.Input[str] target_cloud: Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -1802,14 +1802,14 @@ class InvoiceSectionPropertiesArgs:
 
     @property
     @pulumi.getter(name="targetCloud")
-    def target_cloud(self) -> Optional[pulumi.Input[Union[str, 'TargetCloud']]]:
+    def target_cloud(self) -> Optional[pulumi.Input[str]]:
         """
         Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.
         """
         return pulumi.get(self, "target_cloud")
 
     @target_cloud.setter
-    def target_cloud(self, value: Optional[pulumi.Input[Union[str, 'TargetCloud']]]):
+    def target_cloud(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_cloud", value)
 
 

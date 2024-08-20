@@ -9193,7 +9193,8 @@
     ],
     "FirewallRule": [
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01"
     ],
     "GraphResourceGraph": [
       "2021-07-01-preview",
@@ -9291,7 +9292,8 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01"
     ],
     "MongoClusterFirewallRule": [
       "2023-03-01-preview",
@@ -9485,7 +9487,8 @@
       "2024-03-01-preview",
       "2024-05-15",
       "2024-05-15-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01"
     ],
     "Service": [
       "2021-04-01-preview",
@@ -9894,7 +9897,8 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-07-01"
     ],
     "listNotebookWorkspaceConnectionInfo": [
       "2019-08-01",
@@ -11267,13 +11271,15 @@
       "2023-06-20-preview",
       "2023-10-03-preview",
       "2024-03-31-preview",
-      "2024-05-20-preview"
+      "2024-05-20-preview",
+      "2024-07-10"
     ],
     "LicenseProfile": [
       "2023-06-20-preview",
       "2023-10-03-preview",
       "2024-03-31-preview",
-      "2024-05-20-preview"
+      "2024-05-20-preview",
+      "2024-07-10"
     ],
     "Machine": [
       "2019-03-18-preview",
@@ -11299,7 +11305,8 @@
       "2023-06-20-preview",
       "2023-10-03-preview",
       "2024-03-31-preview",
-      "2024-05-20-preview"
+      "2024-05-20-preview",
+      "2024-07-10"
     ],
     "MachineExtension": [
       "2019-08-02-preview",
@@ -11324,7 +11331,8 @@
       "2023-06-20-preview",
       "2023-10-03-preview",
       "2024-03-31-preview",
-      "2024-05-20-preview"
+      "2024-05-20-preview",
+      "2024-07-10"
     ],
     "MachineRunCommand": [
       "2023-10-03-preview",
@@ -11350,7 +11358,8 @@
       "2023-06-20-preview",
       "2023-10-03-preview",
       "2024-03-31-preview",
-      "2024-05-20-preview"
+      "2024-05-20-preview",
+      "2024-07-10"
     ],
     "PrivateLinkScope": [
       "2020-08-15-preview",
@@ -11371,7 +11380,8 @@
       "2023-06-20-preview",
       "2023-10-03-preview",
       "2024-03-31-preview",
-      "2024-05-20-preview"
+      "2024-05-20-preview",
+      "2024-07-10"
     ],
     "PrivateLinkScopedResource": [
       "2020-08-15-preview"
@@ -11768,16 +11778,20 @@
   },
   "IoTOperations": {
     "Broker": [
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-15-preview"
     ],
     "BrokerAuthentication": [
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-15-preview"
     ],
     "BrokerAuthorization": [
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-15-preview"
     ],
     "BrokerListener": [
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-15-preview"
     ],
     "DataFlow": [
       "2024-07-01-preview"
@@ -11788,8 +11802,18 @@
     "DataFlowProfile": [
       "2024-07-01-preview"
     ],
+    "Dataflow": [
+      "2024-08-15-preview"
+    ],
+    "DataflowEndpoint": [
+      "2024-08-15-preview"
+    ],
+    "DataflowProfile": [
+      "2024-08-15-preview"
+    ],
     "Instance": [
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-15-preview"
     ]
   },
   "IoTOperationsDataProcessor": {
@@ -14574,6 +14598,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14601,6 +14626,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14630,6 +14656,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14639,6 +14666,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14677,6 +14705,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14715,6 +14744,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14744,6 +14774,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14761,6 +14792,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14799,6 +14831,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14817,6 +14850,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14833,6 +14867,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14854,6 +14889,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14866,6 +14902,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ],
@@ -14885,6 +14922,7 @@
       "2023-07-01-preview",
       "2023-11-01",
       "2023-11-01-preview",
+      "2024-01-01",
       "2024-03-01",
       "2024-03-01-preview"
     ]
@@ -14906,7 +14944,8 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-01-01-preview"
     ],
     "AdminRuleCollection": [
       "2021-02-01-preview",
@@ -14924,7 +14963,8 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-01-01-preview"
     ],
     "ApplicationGateway": [
       "2015-05-01-preview",
@@ -15981,6 +16021,9 @@
       "2023-11-01",
       "2024-01-01"
     ],
+    "IpamPool": [
+      "2024-01-01-preview"
+    ],
     "LoadBalancer": [
       "2015-05-01-preview",
       "2015-06-15",
@@ -16310,7 +16353,8 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-01-01-preview"
     ],
     "NetworkProfile": [
       "2018-08-01",
@@ -16859,6 +16903,12 @@
     "PublicIpAddress": [
       "2015-05-01-preview"
     ],
+    "ReachabilityAnalysisIntent": [
+      "2024-01-01-preview"
+    ],
+    "ReachabilityAnalysisRun": [
+      "2024-01-01-preview"
+    ],
     "RecordSet": [
       "2015-05-04-preview",
       "2016-04-01",
@@ -17142,7 +17192,8 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-01-01-preview"
     ],
     "SecurityPartnerProvider": [
       "2020-03-01",
@@ -17305,6 +17356,9 @@
       "2023-11-01",
       "2024-01-01"
     ],
+    "StaticCidr": [
+      "2024-01-01-preview"
+    ],
     "StaticMember": [
       "2021-05-01-preview",
       "2022-01-01",
@@ -17411,6 +17465,9 @@
       "2021-05-01-preview",
       "2022-02-01-preview",
       "2022-04-01-preview"
+    ],
+    "VerifierWorkspace": [
+      "2024-01-01-preview"
     ],
     "VirtualApplianceSite": [
       "2020-05-01",
@@ -18208,6 +18265,9 @@
       "2018-05-01",
       "2023-07-01-preview"
     ],
+    "getIpamPoolUsage": [
+      "2024-01-01-preview"
+    ],
     "getP2sVpnGatewayP2sVpnConnectionHealth": [
       "2019-04-01",
       "2019-06-01",
@@ -18677,6 +18737,9 @@
       "2023-11-01",
       "2024-01-01"
     ],
+    "listIpamPoolAssociatedResources": [
+      "2024-01-01-preview"
+    ],
     "listListEffectiveVirtualNetworkByNetworkGroup": [
       "2021-05-01-preview",
       "2022-02-01-preview",
@@ -18698,7 +18761,8 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-01-01-preview"
     ],
     "listNetworkManagerEffectiveConnectivityConfigurations": [
       "2021-05-01-preview",
@@ -19275,11 +19339,13 @@
       "2015-08-01-preview",
       "2018-10-01-preview",
       "2019-01-01-preview",
-      "2020-09-01-preview"
+      "2020-09-01-preview",
+      "2022-12-01-preview"
     ],
     "TenantConfiguration": [
       "2019-01-01-preview",
-      "2020-09-01-preview"
+      "2020-09-01-preview",
+      "2022-12-01-preview"
     ],
     "UserSettings": [
       "2018-10-01"
@@ -19288,7 +19354,8 @@
       "2018-10-01"
     ],
     "listListTenantConfigurationViolation": [
-      "2020-09-01-preview"
+      "2020-09-01-preview",
+      "2022-12-01-preview"
     ]
   },
   "PortalServices": {
@@ -23200,10 +23267,12 @@
   "StandbyPool": {
     "StandbyContainerGroupPool": [
       "2023-12-01-preview",
+      "2024-03-01",
       "2024-03-01-preview"
     ],
     "StandbyVirtualMachinePool": [
       "2023-12-01-preview",
+      "2024-03-01",
       "2024-03-01-preview"
     ]
   },
@@ -23857,7 +23926,8 @@
   "Subscription": {
     "Alias": [
       "2020-09-01",
-      "2021-10-01"
+      "2021-10-01",
+      "2024-08-01-preview"
     ],
     "SubscriptionAlias": [
       "2019-10-01-preview"
