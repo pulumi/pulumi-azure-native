@@ -154,7 +154,7 @@ def get_security_admin_configuration(configuration_name: Optional[str] = None,
     Retrieves a network manager security admin configuration.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
+    Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -189,7 +189,7 @@ def get_security_admin_configuration_output(configuration_name: Optional[pulumi.
     Retrieves a network manager security admin configuration.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
+    Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.

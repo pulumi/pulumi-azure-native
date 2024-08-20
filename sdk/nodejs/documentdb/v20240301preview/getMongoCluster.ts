@@ -35,22 +35,6 @@ export interface GetMongoClusterArgs {
  */
 export interface GetMongoClusterResult {
     /**
-     * The administrator's login for the mongo cluster.
-     */
-    readonly administratorLogin?: string;
-    /**
-     * The status of the mongo cluster.
-     */
-    readonly clusterStatus: string;
-    /**
-     * The default mongo connection string for the cluster.
-     */
-    readonly connectionString: string;
-    /**
-     * Earliest restore timestamp in UTC ISO8601 format.
-     */
-    readonly earliestRestoreTime: string;
-    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -63,25 +47,9 @@ export interface GetMongoClusterResult {
      */
     readonly name: string;
     /**
-     * The list of node group specs in the cluster.
+     * The resource-specific properties for this resource.
      */
-    readonly nodeGroupSpecs?: outputs.documentdb.v20240301preview.NodeGroupSpecResponse[];
-    /**
-     * List of private endpoint connections.
-     */
-    readonly privateEndpointConnections: outputs.documentdb.v20240301preview.PrivateEndpointConnectionResponse[];
-    /**
-     * The provisioning state of the mongo cluster.
-     */
-    readonly provisioningState: string;
-    /**
-     * Whether or not public endpoint access is allowed for this mongo cluster.
-     */
-    readonly publicNetworkAccess?: string;
-    /**
-     * The Mongo DB server version. Defaults to the latest available version if not specified.
-     */
-    readonly serverVersion?: string;
+    readonly properties: outputs.documentdb.v20240301preview.MongoClusterPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

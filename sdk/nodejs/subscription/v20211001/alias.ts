@@ -77,7 +77,7 @@ export class Alias extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:subscription:Alias" }, { type: "azure-native:subscription/v20191001preview:Alias" }, { type: "azure-native:subscription/v20200901:Alias" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:subscription:Alias" }, { type: "azure-native:subscription/v20191001preview:Alias" }, { type: "azure-native:subscription/v20200901:Alias" }, { type: "azure-native:subscription/v20240801preview:Alias" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Alias.__pulumiType, name, resourceInputs, opts);
     }

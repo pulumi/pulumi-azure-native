@@ -135,6 +135,8 @@ class BrokerListener(pulumi.CustomResource):
         Instance broker resource
         Azure REST API version: 2024-07-01-preview.
 
+        Other available API versions: 2024-08-15-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] broker_name: Name of broker.
@@ -153,6 +155,8 @@ class BrokerListener(pulumi.CustomResource):
         """
         Instance broker resource
         Azure REST API version: 2024-07-01-preview.
+
+        Other available API versions: 2024-08-15-preview.
 
         :param str resource_name: The name of the resource.
         :param BrokerListenerArgs args: The arguments to use to populate this resource's properties.
@@ -201,7 +205,7 @@ class BrokerListener(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:BrokerListener")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:BrokerListener"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:BrokerListener")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BrokerListener, __self__).__init__(
             'azure-native:iotoperations:BrokerListener',

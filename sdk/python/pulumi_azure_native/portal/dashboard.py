@@ -120,7 +120,7 @@ class Dashboard(pulumi.CustomResource):
         The shared dashboard resource definition.
         Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
 
-        Other available API versions: 2019-01-01-preview.
+        Other available API versions: 2019-01-01-preview, 2022-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,7 +140,7 @@ class Dashboard(pulumi.CustomResource):
         The shared dashboard resource definition.
         Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
 
-        Other available API versions: 2019-01-01-preview.
+        Other available API versions: 2019-01-01-preview, 2022-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.
@@ -181,7 +181,7 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20150801preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20181001preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20190101preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20200901preview:Dashboard")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20150801preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20181001preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20190101preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20200901preview:Dashboard"), pulumi.Alias(type_="azure-native:portal/v20221201preview:Dashboard")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Dashboard, __self__).__init__(
             'azure-native:portal:Dashboard',

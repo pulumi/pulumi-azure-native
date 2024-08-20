@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Instance broker authentication resource
  * Azure REST API version: 2024-07-01-preview.
+ *
+ * Other available API versions: 2024-08-15-preview.
  */
 export class BrokerAuthentication extends pulumi.CustomResource {
     /**
@@ -99,7 +101,7 @@ export class BrokerAuthentication extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:BrokerAuthentication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:BrokerAuthentication" }, { type: "azure-native:iotoperations/v20240815preview:BrokerAuthentication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BrokerAuthentication.__pulumiType, name, resourceInputs, opts);
     }

@@ -118,6 +118,8 @@ def get_broker(broker_name: Optional[str] = None,
     Get a BrokerResource
     Azure REST API version: 2024-07-01-preview.
 
+    Other available API versions: 2024-08-15-preview.
+
 
     :param str broker_name: Name of broker.
     :param str instance_name: Name of instance.
@@ -147,6 +149,8 @@ def get_broker_output(broker_name: Optional[pulumi.Input[str]] = None,
     """
     Get a BrokerResource
     Azure REST API version: 2024-07-01-preview.
+
+    Other available API versions: 2024-08-15-preview.
 
 
     :param str broker_name: Name of broker.

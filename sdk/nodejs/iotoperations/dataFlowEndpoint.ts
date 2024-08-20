@@ -95,7 +95,7 @@ export class DataFlowEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:DataFlowEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:DataFlowEndpoint" }, { type: "azure-native:iotoperations/v20240815preview:DataFlowEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataFlowEndpoint.__pulumiType, name, resourceInputs, opts);
     }

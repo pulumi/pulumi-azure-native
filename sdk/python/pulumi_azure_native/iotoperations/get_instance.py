@@ -141,6 +141,8 @@ def get_instance(instance_name: Optional[str] = None,
     Get a InstanceResource
     Azure REST API version: 2024-07-01-preview.
 
+    Other available API versions: 2024-08-15-preview.
+
 
     :param str instance_name: Name of instance.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -169,6 +171,8 @@ def get_instance_output(instance_name: Optional[pulumi.Input[str]] = None,
     """
     Get a InstanceResource
     Azure REST API version: 2024-07-01-preview.
+
+    Other available API versions: 2024-08-15-preview.
 
 
     :param str instance_name: Name of instance.

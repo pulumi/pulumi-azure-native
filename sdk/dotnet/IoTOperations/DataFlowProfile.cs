@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.IoTOperations
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:DataFlowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:DataFlowProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

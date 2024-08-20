@@ -70,29 +70,9 @@ namespace Pulumi.AzureNative.DocumentDB.V20240601Preview
     public sealed class GetMongoClusterResult
     {
         /// <summary>
-        /// The administrator's login for the mongo cluster.
-        /// </summary>
-        public readonly string? AdministratorLogin;
-        /// <summary>
-        /// The status of the mongo cluster.
-        /// </summary>
-        public readonly string ClusterStatus;
-        /// <summary>
-        /// The default mongo connection string for the cluster.
-        /// </summary>
-        public readonly string ConnectionString;
-        /// <summary>
-        /// Earliest restore timestamp in UTC ISO8601 format.
-        /// </summary>
-        public readonly string EarliestRestoreTime;
-        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The infrastructure version the cluster is provisioned on.
-        /// </summary>
-        public readonly string InfrastructureVersion;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -102,33 +82,9 @@ namespace Pulumi.AzureNative.DocumentDB.V20240601Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The list of node group specs in the cluster.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NodeGroupSpecResponse> NodeGroupSpecs;
-        /// <summary>
-        /// List of private endpoint connections.
-        /// </summary>
-        public readonly ImmutableArray<string> PreviewFeatures;
-        /// <summary>
-        /// List of private endpoint connections.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
-        /// <summary>
-        /// The provisioning state of the mongo cluster.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Whether or not public endpoint access is allowed for this mongo cluster.
-        /// </summary>
-        public readonly string? PublicNetworkAccess;
-        /// <summary>
-        /// The replication properties for the mongo cluster
-        /// </summary>
-        public readonly Outputs.ReplicationPropertiesResponse Replica;
-        /// <summary>
-        /// The Mongo DB server version. Defaults to the latest available version if not specified.
-        /// </summary>
-        public readonly string? ServerVersion;
+        public readonly Outputs.MongoClusterPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -144,35 +100,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20240601Preview
 
         [OutputConstructor]
         private GetMongoClusterResult(
-            string? administratorLogin,
-
-            string clusterStatus,
-
-            string connectionString,
-
-            string earliestRestoreTime,
-
             string id,
-
-            string infrastructureVersion,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.NodeGroupSpecResponse> nodeGroupSpecs,
-
-            ImmutableArray<string> previewFeatures,
-
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
-
-            string provisioningState,
-
-            string? publicNetworkAccess,
-
-            Outputs.ReplicationPropertiesResponse replica,
-
-            string? serverVersion,
+            Outputs.MongoClusterPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -180,21 +114,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20240601Preview
 
             string type)
         {
-            AdministratorLogin = administratorLogin;
-            ClusterStatus = clusterStatus;
-            ConnectionString = connectionString;
-            EarliestRestoreTime = earliestRestoreTime;
             Id = id;
-            InfrastructureVersion = infrastructureVersion;
             Location = location;
             Name = name;
-            NodeGroupSpecs = nodeGroupSpecs;
-            PreviewFeatures = previewFeatures;
-            PrivateEndpointConnections = privateEndpointConnections;
-            ProvisioningState = provisioningState;
-            PublicNetworkAccess = publicNetworkAccess;
-            Replica = replica;
-            ServerVersion = serverVersion;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

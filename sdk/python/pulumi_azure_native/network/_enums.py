@@ -132,6 +132,7 @@ __all__ = [
     'NetworkInterfaceAuxiliarySku',
     'NetworkInterfaceMigrationPhase',
     'NetworkInterfaceNicType',
+    'NetworkProtocol',
     'NextStep',
     'Operator',
     'OutputType',
@@ -1399,6 +1400,16 @@ class NetworkInterfaceNicType(str, Enum):
     """
     STANDARD = "Standard"
     ELASTIC = "Elastic"
+
+
+class NetworkProtocol(str, Enum):
+    """
+    Network protocol this resource applies to.
+    """
+    ANY = "Any"
+    TCP = "TCP"
+    UDP = "UDP"
+    ICMP = "ICMP"
 
 
 class NextStep(str, Enum):

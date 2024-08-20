@@ -38,26 +38,6 @@ export class MongoCluster extends pulumi.CustomResource {
     }
 
     /**
-     * The administrator's login for the mongo cluster.
-     */
-    public readonly administratorLogin!: pulumi.Output<string | undefined>;
-    /**
-     * The status of the mongo cluster.
-     */
-    public /*out*/ readonly clusterStatus!: pulumi.Output<string>;
-    /**
-     * The default mongo connection string for the cluster.
-     */
-    public /*out*/ readonly connectionString!: pulumi.Output<string>;
-    /**
-     * Earliest restore timestamp in UTC ISO8601 format.
-     */
-    public /*out*/ readonly earliestRestoreTime!: pulumi.Output<string>;
-    /**
-     * The infrastructure version the cluster is provisioned on.
-     */
-    public /*out*/ readonly infrastructureVersion!: pulumi.Output<string>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -66,33 +46,9 @@ export class MongoCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The list of node group specs in the cluster.
+     * The resource-specific properties for this resource.
      */
-    public readonly nodeGroupSpecs!: pulumi.Output<outputs.documentdb.v20240601preview.NodeGroupSpecResponse[] | undefined>;
-    /**
-     * List of private endpoint connections.
-     */
-    public readonly previewFeatures!: pulumi.Output<string[] | undefined>;
-    /**
-     * List of private endpoint connections.
-     */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.documentdb.v20240601preview.PrivateEndpointConnectionResponse[]>;
-    /**
-     * The provisioning state of the mongo cluster.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Whether or not public endpoint access is allowed for this mongo cluster.
-     */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
-    /**
-     * The replication properties for the mongo cluster
-     */
-    public /*out*/ readonly replica!: pulumi.Output<outputs.documentdb.v20240601preview.ReplicationPropertiesResponse>;
-    /**
-     * The Mongo DB server version. Defaults to the latest available version if not specified.
-     */
-    public readonly serverVersion!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.documentdb.v20240601preview.MongoClusterPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -120,50 +76,24 @@ export class MongoCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["mongoClusterName"] = args ? args.mongoClusterName : undefined;
-            resourceInputs["nodeGroupSpecs"] = args ? args.nodeGroupSpecs : undefined;
-            resourceInputs["previewFeatures"] = args ? args.previewFeatures : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["replicaParameters"] = args ? args.replicaParameters : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restoreParameters"] = args ? args.restoreParameters : undefined;
-            resourceInputs["serverVersion"] = args ? args.serverVersion : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["clusterStatus"] = undefined /*out*/;
-            resourceInputs["connectionString"] = undefined /*out*/;
-            resourceInputs["earliestRestoreTime"] = undefined /*out*/;
-            resourceInputs["infrastructureVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["replica"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["administratorLogin"] = undefined /*out*/;
-            resourceInputs["clusterStatus"] = undefined /*out*/;
-            resourceInputs["connectionString"] = undefined /*out*/;
-            resourceInputs["earliestRestoreTime"] = undefined /*out*/;
-            resourceInputs["infrastructureVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["nodeGroupSpecs"] = undefined /*out*/;
-            resourceInputs["previewFeatures"] = undefined /*out*/;
-            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
-            resourceInputs["replica"] = undefined /*out*/;
-            resourceInputs["serverVersion"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoCluster" }, { type: "azure-native:documentdb/v20230301preview:MongoCluster" }, { type: "azure-native:documentdb/v20230315preview:MongoCluster" }, { type: "azure-native:documentdb/v20230915preview:MongoCluster" }, { type: "azure-native:documentdb/v20231115preview:MongoCluster" }, { type: "azure-native:documentdb/v20240215preview:MongoCluster" }, { type: "azure-native:documentdb/v20240301preview:MongoCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoCluster" }, { type: "azure-native:documentdb/v20230301preview:MongoCluster" }, { type: "azure-native:documentdb/v20230315preview:MongoCluster" }, { type: "azure-native:documentdb/v20230915preview:MongoCluster" }, { type: "azure-native:documentdb/v20231115preview:MongoCluster" }, { type: "azure-native:documentdb/v20240215preview:MongoCluster" }, { type: "azure-native:documentdb/v20240301preview:MongoCluster" }, { type: "azure-native:documentdb/v20240701:MongoCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MongoCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -174,18 +104,6 @@ export class MongoCluster extends pulumi.CustomResource {
  */
 export interface MongoClusterArgs {
     /**
-     * The administrator's login for the mongo cluster.
-     */
-    administratorLogin?: pulumi.Input<string>;
-    /**
-     * The password of the administrator login.
-     */
-    administratorLoginPassword?: pulumi.Input<string>;
-    /**
-     * The mode to create a mongo cluster.
-     */
-    createMode?: pulumi.Input<string | enums.documentdb.v20240601preview.CreateMode>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -194,33 +112,13 @@ export interface MongoClusterArgs {
      */
     mongoClusterName?: pulumi.Input<string>;
     /**
-     * The list of node group specs in the cluster.
+     * The resource-specific properties for this resource.
      */
-    nodeGroupSpecs?: pulumi.Input<pulumi.Input<inputs.documentdb.v20240601preview.NodeGroupSpecArgs>[]>;
-    /**
-     * List of private endpoint connections.
-     */
-    previewFeatures?: pulumi.Input<pulumi.Input<string | enums.documentdb.v20240601preview.PreviewFeature>[]>;
-    /**
-     * Whether or not public endpoint access is allowed for this mongo cluster.
-     */
-    publicNetworkAccess?: pulumi.Input<string | enums.documentdb.v20240601preview.PublicNetworkAccess>;
-    /**
-     * The parameters to create a replica mongo cluster.
-     */
-    replicaParameters?: pulumi.Input<inputs.documentdb.v20240601preview.MongoClusterReplicaParametersArgs>;
+    properties?: pulumi.Input<inputs.documentdb.v20240601preview.MongoClusterPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The parameters to create a point-in-time restore mongo cluster.
-     */
-    restoreParameters?: pulumi.Input<inputs.documentdb.v20240601preview.MongoClusterRestoreParametersArgs>;
-    /**
-     * The Mongo DB server version. Defaults to the latest available version if not specified.
-     */
-    serverVersion?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

@@ -18,7 +18,10 @@ from ._enums import *
 
 __all__ = [
     'ConnectionStringResponse',
+    'FirewallRulePropertiesResponse',
+    'MongoClusterPropertiesResponse',
     'NodeGroupSpecResponse',
+    'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -57,6 +60,256 @@ class ConnectionStringResponse(dict):
         Description of the connection string
         """
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class FirewallRulePropertiesResponse(dict):
+    """
+    The properties of a mongo cluster firewall rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endIpAddress":
+            suggest = "end_ip_address"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "startIpAddress":
+            suggest = "start_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_ip_address: str,
+                 provisioning_state: str,
+                 start_ip_address: str):
+        """
+        The properties of a mongo cluster firewall rule.
+        :param str end_ip_address: The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        :param str provisioning_state: The provisioning state of the firewall rule.
+        :param str start_ip_address: The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        """
+        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "start_ip_address", start_ip_address)
+
+    @property
+    @pulumi.getter(name="endIpAddress")
+    def end_ip_address(self) -> str:
+        """
+        The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "end_ip_address")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the firewall rule.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="startIpAddress")
+    def start_ip_address(self) -> str:
+        """
+        The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "start_ip_address")
+
+
+@pulumi.output_type
+class MongoClusterPropertiesResponse(dict):
+    """
+    The properties of a mongo cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterStatus":
+            suggest = "cluster_status"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "earliestRestoreTime":
+            suggest = "earliest_restore_time"
+        elif key == "infrastructureVersion":
+            suggest = "infrastructure_version"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "administratorLogin":
+            suggest = "administrator_login"
+        elif key == "nodeGroupSpecs":
+            suggest = "node_group_specs"
+        elif key == "previewFeatures":
+            suggest = "preview_features"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
+        elif key == "serverVersion":
+            suggest = "server_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoClusterPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoClusterPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoClusterPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_status: str,
+                 connection_string: str,
+                 earliest_restore_time: str,
+                 infrastructure_version: str,
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
+                 provisioning_state: str,
+                 replica: 'outputs.ReplicationPropertiesResponse',
+                 administrator_login: Optional[str] = None,
+                 node_group_specs: Optional[Sequence['outputs.NodeGroupSpecResponse']] = None,
+                 preview_features: Optional[Sequence[str]] = None,
+                 public_network_access: Optional[str] = None,
+                 server_version: Optional[str] = None):
+        """
+        The properties of a mongo cluster.
+        :param str cluster_status: The status of the mongo cluster.
+        :param str connection_string: The default mongo connection string for the cluster.
+        :param str earliest_restore_time: Earliest restore timestamp in UTC ISO8601 format.
+        :param str infrastructure_version: The infrastructure version the cluster is provisioned on.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: List of private endpoint connections.
+        :param str provisioning_state: The provisioning state of the mongo cluster.
+        :param 'ReplicationPropertiesResponse' replica: The replication properties for the mongo cluster
+        :param str administrator_login: The administrator's login for the mongo cluster.
+        :param Sequence['NodeGroupSpecResponse'] node_group_specs: The list of node group specs in the cluster.
+        :param Sequence[str] preview_features: List of private endpoint connections.
+        :param str public_network_access: Whether or not public endpoint access is allowed for this mongo cluster.
+        :param str server_version: The Mongo DB server version. Defaults to the latest available version if not specified.
+        """
+        pulumi.set(__self__, "cluster_status", cluster_status)
+        pulumi.set(__self__, "connection_string", connection_string)
+        pulumi.set(__self__, "earliest_restore_time", earliest_restore_time)
+        pulumi.set(__self__, "infrastructure_version", infrastructure_version)
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "replica", replica)
+        if administrator_login is not None:
+            pulumi.set(__self__, "administrator_login", administrator_login)
+        if node_group_specs is not None:
+            pulumi.set(__self__, "node_group_specs", node_group_specs)
+        if preview_features is not None:
+            pulumi.set(__self__, "preview_features", preview_features)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if server_version is not None:
+            pulumi.set(__self__, "server_version", server_version)
+
+    @property
+    @pulumi.getter(name="clusterStatus")
+    def cluster_status(self) -> str:
+        """
+        The status of the mongo cluster.
+        """
+        return pulumi.get(self, "cluster_status")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> str:
+        """
+        The default mongo connection string for the cluster.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="earliestRestoreTime")
+    def earliest_restore_time(self) -> str:
+        """
+        Earliest restore timestamp in UTC ISO8601 format.
+        """
+        return pulumi.get(self, "earliest_restore_time")
+
+    @property
+    @pulumi.getter(name="infrastructureVersion")
+    def infrastructure_version(self) -> str:
+        """
+        The infrastructure version the cluster is provisioned on.
+        """
+        return pulumi.get(self, "infrastructure_version")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the mongo cluster.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def replica(self) -> 'outputs.ReplicationPropertiesResponse':
+        """
+        The replication properties for the mongo cluster
+        """
+        return pulumi.get(self, "replica")
+
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> Optional[str]:
+        """
+        The administrator's login for the mongo cluster.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="nodeGroupSpecs")
+    def node_group_specs(self) -> Optional[Sequence['outputs.NodeGroupSpecResponse']]:
+        """
+        The list of node group specs in the cluster.
+        """
+        return pulumi.get(self, "node_group_specs")
+
+    @property
+    @pulumi.getter(name="previewFeatures")
+    def preview_features(self) -> Optional[Sequence[str]]:
+        """
+        List of private endpoint connections.
+        """
+        return pulumi.get(self, "preview_features")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether or not public endpoint access is allowed for this mongo cluster.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="serverVersion")
+    def server_version(self) -> Optional[str]:
+        """
+        The Mongo DB server version. Defaults to the latest available version if not specified.
+        """
+        return pulumi.get(self, "server_version")
 
 
 @pulumi.output_type
@@ -149,6 +402,85 @@ class NodeGroupSpecResponse(dict):
         The resource sku for the node group. This defines the size of CPU and memory that is provisioned for each node. Example values: 'M30', 'M40'.
         """
         return pulumi.get(self, "sku")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionPropertiesResponse(dict):
+    """
+    Properties of the private endpoint connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Sequence[str],
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        Properties of the private endpoint connection.
+        :param Sequence[str] group_ids: The group ids for the private endpoint resource.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint resource.
+        """
+        return pulumi.get(self, "private_endpoint")
 
 
 @pulumi.output_type

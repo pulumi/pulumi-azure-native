@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets information about a mongo cluster firewall rule.
  * Azure REST API version: 2024-03-01-preview.
  *
- * Other available API versions: 2024-06-01-preview.
+ * Other available API versions: 2024-06-01-preview, 2024-07-01.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
 
@@ -43,10 +43,6 @@ export interface GetFirewallRuleArgs {
  */
 export interface GetFirewallRuleResult {
     /**
-     * The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-     */
-    readonly endIpAddress: string;
-    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -55,13 +51,9 @@ export interface GetFirewallRuleResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the firewall rule.
+     * The resource-specific properties for this resource.
      */
-    readonly provisioningState: string;
-    /**
-     * The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
-     */
-    readonly startIpAddress: string;
+    readonly properties: outputs.documentdb.FirewallRulePropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -75,7 +67,7 @@ export interface GetFirewallRuleResult {
  * Gets information about a mongo cluster firewall rule.
  * Azure REST API version: 2024-03-01-preview.
  *
- * Other available API versions: 2024-06-01-preview.
+ * Other available API versions: 2024-06-01-preview, 2024-07-01.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))

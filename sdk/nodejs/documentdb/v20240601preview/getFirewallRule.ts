@@ -40,10 +40,6 @@ export interface GetFirewallRuleArgs {
  */
 export interface GetFirewallRuleResult {
     /**
-     * The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-     */
-    readonly endIpAddress: string;
-    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -52,13 +48,9 @@ export interface GetFirewallRuleResult {
      */
     readonly name: string;
     /**
-     * The provisioning state of the firewall rule.
+     * The resource-specific properties for this resource.
      */
-    readonly provisioningState: string;
-    /**
-     * The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
-     */
-    readonly startIpAddress: string;
+    readonly properties: outputs.documentdb.v20240601preview.FirewallRulePropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

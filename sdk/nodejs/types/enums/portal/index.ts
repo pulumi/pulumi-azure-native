@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20181001 from "./v20181001";
 import * as v20200901preview from "./v20200901preview";
+import * as v20221201preview from "./v20221201preview";
 
 export {
     v20181001,
     v20200901preview,
+    v20221201preview,
 };
 
 export const DashboardPartMetadataType = {

@@ -9879,6 +9879,12 @@
       "MongoCluster",
       "PrivateEndpointConnection",
       "listMongoClusterConnectionStrings"
+    ],
+    "2024-07-01": [
+      "FirewallRule",
+      "MongoCluster",
+      "PrivateEndpointConnection",
+      "listMongoClusterConnectionStrings"
     ]
   },
   "DomainRegistration": {
@@ -11360,6 +11366,14 @@
       "MachineRunCommand",
       "PrivateEndpointConnection",
       "PrivateLinkScope"
+    ],
+    "2024-07-10": [
+      "License",
+      "LicenseProfile",
+      "Machine",
+      "MachineExtension",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
     ]
   },
   "HybridConnectivity": {
@@ -11737,6 +11751,16 @@
       "DataFlow",
       "DataFlowEndpoint",
       "DataFlowProfile",
+      "Instance"
+    ],
+    "2024-08-15-preview": [
+      "Broker",
+      "BrokerAuthentication",
+      "BrokerAuthorization",
+      "BrokerListener",
+      "Dataflow",
+      "DataflowEndpoint",
+      "DataflowProfile",
       "Instance"
     ]
   },
@@ -14541,6 +14565,22 @@
       "VolumeGroup",
       "VolumeQuotaRule",
       "getAccountChangeKeyVaultInformation",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2024-01-01": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
       "getSubvolumeMetadata",
       "getVolumeGroupIdForLdapUser",
       "listVolumeReplications"
@@ -18265,6 +18305,20 @@
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
+    "2024-01-01-preview": [
+      "AdminRule",
+      "AdminRuleCollection",
+      "IpamPool",
+      "NetworkManager",
+      "ReachabilityAnalysisIntent",
+      "ReachabilityAnalysisRun",
+      "SecurityAdminConfiguration",
+      "StaticCidr",
+      "VerifierWorkspace",
+      "getIpamPoolUsage",
+      "listIpamPoolAssociatedResources",
+      "listNetworkManagerDeploymentStatus"
+    ],
     "2024-02-01": [
       "Policy"
     ],
@@ -18717,6 +18771,11 @@
       "TenantConfiguration"
     ],
     "2020-09-01-preview": [
+      "Dashboard",
+      "TenantConfiguration",
+      "listListTenantConfigurationViolation"
+    ],
+    "2022-12-01-preview": [
       "Dashboard",
       "TenantConfiguration",
       "listListTenantConfigurationViolation"
@@ -22621,6 +22680,10 @@
       "StandbyContainerGroupPool",
       "StandbyVirtualMachinePool"
     ],
+    "2024-03-01": [
+      "StandbyContainerGroupPool",
+      "StandbyVirtualMachinePool"
+    ],
     "2024-03-01-preview": [
       "StandbyContainerGroupPool",
       "StandbyVirtualMachinePool"
@@ -23276,6 +23339,9 @@
       "Alias"
     ],
     "2021-10-01": [
+      "Alias"
+    ],
+    "2024-08-01-preview": [
       "Alias"
     ]
   },

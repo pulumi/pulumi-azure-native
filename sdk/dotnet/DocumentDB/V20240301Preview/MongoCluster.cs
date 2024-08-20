@@ -16,30 +16,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20240301Preview
     public partial class MongoCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The administrator's login for the mongo cluster.
-        /// </summary>
-        [Output("administratorLogin")]
-        public Output<string?> AdministratorLogin { get; private set; } = null!;
-
-        /// <summary>
-        /// The status of the mongo cluster.
-        /// </summary>
-        [Output("clusterStatus")]
-        public Output<string> ClusterStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The default mongo connection string for the cluster.
-        /// </summary>
-        [Output("connectionString")]
-        public Output<string> ConnectionString { get; private set; } = null!;
-
-        /// <summary>
-        /// Earliest restore timestamp in UTC ISO8601 format.
-        /// </summary>
-        [Output("earliestRestoreTime")]
-        public Output<string> EarliestRestoreTime { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -52,34 +28,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20240301Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The list of node group specs in the cluster.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        [Output("nodeGroupSpecs")]
-        public Output<ImmutableArray<Outputs.NodeGroupSpecResponse>> NodeGroupSpecs { get; private set; } = null!;
-
-        /// <summary>
-        /// List of private endpoint connections.
-        /// </summary>
-        [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the mongo cluster.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether or not public endpoint access is allowed for this mongo cluster.
-        /// </summary>
-        [Output("publicNetworkAccess")]
-        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
-
-        /// <summary>
-        /// The Mongo DB server version. Defaults to the latest available version if not specified.
-        /// </summary>
-        [Output("serverVersion")]
-        public Output<string?> ServerVersion { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.MongoClusterPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -131,6 +83,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20240301Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240601preview:MongoCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240701:MongoCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -155,24 +108,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20240301Preview
     public sealed class MongoClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrator's login for the mongo cluster.
-        /// </summary>
-        [Input("administratorLogin")]
-        public Input<string>? AdministratorLogin { get; set; }
-
-        /// <summary>
-        /// The password of the administrator login.
-        /// </summary>
-        [Input("administratorLoginPassword")]
-        public Input<string>? AdministratorLoginPassword { get; set; }
-
-        /// <summary>
-        /// The mode to create a mongo cluster.
-        /// </summary>
-        [Input("createMode")]
-        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20240301Preview.CreateMode>? CreateMode { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -184,41 +119,17 @@ namespace Pulumi.AzureNative.DocumentDB.V20240301Preview
         [Input("mongoClusterName")]
         public Input<string>? MongoClusterName { get; set; }
 
-        [Input("nodeGroupSpecs")]
-        private InputList<Inputs.NodeGroupSpecArgs>? _nodeGroupSpecs;
-
         /// <summary>
-        /// The list of node group specs in the cluster.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        public InputList<Inputs.NodeGroupSpecArgs> NodeGroupSpecs
-        {
-            get => _nodeGroupSpecs ?? (_nodeGroupSpecs = new InputList<Inputs.NodeGroupSpecArgs>());
-            set => _nodeGroupSpecs = value;
-        }
-
-        /// <summary>
-        /// Whether or not public endpoint access is allowed for this mongo cluster.
-        /// </summary>
-        [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNative.DocumentDB.V20240301Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        [Input("properties")]
+        public Input<Inputs.MongoClusterPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The parameters to create a point-in-time restore mongo cluster.
-        /// </summary>
-        [Input("restoreParameters")]
-        public Input<Inputs.MongoClusterRestoreParametersArgs>? RestoreParameters { get; set; }
-
-        /// <summary>
-        /// The Mongo DB server version. Defaults to the latest available version if not specified.
-        /// </summary>
-        [Input("serverVersion")]
-        public Input<string>? ServerVersion { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

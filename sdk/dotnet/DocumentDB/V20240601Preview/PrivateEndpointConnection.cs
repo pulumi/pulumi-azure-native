@@ -16,34 +16,16 @@ namespace Pulumi.AzureNative.DocumentDB.V20240601Preview
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The group ids for the private endpoint resource.
-        /// </summary>
-        [Output("groupIds")]
-        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The private endpoint resource.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
-
-        /// <summary>
-        /// A collection of information about the state of the connection between service consumer and provider.
-        /// </summary>
-        [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the private endpoint connection resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -83,6 +65,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20240601Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240301preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240701:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,10 +102,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20240601Preview
         public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
-        /// A collection of information about the state of the connection between service consumer and provider.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        [Input("privateLinkServiceConnectionState", required: true)]
-        public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
+        [Input("properties")]
+        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a mongo cluster resource.
  * Azure REST API version: 2023-03-15-preview.
  *
- * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-06-01-preview, 2024-07-01.
  */
 export class MongoCluster extends pulumi.CustomResource {
     /**
@@ -135,7 +135,7 @@ export class MongoCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20230301preview:MongoCluster" }, { type: "azure-native:documentdb/v20230315preview:MongoCluster" }, { type: "azure-native:documentdb/v20230915preview:MongoCluster" }, { type: "azure-native:documentdb/v20231115preview:MongoCluster" }, { type: "azure-native:documentdb/v20240215preview:MongoCluster" }, { type: "azure-native:documentdb/v20240301preview:MongoCluster" }, { type: "azure-native:documentdb/v20240601preview:MongoCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20230301preview:MongoCluster" }, { type: "azure-native:documentdb/v20230315preview:MongoCluster" }, { type: "azure-native:documentdb/v20230915preview:MongoCluster" }, { type: "azure-native:documentdb/v20231115preview:MongoCluster" }, { type: "azure-native:documentdb/v20240215preview:MongoCluster" }, { type: "azure-native:documentdb/v20240301preview:MongoCluster" }, { type: "azure-native:documentdb/v20240601preview:MongoCluster" }, { type: "azure-native:documentdb/v20240701:MongoCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MongoCluster.__pulumiType, name, resourceInputs, opts);
     }

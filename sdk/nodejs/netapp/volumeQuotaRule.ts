@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Quota Rule of a Volume
  * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-01-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-03-01, 2024-03-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview.
  */
 export class VolumeQuotaRule extends pulumi.CustomResource {
     /**
@@ -126,7 +126,7 @@ export class VolumeQuotaRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20220101:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220301:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220501:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220901:VolumeQuotaRule" }, { type: "azure-native:netapp/v20221101:VolumeQuotaRule" }, { type: "azure-native:netapp/v20221101preview:VolumeQuotaRule" }, { type: "azure-native:netapp/v20230501:VolumeQuotaRule" }, { type: "azure-native:netapp/v20230501preview:VolumeQuotaRule" }, { type: "azure-native:netapp/v20230701:VolumeQuotaRule" }, { type: "azure-native:netapp/v20230701preview:VolumeQuotaRule" }, { type: "azure-native:netapp/v20231101:VolumeQuotaRule" }, { type: "azure-native:netapp/v20231101preview:VolumeQuotaRule" }, { type: "azure-native:netapp/v20240301:VolumeQuotaRule" }, { type: "azure-native:netapp/v20240301preview:VolumeQuotaRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20220101:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220301:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220501:VolumeQuotaRule" }, { type: "azure-native:netapp/v20220901:VolumeQuotaRule" }, { type: "azure-native:netapp/v20221101:VolumeQuotaRule" }, { type: "azure-native:netapp/v20221101preview:VolumeQuotaRule" }, { type: "azure-native:netapp/v20230501:VolumeQuotaRule" }, { type: "azure-native:netapp/v20230501preview:VolumeQuotaRule" }, { type: "azure-native:netapp/v20230701:VolumeQuotaRule" }, { type: "azure-native:netapp/v20230701preview:VolumeQuotaRule" }, { type: "azure-native:netapp/v20231101:VolumeQuotaRule" }, { type: "azure-native:netapp/v20231101preview:VolumeQuotaRule" }, { type: "azure-native:netapp/v20240101:VolumeQuotaRule" }, { type: "azure-native:netapp/v20240301:VolumeQuotaRule" }, { type: "azure-native:netapp/v20240301preview:VolumeQuotaRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VolumeQuotaRule.__pulumiType, name, resourceInputs, opts);
     }

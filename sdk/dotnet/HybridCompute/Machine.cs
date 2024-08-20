@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute
     /// Describes a hybrid machine.
     /// Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2020-08-02.
     /// 
-    /// Other available API versions: 2019-03-18-preview, 2019-08-02-preview, 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview.
+    /// Other available API versions: 2019-03-18-preview, 2019-08-02-preview, 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:Machine")]
     public partial class Machine : global::Pulumi.CustomResource
@@ -277,6 +277,7 @@ namespace Pulumi.AzureNative.HybridCompute
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20231003preview:Machine" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240331preview:Machine" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240520preview:Machine" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240710:Machine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

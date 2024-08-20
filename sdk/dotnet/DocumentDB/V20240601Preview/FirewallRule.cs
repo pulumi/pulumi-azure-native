@@ -16,28 +16,16 @@ namespace Pulumi.AzureNative.DocumentDB.V20240601Preview
     public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        /// </summary>
-        [Output("endIpAddress")]
-        public Output<string> EndIpAddress { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the firewall rule.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        /// </summary>
-        [Output("startIpAddress")]
-        public Output<string> StartIpAddress { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.FirewallRulePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -83,6 +71,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20240601Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240301preview:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240701:FirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -107,12 +96,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20240601Preview
     public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        /// </summary>
-        [Input("endIpAddress", required: true)]
-        public Input<string> EndIpAddress { get; set; } = null!;
-
-        /// <summary>
         /// The name of the mongo cluster firewall rule.
         /// </summary>
         [Input("firewallRuleName")]
@@ -125,16 +108,16 @@ namespace Pulumi.AzureNative.DocumentDB.V20240601Preview
         public Input<string> MongoClusterName { get; set; } = null!;
 
         /// <summary>
+        /// The resource-specific properties for this resource.
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.FirewallRulePropertiesArgs>? Properties { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        /// </summary>
-        [Input("startIpAddress", required: true)]
-        public Input<string> StartIpAddress { get; set; } = null!;
 
         public FirewallRuleArgs()
         {

@@ -27,19 +27,7 @@ class GetMongoClusterResult:
     """
     Represents a mongo cluster resource.
     """
-    def __init__(__self__, administrator_login=None, cluster_status=None, connection_string=None, earliest_restore_time=None, id=None, location=None, name=None, node_group_specs=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, server_version=None, system_data=None, tags=None, type=None):
-        if administrator_login and not isinstance(administrator_login, str):
-            raise TypeError("Expected argument 'administrator_login' to be a str")
-        pulumi.set(__self__, "administrator_login", administrator_login)
-        if cluster_status and not isinstance(cluster_status, str):
-            raise TypeError("Expected argument 'cluster_status' to be a str")
-        pulumi.set(__self__, "cluster_status", cluster_status)
-        if connection_string and not isinstance(connection_string, str):
-            raise TypeError("Expected argument 'connection_string' to be a str")
-        pulumi.set(__self__, "connection_string", connection_string)
-        if earliest_restore_time and not isinstance(earliest_restore_time, str):
-            raise TypeError("Expected argument 'earliest_restore_time' to be a str")
-        pulumi.set(__self__, "earliest_restore_time", earliest_restore_time)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,21 +37,9 @@ class GetMongoClusterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if node_group_specs and not isinstance(node_group_specs, list):
-            raise TypeError("Expected argument 'node_group_specs' to be a list")
-        pulumi.set(__self__, "node_group_specs", node_group_specs)
-        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
-            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if public_network_access and not isinstance(public_network_access, str):
-            raise TypeError("Expected argument 'public_network_access' to be a str")
-        pulumi.set(__self__, "public_network_access", public_network_access)
-        if server_version and not isinstance(server_version, str):
-            raise TypeError("Expected argument 'server_version' to be a str")
-        pulumi.set(__self__, "server_version", server_version)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -73,38 +49,6 @@ class GetMongoClusterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> Optional[str]:
-        """
-        The administrator's login for the mongo cluster.
-        """
-        return pulumi.get(self, "administrator_login")
-
-    @property
-    @pulumi.getter(name="clusterStatus")
-    def cluster_status(self) -> str:
-        """
-        The status of the mongo cluster.
-        """
-        return pulumi.get(self, "cluster_status")
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> str:
-        """
-        The default mongo connection string for the cluster.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @property
-    @pulumi.getter(name="earliestRestoreTime")
-    def earliest_restore_time(self) -> str:
-        """
-        Earliest restore timestamp in UTC ISO8601 format.
-        """
-        return pulumi.get(self, "earliest_restore_time")
 
     @property
     @pulumi.getter
@@ -131,44 +75,12 @@ class GetMongoClusterResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="nodeGroupSpecs")
-    def node_group_specs(self) -> Optional[Sequence['outputs.NodeGroupSpecResponse']]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.MongoClusterPropertiesResponse':
         """
-        The list of node group specs in the cluster.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "node_group_specs")
-
-    @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
-        """
-        List of private endpoint connections.
-        """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the mongo cluster.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
-        """
-        Whether or not public endpoint access is allowed for this mongo cluster.
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @property
-    @pulumi.getter(name="serverVersion")
-    def server_version(self) -> Optional[str]:
-        """
-        The Mongo DB server version. Defaults to the latest available version if not specified.
-        """
-        return pulumi.get(self, "server_version")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -201,18 +113,10 @@ class AwaitableGetMongoClusterResult(GetMongoClusterResult):
         if False:
             yield self
         return GetMongoClusterResult(
-            administrator_login=self.administrator_login,
-            cluster_status=self.cluster_status,
-            connection_string=self.connection_string,
-            earliest_restore_time=self.earliest_restore_time,
             id=self.id,
             location=self.location,
             name=self.name,
-            node_group_specs=self.node_group_specs,
-            private_endpoint_connections=self.private_endpoint_connections,
-            provisioning_state=self.provisioning_state,
-            public_network_access=self.public_network_access,
-            server_version=self.server_version,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -235,18 +139,10 @@ def get_mongo_cluster(mongo_cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb/v20240301preview:getMongoCluster', __args__, opts=opts, typ=GetMongoClusterResult).value
 
     return AwaitableGetMongoClusterResult(
-        administrator_login=pulumi.get(__ret__, 'administrator_login'),
-        cluster_status=pulumi.get(__ret__, 'cluster_status'),
-        connection_string=pulumi.get(__ret__, 'connection_string'),
-        earliest_restore_time=pulumi.get(__ret__, 'earliest_restore_time'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        node_group_specs=pulumi.get(__ret__, 'node_group_specs'),
-        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        public_network_access=pulumi.get(__ret__, 'public_network_access'),
-        server_version=pulumi.get(__ret__, 'server_version'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))

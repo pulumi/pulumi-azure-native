@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.IoTOperations
     /// <summary>
     /// Instance broker resource
     /// Azure REST API version: 2024-07-01-preview.
+    /// 
+    /// Other available API versions: 2024-08-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperations:BrokerListener")]
     public partial class BrokerListener : global::Pulumi.CustomResource
@@ -72,6 +74,7 @@ namespace Pulumi.AzureNative.IoTOperations
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:BrokerListener" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:BrokerListener" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -91,6 +91,8 @@ from .get_inbound_nat_rule import *
 from .get_interface_endpoint import *
 from .get_ip_allocation import *
 from .get_ip_group import *
+from .get_ipam_pool import *
+from .get_ipam_pool_usage import *
 from .get_load_balancer import *
 from .get_load_balancer_backend_address_pool import *
 from .get_local_network_gateway import *
@@ -128,6 +130,8 @@ from .get_private_zone import *
 from .get_profile import *
 from .get_public_ip_address import *
 from .get_public_ip_prefix import *
+from .get_reachability_analysis_intent import *
+from .get_reachability_analysis_run import *
 from .get_record_set import *
 from .get_route import *
 from .get_route_filter import *
@@ -143,12 +147,14 @@ from .get_security_rule import *
 from .get_security_user_configuration import *
 from .get_service_endpoint_policy import *
 from .get_service_endpoint_policy_definition import *
+from .get_static_cidr import *
 from .get_static_member import *
 from .get_subnet import *
 from .get_subscription_network_manager_connection import *
 from .get_traffic_manager_user_metrics_key import *
 from .get_user_rule import *
 from .get_user_rule_collection import *
+from .get_verifier_workspace import *
 from .get_virtual_appliance_site import *
 from .get_virtual_hub import *
 from .get_virtual_hub_bgp_connection import *
@@ -185,6 +191,7 @@ from .inbound_nat_rule import *
 from .interface_endpoint import *
 from .ip_allocation import *
 from .ip_group import *
+from .ipam_pool import *
 from .list_active_connectivity_configuration import *
 from .list_active_connectivity_configurations import *
 from .list_active_security_admin_rule import *
@@ -198,6 +205,7 @@ from .list_effective_virtual_network_by_network_group import *
 from .list_effective_virtual_network_by_network_manager import *
 from .list_firewall_policy_idps_signature import *
 from .list_firewall_policy_idps_signatures_filter_value import *
+from .list_ipam_pool_associated_resources import *
 from .list_list_effective_virtual_network_by_network_group import *
 from .list_network_manager_deployment_status import *
 from .list_network_manager_effective_connectivity_configurations import *
@@ -238,6 +246,8 @@ from .private_zone import *
 from .profile import *
 from .public_ip_address import *
 from .public_ip_prefix import *
+from .reachability_analysis_intent import *
+from .reachability_analysis_run import *
 from .record_set import *
 from .route import *
 from .route_filter import *
@@ -253,12 +263,14 @@ from .security_rule import *
 from .security_user_configuration import *
 from .service_endpoint_policy import *
 from .service_endpoint_policy_definition import *
+from .static_cidr import *
 from .static_member import *
 from .subnet import *
 from .subscription_network_manager_connection import *
 from .traffic_manager_user_metrics_key import *
 from .user_rule import *
 from .user_rule_collection import *
+from .verifier_workspace import *
 from .virtual_appliance_site import *
 from .virtual_hub import *
 from .virtual_hub_bgp_connection import *
@@ -355,6 +367,8 @@ if typing.TYPE_CHECKING:
     v20231101 = __v20231101
     import pulumi_azure_native.network.v20240101 as __v20240101
     v20240101 = __v20240101
+    import pulumi_azure_native.network.v20240101preview as __v20240101preview
+    v20240101preview = __v20240101preview
     import pulumi_azure_native.network.v20240201 as __v20240201
     v20240201 = __v20240201
     import pulumi_azure_native.network.v20240601 as __v20240601
@@ -395,6 +409,7 @@ else:
     v20230901 = _utilities.lazy_import('pulumi_azure_native.network.v20230901')
     v20231101 = _utilities.lazy_import('pulumi_azure_native.network.v20231101')
     v20240101 = _utilities.lazy_import('pulumi_azure_native.network.v20240101')
+    v20240101preview = _utilities.lazy_import('pulumi_azure_native.network.v20240101preview')
     v20240201 = _utilities.lazy_import('pulumi_azure_native.network.v20240201')
     v20240601 = _utilities.lazy_import('pulumi_azure_native.network.v20240601')
 

@@ -145,38 +145,4 @@ namespace Pulumi.AzureNative.Billing.V20240401
 
         public override string ToString() => _value;
     }
-
-    /// <summary>
-    /// Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds.
-    /// </summary>
-    [EnumType]
-    public readonly struct TargetCloud : IEquatable<TargetCloud>
-    {
-        private readonly string _value;
-
-        private TargetCloud(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static TargetCloud Other { get; } = new TargetCloud("Other");
-        public static TargetCloud Internal { get; } = new TargetCloud("Internal");
-        public static TargetCloud USGov { get; } = new TargetCloud("USGov");
-        public static TargetCloud USNat { get; } = new TargetCloud("USNat");
-        public static TargetCloud USSec { get; } = new TargetCloud("USSec");
-
-        public static bool operator ==(TargetCloud left, TargetCloud right) => left.Equals(right);
-        public static bool operator !=(TargetCloud left, TargetCloud right) => !left.Equals(right);
-
-        public static explicit operator string(TargetCloud value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TargetCloud other && Equals(other);
-        public bool Equals(TargetCloud other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
 }

@@ -37,13 +37,25 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
+        /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? ServicePrincipalCredentialType;
+        /// <summary>
+        /// Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalEmbeddedCert;
+        /// <summary>
+        /// Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalEmbeddedCertPassword;
+        /// <summary>
         /// The application (client) ID of your application registered in Azure Active Directory. Make sure to grant SharePoint site permission to this application. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object ServicePrincipalId;
         /// <summary>
         /// The client secret of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> ServicePrincipalKey;
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalKey;
         /// <summary>
         /// The URL of the SharePoint Online site. For example, https://contoso.sharepoint.com/sites/siteName. Type: string (or Expression with resultType string).
         /// </summary>
@@ -74,9 +86,15 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
+            object? servicePrincipalCredentialType,
+
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalEmbeddedCert,
+
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalEmbeddedCertPassword,
+
             object servicePrincipalId,
 
-            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> servicePrincipalKey,
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
 
             object siteUrl,
 
@@ -91,6 +109,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Description = description;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
+            ServicePrincipalCredentialType = servicePrincipalCredentialType;
+            ServicePrincipalEmbeddedCert = servicePrincipalEmbeddedCert;
+            ServicePrincipalEmbeddedCertPassword = servicePrincipalEmbeddedCertPassword;
             ServicePrincipalId = servicePrincipalId;
             ServicePrincipalKey = servicePrincipalKey;
             SiteUrl = siteUrl;

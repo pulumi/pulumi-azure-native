@@ -30,8 +30,11 @@ if typing.TYPE_CHECKING:
     v20190101preview = __v20190101preview
     import pulumi_azure_native.portal.v20200901preview as __v20200901preview
     v20200901preview = __v20200901preview
+    import pulumi_azure_native.portal.v20221201preview as __v20221201preview
+    v20221201preview = __v20221201preview
 else:
     v20181001 = _utilities.lazy_import('pulumi_azure_native.portal.v20181001')
     v20190101preview = _utilities.lazy_import('pulumi_azure_native.portal.v20190101preview')
     v20200901preview = _utilities.lazy_import('pulumi_azure_native.portal.v20200901preview')
+    v20221201preview = _utilities.lazy_import('pulumi_azure_native.portal.v20221201preview')
 

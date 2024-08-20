@@ -38,25 +38,13 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
-     * The group ids for the private endpoint resource.
-     */
-    public /*out*/ readonly groupIds!: pulumi.Output<string[]>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The private endpoint resource.
+     * The resource-specific properties for this resource.
      */
-    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.documentdb.v20240301preview.PrivateEndpointResponse | undefined>;
-    /**
-     * A collection of information about the state of the connection between service consumer and provider.
-     */
-    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.documentdb.v20240301preview.PrivateLinkServiceConnectionStateResponse>;
-    /**
-     * The provisioning state of the private endpoint connection resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.documentdb.v20240301preview.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -80,33 +68,24 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.mongoClusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'mongoClusterName'");
             }
-            if ((!args || args.privateLinkServiceConnectionState === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'privateLinkServiceConnectionState'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["mongoClusterName"] = args ? args.mongoClusterName : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
-            resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpoint"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["privateEndpoint"] = undefined /*out*/;
-            resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20240601preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20240601preview:PrivateEndpointConnection" }, { type: "azure-native:documentdb/v20240701:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -125,9 +104,9 @@ export interface PrivateEndpointConnectionArgs {
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * A collection of information about the state of the connection between service consumer and provider.
+     * The resource-specific properties for this resource.
      */
-    privateLinkServiceConnectionState: pulumi.Input<inputs.documentdb.v20240301preview.PrivateLinkServiceConnectionStateArgs>;
+    properties?: pulumi.Input<inputs.documentdb.v20240301preview.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

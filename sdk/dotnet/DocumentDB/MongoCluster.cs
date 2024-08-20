@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB
     /// Represents a mongo cluster resource.
     /// Azure REST API version: 2023-03-15-preview.
     /// 
-    /// Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-06-01-preview.
+    /// Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-06-01-preview, 2024-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:MongoCluster")]
     public partial class MongoCluster : global::Pulumi.CustomResource
@@ -122,6 +122,7 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240301preview:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240601preview:MongoCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240701:MongoCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

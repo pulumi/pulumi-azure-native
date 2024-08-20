@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20200901 from "./v20200901";
 import * as v20211001 from "./v20211001";
+import * as v20240801preview from "./v20240801preview";
 
 export {
     v20200901,
     v20211001,
+    v20240801preview,
 };
 
 export const Workload = {

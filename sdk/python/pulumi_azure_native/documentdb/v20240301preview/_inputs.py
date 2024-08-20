@@ -16,15 +16,231 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'FirewallRulePropertiesArgs',
+    'FirewallRulePropertiesArgsDict',
+    'MongoClusterPropertiesArgs',
+    'MongoClusterPropertiesArgsDict',
     'MongoClusterRestoreParametersArgs',
     'MongoClusterRestoreParametersArgsDict',
     'NodeGroupSpecArgs',
     'NodeGroupSpecArgsDict',
+    'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionPropertiesArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class FirewallRulePropertiesArgsDict(TypedDict):
+        """
+        The properties of a mongo cluster firewall rule.
+        """
+        end_ip_address: pulumi.Input[str]
+        """
+        The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        """
+        start_ip_address: pulumi.Input[str]
+        """
+        The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        """
+elif False:
+    FirewallRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FirewallRulePropertiesArgs:
+    def __init__(__self__, *,
+                 end_ip_address: pulumi.Input[str],
+                 start_ip_address: pulumi.Input[str]):
+        """
+        The properties of a mongo cluster firewall rule.
+        :param pulumi.Input[str] end_ip_address: The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        :param pulumi.Input[str] start_ip_address: The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        """
+        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        pulumi.set(__self__, "start_ip_address", start_ip_address)
+
+    @property
+    @pulumi.getter(name="endIpAddress")
+    def end_ip_address(self) -> pulumi.Input[str]:
+        """
+        The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "end_ip_address")
+
+    @end_ip_address.setter
+    def end_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_ip_address", value)
+
+    @property
+    @pulumi.getter(name="startIpAddress")
+    def start_ip_address(self) -> pulumi.Input[str]:
+        """
+        The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        """
+        return pulumi.get(self, "start_ip_address")
+
+    @start_ip_address.setter
+    def start_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_ip_address", value)
+
+
+if not MYPY:
+    class MongoClusterPropertiesArgsDict(TypedDict):
+        """
+        The properties of a mongo cluster.
+        """
+        administrator_login: NotRequired[pulumi.Input[str]]
+        """
+        The administrator's login for the mongo cluster.
+        """
+        administrator_login_password: NotRequired[pulumi.Input[str]]
+        """
+        The password of the administrator login.
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        The mode to create a mongo cluster.
+        """
+        node_group_specs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NodeGroupSpecArgsDict']]]]
+        """
+        The list of node group specs in the cluster.
+        """
+        public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
+        """
+        Whether or not public endpoint access is allowed for this mongo cluster.
+        """
+        restore_parameters: NotRequired[pulumi.Input['MongoClusterRestoreParametersArgsDict']]
+        """
+        The parameters to create a point-in-time restore mongo cluster.
+        """
+        server_version: NotRequired[pulumi.Input[str]]
+        """
+        The Mongo DB server version. Defaults to the latest available version if not specified.
+        """
+elif False:
+    MongoClusterPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MongoClusterPropertiesArgs:
+    def __init__(__self__, *,
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 node_group_specs: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupSpecArgs']]]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 restore_parameters: Optional[pulumi.Input['MongoClusterRestoreParametersArgs']] = None,
+                 server_version: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of a mongo cluster.
+        :param pulumi.Input[str] administrator_login: The administrator's login for the mongo cluster.
+        :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a mongo cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupSpecArgs']]] node_group_specs: The list of node group specs in the cluster.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this mongo cluster.
+        :param pulumi.Input['MongoClusterRestoreParametersArgs'] restore_parameters: The parameters to create a point-in-time restore mongo cluster.
+        :param pulumi.Input[str] server_version: The Mongo DB server version. Defaults to the latest available version if not specified.
+        """
+        if administrator_login is not None:
+            pulumi.set(__self__, "administrator_login", administrator_login)
+        if administrator_login_password is not None:
+            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if node_group_specs is not None:
+            pulumi.set(__self__, "node_group_specs", node_group_specs)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
+        if server_version is not None:
+            pulumi.set(__self__, "server_version", server_version)
+
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> Optional[pulumi.Input[str]]:
+        """
+        The administrator's login for the mongo cluster.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @administrator_login.setter
+    def administrator_login(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login", value)
+
+    @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password of the administrator login.
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @administrator_login_password.setter
+    def administrator_login_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login_password", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        The mode to create a mongo cluster.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="nodeGroupSpecs")
+    def node_group_specs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupSpecArgs']]]]:
+        """
+        The list of node group specs in the cluster.
+        """
+        return pulumi.get(self, "node_group_specs")
+
+    @node_group_specs.setter
+    def node_group_specs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupSpecArgs']]]]):
+        pulumi.set(self, "node_group_specs", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether or not public endpoint access is allowed for this mongo cluster.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional[pulumi.Input['MongoClusterRestoreParametersArgs']]:
+        """
+        The parameters to create a point-in-time restore mongo cluster.
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @restore_parameters.setter
+    def restore_parameters(self, value: Optional[pulumi.Input['MongoClusterRestoreParametersArgs']]):
+        pulumi.set(self, "restore_parameters", value)
+
+    @property
+    @pulumi.getter(name="serverVersion")
+    def server_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Mongo DB server version. Defaults to the latest available version if not specified.
+        """
+        return pulumi.get(self, "server_version")
+
+    @server_version.setter
+    def server_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_version", value)
+
 
 if not MYPY:
     class MongoClusterRestoreParametersArgsDict(TypedDict):
@@ -196,6 +412,41 @@ class NodeGroupSpecArgs:
     @sku.setter
     def sku(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sku", value)
+
+
+if not MYPY:
+    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+        """
+        Properties of the private endpoint connection.
+        """
+        private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgsDict']
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+elif False:
+    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PrivateEndpointConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        """
+        Properties of the private endpoint connection.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        """
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        pulumi.set(self, "private_link_service_connection_state", value)
 
 
 if not MYPY:

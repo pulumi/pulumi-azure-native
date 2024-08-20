@@ -34,6 +34,7 @@ import * as v20230801preview from "./v20230801preview";
 import * as v20230901 from "./v20230901";
 import * as v20231101 from "./v20231101";
 import * as v20240101 from "./v20240101";
+import * as v20240101preview from "./v20240101preview";
 import * as v20240201 from "./v20240201";
 import * as v20240601 from "./v20240601";
 
@@ -70,6 +71,7 @@ export {
     v20230901,
     v20231101,
     v20240101,
+    v20240101preview,
     v20240201,
     v20240601,
 };
@@ -1509,6 +1511,18 @@ export const NetworkInterfaceNicType = {
  * Type of Network Interface resource.
  */
 export type NetworkInterfaceNicType = (typeof NetworkInterfaceNicType)[keyof typeof NetworkInterfaceNicType];
+
+export const NetworkProtocol = {
+    Any: "Any",
+    TCP: "TCP",
+    UDP: "UDP",
+    ICMP: "ICMP",
+} as const;
+
+/**
+ * Network protocol this resource applies to.
+ */
+export type NetworkProtocol = (typeof NetworkProtocol)[keyof typeof NetworkProtocol];
 
 export const NextStep = {
     Unknown: "Unknown",
