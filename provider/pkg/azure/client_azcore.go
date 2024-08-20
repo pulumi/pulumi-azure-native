@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
@@ -118,6 +119,9 @@ func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]
 	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusCreated, http.StatusAccepted) {
 		return nil, false, runtime.NewResponseError(resp)
 	}
+
+	normalizeLocationHeader(c.host, queryParameters["api-version"].(string), resp.Header)
+
 	pt, err := runtime.NewPoller[map[string]interface{}](resp, c.pipeline, nil)
 	if err != nil {
 		return nil, false, err
@@ -129,6 +133,43 @@ func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]
 		return nil, true, err
 	}
 	return pollResp, true, nil
+}
+
+// The azcore location header Poller validates that the location header is a valid absolute URL.
+// In some cases, like user-assigned identities, the location header in the PUT response is a
+// relative URL "/subscriptions/...", which we try to make absolute.
+// Also, add the api version query param if missing.
+func normalizeLocationHeader(host, apiVersion string, headers http.Header) {
+	locUrlStr := headers.Get("Location")
+	if locUrlStr == "" {
+		return
+	}
+
+	locUrl, err := url.Parse(locUrlStr)
+	if err != nil {
+		logging.V(3).Infof("Location header '%s' is not a valid URL: %v", locUrlStr, err)
+		return
+	}
+
+	if !locUrl.IsAbs() {
+		locUrl.Host = host
+		absUrlStr := runtime.JoinPaths(host, locUrlStr)
+		absUrl, err := url.Parse(absUrlStr)
+		if err != nil {
+			logging.V(3).Infof("Location header '%s' is not an absolute URL, failed to make absolute: %s", locUrlStr, absUrlStr)
+		} else {
+			locUrl = absUrl
+			logging.V(9).Infof("Location header '%s' is not an absolute URL, added host '%s'", locUrlStr, host)
+		}
+	}
+
+	if locUrl.Query().Get("api-version") == "" {
+		q := locUrl.Query()
+		q.Add("api-version", apiVersion)
+		locUrl.RawQuery = q.Encode()
+	}
+
+	headers.Set("Location", locUrl.String())
 }
 
 func (c *azCoreClient) Post(ctx context.Context, id string, bodyProps map[string]interface{},
