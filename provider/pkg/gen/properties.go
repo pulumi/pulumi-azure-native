@@ -77,7 +77,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 		property := resolvedSchema.Properties[name]
 		resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("failed to resolve property %q: %w", name, err)
 		}
 
 		if name == "etag" && !variants.isType && !variants.isOutput {
@@ -165,7 +165,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 
 		propertySpec, apiProperty, err := m.genProperty(name, &property, resolvedSchema.ReferenceContext, resolvedProperty, variants)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("failed to generate property %q: %w", name, err)
 		}
 
 		// Skip properties that yield degenerate types (e.g., when an input type has only read-only properties).
@@ -185,21 +185,21 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 		result.specs[sdkName] = *propertySpec
 	}
 
-	for _, s := range resolvedSchema.AllOf {
+	for i, s := range resolvedSchema.AllOf {
 		allOfSchema, err := resolvedSchema.ResolveSchema(&s)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("failed to resolve allOf schema %d: %w", i, err)
 		}
 
 		allOfProperties, err := m.genProperties(allOfSchema, variants.noResponse())
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("failed to generate allOf properties %d: %w", i, err)
 		}
 
 		// For a derived type, set the discriminator property to the const value, if any.
 		discriminator, discriminatorDesc, isDU, err := m.getDiscriminator(allOfSchema)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("failed to get discriminator for allOf schema %d: %w", i, err)
 		}
 		if isDU {
 			prop := allOfProperties.properties[discriminator]
@@ -285,7 +285,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 
 	typeSpec, err := m.genTypeSpec(name, schema, context, variants.isOutput)
 	if err != nil {
-		return nil, nil, err
+		return nil, nil, fmt.Errorf("failed to generate type spec for property %q: %w", name, err)
 	}
 
 	// Nil type means empty: e.g., when an input type has only read-only properties. Bubble the nil up.

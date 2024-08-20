@@ -31,7 +31,7 @@ import (
 func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.TypeSpec, error) {
 	resolvedSchema, err := context.ResolveSchema(schema)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to resolve schema: %w", err)
 	}
 
 	// Type specification specifies either a primitive type (e.g. 'string') or a reference to a separately defined
@@ -68,7 +68,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		// If an object type is referenced, add its definition to the type map.
 		discriminatedType, ok, err := m.genDiscriminatedType(resolvedSchema, isOutput)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("failed to generate discriminated type: %w", err)
 		}
 		if ok {
 			return discriminatedType, nil
@@ -187,14 +187,14 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 		property := resolvedSchema.Properties[propertyName]
 		resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("failed to resolve schema for array element: %w", err)
 		}
 		itemsSpec, _, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, resolvedProperty, genPropertiesVariant{
 			isOutput: isOutput,
 			isType:   true,
 		})
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("failed to generate type spec for array element: %w", err)
 		}
 
 		// Don't generate a type definition for a typed array with empty item type.
@@ -211,7 +211,7 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 		// Define the type of maps (untyped objects).
 		additionalProperties, err := m.genTypeSpec(propertyName, resolvedSchema.AdditionalProperties.Schema, resolvedSchema.ReferenceContext, isOutput)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("failed to generate type spec for additional properties: %w", err)
 		}
 
 		return &pschema.TypeSpec{
@@ -260,12 +260,12 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 ) (*pschema.TypeSpec, error) {
 	resolvedSchema, err := context.ResolveSchema(schema)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to resolve schema for enum: %w", err)
 	}
 
 	description, err := getPropertyDescription(schema, context, false /* maintainSubResourceIfUnset */)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to get property description: %w", err)
 	}
 
 	var enumName string
