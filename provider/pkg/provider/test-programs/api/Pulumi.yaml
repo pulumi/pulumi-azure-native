@@ -3,9 +3,9 @@ runtime: yaml
 description: API-related resources
 variables:
  sharedKey:
-   Fn::Invoke:
-     Function: azure-native:apimanagement:listSubscriptionSecrets
-     Arguments:
+   fn::invoke:
+     function: azure-native:apimanagement:listSubscriptionSecrets
+     arguments:
        resourceGroupName: ${rg.name}
        serviceName: ${apim.name}
        sid: "master"
