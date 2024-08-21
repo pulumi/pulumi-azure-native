@@ -121,10 +121,27 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 }
 
 func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]interface{},
-	queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
+	queryParameters map[string]interface{}, asyncStyle string,
+) (map[string]interface{}, bool, error) {
+	return c.putOrPatch(ctx, http.MethodPut, id, bodyProps, queryParameters, asyncStyle)
+}
+
+func (c *azCoreClient) Patch(ctx context.Context, id string, bodyProps map[string]interface{},
+	queryParameters map[string]interface{}, asyncStyle string,
+) (map[string]interface{}, bool, error) {
+	return c.putOrPatch(ctx, http.MethodPatch, id, bodyProps, queryParameters, asyncStyle)
+}
+
+func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string, bodyProps map[string]any,
+	queryParameters map[string]any, asyncStyle string,
+) (map[string]any, bool, error) {
+	if method != http.MethodPut && method != http.MethodPatch {
+		return nil, false, fmt.Errorf("method must be PUT or PATCH, got %s. Please report this issue", method)
+	}
+
 	apiVersion := queryParameters["api-version"].(string)
 
-	req, err := c.initRequest(ctx, http.MethodPut, id, apiVersion)
+	req, err := c.initRequest(ctx, method, id, apiVersion)
 	if err != nil {
 		return nil, false, err
 	}
@@ -258,52 +275,16 @@ func (c *azCoreClient) Head(ctx context.Context, id string, apiVersion string) e
 	return nil
 }
 
-// TODO,tkappler asyncStyle
-// TODO,tkappler almost identical to Put
-func (c *azCoreClient) Patch(ctx context.Context, id string, bodyProps map[string]interface{},
-	queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
-	req, err := c.initRequest(ctx, http.MethodPatch, id, queryParameters["api-version"].(string))
-	if err != nil {
-		return nil, false, err
-	}
-
-	err = runtime.MarshalAsJSON(req, bodyProps)
-	if err != nil {
-		return nil, false, err
-	}
-	resp, err := c.pipeline.Do(req)
-	if err != nil {
-		return nil, false, err
-	}
-	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusCreated, http.StatusAccepted) {
-		return nil, false, runtime.NewResponseError(resp)
-	}
-	pt, err := runtime.NewPoller[map[string]interface{}](resp, c.pipeline, nil)
-	if err != nil {
-		return nil, false, err
-	}
-	pollResp, err := pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
-		Frequency: 10 * time.Second,
-	})
-	if err != nil {
-		return nil, true, err
-	}
-	return pollResp, true, nil
-}
-
 // CanCreate asserts that a resource with a given ID and API version can be created
 // or returns an error otherwise.
 func (c *azCoreClient) CanCreate(ctx context.Context, id, path, apiVersion, readMethod string,
 	isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool,
 ) error {
-	req, err := runtime.NewRequest(ctx, readMethod, runtime.JoinPaths(c.host, id, path))
+	req, err := c.initRequest(ctx, readMethod, path, apiVersion)
 	if err != nil {
 		return err
 	}
-	reqQP := req.Raw().URL.Query()
-	reqQP.Set("api-version", apiVersion)
-	req.Raw().URL.RawQuery = reqQP.Encode()
-	c.setHeaders(req)
+
 	resp, err := c.pipeline.Do(req)
 	if err != nil {
 		return err
