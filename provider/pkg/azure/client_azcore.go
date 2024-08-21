@@ -97,7 +97,6 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 	return err
 }
 
-// TODO,tkappler asyncStyle
 func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]interface{},
 	queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
 	req, err := runtime.NewRequest(ctx, http.MethodPut, runtime.JoinPaths(c.host, id))
@@ -108,10 +107,14 @@ func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]
 	reqQP.Set("api-version", queryParameters["api-version"].(string))
 	req.Raw().URL.RawQuery = reqQP.Encode()
 	c.setHeaders(req)
-	err = runtime.MarshalAsJSON(req, bodyProps)
-	if err != nil {
-		return nil, false, err
+
+	if bodyProps != nil {
+		err = runtime.MarshalAsJSON(req, bodyProps)
+		if err != nil {
+			return nil, false, err
+		}
 	}
+
 	resp, err := c.pipeline.Do(req)
 	if err != nil {
 		return nil, false, err
@@ -120,19 +123,38 @@ func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]
 		return nil, false, runtime.NewResponseError(resp)
 	}
 
-	normalizeLocationHeader(c.host, queryParameters["api-version"].(string), resp.Header)
-
-	pt, err := runtime.NewPoller[map[string]interface{}](resp, c.pipeline, nil)
-	if err != nil {
+	var outputs map[string]any
+	if err := runtime.UnmarshalAsJSON(resp, &outputs); err != nil {
 		return nil, false, err
 	}
-	pollResp, err := pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
-		Frequency: 10 * time.Second,
-	})
-	if err != nil {
-		return nil, true, err
+
+	// Some APIs are explicitly marked `x-ms-long-running-operation` and we are only supposed to do the
+	// Future+WaitForCompletion+GetResult steps in that case. However, if we get 202, we don't want to
+	// consider this a failure - so try following the awaiting protocol in case the service hasn't marked
+	// its API as long-running by an oversight.
+	created := false
+	if asyncStyle != "" || resp.StatusCode == http.StatusAccepted {
+		// We have now created a resource. It is very important to ensure that from this point on,
+		// any other error below returns the ID using the `pulumirpc.ErrorResourceInitFailed` error
+		// details annotation. Otherwise, the resource is leaked. We ensure that we wrap any await
+		// errors as a partial error to the RPC.
+		created = resp.StatusCode < 400
+
+		normalizeLocationHeader(c.host, queryParameters["api-version"].(string), resp.Header)
+
+		pt, err := runtime.NewPoller[map[string]interface{}](resp, c.pipeline, nil)
+		if err != nil {
+			return nil, created, err
+		}
+		outputs, err = pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
+			Frequency: 10 * time.Second,
+		})
+		if err != nil {
+			return nil, created, err
+		}
 	}
-	return pollResp, true, nil
+
+	return outputs, true, nil
 }
 
 // The azcore location header Poller validates that the location header is a valid absolute URL.
