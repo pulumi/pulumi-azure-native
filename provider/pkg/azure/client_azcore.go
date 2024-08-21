@@ -17,6 +17,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
@@ -27,8 +28,7 @@ type azCoreClient struct {
 }
 
 func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string) AzureClient {
-	// TODO,tkappler version
-	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", "v2", tokenCredential,
+	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", version.Version, tokenCredential,
 		runtime.PipelineOptions{}, &arm.ClientOptions{})
 	if err != nil {
 		panic(err)
