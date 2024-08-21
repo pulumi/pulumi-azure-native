@@ -8,6 +8,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
@@ -45,15 +46,27 @@ func (c *azCoreClient) setHeaders(req *policy.Request) {
 	req.Raw().Header.Set("User-Agent", c.userAgent)
 }
 
-func (c *azCoreClient) Get(ctx context.Context, id string, apiVersion string) (any, error) {
-	req, err := runtime.NewRequest(ctx, http.MethodGet, runtime.JoinPaths(c.host, id))
+func (c *azCoreClient) initRequest(ctx context.Context, method, id, apiVersion string) (*policy.Request, error) {
+	req, err := runtime.NewRequest(ctx, method, runtime.JoinPaths(c.host, id))
 	if err != nil {
 		return nil, err
 	}
+
+	c.setHeaders(req)
+
 	reqQP := req.Raw().URL.Query()
 	reqQP.Set("api-version", apiVersion)
 	req.Raw().URL.RawQuery = reqQP.Encode()
-	c.setHeaders(req)
+
+	return req, nil
+}
+
+func (c *azCoreClient) Get(ctx context.Context, id string, apiVersion string) (any, error) {
+	req, err := c.initRequest(ctx, http.MethodGet, id, apiVersion)
+	if err != nil {
+		return nil, err
+	}
+
 	resp, err := c.pipeline.Do(req)
 	if err != nil {
 		return nil, err
@@ -69,44 +82,52 @@ func (c *azCoreClient) Get(ctx context.Context, id string, apiVersion string) (a
 	return responseBody, nil
 }
 
-// TODO,tkappler asyncStyle
 func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle string,
 	queryParams map[string]any) error {
-	req, err := runtime.NewRequest(ctx, http.MethodDelete, runtime.JoinPaths(c.host, id))
+	req, err := c.initRequest(ctx, http.MethodDelete, id, apiVersion)
 	if err != nil {
 		return err
 	}
-	reqQP := req.Raw().URL.Query()
-	reqQP.Set("api-version", apiVersion)
-	req.Raw().URL.RawQuery = reqQP.Encode()
-	c.setHeaders(req)
+
 	resp, err := c.pipeline.Do(req)
 	if err != nil {
 		return err
 	}
-	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusAccepted, http.StatusNoContent) {
+	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusAccepted, http.StatusNoContent, http.StatusNotFound) {
 		return runtime.NewResponseError(resp)
 	}
-	pt, err := runtime.NewPoller[interface{}](resp, c.pipeline, nil)
-	if err != nil {
-		return err
+
+	// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
+	// Future+WaitForCompletion+GetResult steps in that case.
+	if asyncStyle != "" {
+		pt, err := runtime.NewPoller[any](resp, c.pipeline, nil)
+		if err != nil {
+			return err
+		}
+		_, err = pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
+			Frequency: 10 * time.Second,
+		})
+		if err != nil {
+			respErr := err.(*azcore.ResponseError)
+			if resp.StatusCode == 202 && respErr.StatusCode == 404 && strings.Contains(respErr.Error(), "ResourceNotFound") {
+				// Consider this specific error to be a success of deletion.
+				// Work around https://github.com/pulumi/pulumi-azure-nextgen/issues/120
+				// Upstream fix is tracked in https://github.com/Azure/go-autorest/issues/596
+				return nil
+			}
+		}
 	}
-	_, err = pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
-		Frequency: 10 * time.Second,
-	})
 	return err
 }
 
 func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]interface{},
 	queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
-	req, err := runtime.NewRequest(ctx, http.MethodPut, runtime.JoinPaths(c.host, id))
+	apiVersion := queryParameters["api-version"].(string)
+
+	req, err := c.initRequest(ctx, http.MethodPut, id, apiVersion)
 	if err != nil {
 		return nil, false, err
 	}
-	reqQP := req.Raw().URL.Query()
-	reqQP.Set("api-version", queryParameters["api-version"].(string))
-	req.Raw().URL.RawQuery = reqQP.Encode()
-	c.setHeaders(req)
 
 	if bodyProps != nil {
 		err = runtime.MarshalAsJSON(req, bodyProps)
@@ -140,7 +161,7 @@ func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]
 		// errors as a partial error to the RPC.
 		created = resp.StatusCode < 400
 
-		normalizeLocationHeader(c.host, queryParameters["api-version"].(string), resp.Header)
+		normalizeLocationHeader(c.host, apiVersion, resp.Header)
 
 		pt, err := runtime.NewPoller[map[string]interface{}](resp, c.pipeline, nil)
 		if err != nil {
@@ -196,14 +217,10 @@ func normalizeLocationHeader(host, apiVersion string, headers http.Header) {
 
 func (c *azCoreClient) Post(ctx context.Context, id string, bodyProps map[string]interface{},
 	queryParameters map[string]interface{}) (any, error) {
-	req, err := runtime.NewRequest(ctx, http.MethodPost, runtime.JoinPaths(c.host, id))
+	req, err := c.initRequest(ctx, http.MethodPost, id, queryParameters["api-version"].(string))
 	if err != nil {
 		return nil, err
 	}
-	reqQP := req.Raw().URL.Query()
-	reqQP.Set("api-version", queryParameters["api-version"].(string))
-	req.Raw().URL.RawQuery = reqQP.Encode()
-	c.setHeaders(req)
 
 	err = runtime.MarshalAsJSON(req, bodyProps)
 	if err != nil {
@@ -225,14 +242,10 @@ func (c *azCoreClient) Post(ctx context.Context, id string, bodyProps map[string
 }
 
 func (c *azCoreClient) Head(ctx context.Context, id string, apiVersion string) error {
-	req, err := runtime.NewRequest(ctx, http.MethodHead, runtime.JoinPaths(c.host, id))
+	req, err := c.initRequest(ctx, http.MethodHead, id, apiVersion)
 	if err != nil {
 		return err
 	}
-	reqQP := req.Raw().URL.Query()
-	reqQP.Set("api-version", apiVersion)
-	req.Raw().URL.RawQuery = reqQP.Encode()
-	c.setHeaders(req)
 
 	resp, err := c.pipeline.Do(req)
 	if err != nil {
@@ -249,14 +262,11 @@ func (c *azCoreClient) Head(ctx context.Context, id string, apiVersion string) e
 // TODO,tkappler almost identical to Put
 func (c *azCoreClient) Patch(ctx context.Context, id string, bodyProps map[string]interface{},
 	queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
-	req, err := runtime.NewRequest(ctx, http.MethodPatch, runtime.JoinPaths(c.host, id))
+	req, err := c.initRequest(ctx, http.MethodPatch, id, queryParameters["api-version"].(string))
 	if err != nil {
 		return nil, false, err
 	}
-	reqQP := req.Raw().URL.Query()
-	reqQP.Set("api-version", queryParameters["api-version"].(string))
-	req.Raw().URL.RawQuery = reqQP.Encode()
-	c.setHeaders(req)
+
 	err = runtime.MarshalAsJSON(req, bodyProps)
 	if err != nil {
 		return nil, false, err
