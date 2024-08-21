@@ -41,7 +41,8 @@ type CustomResource struct {
 	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
 	Create func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
-	// resource outputs. If the requested resource does not exist, the second result is false.
+	// resource outputs. If the requested resource does not exist, the second result is false. In that case, the
+	// error must be nil.
 	Read CustomReadFunc
 	// Update an existing resource with a map of input values. Returns a map of resource outputs that match the schema shape.
 	Update func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]interface{}, error)

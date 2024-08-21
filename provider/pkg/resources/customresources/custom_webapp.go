@@ -52,7 +52,7 @@ func makeWebAppResource(resourceType, path string, crudClientFactory crud.Resour
 		// the WebApp does not return the SiteConfig. We need to make a separate GET request to
 		// /config/web and merge the results. #1468
 		Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
-			// We can reasanably assume that WebApp and WebAppSlot share their API version since they are almost identical.
+			// We assume that WebApp and WebAppSlot share their API version since they are almost identical.
 			apiVersion, ok := versionLookup.GetDefaultApiVersionForResource("Web", "WebApp")
 			if !ok {
 				apiVersion = "2022-09-01" // default as of 2024-07
@@ -61,6 +61,9 @@ func makeWebAppResource(resourceType, path string, crudClientFactory crud.Resour
 
 			webAppResponse, err := crudClient.Read(ctx, id)
 			if err != nil {
+				if azure.IsNotFound(err) {
+					return nil, false, nil
+				}
 				return nil, false, err
 			}
 
