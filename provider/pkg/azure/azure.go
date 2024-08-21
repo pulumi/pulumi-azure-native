@@ -8,6 +8,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
@@ -37,6 +38,13 @@ func BuildUserAgent(partnerID string) (userAgent string) {
 func IsNotFound(err error) bool {
 	if requestError, ok := err.(azure.RequestError); ok {
 		return requestError.StatusCode == http.StatusNotFound
+	}
+	if requestError, ok := err.(*azure.RequestError); ok {
+		return requestError.StatusCode == http.StatusNotFound
+	}
+
+	if responseError, ok := err.(*azcore.ResponseError); ok {
+		return responseError.StatusCode == http.StatusNotFound
 	}
 	return false
 }
