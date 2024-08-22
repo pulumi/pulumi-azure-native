@@ -21,6 +21,7 @@ import (
 	"github.com/segmentio/encoding/json"
 	"google.golang.org/protobuf/types/known/emptypb"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
@@ -85,7 +86,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	// Return the new provider
 	p := &azureNativeProvider{
 		// This client will be regenerated with correct environment and authorizer in Configure.
-		azureClient:   azure.NewAzCoreClient(nil, azure.BuildUserAgent(PulumiPartnerID)),
+		azureClient:   azure.NewAzCoreClient(nil, azure.BuildUserAgent(PulumiPartnerID), cloud.AzurePublic),
 		host:          host,
 		name:          name,
 		version:       version,
@@ -216,7 +217,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	userAgent := k.getUserAgent()
 
 	azCoreTokenCredential := azCoreTokenCredential{p: k}
-	k.azureClient = azure.NewAzCoreClient(azCoreTokenCredential, userAgent)
+	k.azureClient = azure.NewAzCoreClient(azCoreTokenCredential, userAgent, k.getAzureCloud())
 
 	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)
@@ -229,6 +230,17 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	return &rpc.ConfigureResponse{
 		SupportsPreview: true,
 	}, nil
+}
+
+func (k *azureNativeProvider) getAzureCloud() cloud.Configuration {
+	switch k.environment.Name {
+	case azureEnv.ChinaCloud.Name:
+		return cloud.AzureChina
+	case azureEnv.USGovernmentCloud.Name:
+		return cloud.AzureGovernment
+	default:
+		return cloud.AzurePublic
+	}
 }
 
 // Invoke dynamically executes a built-in function in the provider.

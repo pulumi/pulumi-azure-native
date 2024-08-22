@@ -27,7 +27,7 @@ type azCoreClient struct {
 	userAgent string
 }
 
-func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string) AzureClient {
+func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, azureCloud cloud.Configuration) AzureClient {
 	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", version.Version, tokenCredential,
 		runtime.PipelineOptions{}, &arm.ClientOptions{})
 	if err != nil {
@@ -35,7 +35,7 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string) A
 	}
 
 	return &azCoreClient{
-		host:      cloud.AzurePublic.Services[cloud.ResourceManager].Endpoint, // TODO,tkappler other clouds
+		host:      azureCloud.Services[cloud.ResourceManager].Endpoint,
 		pipeline:  pipeline,
 		userAgent: userAgent,
 	}
