@@ -56,6 +56,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "BareMetalInfrastructure",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "Billing",
     "Detail": "expected no additions but found some"
   },

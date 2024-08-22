@@ -439,6 +439,7 @@
     "VirtualNetwork": "2022-12-15-preview"
   },
   "BareMetalInfrastructure": {
+    "AzureBareMetalInstance": "2024-08-01-preview",
     "AzureBareMetalStorageInstance": "2023-04-06"
   },
   "Batch": {

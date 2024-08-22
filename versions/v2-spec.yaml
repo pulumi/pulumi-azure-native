@@ -223,6 +223,8 @@ AzureStackHCI:
         VirtualNetwork: 2022-12-15-preview
 BareMetalInfrastructure:
     tracking: "2023-04-06"
+    additions:
+        AzureBareMetalInstance: 2024-08-01-preview
 Batch:
     tracking: "2023-05-01"
 Billing:
