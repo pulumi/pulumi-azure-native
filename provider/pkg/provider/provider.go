@@ -22,6 +22,7 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
@@ -217,7 +218,8 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	userAgent := k.getUserAgent()
 
 	azCoreTokenCredential := azCoreTokenCredential{p: k}
-	k.azureClient = azure.NewAzCoreClient(azCoreTokenCredential, userAgent, k.getAzureCloud(), nil)
+
+	k.azureClient = k.newAzureClient(resourceManagerBearerAuth, azCoreTokenCredential, userAgent)
 
 	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)
@@ -230,6 +232,13 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	return &rpc.ConfigureResponse{
 		SupportsPreview: true,
 	}, nil
+}
+
+func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azCoreTokenCredential, userAgent string) azure.AzureClient {
+	if os.Getenv("PULUMI_USE_AUTOREST") == "true" {
+		return azure.NewAzureClient(k.environment, armAuth, userAgent)
+	}
+	return azure.NewAzCoreClient(tokenCred, userAgent, k.getAzureCloud(), nil)
 }
 
 func (k *azureNativeProvider) getAzureCloud() cloud.Configuration {
