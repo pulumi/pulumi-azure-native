@@ -27,9 +27,9 @@ type azCoreClient struct {
 	userAgent string
 }
 
-func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, azureCloud cloud.Configuration) AzureClient {
+func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, azureCloud cloud.Configuration, opts *arm.ClientOptions) AzureClient {
 	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", version.Version, tokenCredential,
-		runtime.PipelineOptions{}, &arm.ClientOptions{})
+		runtime.PipelineOptions{}, opts)
 	if err != nil {
 		panic(err)
 	}

@@ -86,7 +86,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	// Return the new provider
 	p := &azureNativeProvider{
 		// This client will be regenerated with correct environment and authorizer in Configure.
-		azureClient:   azure.NewAzCoreClient(nil, azure.BuildUserAgent(PulumiPartnerID), cloud.AzurePublic),
+		azureClient:   azure.NewAzCoreClient(nil, azure.BuildUserAgent(PulumiPartnerID), cloud.AzurePublic, nil),
 		host:          host,
 		name:          name,
 		version:       version,
@@ -217,7 +217,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	userAgent := k.getUserAgent()
 
 	azCoreTokenCredential := azCoreTokenCredential{p: k}
-	k.azureClient = azure.NewAzCoreClient(azCoreTokenCredential, userAgent, k.getAzureCloud())
+	k.azureClient = azure.NewAzCoreClient(azCoreTokenCredential, userAgent, k.getAzureCloud(), nil)
 
 	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)

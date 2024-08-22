@@ -3,10 +3,16 @@
 package azure
 
 import (
+	"context"
 	"net/http"
 	"testing"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestNormalizeLocationHeader(t *testing.T) {
@@ -46,4 +52,49 @@ func TestNormalizeLocationHeader(t *testing.T) {
 		normalizeLocationHeader(host, apiVersion, headers)
 		assert.Empty(t, headers.Get("Location"))
 	})
+}
+
+func TestPOST(t *testing.T) {
+	t.Run("Simple POST 200", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{{StatusCode: 200}})
+		resp, err := client.Post(context.Background(), "/subscriptions/123", nil, map[string]any{"api-version": "2022-09-01"})
+		require.NoError(t, err)
+		require.Empty(t, resp)
+	})
+
+	t.Run("POST 201 Created is ok", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{{StatusCode: 201}})
+		_, err := client.Post(context.Background(), "/subscriptions/123", nil, map[string]any{"api-version": "2022-09-01"})
+		require.NoError(t, err)
+	})
+
+	t.Run("POST response != 200 is an error", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{{StatusCode: 400}})
+		_, err := client.Post(context.Background(), "/subscriptions/123", nil, map[string]any{"api-version": "2022-09-01"})
+		require.Error(t, err)
+	})
+}
+
+// Implements azcore's policy.Transporter by simpling returning the responses in order.
+type fakeTransporter struct {
+	responses []*http.Response
+	index     int
+}
+
+func (f *fakeTransporter) Do(req *http.Request) (*http.Response, error) {
+	cur := f.responses[f.index]
+	f.index++
+	return cur, nil
+}
+
+func newClientWithPreparedResponses(responses []*http.Response) *azCoreClient {
+	opts := arm.ClientOptions{
+		ClientOptions: policy.ClientOptions{
+			Transport: &fakeTransporter{
+				responses: responses,
+			},
+		},
+	}
+
+	return NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts).(*azCoreClient)
 }
