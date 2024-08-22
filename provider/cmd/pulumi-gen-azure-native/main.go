@@ -211,11 +211,11 @@ func generate(ppkg *schema.Package, language string) (map[string][]byte, error) 
 	extraFiles := map[string][]byte{}
 	switch language {
 	case "nodejs":
-		return nodejsgen.GeneratePackage(toolDescription, ppkg, extraFiles, nil)
+		return nodejsgen.GeneratePackage(toolDescription, ppkg, extraFiles, nil, false)
 	case "python":
 		return pythongen.GeneratePackage(toolDescription, ppkg, extraFiles)
 	case "go":
-		return gogen.GeneratePackage(toolDescription, ppkg)
+		return gogen.GeneratePackage(toolDescription, ppkg, nil)
 	case "dotnet":
 		return dotnetgen.GeneratePackage(toolDescription, ppkg, extraFiles, nil)
 	}
