@@ -105,7 +105,7 @@ func main() {
 		if codegenSchemaOutputPath == "" {
 			codegenSchemaOutputPath = path.Join("bin", "schema-full.json")
 		}
-		if err = emitSchema(buildSchemaResult.PackageSpec, version, codegenSchemaOutputPath, "main"); err != nil {
+		if err = emitSchema(buildSchemaResult.PackageSpec, version, codegenSchemaOutputPath); err != nil {
 			panic(err)
 		}
 		fmt.Printf("Emitted %s.\n", codegenSchemaOutputPath)
@@ -118,7 +118,7 @@ func main() {
 		if codegenMetadataOutputPath == "" {
 			codegenMetadataOutputPath = path.Join("bin", "metadata-compact.json")
 		}
-		if err = emitMetadata(&buildSchemaResult.Metadata, codegenMetadataOutputPath, "main"); err != nil {
+		if err = emitMetadata(&buildSchemaResult.Metadata, codegenMetadataOutputPath); err != nil {
 			panic(err)
 		}
 		fmt.Printf("Emitted %s.\n", codegenMetadataOutputPath)
@@ -176,7 +176,7 @@ func main() {
 }
 
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
-func emitSchema(pkgSpec schema.PackageSpec, version, outputPath string, goPackageName string) error {
+func emitSchema(pkgSpec schema.PackageSpec, version, outputPath string) error {
 	pkgSpec.Version = version
 	schemaJSON, err := json.Marshal(pkgSpec)
 	if err != nil {
@@ -196,7 +196,7 @@ func emitDocsSchema(pkgSpec *schema.PackageSpec, outputPath string) error {
 	return gen.EmitFile(outputPath, schemaJSON)
 }
 
-func emitMetadata(metadata *resources.AzureAPIMetadata, outputPath string, goPackageName string) error {
+func emitMetadata(metadata *resources.AzureAPIMetadata, outputPath string) error {
 	meta := bytes.Buffer{}
 	err := json.NewEncoder(&meta).Encode(metadata)
 	if err != nil {
@@ -221,27 +221,6 @@ func generate(ppkg *schema.Package, language string) (map[string][]byte, error) 
 	}
 
 	return nil, errors.Errorf("unknown language '%s'", language)
-}
-
-// emitPackage emits an entire package pack into the configured output directory with the configured settings.
-func emitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
-	ppkg, err := schema.ImportSpec(*pkgSpec, nil)
-	if err != nil {
-		return errors.Wrap(err, "reading schema")
-	}
-
-	files, err := generate(ppkg, language)
-	if err != nil {
-		return errors.Wrapf(err, "generating %s package", language)
-	}
-
-	for f, contents := range files {
-		if err := gen.EmitFile(path.Join(outDir, f), contents); err != nil {
-			return err
-		}
-	}
-
-	return nil
 }
 
 func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
