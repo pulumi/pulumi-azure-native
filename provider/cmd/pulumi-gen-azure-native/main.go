@@ -18,10 +18,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/versioning"
-	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
-	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
-	pythongen "github.com/pulumi/pulumi/pkg/v3/codegen/python"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
@@ -206,23 +203,6 @@ func emitMetadata(metadata *resources.AzureAPIMetadata, outputPath string) error
 	return gen.EmitFile(outputPath, meta.Bytes())
 }
 
-func generate(ppkg *schema.Package, language string) (map[string][]byte, error) {
-	toolDescription := "the Pulumi SDK Generator"
-	extraFiles := map[string][]byte{}
-	switch language {
-	case "nodejs":
-		return nodejsgen.GeneratePackage(toolDescription, ppkg, extraFiles, nil, false)
-	case "python":
-		return pythongen.GeneratePackage(toolDescription, ppkg, extraFiles)
-	case "go":
-		return gogen.GeneratePackage(toolDescription, ppkg, nil)
-	case "dotnet":
-		return dotnetgen.GeneratePackage(toolDescription, ppkg, extraFiles, nil)
-	}
-
-	return nil, errors.Errorf("unknown language '%s'", language)
-}
-
 func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 	moduleVersionPath := gen.GoModulePathVersion(pkgSpec.Version)
 
@@ -232,7 +212,7 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 	}
 
 	version := gen.GoModVersion(ppkg.Version)
-	files, err := generate(ppkg, language)
+	files, err := gogen.GeneratePackage("the Pulumi SDK Generator", ppkg, nil)
 	if err != nil {
 		return errors.Wrapf(err, "generating %s package", language)
 	}
