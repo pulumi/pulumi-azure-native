@@ -41,9 +41,12 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 	}
 }
 
-func (c *azCoreClient) setHeaders(req *policy.Request) {
+func (c *azCoreClient) setHeaders(req *policy.Request, contentTypeJson bool) {
 	req.Raw().Header.Set("Accept", "application/json")
 	req.Raw().Header.Set("User-Agent", c.userAgent)
+	if contentTypeJson {
+		req.Raw().Header.Set("Content-Type", "application/json; charset=utf-8")
+	}
 }
 
 func (c *azCoreClient) initRequest(ctx context.Context, method, id, apiVersion string) (*policy.Request, error) {
@@ -52,7 +55,7 @@ func (c *azCoreClient) initRequest(ctx context.Context, method, id, apiVersion s
 		return nil, err
 	}
 
-	c.setHeaders(req)
+	c.setHeaders(req, method == http.MethodPost || method == http.MethodPut || method == http.MethodPatch)
 
 	reqQP := req.Raw().URL.Query()
 	reqQP.Set("api-version", apiVersion)
