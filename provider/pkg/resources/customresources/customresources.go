@@ -8,6 +8,7 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
 	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
@@ -152,6 +153,7 @@ func (r *CustomResource) ApplySchema(pkg *pschema.PackageSpec, meta *resources.A
 
 // BuildCustomResources creates a map of custom resources for given environment parameters.
 func BuildCustomResources(env *azureEnv.Environment,
+	cloud *cloud.Configuration,
 	azureClient azure.AzureClient,
 	lookupResource ResourceLookupFunc,
 	crudClientFactory crud.ResourceCrudClientFactory,
@@ -184,13 +186,15 @@ func BuildCustomResources(env *azureEnv.Environment,
 		return nil, err
 	}
 
+	// TODO,tkappler PULUMI_USE_AUTOREST or similar for auth
 	resources := []*CustomResource{
 		// Azure KeyVault resources.
 		keyVaultSecret(env.KeyVaultDNSSuffix, &kvClient),
 		keyVaultKey(env.KeyVaultDNSSuffix, &kvClient),
 		keyVaultAccessPolicy(armKVClient),
 		// Storage resources.
-		newStorageAccountStaticWebsite(env, &storageAccountsClient),
+		// newStorageAccountStaticWebsite(env, &storageAccountsClient),
+		newStorageAccountStaticWebsite_azidentity(cloud, tokenCred),
 		newBlob(env, &storageAccountsClient),
 		// Customization of regular resources
 		blobContainerLegalHold(azureClient),
@@ -207,7 +211,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil, nil, nil, "", nil)
+var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, nil, "", nil, nil, nil, "", nil)
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {
