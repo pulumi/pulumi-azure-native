@@ -3031,7 +3031,11 @@
     ]
   },
   "AzureLargeInstance": {
-    "": []
+    "": [],
+    "2024-08-01-preview": [
+      "AzureLargeInstance",
+      "AzureLargeStorageInstance"
+    ]
   },
   "AzurePlaywrightService": {
     "2023-10-01-preview": [
@@ -3331,6 +3335,10 @@
     ],
     "2023-11-01-preview": [
       "AzureBareMetalStorageInstance"
+    ],
+    "2024-08-01-preview": [
+      "AzureBareMetalInstance",
+      "AzureBareMetalStorageInstance"
     ]
   },
   "Batch": {
@@ -3462,6 +3470,13 @@
       "listBatchAccountKeys"
     ],
     "2024-02-01": [
+      "Application",
+      "ApplicationPackage",
+      "BatchAccount",
+      "Pool",
+      "listBatchAccountKeys"
+    ],
+    "2024-07-01": [
       "Application",
       "ApplicationPackage",
       "BatchAccount",
@@ -11021,6 +11036,11 @@
     "2023-12-10-preview": [
       "CloudHsmCluster",
       "CloudHsmClusterPrivateEndpointConnection"
+    ],
+    "2024-06-30-preview": [
+      "CloudHsmCluster",
+      "CloudHsmClusterPrivateEndpointConnection",
+      "DedicatedHsm"
     ]
   },
   "HealthBot": {

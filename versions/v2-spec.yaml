@@ -192,7 +192,8 @@ AzureDataTransfer:
     tracking: 2023-10-11-preview
 AzureFleet:
     tracking: 2024-05-01-preview
-AzureLargeInstance: {}
+AzureLargeInstance:
+    tracking: 2024-08-01-preview
 AzurePlaywrightService:
     tracking: 2023-10-01-preview
 AzureSphere:
@@ -223,6 +224,8 @@ AzureStackHCI:
         VirtualNetwork: 2022-12-15-preview
 BareMetalInfrastructure:
     tracking: "2023-04-06"
+    additions:
+        AzureBareMetalInstance: 2024-08-01-preview
 Batch:
     tracking: "2023-05-01"
 Billing:
