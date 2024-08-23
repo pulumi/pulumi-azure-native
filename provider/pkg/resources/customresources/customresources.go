@@ -16,7 +16,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
-	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
@@ -37,12 +37,12 @@ type CustomResource struct {
 	Schema *schema.ResourceSpec
 	// Resource metadata. Defines the parameters and properties that are used for diff calculation and validation.
 	// Optional, by default the metadata is assumed to be derived from Azure Open API specs.
-	Meta *AzureAPIResource
+	Meta *resources.AzureAPIResource
 	// MetaTypes are net-new auxiliary metadata types defined for this resource. Optional.
-	MetaTypes map[string]AzureAPIType
+	MetaTypes map[string]resources.AzureAPIType
 	// MetaTypeOverrides define meta types that already exist in the auto-generated metadata but we want to override
 	// to our custom shape and behavior. Optional.
-	MetaTypeOverrides map[string]AzureAPIType
+	MetaTypeOverrides map[string]resources.AzureAPIType
 	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
 	Create func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
@@ -58,20 +58,20 @@ type CustomResource struct {
 // BuildCustomResources creates a map of custom resources for given environment parameters.
 func BuildCustomResources(env *azureEnv.Environment,
 	azureClient azure.AzureClient,
-	lookupResource ResourceLookupFunc,
+	lookupResource resources.ResourceLookupFunc,
 	crudClientFactory crud.ResourceCrudClientFactory,
 	subscriptionID string,
 	bearerAuth autorest.Authorizer,
 	tokenAuth autorest.Authorizer,
 	kvBearerAuth autorest.Authorizer,
 	userAgent string,
-	tokenFactory azcore.TokenCredential) (map[string]*CustomResource, error) {
+	tokenCred azcore.TokenCredential) (map[string]*CustomResource, error) {
 
 	kvClient := keyvault.New()
 	kvClient.Authorizer = kvBearerAuth
 	kvClient.UserAgent = userAgent
 
-	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenFactory, &arm.ClientOptions{})
+	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenCred, &arm.ClientOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -156,8 +156,8 @@ func SchemaTypeOverrides() map[string]schema.ComplexTypeSpec {
 }
 
 // MetaMixins returns the map of custom resource metadata definitions per resource token.
-func MetaMixins() map[string]AzureAPIResource {
-	meta := map[string]AzureAPIResource{}
+func MetaMixins() map[string]resources.AzureAPIResource {
+	meta := map[string]resources.AzureAPIResource{}
 	for _, r := range featureLookup {
 		if r.tok != "" && r.Meta != nil {
 			meta[r.tok] = *r.Meta
@@ -167,8 +167,8 @@ func MetaMixins() map[string]AzureAPIResource {
 }
 
 // MetaMixins returns the map of custom resource metadata definitions per resource token.
-func MetaTypeMixins() map[string]AzureAPIType {
-	types := map[string]AzureAPIType{}
+func MetaTypeMixins() map[string]resources.AzureAPIType {
+	types := map[string]resources.AzureAPIType{}
 	for _, r := range featureLookup {
 		for n, v := range r.MetaTypes {
 			types[n] = v
@@ -178,8 +178,8 @@ func MetaTypeMixins() map[string]AzureAPIType {
 }
 
 // MetaTypeOverrides returns the map of custom resource metadata overrides per resource token.
-func MetaTypeOverrides() map[string]AzureAPIType {
-	types := map[string]AzureAPIType{}
+func MetaTypeOverrides() map[string]resources.AzureAPIType {
+	types := map[string]resources.AzureAPIType{}
 	for _, r := range featureLookup {
 		for n, v := range r.MetaTypeOverrides {
 			types[n] = v
