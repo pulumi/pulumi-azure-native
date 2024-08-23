@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.Batch.V20240201
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20221001:ApplicationPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20230501:ApplicationPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20231101:ApplicationPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20240701:ApplicationPackage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

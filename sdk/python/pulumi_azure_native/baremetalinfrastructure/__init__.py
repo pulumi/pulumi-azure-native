@@ -6,7 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .azure_bare_metal_instance import *
 from .azure_bare_metal_storage_instance import *
+from .get_azure_bare_metal_instance import *
 from .get_azure_bare_metal_storage_instance import *
 from ._inputs import *
 from . import outputs
@@ -19,8 +21,11 @@ if typing.TYPE_CHECKING:
     v20230804preview = __v20230804preview
     import pulumi_azure_native.baremetalinfrastructure.v20231101preview as __v20231101preview
     v20231101preview = __v20231101preview
+    import pulumi_azure_native.baremetalinfrastructure.v20240801preview as __v20240801preview
+    v20240801preview = __v20240801preview
 else:
     v20230406 = _utilities.lazy_import('pulumi_azure_native.baremetalinfrastructure.v20230406')
     v20230804preview = _utilities.lazy_import('pulumi_azure_native.baremetalinfrastructure.v20230804preview')
     v20231101preview = _utilities.lazy_import('pulumi_azure_native.baremetalinfrastructure.v20231101preview')
+    v20240801preview = _utilities.lazy_import('pulumi_azure_native.baremetalinfrastructure.v20240801preview')
 

@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AzureBareMetalInstanceArgs } from "./azureBareMetalInstance";
+export type AzureBareMetalInstance = import("./azureBareMetalInstance").AzureBareMetalInstance;
+export const AzureBareMetalInstance: typeof import("./azureBareMetalInstance").AzureBareMetalInstance = null as any;
+utilities.lazyLoad(exports, ["AzureBareMetalInstance"], () => require("./azureBareMetalInstance"));
+
 export { AzureBareMetalStorageInstanceArgs } from "./azureBareMetalStorageInstance";
 export type AzureBareMetalStorageInstance = import("./azureBareMetalStorageInstance").AzureBareMetalStorageInstance;
 export const AzureBareMetalStorageInstance: typeof import("./azureBareMetalStorageInstance").AzureBareMetalStorageInstance = null as any;
 utilities.lazyLoad(exports, ["AzureBareMetalStorageInstance"], () => require("./azureBareMetalStorageInstance"));
+
+export { GetAzureBareMetalInstanceArgs, GetAzureBareMetalInstanceResult, GetAzureBareMetalInstanceOutputArgs } from "./getAzureBareMetalInstance";
+export const getAzureBareMetalInstance: typeof import("./getAzureBareMetalInstance").getAzureBareMetalInstance = null as any;
+export const getAzureBareMetalInstanceOutput: typeof import("./getAzureBareMetalInstance").getAzureBareMetalInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getAzureBareMetalInstance","getAzureBareMetalInstanceOutput"], () => require("./getAzureBareMetalInstance"));
 
 export { GetAzureBareMetalStorageInstanceArgs, GetAzureBareMetalStorageInstanceResult, GetAzureBareMetalStorageInstanceOutputArgs } from "./getAzureBareMetalStorageInstance";
 export const getAzureBareMetalStorageInstance: typeof import("./getAzureBareMetalStorageInstance").getAzureBareMetalStorageInstance = null as any;
@@ -23,17 +33,21 @@ export * from "../types/enums/baremetalinfrastructure";
 import * as v20230406 from "./v20230406";
 import * as v20230804preview from "./v20230804preview";
 import * as v20231101preview from "./v20231101preview";
+import * as v20240801preview from "./v20240801preview";
 
 export {
     v20230406,
     v20230804preview,
     v20231101preview,
+    v20240801preview,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:baremetalinfrastructure:AzureBareMetalInstance":
+                return new AzureBareMetalInstance(name, <any>undefined, { urn })
             case "azure-native:baremetalinfrastructure:AzureBareMetalStorageInstance":
                 return new AzureBareMetalStorageInstance(name, <any>undefined, { urn })
             default:

@@ -40,6 +40,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "AzureLargeInstance",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "AzurePlaywrightService",
     "Detail": "expected tracking stable but found preview"
   },
@@ -53,6 +57,10 @@
   },
   {
     "Provider": "AzureStackHCI",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "BareMetalInfrastructure",
     "Detail": "expected no additions but found some"
   },
   {

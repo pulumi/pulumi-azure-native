@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * AzureBareMetalStorageInstance info on Azure (ARM properties and AzureBareMetalStorage properties)
  * Azure REST API version: 2023-04-06.
  *
- * Other available API versions: 2023-08-04-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
  */
 export class AzureBareMetalStorageInstance extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class AzureBareMetalStorageInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:baremetalinfrastructure/v20230406:AzureBareMetalStorageInstance" }, { type: "azure-native:baremetalinfrastructure/v20230804preview:AzureBareMetalStorageInstance" }, { type: "azure-native:baremetalinfrastructure/v20231101preview:AzureBareMetalStorageInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:baremetalinfrastructure/v20230406:AzureBareMetalStorageInstance" }, { type: "azure-native:baremetalinfrastructure/v20230804preview:AzureBareMetalStorageInstance" }, { type: "azure-native:baremetalinfrastructure/v20231101preview:AzureBareMetalStorageInstance" }, { type: "azure-native:baremetalinfrastructure/v20240801preview:AzureBareMetalStorageInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureBareMetalStorageInstance.__pulumiType, name, resourceInputs, opts);
     }

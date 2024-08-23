@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     /// The private endpoint connection resource.
     /// Azure REST API version: 2022-08-31-preview.
     /// 
-    /// Other available API versions: 2023-12-10-preview.
+    /// Other available API versions: 2023-12-10-preview, 2024-06-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection")]
     public partial class CloudHsmClusterPrivateEndpointConnection : global::Pulumi.CustomResource
@@ -93,6 +93,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20220831preview:CloudHsmClusterPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20231210preview:CloudHsmClusterPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20240630preview:CloudHsmClusterPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

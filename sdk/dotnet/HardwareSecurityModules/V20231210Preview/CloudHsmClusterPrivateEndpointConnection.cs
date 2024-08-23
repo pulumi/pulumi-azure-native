@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20231210Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20220831preview:CloudHsmClusterPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20240630preview:CloudHsmClusterPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -57,6 +57,8 @@ if typing.TYPE_CHECKING:
     azuredatatransfer = __azuredatatransfer
     import pulumi_azure_native.azurefleet as __azurefleet
     azurefleet = __azurefleet
+    import pulumi_azure_native.azurelargeinstance as __azurelargeinstance
+    azurelargeinstance = __azurelargeinstance
     import pulumi_azure_native.azureplaywrightservice as __azureplaywrightservice
     azureplaywrightservice = __azureplaywrightservice
     import pulumi_azure_native.azuresphere as __azuresphere
@@ -492,6 +494,7 @@ else:
     azuredata = _utilities.lazy_import('pulumi_azure_native.azuredata')
     azuredatatransfer = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer')
     azurefleet = _utilities.lazy_import('pulumi_azure_native.azurefleet')
+    azurelargeinstance = _utilities.lazy_import('pulumi_azure_native.azurelargeinstance')
     azureplaywrightservice = _utilities.lazy_import('pulumi_azure_native.azureplaywrightservice')
     azuresphere = _utilities.lazy_import('pulumi_azure_native.azuresphere')
     azurestack = _utilities.lazy_import('pulumi_azure_native.azurestack')
@@ -2951,6 +2954,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azurelargeinstance",
+  "fqn": "pulumi_azure_native.azurelargeinstance",
+  "classes": {
+   "azure-native:azurelargeinstance:AzureLargeInstance": "AzureLargeInstance",
+   "azure-native:azurelargeinstance:AzureLargeStorageInstance": "AzureLargeStorageInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurelargeinstance/v20240801preview",
+  "fqn": "pulumi_azure_native.azurelargeinstance.v20240801preview",
+  "classes": {
+   "azure-native:azurelargeinstance/v20240801preview:AzureLargeInstance": "AzureLargeInstance",
+   "azure-native:azurelargeinstance/v20240801preview:AzureLargeStorageInstance": "AzureLargeStorageInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azureplaywrightservice",
   "fqn": "pulumi_azure_native.azureplaywrightservice",
   "classes": {
@@ -3303,6 +3324,7 @@ _utilities.register(
   "mod": "baremetalinfrastructure",
   "fqn": "pulumi_azure_native.baremetalinfrastructure",
   "classes": {
+   "azure-native:baremetalinfrastructure:AzureBareMetalInstance": "AzureBareMetalInstance",
    "azure-native:baremetalinfrastructure:AzureBareMetalStorageInstance": "AzureBareMetalStorageInstance"
   }
  },
@@ -3328,6 +3350,15 @@ _utilities.register(
   "fqn": "pulumi_azure_native.baremetalinfrastructure.v20231101preview",
   "classes": {
    "azure-native:baremetalinfrastructure/v20231101preview:AzureBareMetalStorageInstance": "AzureBareMetalStorageInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "baremetalinfrastructure/v20240801preview",
+  "fqn": "pulumi_azure_native.baremetalinfrastructure.v20240801preview",
+  "classes": {
+   "azure-native:baremetalinfrastructure/v20240801preview:AzureBareMetalInstance": "AzureBareMetalInstance",
+   "azure-native:baremetalinfrastructure/v20240801preview:AzureBareMetalStorageInstance": "AzureBareMetalStorageInstance"
   }
  },
  {
@@ -3388,6 +3419,17 @@ _utilities.register(
    "azure-native:batch/v20240201:ApplicationPackage": "ApplicationPackage",
    "azure-native:batch/v20240201:BatchAccount": "BatchAccount",
    "azure-native:batch/v20240201:Pool": "Pool"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "batch/v20240701",
+  "fqn": "pulumi_azure_native.batch.v20240701",
+  "classes": {
+   "azure-native:batch/v20240701:Application": "Application",
+   "azure-native:batch/v20240701:ApplicationPackage": "ApplicationPackage",
+   "azure-native:batch/v20240701:BatchAccount": "BatchAccount",
+   "azure-native:batch/v20240701:Pool": "Pool"
   }
  },
  {
@@ -8815,6 +8857,16 @@ _utilities.register(
   "classes": {
    "azure-native:hardwaresecuritymodules/v20231210preview:CloudHsmCluster": "CloudHsmCluster",
    "azure-native:hardwaresecuritymodules/v20231210preview:CloudHsmClusterPrivateEndpointConnection": "CloudHsmClusterPrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hardwaresecuritymodules/v20240630preview",
+  "fqn": "pulumi_azure_native.hardwaresecuritymodules.v20240630preview",
+  "classes": {
+   "azure-native:hardwaresecuritymodules/v20240630preview:CloudHsmCluster": "CloudHsmCluster",
+   "azure-native:hardwaresecuritymodules/v20240630preview:CloudHsmClusterPrivateEndpointConnection": "CloudHsmClusterPrivateEndpointConnection",
+   "azure-native:hardwaresecuritymodules/v20240630preview:DedicatedHsm": "DedicatedHsm"
   }
  },
  {

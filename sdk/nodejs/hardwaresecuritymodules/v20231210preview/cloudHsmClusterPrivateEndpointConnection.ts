@@ -112,7 +112,7 @@ export class CloudHsmClusterPrivateEndpointConnection extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection" }, { type: "azure-native:hardwaresecuritymodules/v20220831preview:CloudHsmClusterPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection" }, { type: "azure-native:hardwaresecuritymodules/v20220831preview:CloudHsmClusterPrivateEndpointConnection" }, { type: "azure-native:hardwaresecuritymodules/v20240630preview:CloudHsmClusterPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudHsmClusterPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

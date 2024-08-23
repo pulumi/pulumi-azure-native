@@ -387,7 +387,10 @@
   "AzureFleet": {
     "Fleet": "2024-05-01-preview"
   },
-  "AzureLargeInstance": {},
+  "AzureLargeInstance": {
+    "AzureLargeInstance": "2024-08-01-preview",
+    "AzureLargeStorageInstance": "2024-08-01-preview"
+  },
   "AzurePlaywrightService": {
     "Account": "2023-10-01-preview"
   },
@@ -439,6 +442,7 @@
     "VirtualNetwork": "2022-12-15-preview"
   },
   "BareMetalInfrastructure": {
+    "AzureBareMetalInstance": "2024-08-01-preview",
     "AzureBareMetalStorageInstance": "2023-04-06"
   },
   "Batch": {

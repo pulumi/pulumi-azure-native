@@ -27156,19 +27156,20 @@ class ServiceTagDestinationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 address_prefixes: Sequence[str],
                  action: Optional[str] = None,
+                 address_prefixes: Optional[Sequence[str]] = None,
                  port_ranges: Optional[str] = None,
                  protocol: Optional[str] = None,
                  service_tag: Optional[str] = None):
         """
         Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
-        :param Sequence[str] address_prefixes: Optional, if provided, the ServiceTag property will be ignored.
         :param str action: The action enum for networking rule.
+        :param Sequence[str] address_prefixes: Optional, if provided, the ServiceTag property will be ignored.
         """
-        pulumi.set(__self__, "address_prefixes", address_prefixes)
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
         if port_ranges is not None:
             pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
@@ -27177,20 +27178,20 @@ class ServiceTagDestinationResponse(dict):
             pulumi.set(__self__, "service_tag", service_tag)
 
     @property
-    @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Sequence[str]:
-        """
-        Optional, if provided, the ServiceTag property will be ignored.
-        """
-        return pulumi.get(self, "address_prefixes")
-
-    @property
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
         The action enum for networking rule.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        Optional, if provided, the ServiceTag property will be ignored.
+        """
+        return pulumi.get(self, "address_prefixes")
 
     @property
     @pulumi.getter(name="portRanges")

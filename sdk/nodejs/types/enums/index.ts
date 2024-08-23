@@ -23,6 +23,7 @@ import * as azureactivedirectory from "./azureactivedirectory";
 import * as azurearcdata from "./azurearcdata";
 import * as azuredatatransfer from "./azuredatatransfer";
 import * as azurefleet from "./azurefleet";
+import * as azurelargeinstance from "./azurelargeinstance";
 import * as azureplaywrightservice from "./azureplaywrightservice";
 import * as azuresphere from "./azuresphere";
 import * as azurestack from "./azurestack";
@@ -228,6 +229,7 @@ export {
     azurearcdata,
     azuredatatransfer,
     azurefleet,
+    azurelargeinstance,
     azureplaywrightservice,
     azuresphere,
     azurestack,

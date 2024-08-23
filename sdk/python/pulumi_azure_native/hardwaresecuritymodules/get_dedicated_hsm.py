@@ -201,6 +201,8 @@ def get_dedicated_hsm(name: Optional[str] = None,
     Gets the specified Azure dedicated HSM.
     Azure REST API version: 2021-11-30.
 
+    Other available API versions: 2024-06-30-preview.
+
 
     :param str name: The name of the dedicated HSM.
     :param str resource_group_name: The name of the Resource Group to which the dedicated hsm belongs.
@@ -234,6 +236,8 @@ def get_dedicated_hsm_output(name: Optional[pulumi.Input[str]] = None,
     """
     Gets the specified Azure dedicated HSM.
     Azure REST API version: 2021-11-30.
+
+    Other available API versions: 2024-06-30-preview.
 
 
     :param str name: The name of the dedicated HSM.

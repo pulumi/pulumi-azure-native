@@ -138,7 +138,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
         AzureBareMetalStorageInstance info on Azure (ARM properties and AzureBareMetalStorage properties)
         Azure REST API version: 2023-04-06.
 
-        Other available API versions: 2023-08-04-preview, 2023-11-01-preview.
+        Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,7 +159,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
         AzureBareMetalStorageInstance info on Azure (ARM properties and AzureBareMetalStorage properties)
         Azure REST API version: 2023-04-06.
 
-        Other available API versions: 2023-08-04-preview, 2023-11-01-preview.
+        Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AzureBareMetalStorageInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +202,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20230406:AzureBareMetalStorageInstance"), pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20230804preview:AzureBareMetalStorageInstance"), pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20231101preview:AzureBareMetalStorageInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20230406:AzureBareMetalStorageInstance"), pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20230804preview:AzureBareMetalStorageInstance"), pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20231101preview:AzureBareMetalStorageInstance"), pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20240801preview:AzureBareMetalStorageInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureBareMetalStorageInstance, __self__).__init__(
             'azure-native:baremetalinfrastructure:AzureBareMetalStorageInstance',
