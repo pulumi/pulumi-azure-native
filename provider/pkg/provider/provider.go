@@ -216,21 +216,15 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	userAgent := k.getUserAgent()
 
-	armTokenCredential := azCoreTokenCredential{p: k}
-	k.azureClient, err = k.newAzureClient(resourceManagerBearerAuth, armTokenCredential, userAgent)
+	azCoreTokenCredential := azCoreTokenCredential{p: k}
+
+	k.azureClient, err = k.newAzureClient(resourceManagerBearerAuth, azCoreTokenCredential, userAgent)
 	if err != nil {
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
 
-	tokenCredFactory := func(endoint string) azcore.TokenCredential {
-		return azCoreTokenCredential{
-			p:        k,
-			endpoint: endoint,
-		}
-	}
-
 	k.customResources, err = customresources.BuildCustomResources(&env, k.getAzureCloud(), k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
-		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, tokenCredFactory)
+		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)
 	if err != nil {
 		return nil, fmt.Errorf("initializing custom resources: %w", err)
 	}

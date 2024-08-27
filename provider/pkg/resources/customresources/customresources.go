@@ -67,13 +67,13 @@ func BuildCustomResources(env *azureEnv.Environment,
 	tokenAuth autorest.Authorizer,
 	kvBearerAuth autorest.Authorizer,
 	userAgent string,
-	tokenCredFactory func(endpoint string) azcore.TokenCredential) (map[string]*CustomResource, error) {
+	tokenCred azcore.TokenCredential) (map[string]*CustomResource, error) {
 
 	kvClient := keyvault.New()
 	kvClient.Authorizer = kvBearerAuth
 	kvClient.UserAgent = userAgent
 
-	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenCredFactory(env.KeyVaultEndpoint), &arm.ClientOptions{})
+	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenCred, &arm.ClientOptions{})
 	if err != nil {
 		return nil, err
 	}
@@ -99,7 +99,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		keyVaultAccessPolicy(armKVClient),
 		// Storage resources.
 		// newStorageAccountStaticWebsite(env, &storageAccountsClient),
-		newStorageAccountStaticWebsite_azidentity(cloud, tokenCredFactory(env.StorageEndpointSuffix)),
+		newStorageAccountStaticWebsite_azidentity(cloud, tokenCred),
 		newBlob(env, &storageAccountsClient),
 		// Customization of regular resources
 		blobContainerLegalHold(azureClient),
@@ -116,7 +116,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, nil, "", nil, nil, nil, "", func(string) azcore.TokenCredential { return nil })
+var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, nil, "", nil, nil, nil, "", nil)
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {

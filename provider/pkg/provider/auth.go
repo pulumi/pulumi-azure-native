@@ -329,8 +329,7 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authConfi
 
 // Implements the `azidentity.TokenCredential` interface.
 type azCoreTokenCredential struct {
-	p        *azureNativeProvider
-	endpoint string
+	p *azureNativeProvider
 }
 
 func (cred azCoreTokenCredential) GetToken(ctx context.Context, options policy.TokenRequestOptions) (azcore.AccessToken, error) {
@@ -338,11 +337,7 @@ func (cred azCoreTokenCredential) GetToken(ctx context.Context, options policy.T
 	if err != nil {
 		return azcore.AccessToken{}, err
 	}
-	endpoint := cred.endpoint
-	if endpoint == "" {
-		endpoint = cred.p.environment.ResourceManagerEndpoint
-	}
-	token, err := cred.p.getOAuthToken(ctx, authConfig, endpoint)
+	token, err := cred.p.getOAuthToken(ctx, authConfig, cred.p.environment.ResourceManagerEndpoint)
 	if err != nil {
 		return azcore.AccessToken{}, err
 	}
