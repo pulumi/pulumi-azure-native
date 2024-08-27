@@ -216,15 +216,24 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	userAgent := k.getUserAgent()
 
-	azCoreTokenCredential := azCoreTokenCredential{p: k}
+	var credential azcore.TokenCredential
+	if os.Getenv("PULUMI_LEGACY_AUTH") == "true" {
+		logging.V(9).Infof("Using legacy authentication")
+		credential = azCoreTokenCredential{p: k}
+	} else {
+		credential, err = k.newPulumiAuthCredential()
+		if err != nil {
+			return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
+		}
+	}
 
-	k.azureClient, err = k.newAzureClient(resourceManagerAuth, azCoreTokenCredential, userAgent)
+	k.azureClient, err = k.newAzureClient(resourceManagerAuth, credential, userAgent)
 	if err != nil {
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
 
 	k.customResources, err = customresources.BuildCustomResources(&env, k.getAzureCloud(), k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
-		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)
+		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, credential)
 	if err != nil {
 		return nil, fmt.Errorf("initializing custom resources: %w", err)
 	}
