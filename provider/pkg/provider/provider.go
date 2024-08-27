@@ -216,15 +216,21 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	userAgent := k.getUserAgent()
 
-	azCoreTokenCredential := azCoreTokenCredential{p: k}
-
-	k.azureClient, err = k.newAzureClient(resourceManagerBearerAuth, azCoreTokenCredential, userAgent)
+	armTokenCredential := azCoreTokenCredential{p: k}
+	k.azureClient, err = k.newAzureClient(resourceManagerBearerAuth, armTokenCredential, userAgent)
 	if err != nil {
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
 
+	tokenCredFactory := func(endoint string) azcore.TokenCredential {
+		return azCoreTokenCredential{
+			p:        k,
+			endpoint: endoint,
+		}
+	}
+
 	k.customResources, err = customresources.BuildCustomResources(&env, k.getAzureCloud(), k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
-		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)
+		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, tokenCredFactory)
 	if err != nil {
 		return nil, fmt.Errorf("initializing custom resources: %w", err)
 	}
@@ -238,7 +244,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
 	if os.Getenv("PULUMI_USE_AUTOREST") == "false" {
-		return azure.NewAzCoreClient(tokenCred, userAgent, k.getAzureCloud(), nil)
+		return azure.NewAzCoreClient(tokenCred, userAgent, *k.getAzureCloud(), nil)
 	}
 	return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
 }
