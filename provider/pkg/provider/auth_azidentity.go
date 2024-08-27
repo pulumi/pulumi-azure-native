@@ -7,6 +7,8 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/go-azure-helpers/sender"
@@ -14,6 +16,36 @@ import (
 
 	hamiltonAuth "github.com/manicminer/hamilton-autorest/auth"
 )
+
+func newOidcCredential(tenantId, clientId string) (azcore.TokenCredential, error) {
+	return azidentity.NewClientAssertionCredential(
+		tenantId, clientId,
+		func(ctx context.Context) (string, error) {
+			// TODO,tkappler return the OIDC token
+			return "", nil
+		},
+		&azidentity.ClientAssertionCredentialOptions{})
+}
+
+func newPulumiAuthCredential() (*azidentity.ChainedTokenCredential, error) {
+	cli, err := azidentity.NewAzureCLICredential(nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return azidentity.NewChainedTokenCredential([]azcore.TokenCredential{
+		cli,
+	}, nil)
+}
+
+type authConfiguration struct {
+	subscriptionId string
+	tenantId       string
+	clientId       string
+	oidcToken      string
+	auxTenants     []string
+	cloud          string
+}
 
 func (k *azureNativeProvider) getAuthConfig2() (*authConfig, error) {
 	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
