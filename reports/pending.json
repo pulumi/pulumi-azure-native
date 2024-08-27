@@ -617,7 +617,9 @@
     "2024-05-20-preview",
     "2024-07-10"
   ],
-  "HybridConnectivity": [],
+  "HybridConnectivity": [
+    "2024-12-01"
+  ],
   "HybridContainerService": [
     "2023-11-15-preview",
     "2024-01-01"

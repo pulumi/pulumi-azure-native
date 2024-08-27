@@ -11410,22 +11410,27 @@
     "Endpoint": [
       "2021-10-06-preview",
       "2022-05-01-preview",
-      "2023-03-15"
+      "2023-03-15",
+      "2024-12-01"
     ],
     "ServiceConfiguration": [
-      "2023-03-15"
+      "2023-03-15",
+      "2024-12-01"
     ],
     "listEndpointCredentials": [
       "2021-10-06-preview",
       "2022-05-01-preview",
-      "2023-03-15"
+      "2023-03-15",
+      "2024-12-01"
     ],
     "listEndpointIngressGatewayCredentials": [
-      "2023-03-15"
+      "2023-03-15",
+      "2024-12-01"
     ],
     "listEndpointManagedProxyDetails": [
       "2022-05-01-preview",
-      "2023-03-15"
+      "2023-03-15",
+      "2024-12-01"
     ]
   },
   "HybridContainerService": {

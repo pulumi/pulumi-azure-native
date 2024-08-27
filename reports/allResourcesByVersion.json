@@ -11412,6 +11412,13 @@
       "listEndpointCredentials",
       "listEndpointIngressGatewayCredentials",
       "listEndpointManagedProxyDetails"
+    ],
+    "2024-12-01": [
+      "Endpoint",
+      "ServiceConfiguration",
+      "listEndpointCredentials",
+      "listEndpointIngressGatewayCredentials",
+      "listEndpointManagedProxyDetails"
     ]
   },
   "HybridContainerService": {
