@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
     /// The endpoint for the target resource.
     /// Azure REST API version: 2023-03-15. Prior API version in Azure Native 1.x: 2022-05-01-preview.
     /// 
-    /// Other available API versions: 2022-05-01-preview.
+    /// Other available API versions: 2022-05-01-preview, 2024-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource
@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20211006preview:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20220501preview:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20230315:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20241201:Endpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

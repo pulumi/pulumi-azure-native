@@ -49,10 +49,13 @@ if typing.TYPE_CHECKING:
     v20231001preview = __v20231001preview
     import pulumi_azure_native.workloads.v20231201preview as __v20231201preview
     v20231201preview = __v20231201preview
+    import pulumi_azure_native.workloads.v20240901 as __v20240901
+    v20240901 = __v20240901
 else:
     v20211201preview = _utilities.lazy_import('pulumi_azure_native.workloads.v20211201preview')
     v20221101preview = _utilities.lazy_import('pulumi_azure_native.workloads.v20221101preview')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.workloads.v20230401')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.workloads.v20231001preview')
     v20231201preview = _utilities.lazy_import('pulumi_azure_native.workloads.v20231201preview')
+    v20240901 = _utilities.lazy_import('pulumi_azure_native.workloads.v20240901')
 

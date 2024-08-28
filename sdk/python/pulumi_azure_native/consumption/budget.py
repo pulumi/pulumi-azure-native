@@ -185,7 +185,7 @@ class Budget(pulumi.CustomResource):
         A budget resource.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2019-10-01.
 
-        Other available API versions: 2017-12-30-preview, 2018-10-01, 2019-05-01, 2019-06-01, 2023-11-01.
+        Other available API versions: 2017-12-30-preview, 2018-10-01, 2019-05-01, 2019-06-01, 2023-11-01, 2024-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,7 +209,7 @@ class Budget(pulumi.CustomResource):
         A budget resource.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2019-10-01.
 
-        Other available API versions: 2017-12-30-preview, 2018-10-01, 2019-05-01, 2019-06-01, 2023-11-01.
+        Other available API versions: 2017-12-30-preview, 2018-10-01, 2019-05-01, 2019-06-01, 2023-11-01, 2024-08-01.
 
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.
@@ -267,7 +267,7 @@ class Budget(pulumi.CustomResource):
             __props__.__dict__["forecast_spend"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:consumption/v20190101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190401preview:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190501:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190501preview:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190601:Budget"), pulumi.Alias(type_="azure-native:consumption/v20191001:Budget"), pulumi.Alias(type_="azure-native:consumption/v20191101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20210501:Budget"), pulumi.Alias(type_="azure-native:consumption/v20211001:Budget"), pulumi.Alias(type_="azure-native:consumption/v20220901:Budget"), pulumi.Alias(type_="azure-native:consumption/v20230301:Budget"), pulumi.Alias(type_="azure-native:consumption/v20230501:Budget"), pulumi.Alias(type_="azure-native:consumption/v20231101:Budget")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:consumption/v20190101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190401preview:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190501:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190501preview:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190601:Budget"), pulumi.Alias(type_="azure-native:consumption/v20191001:Budget"), pulumi.Alias(type_="azure-native:consumption/v20191101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20210501:Budget"), pulumi.Alias(type_="azure-native:consumption/v20211001:Budget"), pulumi.Alias(type_="azure-native:consumption/v20220901:Budget"), pulumi.Alias(type_="azure-native:consumption/v20230301:Budget"), pulumi.Alias(type_="azure-native:consumption/v20230501:Budget"), pulumi.Alias(type_="azure-native:consumption/v20231101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20240801:Budget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Budget, __self__).__init__(
             'azure-native:consumption:Budget',

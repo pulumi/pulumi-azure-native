@@ -178,7 +178,7 @@ export class BareMetalMachineKeySet extends pulumi.CustomResource {
             resourceInputs["userListStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20230701:BareMetalMachineKeySet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20230701:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20240601preview:BareMetalMachineKeySet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BareMetalMachineKeySet.__pulumiType, name, resourceInputs, opts);
     }

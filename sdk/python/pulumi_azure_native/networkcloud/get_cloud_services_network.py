@@ -264,7 +264,7 @@ def get_cloud_services_network(cloud_services_network_name: Optional[str] = None
     Get properties of the provided cloud services network.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01.
+    Other available API versions: 2023-07-01, 2024-06-01-preview.
 
 
     :param str cloud_services_network_name: The name of the cloud services network.
@@ -305,7 +305,7 @@ def get_cloud_services_network_output(cloud_services_network_name: Optional[pulu
     Get properties of the provided cloud services network.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01.
+    Other available API versions: 2023-07-01, 2024-06-01-preview.
 
 
     :param str cloud_services_network_name: The name of the cloud services network.

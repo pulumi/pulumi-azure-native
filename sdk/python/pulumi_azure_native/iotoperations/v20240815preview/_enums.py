@@ -376,9 +376,9 @@ class MqttAuthMethod(str, Enum):
     """
     UserAssignedManagedIdentity type
     """
-    SASL = "Sasl"
+    SERVICE_ACCOUNT_TOKEN = "ServiceAccountToken"
     """
-    Sasl Option
+    ServiceAccountToken Option
     """
     X509_CERTIFICATE = "X509Certificate"
     """

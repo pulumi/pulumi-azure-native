@@ -4840,6 +4840,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "consumption/v20240801",
+  "fqn": "pulumi_azure_native.consumption.v20240801",
+  "classes": {
+   "azure-native:consumption/v20240801:Budget": "Budget"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerinstance",
   "fqn": "pulumi_azure_native.containerinstance",
   "classes": {
@@ -6115,6 +6123,17 @@ _utilities.register(
    "azure-native:databricks/v20240501:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:databricks/v20240501:VNetPeering": "VNetPeering",
    "azure-native:databricks/v20240501:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "databricks/v20240901preview",
+  "fqn": "pulumi_azure_native.databricks.v20240901preview",
+  "classes": {
+   "azure-native:databricks/v20240901preview:AccessConnector": "AccessConnector",
+   "azure-native:databricks/v20240901preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:databricks/v20240901preview:VNetPeering": "VNetPeering",
+   "azure-native:databricks/v20240901preview:Workspace": "Workspace"
   }
  },
  {
@@ -9279,6 +9298,15 @@ _utilities.register(
   "classes": {
    "azure-native:hybridconnectivity/v20230315:Endpoint": "Endpoint",
    "azure-native:hybridconnectivity/v20230315:ServiceConfiguration": "ServiceConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridconnectivity/v20241201",
+  "fqn": "pulumi_azure_native.hybridconnectivity.v20241201",
+  "classes": {
+   "azure-native:hybridconnectivity/v20241201:Endpoint": "Endpoint",
+   "azure-native:hybridconnectivity/v20241201:ServiceConfiguration": "ServiceConfiguration"
   }
  },
  {
@@ -13526,6 +13554,7 @@ _utilities.register(
    "azure-native:networkcloud:ClusterManager": "ClusterManager",
    "azure-native:networkcloud:Console": "Console",
    "azure-native:networkcloud:KubernetesCluster": "KubernetesCluster",
+   "azure-native:networkcloud:KubernetesClusterFeature": "KubernetesClusterFeature",
    "azure-native:networkcloud:L2Network": "L2Network",
    "azure-native:networkcloud:L3Network": "L3Network",
    "azure-native:networkcloud:MetricsConfiguration": "MetricsConfiguration",
@@ -13582,6 +13611,31 @@ _utilities.register(
    "azure-native:networkcloud/v20231001preview:TrunkedNetwork": "TrunkedNetwork",
    "azure-native:networkcloud/v20231001preview:VirtualMachine": "VirtualMachine",
    "azure-native:networkcloud/v20231001preview:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "networkcloud/v20240601preview",
+  "fqn": "pulumi_azure_native.networkcloud.v20240601preview",
+  "classes": {
+   "azure-native:networkcloud/v20240601preview:AgentPool": "AgentPool",
+   "azure-native:networkcloud/v20240601preview:BareMetalMachine": "BareMetalMachine",
+   "azure-native:networkcloud/v20240601preview:BareMetalMachineKeySet": "BareMetalMachineKeySet",
+   "azure-native:networkcloud/v20240601preview:BmcKeySet": "BmcKeySet",
+   "azure-native:networkcloud/v20240601preview:CloudServicesNetwork": "CloudServicesNetwork",
+   "azure-native:networkcloud/v20240601preview:Cluster": "Cluster",
+   "azure-native:networkcloud/v20240601preview:ClusterManager": "ClusterManager",
+   "azure-native:networkcloud/v20240601preview:Console": "Console",
+   "azure-native:networkcloud/v20240601preview:KubernetesCluster": "KubernetesCluster",
+   "azure-native:networkcloud/v20240601preview:KubernetesClusterFeature": "KubernetesClusterFeature",
+   "azure-native:networkcloud/v20240601preview:L2Network": "L2Network",
+   "azure-native:networkcloud/v20240601preview:L3Network": "L3Network",
+   "azure-native:networkcloud/v20240601preview:MetricsConfiguration": "MetricsConfiguration",
+   "azure-native:networkcloud/v20240601preview:Rack": "Rack",
+   "azure-native:networkcloud/v20240601preview:StorageAppliance": "StorageAppliance",
+   "azure-native:networkcloud/v20240601preview:TrunkedNetwork": "TrunkedNetwork",
+   "azure-native:networkcloud/v20240601preview:VirtualMachine": "VirtualMachine",
+   "azure-native:networkcloud/v20240601preview:Volume": "Volume"
   }
  },
  {
@@ -15104,7 +15158,6 @@ _utilities.register(
   "classes": {
    "azure-native:security:APICollection": "APICollection",
    "azure-native:security:APICollectionByAzureApiManagementService": "APICollectionByAzureApiManagementService",
-   "azure-native:security:AdaptiveApplicationControl": "AdaptiveApplicationControl",
    "azure-native:security:AdvancedThreatProtection": "AdvancedThreatProtection",
    "azure-native:security:AlertsSuppressionRule": "AlertsSuppressionRule",
    "azure-native:security:Application": "Application",
@@ -15178,7 +15231,6 @@ _utilities.register(
   "mod": "security/v20200101",
   "fqn": "pulumi_azure_native.security.v20200101",
   "classes": {
-   "azure-native:security/v20200101:AdaptiveApplicationControl": "AdaptiveApplicationControl",
    "azure-native:security/v20200101:Assessment": "Assessment",
    "azure-native:security/v20200101:JitNetworkAccessPolicy": "JitNetworkAccessPolicy",
    "azure-native:security/v20200101:ServerVulnerabilityAssessment": "ServerVulnerabilityAssessment"
@@ -18845,6 +18897,17 @@ _utilities.register(
    "azure-native:workloads/v20231201preview:Monitor": "Monitor",
    "azure-native:workloads/v20231201preview:ProviderInstance": "ProviderInstance",
    "azure-native:workloads/v20231201preview:SapLandscapeMonitor": "SapLandscapeMonitor"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "workloads/v20240901",
+  "fqn": "pulumi_azure_native.workloads.v20240901",
+  "classes": {
+   "azure-native:workloads/v20240901:SapApplicationServerInstance": "SapApplicationServerInstance",
+   "azure-native:workloads/v20240901:SapCentralServerInstance": "SapCentralServerInstance",
+   "azure-native:workloads/v20240901:SapDatabaseInstance": "SapDatabaseInstance",
+   "azure-native:workloads/v20240901:SapVirtualInstance": "SapVirtualInstance"
   }
  }
 ]

@@ -368,7 +368,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["updated_by"] = None
             __props__.__dict__["workspace_id"] = None
             __props__.__dict__["workspace_url"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20180401:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20210401preview:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20220401preview:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20230201:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20240501:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20180401:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20210401preview:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20220401preview:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20230201:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20240501:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20240901preview:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:databricks/v20230915preview:Workspace',

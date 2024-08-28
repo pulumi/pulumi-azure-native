@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.IoTOperations.V20240815Preview.Outputs
         /// <summary>
         /// Kafka endpoint host.
         /// </summary>
-        public readonly string? Host;
+        public readonly string Host;
         /// <summary>
         /// Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.IoTOperations.V20240815Preview.Outputs
 
             string? copyMqttProperties,
 
-            string? host,
+            string host,
 
             string? kafkaAcks,
 

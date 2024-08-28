@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// <summary>
     /// Azure REST API version: 2023-10-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01.
+    /// Other available API versions: 2023-07-01, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:KubernetesCluster")]
     public partial class KubernetesCluster : global::Pulumi.CustomResource
@@ -182,6 +182,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:KubernetesCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:KubernetesCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:KubernetesCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

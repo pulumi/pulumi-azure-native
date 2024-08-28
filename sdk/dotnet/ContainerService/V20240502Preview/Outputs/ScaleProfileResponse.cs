@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.ContainerService.V20240502Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AutoScaleProfileResponse> Autoscale;
         /// <summary>
-        /// Specifications on how to scale the VirtualMachines agent pool to a fixed size. Currently, at most one ManualScaleProfile is allowed.
+        /// Specifications on how to scale the VirtualMachines agent pool to a fixed size.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManualScaleProfileResponse> Manual;
 

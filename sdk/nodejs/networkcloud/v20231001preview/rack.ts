@@ -153,7 +153,7 @@ export class Rack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:Rack" }, { type: "azure-native:networkcloud/v20230701:Rack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:Rack" }, { type: "azure-native:networkcloud/v20230701:Rack" }, { type: "azure-native:networkcloud/v20240601preview:Rack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Rack.__pulumiType, name, resourceInputs, opts);
     }

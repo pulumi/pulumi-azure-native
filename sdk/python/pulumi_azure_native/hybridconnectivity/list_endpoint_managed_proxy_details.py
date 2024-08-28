@@ -72,7 +72,7 @@ def list_endpoint_managed_proxy_details(endpoint_name: Optional[str] = None,
     Fetches the managed proxy details
     Azure REST API version: 2023-03-15.
 
-    Other available API versions: 2022-05-01-preview.
+    Other available API versions: 2022-05-01-preview, 2024-12-01.
 
 
     :param str endpoint_name: The endpoint name.
@@ -106,7 +106,7 @@ def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.In
     Fetches the managed proxy details
     Azure REST API version: 2023-03-15.
 
-    Other available API versions: 2022-05-01-preview.
+    Other available API versions: 2022-05-01-preview, 2024-12-01.
 
 
     :param str endpoint_name: The endpoint name.

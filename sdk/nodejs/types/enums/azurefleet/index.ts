@@ -332,7 +332,7 @@ export const NetworkApiVersion = {
     /**
      * Initial version supported. Later versions are supported as well.
      */
-    NetworkApiVersion_2020_11_01: "2020-11-01",
+    V2020_11_01: "2020-11-01",
 } as const;
 
 /**

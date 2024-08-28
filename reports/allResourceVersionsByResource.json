@@ -5652,7 +5652,8 @@
       "2022-09-01",
       "2023-03-01",
       "2023-05-01",
-      "2023-11-01"
+      "2023-11-01",
+      "2024-08-01"
     ],
     "BudgetByResourceGroupName": [
       "2018-01-31",
@@ -7927,14 +7928,16 @@
       "2022-04-01-preview",
       "2022-10-01-preview",
       "2023-05-01",
-      "2024-05-01"
+      "2024-05-01",
+      "2024-09-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2021-04-01-preview",
       "2022-04-01-preview",
       "2023-02-01",
       "2023-09-15-preview",
-      "2024-05-01"
+      "2024-05-01",
+      "2024-09-01-preview"
     ],
     "Workspace": [
       "2018-04-01",
@@ -7942,7 +7945,8 @@
       "2022-04-01-preview",
       "2023-02-01",
       "2023-09-15-preview",
-      "2024-05-01"
+      "2024-05-01",
+      "2024-09-01-preview"
     ],
     "vNetPeering": [
       "2018-04-01",
@@ -7950,7 +7954,8 @@
       "2022-04-01-preview",
       "2023-02-01",
       "2023-09-15-preview",
-      "2024-05-01"
+      "2024-05-01",
+      "2024-09-01-preview"
     ]
   },
   "Datadog": {
@@ -11410,22 +11415,27 @@
     "Endpoint": [
       "2021-10-06-preview",
       "2022-05-01-preview",
-      "2023-03-15"
+      "2023-03-15",
+      "2024-12-01"
     ],
     "ServiceConfiguration": [
-      "2023-03-15"
+      "2023-03-15",
+      "2024-12-01"
     ],
     "listEndpointCredentials": [
       "2021-10-06-preview",
       "2022-05-01-preview",
-      "2023-03-15"
+      "2023-03-15",
+      "2024-12-01"
     ],
     "listEndpointIngressGatewayCredentials": [
-      "2023-03-15"
+      "2023-03-15",
+      "2024-12-01"
     ],
     "listEndpointManagedProxyDetails": [
       "2022-05-01-preview",
-      "2023-03-15"
+      "2023-03-15",
+      "2024-12-01"
     ]
   },
   "HybridContainerService": {
@@ -18835,71 +18845,91 @@
   "NetworkCloud": {
     "AgentPool": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "BareMetalMachine": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "BareMetalMachineKeySet": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "BmcKeySet": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "CloudServicesNetwork": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "Cluster": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "ClusterManager": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "Console": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "KubernetesCluster": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
+    ],
+    "KubernetesClusterFeature": [
+      "2024-06-01-preview"
     ],
     "L2Network": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "L3Network": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "MetricsConfiguration": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "Rack": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "StorageAppliance": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "TrunkedNetwork": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "VirtualMachine": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ],
     "Volume": [
       "2023-07-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-06-01-preview"
     ]
   },
   "NetworkFunction": {
@@ -20579,10 +20609,6 @@
     ],
     "APICollectionByAzureApiManagementService": [
       "2023-11-15"
-    ],
-    "AdaptiveApplicationControl": [
-      "2015-06-01-preview",
-      "2020-01-01"
     ],
     "AdvancedThreatProtection": [
       "2017-08-01-preview",
@@ -26484,6 +26510,15 @@
       "2023-04-01",
       "2023-10-01-preview"
     ],
+    "SapApplicationServerInstance": [
+      "2024-09-01"
+    ],
+    "SapCentralServerInstance": [
+      "2024-09-01"
+    ],
+    "SapDatabaseInstance": [
+      "2024-09-01"
+    ],
     "SapDiscoverySite": [
       "2023-10-01-preview"
     ],
@@ -26495,6 +26530,9 @@
       "2023-04-01",
       "2023-10-01-preview",
       "2023-12-01-preview"
+    ],
+    "SapVirtualInstance": [
+      "2024-09-01"
     ],
     "ServerInstance": [
       "2023-10-01-preview"
@@ -26525,6 +26563,18 @@
       "2022-11-01-preview",
       "2023-04-01",
       "2023-10-01-preview"
+    ],
+    "getSapVirtualInstanceAvailabilityZoneDetails": [
+      "2024-09-01"
+    ],
+    "getSapVirtualInstanceDiskConfigurations": [
+      "2024-09-01"
+    ],
+    "getSapVirtualInstanceSapSupportedSku": [
+      "2024-09-01"
+    ],
+    "getSapVirtualInstanceSizingRecommendations": [
+      "2024-09-01"
     ],
     "monitor": [
       "2021-12-01-preview",

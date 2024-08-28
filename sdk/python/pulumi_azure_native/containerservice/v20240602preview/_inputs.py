@@ -8450,7 +8450,7 @@ if not MYPY:
         """
         manual: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManualScaleProfileArgsDict']]]]
         """
-        Specifications on how to scale the VirtualMachines agent pool to a fixed size. Currently, at most one ManualScaleProfile is allowed.
+        Specifications on how to scale the VirtualMachines agent pool to a fixed size.
         """
 elif False:
     ScaleProfileArgsDict: TypeAlias = Mapping[str, Any]
@@ -8463,7 +8463,7 @@ class ScaleProfileArgs:
         """
         Specifications on how to scale a VirtualMachines agent pool.
         :param pulumi.Input[Sequence[pulumi.Input['AutoScaleProfileArgs']]] autoscale: Specifications on how to auto-scale the VirtualMachines agent pool within a predefined size range. Currently, at most one AutoScaleProfile is allowed.
-        :param pulumi.Input[Sequence[pulumi.Input['ManualScaleProfileArgs']]] manual: Specifications on how to scale the VirtualMachines agent pool to a fixed size. Currently, at most one ManualScaleProfile is allowed.
+        :param pulumi.Input[Sequence[pulumi.Input['ManualScaleProfileArgs']]] manual: Specifications on how to scale the VirtualMachines agent pool to a fixed size.
         """
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
@@ -8486,7 +8486,7 @@ class ScaleProfileArgs:
     @pulumi.getter
     def manual(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManualScaleProfileArgs']]]]:
         """
-        Specifications on how to scale the VirtualMachines agent pool to a fixed size. Currently, at most one ManualScaleProfile is allowed.
+        Specifications on how to scale the VirtualMachines agent pool to a fixed size.
         """
         return pulumi.get(self, "manual")
 

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Databricks
         /// Gets an azure databricks accessConnector.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2024-05-01.
+        /// Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
         /// </summary>
         public static Task<GetAccessConnectorResult> InvokeAsync(GetAccessConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessConnectorResult>("azure-native:databricks:getAccessConnector", args ?? new GetAccessConnectorArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Databricks
         /// Gets an azure databricks accessConnector.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2024-05-01.
+        /// Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
         /// </summary>
         public static Output<GetAccessConnectorResult> Invoke(GetAccessConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessConnectorResult>("azure-native:databricks:getAccessConnector", args ?? new GetAccessConnectorInvokeArgs(), options.WithDefaults());

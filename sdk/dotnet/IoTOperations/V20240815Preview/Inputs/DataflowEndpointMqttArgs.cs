@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.IoTOperations.V20240815Preview.Inputs
 
         public DataflowEndpointMqttArgs()
         {
-            Host = "aio-mq-dmqtt-frontend:8883";
             KeepAliveSeconds = 60;
             MaxInflightMessages = 100;
             Protocol = "Mqtt";

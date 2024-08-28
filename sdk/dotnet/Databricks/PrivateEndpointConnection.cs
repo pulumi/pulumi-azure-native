@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks
     /// The private endpoint connection of a workspace
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
     /// 
-    /// Other available API versions: 2023-09-15-preview, 2024-05-01.
+    /// Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.Databricks
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230201:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230915preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240501:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20240901preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

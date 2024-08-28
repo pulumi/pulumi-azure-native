@@ -330,7 +330,7 @@ def get_kubernetes_cluster(kubernetes_cluster_name: Optional[str] = None,
     Get properties of the provided the Kubernetes cluster.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01.
+    Other available API versions: 2023-07-01, 2024-06-01-preview.
 
 
     :param str kubernetes_cluster_name: The name of the Kubernetes cluster.
@@ -377,7 +377,7 @@ def get_kubernetes_cluster_output(kubernetes_cluster_name: Optional[pulumi.Input
     Get properties of the provided the Kubernetes cluster.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01.
+    Other available API versions: 2023-07-01, 2024-06-01-preview.
 
 
     :param str kubernetes_cluster_name: The name of the Kubernetes cluster.

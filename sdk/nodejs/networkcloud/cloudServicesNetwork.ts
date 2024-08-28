@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * virtual machines and/or Hybrid AKS clusters.
  * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2024-06-01-preview.
  */
 export class CloudServicesNetwork extends pulumi.CustomResource {
     /**
@@ -168,7 +168,7 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:CloudServicesNetwork" }, { type: "azure-native:networkcloud/v20231001preview:CloudServicesNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:CloudServicesNetwork" }, { type: "azure-native:networkcloud/v20231001preview:CloudServicesNetwork" }, { type: "azure-native:networkcloud/v20240601preview:CloudServicesNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudServicesNetwork.__pulumiType, name, resourceInputs, opts);
     }

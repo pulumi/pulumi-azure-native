@@ -767,9 +767,9 @@ namespace Pulumi.AzureNative.IoTOperations.V20240815Preview
         /// </summary>
         public static MqttAuthMethod UserAssignedManagedIdentity { get; } = new MqttAuthMethod("UserAssignedManagedIdentity");
         /// <summary>
-        /// Sasl Option
+        /// ServiceAccountToken Option
         /// </summary>
-        public static MqttAuthMethod Sasl { get; } = new MqttAuthMethod("Sasl");
+        public static MqttAuthMethod ServiceAccountToken { get; } = new MqttAuthMethod("ServiceAccountToken");
         /// <summary>
         /// x509Certificate Option
         /// </summary>

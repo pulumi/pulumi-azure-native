@@ -372,9 +372,9 @@ export const MqttAuthMethod = {
      */
     UserAssignedManagedIdentity: "UserAssignedManagedIdentity",
     /**
-     * Sasl Option
+     * ServiceAccountToken Option
      */
-    Sasl: "Sasl",
+    ServiceAccountToken: "ServiceAccountToken",
     /**
      * x509Certificate Option
      */

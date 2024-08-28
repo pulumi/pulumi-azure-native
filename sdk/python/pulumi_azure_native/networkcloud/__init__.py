@@ -23,6 +23,7 @@ from .get_cluster import *
 from .get_cluster_manager import *
 from .get_console import *
 from .get_kubernetes_cluster import *
+from .get_kubernetes_cluster_feature import *
 from .get_l2_network import *
 from .get_l3_network import *
 from .get_metrics_configuration import *
@@ -32,6 +33,7 @@ from .get_trunked_network import *
 from .get_virtual_machine import *
 from .get_volume import *
 from .kubernetes_cluster import *
+from .kubernetes_cluster_feature import *
 from .l2_network import *
 from .l3_network import *
 from .metrics_configuration import *
@@ -49,7 +51,10 @@ if typing.TYPE_CHECKING:
     v20230701 = __v20230701
     import pulumi_azure_native.networkcloud.v20231001preview as __v20231001preview
     v20231001preview = __v20231001preview
+    import pulumi_azure_native.networkcloud.v20240601preview as __v20240601preview
+    v20240601preview = __v20240601preview
 else:
     v20230701 = _utilities.lazy_import('pulumi_azure_native.networkcloud.v20230701')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.networkcloud.v20231001preview')
+    v20240601preview = _utilities.lazy_import('pulumi_azure_native.networkcloud.v20240601preview')
 
