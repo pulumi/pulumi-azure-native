@@ -714,6 +714,17 @@ Workloads:
   exclusions:
     PhpWorkload: 2021-12-01-preview
     WordpressInstance: 2021-12-01-preview
+    # 2024-09-10 appears to have renamed a number of resources causing type conflicts.
+    # We should move to 2024-09-01 or greater in the next major version and exclude the earlier resource names.
+    # When doing this, we will need to add aliases between the old and new names.
+    SapApplicationServerInstance: "2024-09-01"
+    SapCentralServerInstance: "2024-09-01"
+    SapDatabaseInstance: "2024-09-01"
+    SapVirtualInstance: "2024-09-01"
+    getSapVirtualInstanceAvailabilityZoneDetails: "2024-09-01"
+    getSapVirtualInstanceDiskConfigurations: "2024-09-01"
+    getSapVirtualInstanceSapSupportedSku: "2024-09-01"
+    getSapVirtualInstanceSizingRecommendations: "2024-09-01"
   notes: |
     https://learn.microsoft.com/en-us/rest/api/workloads/
     2022-11-01-preview recommended.
