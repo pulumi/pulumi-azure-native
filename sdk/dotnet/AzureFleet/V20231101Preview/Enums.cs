@@ -679,7 +679,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview
         /// <summary>
         /// Initial version supported. Later versions are supported as well.
         /// </summary>
-        public static NetworkApiVersion NetworkApiVersion_2020_11_01 { get; } = new NetworkApiVersion("2020-11-01");
+        public static NetworkApiVersion V2020_11_01 { get; } = new NetworkApiVersion("2020-11-01");
 
         public static bool operator ==(NetworkApiVersion left, NetworkApiVersion right) => left.Equals(right);
         public static bool operator !=(NetworkApiVersion left, NetworkApiVersion right) => !left.Equals(right);

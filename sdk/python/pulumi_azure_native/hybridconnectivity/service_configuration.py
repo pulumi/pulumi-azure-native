@@ -237,6 +237,8 @@ class ServiceConfiguration(pulumi.CustomResource):
         The service configuration details associated with the target resource.
         Azure REST API version: 2023-03-15.
 
+        Other available API versions: 2024-12-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
@@ -261,6 +263,8 @@ class ServiceConfiguration(pulumi.CustomResource):
         """
         The service configuration details associated with the target resource.
         Azure REST API version: 2023-03-15.
+
+        Other available API versions: 2024-12-01.
 
         :param str resource_name: The name of the resource.
         :param ServiceConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -320,7 +324,7 @@ class ServiceConfiguration(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridconnectivity/v20230315:ServiceConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridconnectivity/v20230315:ServiceConfiguration"), pulumi.Alias(type_="azure-native:hybridconnectivity/v20241201:ServiceConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceConfiguration, __self__).__init__(
             'azure-native:hybridconnectivity:ServiceConfiguration',

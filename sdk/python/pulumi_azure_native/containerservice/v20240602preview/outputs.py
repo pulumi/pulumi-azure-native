@@ -7300,7 +7300,7 @@ class ScaleProfileResponse(dict):
         """
         Specifications on how to scale a VirtualMachines agent pool.
         :param Sequence['AutoScaleProfileResponse'] autoscale: Specifications on how to auto-scale the VirtualMachines agent pool within a predefined size range. Currently, at most one AutoScaleProfile is allowed.
-        :param Sequence['ManualScaleProfileResponse'] manual: Specifications on how to scale the VirtualMachines agent pool to a fixed size. Currently, at most one ManualScaleProfile is allowed.
+        :param Sequence['ManualScaleProfileResponse'] manual: Specifications on how to scale the VirtualMachines agent pool to a fixed size.
         """
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
@@ -7319,7 +7319,7 @@ class ScaleProfileResponse(dict):
     @pulumi.getter
     def manual(self) -> Optional[Sequence['outputs.ManualScaleProfileResponse']]:
         """
-        Specifications on how to scale the VirtualMachines agent pool to a fixed size. Currently, at most one ManualScaleProfile is allowed.
+        Specifications on how to scale the VirtualMachines agent pool to a fixed size.
         """
         return pulumi.get(self, "manual")
 

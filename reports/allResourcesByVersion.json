@@ -5420,6 +5420,9 @@
     ],
     "2023-11-01": [
       "Budget"
+    ],
+    "2024-08-01": [
+      "Budget"
     ]
   },
   "ContainerInstance": {
@@ -7885,6 +7888,12 @@
       "vNetPeering"
     ],
     "2024-05-01": [
+      "AccessConnector",
+      "PrivateEndpointConnection",
+      "Workspace",
+      "vNetPeering"
+    ],
+    "2024-09-01-preview": [
       "AccessConnector",
       "PrivateEndpointConnection",
       "Workspace",
@@ -11407,6 +11416,13 @@
       "listEndpointManagedProxyDetails"
     ],
     "2023-03-15": [
+      "Endpoint",
+      "ServiceConfiguration",
+      "listEndpointCredentials",
+      "listEndpointIngressGatewayCredentials",
+      "listEndpointManagedProxyDetails"
+    ],
+    "2024-12-01": [
       "Endpoint",
       "ServiceConfiguration",
       "listEndpointCredentials",
@@ -18393,6 +18409,26 @@
       "TrunkedNetwork",
       "VirtualMachine",
       "Volume"
+    ],
+    "2024-06-01-preview": [
+      "AgentPool",
+      "BareMetalMachine",
+      "BareMetalMachineKeySet",
+      "BmcKeySet",
+      "CloudServicesNetwork",
+      "Cluster",
+      "ClusterManager",
+      "Console",
+      "KubernetesCluster",
+      "KubernetesClusterFeature",
+      "L2Network",
+      "L3Network",
+      "MetricsConfiguration",
+      "Rack",
+      "StorageAppliance",
+      "TrunkedNetwork",
+      "VirtualMachine",
+      "Volume"
     ]
   },
   "NetworkFunction": {
@@ -20069,7 +20105,6 @@
   "Security": {
     "": [],
     "2015-06-01-preview": [
-      "AdaptiveApplicationControl",
       "JitNetworkAccessPolicy"
     ],
     "2017-08-01-preview": [
@@ -20093,7 +20128,6 @@
       "IotSecuritySolution"
     ],
     "2020-01-01": [
-      "AdaptiveApplicationControl",
       "Assessment",
       "AssessmentMetadataInSubscription",
       "JitNetworkAccessPolicy",
@@ -25559,6 +25593,16 @@
       "Monitor",
       "ProviderInstance",
       "SapLandscapeMonitor"
+    ],
+    "2024-09-01": [
+      "SapApplicationServerInstance",
+      "SapCentralServerInstance",
+      "SapDatabaseInstance",
+      "SapVirtualInstance",
+      "getSapVirtualInstanceAvailabilityZoneDetails",
+      "getSapVirtualInstanceDiskConfigurations",
+      "getSapVirtualInstanceSapSupportedSku",
+      "getSapVirtualInstanceSizingRecommendations"
     ]
   }
 }

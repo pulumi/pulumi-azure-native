@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AdaptiveApplicationControlArgs } from "./adaptiveApplicationControl";
-export type AdaptiveApplicationControl = import("./adaptiveApplicationControl").AdaptiveApplicationControl;
-export const AdaptiveApplicationControl: typeof import("./adaptiveApplicationControl").AdaptiveApplicationControl = null as any;
-utilities.lazyLoad(exports, ["AdaptiveApplicationControl"], () => require("./adaptiveApplicationControl"));
-
 export { AdvancedThreatProtectionArgs } from "./advancedThreatProtection";
 export type AdvancedThreatProtection = import("./advancedThreatProtection").AdvancedThreatProtection;
 export const AdvancedThreatProtection: typeof import("./advancedThreatProtection").AdvancedThreatProtection = null as any;
@@ -109,11 +104,6 @@ export { GetAPICollectionByAzureApiManagementServiceArgs, GetAPICollectionByAzur
 export const getAPICollectionByAzureApiManagementService: typeof import("./getAPICollectionByAzureApiManagementService").getAPICollectionByAzureApiManagementService = null as any;
 export const getAPICollectionByAzureApiManagementServiceOutput: typeof import("./getAPICollectionByAzureApiManagementService").getAPICollectionByAzureApiManagementServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getAPICollectionByAzureApiManagementService","getAPICollectionByAzureApiManagementServiceOutput"], () => require("./getAPICollectionByAzureApiManagementService"));
-
-export { GetAdaptiveApplicationControlArgs, GetAdaptiveApplicationControlResult, GetAdaptiveApplicationControlOutputArgs } from "./getAdaptiveApplicationControl";
-export const getAdaptiveApplicationControl: typeof import("./getAdaptiveApplicationControl").getAdaptiveApplicationControl = null as any;
-export const getAdaptiveApplicationControlOutput: typeof import("./getAdaptiveApplicationControl").getAdaptiveApplicationControlOutput = null as any;
-utilities.lazyLoad(exports, ["getAdaptiveApplicationControl","getAdaptiveApplicationControlOutput"], () => require("./getAdaptiveApplicationControl"));
 
 export { GetAdvancedThreatProtectionArgs, GetAdvancedThreatProtectionResult, GetAdvancedThreatProtectionOutputArgs } from "./getAdvancedThreatProtection";
 export const getAdvancedThreatProtection: typeof import("./getAdvancedThreatProtection").getAdvancedThreatProtection = null as any;
@@ -412,8 +402,6 @@ const _module = {
                 return new APICollection(name, <any>undefined, { urn })
             case "azure-native:security:APICollectionByAzureApiManagementService":
                 return new APICollectionByAzureApiManagementService(name, <any>undefined, { urn })
-            case "azure-native:security:AdaptiveApplicationControl":
-                return new AdaptiveApplicationControl(name, <any>undefined, { urn })
             case "azure-native:security:AdvancedThreatProtection":
                 return new AdvancedThreatProtection(name, <any>undefined, { urn })
             case "azure-native:security:AlertsSuppressionRule":

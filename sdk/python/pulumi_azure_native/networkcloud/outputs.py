@@ -63,6 +63,7 @@ __all__ = [
     'SshPublicKeyResponse',
     'StorageApplianceConfigurationDataResponse',
     'StorageProfileResponse',
+    'StringKeyValuePairResponse',
     'SystemDataResponse',
     'TrunkedNetworkAttachmentConfigurationResponse',
     'ValidationThresholdResponse',
@@ -3464,6 +3465,35 @@ class StorageProfileResponse(dict):
         The resource IDs of volumes that are requested to be attached to the virtual machine.
         """
         return pulumi.get(self, "volume_attachments")
+
+
+@pulumi.output_type
+class StringKeyValuePairResponse(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The key to the mapped value.
+        :param str value: The value of the mapping key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key to the mapped value.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the mapping key.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

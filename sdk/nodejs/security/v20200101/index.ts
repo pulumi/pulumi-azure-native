@@ -5,20 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AdaptiveApplicationControlArgs } from "./adaptiveApplicationControl";
-export type AdaptiveApplicationControl = import("./adaptiveApplicationControl").AdaptiveApplicationControl;
-export const AdaptiveApplicationControl: typeof import("./adaptiveApplicationControl").AdaptiveApplicationControl = null as any;
-utilities.lazyLoad(exports, ["AdaptiveApplicationControl"], () => require("./adaptiveApplicationControl"));
-
 export { AssessmentArgs } from "./assessment";
 export type Assessment = import("./assessment").Assessment;
 export const Assessment: typeof import("./assessment").Assessment = null as any;
 utilities.lazyLoad(exports, ["Assessment"], () => require("./assessment"));
-
-export { GetAdaptiveApplicationControlArgs, GetAdaptiveApplicationControlResult, GetAdaptiveApplicationControlOutputArgs } from "./getAdaptiveApplicationControl";
-export const getAdaptiveApplicationControl: typeof import("./getAdaptiveApplicationControl").getAdaptiveApplicationControl = null as any;
-export const getAdaptiveApplicationControlOutput: typeof import("./getAdaptiveApplicationControl").getAdaptiveApplicationControlOutput = null as any;
-utilities.lazyLoad(exports, ["getAdaptiveApplicationControl","getAdaptiveApplicationControlOutput"], () => require("./getAdaptiveApplicationControl"));
 
 export { GetAssessmentArgs, GetAssessmentResult, GetAssessmentOutputArgs } from "./getAssessment";
 export const getAssessment: typeof import("./getAssessment").getAssessment = null as any;
@@ -53,8 +43,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:security/v20200101:AdaptiveApplicationControl":
-                return new AdaptiveApplicationControl(name, <any>undefined, { urn })
             case "azure-native:security/v20200101:Assessment":
                 return new Assessment(name, <any>undefined, { urn })
             case "azure-native:security/v20200101:JitNetworkAccessPolicy":

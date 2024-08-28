@@ -1469,6 +1469,7 @@ NetworkCloud:
         ClusterManager: 2023-10-01-preview
         Console: 2023-10-01-preview
         KubernetesCluster: 2023-10-01-preview
+        KubernetesClusterFeature: 2024-06-01-preview
         L2Network: 2023-10-01-preview
         L3Network: 2023-10-01-preview
         MetricsConfiguration: 2023-10-01-preview
@@ -1630,7 +1631,6 @@ Security:
     additions:
         APICollection: 2022-11-20-preview
         APICollectionByAzureApiManagementService: "2023-11-15"
-        AdaptiveApplicationControl: "2020-01-01"
         AdvancedThreatProtection: "2019-01-01"
         AlertsSuppressionRule: 2019-01-01-preview
         Application: 2022-07-01-preview

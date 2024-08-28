@@ -251,7 +251,8 @@
     "2023-12-01"
   ],
   "Consumption": [
-    "2023-11-01"
+    "2023-11-01",
+    "2024-08-01"
   ],
   "ContainerInstance": [
     "2024-05-01-preview"
@@ -445,7 +446,8 @@
   "Databricks": [
     "2023-05-01",
     "2023-09-15-preview",
-    "2024-05-01"
+    "2024-05-01",
+    "2024-09-01-preview"
   ],
   "Datadog": [
     "2022-08-01",
@@ -617,7 +619,9 @@
     "2024-05-20-preview",
     "2024-07-10"
   ],
-  "HybridConnectivity": [],
+  "HybridConnectivity": [
+    "2024-12-01"
+  ],
   "HybridContainerService": [
     "2023-11-15-preview",
     "2024-01-01"
@@ -928,7 +932,9 @@
     "2024-06-01"
   ],
   "NetworkAnalytics": [],
-  "NetworkCloud": [],
+  "NetworkCloud": [
+    "2024-06-01-preview"
+  ],
   "NetworkFunction": [],
   "NotificationHubs": [
     "2023-09-01",
@@ -1255,6 +1261,7 @@
   "WorkloadMonitor": [],
   "Workloads": [
     "2023-10-01-preview",
-    "2023-12-01-preview"
+    "2023-12-01-preview",
+    "2024-09-01"
   ]
 }

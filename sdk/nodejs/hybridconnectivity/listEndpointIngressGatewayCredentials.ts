@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the ingress gateway endpoint credentials
  * Azure REST API version: 2023-03-15.
+ *
+ * Other available API versions: 2024-12-01.
  */
 export function listEndpointIngressGatewayCredentials(args: ListEndpointIngressGatewayCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointIngressGatewayCredentialsResult> {
 
@@ -85,6 +87,8 @@ export interface ListEndpointIngressGatewayCredentialsResult {
 /**
  * Gets the ingress gateway endpoint credentials
  * Azure REST API version: 2023-03-15.
+ *
+ * Other available API versions: 2024-12-01.
  */
 export function listEndpointIngressGatewayCredentialsOutput(args: ListEndpointIngressGatewayCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointIngressGatewayCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listEndpointIngressGatewayCredentials(a, opts))

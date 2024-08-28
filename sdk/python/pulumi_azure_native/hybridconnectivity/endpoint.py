@@ -189,7 +189,7 @@ class Endpoint(pulumi.CustomResource):
         The endpoint for the target resource.
         Azure REST API version: 2023-03-15. Prior API version in Azure Native 1.x: 2022-05-01-preview.
 
-        Other available API versions: 2022-05-01-preview.
+        Other available API versions: 2022-05-01-preview, 2024-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,7 +213,7 @@ class Endpoint(pulumi.CustomResource):
         The endpoint for the target resource.
         Azure REST API version: 2023-03-15. Prior API version in Azure Native 1.x: 2022-05-01-preview.
 
-        Other available API versions: 2022-05-01-preview.
+        Other available API versions: 2022-05-01-preview, 2024-12-01.
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.
@@ -262,7 +262,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridconnectivity/v20211006preview:Endpoint"), pulumi.Alias(type_="azure-native:hybridconnectivity/v20220501preview:Endpoint"), pulumi.Alias(type_="azure-native:hybridconnectivity/v20230315:Endpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridconnectivity/v20211006preview:Endpoint"), pulumi.Alias(type_="azure-native:hybridconnectivity/v20220501preview:Endpoint"), pulumi.Alias(type_="azure-native:hybridconnectivity/v20230315:Endpoint"), pulumi.Alias(type_="azure-native:hybridconnectivity/v20241201:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
             'azure-native:hybridconnectivity:Endpoint',

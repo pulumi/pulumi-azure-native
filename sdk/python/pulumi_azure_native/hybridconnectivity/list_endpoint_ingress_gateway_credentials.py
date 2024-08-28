@@ -155,6 +155,8 @@ def list_endpoint_ingress_gateway_credentials(endpoint_name: Optional[str] = Non
     Gets the ingress gateway endpoint credentials
     Azure REST API version: 2023-03-15.
 
+    Other available API versions: 2024-12-01.
+
 
     :param str endpoint_name: The endpoint name.
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
@@ -190,6 +192,8 @@ def list_endpoint_ingress_gateway_credentials_output(endpoint_name: Optional[pul
     """
     Gets the ingress gateway endpoint credentials
     Azure REST API version: 2023-03-15.
+
+    Other available API versions: 2024-12-01.
 
 
     :param str endpoint_name: The endpoint name.

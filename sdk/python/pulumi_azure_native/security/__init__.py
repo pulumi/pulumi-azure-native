@@ -6,7 +6,6 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .adaptive_application_control import *
 from .advanced_threat_protection import *
 from .alerts_suppression_rule import *
 from .api_collection import *
@@ -25,7 +24,6 @@ from .defender_for_storage import *
 from .dev_ops_configuration import *
 from .dev_ops_policy_assignment import *
 from .device_security_group import *
-from .get_adaptive_application_control import *
 from .get_advanced_threat_protection import *
 from .get_alerts_suppression_rule import *
 from .get_api_collection import *

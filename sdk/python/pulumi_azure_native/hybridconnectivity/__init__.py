@@ -22,7 +22,10 @@ if typing.TYPE_CHECKING:
     v20220501preview = __v20220501preview
     import pulumi_azure_native.hybridconnectivity.v20230315 as __v20230315
     v20230315 = __v20230315
+    import pulumi_azure_native.hybridconnectivity.v20241201 as __v20241201
+    v20241201 = __v20241201
 else:
     v20220501preview = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity.v20220501preview')
     v20230315 = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity.v20230315')
+    v20241201 = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity.v20241201')
 

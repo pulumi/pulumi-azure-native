@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.ContainerService.V20240402Preview.Inputs
         private InputList<Inputs.ManualScaleProfileArgs>? _manual;
 
         /// <summary>
-        /// Specifications on how to scale the VirtualMachines agent pool to a fixed size. Currently, at most one ManualScaleProfile is allowed.
+        /// Specifications on how to scale the VirtualMachines agent pool to a fixed size.
         /// </summary>
         public InputList<Inputs.ManualScaleProfileArgs> Manual
         {

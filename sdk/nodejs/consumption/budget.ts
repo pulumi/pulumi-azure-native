@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A budget resource.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2019-10-01.
  *
- * Other available API versions: 2017-12-30-preview, 2018-10-01, 2019-05-01, 2019-06-01, 2023-11-01.
+ * Other available API versions: 2017-12-30-preview, 2018-10-01, 2019-05-01, 2019-06-01, 2023-11-01, 2024-08-01.
  */
 export class Budget extends pulumi.CustomResource {
     /**
@@ -138,7 +138,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:consumption/v20190101:Budget" }, { type: "azure-native:consumption/v20190401preview:Budget" }, { type: "azure-native:consumption/v20190501:Budget" }, { type: "azure-native:consumption/v20190501preview:Budget" }, { type: "azure-native:consumption/v20190601:Budget" }, { type: "azure-native:consumption/v20191001:Budget" }, { type: "azure-native:consumption/v20191101:Budget" }, { type: "azure-native:consumption/v20210501:Budget" }, { type: "azure-native:consumption/v20211001:Budget" }, { type: "azure-native:consumption/v20220901:Budget" }, { type: "azure-native:consumption/v20230301:Budget" }, { type: "azure-native:consumption/v20230501:Budget" }, { type: "azure-native:consumption/v20231101:Budget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:consumption/v20190101:Budget" }, { type: "azure-native:consumption/v20190401preview:Budget" }, { type: "azure-native:consumption/v20190501:Budget" }, { type: "azure-native:consumption/v20190501preview:Budget" }, { type: "azure-native:consumption/v20190601:Budget" }, { type: "azure-native:consumption/v20191001:Budget" }, { type: "azure-native:consumption/v20191101:Budget" }, { type: "azure-native:consumption/v20210501:Budget" }, { type: "azure-native:consumption/v20211001:Budget" }, { type: "azure-native:consumption/v20220901:Budget" }, { type: "azure-native:consumption/v20230301:Budget" }, { type: "azure-native:consumption/v20230501:Budget" }, { type: "azure-native:consumption/v20231101:Budget" }, { type: "azure-native:consumption/v20240801:Budget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Budget.__pulumiType, name, resourceInputs, opts);
     }

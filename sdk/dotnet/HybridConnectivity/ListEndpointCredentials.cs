@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// Gets the endpoint access credentials to the resource.
         /// Azure REST API version: 2023-03-15.
         /// 
-        /// Other available API versions: 2022-05-01-preview.
+        /// Other available API versions: 2022-05-01-preview, 2024-12-01.
         /// </summary>
         public static Task<ListEndpointCredentialsResult> InvokeAsync(ListEndpointCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEndpointCredentialsResult>("azure-native:hybridconnectivity:listEndpointCredentials", args ?? new ListEndpointCredentialsArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// Gets the endpoint access credentials to the resource.
         /// Azure REST API version: 2023-03-15.
         /// 
-        /// Other available API versions: 2022-05-01-preview.
+        /// Other available API versions: 2022-05-01-preview, 2024-12-01.
         /// </summary>
         public static Output<ListEndpointCredentialsResult> Invoke(ListEndpointCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointCredentialsResult>("azure-native:hybridconnectivity:listEndpointCredentials", args ?? new ListEndpointCredentialsInvokeArgs(), options.WithDefaults());

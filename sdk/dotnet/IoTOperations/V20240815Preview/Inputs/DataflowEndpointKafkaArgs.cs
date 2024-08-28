@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.IoTOperations.V20240815Preview.Inputs
         /// <summary>
         /// Kafka endpoint host.
         /// </summary>
-        [Input("host")]
-        public Input<string>? Host { get; set; }
+        [Input("host", required: true)]
+        public Input<string> Host { get; set; } = null!;
 
         /// <summary>
         /// Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.

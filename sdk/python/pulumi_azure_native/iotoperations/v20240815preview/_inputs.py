@@ -3687,6 +3687,10 @@ if not MYPY:
         """
         Authentication configuration. NOTE - only authentication property is allowed per entry.
         """
+        host: pulumi.Input[str]
+        """
+        Kafka endpoint host.
+        """
         batching: NotRequired[pulumi.Input['DataflowEndpointKafkaBatchingArgsDict']]
         """
         Batching configuration.
@@ -3707,10 +3711,6 @@ if not MYPY:
         """
         Copy Broker properties. No effect if the endpoint is used as a source or if the dataflow doesn't have an Broker source.
         """
-        host: NotRequired[pulumi.Input[str]]
-        """
-        Kafka endpoint host.
-        """
         kafka_acks: NotRequired[pulumi.Input[Union[str, 'DataflowEndpointKafkaAcks']]]
         """
         Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
@@ -3730,29 +3730,30 @@ elif False:
 class DataflowEndpointKafkaArgs:
     def __init__(__self__, *,
                  authentication: pulumi.Input['DataflowEndpointKafkaAuthenticationArgs'],
+                 host: pulumi.Input[str],
                  batching: Optional[pulumi.Input['DataflowEndpointKafkaBatchingArgs']] = None,
                  cloud_event_attributes: Optional[pulumi.Input[Union[str, 'CloudEventAttributeType']]] = None,
                  compression: Optional[pulumi.Input[Union[str, 'DataflowEndpointKafkaCompression']]] = None,
                  consumer_group_id: Optional[pulumi.Input[str]] = None,
                  copy_mqtt_properties: Optional[pulumi.Input[Union[str, 'OperationalMode']]] = None,
-                 host: Optional[pulumi.Input[str]] = None,
                  kafka_acks: Optional[pulumi.Input[Union[str, 'DataflowEndpointKafkaAcks']]] = None,
                  partition_strategy: Optional[pulumi.Input[Union[str, 'DataflowEndpointKafkaPartitionStrategy']]] = None,
                  tls: Optional[pulumi.Input['TlsPropertiesArgs']] = None):
         """
         Kafka endpoint properties
         :param pulumi.Input['DataflowEndpointKafkaAuthenticationArgs'] authentication: Authentication configuration. NOTE - only authentication property is allowed per entry.
+        :param pulumi.Input[str] host: Kafka endpoint host.
         :param pulumi.Input['DataflowEndpointKafkaBatchingArgs'] batching: Batching configuration.
         :param pulumi.Input[Union[str, 'CloudEventAttributeType']] cloud_event_attributes: Cloud event mapping config.
         :param pulumi.Input[Union[str, 'DataflowEndpointKafkaCompression']] compression: Compression. Can be none, gzip, lz4, or snappy. No effect if the endpoint is used as a source.
         :param pulumi.Input[str] consumer_group_id: Consumer group ID.
         :param pulumi.Input[Union[str, 'OperationalMode']] copy_mqtt_properties: Copy Broker properties. No effect if the endpoint is used as a source or if the dataflow doesn't have an Broker source.
-        :param pulumi.Input[str] host: Kafka endpoint host.
         :param pulumi.Input[Union[str, 'DataflowEndpointKafkaAcks']] kafka_acks: Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
         :param pulumi.Input[Union[str, 'DataflowEndpointKafkaPartitionStrategy']] partition_strategy: Partition handling strategy. Can be default or static. No effect if the endpoint is used as a source.
         :param pulumi.Input['TlsPropertiesArgs'] tls: TLS configuration.
         """
         pulumi.set(__self__, "authentication", authentication)
+        pulumi.set(__self__, "host", host)
         if batching is not None:
             pulumi.set(__self__, "batching", batching)
         if cloud_event_attributes is not None:
@@ -3767,8 +3768,6 @@ class DataflowEndpointKafkaArgs:
             copy_mqtt_properties = 'Enabled'
         if copy_mqtt_properties is not None:
             pulumi.set(__self__, "copy_mqtt_properties", copy_mqtt_properties)
-        if host is not None:
-            pulumi.set(__self__, "host", host)
         if kafka_acks is None:
             kafka_acks = 'All'
         if kafka_acks is not None:
@@ -3791,6 +3790,18 @@ class DataflowEndpointKafkaArgs:
     @authentication.setter
     def authentication(self, value: pulumi.Input['DataflowEndpointKafkaAuthenticationArgs']):
         pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        """
+        Kafka endpoint host.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
 
     @property
     @pulumi.getter
@@ -3851,18 +3862,6 @@ class DataflowEndpointKafkaArgs:
     @copy_mqtt_properties.setter
     def copy_mqtt_properties(self, value: Optional[pulumi.Input[Union[str, 'OperationalMode']]]):
         pulumi.set(self, "copy_mqtt_properties", value)
-
-    @property
-    @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[str]]:
-        """
-        Kafka endpoint host.
-        """
-        return pulumi.get(self, "host")
-
-    @host.setter
-    def host(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "host", value)
 
     @property
     @pulumi.getter(name="kafkaAcks")
@@ -4136,8 +4135,6 @@ class DataflowEndpointMqttArgs:
             pulumi.set(__self__, "client_id_prefix", client_id_prefix)
         if cloud_event_attributes is not None:
             pulumi.set(__self__, "cloud_event_attributes", cloud_event_attributes)
-        if host is None:
-            host = 'aio-mq-dmqtt-frontend:8883'
         if host is not None:
             pulumi.set(__self__, "host", host)
         if keep_alive_seconds is None:

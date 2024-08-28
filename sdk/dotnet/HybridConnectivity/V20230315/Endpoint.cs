@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20230315
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20211006preview:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20220501preview:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20241201:Endpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

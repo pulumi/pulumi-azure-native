@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Get properties of the provided layer 2 (L2) network.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01.
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetL2NetworkResult> InvokeAsync(GetL2NetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetL2NetworkResult>("azure-native:networkcloud:getL2Network", args ?? new GetL2NetworkArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Get properties of the provided layer 2 (L2) network.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01.
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetL2NetworkResult> Invoke(GetL2NetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2NetworkResult>("azure-native:networkcloud:getL2Network", args ?? new GetL2NetworkInvokeArgs(), options.WithDefaults());

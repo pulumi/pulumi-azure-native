@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
     /// <summary>
     /// The service configuration details associated with the target resource.
     /// Azure REST API version: 2023-03-15.
+    /// 
+    /// Other available API versions: 2024-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity:ServiceConfiguration")]
     public partial class ServiceConfiguration : global::Pulumi.CustomResource
@@ -120,6 +122,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20230315:ServiceConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20241201:ServiceConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -214,6 +214,8 @@ def get_service_configuration(endpoint_name: Optional[str] = None,
     Gets the details about the service to the resource.
     Azure REST API version: 2023-03-15.
 
+    Other available API versions: 2024-12-01.
+
 
     :param str endpoint_name: The endpoint name.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
@@ -251,6 +253,8 @@ def get_service_configuration_output(endpoint_name: Optional[pulumi.Input[str]] 
     """
     Gets the details about the service to the resource.
     Azure REST API version: 2023-03-15.
+
+    Other available API versions: 2024-12-01.
 
 
     :param str endpoint_name: The endpoint name.

@@ -223,7 +223,7 @@ def get_console(console_name: Optional[str] = None,
     Get properties of the provided virtual machine console.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01.
+    Other available API versions: 2023-07-01, 2024-06-01-preview.
 
 
     :param str console_name: The name of the virtual machine console.
@@ -264,7 +264,7 @@ def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
     Get properties of the provided virtual machine console.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01.
+    Other available API versions: 2023-07-01, 2024-06-01-preview.
 
 
     :param str console_name: The name of the virtual machine console.

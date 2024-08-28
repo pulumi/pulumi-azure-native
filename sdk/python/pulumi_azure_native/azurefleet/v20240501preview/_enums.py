@@ -333,7 +333,7 @@ class NetworkApiVersion(str, Enum):
     resources in the Network Interface Configurations for Virtual Machine Scale Set
     with orchestration mode 'Flexible'
     """
-    NETWORK_API_VERSION_2020_11_01 = "2020-11-01"
+    V2020_11_01 = "2020-11-01"
     """
     Initial version supported. Later versions are supported as well.
     """
