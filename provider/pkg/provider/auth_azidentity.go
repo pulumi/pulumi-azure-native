@@ -13,38 +13,95 @@ import (
 	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 
 	hamiltonAuth "github.com/manicminer/hamilton-autorest/auth"
 )
 
-func newOidcCredential(tenantId, clientId string) (azcore.TokenCredential, error) {
+func newOidcCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
 	return azidentity.NewClientAssertionCredential(
-		tenantId, clientId,
+		authConf.tenantId,
+		authConf.clientId,
 		func(ctx context.Context) (string, error) {
-			// TODO,tkappler return the OIDC token
-			return "", nil
+			return authConf.oidcToken, nil
 		},
-		&azidentity.ClientAssertionCredentialOptions{})
+		nil)
 }
 
-func newPulumiAuthCredential() (*azidentity.ChainedTokenCredential, error) {
-	cli, err := azidentity.NewAzureCLICredential(nil)
+func (k *azureNativeProvider) newPulumiAuthCredential() (*azidentity.ChainedTokenCredential, error) {
+	authConf, err := k.getAuthConfig3()
 	if err != nil {
 		return nil, err
 	}
 
-	return azidentity.NewChainedTokenCredential([]azcore.TokenCredential{
-		cli,
-	}, nil)
+	var credentials []azcore.TokenCredential
+	var errs []error
+	add := func(cred azcore.TokenCredential, name string, err error) ([]azcore.TokenCredential, []error) {
+		if err != nil {
+			errs = append(errs, err)
+			logging.V(9).Infof("%s credential cannot be used: %v", name, err)
+		} else {
+			credentials = append(credentials, cred)
+			logging.V(9).Infof("%s credential is valid and will be considered", name)
+		}
+		return credentials, errs
+	}
+
+	spCert, err := azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, nil)
+	credentials, errs = add(spCert, "SP with client secret", err)
+
+	oidc, err := newOidcCredential(authConf)
+	credentials, errs = add(oidc, "OIDC", err)
+
+	// TODO,tkappler using it as-is in the chain causes a hard failure when the MSI endpoint is not available
+	// managedIdentity, err := azidentity.NewManagedIdentityCredential(nil)
+	// credentials, errs = add(managedIdentity, "Managed Identity", err)
+
+	cli, err := azidentity.NewAzureCLICredential(nil)
+	credentials, errs = add(cli, "Azure CLI", err)
+
+	if len(credentials) == 0 {
+		return nil, errors.Errorf("Failed to find valid credentials: %v", errs)
+	}
+
+	return azidentity.NewChainedTokenCredential(credentials, nil)
 }
 
 type authConfiguration struct {
 	subscriptionId string
-	tenantId       string
-	clientId       string
-	oidcToken      string
-	auxTenants     []string
 	cloud          string
+
+	clientId   string
+	tenantId   string
+	auxTenants []string
+
+	oidcToken    string
+	clientSecret string
+}
+
+func (k *azureNativeProvider) getAuthConfig3() (*authConfiguration, error) {
+	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
+	var auxTenants []string
+	if auxTenantsString != "" {
+		err := json.Unmarshal([]byte(auxTenantsString), &auxTenants)
+		if err != nil {
+			return nil, errors.Wrapf(err, "failed to unmarshal '%s' as Auxiliary Tenants", auxTenantsString)
+		}
+	}
+
+	envName := k.getConfig("environment", "ARM_ENVIRONMENT")
+	if envName == "" {
+		envName = "public"
+	}
+
+	return &authConfiguration{
+		subscriptionId: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
+		clientId:       k.getConfig("clientId", "ARM_CLIENT_ID"),
+		tenantId:       k.getConfig("tenantId", "ARM_TENANT_ID"),
+		auxTenants:     auxTenants,
+		cloud:          envName,
+		clientSecret:   k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
+	}, nil
 }
 
 func (k *azureNativeProvider) getAuthConfig2() (*authConfig, error) {
