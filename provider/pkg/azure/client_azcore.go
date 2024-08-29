@@ -80,7 +80,7 @@ func (c *azCoreClient) Get(ctx context.Context, id string, apiVersion string) (a
 
 	var responseBody map[string]interface{}
 	if err := runtime.UnmarshalAsJSON(resp, &responseBody); err != nil {
-		return nil, err
+		return nil, handleAzCoreResponseError(err, resp)
 	}
 	return responseBody, nil
 }
@@ -166,7 +166,7 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 
 	var outputs map[string]any
 	if err := runtime.UnmarshalAsJSON(resp, &outputs); err != nil {
-		return nil, false, err
+		return nil, false, handleAzCoreResponseError(err, resp)
 	}
 
 	// Some APIs are explicitly marked `x-ms-long-running-operation` and we are only supposed to poll
@@ -258,7 +258,7 @@ func (c *azCoreClient) Post(ctx context.Context, id string, bodyProps map[string
 
 	var responseBody map[string]interface{}
 	err = runtime.UnmarshalAsJSON(resp, &responseBody)
-	return responseBody, err
+	return responseBody, handleAzCoreResponseError(err, resp)
 }
 
 func (c *azCoreClient) Head(ctx context.Context, id string, apiVersion string) error {
@@ -306,7 +306,7 @@ func (c *azCoreClient) CanCreate(ctx context.Context, id, path, apiVersion, read
 		// isn't very principled but is based on what subjectively feels best for the current examples.
 		var outputs map[string]interface{}
 		if err := runtime.UnmarshalAsJSON(resp, &outputs); err != nil {
-			return err
+			return handleAzCoreResponseError(err, resp)
 		}
 		if !isDefaultResponse(outputs) {
 			return fmt.Errorf("cannot create already existing subresource '%s'", id)
@@ -337,4 +337,20 @@ func (c *azCoreClient) CanCreate(ctx context.Context, id, path, apiVersion, read
 		body, _ := io.ReadAll(resp.Body)
 		return fmt.Errorf("cannot check existence of resource '%s': status code %d, %s", id, resp.StatusCode, body)
 	}
+}
+
+// handleResponseError checks for certain kinds of errors and returns a more informative error message.
+// Most of the time, it will return the original error.
+func handleAzCoreResponseError(err error, resp *http.Response) error {
+	if err == nil {
+		return nil
+	}
+
+	if strings.Contains(err.Error(), "unmarshalling type ") {
+		// The service returned a non-JSON response, which is unexpected. The JSON unmarshaling error is not
+		// useful; return the response body and the HTTP status as an error.
+		body, _ := io.ReadAll(resp.Body)
+		return fmt.Errorf("unexpected response from Azure: '%s', HTTP status: %s", body, resp.Status)
+	}
+	return err
 }

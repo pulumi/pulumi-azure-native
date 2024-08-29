@@ -4,13 +4,17 @@ package azure
 
 import (
 	"context"
+	"errors"
+	"io"
 	"net/http"
+	"strings"
 	"testing"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -97,4 +101,32 @@ func newClientWithPreparedResponses(responses []*http.Response) *azCoreClient {
 	}
 
 	return NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts).(*azCoreClient)
+}
+
+func TestHandleResponseError(t *testing.T) {
+	t.Run("Cannot unmarshal JSON", func(t *testing.T) {
+		resp := http.Response{
+			Body:   io.NopCloser(strings.NewReader("not JSON")),
+			Status: "400 Bad Request",
+		}
+
+		var outputs map[string]any
+		err := runtime.UnmarshalAsJSON(&resp, &outputs)
+
+		handledErr := handleAzCoreResponseError(err, &resp)
+		require.Error(t, handledErr)
+		assert.Contains(t, handledErr.Error(), "not JSON")
+		assert.Contains(t, handledErr.Error(), "400 Bad Request")
+	})
+
+	t.Run("no changes to error", func(t *testing.T) {
+		resp := http.Response{
+			Body: io.NopCloser(strings.NewReader(`{"status": "ok"}`)),
+		}
+
+		err := errors.New("some error unrelated to unmarshaling")
+
+		handledErr := handleAzCoreResponseError(err, &resp)
+		assert.Same(t, err, handledErr)
+	})
 }
