@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// Security Rule resource.
     /// Azure REST API version: 2024-02-01-preview.
+    /// 
+    /// Other available API versions: 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:SecurityRule")]
     public partial class SecurityRule : global::Pulumi.CustomResource
@@ -126,6 +128,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240201preview:SecurityRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240501preview:SecurityRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

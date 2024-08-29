@@ -226,6 +226,8 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
     Gets the specified security rule.
     Azure REST API version: 2024-02-01-preview.
 
+    Other available API versions: 2024-05-01-preview.
+
 
     :param str network_security_group_name: Name of the network security group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -264,6 +266,8 @@ def get_security_rule_output(network_security_group_name: Optional[pulumi.Input[
     """
     Gets the specified security rule.
     Azure REST API version: 2024-02-01-preview.
+
+    Other available API versions: 2024-05-01-preview.
 
 
     :param str network_security_group_name: Name of the network security group

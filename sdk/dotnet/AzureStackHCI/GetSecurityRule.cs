@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets the specified security rule.
         /// Azure REST API version: 2024-02-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Task<GetSecurityRuleResult> InvokeAsync(GetSecurityRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-native:azurestackhci:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Gets the specified security rule.
         /// Azure REST API version: 2024-02-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Output<GetSecurityRuleResult> Invoke(GetSecurityRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityRuleResult>("azure-native:azurestackhci:getSecurityRule", args ?? new GetSecurityRuleInvokeArgs(), options.WithDefaults());

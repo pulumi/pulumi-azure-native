@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The virtual hard disk resource definition.
  * Azure REST API version: 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview.
  */
 export class VirtualHardDisk extends pulumi.CustomResource {
     /**
@@ -147,7 +147,7 @@ export class VirtualHardDisk extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20230701preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20230901preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240101:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240201preview:VirtualHardDisk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20230701preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20230901preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240101:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240201preview:VirtualHardDisk" }, { type: "azure-native:azurestackhci/v20240501preview:VirtualHardDisk" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualHardDisk.__pulumiType, name, resourceInputs, opts);
     }

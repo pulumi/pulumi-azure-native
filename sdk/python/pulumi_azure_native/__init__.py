@@ -3321,6 +3321,23 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azurestackhci/v20240501preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20240501preview",
+  "classes": {
+   "azure-native:azurestackhci/v20240501preview:GalleryImage": "GalleryImage",
+   "azure-native:azurestackhci/v20240501preview:GuestAgent": "GuestAgent",
+   "azure-native:azurestackhci/v20240501preview:LogicalNetwork": "LogicalNetwork",
+   "azure-native:azurestackhci/v20240501preview:MarketplaceGalleryImage": "MarketplaceGalleryImage",
+   "azure-native:azurestackhci/v20240501preview:NetworkInterface": "NetworkInterface",
+   "azure-native:azurestackhci/v20240501preview:NetworkSecurityGroup": "NetworkSecurityGroup",
+   "azure-native:azurestackhci/v20240501preview:SecurityRule": "SecurityRule",
+   "azure-native:azurestackhci/v20240501preview:StorageContainer": "StorageContainer",
+   "azure-native:azurestackhci/v20240501preview:VirtualHardDisk": "VirtualHardDisk",
+   "azure-native:azurestackhci/v20240501preview:VirtualMachineInstance": "VirtualMachineInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "baremetalinfrastructure",
   "fqn": "pulumi_azure_native.baremetalinfrastructure",
   "classes": {

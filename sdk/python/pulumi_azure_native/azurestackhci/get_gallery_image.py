@@ -237,7 +237,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
     Gets a gallery image
     Azure REST API version: 2022-12-15-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview.
 
 
     :param str gallery_image_name: Name of the gallery image
@@ -276,7 +276,7 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
     Gets a gallery image
     Azure REST API version: 2022-12-15-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview.
 
 
     :param str gallery_image_name: Name of the gallery image

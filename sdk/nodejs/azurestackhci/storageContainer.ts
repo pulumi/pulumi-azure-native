@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The storage container resource definition.
  * Azure REST API version: 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview.
  */
 export class StorageContainer extends pulumi.CustomResource {
     /**
@@ -114,7 +114,7 @@ export class StorageContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20221215preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20230701preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20230901preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240101:StorageContainer" }, { type: "azure-native:azurestackhci/v20240201preview:StorageContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20221215preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20230701preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20230901preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240101:StorageContainer" }, { type: "azure-native:azurestackhci/v20240201preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240501preview:StorageContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageContainer.__pulumiType, name, resourceInputs, opts);
     }

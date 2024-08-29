@@ -119,6 +119,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:storagecontainerRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240201preview:StoragecontainerRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240201preview:storagecontainerRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240501preview:StoragecontainerRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240501preview:storagecontainerRetrieve" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
