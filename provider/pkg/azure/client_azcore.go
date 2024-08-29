@@ -15,6 +15,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	armruntime "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/log"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
@@ -28,6 +29,20 @@ type azCoreClient struct {
 }
 
 func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, azureCloud cloud.Configuration, opts *arm.ClientOptions) AzureClient {
+	log.SetListener(func(event log.Event, msg string) {
+		// Retry logging is very verbose and the number of the retry attempt is already contained
+		// in the response event.
+		if event != log.EventRetryPolicy {
+			logging.V(9).Infof("[azcore] %v: %s", event, msg)
+		}
+	})
+
+	if opts == nil {
+		opts = &arm.ClientOptions{}
+	}
+	// azcore logging will only happen at log level 9.
+	opts.Logging.IncludeBody = true
+
 	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", version.Version, tokenCredential,
 		runtime.PipelineOptions{}, opts)
 	if err != nil {
