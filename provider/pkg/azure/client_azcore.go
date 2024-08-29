@@ -283,7 +283,7 @@ func (c *azCoreClient) Head(ctx context.Context, id string, apiVersion string) e
 func (c *azCoreClient) CanCreate(ctx context.Context, id, path, apiVersion, readMethod string,
 	isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool,
 ) error {
-	req, err := c.initRequest(ctx, readMethod, path, apiVersion)
+	req, err := c.initRequest(ctx, readMethod, id+path, apiVersion)
 	if err != nil {
 		return err
 	}
