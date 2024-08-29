@@ -3514,7 +3514,8 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2024-01-01",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-05-01-preview"
     ],
     "GuestAgent": [
       "2021-09-01-preview",
@@ -3522,7 +3523,8 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2024-01-01",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-05-01-preview"
     ],
     "HybridIdentityMetadatum": [
       "2021-09-01-preview",
@@ -3531,7 +3533,8 @@
     "LogicalNetwork": [
       "2023-09-01-preview",
       "2024-01-01",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-05-01-preview"
     ],
     "MachineExtension": [
       "2021-09-01-preview",
@@ -3542,20 +3545,24 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2024-01-01",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-05-01-preview"
     ],
     "NetworkInterface": [
       "2022-12-15-preview",
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2024-01-01",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-05-01-preview"
     ],
     "NetworkSecurityGroup": [
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-05-01-preview"
     ],
     "SecurityRule": [
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-05-01-preview"
     ],
     "SecuritySetting": [
       "2023-11-01-preview",
@@ -3568,7 +3575,8 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2024-01-01",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-05-01-preview"
     ],
     "Update": [
       "2022-12-01",
@@ -3614,7 +3622,8 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2024-01-01",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-05-01-preview"
     ],
     "VirtualMachine": [
       "2022-12-15-preview"
@@ -3623,7 +3632,8 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2024-01-01",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-05-01-preview"
     ],
     "VirtualNetwork": [
       "2022-12-15-preview",

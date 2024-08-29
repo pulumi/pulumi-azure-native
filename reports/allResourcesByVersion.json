@@ -3323,6 +3323,18 @@
       "Update",
       "UpdateRun",
       "UpdateSummary"
+    ],
+    "2024-05-01-preview": [
+      "GalleryImage",
+      "GuestAgent",
+      "LogicalNetwork",
+      "MarketplaceGalleryImage",
+      "NetworkInterface",
+      "NetworkSecurityGroup",
+      "SecurityRule",
+      "StorageContainer",
+      "VirtualHardDisk",
+      "VirtualMachineInstance"
     ]
   },
   "BareMetalInfrastructure": {
