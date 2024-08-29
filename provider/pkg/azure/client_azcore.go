@@ -101,7 +101,7 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 	}
 
 	// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
-	// Future+WaitForCompletion+GetResult steps in that case.
+	// poll for the deletion result in that case.
 	if asyncStyle != "" {
 		pt, err := runtime.NewPoller[any](resp, c.pipeline, nil)
 		if err != nil {
@@ -169,8 +169,8 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		return nil, false, err
 	}
 
-	// Some APIs are explicitly marked `x-ms-long-running-operation` and we are only supposed to do the
-	// Future+WaitForCompletion+GetResult steps in that case. However, if we get 202, we don't want to
+	// Some APIs are explicitly marked `x-ms-long-running-operation` and we are only supposed to poll
+	// for the result in that case. However, if we get 202, we don't want to
 	// consider this a failure - so try following the awaiting protocol in case the service hasn't marked
 	// its API as long-running by an oversight.
 	created := false
