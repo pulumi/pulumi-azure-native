@@ -108,7 +108,7 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 			return err
 		}
 		_, err = pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
-			Frequency: 10 * time.Second,
+			Frequency: 30 * time.Second, // same as autorest.DefaultPollingDelay
 		})
 		if err != nil {
 			respErr := err.(*azcore.ResponseError)
