@@ -68,7 +68,7 @@ func main() {
 
 		// Although Azure returns success on creation of the Service Principal, we would often see
 		// "Searching service principal failed. Details: service principal is not found" errors without this sleep.
-		time.Sleep(10 * time.Second)
+		time.Sleep(20 * time.Second)
 
 		cluster, err := containerservice.NewManagedCluster(ctx, "cluster", &containerservice.ManagedClusterArgs{
 			ResourceName:      randomClusterName.Result,

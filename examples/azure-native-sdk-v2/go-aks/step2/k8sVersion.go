@@ -1,3 +1,3 @@
 package main
 
-const k8sVersion = "1.28.9"
+const k8sVersion = "1.30.3"
