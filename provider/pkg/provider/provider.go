@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"log"
 	"math"
-	"net/http"
 	"os"
 	"reflect"
 	"regexp"
@@ -1140,7 +1139,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	}
 	if err != nil {
-		if reqErr, ok := err.(*azureEnv.RequestError); ok && reqErr.StatusCode == http.StatusNotFound {
+		if azure.IsNotFound(err) {
 			// 404 means that the resource was deleted.
 			return &rpc.ReadResponse{Id: ""}, nil
 		}
