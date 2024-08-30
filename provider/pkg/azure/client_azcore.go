@@ -238,6 +238,9 @@ func normalizeLocationHeader(host, apiVersion string, headers http.Header) {
 		return
 	}
 
+	// Relative polling URLs should never happen since the Azure RPC spec requires absolute polling
+	// URLs. We have observed it once, though. We will try to make it absolute in that case.
+	// https://github.com/Azure/azure-sdk-for-go/issues/23385
 	if !locUrl.IsAbs() {
 		locUrl.Host = host
 		absUrlStr := runtime.JoinPaths(host, locUrlStr)
