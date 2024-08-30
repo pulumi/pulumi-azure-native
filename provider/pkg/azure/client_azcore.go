@@ -43,6 +43,15 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 	// azcore logging will only happen at log level 9.
 	opts.Logging.IncludeBody = true
 
+	// We're trying to configure retries to be similar to the previous Autorest client. The backoff
+	// algorithms are hard-coded so they can't be identical.
+	// The previous backoff sequence was 30s, 60s, 120s.
+	// The new backoff sequence is       20s, 60s, 120s.
+	// It's notable, however, that the azcore default backoff sequence is only 1s, 3s, 7s. We might
+	// consider moving a bit towards a faster sequence, e.g. 10s, 30s, 70s.
+	opts.Retry.RetryDelay = 20 * time.Second
+	opts.Retry.MaxRetryDelay = 120 * time.Second
+
 	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", version.Version, tokenCredential,
 		runtime.PipelineOptions{}, opts)
 	if err != nil {
