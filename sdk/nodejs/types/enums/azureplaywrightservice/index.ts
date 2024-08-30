@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20231001preview from "./v20231001preview";
 import * as v20240201preview from "./v20240201preview";
+import * as v20240801preview from "./v20240801preview";
 
 export {
     v20231001preview,
     v20240201preview,
+    v20240801preview,
 };
 
 export const EnablementStatus = {

@@ -177,7 +177,7 @@ def get_account(name: Optional[str] = None,
     Get a Account
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2024-02-01-preview.
+    Other available API versions: 2024-02-01-preview, 2024-08-01-preview.
 
 
     :param str name: Name of account
@@ -211,7 +211,7 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
     Get a Account
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2024-02-01-preview.
+    Other available API versions: 2024-02-01-preview, 2024-08-01-preview.
 
 
     :param str name: Name of account

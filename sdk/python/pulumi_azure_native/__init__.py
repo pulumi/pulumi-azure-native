@@ -2996,6 +2996,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azureplaywrightservice/v20240801preview",
+  "fqn": "pulumi_azure_native.azureplaywrightservice.v20240801preview",
+  "classes": {
+   "azure-native:azureplaywrightservice/v20240801preview:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azuresphere",
   "fqn": "pulumi_azure_native.azuresphere",
   "classes": {

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
         /// Get a Account
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2024-02-01-preview.
+        /// Other available API versions: 2024-02-01-preview, 2024-08-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:azureplaywrightservice:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
         /// Get a Account
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2024-02-01-preview.
+        /// Other available API versions: 2024-02-01-preview, 2024-08-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:azureplaywrightservice:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

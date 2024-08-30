@@ -160,7 +160,7 @@ class Account(pulumi.CustomResource):
         An account resource
         Azure REST API version: 2023-10-01-preview.
 
-        Other available API versions: 2024-02-01-preview.
+        Other available API versions: 2024-02-01-preview, 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +182,7 @@ class Account(pulumi.CustomResource):
         An account resource
         Azure REST API version: 2023-10-01-preview.
 
-        Other available API versions: 2024-02-01-preview.
+        Other available API versions: 2024-02-01-preview, 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -234,7 +234,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azureplaywrightservice/v20231001preview:Account"), pulumi.Alias(type_="azure-native:azureplaywrightservice/v20240201preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azureplaywrightservice/v20231001preview:Account"), pulumi.Alias(type_="azure-native:azureplaywrightservice/v20240201preview:Account"), pulumi.Alias(type_="azure-native:azureplaywrightservice/v20240801preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:azureplaywrightservice:Account',

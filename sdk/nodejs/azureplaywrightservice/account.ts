@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An account resource
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2024-02-01-preview.
+ * Other available API versions: 2024-02-01-preview, 2024-08-01-preview.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -119,7 +119,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azureplaywrightservice/v20231001preview:Account" }, { type: "azure-native:azureplaywrightservice/v20240201preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azureplaywrightservice/v20231001preview:Account" }, { type: "azure-native:azureplaywrightservice/v20240201preview:Account" }, { type: "azure-native:azureplaywrightservice/v20240801preview:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }
