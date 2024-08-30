@@ -29,7 +29,9 @@ type azCoreClient struct {
 	userAgent string
 }
 
-func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, azureCloud cloud.Configuration, opts *arm.ClientOptions) AzureClient {
+func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, azureCloud cloud.Configuration, opts *arm.ClientOptions,
+) (AzureClient, error) {
+	// Hook our logging up to the azcore logger.
 	log.SetListener(func(event log.Event, msg string) {
 		// Retry logging is very verbose and the number of the retry attempt is already contained
 		// in the response event.
@@ -56,14 +58,14 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", version.Version, tokenCredential,
 		runtime.PipelineOptions{}, opts)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
 	return &azCoreClient{
 		host:      azureCloud.Services[cloud.ResourceManager].Endpoint,
 		pipeline:  pipeline,
 		userAgent: userAgent,
-	}
+	}, nil
 }
 
 func (c *azCoreClient) setHeaders(req *policy.Request, contentTypeJson bool) {

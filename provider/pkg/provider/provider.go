@@ -85,8 +85,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 
 	// Return the new provider
 	p := &azureNativeProvider{
-		// This client will be regenerated with correct environment and authorizer in Configure.
-		azureClient:   azure.NewAzCoreClient(nil, azure.BuildUserAgent(PulumiPartnerID), cloud.AzurePublic, nil),
+		// Note: azureClient and subscriptionId will be initialized in Configure.
 		host:          host,
 		name:          name,
 		version:       version,
@@ -218,7 +217,10 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	azCoreTokenCredential := azCoreTokenCredential{p: k}
 
-	k.azureClient = k.newAzureClient(resourceManagerBearerAuth, azCoreTokenCredential, userAgent)
+	k.azureClient, err = k.newAzureClient(resourceManagerBearerAuth, azCoreTokenCredential, userAgent)
+	if err != nil {
+		return nil, fmt.Errorf("creating Azure client: %w", err)
+	}
 
 	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)
@@ -233,9 +235,9 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}, nil
 }
 
-func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azCoreTokenCredential, userAgent string) azure.AzureClient {
+func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azCoreTokenCredential, userAgent string) (azure.AzureClient, error) {
 	if os.Getenv("PULUMI_USE_AUTOREST") == "true" {
-		return azure.NewAzureClient(k.environment, armAuth, userAgent)
+		return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
 	}
 	return azure.NewAzCoreClient(tokenCred, userAgent, k.getAzureCloud(), nil)
 }

@@ -119,7 +119,8 @@ func TestCanCreate_RequestUrls(t *testing.T) {
 			},
 			DisableRPRegistration: true,
 		}
-		client := azure.NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+		client, err := azure.NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+		require.NoError(t, err)
 
 		crudClient := NewResourceCrudClient(client, nil, nil, "123", res)
 		// Runs the assertions as part of HTTP transport

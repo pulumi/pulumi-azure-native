@@ -59,7 +59,10 @@ func TestNormalizeLocationHeader(t *testing.T) {
 }
 
 func TestInitRequestQueryParamsHandling(t *testing.T) {
-	client := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, nil).(*azCoreClient)
+	c, err := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, nil)
+	require.NoError(t, err)
+	client := c.(*azCoreClient)
+
 	queryParams := map[string]any{
 		"api-version": "2022-09-01",
 		"bool":        true,
@@ -94,7 +97,8 @@ func TestRequestQueryParams(t *testing.T) {
 			},
 			DisableRPRegistration: true,
 		}
-		return NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+		client, _ := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+		return client
 	}
 
 	t.Run("GET adds API version to query", func(t *testing.T) {
@@ -192,7 +196,8 @@ func newClientWithPreparedResponses(responses []*http.Response) *azCoreClient {
 		},
 	}
 
-	return NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts).(*azCoreClient)
+	client, _ := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+	return client.(*azCoreClient)
 }
 
 func TestHandleResponseError(t *testing.T) {
