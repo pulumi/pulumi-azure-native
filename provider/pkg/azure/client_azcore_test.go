@@ -58,6 +58,98 @@ func TestNormalizeLocationHeader(t *testing.T) {
 	})
 }
 
+func TestInitRequestQueryParamsHandling(t *testing.T) {
+	client := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, nil).(*azCoreClient)
+	queryParams := map[string]any{
+		"api-version": "2022-09-01",
+		"bool":        true,
+		"int":         42,
+		"slice":       []string{"a", "b"},
+	}
+	req, err := client.initRequest(context.Background(), http.MethodGet, "/subscriptions/123", queryParams)
+	require.NoError(t, err)
+
+	query := req.Raw().URL.Query()
+	assert.Len(t, query, len(queryParams))
+	assert.Equal(t, "2022-09-01", query.Get("api-version"))
+	assert.Equal(t, "true", query.Get("bool"))
+	assert.Equal(t, "42", query.Get("int"))
+	assert.Equal(t, "a", query.Get("slice"))
+	assert.Equal(t, []string{"a", "b"}, query["slice"])
+}
+
+func TestRequestQueryParams(t *testing.T) {
+	const resourceId = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm"
+
+	createTestClient := func(t *testing.T, assertions func(t *testing.T, req *http.Request)) AzureClient {
+		transp := &requestAssertingTransporter{
+			t:          t,
+			assertions: assertions,
+		}
+		opts := arm.ClientOptions{
+			ClientOptions: policy.ClientOptions{
+				Retry:     policy.RetryOptions{MaxRetries: -1}, // speeds up the tests
+				Telemetry: policy.TelemetryOptions{Disabled: true},
+				Transport: transp,
+			},
+			DisableRPRegistration: true,
+		}
+		return NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+	}
+
+	t.Run("GET adds API version to query", func(t *testing.T) {
+		client := createTestClient(t, func(t *testing.T, req *http.Request) {
+			q := req.URL.Query()
+			assert.Equal(t, "2022-02-02", q.Get("api-version"))
+		})
+		client.Get(context.Background(), resourceId, "2022-02-02")
+	})
+
+	t.Run("DELETE adds API version to query", func(t *testing.T) {
+		client := createTestClient(t, func(t *testing.T, req *http.Request) {
+			q := req.URL.Query()
+			assert.Equal(t, "2022-02-02", q.Get("api-version"))
+		})
+		client.Delete(context.Background(), resourceId, "2022-02-02", "", nil)
+	})
+
+	t.Run("POST adds all query params", func(t *testing.T) {
+		client := createTestClient(t, func(t *testing.T, req *http.Request) {
+			q := req.URL.Query()
+			assert.Equal(t, "2022-02-02", q.Get("api-version"))
+			assert.Equal(t, "11", q.Get("foo"))
+		})
+		client.Post(context.Background(), resourceId, nil,
+			map[string]any{
+				"api-version": "2022-02-02",
+				"foo":         11,
+			})
+	})
+
+	t.Run("PUT adds all query params", func(t *testing.T) {
+		client := createTestClient(t, func(t *testing.T, req *http.Request) {
+			q := req.URL.Query()
+			assert.Equal(t, "2022-02-02", q.Get("api-version"))
+			assert.Equal(t, "11", q.Get("foo"))
+		})
+		client.Put(context.Background(), resourceId, nil,
+			map[string]any{
+				"api-version": "2022-02-02",
+				"foo":         11,
+			}, "")
+	})
+}
+
+type requestAssertingTransporter struct {
+	t          *testing.T
+	assertions func(*testing.T, *http.Request)
+}
+
+func (r *requestAssertingTransporter) Do(req *http.Request) (*http.Response, error) {
+	r.assertions(r.t, req)
+	return nil, nil
+}
+
 func TestPOST(t *testing.T) {
 	t.Run("Simple POST 200", func(t *testing.T) {
 		client := newClientWithPreparedResponses([]*http.Response{{StatusCode: 200}})

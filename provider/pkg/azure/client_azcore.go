@@ -8,6 +8,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"reflect"
 	"strings"
 	"time"
 
@@ -73,7 +74,7 @@ func (c *azCoreClient) setHeaders(req *policy.Request, contentTypeJson bool) {
 	}
 }
 
-func (c *azCoreClient) initRequest(ctx context.Context, method, id, apiVersion string) (*policy.Request, error) {
+func (c *azCoreClient) initRequest(ctx context.Context, method, id string, queryParams map[string]any) (*policy.Request, error) {
 	req, err := runtime.NewRequest(ctx, method, runtime.JoinPaths(c.host, id))
 	if err != nil {
 		return nil, err
@@ -81,15 +82,16 @@ func (c *azCoreClient) initRequest(ctx context.Context, method, id, apiVersion s
 
 	c.setHeaders(req, method == http.MethodPost || method == http.MethodPut || method == http.MethodPatch)
 
-	reqQP := req.Raw().URL.Query()
-	reqQP.Set("api-version", apiVersion)
-	req.Raw().URL.RawQuery = reqQP.Encode()
+	urlValues := MapToValues(queryParams)
+	// TODO,tkappler go-autorest WithQueryParameters in preparer.go does an additional query-unescape for each value - why?
+	req.Raw().URL.RawQuery = urlValues.Encode()
 
 	return req, nil
 }
 
 func (c *azCoreClient) Get(ctx context.Context, id string, apiVersion string) (any, error) {
-	req, err := c.initRequest(ctx, http.MethodGet, id, apiVersion)
+	queryParams := map[string]any{"api-version": apiVersion}
+	req, err := c.initRequest(ctx, http.MethodGet, id, queryParams)
 	if err != nil {
 		return nil, err
 	}
@@ -109,9 +111,16 @@ func (c *azCoreClient) Get(ctx context.Context, id string, apiVersion string) (a
 	return responseBody, nil
 }
 
-func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle string,
-	queryParams map[string]any) error {
-	req, err := c.initRequest(ctx, http.MethodDelete, id, apiVersion)
+func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any,
+) error {
+	queryParameters := map[string]interface{}{
+		"api-version": apiVersion,
+	}
+	for k, v := range queryParams {
+		queryParameters[k] = v
+	}
+
+	req, err := c.initRequest(ctx, http.MethodDelete, id, queryParameters)
 	if err != nil {
 		return err
 	}
@@ -166,9 +175,7 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		return nil, false, fmt.Errorf("method must be PUT or PATCH, got %s. Please report this issue", method)
 	}
 
-	apiVersion := queryParameters["api-version"].(string)
-
-	req, err := c.initRequest(ctx, method, id, apiVersion)
+	req, err := c.initRequest(ctx, method, id, queryParameters)
 	if err != nil {
 		return nil, false, err
 	}
@@ -205,6 +212,7 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		// errors as a partial error to the RPC.
 		created = resp.StatusCode < 400
 
+		apiVersion := queryParameters["api-version"].(string)
 		normalizeLocationHeader(c.host, apiVersion, resp.Header)
 
 		pt, err := runtime.NewPoller[map[string]interface{}](resp, c.pipeline, nil)
@@ -262,9 +270,8 @@ func normalizeLocationHeader(host, apiVersion string, headers http.Header) {
 	headers.Set("Location", locUrl.String())
 }
 
-func (c *azCoreClient) Post(ctx context.Context, id string, bodyProps map[string]interface{},
-	queryParameters map[string]interface{}) (any, error) {
-	req, err := c.initRequest(ctx, http.MethodPost, id, queryParameters["api-version"].(string))
+func (c *azCoreClient) Post(ctx context.Context, id string, bodyProps map[string]any, queryParameters map[string]any) (any, error) {
+	req, err := c.initRequest(ctx, http.MethodPost, id, queryParameters)
 	if err != nil {
 		return nil, err
 	}
@@ -289,7 +296,8 @@ func (c *azCoreClient) Post(ctx context.Context, id string, bodyProps map[string
 }
 
 func (c *azCoreClient) Head(ctx context.Context, id string, apiVersion string) error {
-	req, err := c.initRequest(ctx, http.MethodHead, id, apiVersion)
+	queryParams := map[string]any{"api-version": apiVersion}
+	req, err := c.initRequest(ctx, http.MethodHead, id, queryParams)
 	if err != nil {
 		return err
 	}
@@ -310,7 +318,8 @@ func (c *azCoreClient) Head(ctx context.Context, id string, apiVersion string) e
 func (c *azCoreClient) CanCreate(ctx context.Context, id, path, apiVersion, readMethod string,
 	isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool,
 ) error {
-	req, err := c.initRequest(ctx, readMethod, id+path, apiVersion)
+	queryParams := map[string]any{"api-version": apiVersion}
+	req, err := c.initRequest(ctx, readMethod, id+path, queryParams)
 	if err != nil {
 		return err
 	}
@@ -380,4 +389,36 @@ func handleAzCoreResponseError(err error, resp *http.Response) error {
 		return fmt.Errorf("unexpected response from Azure: '%s', HTTP status: %s", body, resp.Status)
 	}
 	return err
+}
+
+// from go-autorest v0.11.29, utility.go
+func ensureValueString(value interface{}) string {
+	if value == nil {
+		return ""
+	}
+	switch v := value.(type) {
+	case string:
+		return v
+	case []byte:
+		return string(v)
+	default:
+		return fmt.Sprintf("%v", v)
+	}
+}
+
+// MapToValues method converts map[string]interface{} to url.Values.
+// from go-autorest v0.11.29, utility.go
+func MapToValues(m map[string]interface{}) url.Values {
+	v := url.Values{}
+	for key, value := range m {
+		x := reflect.ValueOf(value)
+		if x.Kind() == reflect.Array || x.Kind() == reflect.Slice {
+			for i := 0; i < x.Len(); i++ {
+				v.Add(key, ensureValueString(x.Index(i)))
+			}
+		} else {
+			v.Add(key, ensureValueString(value))
+		}
+	}
+	return v
 }

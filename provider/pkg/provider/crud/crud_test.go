@@ -111,11 +111,9 @@ func TestCanCreate_RequestUrls(t *testing.T) {
 			t:          t,
 			assertions: assertions,
 		}
-		// TODO,tkappler despite disabled telemetry and retries, the pipeline is still slow at ~9s per sub-test.
-		// Several policies are added by default with no way to disable them.
 		opts := arm.ClientOptions{
 			ClientOptions: policy.ClientOptions{
-				Retry:     policy.RetryOptions{MaxRetries: 0}, // speeds up the tests
+				Retry:     policy.RetryOptions{MaxRetries: -1}, // speeds up the tests
 				Telemetry: policy.TelemetryOptions{Disabled: true},
 				Transport: transp,
 			},
