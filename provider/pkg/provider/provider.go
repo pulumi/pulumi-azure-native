@@ -20,6 +20,7 @@ import (
 	"github.com/segmentio/encoding/json"
 	"google.golang.org/protobuf/types/known/emptypb"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
@@ -235,11 +236,11 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}, nil
 }
 
-func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azCoreTokenCredential, userAgent string) (azure.AzureClient, error) {
-	if os.Getenv("PULUMI_USE_AUTOREST") == "true" {
-		return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
+func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
+	if os.Getenv("PULUMI_USE_AUTOREST") == "false" {
+		return azure.NewAzCoreClient(tokenCred, userAgent, k.getAzureCloud(), nil)
 	}
-	return azure.NewAzCoreClient(tokenCred, userAgent, k.getAzureCloud(), nil)
+	return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
 }
 
 func (k *azureNativeProvider) getAzureCloud() cloud.Configuration {

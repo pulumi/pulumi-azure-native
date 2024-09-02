@@ -3,8 +3,10 @@ package provider
 import (
 	"context"
 	"fmt"
+	"reflect"
 	"testing"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -392,7 +394,30 @@ func TestReadAfterWrite(t *testing.T) {
 		p.readAfterWrite(context.Background(), "id", "urn", "create", resource.PropertyMap{}, reader)
 		assert.Equal(t, !skipReadOnUpdate, read)
 	}
+}
 
+func TestUsesCorrectAzureClient(t *testing.T) {
+	p := azureNativeProvider{}
+
+	t.Run("default", func(t *testing.T) {
+		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
+		require.NoError(t, err)
+		assert.Equal(t, "azureClientImpl", reflect.TypeOf(client).Elem().Name())
+	})
+
+	t.Run("Autorest enabled", func(t *testing.T) {
+		t.Setenv("PULUMI_USE_AUTOREST", "true")
+		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
+		require.NoError(t, err)
+		assert.Equal(t, "azureClientImpl", reflect.TypeOf(client).Elem().Name())
+	})
+
+	t.Run("Autorest disabled", func(t *testing.T) {
+		t.Setenv("PULUMI_USE_AUTOREST", "false")
+		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
+		require.NoError(t, err)
+		assert.Equal(t, "azCoreClient", reflect.TypeOf(client).Elem().Name())
+	})
 }
 
 type mockAzureClient struct {
