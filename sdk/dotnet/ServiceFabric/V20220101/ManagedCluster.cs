@@ -287,6 +287,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20220101
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231201preview:ManagedCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240201preview:ManagedCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240401:ManagedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240601preview:ManagedCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// The service resource.
     /// Azure REST API version: 2023-03-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01.
+    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:ManagedClusterService")]
     public partial class ManagedClusterService : global::Pulumi.CustomResource
@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.ServiceFabric
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231201preview:ManagedClusterService" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240201preview:ManagedClusterService" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240401:ManagedClusterService" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240601preview:ManagedClusterService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

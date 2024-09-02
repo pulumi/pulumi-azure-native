@@ -6024,7 +6024,8 @@
       "2024-04-02-preview",
       "2024-05-01",
       "2024-05-02-preview",
-      "2024-06-02-preview"
+      "2024-06-02-preview",
+      "2024-07-01"
     ],
     "ContainerService": [
       "2015-11-01-preview",
@@ -6126,7 +6127,8 @@
       "2024-04-02-preview",
       "2024-05-01",
       "2024-05-02-preview",
-      "2024-06-02-preview"
+      "2024-06-02-preview",
+      "2024-07-01"
     ],
     "ManagedCluster": [
       "2017-08-31",
@@ -6205,7 +6207,8 @@
       "2024-04-02-preview",
       "2024-05-01",
       "2024-05-02-preview",
-      "2024-06-02-preview"
+      "2024-06-02-preview",
+      "2024-07-01"
     ],
     "ManagedClusterSnapshot": [
       "2022-02-02-preview",
@@ -6307,7 +6310,8 @@
       "2024-04-02-preview",
       "2024-05-01",
       "2024-05-02-preview",
-      "2024-06-02-preview"
+      "2024-06-02-preview",
+      "2024-07-01"
     ],
     "Snapshot": [
       "2021-08-01",
@@ -6364,7 +6368,8 @@
       "2024-04-02-preview",
       "2024-05-01",
       "2024-05-02-preview",
-      "2024-06-02-preview"
+      "2024-06-02-preview",
+      "2024-07-01"
     ],
     "TrustedAccessRoleBinding": [
       "2022-04-02-preview",
@@ -6398,7 +6403,8 @@
       "2024-04-02-preview",
       "2024-05-01",
       "2024-05-02-preview",
-      "2024-06-02-preview"
+      "2024-06-02-preview",
+      "2024-07-01"
     ],
     "UpdateRun": [
       "2023-03-15-preview",
@@ -6509,7 +6515,8 @@
       "2024-04-02-preview",
       "2024-05-01",
       "2024-05-02-preview",
-      "2024-06-02-preview"
+      "2024-06-02-preview",
+      "2024-07-01"
     ],
     "listManagedClusterMonitoringUserCredentials": [
       "2019-10-01",
@@ -6581,7 +6588,8 @@
       "2024-04-02-preview",
       "2024-05-01",
       "2024-05-02-preview",
-      "2024-06-02-preview"
+      "2024-06-02-preview",
+      "2024-07-01"
     ],
     "listManagedClusterUserCredentials": [
       "2018-03-31",
@@ -6659,7 +6667,8 @@
       "2024-04-02-preview",
       "2024-05-01",
       "2024-05-02-preview",
-      "2024-06-02-preview"
+      "2024-06-02-preview",
+      "2024-07-01"
     ]
   },
   "ContainerStorage": {
@@ -21834,7 +21843,8 @@
       "2023-11-01-preview",
       "2023-12-01-preview",
       "2024-02-01-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-06-01-preview"
     ],
     "ManagedClusterApplication": [
       "2021-01-01-preview",
@@ -21854,7 +21864,8 @@
       "2023-11-01-preview",
       "2023-12-01-preview",
       "2024-02-01-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-06-01-preview"
     ],
     "ManagedClusterApplicationType": [
       "2021-01-01-preview",
@@ -21874,7 +21885,8 @@
       "2023-11-01-preview",
       "2023-12-01-preview",
       "2024-02-01-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-06-01-preview"
     ],
     "ManagedClusterApplicationTypeVersion": [
       "2021-01-01-preview",
@@ -21894,7 +21906,8 @@
       "2023-11-01-preview",
       "2023-12-01-preview",
       "2024-02-01-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-06-01-preview"
     ],
     "ManagedClusterService": [
       "2021-01-01-preview",
@@ -21914,7 +21927,8 @@
       "2023-11-01-preview",
       "2023-12-01-preview",
       "2024-02-01-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-06-01-preview"
     ],
     "NodeType": [
       "2020-01-01-preview",
@@ -21935,7 +21949,8 @@
       "2023-11-01-preview",
       "2023-12-01-preview",
       "2024-02-01-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-06-01-preview"
     ],
     "Service": [
       "2017-07-01-preview",
@@ -21959,7 +21974,8 @@
       "2023-11-01-preview",
       "2023-12-01-preview",
       "2024-02-01-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-06-01-preview"
     ],
     "getmanagedMaintenanceWindowStatus": [
       "2023-07-01-preview",
@@ -21967,7 +21983,8 @@
       "2023-11-01-preview",
       "2023-12-01-preview",
       "2024-02-01-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-06-01-preview"
     ],
     "listClusterUpgradableVersions": [
       "2021-06-01"

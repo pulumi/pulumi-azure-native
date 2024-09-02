@@ -5551,6 +5551,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20240701",
+  "fqn": "pulumi_azure_native.containerservice.v20240701",
+  "classes": {
+   "azure-native:containerservice/v20240701:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20240701:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20240701:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20240701:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20240701:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20240701:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerstorage",
   "fqn": "pulumi_azure_native.containerstorage",
   "classes": {
@@ -16424,6 +16437,19 @@ _utilities.register(
    "azure-native:servicefabric/v20240401:ManagedClusterApplicationTypeVersion": "ManagedClusterApplicationTypeVersion",
    "azure-native:servicefabric/v20240401:ManagedClusterService": "ManagedClusterService",
    "azure-native:servicefabric/v20240401:NodeType": "NodeType"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicefabric/v20240601preview",
+  "fqn": "pulumi_azure_native.servicefabric.v20240601preview",
+  "classes": {
+   "azure-native:servicefabric/v20240601preview:ManagedCluster": "ManagedCluster",
+   "azure-native:servicefabric/v20240601preview:ManagedClusterApplication": "ManagedClusterApplication",
+   "azure-native:servicefabric/v20240601preview:ManagedClusterApplicationType": "ManagedClusterApplicationType",
+   "azure-native:servicefabric/v20240601preview:ManagedClusterApplicationTypeVersion": "ManagedClusterApplicationTypeVersion",
+   "azure-native:servicefabric/v20240601preview:ManagedClusterService": "ManagedClusterService",
+   "azure-native:servicefabric/v20240601preview:NodeType": "NodeType"
   }
  },
  {
