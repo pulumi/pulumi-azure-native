@@ -59,7 +59,7 @@ func TestNormalizeLocationHeader(t *testing.T) {
 	})
 }
 
-func TestInitRequestQueryParamsHandling(t *testing.T) {
+func TestInitRequestQueryParams(t *testing.T) {
 	c, err := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, nil)
 	require.NoError(t, err)
 	client := c.(*azCoreClient)
@@ -80,6 +80,30 @@ func TestInitRequestQueryParamsHandling(t *testing.T) {
 	assert.Equal(t, "42", query.Get("int"))
 	assert.Equal(t, "a", query.Get("slice"))
 	assert.Equal(t, []string{"a", "b"}, query["slice"])
+}
+
+func TestInitRequestHeaders(t *testing.T) {
+	c, err := NewAzCoreClient(&fake.TokenCredential{}, "pulumi-agent", cloud.AzurePublic, nil)
+	require.NoError(t, err)
+	client := c.(*azCoreClient)
+
+	queryParams := map[string]any{"api-version": "2022-09-01"}
+
+	for method, contentType := range map[string]string{
+		http.MethodGet:    "",
+		http.MethodDelete: "",
+		http.MethodPost:   "application/json; charset=utf-8",
+		http.MethodPut:    "application/json; charset=utf-8",
+		http.MethodPatch:  "application/json; charset=utf-8",
+	} {
+		req, err := client.initRequest(context.Background(), method, "/subscriptions/123", queryParams)
+		require.NoError(t, err)
+
+		headers := req.Raw().Header
+		assert.Equal(t, "pulumi-agent", headers.Get("User-Agent"))
+		assert.Equal(t, "application/json", headers.Get("Accept"))
+		assert.Equal(t, contentType, headers.Get("Content-Type"))
+	}
 }
 
 func TestRequestQueryParams(t *testing.T) {
