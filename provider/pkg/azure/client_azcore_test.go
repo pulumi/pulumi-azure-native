@@ -7,6 +7,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"net/url"
 	"strings"
 	"testing"
 
@@ -154,28 +155,97 @@ func (r *requestAssertingTransporter) Do(req *http.Request) (*http.Response, err
 	return nil, nil
 }
 
-func TestPOST(t *testing.T) {
-	t.Run("Simple POST 200", func(t *testing.T) {
+func TestErrorStatusCodes(t *testing.T) {
+	t.Run("POST ok", func(t *testing.T) {
+		for _, statusCode := range []int{200, 201} {
+			client := newClientWithPreparedResponses([]*http.Response{{StatusCode: statusCode}})
+			resp, err := client.Post(context.Background(), "/subscriptions/123", nil, map[string]any{"api-version": "2022-09-01"})
+			require.NoError(t, err, statusCode)
+			require.Empty(t, resp, statusCode)
+		}
+	})
+
+	t.Run("POST error", func(t *testing.T) {
+		for _, statusCode := range []int{202, 204, 400, 401, 403, 404, 409, 410, 500, 502, 503, 504} {
+			client := newClientWithPreparedResponses([]*http.Response{{StatusCode: statusCode}})
+			_, err := client.Post(context.Background(), "/subscriptions/123", nil, map[string]any{"api-version": "2022-09-01"})
+			require.Error(t, err, statusCode)
+		}
+	})
+
+	t.Run("GET ok", func(t *testing.T) {
 		client := newClientWithPreparedResponses([]*http.Response{{StatusCode: 200}})
-		resp, err := client.Post(context.Background(), "/subscriptions/123", nil, map[string]any{"api-version": "2022-09-01"})
+		resp, err := client.Get(context.Background(), "/subscriptions/123", "2022-09-01")
 		require.NoError(t, err)
 		require.Empty(t, resp)
 	})
 
-	t.Run("POST 201 Created is ok", func(t *testing.T) {
-		client := newClientWithPreparedResponses([]*http.Response{{StatusCode: 201}})
-		_, err := client.Post(context.Background(), "/subscriptions/123", nil, map[string]any{"api-version": "2022-09-01"})
-		require.NoError(t, err)
+	t.Run("GET error", func(t *testing.T) {
+		for _, statusCode := range []int{201, 202, 204, 400, 401, 403, 404, 409, 410, 500, 502, 503, 504} {
+			client := newClientWithPreparedResponses([]*http.Response{{StatusCode: statusCode}})
+			_, err := client.Get(context.Background(), "/subscriptions/123", "2022-09-01")
+			require.Error(t, err, statusCode)
+		}
 	})
 
-	t.Run("POST response != 200 is an error", func(t *testing.T) {
-		client := newClientWithPreparedResponses([]*http.Response{{StatusCode: 400}})
-		_, err := client.Post(context.Background(), "/subscriptions/123", nil, map[string]any{"api-version": "2022-09-01"})
-		require.Error(t, err)
+	t.Run("PUT, PATCH ok", func(t *testing.T) {
+		for _, statusCode := range []int{200, 201} {
+			client := newClientWithPreparedResponses([]*http.Response{{StatusCode: statusCode}})
+			resp, created, err := client.Put(context.Background(), "/subscriptions/123", nil, map[string]any{"api-version": "2022-09-01"}, "")
+			require.NoError(t, err, statusCode)
+			assert.True(t, created)
+			require.Empty(t, resp, statusCode)
+		}
+	})
+
+	// This test does not cover long-running operations with polling, only the handling of the first response.
+	t.Run("PUT, PATCH error", func(t *testing.T) {
+		for _, statusCode := range []int{202, 204, 400, 401, 403, 404, 409, 410, 500, 502, 503, 504} {
+			client := newClientWithPreparedResponses([]*http.Response{{
+				StatusCode: statusCode,
+				Body:       io.NopCloser(strings.NewReader(``)),
+				Request:    &http.Request{Method: http.MethodPut, URL: &url.URL{Path: "/subscriptions/123"}},
+			}})
+			_, created, err := client.Put(context.Background(), "/subscriptions/123", nil, map[string]any{"api-version": "2022-09-01"}, "")
+			assert.Equal(t, statusCode < 203, created, statusCode)
+			require.Error(t, err, statusCode)
+		}
+	})
+
+	t.Run("DELETE ok", func(t *testing.T) {
+		for _, statusCode := range []int{200, 202, 204, 404} {
+			client := newClientWithPreparedResponses([]*http.Response{{StatusCode: statusCode}})
+			err := client.Delete(context.Background(), "/subscriptions/123", "2022-09-01", "", nil)
+			require.NoError(t, err, statusCode)
+		}
+	})
+
+	t.Run("DELETE error", func(t *testing.T) {
+		for _, statusCode := range []int{201, 400, 401, 403, 409, 410, 500, 502, 503, 504} {
+			client := newClientWithPreparedResponses([]*http.Response{{StatusCode: statusCode}})
+			err := client.Delete(context.Background(), "/subscriptions/123", "2022-09-01", "", nil)
+			require.Error(t, err, statusCode)
+		}
+	})
+
+	t.Run("HEAD ok", func(t *testing.T) {
+		for _, statusCode := range []int{200, 204} {
+			client := newClientWithPreparedResponses([]*http.Response{{StatusCode: statusCode}})
+			err := client.Head(context.Background(), "/subscriptions/123", "2022-09-01")
+			require.NoError(t, err, statusCode)
+		}
+	})
+
+	t.Run("HEAD error", func(t *testing.T) {
+		for _, statusCode := range []int{201, 202, 400, 401, 403, 409, 410, 500, 502, 503, 504} {
+			client := newClientWithPreparedResponses([]*http.Response{{StatusCode: statusCode}})
+			err := client.Head(context.Background(), "/subscriptions/123", "2022-09-01")
+			require.Error(t, err, statusCode)
+		}
 	})
 }
 
-// Implements azcore's policy.Transporter by simpling returning the responses in order.
+// Implements azcore's policy.Transporter by returning the given responses in order.
 type fakeTransporter struct {
 	responses []*http.Response
 	index     int
@@ -193,6 +263,7 @@ func newClientWithPreparedResponses(responses []*http.Response) *azCoreClient {
 			Transport: &fakeTransporter{
 				responses: responses,
 			},
+			Retry: policy.RetryOptions{MaxRetries: -1},
 		},
 	}
 

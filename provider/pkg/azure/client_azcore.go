@@ -217,7 +217,7 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		apiVersion := queryParameters["api-version"].(string)
 		normalizeLocationHeader(c.host, apiVersion, resp.Header)
 
-		pt, err := runtime.NewPoller[map[string]interface{}](resp, c.pipeline, nil)
+		pt, err := runtime.NewPoller[map[string]any](resp, c.pipeline, nil)
 		if err != nil {
 			return nil, created, err
 		}
