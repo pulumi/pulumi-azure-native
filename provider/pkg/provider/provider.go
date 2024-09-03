@@ -217,7 +217,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	userAgent := k.getUserAgent()
 
 	var credential azcore.TokenCredential
-	if os.Getenv("PULUMI_LEGACY_AUTH") == "true" {
+	if os.Getenv("PULUMI_USE_LEGACY_AUTH") != "false" {
 		logging.V(9).Infof("Using legacy authentication")
 		credential = azCoreTokenCredential{p: k}
 	} else {
@@ -246,12 +246,19 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 }
 
 func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
-	if os.Getenv("PULUMI_USE_AUTOREST") == "false" {
-		logging.V(9).Infof("AzureClient: using azCore")
-		return azure.NewAzCoreClient(tokenCred, userAgent, k.getAzureCloud(), nil)
+	useAutorest := os.Getenv("PULUMI_USE_AUTOREST") != "false"
+	useLegacyAuth := os.Getenv("PULUMI_USE_LEGACY_AUTH") != "false"
+
+	if !useAutorest && useLegacyAuth {
+		return nil, errors.New("PULUMI_USE_LEGACY_AUTH=true requires PULUMI_USE_AUTOREST=true")
 	}
-	logging.V(9).Infof("AzureClient: using autorest")
-	return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
+
+	if useAutorest {
+		logging.V(9).Infof("AzureClient: using autorest")
+		return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
+	}
+	logging.V(9).Infof("AzureClient: using azCore")
+	return azure.NewAzCoreClient(tokenCred, userAgent, *k.getAzureCloud(), nil)
 }
 
 func (k *azureNativeProvider) getAzureCloud() *cloud.Configuration {
