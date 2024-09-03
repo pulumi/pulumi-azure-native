@@ -803,6 +803,11 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 		HasDetailedDiff:     true,
 	}
 
+	// response.DetailedDiff["agentPoolProfiles"] = detailedDiff["agentPoolProfiles[0].count"]
+	// delete(response.DetailedDiff, "agentPoolProfiles[0].count")
+
+	response.Diffs[0] = "agentPoolProfiles"
+
 	return &response, nil
 }
 
