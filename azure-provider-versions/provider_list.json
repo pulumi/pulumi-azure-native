@@ -30935,6 +30935,7 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-08-01-preview",
@@ -30944,6 +30945,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-08-01-preview",
@@ -30953,6 +30955,7 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-08-01-preview",
@@ -30962,6 +30965,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-08-01-preview",
