@@ -11159,7 +11159,6 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
-          "2023-11-21-preview",
           "2023-11-06-preview",
           "2023-06-01-preview",
           "2023-04-01-preview",
@@ -11176,7 +11175,6 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
-          "2023-11-21-preview",
           "2023-11-06-preview",
           "2023-06-01-preview",
           "2023-04-01-preview",
@@ -11193,7 +11191,6 @@
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2023-11-21-preview",
           "2023-11-06-preview",
           "2023-06-01-preview",
           "2023-04-01-preview",
@@ -30935,6 +30932,7 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-08-01-preview",
@@ -30944,6 +30942,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-08-01-preview",
@@ -30953,6 +30952,7 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-08-01-preview",
@@ -30962,6 +30962,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-08-01-preview",
