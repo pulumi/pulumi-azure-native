@@ -573,11 +573,18 @@ func calculateChangesAndReplacements(
 			replaces = append(replaces, k)
 		}
 
-		parts := strings.Split(k, ".")
-		changes = append(changes, parts[0])
+		changes = append(changes, reducePropertyPathToTopLevelKey(k))
 		v.InputDiff = true
 	}
 	return changes, replaces
+}
+
+// agentPoolProfiles.count    -> agentPoolProfiles
+// agentPoolProfiles[0]       -> agentPoolProfiles
+// agentPoolProfiles[0].count -> agentPoolProfiles
+func reducePropertyPathToTopLevelKey(path string) string {
+	topLevelChange := strings.Split(path, ".")[0]
+	return strings.Split(topLevelChange, "[")[0]
 }
 
 // arrayElement is a helper struct to track the index of a property value in an array.

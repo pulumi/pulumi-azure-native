@@ -660,6 +660,42 @@ func TestChangesAndReplacements_AddedPropertyWithDefaultButDifferentValueCausesD
 	assert.Len(t, replacements, 0)
 }
 
+func TestChangesAndReplacements_ReduceNestedPropertiesToTopLevel(t *testing.T) {
+	detailedDiff := map[string]*rpc.PropertyDiff{
+		"agentPoolProfiles[0].count": &rpc.PropertyDiff{
+			Kind: rpc.PropertyDiff_ADD,
+		},
+	}
+	oldState := resource.PropertyMap{}
+	oldInputs := resource.PropertyMap{
+		resource.PropertyKey("agentPoolProfiles[0].count"): {V: 3},
+	}
+	newInputs := resource.PropertyMap{
+		resource.PropertyKey("agentPoolProfiles[0].count"): {V: 4},
+	}
+
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"agentPoolProfiles": {Type: "array", Items: &resources.AzureAPIProperty{
+							Type: "object",
+						}},
+					},
+				},
+			},
+		},
+	}
+
+	changes, replacements := calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
+	assert.Len(t, changes, 1)
+	assert.Equal(t, "agentPoolProfiles", changes[0])
+	assert.Empty(t, replacements)
+}
+
 func calculateChangesAndReplacementsForOneAddedProperty(t *testing.T, value string, defaultValue interface{}) ([]string, []string) {
 	propertyName := "p1"
 
