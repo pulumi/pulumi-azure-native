@@ -3821,6 +3821,13 @@
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
+    ],
+    "2024-09-01-preview": [
+      "AccessPolicyAssignment",
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
     ]
   },
   "Capacity": {
@@ -11450,7 +11457,9 @@
     ],
     "2024-12-01": [
       "Endpoint",
+      "PublicCloudConnector",
       "ServiceConfiguration",
+      "SolutionConfiguration",
       "listEndpointCredentials",
       "listEndpointIngressGatewayCredentials",
       "listEndpointManagedProxyDetails"
@@ -23432,7 +23441,8 @@
       "Alias"
     ],
     "2024-08-01-preview": [
-      "Alias"
+      "Alias",
+      "SubscriptionTarDirectory"
     ]
   },
   "Support": {

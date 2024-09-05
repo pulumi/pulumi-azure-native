@@ -210,6 +210,13 @@
     "DisambiguatedName": "EnterprisePrivateEndpointConnection"
   },
   {
+    "FileLocation": "specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2024-09-01-preview/redisenterprise.json",
+    "OperationID": "PrivateEndpointConnections_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}",
+    "GeneratedName": "PrivateEndpointConnection",
+    "DisambiguatedName": "EnterprisePrivateEndpointConnection"
+  },
+  {
     "FileLocation": "specification/redisenterprise/resource-manager/Microsoft.Cache/stable/2021-03-01/redisenterprise.json",
     "OperationID": "PrivateEndpointConnections_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}",

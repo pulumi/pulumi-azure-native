@@ -8442,8 +8442,7 @@
       "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview",
-      "2023-11-06-preview",
-      "2023-11-21-preview"
+      "2023-11-06-preview"
     ],
     "checknameavailability": [
       "2020-08-20",
@@ -8516,8 +8515,7 @@
       "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview",
-      "2023-11-06-preview",
-      "2023-11-21-preview"
+      "2023-11-06-preview"
     ],
     "locations/operationstatuses": [
       "2020-08-20",
@@ -8530,8 +8528,7 @@
       "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview",
-      "2023-11-06-preview",
-      "2023-11-21-preview"
+      "2023-11-06-preview"
     ],
     "operations": [
       "2020-08-20",
@@ -8544,8 +8541,7 @@
       "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview",
-      "2023-11-06-preview",
-      "2023-11-21-preview"
+      "2023-11-06-preview"
     ],
     "registeredsubscriptions": [
       "2020-08-20",
@@ -25615,31 +25611,36 @@
       "2023-02-01-preview",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-06-01-preview"
     ],
     "checknameavailability": [
       "2023-02-01-preview",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-06-01-preview"
     ],
     "locations": [
       "2023-02-01-preview",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-06-01-preview"
     ],
     "locations/operationstatuses": [
       "2023-02-01-preview",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-06-01-preview"
     ],
     "operations": [
       "2023-02-01-preview",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-06-01-preview"
     ],
     "virtualenclaves/endpoints": [
       "2023-02-01-preview",

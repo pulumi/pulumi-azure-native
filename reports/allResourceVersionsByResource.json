@@ -3929,7 +3929,8 @@
       "2023-05-01-preview",
       "2023-08-01",
       "2024-03-01",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-09-01-preview"
     ],
     "Database": [
       "2020-10-01-preview",
@@ -3945,7 +3946,8 @@
       "2023-11-01",
       "2024-02-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "EnterprisePrivateEndpointConnection": [
       "2020-10-01-preview",
@@ -3961,7 +3963,8 @@
       "2023-11-01",
       "2024-02-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "FirewallRule": [
       "2017-02-01",
@@ -4055,7 +4058,8 @@
       "2023-11-01",
       "2024-02-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "RedisFirewallRule": [
       "2016-04-01"
@@ -4077,7 +4081,8 @@
       "2023-11-01",
       "2024-02-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "listRedisKeys": [
       "2015-08-01",
@@ -11438,8 +11443,14 @@
       "2023-03-15",
       "2024-12-01"
     ],
+    "PublicCloudConnector": [
+      "2024-12-01"
+    ],
     "ServiceConfiguration": [
       "2023-03-15",
+      "2024-12-01"
+    ],
+    "SolutionConfiguration": [
       "2024-12-01"
     ],
     "listEndpointCredentials": [
@@ -24004,6 +24015,9 @@
     ],
     "SubscriptionAlias": [
       "2019-10-01-preview"
+    ],
+    "SubscriptionTarDirectory": [
+      "2024-08-01-preview"
     ]
   },
   "Support": {},

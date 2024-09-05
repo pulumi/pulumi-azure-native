@@ -2618,6 +2618,34 @@
     "Property": "name"
   },
   {
+    "Module": "cache/v20240901preview",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "Module": "cache/v20240901preview",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "Module": "cache/v20240901preview",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "Module": "cache/v20240901preview",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
     "Module": "confluent/v20230822",
     "Provider": "Confluent",
     "ResourceName": "Organization",
@@ -4912,6 +4940,48 @@
     "ResourceName": "Machine",
     "ReferenceName": "TrackedResource",
     "Property": "location"
+  },
+  {
+    "Module": "hybridconnectivity",
+    "Provider": "HybridConnectivity",
+    "ResourceName": "PublicCloudConnector",
+    "ReferenceName": "AwsCloudProfile",
+    "Property": "accountId"
+  },
+  {
+    "Module": "hybridconnectivity",
+    "Provider": "HybridConnectivity",
+    "ResourceName": "PublicCloudConnector",
+    "ReferenceName": "AwsCloudProfile",
+    "Property": "isOrganizationalAccount"
+  },
+  {
+    "Module": "hybridconnectivity",
+    "Provider": "HybridConnectivity",
+    "ResourceName": "PublicCloudConnector",
+    "ReferenceName": "HostType",
+    "Property": "hostType"
+  },
+  {
+    "Module": "hybridconnectivity/v20241201",
+    "Provider": "HybridConnectivity",
+    "ResourceName": "PublicCloudConnector",
+    "ReferenceName": "AwsCloudProfile",
+    "Property": "accountId"
+  },
+  {
+    "Module": "hybridconnectivity/v20241201",
+    "Provider": "HybridConnectivity",
+    "ResourceName": "PublicCloudConnector",
+    "ReferenceName": "AwsCloudProfile",
+    "Property": "isOrganizationalAccount"
+  },
+  {
+    "Module": "hybridconnectivity/v20241201",
+    "Provider": "HybridConnectivity",
+    "ResourceName": "PublicCloudConnector",
+    "ReferenceName": "HostType",
+    "Property": "hostType"
   },
   {
     "Module": "hybridnetwork",
