@@ -112,4 +112,37 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20230517Preview
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The tier of the tenant.
+    /// </summary>
+    [EnumType]
+    public readonly struct CIAMResourceSKUTier : IEquatable<CIAMResourceSKUTier>
+    {
+        private readonly string _value;
+
+        private CIAMResourceSKUTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The SKU tier used for all Azure AD for customers tenants.
+        /// </summary>
+        public static CIAMResourceSKUTier A0 { get; } = new CIAMResourceSKUTier("A0");
+
+        public static bool operator ==(CIAMResourceSKUTier left, CIAMResourceSKUTier right) => left.Equals(right);
+        public static bool operator !=(CIAMResourceSKUTier left, CIAMResourceSKUTier right) => !left.Equals(right);
+
+        public static explicit operator string(CIAMResourceSKUTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CIAMResourceSKUTier other && Equals(other);
+        public bool Equals(CIAMResourceSKUTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

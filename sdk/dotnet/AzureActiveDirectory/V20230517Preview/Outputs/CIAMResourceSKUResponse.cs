@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20230517Preview.Outputs
         /// The name of the SKU for the tenant.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The tier of the tenant.
+        /// </summary>
+        public readonly string Tier;
 
         [OutputConstructor]
-        private CIAMResourceSKUResponse(string name)
+        private CIAMResourceSKUResponse(
+            string name,
+
+            string tier)
         {
             Name = name;
+            Tier = tier;
         }
     }
 }

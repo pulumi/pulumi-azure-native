@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.Inputs
         [Input("name", required: true)]
         public InputUnion<string, Pulumi.AzureNative.AzureActiveDirectory.CIAMResourceSKUName> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The tier of the tenant.
+        /// </summary>
+        [Input("tier", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.AzureActiveDirectory.CIAMResourceSKUTier> Tier { get; set; } = null!;
+
         public CIAMResourceSKUArgs()
         {
         }

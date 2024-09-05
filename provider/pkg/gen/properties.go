@@ -116,6 +116,11 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 		if m.resourceName == "DefenderForStorage" && (name == "malwareScanning" || name == "sensitiveDataDiscovery") {
 			flatten = false
 		}
+		// See #3556 and https://github.com/Azure/azure-rest-api-specs/issues/30443
+		// It's ok if a new API version is fixed, this is a no-op then.
+		if m.resourceName == "CIAMTenant" && name == "tier" && strings.HasPrefix(m.module, "azureactivedirectory") {
+			flatten = false
+		}
 
 		if (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
 			bag, err := m.genProperties(resolvedProperty, variants.noResponse())
