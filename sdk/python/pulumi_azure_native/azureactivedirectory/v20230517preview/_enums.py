@@ -8,6 +8,7 @@ __all__ = [
     'B2CResourceSKUName',
     'B2CResourceSKUTier',
     'CIAMResourceSKUName',
+    'CIAMResourceSKUTier',
 ]
 
 
@@ -46,3 +47,13 @@ class CIAMResourceSKUName(str, Enum):
     STANDARD = "Standard"
     PREMIUM_P1 = "PremiumP1"
     PREMIUM_P2 = "PremiumP2"
+
+
+class CIAMResourceSKUTier(str, Enum):
+    """
+    The tier of the tenant.
+    """
+    A0 = "A0"
+    """
+    The SKU tier used for all Azure AD for customers tenants.
+    """

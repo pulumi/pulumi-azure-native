@@ -91,18 +91,25 @@ if not MYPY:
         """
         The name of the SKU for the tenant.
         """
+        tier: pulumi.Input[Union[str, 'CIAMResourceSKUTier']]
+        """
+        The tier of the tenant.
+        """
 elif False:
     CIAMResourceSKUArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CIAMResourceSKUArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[Union[str, 'CIAMResourceSKUName']]):
+                 name: pulumi.Input[Union[str, 'CIAMResourceSKUName']],
+                 tier: pulumi.Input[Union[str, 'CIAMResourceSKUTier']]):
         """
         SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
         :param pulumi.Input[Union[str, 'CIAMResourceSKUName']] name: The name of the SKU for the tenant.
+        :param pulumi.Input[Union[str, 'CIAMResourceSKUTier']] tier: The tier of the tenant.
         """
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -115,6 +122,18 @@ class CIAMResourceSKUArgs:
     @name.setter
     def name(self, value: pulumi.Input[Union[str, 'CIAMResourceSKUName']]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> pulumi.Input[Union[str, 'CIAMResourceSKUTier']]:
+        """
+        The tier of the tenant.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: pulumi.Input[Union[str, 'CIAMResourceSKUTier']]):
+        pulumi.set(self, "tier", value)
 
 
 if not MYPY:

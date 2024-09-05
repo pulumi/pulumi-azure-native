@@ -117,12 +117,15 @@ class CIAMResourceSKUResponse(dict):
     SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
     """
     def __init__(__self__, *,
-                 name: str):
+                 name: str,
+                 tier: str):
         """
         SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
         :param str name: The name of the SKU for the tenant.
+        :param str tier: The tier of the tenant.
         """
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -131,6 +134,14 @@ class CIAMResourceSKUResponse(dict):
         The name of the SKU for the tenant.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        The tier of the tenant.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

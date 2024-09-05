@@ -1505,6 +1505,13 @@
     "Property": "displayName"
   },
   {
+    "Module": "azureactivedirectory",
+    "Provider": "AzureActiveDirectory",
+    "ResourceName": "CIAMTenant",
+    "ReferenceName": "CIAMResourceSKU",
+    "Property": "tier"
+  },
+  {
     "Module": "azureactivedirectory/v20230517preview",
     "Provider": "AzureActiveDirectory",
     "ResourceName": "CIAMTenant",
@@ -1517,6 +1524,13 @@
     "ResourceName": "CIAMTenant",
     "ReferenceName": "CreateCIAMTenantProperties",
     "Property": "displayName"
+  },
+  {
+    "Module": "azureactivedirectory/v20230517preview",
+    "Provider": "AzureActiveDirectory",
+    "ResourceName": "CIAMTenant",
+    "ReferenceName": "CIAMResourceSKU",
+    "Property": "tier"
   },
   {
     "Module": "azurearcdata",

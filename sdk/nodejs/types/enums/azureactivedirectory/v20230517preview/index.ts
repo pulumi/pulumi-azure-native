@@ -44,3 +44,15 @@ export const CIAMResourceSKUName = {
  * The name of the SKU for the tenant.
  */
 export type CIAMResourceSKUName = (typeof CIAMResourceSKUName)[keyof typeof CIAMResourceSKUName];
+
+export const CIAMResourceSKUTier = {
+    /**
+     * The SKU tier used for all Azure AD for customers tenants.
+     */
+    A0: "A0",
+} as const;
+
+/**
+ * The tier of the tenant.
+ */
+export type CIAMResourceSKUTier = (typeof CIAMResourceSKUTier)[keyof typeof CIAMResourceSKUTier];
