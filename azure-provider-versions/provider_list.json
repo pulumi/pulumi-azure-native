@@ -11159,7 +11159,6 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
-          "2023-11-21-preview",
           "2023-11-06-preview",
           "2023-06-01-preview",
           "2023-04-01-preview",
@@ -11176,7 +11175,6 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
-          "2023-11-21-preview",
           "2023-11-06-preview",
           "2023-06-01-preview",
           "2023-04-01-preview",
@@ -11193,7 +11191,6 @@
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2023-11-21-preview",
           "2023-11-06-preview",
           "2023-06-01-preview",
           "2023-04-01-preview",
@@ -25686,6 +25683,7 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2024-09-01-preview",
           "2024-01-01",
           "2023-11-15-preview",
           "2023-11-01",
@@ -25699,6 +25697,7 @@
       {
         "resourceType": "Locations/operationStatuses",
         "apiVersions": [
+          "2024-09-01-preview",
           "2024-01-01",
           "2023-11-15-preview",
           "2023-11-01",
@@ -25712,6 +25711,7 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2024-09-01-preview",
           "2024-01-01",
           "2023-11-15-preview",
           "2023-11-01",
@@ -27857,59 +27857,6 @@
           "2022-01-01-preview",
           "2020-10-01-preview",
           "2020-10-01"
-        ]
-      }
-    ]
-  },
-  {
-    "namespace": "Microsoft.MachineLearning",
-    "resourceTypes": [
-      {
-        "resourceType": "Workspaces",
-        "apiVersions": [
-          "2016-04-01"
-        ]
-      },
-      {
-        "resourceType": "commitmentPlans",
-        "apiVersions": [
-          "2017-01-01",
-          "2016-05-01-preview"
-        ]
-      },
-      {
-        "resourceType": "locations",
-        "apiVersions": [
-          "2017-01-01",
-          "2016-05-01-preview"
-        ]
-      },
-      {
-        "resourceType": "locations/operations",
-        "apiVersions": [
-          "2017-01-01",
-          "2016-05-01-preview"
-        ]
-      },
-      {
-        "resourceType": "locations/operationsStatus",
-        "apiVersions": [
-          "2017-01-01",
-          "2016-05-01-preview"
-        ]
-      },
-      {
-        "resourceType": "operations",
-        "apiVersions": [
-          "2017-01-01",
-          "2016-05-01-preview"
-        ]
-      },
-      {
-        "resourceType": "webServices",
-        "apiVersions": [
-          "2017-01-01",
-          "2016-05-01-preview"
         ]
       }
     ]
@@ -30935,6 +30882,7 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-08-01-preview",
@@ -30944,6 +30892,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-08-01-preview",
@@ -30953,6 +30902,7 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-08-01-preview",
@@ -30962,6 +30912,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-08-01-preview",

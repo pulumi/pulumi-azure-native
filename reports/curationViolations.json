@@ -208,6 +208,10 @@
     "Detail": "expected tracking preview but found stable"
   },
   {
+    "Provider": "HybridConnectivity",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "HybridNetwork",
     "Detail": "expected tracking stable but found preview"
   },
@@ -369,6 +373,10 @@
   },
   {
     "Provider": "StorageCache",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "Subscription",
     "Detail": "expected no additions but found some"
   },
   {

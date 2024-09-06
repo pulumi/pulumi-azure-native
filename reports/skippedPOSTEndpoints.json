@@ -1210,6 +1210,11 @@
     "NetworkSecurityPerimeterConfigurations_ReconcileForPrivateLinkScope": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/privateLinkScopes/{scopeName}/networkSecurityPerimeterConfigurations/{perimeterName}/reconcile",
     "UpgradeExtensions": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/upgradeExtensions"
   },
+  "HybridConnectivity": {
+    "GenerateAwsTemplate_Post": "/subscriptions/{subscriptionId}/providers/Microsoft.HybridConnectivity/generateAwsTemplate",
+    "PublicCloudConnectors_TestPermissions": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridConnectivity/publicCloudConnectors/{publicCloudConnector}/testPermissions",
+    "SolutionConfigurations_SyncNow": "/{resourceUri}/providers/Microsoft.HybridConnectivity/solutionConfigurations/{solutionConfiguration}/syncNow"
+  },
   "HybridContainerService": {
     "ProvisionedClusters_UpgradeNodeImageVersionForEntireCluster": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/provisionedClusters/{resourceName}/upgradeNodeImageVersionForEntireCluster"
   },
