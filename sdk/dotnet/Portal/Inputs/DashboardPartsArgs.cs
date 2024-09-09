@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.Portal.Inputs
     public sealed class DashboardPartsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The dashboard part's metadata.
+        /// The dashboard's part metadata.
         /// </summary>
         [Input("metadata")]
-        public Input<Inputs.MarkdownPartMetadataArgs>? Metadata { get; set; }
+        public Input<Inputs.DashboardPartMetadataArgs>? Metadata { get; set; }
 
         /// <summary>
         /// The dashboard's part position.
