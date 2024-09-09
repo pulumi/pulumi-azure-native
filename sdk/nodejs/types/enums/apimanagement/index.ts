@@ -15,6 +15,7 @@ import * as v20220901preview from "./v20220901preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501preview from "./v20230501preview";
 import * as v20230901preview from "./v20230901preview";
+import * as v20240501 from "./v20240501";
 
 export {
     v20161010,
@@ -30,6 +31,7 @@ export {
     v20230301preview,
     v20230501preview,
     v20230901preview,
+    v20240501,
 };
 
 export const AlwaysLog = {

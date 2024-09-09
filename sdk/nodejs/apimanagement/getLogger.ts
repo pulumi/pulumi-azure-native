@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Gets the details of the logger specified by its identifier.
  * Azure REST API version: 2022-08-01.
  *
- * Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+ * Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerResult> {
 
@@ -77,7 +77,7 @@ export interface GetLoggerResult {
  * Gets the details of the logger specified by its identifier.
  * Azure REST API version: 2022-08-01.
  *
- * Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+ * Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getLoggerOutput(args: GetLoggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggerResult> {
     return pulumi.output(args).apply((a: any) => getLogger(a, opts))

@@ -24,6 +24,18 @@ export const CreatedByType = {
  */
 export type CreatedByType = (typeof CreatedByType)[keyof typeof CreatedByType];
 
+export const HostType = {
+    /**
+     * AWS state
+     */
+    AWS: "AWS",
+} as const;
+
+/**
+ * Host cloud the public cloud connector.
+ */
+export type HostType = (typeof HostType)[keyof typeof HostType];
+
 export const ServiceName = {
     SSH: "SSH",
     WAC: "WAC",

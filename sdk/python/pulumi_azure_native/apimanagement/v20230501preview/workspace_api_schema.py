@@ -257,7 +257,7 @@ class WorkspaceApiSchema(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceApiSchema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceApiSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceApiSchema, __self__).__init__(
             'azure-native:apimanagement/v20230501preview:WorkspaceApiSchema',

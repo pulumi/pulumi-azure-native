@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Create new debug credentials for gateway.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-05-01-preview, 2023-09-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function listGatewayDebugCredentials(args: ListGatewayDebugCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListGatewayDebugCredentialsResult> {
 
@@ -66,7 +66,7 @@ export interface ListGatewayDebugCredentialsResult {
  * Create new debug credentials for gateway.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-05-01-preview, 2023-09-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function listGatewayDebugCredentialsOutput(args: ListGatewayDebugCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGatewayDebugCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listGatewayDebugCredentials(a, opts))

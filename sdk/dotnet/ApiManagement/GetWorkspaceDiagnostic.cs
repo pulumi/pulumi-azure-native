@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the Diagnostic specified by its identifier.
         /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Task<GetWorkspaceDiagnosticResult> InvokeAsync(GetWorkspaceDiagnosticArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceDiagnosticResult>("azure-native:apimanagement:getWorkspaceDiagnostic", args ?? new GetWorkspaceDiagnosticArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the Diagnostic specified by its identifier.
         /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Output<GetWorkspaceDiagnosticResult> Invoke(GetWorkspaceDiagnosticInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceDiagnosticResult>("azure-native:apimanagement:getWorkspaceDiagnostic", args ?? new GetWorkspaceDiagnosticInvokeArgs(), options.WithDefaults());

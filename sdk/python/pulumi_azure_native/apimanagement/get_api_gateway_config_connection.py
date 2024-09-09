@@ -141,6 +141,8 @@ def get_api_gateway_config_connection(config_connection_name: Optional[str] = No
     Gets an API Management gateway config connection resource description.
     Azure REST API version: 2023-09-01-preview.
 
+    Other available API versions: 2024-05-01.
+
 
     :param str config_connection_name: The name of the API Management gateway config connection.
     :param str gateway_name: The name of the API Management gateway.
@@ -172,6 +174,8 @@ def get_api_gateway_config_connection_output(config_connection_name: Optional[pu
     """
     Gets an API Management gateway config connection resource description.
     Azure REST API version: 2023-09-01-preview.
+
+    Other available API versions: 2024-05-01.
 
 
     :param str config_connection_name: The name of the API Management gateway config connection.

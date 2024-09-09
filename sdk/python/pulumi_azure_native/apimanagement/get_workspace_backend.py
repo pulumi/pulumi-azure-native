@@ -212,6 +212,8 @@ def get_workspace_backend(backend_id: Optional[str] = None,
     Gets the details of the backend specified by its identifier.
     Azure REST API version: 2023-09-01-preview.
 
+    Other available API versions: 2024-05-01.
+
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -252,6 +254,8 @@ def get_workspace_backend_output(backend_id: Optional[pulumi.Input[str]] = None,
     """
     Gets the details of the backend specified by its identifier.
     Azure REST API version: 2023-09-01-preview.
+
+    Other available API versions: 2024-05-01.
 
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.

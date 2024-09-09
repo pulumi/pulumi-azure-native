@@ -99,7 +99,7 @@ class Tag(pulumi.CustomResource):
         Tag Contract details.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +118,7 @@ class Tag(pulumi.CustomResource):
         Tag Contract details.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.
@@ -160,7 +160,7 @@ class Tag(pulumi.CustomResource):
             __props__.__dict__["tag_id"] = tag_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Tag")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:Tag")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Tag, __self__).__init__(
             'azure-native:apimanagement:Tag',

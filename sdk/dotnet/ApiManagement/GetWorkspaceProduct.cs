@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the product specified by its identifier.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
         /// </summary>
         public static Task<GetWorkspaceProductResult> InvokeAsync(GetWorkspaceProductArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceProductResult>("azure-native:apimanagement:getWorkspaceProduct", args ?? new GetWorkspaceProductArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the product specified by its identifier.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
         /// </summary>
         public static Output<GetWorkspaceProductResult> Invoke(GetWorkspaceProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceProductResult>("azure-native:apimanagement:getWorkspaceProduct", args ?? new GetWorkspaceProductInvokeArgs(), options.WithDefaults());

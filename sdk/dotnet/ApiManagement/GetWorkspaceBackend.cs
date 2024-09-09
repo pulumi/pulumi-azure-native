@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the backend specified by its identifier.
         /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Task<GetWorkspaceBackendResult> InvokeAsync(GetWorkspaceBackendArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceBackendResult>("azure-native:apimanagement:getWorkspaceBackend", args ?? new GetWorkspaceBackendArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the backend specified by its identifier.
         /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Output<GetWorkspaceBackendResult> Invoke(GetWorkspaceBackendInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceBackendResult>("azure-native:apimanagement:getWorkspaceBackend", args ?? new GetWorkspaceBackendInvokeArgs(), options.WithDefaults());

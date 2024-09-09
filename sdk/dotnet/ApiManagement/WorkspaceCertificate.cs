@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// Certificate details.
     /// Azure REST API version: 2023-09-01-preview.
+    /// 
+    /// Other available API versions: 2024-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceCertificate")]
     public partial class WorkspaceCertificate : global::Pulumi.CustomResource
@@ -78,6 +80,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:WorkspaceCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:WorkspaceCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

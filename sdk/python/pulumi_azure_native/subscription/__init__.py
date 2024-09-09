@@ -8,6 +8,8 @@ import typing
 from ._enums import *
 from .alias import *
 from .get_alias import *
+from .get_subscription_tar_directory import *
+from .subscription_tar_directory import *
 from ._inputs import *
 from . import outputs
 

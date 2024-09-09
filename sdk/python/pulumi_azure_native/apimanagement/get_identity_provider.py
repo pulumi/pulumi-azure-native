@@ -201,7 +201,7 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
     Gets the configuration details of the identity Provider configured in specified service instance.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2016-07-07, 2016-10-10, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+    Other available API versions: 2016-07-07, 2016-10-10, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.
@@ -240,7 +240,7 @@ def get_identity_provider_output(identity_provider_name: Optional[pulumi.Input[s
     Gets the configuration details of the identity Provider configured in specified service instance.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2016-07-07, 2016-10-10, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+    Other available API versions: 2016-07-07, 2016-10-10, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
 
     :param str identity_provider_name: Identity Provider Type identifier.

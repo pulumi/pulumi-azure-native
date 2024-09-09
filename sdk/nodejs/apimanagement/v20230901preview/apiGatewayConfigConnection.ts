@@ -100,7 +100,7 @@ export class ApiGatewayConfigConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiGatewayConfigConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiGatewayConfigConnection" }, { type: "azure-native:apimanagement/v20240501:ApiGatewayConfigConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiGatewayConfigConnection.__pulumiType, name, resourceInputs, opts);
     }

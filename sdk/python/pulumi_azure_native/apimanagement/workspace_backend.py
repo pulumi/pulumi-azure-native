@@ -300,6 +300,8 @@ class WorkspaceBackend(pulumi.CustomResource):
         Backend details.
         Azure REST API version: 2023-09-01-preview.
 
+        Other available API versions: 2024-05-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -327,6 +329,8 @@ class WorkspaceBackend(pulumi.CustomResource):
         """
         Backend details.
         Azure REST API version: 2023-09-01-preview.
+
+        Other available API versions: 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceBackendArgs args: The arguments to use to populate this resource's properties.
@@ -395,7 +399,7 @@ class WorkspaceBackend(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceBackend")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceBackend"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceBackend")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceBackend, __self__).__init__(
             'azure-native:apimanagement:WorkspaceBackend',

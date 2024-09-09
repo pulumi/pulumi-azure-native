@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Get the policy configuration at the Product level.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
         /// </summary>
         public static Task<GetWorkspaceProductPolicyResult> InvokeAsync(GetWorkspaceProductPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceProductPolicyResult>("azure-native:apimanagement:getWorkspaceProductPolicy", args ?? new GetWorkspaceProductPolicyArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Get the policy configuration at the Product level.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
         /// </summary>
         public static Output<GetWorkspaceProductPolicyResult> Invoke(GetWorkspaceProductPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceProductPolicyResult>("azure-native:apimanagement:getWorkspaceProductPolicy", args ?? new GetWorkspaceProductPolicyInvokeArgs(), options.WithDefaults());

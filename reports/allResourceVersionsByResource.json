@@ -347,7 +347,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiDiagnostic": [
       "2017-03-01",
@@ -367,17 +368,20 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiDiagnosticLogger": [
       "2017-03-01",
       "2018-01-01"
     ],
     "ApiGateway": [
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiGatewayConfigConnection": [
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiIssue": [
       "2017-03-01",
@@ -397,7 +401,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiIssueAttachment": [
       "2017-03-01",
@@ -417,7 +422,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiIssueComment": [
       "2017-03-01",
@@ -437,7 +443,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiManagementService": [
       "2016-07-07",
@@ -459,7 +466,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiOperation": [
       "2016-07-07",
@@ -481,7 +489,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiOperationPolicy": [
       "2017-03-01",
@@ -501,7 +510,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiOperationsPolicy": [
       "2016-10-10"
@@ -525,7 +535,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiRelease": [
       "2017-03-01",
@@ -545,7 +556,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiSchema": [
       "2017-03-01",
@@ -565,7 +577,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiTagDescription": [
       "2019-01-01",
@@ -582,7 +595,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiVersionSet": [
       "2017-03-01",
@@ -602,14 +616,16 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ApiWiki": [
       "2022-08-01",
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Authorization": [
       "2022-04-01-preview",
@@ -617,7 +633,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "AuthorizationAccessPolicy": [
       "2022-04-01-preview",
@@ -625,7 +642,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "AuthorizationProvider": [
       "2022-04-01-preview",
@@ -633,7 +651,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "AuthorizationServer": [
       "2016-07-07",
@@ -655,7 +674,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Backend": [
       "2016-07-07",
@@ -677,7 +697,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Cache": [
       "2018-06-01-preview",
@@ -695,7 +716,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Certificate": [
       "2016-07-07",
@@ -717,7 +739,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ContentItem": [
       "2019-12-01",
@@ -732,7 +755,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ContentType": [
       "2019-12-01",
@@ -747,7 +771,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Diagnostic": [
       "2017-03-01",
@@ -767,7 +792,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "DiagnosticLogger": [
       "2017-03-01",
@@ -778,7 +804,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "EmailTemplate": [
       "2017-03-01",
@@ -798,7 +825,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Gateway": [
       "2019-12-01",
@@ -814,7 +842,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "GatewayApiEntityTag": [
       "2019-12-01",
@@ -830,7 +859,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "GatewayCertificateAuthority": [
       "2020-06-01-preview",
@@ -844,7 +874,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "GatewayHostnameConfiguration": [
       "2019-12-01",
@@ -860,7 +891,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "GlobalSchema": [
       "2021-08-01",
@@ -870,21 +902,24 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "GraphQLApiResolver": [
       "2022-08-01",
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "GraphQLApiResolverPolicy": [
       "2022-08-01",
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Group": [
       "2016-07-07",
@@ -906,7 +941,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "GroupUser": [
       "2017-03-01",
@@ -926,7 +962,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "IdentityProvider": [
       "2016-07-07",
@@ -948,7 +985,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Logger": [
       "2016-07-07",
@@ -970,7 +1008,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "NamedValue": [
       "2019-12-01",
@@ -986,7 +1025,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "NotificationRecipientEmail": [
       "2017-03-01",
@@ -1006,7 +1046,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "NotificationRecipientUser": [
       "2017-03-01",
@@ -1026,7 +1067,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "OpenIdConnectProvider": [
       "2016-07-07",
@@ -1048,7 +1090,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Policy": [
       "2017-03-01",
@@ -1068,7 +1111,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "PolicyFragment": [
       "2021-12-01-preview",
@@ -1077,11 +1121,13 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "PolicyRestriction": [
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "PrivateEndpointConnectionByName": [
       "2021-04-01-preview",
@@ -1092,7 +1138,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Product": [
       "2016-07-07",
@@ -1114,7 +1161,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ProductApi": [
       "2017-03-01",
@@ -1134,13 +1182,15 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ProductApiLink": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ProductGroup": [
       "2017-03-01",
@@ -1160,13 +1210,15 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ProductGroupLink": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ProductPolicy": [
       "2016-10-10",
@@ -1187,14 +1239,16 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "ProductWiki": [
       "2022-08-01",
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Property": [
       "2016-07-07",
@@ -1227,7 +1281,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Tag": [
       "2017-03-01",
@@ -1247,13 +1302,15 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "TagApiLink": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "TagByApi": [
       "2017-03-01",
@@ -1273,7 +1330,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "TagByOperation": [
       "2017-03-01",
@@ -1293,7 +1351,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "TagByProduct": [
       "2017-03-01",
@@ -1313,7 +1372,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "TagDescription": [
       "2017-03-01",
@@ -1324,13 +1384,15 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "TagProductLink": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "TenantPolicy": [
       "2016-10-10"
@@ -1355,172 +1417,203 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Workspace": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceApi": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceApiDiagnostic": [
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceApiOperation": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceApiOperationPolicy": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceApiPolicy": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceApiRelease": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceApiSchema": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceApiVersionSet": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceBackend": [
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceCertificate": [
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceDiagnostic": [
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceGlobalSchema": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceGroup": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceGroupUser": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceLogger": [
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceNamedValue": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceNotificationRecipientEmail": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceNotificationRecipientUser": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspacePolicy": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspacePolicyFragment": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceProduct": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceProductApiLink": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceProductGroupLink": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceProductPolicy": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceSubscription": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceTag": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceTagApiLink": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceTagOperationLink": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "WorkspaceTagProductLink": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "getApiManagementServiceDomainOwnershipIdentifier": [
       "2020-06-01-preview",
@@ -1534,7 +1627,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "getApiManagementServiceSsoToken": [
       "2016-10-10",
@@ -1555,7 +1649,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "getAuthorizationLoginLinkPost": [
       "2022-04-01-preview",
@@ -1563,7 +1658,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "getUserSharedAccessToken": [
       "2016-10-10",
@@ -1584,7 +1680,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listAuthorizationServerSecrets": [
       "2019-12-01",
@@ -1600,7 +1697,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listDelegationSettingSecrets": [
       "2019-12-01",
@@ -1614,7 +1712,8 @@
     "listGatewayDebugCredentials": [
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listGatewayKeys": [
       "2019-12-01",
@@ -1630,12 +1729,14 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listGatewayTrace": [
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listIdentityProviderSecrets": [
       "2019-12-01",
@@ -1651,7 +1752,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listNamedValue": [
       "2019-12-01",
@@ -1667,7 +1769,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listOpenIdConnectProviderSecrets": [
       "2019-12-01",
@@ -1683,7 +1786,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listPolicyFragmentReferences": [
       "2021-12-01-preview",
@@ -1692,7 +1796,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listSubscriptionSecrets": [
       "2019-12-01",
@@ -1708,7 +1813,8 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listTenantAccessGitSecrets": [
       "2019-12-01",
@@ -1728,25 +1834,29 @@
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listWorkspaceNamedValue": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listWorkspacePolicyFragmentReferences": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listWorkspaceSubscriptionSecrets": [
       "2022-09-01-preview",
       "2023-03-01-preview",
       "2023-05-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ]
   },
   "App": {
@@ -3929,7 +4039,8 @@
       "2023-05-01-preview",
       "2023-08-01",
       "2024-03-01",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-09-01-preview"
     ],
     "Database": [
       "2020-10-01-preview",
@@ -3945,7 +4056,8 @@
       "2023-11-01",
       "2024-02-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "EnterprisePrivateEndpointConnection": [
       "2020-10-01-preview",
@@ -3961,7 +4073,8 @@
       "2023-11-01",
       "2024-02-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "FirewallRule": [
       "2017-02-01",
@@ -4055,7 +4168,8 @@
       "2023-11-01",
       "2024-02-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "RedisFirewallRule": [
       "2016-04-01"
@@ -4077,7 +4191,8 @@
       "2023-11-01",
       "2024-02-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "listRedisKeys": [
       "2015-08-01",
@@ -11438,8 +11553,14 @@
       "2023-03-15",
       "2024-12-01"
     ],
+    "PublicCloudConnector": [
+      "2024-12-01"
+    ],
     "ServiceConfiguration": [
       "2023-03-15",
+      "2024-12-01"
+    ],
+    "SolutionConfiguration": [
       "2024-12-01"
     ],
     "listEndpointCredentials": [
@@ -24004,6 +24125,9 @@
     ],
     "SubscriptionAlias": [
       "2019-10-01-preview"
+    ],
+    "SubscriptionTarDirectory": [
+      "2024-08-01-preview"
     ]
   },
   "Support": {},

@@ -20,6 +20,8 @@ __all__ = [
     'PutAliasRequestAdditionalPropertiesArgsDict',
     'PutAliasRequestPropertiesArgs',
     'PutAliasRequestPropertiesArgsDict',
+    'TargetDirectoryRequestPropertiesArgs',
+    'TargetDirectoryRequestPropertiesArgsDict',
 ]
 
 MYPY = False
@@ -263,5 +265,61 @@ class PutAliasRequestPropertiesArgs:
     @workload.setter
     def workload(self, value: Optional[pulumi.Input[Union[str, 'Workload']]]):
         pulumi.set(self, "workload", value)
+
+
+if not MYPY:
+    class TargetDirectoryRequestPropertiesArgsDict(TypedDict):
+        """
+        Properties of subscription Request for Changed Target Directory.
+        """
+        destination_owner_id: NotRequired[pulumi.Input[str]]
+        """
+        The destination OwnerId, can be object id or email address
+        """
+        destination_tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The destination Tenant id where subscription needs to be accepted
+        """
+elif False:
+    TargetDirectoryRequestPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TargetDirectoryRequestPropertiesArgs:
+    def __init__(__self__, *,
+                 destination_owner_id: Optional[pulumi.Input[str]] = None,
+                 destination_tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of subscription Request for Changed Target Directory.
+        :param pulumi.Input[str] destination_owner_id: The destination OwnerId, can be object id or email address
+        :param pulumi.Input[str] destination_tenant_id: The destination Tenant id where subscription needs to be accepted
+        """
+        if destination_owner_id is not None:
+            pulumi.set(__self__, "destination_owner_id", destination_owner_id)
+        if destination_tenant_id is not None:
+            pulumi.set(__self__, "destination_tenant_id", destination_tenant_id)
+
+    @property
+    @pulumi.getter(name="destinationOwnerId")
+    def destination_owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination OwnerId, can be object id or email address
+        """
+        return pulumi.get(self, "destination_owner_id")
+
+    @destination_owner_id.setter
+    def destination_owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_owner_id", value)
+
+    @property
+    @pulumi.getter(name="destinationTenantId")
+    def destination_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination Tenant id where subscription needs to be accepted
+        """
+        return pulumi.get(self, "destination_tenant_id")
+
+    @destination_tenant_id.setter
+    def destination_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_tenant_id", value)
 
 

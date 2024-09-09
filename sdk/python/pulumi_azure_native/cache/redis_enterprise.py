@@ -188,7 +188,7 @@ class RedisEnterprise(pulumi.CustomResource):
         Describes the RedisEnterprise cluster
         Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2020-10-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview.
+        Other available API versions: 2020-10-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,7 +212,7 @@ class RedisEnterprise(pulumi.CustomResource):
         Describes the RedisEnterprise cluster
         Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2020-10-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview.
+        Other available API versions: 2020-10-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param RedisEnterpriseArgs args: The arguments to use to populate this resource's properties.
@@ -268,7 +268,7 @@ class RedisEnterprise(pulumi.CustomResource):
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210201preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210301:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210801:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20220101:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20221101preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230701:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230801preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20231001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20231101:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240201:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240601preview:RedisEnterprise")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210201preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210301:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210801:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20220101:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20221101preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230701:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230801preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20231001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20231101:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240201:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240601preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240901preview:RedisEnterprise")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RedisEnterprise, __self__).__init__(
             'azure-native:cache:RedisEnterprise',

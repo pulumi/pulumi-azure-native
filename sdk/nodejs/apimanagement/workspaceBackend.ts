@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Backend details.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export class WorkspaceBackend extends pulumi.CustomResource {
     /**
@@ -147,7 +149,7 @@ export class WorkspaceBackend extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20230901preview:WorkspaceBackend" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20230901preview:WorkspaceBackend" }, { type: "azure-native:apimanagement/v20240501:WorkspaceBackend" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceBackend.__pulumiType, name, resourceInputs, opts);
     }

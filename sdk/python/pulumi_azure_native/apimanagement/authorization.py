@@ -187,7 +187,7 @@ class Authorization(pulumi.CustomResource):
         Authorization contract.
         Azure REST API version: 2022-08-01.
 
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +211,7 @@ class Authorization(pulumi.CustomResource):
         Authorization contract.
         Azure REST API version: 2022-08-01.
 
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param AuthorizationArgs args: The arguments to use to populate this resource's properties.
@@ -263,7 +263,7 @@ class Authorization(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Authorization"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Authorization"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Authorization"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Authorization"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Authorization"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Authorization")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Authorization"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Authorization"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Authorization"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Authorization"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Authorization"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Authorization"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:Authorization")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Authorization, __self__).__init__(
             'azure-native:apimanagement:Authorization',

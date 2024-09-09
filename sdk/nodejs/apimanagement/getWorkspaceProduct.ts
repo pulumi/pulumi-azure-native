@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Gets the details of the product specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getWorkspaceProduct(args: GetWorkspaceProductArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceProductResult> {
 
@@ -89,7 +89,7 @@ export interface GetWorkspaceProductResult {
  * Gets the details of the product specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getWorkspaceProductOutput(args: GetWorkspaceProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceProductResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceProduct(a, opts))

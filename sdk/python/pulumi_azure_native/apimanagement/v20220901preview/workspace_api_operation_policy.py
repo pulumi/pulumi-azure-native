@@ -242,7 +242,7 @@ class WorkspaceApiOperationPolicy(pulumi.CustomResource):
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceApiOperationPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceApiOperationPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceApiOperationPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceApiOperationPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceApiOperationPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceApiOperationPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceApiOperationPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceApiOperationPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceApiOperationPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceApiOperationPolicy, __self__).__init__(
             'azure-native:apimanagement/v20220901preview:WorkspaceApiOperationPolicy',

@@ -173,7 +173,7 @@ class Documentation(pulumi.CustomResource):
             __props__.__dict__["title"] = title
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Documentation"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Documentation"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Documentation"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Documentation"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Documentation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Documentation"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Documentation"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Documentation"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Documentation"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Documentation"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:Documentation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Documentation, __self__).__init__(
             'azure-native:apimanagement/v20230501preview:Documentation',

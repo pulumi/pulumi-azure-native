@@ -1283,7 +1283,9 @@
   },
   "HybridConnectivity": {
     "Endpoint": "2023-03-15",
+    "PublicCloudConnector": "2024-12-01",
     "ServiceConfiguration": "2023-03-15",
+    "SolutionConfiguration": "2024-12-01",
     "listEndpointCredentials": "2023-03-15",
     "listEndpointIngressGatewayCredentials": "2023-03-15",
     "listEndpointManagedProxyDetails": "2023-03-15"
@@ -2606,7 +2608,8 @@
     "listClusterStreamingJobs": "2020-03-01"
   },
   "Subscription": {
-    "Alias": "2021-10-01"
+    "Alias": "2021-10-01",
+    "SubscriptionTarDirectory": "2024-08-01-preview"
   },
   "Support": {},
   "Synapse": {

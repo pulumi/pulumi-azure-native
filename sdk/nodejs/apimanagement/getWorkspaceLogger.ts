@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the logger specified by its identifier.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getWorkspaceLogger(args: GetWorkspaceLoggerArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceLoggerResult> {
 
@@ -79,6 +81,8 @@ export interface GetWorkspaceLoggerResult {
 /**
  * Gets the details of the logger specified by its identifier.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getWorkspaceLoggerOutput(args: GetWorkspaceLoggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceLoggerResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceLogger(a, opts))

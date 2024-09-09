@@ -144,7 +144,7 @@ export class ApiGateway extends pulumi.CustomResource {
             resourceInputs["virtualNetworkType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiGateway" }, { type: "azure-native:apimanagement/v20240501:ApiGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiGateway.__pulumiType, name, resourceInputs, opts);
     }

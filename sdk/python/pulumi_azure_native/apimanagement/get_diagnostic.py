@@ -202,7 +202,7 @@ def get_diagnostic(diagnostic_id: Optional[str] = None,
     Gets the details of the Diagnostic specified by its identifier.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+    Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
 
     :param str diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
@@ -241,7 +241,7 @@ def get_diagnostic_output(diagnostic_id: Optional[pulumi.Input[str]] = None,
     Gets the details of the Diagnostic specified by its identifier.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+    Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
 
     :param str diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.

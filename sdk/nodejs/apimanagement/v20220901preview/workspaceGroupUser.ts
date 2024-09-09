@@ -129,7 +129,7 @@ export class WorkspaceGroupUser extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceGroupUser" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20240501:WorkspaceGroupUser" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceGroupUser.__pulumiType, name, resourceInputs, opts);
     }

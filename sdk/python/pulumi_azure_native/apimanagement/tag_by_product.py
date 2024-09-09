@@ -99,7 +99,7 @@ class TagByProduct(pulumi.CustomResource):
         Tag Contract details.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +118,7 @@ class TagByProduct(pulumi.CustomResource):
         Tag Contract details.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param TagByProductArgs args: The arguments to use to populate this resource's properties.
@@ -161,7 +161,7 @@ class TagByProduct(pulumi.CustomResource):
             __props__.__dict__["display_name"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:TagByProduct")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:TagByProduct"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:TagByProduct")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TagByProduct, __self__).__init__(
             'azure-native:apimanagement:TagByProduct',

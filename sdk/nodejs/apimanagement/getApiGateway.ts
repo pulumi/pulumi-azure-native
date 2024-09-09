@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an API Management gateway resource description.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getApiGateway(args: GetApiGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApiGatewayResult> {
 
@@ -99,6 +101,8 @@ export interface GetApiGatewayResult {
 /**
  * Gets an API Management gateway resource description.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getApiGatewayOutput(args: GetApiGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayResult> {
     return pulumi.output(args).apply((a: any) => getApiGateway(a, opts))

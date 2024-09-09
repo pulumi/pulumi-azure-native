@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Product-group link details.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export class ProductGroupLink extends pulumi.CustomResource {
     /**
@@ -86,7 +86,7 @@ export class ProductGroupLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:ProductGroupLink" }, { type: "azure-native:apimanagement/v20230301preview:ProductGroupLink" }, { type: "azure-native:apimanagement/v20230501preview:ProductGroupLink" }, { type: "azure-native:apimanagement/v20230901preview:ProductGroupLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:ProductGroupLink" }, { type: "azure-native:apimanagement/v20230301preview:ProductGroupLink" }, { type: "azure-native:apimanagement/v20230501preview:ProductGroupLink" }, { type: "azure-native:apimanagement/v20230901preview:ProductGroupLink" }, { type: "azure-native:apimanagement/v20240501:ProductGroupLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductGroupLink.__pulumiType, name, resourceInputs, opts);
     }

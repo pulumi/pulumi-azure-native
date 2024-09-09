@@ -105,7 +105,7 @@ def get_policy_restriction(policy_restriction_id: Optional[str] = None,
     Get the policy restriction of the Api Management service.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-09-01-preview.
+    Other available API versions: 2023-09-01-preview, 2024-05-01.
 
 
     :param str policy_restriction_id: Policy restrictions after an entity level
@@ -136,7 +136,7 @@ def get_policy_restriction_output(policy_restriction_id: Optional[pulumi.Input[s
     Get the policy restriction of the Api Management service.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-09-01-preview.
+    Other available API versions: 2023-09-01-preview, 2024-05-01.
 
 
     :param str policy_restriction_id: Policy restrictions after an entity level

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the certificate specified by its identifier.
         /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Task<GetWorkspaceCertificateResult> InvokeAsync(GetWorkspaceCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceCertificateResult>("azure-native:apimanagement:getWorkspaceCertificate", args ?? new GetWorkspaceCertificateArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the details of the certificate specified by its identifier.
         /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Output<GetWorkspaceCertificateResult> Invoke(GetWorkspaceCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceCertificateResult>("azure-native:apimanagement:getWorkspaceCertificate", args ?? new GetWorkspaceCertificateInvokeArgs(), options.WithDefaults());

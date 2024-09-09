@@ -13,12 +13,56 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AwsCloudProfileResponse',
     'EndpointPropertiesResponse',
+    'PublicCloudConnectorPropertiesResponse',
+    'SolutionConfigurationPropertiesResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class AwsCloudProfileResponse(dict):
+    """
+    cloud profile for AWS.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedAccounts":
+            suggest = "excluded_accounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AwsCloudProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AwsCloudProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AwsCloudProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 excluded_accounts: Optional[Sequence[str]] = None):
+        """
+        cloud profile for AWS.
+        :param Sequence[str] excluded_accounts: List of AWS accounts which need to be excluded.
+        """
+        if excluded_accounts is not None:
+            pulumi.set(__self__, "excluded_accounts", excluded_accounts)
+
+    @property
+    @pulumi.getter(name="excludedAccounts")
+    def excluded_accounts(self) -> Optional[Sequence[str]]:
+        """
+        List of AWS accounts which need to be excluded.
+        """
+        return pulumi.get(self, "excluded_accounts")
+
 
 @pulumi.output_type
 class EndpointPropertiesResponse(dict):
@@ -82,6 +126,174 @@ class EndpointPropertiesResponse(dict):
         The resource Id of the connectivity endpoint (optional).
         """
         return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class PublicCloudConnectorPropertiesResponse(dict):
+    """
+    Properties of public cloud connectors.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsCloudProfile":
+            suggest = "aws_cloud_profile"
+        elif key == "connectorPrimaryIdentifier":
+            suggest = "connector_primary_identifier"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicCloudConnectorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicCloudConnectorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicCloudConnectorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_cloud_profile: 'outputs.AwsCloudProfileResponse',
+                 connector_primary_identifier: str,
+                 provisioning_state: str):
+        """
+        Properties of public cloud connectors.
+        :param 'AwsCloudProfileResponse' aws_cloud_profile: Cloud profile for AWS.
+        :param str connector_primary_identifier: Connector primary identifier.
+        :param str provisioning_state: The resource provisioning state.
+        """
+        pulumi.set(__self__, "aws_cloud_profile", aws_cloud_profile)
+        pulumi.set(__self__, "connector_primary_identifier", connector_primary_identifier)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="awsCloudProfile")
+    def aws_cloud_profile(self) -> 'outputs.AwsCloudProfileResponse':
+        """
+        Cloud profile for AWS.
+        """
+        return pulumi.get(self, "aws_cloud_profile")
+
+    @property
+    @pulumi.getter(name="connectorPrimaryIdentifier")
+    def connector_primary_identifier(self) -> str:
+        """
+        Connector primary identifier.
+        """
+        return pulumi.get(self, "connector_primary_identifier")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The resource provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class SolutionConfigurationPropertiesResponse(dict):
+    """
+    Solution configuration resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastSyncTime":
+            suggest = "last_sync_time"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "solutionType":
+            suggest = "solution_type"
+        elif key == "statusDetails":
+            suggest = "status_details"
+        elif key == "solutionSettings":
+            suggest = "solution_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SolutionConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SolutionConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SolutionConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_sync_time: str,
+                 provisioning_state: str,
+                 solution_type: str,
+                 status: str,
+                 status_details: str,
+                 solution_settings: Optional[Mapping[str, str]] = None):
+        """
+        Solution configuration resource.
+        :param str last_sync_time: The last time resources were inventoried
+        :param str provisioning_state: The resource provisioning state.
+        :param str solution_type: The type of the solution
+        :param str status: The status of solution configurations
+        :param str status_details: The detailed message of status details
+        :param Mapping[str, str] solution_settings: Solution settings
+        """
+        pulumi.set(__self__, "last_sync_time", last_sync_time)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "solution_type", solution_type)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_details", status_details)
+        if solution_settings is not None:
+            pulumi.set(__self__, "solution_settings", solution_settings)
+
+    @property
+    @pulumi.getter(name="lastSyncTime")
+    def last_sync_time(self) -> str:
+        """
+        The last time resources were inventoried
+        """
+        return pulumi.get(self, "last_sync_time")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The resource provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="solutionType")
+    def solution_type(self) -> str:
+        """
+        The type of the solution
+        """
+        return pulumi.get(self, "solution_type")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of solution configurations
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusDetails")
+    def status_details(self) -> str:
+        """
+        The detailed message of status details
+        """
+        return pulumi.get(self, "status_details")
+
+    @property
+    @pulumi.getter(name="solutionSettings")
+    def solution_settings(self) -> Optional[Mapping[str, str]]:
+        """
+        Solution settings
+        """
+        return pulumi.get(self, "solution_settings")
 
 
 @pulumi.output_type

@@ -225,6 +225,8 @@ def get_api_gateway(gateway_name: Optional[str] = None,
     Gets an API Management gateway resource description.
     Azure REST API version: 2023-09-01-preview.
 
+    Other available API versions: 2024-05-01.
+
 
     :param str gateway_name: The name of the API Management gateway.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -260,6 +262,8 @@ def get_api_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     """
     Gets an API Management gateway resource description.
     Azure REST API version: 2023-09-01-preview.
+
+    Other available API versions: 2024-05-01.
 
 
     :param str gateway_name: The name of the API Management gateway.

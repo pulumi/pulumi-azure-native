@@ -18,6 +18,7 @@ from ._enums import *
 __all__ = [
     'SubscriptionAliasResponsePropertiesResponse',
     'SystemDataResponse',
+    'TargetDirectoryResultPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -320,5 +321,81 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TargetDirectoryResultPropertiesResponse(dict):
+    """
+    Properties of subscription Response for Changed Target Directory.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationOwnerId":
+            suggest = "destination_owner_id"
+        elif key == "destinationTenantId":
+            suggest = "destination_tenant_id"
+        elif key == "expiresOn":
+            suggest = "expires_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetDirectoryResultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetDirectoryResultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetDirectoryResultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_owner_id: str,
+                 destination_tenant_id: str,
+                 expires_on: str,
+                 status: str):
+        """
+        Properties of subscription Response for Changed Target Directory.
+        :param str destination_owner_id: Destination Owner Id where Subscription will be accepted.
+        :param str destination_tenant_id: Destination Tenant Id where Subscription will be accepted.
+        :param str expires_on: Subscription Initiate Request Expiry time
+        :param str status: Subscription Status.
+        """
+        pulumi.set(__self__, "destination_owner_id", destination_owner_id)
+        pulumi.set(__self__, "destination_tenant_id", destination_tenant_id)
+        pulumi.set(__self__, "expires_on", expires_on)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="destinationOwnerId")
+    def destination_owner_id(self) -> str:
+        """
+        Destination Owner Id where Subscription will be accepted.
+        """
+        return pulumi.get(self, "destination_owner_id")
+
+    @property
+    @pulumi.getter(name="destinationTenantId")
+    def destination_tenant_id(self) -> str:
+        """
+        Destination Tenant Id where Subscription will be accepted.
+        """
+        return pulumi.get(self, "destination_tenant_id")
+
+    @property
+    @pulumi.getter(name="expiresOn")
+    def expires_on(self) -> str:
+        """
+        Subscription Initiate Request Expiry time
+        """
+        return pulumi.get(self, "expires_on")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Subscription Status.
+        """
+        return pulumi.get(self, "status")
 
 

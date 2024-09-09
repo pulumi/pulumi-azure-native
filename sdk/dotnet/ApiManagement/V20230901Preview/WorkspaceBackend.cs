@@ -116,6 +116,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:WorkspaceBackend" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:WorkspaceBackend" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

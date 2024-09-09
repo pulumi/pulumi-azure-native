@@ -94,7 +94,7 @@ def get_tag_by_product(product_id: Optional[str] = None,
     Get tag associated with the Product.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.
@@ -127,7 +127,7 @@ def get_tag_by_product_output(product_id: Optional[pulumi.Input[str]] = None,
     Get tag associated with the Product.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
 
     :param str product_id: Product identifier. Must be unique in the current API Management service instance.

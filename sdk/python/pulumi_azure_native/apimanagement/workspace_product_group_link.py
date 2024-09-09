@@ -131,7 +131,7 @@ class WorkspaceProductGroupLink(pulumi.CustomResource):
         Product-group link details.
         Azure REST API version: 2022-09-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class WorkspaceProductGroupLink(pulumi.CustomResource):
         Product-group link details.
         Azure REST API version: 2022-09-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceProductGroupLinkArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +202,7 @@ class WorkspaceProductGroupLink(pulumi.CustomResource):
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceProductGroupLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceProductGroupLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceProductGroupLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceProductGroupLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceProductGroupLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceProductGroupLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceProductGroupLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceProductGroupLink"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceProductGroupLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceProductGroupLink, __self__).__init__(
             'azure-native:apimanagement:WorkspaceProductGroupLink',

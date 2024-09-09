@@ -235,7 +235,7 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:AuthorizationAccessPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:AuthorizationAccessPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:AuthorizationAccessPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:AuthorizationAccessPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:AuthorizationAccessPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:AuthorizationAccessPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:AuthorizationAccessPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:AuthorizationAccessPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:AuthorizationAccessPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:AuthorizationAccessPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:AuthorizationAccessPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AuthorizationAccessPolicy, __self__).__init__(
             'azure-native:apimanagement/v20230501preview:AuthorizationAccessPolicy',

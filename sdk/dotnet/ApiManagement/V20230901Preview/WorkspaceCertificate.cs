@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:WorkspaceCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:WorkspaceCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

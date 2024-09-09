@@ -94,7 +94,7 @@ def get_gateway_certificate_authority(certificate_id: Optional[str] = None,
     Get assigned Gateway Certificate Authority details.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -127,7 +127,7 @@ def get_gateway_certificate_authority_output(certificate_id: Optional[pulumi.Inp
     Get assigned Gateway Certificate Authority details.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview.
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.

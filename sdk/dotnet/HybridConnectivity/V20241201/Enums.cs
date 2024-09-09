@@ -41,6 +41,39 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
     }
 
     /// <summary>
+    /// Host cloud the public cloud connector.
+    /// </summary>
+    [EnumType]
+    public readonly struct HostType : IEquatable<HostType>
+    {
+        private readonly string _value;
+
+        private HostType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// AWS state
+        /// </summary>
+        public static HostType AWS { get; } = new HostType("AWS");
+
+        public static bool operator ==(HostType left, HostType right) => left.Equals(right);
+        public static bool operator !=(HostType left, HostType right) => !left.Equals(right);
+
+        public static explicit operator string(HostType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HostType other && Equals(other);
+        public bool Equals(HostType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
     /// </summary>
     [EnumType]

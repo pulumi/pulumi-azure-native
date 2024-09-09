@@ -15,10 +15,20 @@ export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as a
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
 
+export { GetPublicCloudConnectorArgs, GetPublicCloudConnectorResult, GetPublicCloudConnectorOutputArgs } from "./getPublicCloudConnector";
+export const getPublicCloudConnector: typeof import("./getPublicCloudConnector").getPublicCloudConnector = null as any;
+export const getPublicCloudConnectorOutput: typeof import("./getPublicCloudConnector").getPublicCloudConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicCloudConnector","getPublicCloudConnectorOutput"], () => require("./getPublicCloudConnector"));
+
 export { GetServiceConfigurationArgs, GetServiceConfigurationResult, GetServiceConfigurationOutputArgs } from "./getServiceConfiguration";
 export const getServiceConfiguration: typeof import("./getServiceConfiguration").getServiceConfiguration = null as any;
 export const getServiceConfigurationOutput: typeof import("./getServiceConfiguration").getServiceConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceConfiguration","getServiceConfigurationOutput"], () => require("./getServiceConfiguration"));
+
+export { GetSolutionConfigurationArgs, GetSolutionConfigurationResult, GetSolutionConfigurationOutputArgs } from "./getSolutionConfiguration";
+export const getSolutionConfiguration: typeof import("./getSolutionConfiguration").getSolutionConfiguration = null as any;
+export const getSolutionConfigurationOutput: typeof import("./getSolutionConfiguration").getSolutionConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSolutionConfiguration","getSolutionConfigurationOutput"], () => require("./getSolutionConfiguration"));
 
 export { ListEndpointCredentialsArgs, ListEndpointCredentialsResult, ListEndpointCredentialsOutputArgs } from "./listEndpointCredentials";
 export const listEndpointCredentials: typeof import("./listEndpointCredentials").listEndpointCredentials = null as any;
@@ -35,10 +45,20 @@ export const listEndpointManagedProxyDetails: typeof import("./listEndpointManag
 export const listEndpointManagedProxyDetailsOutput: typeof import("./listEndpointManagedProxyDetails").listEndpointManagedProxyDetailsOutput = null as any;
 utilities.lazyLoad(exports, ["listEndpointManagedProxyDetails","listEndpointManagedProxyDetailsOutput"], () => require("./listEndpointManagedProxyDetails"));
 
+export { PublicCloudConnectorArgs } from "./publicCloudConnector";
+export type PublicCloudConnector = import("./publicCloudConnector").PublicCloudConnector;
+export const PublicCloudConnector: typeof import("./publicCloudConnector").PublicCloudConnector = null as any;
+utilities.lazyLoad(exports, ["PublicCloudConnector"], () => require("./publicCloudConnector"));
+
 export { ServiceConfigurationArgs } from "./serviceConfiguration";
 export type ServiceConfiguration = import("./serviceConfiguration").ServiceConfiguration;
 export const ServiceConfiguration: typeof import("./serviceConfiguration").ServiceConfiguration = null as any;
 utilities.lazyLoad(exports, ["ServiceConfiguration"], () => require("./serviceConfiguration"));
+
+export { SolutionConfigurationArgs } from "./solutionConfiguration";
+export type SolutionConfiguration = import("./solutionConfiguration").SolutionConfiguration;
+export const SolutionConfiguration: typeof import("./solutionConfiguration").SolutionConfiguration = null as any;
+utilities.lazyLoad(exports, ["SolutionConfiguration"], () => require("./solutionConfiguration"));
 
 
 // Export enums:
@@ -50,8 +70,12 @@ const _module = {
         switch (type) {
             case "azure-native:hybridconnectivity/v20241201:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
+            case "azure-native:hybridconnectivity/v20241201:PublicCloudConnector":
+                return new PublicCloudConnector(name, <any>undefined, { urn })
             case "azure-native:hybridconnectivity/v20241201:ServiceConfiguration":
                 return new ServiceConfiguration(name, <any>undefined, { urn })
+            case "azure-native:hybridconnectivity/v20241201:SolutionConfiguration":
+                return new SolutionConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

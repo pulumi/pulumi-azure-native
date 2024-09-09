@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets an API Management gateway resource description.
         /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Task<GetApiGatewayResult> InvokeAsync(GetApiGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiGatewayResult>("azure-native:apimanagement:getApiGateway", args ?? new GetApiGatewayArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets an API Management gateway resource description.
         /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Output<GetApiGatewayResult> Invoke(GetApiGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayResult>("azure-native:apimanagement:getApiGateway", args ?? new GetApiGatewayInvokeArgs(), options.WithDefaults());

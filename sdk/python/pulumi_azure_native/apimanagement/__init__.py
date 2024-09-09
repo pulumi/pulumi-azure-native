@@ -243,6 +243,8 @@ if typing.TYPE_CHECKING:
     v20230501preview = __v20230501preview
     import pulumi_azure_native.apimanagement.v20230901preview as __v20230901preview
     v20230901preview = __v20230901preview
+    import pulumi_azure_native.apimanagement.v20240501 as __v20240501
+    v20240501 = __v20240501
 else:
     v20161010 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20161010')
     v20170301 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20170301')
@@ -262,4 +264,5 @@ else:
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20230301preview')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20230501preview')
     v20230901preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20230901preview')
+    v20240501 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20240501')
 

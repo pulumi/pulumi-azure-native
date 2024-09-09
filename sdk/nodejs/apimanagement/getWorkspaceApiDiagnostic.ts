@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the Diagnostic for an API specified by its identifier.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getWorkspaceApiDiagnostic(args: GetWorkspaceApiDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceApiDiagnosticResult> {
 
@@ -106,6 +108,8 @@ export interface GetWorkspaceApiDiagnosticResult {
 /**
  * Gets the details of the Diagnostic for an API specified by its identifier.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getWorkspaceApiDiagnosticOutput(args: GetWorkspaceApiDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiDiagnosticResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceApiDiagnostic(a, opts))

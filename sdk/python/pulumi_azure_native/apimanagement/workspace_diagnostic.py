@@ -271,6 +271,8 @@ class WorkspaceDiagnostic(pulumi.CustomResource):
         Diagnostic details.
         Azure REST API version: 2023-09-01-preview.
 
+        Other available API versions: 2024-05-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AlwaysLog']] always_log: Specifies for what type of messages sampling settings should not apply.
@@ -297,6 +299,8 @@ class WorkspaceDiagnostic(pulumi.CustomResource):
         """
         Diagnostic details.
         Azure REST API version: 2023-09-01-preview.
+
+        Other available API versions: 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceDiagnosticArgs args: The arguments to use to populate this resource's properties.
@@ -360,7 +364,7 @@ class WorkspaceDiagnostic(pulumi.CustomResource):
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceDiagnostic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceDiagnostic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceDiagnostic, __self__).__init__(
             'azure-native:apimanagement:WorkspaceDiagnostic',

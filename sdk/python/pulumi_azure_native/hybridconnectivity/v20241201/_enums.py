@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'CreatedByType',
+    'HostType',
     'ServiceName',
     'Type',
 ]
@@ -19,6 +20,16 @@ class CreatedByType(str, Enum):
     APPLICATION = "Application"
     MANAGED_IDENTITY = "ManagedIdentity"
     KEY = "Key"
+
+
+class HostType(str, Enum):
+    """
+    Host cloud the public cloud connector.
+    """
+    AWS = "AWS"
+    """
+    AWS state
+    """
 
 
 class ServiceName(str, Enum):
