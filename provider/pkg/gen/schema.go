@@ -15,6 +15,7 @@
 package gen
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net/url"
@@ -1535,6 +1536,14 @@ func (l *inMemoryLoader) LoadPackage(pkg string, _ *semver.Version) (*schema.Pac
 	}
 
 	return nil, errors.Errorf("package %s not found in the in-memory map", pkg)
+}
+
+func (l *inMemoryLoader) LoadPackageV2(ctx context.Context, descriptor *schema.PackageDescriptor) (*schema.Package, error) {
+	if p, ok := l.pkgs[descriptor.Name]; ok {
+		return p, nil
+	}
+
+	return nil, errors.Errorf("package %s not found in the in-memory map", descriptor.Name)
 }
 
 // GoModVersion Creates a valid go mod version from our pulumictl version.
