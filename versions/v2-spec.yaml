@@ -933,6 +933,9 @@ HybridCompute:
         PrivateLinkScopedResource: 2020-08-15-preview
 HybridConnectivity:
     tracking: "2023-03-15"
+    additions:
+        PublicCloudConnector: "2024-12-01"
+        SolutionConfiguration: "2024-12-01"
 HybridContainerService:
     tracking: 2022-09-01-preview
 HybridData:
@@ -1757,6 +1760,8 @@ StreamAnalytics:
     tracking: "2020-03-01"
 Subscription:
     tracking: "2021-10-01"
+    additions:
+        SubscriptionTarDirectory: 2024-08-01-preview
 Support: {}
 Synapse:
     tracking: "2021-06-01"

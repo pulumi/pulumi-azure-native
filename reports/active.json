@@ -3512,45 +3512,54 @@
     "": [
       "2023-06-01-preview",
       "2023-10-01-preview",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-08-01-preview"
     ],
     "accounts": [
       "2023-06-01-preview",
       "2023-10-01-preview",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-08-01-preview"
     ],
     "accounts/quotas": [
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-08-01-preview"
     ],
     "checknameavailability": [
       "2023-06-01-preview",
       "2023-10-01-preview",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-08-01-preview"
     ],
     "locations": [
       "2023-06-01-preview",
       "2023-10-01-preview",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-08-01-preview"
     ],
     "locations/operationstatuses": [
       "2023-06-01-preview",
       "2023-10-01-preview",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-08-01-preview"
     ],
     "locations/quotas": [
       "2023-06-01-preview",
       "2023-10-01-preview",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-08-01-preview"
     ],
     "operations": [
       "2023-06-01-preview",
       "2023-10-01-preview",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-08-01-preview"
     ],
     "registeredsubscriptions": [
       "2023-06-01-preview",
       "2023-10-01-preview",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-08-01-preview"
     ]
   },
   "azurescan": {
@@ -8442,8 +8451,7 @@
       "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview",
-      "2023-11-06-preview",
-      "2023-11-21-preview"
+      "2023-11-06-preview"
     ],
     "checknameavailability": [
       "2020-08-20",
@@ -8516,8 +8524,7 @@
       "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview",
-      "2023-11-06-preview",
-      "2023-11-21-preview"
+      "2023-11-06-preview"
     ],
     "locations/operationstatuses": [
       "2020-08-20",
@@ -8530,8 +8537,7 @@
       "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview",
-      "2023-11-06-preview",
-      "2023-11-21-preview"
+      "2023-11-06-preview"
     ],
     "operations": [
       "2020-08-20",
@@ -8544,8 +8550,7 @@
       "2023-04-01",
       "2023-04-01-preview",
       "2023-06-01-preview",
-      "2023-11-06-preview",
-      "2023-11-21-preview"
+      "2023-11-06-preview"
     ],
     "registeredsubscriptions": [
       "2020-08-20",
@@ -17361,7 +17366,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-06-01-preview",
-      "2024-07-01"
+      "2024-07-01",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "cassandraclusters": [
       "2021-03-01-preview",
@@ -17388,7 +17395,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "databaseaccountnames": [
       "2014-04-01",
@@ -17432,7 +17441,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "databaseaccounts": [
       "2014-04-01",
@@ -17476,7 +17487,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "databaseaccounts/encryptionscopes": [
       "2021-03-01-preview",
@@ -17503,7 +17516,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "locations": [
       "2014-04-01",
@@ -17547,7 +17562,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "locations/checkmongoclusternameavailability": [
       "2022-10-15-preview",
@@ -17602,7 +17619,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "locations/mongoclusterazureasyncoperation": [
       "2022-10-15-preview",
@@ -17641,7 +17660,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "locations/operationresults": [
       "2014-04-01",
@@ -17685,7 +17706,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "locations/operationsstatus": [
       "2014-04-01",
@@ -17729,7 +17752,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "locations/restorabledatabaseaccounts": [
       "2020-06-01-preview",
@@ -17758,7 +17783,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "mongoclusters": [
       "2022-10-15-preview",
@@ -17813,7 +17840,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "operations": [
       "2014-04-01",
@@ -17860,7 +17889,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-06-01-preview",
-      "2024-07-01"
+      "2024-07-01",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "operationsstatus": [
       "2014-04-01",
@@ -17904,7 +17935,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "restorabledatabaseaccounts": [
       "2020-06-01-preview",
@@ -17933,7 +17966,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "throughputpools": [
       "2023-11-15-preview",
@@ -18363,7 +18398,10 @@
       "2023-07-01-preview",
       "2023-10-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-03-01",
+      "2024-05-01-preview",
+      "2024-06-15-preview"
     ],
     "checknameavailability": [
       "2020-07-01",
@@ -18380,7 +18418,10 @@
       "2023-07-01-preview",
       "2023-10-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-03-01",
+      "2024-05-01-preview",
+      "2024-06-15-preview"
     ],
     "elasticversions": [
       "2023-02-01-preview",
@@ -18390,14 +18431,20 @@
       "2023-07-01-preview",
       "2023-10-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-03-01",
+      "2024-05-01-preview",
+      "2024-06-15-preview"
     ],
     "getelasticorganizationtoazuresubscriptionmapping": [
       "2023-06-15-preview",
       "2023-07-01-preview",
       "2023-10-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-03-01",
+      "2024-05-01-preview",
+      "2024-06-15-preview"
     ],
     "getorganizationapikey": [
       "2023-02-01-preview",
@@ -18407,7 +18454,10 @@
       "2023-07-01-preview",
       "2023-10-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-03-01",
+      "2024-05-01-preview",
+      "2024-06-15-preview"
     ],
     "locations": [
       "2020-07-01",
@@ -18424,7 +18474,10 @@
       "2023-07-01-preview",
       "2023-10-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-03-01",
+      "2024-05-01-preview",
+      "2024-06-15-preview"
     ],
     "locations/operationstatuses": [
       "2020-07-01",
@@ -18441,7 +18494,10 @@
       "2023-07-01-preview",
       "2023-10-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-03-01",
+      "2024-05-01-preview",
+      "2024-06-15-preview"
     ],
     "monitors": [
       "2020-07-01",
@@ -18458,10 +18514,20 @@
       "2023-07-01-preview",
       "2023-10-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-03-01",
+      "2024-05-01-preview",
+      "2024-06-15-preview"
+    ],
+    "monitors/monitoredsubscriptions": [
+      "2024-05-01-preview",
+      "2024-06-15-preview"
     ],
     "monitors/openaiintegrations": [
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-03-01",
+      "2024-05-01-preview",
+      "2024-06-15-preview"
     ],
     "monitors/tagrules": [
       "2020-07-01",
@@ -18478,7 +18544,10 @@
       "2023-07-01-preview",
       "2023-10-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-03-01",
+      "2024-05-01-preview",
+      "2024-06-15-preview"
     ],
     "operations": [
       "2020-07-01",
@@ -18495,7 +18564,10 @@
       "2023-07-01-preview",
       "2023-10-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-03-01",
+      "2024-05-01-preview",
+      "2024-06-15-preview"
     ]
   },
   "elasticsan": {
@@ -20839,7 +20911,8 @@
       "2022-09-01-preview",
       "2023-11-01",
       "2023-11-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-09-01-preview"
     ],
     "kubernetesversions": [
       "2023-11-15-preview",
@@ -20853,7 +20926,8 @@
       "2022-09-01-preview",
       "2023-11-01",
       "2023-11-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-09-01-preview"
     ],
     "locations/operationstatuses": [
       "2021-08-01-preview",
@@ -20863,7 +20937,8 @@
       "2022-09-01-preview",
       "2023-11-01",
       "2023-11-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-09-01-preview"
     ],
     "operations": [
       "2021-08-01-preview",
@@ -20873,7 +20948,8 @@
       "2022-09-01-preview",
       "2023-11-01",
       "2023-11-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-09-01-preview"
     ],
     "provisionedclusterinstances": [
       "2023-11-15-preview",
@@ -23076,40 +23152,6 @@
       "2022-01-01-preview"
     ]
   },
-  "machinelearning": {
-    "": [
-      "2016-04-01",
-      "2016-05-01-preview",
-      "2017-01-01"
-    ],
-    "commitmentplans": [
-      "2016-05-01-preview",
-      "2017-01-01"
-    ],
-    "locations": [
-      "2016-05-01-preview",
-      "2017-01-01"
-    ],
-    "locations/operations": [
-      "2016-05-01-preview",
-      "2017-01-01"
-    ],
-    "locations/operationsstatus": [
-      "2016-05-01-preview",
-      "2017-01-01"
-    ],
-    "operations": [
-      "2016-05-01-preview",
-      "2017-01-01"
-    ],
-    "webservices": [
-      "2016-05-01-preview",
-      "2017-01-01"
-    ],
-    "workspaces": [
-      "2016-04-01"
-    ]
-  },
   "machinelearningservices": {
     "": [
       "2018-03-01-preview",
@@ -24870,9 +24912,6 @@
       "2022-07-31",
       "2023-01-01"
     ],
-    "macc": [
-      "2018-08-01-beta"
-    ],
     "mysolutions": [
       "2023-03-01-preview"
     ],
@@ -25615,31 +25654,36 @@
       "2023-02-01-preview",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-06-01-preview"
     ],
     "checknameavailability": [
       "2023-02-01-preview",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-06-01-preview"
     ],
     "locations": [
       "2023-02-01-preview",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-06-01-preview"
     ],
     "locations/operationstatuses": [
       "2023-02-01-preview",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-06-01-preview"
     ],
     "operations": [
       "2023-02-01-preview",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-06-01-preview"
     ],
     "virtualenclaves/endpoints": [
       "2023-02-01-preview",
@@ -33383,7 +33427,8 @@
       "2023-08-01-preview",
       "2023-10-01-preview",
       "2024-02-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-08-01-preview"
     ],
     "availableaccounts": [
       "2019-02-01-preview",
@@ -33397,7 +33442,8 @@
       "2023-04-01-preview",
       "2023-08-01-preview",
       "2023-10-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-08-01-preview"
     ],
     "operations": [
       "2019-02-01-preview",
@@ -33412,7 +33458,8 @@
       "2023-04-01-preview",
       "2023-08-01-preview",
       "2023-10-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-08-01-preview"
     ],
     "operationstatuses": [
       "2019-02-01-preview",
@@ -33428,7 +33475,8 @@
       "2023-04-01-preview",
       "2023-08-01-preview",
       "2023-10-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-08-01-preview"
     ],
     "providerregistrations": [
       "2019-02-01-preview",
@@ -33443,14 +33491,16 @@
       "2023-04-01-preview",
       "2023-08-01-preview",
       "2023-10-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-08-01-preview"
     ],
     "providerregistrations/authorizedapplications": [
       "2023-01-01-privatepreview",
       "2023-04-01-preview",
       "2023-08-01-preview",
       "2023-10-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-08-01-preview"
     ],
     "providerregistrations/checkinmanifest": [
       "2019-02-01-preview",
@@ -33465,7 +33515,8 @@
       "2023-04-01-preview",
       "2023-08-01-preview",
       "2023-10-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-08-01-preview"
     ],
     "providerregistrations/customrollouts": [
       "2019-02-01-preview",
@@ -33480,7 +33531,8 @@
       "2023-04-01-preview",
       "2023-08-01-preview",
       "2023-10-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-08-01-preview"
     ],
     "providerregistrations/defaultrollouts": [
       "2019-02-01-preview",
@@ -33495,7 +33547,8 @@
       "2023-04-01-preview",
       "2023-08-01-preview",
       "2023-10-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-08-01-preview"
     ],
     "providerregistrations/newregionfrontloadrelease": [
       "2019-02-01-preview",
@@ -33511,7 +33564,8 @@
       "2023-01-01-privatepreview",
       "2023-04-01-preview",
       "2023-08-01-preview",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-08-01-preview"
     ],
     "providerregistrations/resourceactions": [
       "2019-02-01-preview",
@@ -33526,7 +33580,8 @@
       "2023-04-01-preview",
       "2023-08-01-preview",
       "2023-10-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-08-01-preview"
     ],
     "providerregistrations/resourcetyperegistrations": [
       "2019-02-01-preview",
@@ -33541,7 +33596,8 @@
       "2023-04-01-preview",
       "2023-08-01-preview",
       "2023-10-01-preview",
-      "2024-04-01-preview"
+      "2024-04-01-preview",
+      "2024-08-01-preview"
     ]
   },
   "purview": {
@@ -35691,22 +35747,28 @@
   },
   "secretsynccontroller": {
     "": [
-      "2024-08-09-preview"
+      "2024-08-09-preview",
+      "2024-08-21-preview"
     ],
     "azurekeyvaultsecretproviderclasses": [
-      "2024-08-09-preview"
+      "2024-08-09-preview",
+      "2024-08-21-preview"
     ],
     "locations": [
-      "2024-08-09-preview"
+      "2024-08-09-preview",
+      "2024-08-21-preview"
     ],
     "locations/operationstatuses": [
-      "2024-08-09-preview"
+      "2024-08-09-preview",
+      "2024-08-21-preview"
     ],
     "operations": [
-      "2024-08-09-preview"
+      "2024-08-09-preview",
+      "2024-08-21-preview"
     ],
     "secretsyncs": [
-      "2024-08-09-preview"
+      "2024-08-09-preview",
+      "2024-08-21-preview"
     ]
   },
   "security": {
