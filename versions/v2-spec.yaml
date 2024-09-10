@@ -804,6 +804,12 @@ DevTestLab:
     tracking: "2018-09-15"
 DeviceRegistry:
     tracking: 2023-11-01-preview
+    additions:
+        DiscoveredAsset: 2024-09-01-preview
+        DiscoveredAssetEndpointProfile: 2024-09-01-preview
+        Schema: 2024-09-01-preview
+        SchemaRegistry: 2024-09-01-preview
+        SchemaVersion: 2024-09-01-preview
 DeviceUpdate:
     tracking: "2023-07-01"
 Devices:

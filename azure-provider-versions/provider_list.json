@@ -20797,29 +20797,6 @@
         ]
       },
       {
-        "resourceType": "devices",
-        "apiVersions": [
-          "2024-07-01-preview",
-          "2023-10-01-preview",
-          "2023-09-01-preview",
-          "2023-08-01-preview",
-          "2023-06-21-preview",
-          "2022-05-21-preview"
-        ]
-      },
-      {
-        "resourceType": "discoveredAssetEndpointProfiles",
-        "apiVersions": [
-          "2024-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "discoveredAssets",
-        "apiVersions": [
-          "2024-07-01-preview"
-        ]
-      },
-      {
         "resourceType": "locations",
         "apiVersions": [
           "2024-07-01-preview",
@@ -20859,24 +20836,6 @@
           "2023-08-01-preview",
           "2023-06-21-preview",
           "2022-05-21-preview"
-        ]
-      },
-      {
-        "resourceType": "schemaRegistries",
-        "apiVersions": [
-          "2024-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "schemaRegistries/schemas",
-        "apiVersions": [
-          "2024-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "schemaRegistries/schemas/schemaVersions",
-        "apiVersions": [
-          "2024-07-01-preview"
         ]
       }
     ]
@@ -37787,19 +37746,6 @@
     "namespace": "Microsoft.NetworkAnalytics",
     "resourceTypes": [
       {
-        "resourceType": "DataConnectors",
-        "apiVersions": [
-          "2023-03-31-preview"
-        ]
-      },
-      {
-        "resourceType": "DataLakeHouses",
-        "apiVersions": [
-          "2023-03-31-preview",
-          "2022-11-15-preview"
-        ]
-      },
-      {
         "resourceType": "DataProducts",
         "apiVersions": [
           "2024-04-01-preview",
@@ -37814,13 +37760,6 @@
         ]
       },
       {
-        "resourceType": "DataProductsCatalogs",
-        "apiVersions": [
-          "2024-04-01-preview",
-          "2023-11-15"
-        ]
-      },
-      {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
           "2024-04-01-preview",
@@ -37828,12 +37767,6 @@
           "2023-04-30-preview",
           "2023-03-31-preview",
           "2022-11-15-preview"
-        ]
-      },
-      {
-        "resourceType": "NetworkAnalyticsProducts",
-        "apiVersions": [
-          "2023-03-31-preview"
         ]
       },
       {
@@ -42558,13 +42491,6 @@
         ]
       },
       {
-        "resourceType": "adaptiveNetworkHardenings",
-        "apiVersions": [
-          "2020-01-01",
-          "2015-06-01-preview"
-        ]
-      },
-      {
         "resourceType": "advancedThreatProtectionSettings",
         "apiVersions": [
           "2019-01-01",
@@ -42606,13 +42532,6 @@
         "apiVersions": [
           "2023-11-15",
           "2022-11-20-preview"
-        ]
-      },
-      {
-        "resourceType": "applicationWhitelistings",
-        "apiVersions": [
-          "2020-01-01",
-          "2015-06-01-preview"
         ]
       },
       {
@@ -42837,13 +42756,6 @@
         ]
       },
       {
-        "resourceType": "locations/applicationWhitelistings",
-        "apiVersions": [
-          "2020-01-01",
-          "2015-06-01-preview"
-        ]
-      },
-      {
         "resourceType": "locations/discoveredSecuritySolutions",
         "apiVersions": [
           "2020-01-01",
@@ -42910,8 +42822,7 @@
           "2024-01-01",
           "2023-01-01",
           "2022-03-01",
-          "2018-06-01",
-          "2017-08-01-preview"
+          "2018-06-01"
         ]
       },
       {
@@ -52896,6 +52807,23 @@
     ]
   },
   {
+    "namespace": "Microsoft.SustainabilityServices",
+    "resourceTypes": [
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2024-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2024-10-01-preview"
+        ]
+      }
+    ]
+  },
+  {
     "namespace": "Microsoft.Synapse",
     "resourceTypes": [
       {
@@ -53218,6 +53146,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-05-01-preview",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-09-01-preview",

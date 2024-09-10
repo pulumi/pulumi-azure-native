@@ -2211,7 +2211,8 @@
       "2022-05-01",
       "2023-03-01",
       "2023-08-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "KeyValue": [
       "2020-07-01-preview",
@@ -2221,7 +2222,8 @@
       "2022-05-01",
       "2023-03-01",
       "2023-08-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "PrivateEndpointConnection": [
       "2019-11-01-preview",
@@ -2233,13 +2235,15 @@
       "2022-05-01",
       "2023-03-01",
       "2023-08-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "Replica": [
       "2022-03-01-preview",
       "2023-03-01",
       "2023-08-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ],
     "listConfigurationStoreKeyValue": [
       "2019-02-01-preview",
@@ -2259,7 +2263,8 @@
       "2022-05-01",
       "2023-03-01",
       "2023-08-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-05-01"
     ]
   },
   "AppPlatform": {
@@ -8805,10 +8810,27 @@
   },
   "DeviceRegistry": {
     "Asset": [
-      "2023-11-01-preview"
+      "2023-11-01-preview",
+      "2024-09-01-preview"
     ],
     "AssetEndpointProfile": [
-      "2023-11-01-preview"
+      "2023-11-01-preview",
+      "2024-09-01-preview"
+    ],
+    "DiscoveredAsset": [
+      "2024-09-01-preview"
+    ],
+    "DiscoveredAssetEndpointProfile": [
+      "2024-09-01-preview"
+    ],
+    "Schema": [
+      "2024-09-01-preview"
+    ],
+    "SchemaRegistry": [
+      "2024-09-01-preview"
+    ],
+    "SchemaVersion": [
+      "2024-09-01-preview"
     ]
   },
   "DeviceUpdate": {
@@ -9125,7 +9147,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "CassandraDataCenter": [
       "2021-03-01-preview",
@@ -9151,7 +9175,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "CassandraResourceCassandraKeyspace": [
       "2019-08-01",
@@ -9188,7 +9214,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "CassandraResourceCassandraTable": [
       "2019-08-01",
@@ -9225,7 +9253,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "CassandraResourceCassandraView": [
       "2021-07-01-preview",
@@ -9240,7 +9270,8 @@
       "2023-09-15-preview",
       "2023-11-15-preview",
       "2024-02-15-preview",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-09-01-preview"
     ],
     "DatabaseAccount": [
       "2015-04-01",
@@ -9282,7 +9313,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "DatabaseAccountCassandraKeyspace": [
       "2015-04-01",
@@ -9365,7 +9398,8 @@
       "2023-09-15-preview",
       "2023-11-15-preview",
       "2024-02-15-preview",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-09-01-preview"
     ],
     "GremlinResourceGremlinDatabase": [
       "2019-08-01",
@@ -9402,7 +9436,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "GremlinResourceGremlinGraph": [
       "2019-08-01",
@@ -9439,7 +9475,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "MongoCluster": [
       "2023-03-01-preview",
@@ -9493,7 +9531,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "MongoDBResourceMongoDBDatabase": [
       "2019-08-01",
@@ -9530,7 +9570,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "MongoDBResourceMongoRoleDefinition": [
       "2021-10-15-preview",
@@ -9551,7 +9593,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "MongoDBResourceMongoUserDefinition": [
       "2021-10-15-preview",
@@ -9572,7 +9616,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "NotebookWorkspace": [
       "2019-08-01",
@@ -9609,7 +9655,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2019-08-01-preview",
@@ -9644,7 +9692,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-06-01-preview",
-      "2024-07-01"
+      "2024-07-01",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "Service": [
       "2021-04-01-preview",
@@ -9668,7 +9718,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "SqlResourceSqlContainer": [
       "2019-08-01",
@@ -9705,7 +9757,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "SqlResourceSqlDatabase": [
       "2019-08-01",
@@ -9742,7 +9796,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "SqlResourceSqlRoleAssignment": [
       "2020-06-01-preview",
@@ -9772,7 +9828,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "SqlResourceSqlRoleDefinition": [
       "2020-06-01-preview",
@@ -9802,7 +9860,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "SqlResourceSqlStoredProcedure": [
       "2019-08-01",
@@ -9839,7 +9899,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "SqlResourceSqlTrigger": [
       "2019-08-01",
@@ -9876,7 +9938,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "SqlResourceSqlUserDefinedFunction": [
       "2019-08-01",
@@ -9913,7 +9977,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "TableResourceTable": [
       "2019-08-01",
@@ -9950,17 +10016,21 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "ThroughputPool": [
       "2023-11-15-preview",
       "2024-02-15-preview",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-09-01-preview"
     ],
     "ThroughputPoolAccount": [
       "2023-11-15-preview",
       "2024-02-15-preview",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-09-01-preview"
     ],
     "listDatabaseAccountConnectionStrings": [
       "2015-04-01",
@@ -10002,7 +10072,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "listDatabaseAccountKeys": [
       "2015-04-01",
@@ -10044,7 +10116,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ],
     "listMongoClusterConnectionStrings": [
       "2023-03-01-preview",
@@ -10091,7 +10165,9 @@
       "2023-11-15-preview",
       "2024-02-15-preview",
       "2024-05-15",
-      "2024-05-15-preview"
+      "2024-05-15-preview",
+      "2024-08-15",
+      "2024-09-01-preview"
     ]
   },
   "DomainRegistration": {

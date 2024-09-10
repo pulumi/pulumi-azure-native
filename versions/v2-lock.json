@@ -1012,7 +1012,12 @@
   },
   "DeviceRegistry": {
     "Asset": "2023-11-01-preview",
-    "AssetEndpointProfile": "2023-11-01-preview"
+    "AssetEndpointProfile": "2023-11-01-preview",
+    "DiscoveredAsset": "2024-09-01-preview",
+    "DiscoveredAssetEndpointProfile": "2024-09-01-preview",
+    "Schema": "2024-09-01-preview",
+    "SchemaRegistry": "2024-09-01-preview",
+    "SchemaVersion": "2024-09-01-preview"
   },
   "DeviceUpdate": {
     "Account": "2023-07-01",

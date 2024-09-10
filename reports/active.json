@@ -16620,20 +16620,6 @@
     "assets": [
       "2023-11-01-preview"
     ],
-    "devices": [
-      "2022-05-21-preview",
-      "2023-06-21-preview",
-      "2023-08-01-preview",
-      "2023-09-01-preview",
-      "2023-10-01-preview",
-      "2024-07-01-preview"
-    ],
-    "discoveredassetendpointprofiles": [
-      "2024-07-01-preview"
-    ],
-    "discoveredassets": [
-      "2024-07-01-preview"
-    ],
     "locations": [
       "2022-05-21-preview",
       "2023-06-21-preview",
@@ -16662,15 +16648,6 @@
       "2023-09-01-preview",
       "2023-10-01-preview",
       "2023-11-01-preview",
-      "2024-07-01-preview"
-    ],
-    "schemaregistries": [
-      "2024-07-01-preview"
-    ],
-    "schemaregistries/schemas": [
-      "2024-07-01-preview"
-    ],
-    "schemaregistries/schemas/schemaversions": [
       "2024-07-01-preview"
     ]
   },
@@ -31924,22 +31901,11 @@
       "2023-11-15",
       "2024-04-01-preview"
     ],
-    "dataconnectors": [
-      "2023-03-31-preview"
-    ],
-    "datalakehouses": [
-      "2022-11-15-preview",
-      "2023-03-31-preview"
-    ],
     "dataproducts": [
       "2023-11-15",
       "2024-04-01-preview"
     ],
     "dataproducts/datatypes": [
-      "2023-11-15",
-      "2024-04-01-preview"
-    ],
-    "dataproductscatalogs": [
       "2023-11-15",
       "2024-04-01-preview"
     ],
@@ -31953,9 +31919,6 @@
       "2023-04-30-preview",
       "2023-11-15",
       "2024-04-01-preview"
-    ],
-    "networkanalyticsproducts": [
-      "2023-03-31-preview"
     ],
     "operations": [
       "2022-11-15-preview",
@@ -35823,10 +35786,6 @@
       "2024-05-01-preview",
       "2024-07-01-preview"
     ],
-    "adaptivenetworkhardenings": [
-      "2015-06-01-preview",
-      "2020-01-01"
-    ],
     "advancedthreatprotectionsettings": [
       "2017-08-01-preview",
       "2019-01-01"
@@ -35855,10 +35814,6 @@
     ],
     "applications": [
       "2022-07-01-preview"
-    ],
-    "applicationwhitelistings": [
-      "2015-06-01-preview",
-      "2020-01-01"
     ],
     "assessmentmetadata": [
       "2019-01-01-preview",
@@ -35989,10 +35944,6 @@
       "2015-06-01-preview",
       "2020-01-01"
     ],
-    "locations/applicationwhitelistings": [
-      "2015-06-01-preview",
-      "2020-01-01"
-    ],
     "locations/discoveredsecuritysolutions": [
       "2015-06-01-preview",
       "2020-01-01"
@@ -36031,7 +35982,6 @@
       "2015-06-01-preview"
     ],
     "pricings": [
-      "2017-08-01-preview",
       "2018-06-01",
       "2022-03-01",
       "2023-01-01",
@@ -44643,6 +44593,17 @@
       "2024-04-01"
     ]
   },
+  "sustainabilityservices": {
+    "": [
+      "2024-10-01-preview"
+    ],
+    "locations": [
+      "2024-10-01-preview"
+    ],
+    "operations": [
+      "2024-10-01-preview"
+    ]
+  },
   "synapse": {
     "": [
       "2019-06-01-preview",
@@ -44887,7 +44848,8 @@
       "2023-04-01-preview",
       "2023-09-01-preview",
       "2023-12-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-05-01-preview"
     ],
     "operations": [
       "2021-05-01-preview",
@@ -44897,7 +44859,8 @@
       "2023-04-01-preview",
       "2023-09-01-preview",
       "2023-12-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-05-01-preview"
     ]
   },
   "verifiedid": {
