@@ -145,3 +145,55 @@ func TestFindResourcesBodyRefs(t *testing.T) {
 	expected := []string{"#/definitions/Subnet"}
 	assert.Equal(t, expected, actual)
 }
+
+func TestNormalizePattern(t *testing.T) {
+	openapiParam := func(pattern string, maxLength int64) *openapi.Parameter {
+		return &openapi.Parameter{
+			Parameter: &spec.Parameter{
+				CommonValidations: spec.CommonValidations{
+					Pattern:   pattern,
+					MaxLength: &maxLength,
+				},
+				ParamProps: spec.ParamProps{
+					Name: "dashboardName",
+				},
+			},
+		}
+	}
+
+	t.Run("not a dashboard name", func(t *testing.T) {
+		p := openapiParam("^[a-zA-Z0-9-]{3,24}$", 90)
+		p.Name = "foo"
+		assert.Equal(t, "^[a-zA-Z0-9-]{3,24}$", normalizeParamPattern(p))
+	})
+
+	t.Run("empty", func(t *testing.T) {
+		p := openapiParam("", 0)
+		assert.Equal(t, "", normalizeParamPattern(p))
+	})
+
+	t.Run("empty with length", func(t *testing.T) {
+		p := openapiParam("", 90)
+		assert.Equal(t, "", normalizeParamPattern(p))
+	})
+
+	t.Run("pattern without length", func(t *testing.T) {
+		p := openapiParam("^[a-zA-Z0-9-]{3,24}$", 0)
+		assert.Equal(t, "^[a-zA-Z0-9-]{3,24}$", normalizeParamPattern(p))
+	})
+
+	t.Run("pattern with correct length", func(t *testing.T) {
+		p := openapiParam("^[a-zA-Z0-9-]{3,24}$", 24)
+		assert.Equal(t, "^[a-zA-Z0-9-]{3,24}$", normalizeParamPattern(p))
+	})
+
+	t.Run("pattern with shorter length", func(t *testing.T) {
+		p := openapiParam("^[a-zA-Z0-9-]{3,24}$", 23)
+		assert.Equal(t, "^[a-zA-Z0-9-]{3,24}$", normalizeParamPattern(p))
+	})
+
+	t.Run("pattern with longer length", func(t *testing.T) {
+		p := openapiParam("^[a-zA-Z0-9-]{3,24}$", 60)
+		assert.Equal(t, "^[a-zA-Z0-9-]{3,60}$", normalizeParamPattern(p))
+	})
+}

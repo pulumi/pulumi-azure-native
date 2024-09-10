@@ -1308,6 +1308,14 @@ func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *p
 	}
 }
 
+func normalizeParamPattern(param *openapi.Parameter) string {
+	// #3560: the regex has the wrong max length in the spec.
+	if param.Name == "dashboardName" && *param.MaxLength > 24 && param.Pattern == "^[a-zA-Z0-9-]{3,24}$" {
+		return fmt.Sprintf("^[a-zA-Z0-9-]{3,%d}$", *param.MaxLength)
+	}
+	return param.Pattern
+}
+
 func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext,
 	namer *resources.AutoNamer, bodySchema *openapi.Schema) (*parameterBag, error) {
 	result := newParameterBag()
@@ -1327,7 +1335,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 				Type:      param.Type,
 				MinLength: param.MinLength,
 				MaxLength: param.MaxLength,
-				Pattern:   param.Pattern,
+				Pattern:   normalizeParamPattern(param),
 			},
 		}
 
