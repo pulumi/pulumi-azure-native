@@ -586,7 +586,7 @@ func normalizePackage(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMeta
 	visitor := func(t string, _ pschema.ComplexTypeSpec) {
 		usedTypes[t] = true
 	}
-	VisitPackageSpecTypes(pkg, visitor)
+	resources.VisitPackageSpecTypes(pkg, visitor)
 
 	// Elide unused types.
 	allTypeNames := codegen.SortedKeys(pkg.Types)
