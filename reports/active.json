@@ -4089,7 +4089,8 @@
       "2018-09-01-preview",
       "2020-10-01-preview",
       "2021-06-01-preview",
-      "2023-12-01"
+      "2023-12-01",
+      "2024-06-01-preview"
     ],
     "baremetalconnections": [
       "2023-12-01"
@@ -4105,6 +4106,9 @@
       "2020-10-01-preview",
       "2021-06-01-preview",
       "2023-12-01"
+    ],
+    "locations/updateroutesonvirtualnetwork": [
+      "2024-06-01-preview"
     ],
     "operations": [
       "2018-09-01-preview",
@@ -16604,6 +16608,23 @@
       "2024-05-01-preview"
     ]
   },
+  "deviceonboarding": {
+    "": [
+      "2024-11-01-preview"
+    ],
+    "devicestates": [
+      "2024-11-01-preview"
+    ],
+    "locations/operationstatuses": [
+      "2024-11-01-preview"
+    ],
+    "onboardingservices": [
+      "2024-11-01-preview"
+    ],
+    "onboardingservices/policies": [
+      "2024-11-01-preview"
+    ]
+  },
   "deviceregistry": {
     "": [
       "2022-05-21-preview",
@@ -16619,20 +16640,6 @@
     ],
     "assets": [
       "2023-11-01-preview"
-    ],
-    "devices": [
-      "2022-05-21-preview",
-      "2023-06-21-preview",
-      "2023-08-01-preview",
-      "2023-09-01-preview",
-      "2023-10-01-preview",
-      "2024-07-01-preview"
-    ],
-    "discoveredassetendpointprofiles": [
-      "2024-07-01-preview"
-    ],
-    "discoveredassets": [
-      "2024-07-01-preview"
     ],
     "locations": [
       "2022-05-21-preview",
@@ -16662,15 +16669,6 @@
       "2023-09-01-preview",
       "2023-10-01-preview",
       "2023-11-01-preview",
-      "2024-07-01-preview"
-    ],
-    "schemaregistries": [
-      "2024-07-01-preview"
-    ],
-    "schemaregistries/schemas": [
-      "2024-07-01-preview"
-    ],
-    "schemaregistries/schemas/schemaversions": [
       "2024-07-01-preview"
     ]
   },
@@ -20857,7 +20855,8 @@
       "2023-03-15",
       "2023-04-01-preview",
       "2023-12-01-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-12-01"
     ],
     "endpoints": [
       "2021-10-06-preview",
@@ -20866,7 +20865,8 @@
     ],
     "generateawstemplate": [
       "2023-12-01-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-12-01"
     ],
     "locations": [
       "2021-07-08-privatepreview",
@@ -20874,13 +20874,16 @@
       "2021-10-06-preview",
       "2022-05-01-preview",
       "2023-03-15",
-      "2023-04-01-preview"
+      "2023-04-01-preview",
+      "2024-08-01-preview",
+      "2024-12-01"
     ],
     "locations/operationstatuses": [
       "2021-10-06-preview",
       "2022-05-01-preview",
       "2023-03-15",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-12-01"
     ],
     "operations": [
       "2021-07-08-privatepreview",
@@ -20890,16 +20893,20 @@
       "2023-03-15",
       "2023-04-01-preview",
       "2023-12-01-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-12-01"
     ],
     "publiccloudconnectors": [
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-12-01"
     ],
     "solutionconfigurations": [
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-12-01"
     ],
     "solutiontypes": [
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-12-01"
     ]
   },
   "hybridcontainerservice": {
@@ -31924,22 +31931,11 @@
       "2023-11-15",
       "2024-04-01-preview"
     ],
-    "dataconnectors": [
-      "2023-03-31-preview"
-    ],
-    "datalakehouses": [
-      "2022-11-15-preview",
-      "2023-03-31-preview"
-    ],
     "dataproducts": [
       "2023-11-15",
       "2024-04-01-preview"
     ],
     "dataproducts/datatypes": [
-      "2023-11-15",
-      "2024-04-01-preview"
-    ],
-    "dataproductscatalogs": [
       "2023-11-15",
       "2024-04-01-preview"
     ],
@@ -31953,9 +31949,6 @@
       "2023-04-30-preview",
       "2023-11-15",
       "2024-04-01-preview"
-    ],
-    "networkanalyticsproducts": [
-      "2023-03-31-preview"
     ],
     "operations": [
       "2022-11-15-preview",
@@ -35823,10 +35816,6 @@
       "2024-05-01-preview",
       "2024-07-01-preview"
     ],
-    "adaptivenetworkhardenings": [
-      "2015-06-01-preview",
-      "2020-01-01"
-    ],
     "advancedthreatprotectionsettings": [
       "2017-08-01-preview",
       "2019-01-01"
@@ -35855,10 +35844,6 @@
     ],
     "applications": [
       "2022-07-01-preview"
-    ],
-    "applicationwhitelistings": [
-      "2015-06-01-preview",
-      "2020-01-01"
     ],
     "assessmentmetadata": [
       "2019-01-01-preview",
@@ -35989,10 +35974,6 @@
       "2015-06-01-preview",
       "2020-01-01"
     ],
-    "locations/applicationwhitelistings": [
-      "2015-06-01-preview",
-      "2020-01-01"
-    ],
     "locations/discoveredsecuritysolutions": [
       "2015-06-01-preview",
       "2020-01-01"
@@ -36031,7 +36012,6 @@
       "2015-06-01-preview"
     ],
     "pricings": [
-      "2017-08-01-preview",
       "2018-06-01",
       "2022-03-01",
       "2023-01-01",
@@ -38225,42 +38205,50 @@
     "": [
       "2022-10-01-preview",
       "2023-05-01-preview",
-      "2023-11-01"
+      "2023-11-01",
+      "2024-05-01-preview"
     ],
     "locations": [
       "2022-10-01-preview",
       "2023-05-01-preview",
-      "2023-11-01"
+      "2023-11-01",
+      "2024-05-01-preview"
     ],
     "locations/operationresults": [
       "2022-10-01-preview",
       "2023-05-01-preview",
-      "2023-11-01"
+      "2023-11-01",
+      "2024-05-01-preview"
     ],
     "locations/operations": [
       "2022-10-01-preview",
       "2023-05-01-preview",
-      "2023-11-01"
+      "2023-11-01",
+      "2024-05-01-preview"
     ],
     "operations": [
       "2022-10-01-preview",
       "2023-05-01-preview",
-      "2023-11-01"
+      "2023-11-01",
+      "2024-05-01-preview"
     ],
     "trafficcontrollers": [
       "2022-10-01-preview",
       "2023-05-01-preview",
-      "2023-11-01"
+      "2023-11-01",
+      "2024-05-01-preview"
     ],
     "trafficcontrollers/associations": [
       "2022-10-01-preview",
       "2023-05-01-preview",
-      "2023-11-01"
+      "2023-11-01",
+      "2024-05-01-preview"
     ],
     "trafficcontrollers/frontends": [
       "2022-10-01-preview",
       "2023-05-01-preview",
-      "2023-11-01"
+      "2023-11-01",
+      "2024-05-01-preview"
     ]
   },
   "serviceshub": {
@@ -44643,6 +44631,17 @@
       "2024-04-01"
     ]
   },
+  "sustainabilityservices": {
+    "": [
+      "2024-10-01-preview"
+    ],
+    "locations": [
+      "2024-10-01-preview"
+    ],
+    "operations": [
+      "2024-10-01-preview"
+    ]
+  },
   "synapse": {
     "": [
       "2019-06-01-preview",
@@ -44887,7 +44886,8 @@
       "2023-04-01-preview",
       "2023-09-01-preview",
       "2023-12-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-05-01-preview"
     ],
     "operations": [
       "2021-05-01-preview",
@@ -44897,7 +44897,8 @@
       "2023-04-01-preview",
       "2023-09-01-preview",
       "2023-12-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-05-01-preview"
     ]
   },
   "verifiedid": {

@@ -152,6 +152,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "DeviceRegistry",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "EdgeMarketplace",
     "Detail": "expected tracking stable but found preview"
   },

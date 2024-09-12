@@ -1012,7 +1012,12 @@
   },
   "DeviceRegistry": {
     "Asset": "2023-11-01-preview",
-    "AssetEndpointProfile": "2023-11-01-preview"
+    "AssetEndpointProfile": "2023-11-01-preview",
+    "DiscoveredAsset": "2024-09-01-preview",
+    "DiscoveredAssetEndpointProfile": "2024-09-01-preview",
+    "Schema": "2024-09-01-preview",
+    "SchemaRegistry": "2024-09-01-preview",
+    "SchemaVersion": "2024-09-01-preview"
   },
   "DeviceUpdate": {
     "Account": "2023-07-01",
@@ -1889,6 +1894,7 @@
     "NetworkInterface": "2023-02-01",
     "NetworkInterfaceTapConfiguration": "2023-02-01",
     "NetworkManager": "2023-02-01",
+    "NetworkManagerRoutingConfiguration": "2024-03-01",
     "NetworkProfile": "2023-02-01",
     "NetworkSecurityGroup": "2023-02-01",
     "NetworkSecurityPerimeter": "2021-03-01-preview",
@@ -1923,12 +1929,16 @@
     "RouteMap": "2023-02-01",
     "RouteTable": "2023-02-01",
     "RoutingIntent": "2023-02-01",
+    "RoutingRule": "2024-03-01",
+    "RoutingRuleCollection": "2024-03-01",
     "RulesEngine": "2021-06-01",
     "ScopeConnection": "2023-02-01",
     "SecurityAdminConfiguration": "2023-02-01",
     "SecurityPartnerProvider": "2023-02-01",
     "SecurityRule": "2023-02-01",
     "SecurityUserConfiguration": "2022-04-01-preview",
+    "SecurityUserRule": "2024-03-01",
+    "SecurityUserRuleCollection": "2024-03-01",
     "ServiceEndpointPolicy": "2023-02-01",
     "ServiceEndpointPolicyDefinition": "2023-02-01",
     "StaticCidr": "2024-01-01-preview",
@@ -1993,7 +2003,8 @@
     "listNetworkManagerDeploymentStatus": "2023-02-01",
     "listNetworkManagerEffectiveConnectivityConfigurations": "2023-02-01",
     "listNetworkManagerEffectiveSecurityAdminRule": "2021-02-01-preview",
-    "listNetworkManagerEffectiveSecurityAdminRules": "2023-02-01"
+    "listNetworkManagerEffectiveSecurityAdminRules": "2023-02-01",
+    "listVpnLinkConnectionDefaultSharedKey": "2024-03-01"
   },
   "NetworkAnalytics": {
     "DataProduct": "2023-11-15",
