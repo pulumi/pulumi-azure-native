@@ -4,6 +4,7 @@ package customresources
 
 import (
 	"fmt"
+	"reflect"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -25,29 +26,49 @@ import (
 // We override both input and output (Response) types.
 func portalDashboard() *CustomResource {
 	return &CustomResource{
-		Types: map[string]schema.ComplexTypeSpec{
-			resources.BuildToken(PortalMod, "", MetadataType):            dashboardPartMetadataType(),
-			resources.BuildToken(PortalMod, "", MetadataType+"Response"): dashboardPartMetadataType(),
-		},
-		TypeOverrides: map[string]schema.ComplexTypeSpec{
-			resources.BuildToken(PortalMod, "", PartsType):            dashboardPartsType(""),
-			resources.BuildToken(PortalMod, "", PartsType+"Response"): dashboardPartsType("Response"),
-		},
-		MetaTypes: map[string]resources.AzureAPIType{
-			resources.BuildToken(PortalMod, "", MetadataType):            dashboardPartMetadataApiType(),
-			resources.BuildToken(PortalMod, "", MetadataType+"Response"): dashboardPartMetadataApiType(),
-		},
-		MetaTypeOverrides: map[string]resources.AzureAPIType{
-			resources.BuildToken(PortalMod, "", PartsType):            dashboardPartsApiType(""),
-			resources.BuildToken(PortalMod, "", PartsType+"Response"): dashboardPartsApiType("Response"),
+		tok: "azure-native:portal:Dashboard",
+		SchemaF: func(resource *ResourceDefinition) (*ResourceDefinition, error) {
+			if resource == nil {
+				// This should only happen if we're running with a namespace or version filter for testing, so we'll allow it to pass.
+				return nil, nil
+			}
+			existingDashboardPartsType := resource.Types["azure-native:portal:DashboardParts"]
+			if !reflect.DeepEqual(existingDashboardPartsType, expectedDashboardPartsType("")) {
+				return nil, fmt.Errorf("unexpected azure-native:portal:DashboardParts type: %#v", existingDashboardPartsType)
+			}
+			resource.Types["azure-native:portal:DashboardParts"] = dashboardPartsType("")
+			existingDashboardPartsTypeResponse := resource.Types["azure-native:portal:DashboardPartsResponse"]
+			if !reflect.DeepEqual(existingDashboardPartsTypeResponse, expectedDashboardPartsType("Response")) {
+				return nil, fmt.Errorf("unexpected azure-native:portal:DashboardPartsResponse type: %#v", existingDashboardPartsTypeResponse)
+			}
+			resource.Types["azure-native:portal:DashboardPartsResponse"] = dashboardPartsType("Response")
+
+			existingMarkdownPartMetadataType := resource.Types["azure-native:portal:MarkdownPartMetadata"]
+			if !reflect.DeepEqual(existingMarkdownPartMetadataType, expectedMarkdownPartMetadataType("")) {
+				return nil, fmt.Errorf("unexpected azure-native:portal:MarkdownPartMetadata type: %#v", existingMarkdownPartMetadataType)
+			}
+			if _, ok := resource.Types["azure-native:portal:DashboardPartMetadata"]; ok {
+				return nil, fmt.Errorf("unexpected existing azure-native:portal:DashboardPartMetadata type")
+			}
+			resource.Types["azure-native:portal:DashboardPartMetadata"] = dashboardPartMetadataType()
+			existingMarkdownPartMetadataResponseType := resource.Types["azure-native:portal:MarkdownPartMetadataResponse"]
+			if !reflect.DeepEqual(existingMarkdownPartMetadataResponseType, expectedMarkdownPartMetadataType("Response")) {
+				return nil, fmt.Errorf("unexpected azure-native:portal:MarkdownPartMetadataResponse type: %#v", existingMarkdownPartMetadataResponseType)
+			}
+			if _, ok := resource.Types["azure-native:portal:DashboardPartMetadataResponse"]; ok {
+				return nil, fmt.Errorf("unexpected existing azure-native:portal:DashboardPartMetadataResponse type")
+			}
+			resource.Types["azure-native:portal:DashboardPartMetadataResponse"] = dashboardPartMetadataType()
+
+			resource.MetaTypes["azure-native:portal:DashboardParts"] = dashboardPartsApiType("")
+			resource.MetaTypes["azure-native:portal:DashboardPartsResponse"] = dashboardPartsApiType("Response")
+
+			resource.MetaTypes["azure-native:portal:DashboardPartMetadata"] = dashboardPartMetadataApiType()
+			resource.MetaTypes["azure-native:portal:DashboardPartMetadataResponse"] = dashboardPartMetadataApiType()
+			return resource, nil
 		},
 	}
 }
-
-const PortalMod = "portal"
-const PartsType = "DashboardParts"
-const MetadataType = "DashboardPartMetadata"
-const MarkdownMetadataType = "MarkdownPartMetadata"
 
 func dashboardPartsType(suffix string) schema.ComplexTypeSpec {
 	return schema.ComplexTypeSpec{
@@ -70,6 +91,32 @@ func dashboardPartsType(suffix string) schema.ComplexTypeSpec {
 					Description: "The dashboard's part position.",
 				},
 			},
+			Required: []string{"position"},
+		},
+	}
+}
+
+func expectedDashboardPartsType(suffix string) schema.ComplexTypeSpec {
+	return schema.ComplexTypeSpec{
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Description: "A dashboard part.",
+			Properties: map[string]schema.PropertySpec{
+				"metadata": {
+					TypeSpec: schema.TypeSpec{
+						Type: "object",
+						Ref:  fmt.Sprintf("#/types/azure-native:portal:MarkdownPartMetadata%s", suffix),
+					},
+					Description: "The dashboard part's metadata.",
+				},
+				"position": {
+					TypeSpec: schema.TypeSpec{
+						Type: "object",
+						Ref:  fmt.Sprintf("#/types/azure-native:portal:DashboardPartsPosition%s", suffix),
+					},
+					Description: "The dashboard's part position.",
+				},
+			},
+			Type:     "object",
 			Required: []string{"position"},
 		},
 	}
@@ -116,6 +163,39 @@ func dashboardPartMetadataType() schema.ComplexTypeSpec {
 					Description: "Settings of dashboard part.",
 				},
 			},
+			Required: []string{"type"},
+		},
+	}
+}
+
+func expectedMarkdownPartMetadataType(suffix string) schema.ComplexTypeSpec {
+	return schema.ComplexTypeSpec{
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Description: "Markdown part metadata.",
+			Properties: map[string]schema.PropertySpec{
+				"inputs": {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Ref: "pulumi.json#/Any"},
+					},
+					Description: "Input to dashboard part.",
+				},
+				"settings": {
+					TypeSpec: schema.TypeSpec{
+						Type: "object",
+						Ref:  fmt.Sprintf("#/types/azure-native:portal:MarkdownPartMetadataSettings%s", suffix),
+					},
+					Description: "Markdown part settings.",
+				},
+				"type": {
+					TypeSpec: schema.TypeSpec{
+						Type: "string",
+					},
+					Description: "The dashboard part metadata type.\nExpected value is 'Extension/HubsExtension/PartType/MarkdownPart'.",
+					Const:       "Extension/HubsExtension/PartType/MarkdownPart",
+				},
+			},
+			Type:     "object",
 			Required: []string{"type"},
 		},
 	}
