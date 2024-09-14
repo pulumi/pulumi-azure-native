@@ -269,6 +269,128 @@ func TestErrorStatusCodes(t *testing.T) {
 	})
 }
 
+func TestCanCreate(t *testing.T) {
+	id := "/subscriptions/123/resourceGroups/rg"
+
+	type testCase struct {
+		expectErr           bool
+		responseStatus      int
+		response            string
+		id                  string
+		readMethod          string
+		isSingletonResource bool // if true and 200 OK -> true
+		hasDefaultBody      bool // if true and 200 OK -> isDefaultResponse
+		isDefaultResponse   bool
+	}
+
+	t.Run("200 OK", func(t *testing.T) {
+		for _, method := range []string{http.MethodGet, http.MethodHead} {
+			for _, tc := range []testCase{
+				{expectErr: false, responseStatus: 200, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: false, isDefaultResponse: false},
+				{expectErr: false, responseStatus: 200, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: false, isDefaultResponse: false},
+				{expectErr: false, responseStatus: 200, id: id, readMethod: method, isSingletonResource: true, hasDefaultBody: false, isDefaultResponse: false},
+				{expectErr: false, responseStatus: 200, id: id, readMethod: method, isSingletonResource: true, hasDefaultBody: false, isDefaultResponse: true},
+				{expectErr: false, responseStatus: 200, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: true, isDefaultResponse: true},
+				// This resource has a default state but the response we got is not that state, i.e., it's been modified already.
+				{expectErr: true, responseStatus: 200, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: true, isDefaultResponse: false},
+				// 200 OK with a reponse body means a resource exists, so we can't create it.
+				{expectErr: true, responseStatus: 200, response: `{"foo": 1}`, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: false, isDefaultResponse: false},
+			} {
+				client := newClientWithPreparedResponses([]*http.Response{{
+					StatusCode: tc.responseStatus,
+					Body:       io.NopCloser(strings.NewReader(tc.response)),
+				}})
+				err := client.CanCreate(context.Background(), tc.id, "" /* path */, "2022-09-01", tc.readMethod,
+					tc.isSingletonResource, tc.hasDefaultBody, func(map[string]any) bool { return tc.isDefaultResponse })
+				if tc.expectErr {
+					require.Error(t, err)
+				} else {
+					require.NoError(t, err)
+				}
+			}
+		}
+	})
+
+	// 404 always means "can create"
+	t.Run("404 Not Found", func(t *testing.T) {
+		for _, method := range []string{http.MethodGet, http.MethodHead} {
+			for _, resp := range []string{``, `{"foo": 1}`} {
+				for _, isSingleton := range []bool{true, false} {
+					for _, hasDefault := range []bool{true, false} {
+						for _, isDefault := range []bool{true, false} {
+							client := newClientWithPreparedResponses([]*http.Response{{
+								StatusCode: 404,
+								Body:       io.NopCloser(strings.NewReader(resp)),
+							}})
+							err := client.CanCreate(context.Background(), id, "" /* path */, "2022-09-01", method,
+								isSingleton, hasDefault, func(map[string]any) bool { return isDefault })
+							require.NoError(t, err)
+						}
+					}
+				}
+			}
+		}
+	})
+
+	// 204 No Content always means "can create" when read via GET, but never when read via HEAD
+	t.Run("204 No Content", func(t *testing.T) {
+		for _, resp := range []string{``, `{"foo": 1}`} {
+			for _, isSingleton := range []bool{true, false} {
+				for _, hasDefault := range []bool{true, false} {
+					for _, isDefault := range []bool{true, false} {
+						client := newClientWithPreparedResponses([]*http.Response{{
+							StatusCode: 204,
+							Body:       io.NopCloser(strings.NewReader(resp)),
+						}})
+						err := client.CanCreate(context.Background(), id, "" /* path */, "2022-09-01", "GET",
+							isSingleton, hasDefault, func(map[string]any) bool { return isDefault })
+						require.NoError(t, err)
+					}
+				}
+			}
+		}
+
+		for _, resp := range []string{``, `{"foo": 1}`} {
+			for _, isSingleton := range []bool{true, false} {
+				for _, hasDefault := range []bool{true, false} {
+					for _, isDefault := range []bool{true, false} {
+						client := newClientWithPreparedResponses([]*http.Response{{
+							StatusCode: 204,
+							Body:       io.NopCloser(strings.NewReader(resp)),
+						}})
+						err := client.CanCreate(context.Background(), id, "" /* path */, "2022-09-01", "HEAD",
+							isSingleton, hasDefault, func(map[string]any) bool { return isDefault })
+						require.Error(t, err)
+					}
+				}
+			}
+		}
+	})
+
+	// Other HTTP status codes are always an error.
+	t.Run("other HTTP statuses", func(t *testing.T) {
+		for _, status := range []int{201, 202, 400, 401, 403, 409, 410, 500, 502, 503, 504} {
+			for _, method := range []string{http.MethodGet, http.MethodHead} {
+				for _, resp := range []string{``, `{"foo": 1}`} {
+					for _, isSingleton := range []bool{true, false} {
+						for _, hasDefault := range []bool{true, false} {
+							for _, isDefault := range []bool{true, false} {
+								client := newClientWithPreparedResponses([]*http.Response{{
+									StatusCode: status,
+									Body:       io.NopCloser(strings.NewReader(resp)),
+								}})
+								err := client.CanCreate(context.Background(), id, "" /* path */, "2022-09-01", method,
+									isSingleton, hasDefault, func(map[string]any) bool { return isDefault })
+								require.Error(t, err)
+							}
+						}
+					}
+				}
+			}
+		}
+	})
+}
+
 // Implements azcore's policy.Transporter by returning the given responses in order.
 type fakeTransporter struct {
 	responses []*http.Response
