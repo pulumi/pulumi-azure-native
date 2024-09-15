@@ -106,25 +106,25 @@ func TestInitRequestHeaders(t *testing.T) {
 	}
 }
 
+func createTestClient(t *testing.T, assertions func(t *testing.T, req *http.Request)) AzureClient {
+	transp := &requestAssertingTransporter{
+		t:          t,
+		assertions: assertions,
+	}
+	opts := arm.ClientOptions{
+		ClientOptions: policy.ClientOptions{
+			Retry:     policy.RetryOptions{MaxRetries: -1}, // speeds up the tests
+			Telemetry: policy.TelemetryOptions{Disabled: true},
+			Transport: transp,
+		},
+		DisableRPRegistration: true,
+	}
+	client, _ := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+	return client
+}
+
 func TestRequestQueryParams(t *testing.T) {
 	const resourceId = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm"
-
-	createTestClient := func(t *testing.T, assertions func(t *testing.T, req *http.Request)) AzureClient {
-		transp := &requestAssertingTransporter{
-			t:          t,
-			assertions: assertions,
-		}
-		opts := arm.ClientOptions{
-			ClientOptions: policy.ClientOptions{
-				Retry:     policy.RetryOptions{MaxRetries: -1}, // speeds up the tests
-				Telemetry: policy.TelemetryOptions{Disabled: true},
-				Transport: transp,
-			},
-			DisableRPRegistration: true,
-		}
-		client, _ := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
-		return client
-	}
 
 	t.Run("GET adds API version to query", func(t *testing.T) {
 		client := createTestClient(t, func(t *testing.T, req *http.Request) {
@@ -269,11 +269,35 @@ func TestErrorStatusCodes(t *testing.T) {
 	})
 }
 
-func TestCanCreate(t *testing.T) {
+func TestCanCreateUsesResourcePath(t *testing.T) {
+	canCreate := func(client AzureClient, path string) {
+		client.CanCreate(context.Background(),
+			"/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm",
+			path,
+			"2022-09-01", http.MethodGet, false, false, nil)
+	}
+	t.Run("no path", func(t *testing.T) {
+		client := createTestClient(t, func(t *testing.T, req *http.Request) {
+			assert.Equal(t, http.MethodGet, req.Method)
+			assert.Equal(t, "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm", req.URL.Path)
+		})
+		canCreate(client, "")
+	})
+
+	t.Run("path", func(t *testing.T) {
+		client := createTestClient(t, func(t *testing.T, req *http.Request) {
+			assert.Equal(t, http.MethodGet, req.Method)
+			assert.Equal(t, "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm/extraPath", req.URL.Path)
+		})
+		canCreate(client, "/extraPath")
+	})
+
+}
+
+func TestCanCreateResponses(t *testing.T) {
 	id := "/subscriptions/123/resourceGroups/rg"
 
 	type testCase struct {
-		expectErr           bool
 		responseStatus      int
 		response            string
 		id                  string
@@ -284,17 +308,15 @@ func TestCanCreate(t *testing.T) {
 	}
 
 	t.Run("200 OK", func(t *testing.T) {
+		// HTTP method makes no difference when the response is 200 OK.
 		for _, method := range []string{http.MethodGet, http.MethodHead} {
+			// Success cases
 			for _, tc := range []testCase{
-				{expectErr: false, responseStatus: 200, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: false, isDefaultResponse: false},
-				{expectErr: false, responseStatus: 200, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: false, isDefaultResponse: false},
-				{expectErr: false, responseStatus: 200, id: id, readMethod: method, isSingletonResource: true, hasDefaultBody: false, isDefaultResponse: false},
-				{expectErr: false, responseStatus: 200, id: id, readMethod: method, isSingletonResource: true, hasDefaultBody: false, isDefaultResponse: true},
-				{expectErr: false, responseStatus: 200, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: true, isDefaultResponse: true},
-				// This resource has a default state but the response we got is not that state, i.e., it's been modified already.
-				{expectErr: true, responseStatus: 200, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: true, isDefaultResponse: false},
-				// 200 OK with a reponse body means a resource exists, so we can't create it.
-				{expectErr: true, responseStatus: 200, response: `{"foo": 1}`, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: false, isDefaultResponse: false},
+				{responseStatus: 200, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: false, isDefaultResponse: false},
+				{responseStatus: 200, id: id, readMethod: method, isSingletonResource: true, hasDefaultBody: false, isDefaultResponse: false},
+				{responseStatus: 200, id: id, readMethod: method, isSingletonResource: true, hasDefaultBody: false, isDefaultResponse: true},
+				{responseStatus: 200, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: true, isDefaultResponse: true},
+				{responseStatus: 200, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: false, isDefaultResponse: false},
 			} {
 				client := newClientWithPreparedResponses([]*http.Response{{
 					StatusCode: tc.responseStatus,
@@ -302,11 +324,23 @@ func TestCanCreate(t *testing.T) {
 				}})
 				err := client.CanCreate(context.Background(), tc.id, "" /* path */, "2022-09-01", tc.readMethod,
 					tc.isSingletonResource, tc.hasDefaultBody, func(map[string]any) bool { return tc.isDefaultResponse })
-				if tc.expectErr {
-					require.Error(t, err)
-				} else {
-					require.NoError(t, err)
-				}
+				require.NoError(t, err)
+			}
+
+			// Error cases
+			for _, tc := range []testCase{
+				// This resource has a default state but the response we got is not that state, i.e., it's been modified already.
+				{responseStatus: 200, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: true, isDefaultResponse: false},
+				// 200 OK with a reponse body means a resource exists, so we can't create it.
+				{responseStatus: 200, response: `{"foo": 1}`, id: id, readMethod: method, isSingletonResource: false, hasDefaultBody: false, isDefaultResponse: false},
+			} {
+				client := newClientWithPreparedResponses([]*http.Response{{
+					StatusCode: tc.responseStatus,
+					Body:       io.NopCloser(strings.NewReader(tc.response)),
+				}})
+				err := client.CanCreate(context.Background(), tc.id, "" /* path */, "2022-09-01", tc.readMethod,
+					tc.isSingletonResource, tc.hasDefaultBody, func(map[string]any) bool { return tc.isDefaultResponse })
+				require.Error(t, err)
 			}
 		}
 	})
