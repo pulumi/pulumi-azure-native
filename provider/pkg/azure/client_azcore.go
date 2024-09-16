@@ -27,6 +27,10 @@ type azCoreClient struct {
 	host      string
 	pipeline  runtime.Pipeline
 	userAgent string
+
+	// Exposed internally for tests, to set it at the minimum value for fast tests.
+	deletePollingIntervalSeconds int64
+	updatePollingIntervalSeconds int64
 }
 
 func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, azureCloud cloud.Configuration, opts *arm.ClientOptions,
@@ -62,9 +66,11 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 	}
 
 	return &azCoreClient{
-		host:      azureCloud.Services[cloud.ResourceManager].Endpoint,
-		pipeline:  pipeline,
-		userAgent: userAgent,
+		host:                         azureCloud.Services[cloud.ResourceManager].Endpoint,
+		pipeline:                     pipeline,
+		userAgent:                    userAgent,
+		deletePollingIntervalSeconds: 30, // same as autorest.DefaultPollingDelay
+		updatePollingIntervalSeconds: 10,
 	}, nil
 }
 
@@ -143,7 +149,7 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 			return err
 		}
 		_, err = pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
-			Frequency: 30 * time.Second, // same as autorest.DefaultPollingDelay
+			Frequency: time.Duration(c.deletePollingIntervalSeconds * int64(time.Second)),
 		})
 		if err != nil {
 			respErr := err.(*azcore.ResponseError)
@@ -222,7 +228,7 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 			return nil, created, err
 		}
 		outputs, err = pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
-			Frequency: 10 * time.Second,
+			Frequency: time.Duration(c.updatePollingIntervalSeconds * int64(time.Second)),
 		})
 		if err != nil {
 			return nil, created, err

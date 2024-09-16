@@ -267,6 +267,71 @@ func TestErrorStatusCodes(t *testing.T) {
 			require.Error(t, err, statusCode)
 		}
 	})
+
+	t.Run("polling success after 202 response", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{
+			{
+				StatusCode: 202,
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "InProgress"}`)),
+			},
+			{
+				StatusCode: 502, // temporary failure
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "Bad Gateway"}`)),
+			},
+			{
+				StatusCode: 503, // temporary failure
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "Unavailable"}`)),
+			},
+			{
+				StatusCode: 202,
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "InProgress"}`)),
+			},
+			{
+				StatusCode: 200,
+				Body:       io.NopCloser(strings.NewReader(`{"status": "Succeeded"}`)),
+			},
+		})
+		_, found, err := client.Put(context.Background(), "/subscriptions/123/rg/rg", nil, map[string]any{"api-version": "2022-09-01"}, "")
+		require.NoError(t, err)
+		assert.True(t, found)
+	})
+
+	t.Run("polling success when asyncStyle is given", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{
+			{
+				StatusCode: 201, // created
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "InProgress"}`)),
+			},
+			{
+				StatusCode: 502, // temporary failure
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "Bad Gateway"}`)),
+			},
+			{
+				StatusCode: 503, // temporary failure
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "Unavailable"}`)),
+			},
+			{
+				StatusCode: 201,
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "InProgress"}`)),
+			},
+			{
+				StatusCode: 200,
+				Body:       io.NopCloser(strings.NewReader(`{"status": "Succeeded"}`)),
+			},
+		})
+		_, found, err := client.Put(context.Background(), "/subscriptions/123/rg/rg", nil, map[string]any{"api-version": "2022-09-01"},
+			"the actual value doesn't matter!")
+		require.NoError(t, err)
+		assert.True(t, found)
+	})
 }
 
 func TestCanCreateUsesResourcePath(t *testing.T) {
@@ -448,7 +513,9 @@ func newClientWithPreparedResponses(responses []*http.Response) *azCoreClient {
 	}
 
 	client, _ := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
-	return client.(*azCoreClient)
+	azCoreClient := client.(*azCoreClient)
+	azCoreClient.updatePollingIntervalSeconds = 1
+	return azCoreClient
 }
 
 func TestHandleResponseError(t *testing.T) {
