@@ -795,6 +795,7 @@ DevHub:
     tracking: 2022-10-11-preview
     additions:
         IacProfile: 2024-05-01-preview
+        getADOOAuthInfo: 2024-08-01-preview
 DevOps: {}
 DevOpsInfrastructure:
     tracking: 2023-10-30-preview
@@ -804,6 +805,12 @@ DevTestLab:
     tracking: "2018-09-15"
 DeviceRegistry:
     tracking: 2023-11-01-preview
+    additions:
+        DiscoveredAsset: 2024-09-01-preview
+        DiscoveredAssetEndpointProfile: 2024-09-01-preview
+        Schema: 2024-09-01-preview
+        SchemaRegistry: 2024-09-01-preview
+        SchemaVersion: 2024-09-01-preview
 DeviceUpdate:
     tracking: "2023-07-01"
 Devices:
@@ -1328,6 +1335,7 @@ Network:
         NetworkInterface: "2023-02-01"
         NetworkInterfaceTapConfiguration: "2023-02-01"
         NetworkManager: "2023-02-01"
+        NetworkManagerRoutingConfiguration: "2024-03-01"
         NetworkProfile: "2023-02-01"
         NetworkSecurityGroup: "2023-02-01"
         NetworkSecurityPerimeter: 2021-03-01-preview
@@ -1362,12 +1370,16 @@ Network:
         RouteMap: "2023-02-01"
         RouteTable: "2023-02-01"
         RoutingIntent: "2023-02-01"
+        RoutingRule: "2024-03-01"
+        RoutingRuleCollection: "2024-03-01"
         RulesEngine: "2021-06-01"
         ScopeConnection: "2023-02-01"
         SecurityAdminConfiguration: "2023-02-01"
         SecurityPartnerProvider: "2023-02-01"
         SecurityRule: "2023-02-01"
         SecurityUserConfiguration: 2022-04-01-preview
+        SecurityUserRule: "2024-03-01"
+        SecurityUserRuleCollection: "2024-03-01"
         ServiceEndpointPolicy: "2023-02-01"
         ServiceEndpointPolicyDefinition: "2023-02-01"
         StaticCidr: 2024-01-01-preview
@@ -1433,6 +1445,7 @@ Network:
         listNetworkManagerEffectiveConnectivityConfigurations: "2023-02-01"
         listNetworkManagerEffectiveSecurityAdminRule: 2021-02-01-preview
         listNetworkManagerEffectiveSecurityAdminRules: "2023-02-01"
+        listVpnLinkConnectionDefaultSharedKey: "2024-03-01"
     exclusionErrors:
         - provider: Network
           resourcename: ManagementGroupNetworkManagerConnection
@@ -1458,6 +1471,9 @@ Network:
         - provider: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-01-01 is greater than 2022-09-01
+        - provider: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2024-03-01 is greater than 2022-09-01
 NetworkAnalytics:
     tracking: "2023-11-15"
 NetworkCloud:
@@ -1645,6 +1661,7 @@ Security:
         Connector: 2020-01-01-preview
         CustomAssessmentAutomation: 2021-07-01-preview
         CustomEntityStoreAssignment: 2021-07-01-preview
+        CustomRecommendation: "2024-08-01"
         DefenderForStorage: 2022-12-01-preview
         DevOpsConfiguration: 2023-09-01-preview
         DevOpsPolicyAssignment: 2024-05-15-preview
@@ -1658,10 +1675,12 @@ Security:
         SecurityConnectorApplication: 2022-07-01-preview
         SecurityContact: 2020-01-01-preview
         SecurityOperator: 2023-01-01-preview
+        SecurityStandard: "2024-08-01"
         ServerVulnerabilityAssessment: "2020-01-01"
         ServerVulnerabilityAssessmentsSetting: "2023-05-01"
         SqlVulnerabilityAssessmentBaselineRule: 2023-02-01-preview
         Standard: 2021-08-01-preview
+        StandardAssignment: "2024-08-01"
         WorkspaceSetting: 2017-08-01-preview
         listAzureDevOpsOrgAvailable: 2023-09-01-preview
         listGitHubOwnerAvailable: 2023-09-01-preview
