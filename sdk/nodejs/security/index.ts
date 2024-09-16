@@ -75,6 +75,11 @@ export type CustomEntityStoreAssignment = import("./customEntityStoreAssignment"
 export const CustomEntityStoreAssignment: typeof import("./customEntityStoreAssignment").CustomEntityStoreAssignment = null as any;
 utilities.lazyLoad(exports, ["CustomEntityStoreAssignment"], () => require("./customEntityStoreAssignment"));
 
+export { CustomRecommendationArgs } from "./customRecommendation";
+export type CustomRecommendation = import("./customRecommendation").CustomRecommendation;
+export const CustomRecommendation: typeof import("./customRecommendation").CustomRecommendation = null as any;
+utilities.lazyLoad(exports, ["CustomRecommendation"], () => require("./customRecommendation"));
+
 export { DefenderForStorageArgs } from "./defenderForStorage";
 export type DefenderForStorage = import("./defenderForStorage").DefenderForStorage;
 export const DefenderForStorage: typeof import("./defenderForStorage").DefenderForStorage = null as any;
@@ -165,6 +170,11 @@ export const getCustomEntityStoreAssignment: typeof import("./getCustomEntitySto
 export const getCustomEntityStoreAssignmentOutput: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomEntityStoreAssignment","getCustomEntityStoreAssignmentOutput"], () => require("./getCustomEntityStoreAssignment"));
 
+export { GetCustomRecommendationArgs, GetCustomRecommendationResult, GetCustomRecommendationOutputArgs } from "./getCustomRecommendation";
+export const getCustomRecommendation: typeof import("./getCustomRecommendation").getCustomRecommendation = null as any;
+export const getCustomRecommendationOutput: typeof import("./getCustomRecommendation").getCustomRecommendationOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomRecommendation","getCustomRecommendationOutput"], () => require("./getCustomRecommendation"));
+
 export { GetDefenderForStorageArgs, GetDefenderForStorageResult, GetDefenderForStorageOutputArgs } from "./getDefenderForStorage";
 export const getDefenderForStorage: typeof import("./getDefenderForStorage").getDefenderForStorage = null as any;
 export const getDefenderForStorageOutput: typeof import("./getDefenderForStorage").getDefenderForStorageOutput = null as any;
@@ -230,6 +240,11 @@ export const getSecurityOperator: typeof import("./getSecurityOperator").getSecu
 export const getSecurityOperatorOutput: typeof import("./getSecurityOperator").getSecurityOperatorOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityOperator","getSecurityOperatorOutput"], () => require("./getSecurityOperator"));
 
+export { GetSecurityStandardArgs, GetSecurityStandardResult, GetSecurityStandardOutputArgs } from "./getSecurityStandard";
+export const getSecurityStandard: typeof import("./getSecurityStandard").getSecurityStandard = null as any;
+export const getSecurityStandardOutput: typeof import("./getSecurityStandard").getSecurityStandardOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityStandard","getSecurityStandardOutput"], () => require("./getSecurityStandard"));
+
 export { GetServerVulnerabilityAssessmentArgs, GetServerVulnerabilityAssessmentResult, GetServerVulnerabilityAssessmentOutputArgs } from "./getServerVulnerabilityAssessment";
 export const getServerVulnerabilityAssessment: typeof import("./getServerVulnerabilityAssessment").getServerVulnerabilityAssessment = null as any;
 export const getServerVulnerabilityAssessmentOutput: typeof import("./getServerVulnerabilityAssessment").getServerVulnerabilityAssessmentOutput = null as any;
@@ -244,6 +259,11 @@ export { GetStandardArgs, GetStandardResult, GetStandardOutputArgs } from "./get
 export const getStandard: typeof import("./getStandard").getStandard = null as any;
 export const getStandardOutput: typeof import("./getStandard").getStandardOutput = null as any;
 utilities.lazyLoad(exports, ["getStandard","getStandardOutput"], () => require("./getStandard"));
+
+export { GetStandardAssignmentArgs, GetStandardAssignmentResult, GetStandardAssignmentOutputArgs } from "./getStandardAssignment";
+export const getStandardAssignment: typeof import("./getStandardAssignment").getStandardAssignment = null as any;
+export const getStandardAssignmentOutput: typeof import("./getStandardAssignment").getStandardAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getStandardAssignment","getStandardAssignmentOutput"], () => require("./getStandardAssignment"));
 
 export { GetWorkspaceSettingArgs, GetWorkspaceSettingResult, GetWorkspaceSettingOutputArgs } from "./getWorkspaceSetting";
 export const getWorkspaceSetting: typeof import("./getWorkspaceSetting").getWorkspaceSetting = null as any;
@@ -315,6 +335,11 @@ export type SecurityOperator = import("./securityOperator").SecurityOperator;
 export const SecurityOperator: typeof import("./securityOperator").SecurityOperator = null as any;
 utilities.lazyLoad(exports, ["SecurityOperator"], () => require("./securityOperator"));
 
+export { SecurityStandardArgs } from "./securityStandard";
+export type SecurityStandard = import("./securityStandard").SecurityStandard;
+export const SecurityStandard: typeof import("./securityStandard").SecurityStandard = null as any;
+utilities.lazyLoad(exports, ["SecurityStandard"], () => require("./securityStandard"));
+
 export { ServerVulnerabilityAssessmentArgs } from "./serverVulnerabilityAssessment";
 export type ServerVulnerabilityAssessment = import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment;
 export const ServerVulnerabilityAssessment: typeof import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment = null as any;
@@ -329,6 +354,11 @@ export { StandardArgs } from "./standard";
 export type Standard = import("./standard").Standard;
 export const Standard: typeof import("./standard").Standard = null as any;
 utilities.lazyLoad(exports, ["Standard"], () => require("./standard"));
+
+export { StandardAssignmentArgs } from "./standardAssignment";
+export type StandardAssignment = import("./standardAssignment").StandardAssignment;
+export const StandardAssignment: typeof import("./standardAssignment").StandardAssignment = null as any;
+utilities.lazyLoad(exports, ["StandardAssignment"], () => require("./standardAssignment"));
 
 export { WorkspaceSettingArgs } from "./workspaceSetting";
 export type WorkspaceSetting = import("./workspaceSetting").WorkspaceSetting;
@@ -365,6 +395,7 @@ import * as v20240101 from "./v20240101";
 import * as v20240301preview from "./v20240301preview";
 import * as v20240401 from "./v20240401";
 import * as v20240515preview from "./v20240515preview";
+import * as v20240801 from "./v20240801";
 
 export {
     v20170801preview,
@@ -392,6 +423,7 @@ export {
     v20240301preview,
     v20240401,
     v20240515preview,
+    v20240801,
 };
 
 const _module = {
@@ -426,6 +458,8 @@ const _module = {
                 return new CustomAssessmentAutomation(name, <any>undefined, { urn })
             case "azure-native:security:CustomEntityStoreAssignment":
                 return new CustomEntityStoreAssignment(name, <any>undefined, { urn })
+            case "azure-native:security:CustomRecommendation":
+                return new CustomRecommendation(name, <any>undefined, { urn })
             case "azure-native:security:DefenderForStorage":
                 return new DefenderForStorage(name, <any>undefined, { urn })
             case "azure-native:security:DevOpsConfiguration":
@@ -452,12 +486,16 @@ const _module = {
                 return new SecurityContact(name, <any>undefined, { urn })
             case "azure-native:security:SecurityOperator":
                 return new SecurityOperator(name, <any>undefined, { urn })
+            case "azure-native:security:SecurityStandard":
+                return new SecurityStandard(name, <any>undefined, { urn })
             case "azure-native:security:ServerVulnerabilityAssessment":
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-native:security:SqlVulnerabilityAssessmentBaselineRule":
                 return new SqlVulnerabilityAssessmentBaselineRule(name, <any>undefined, { urn })
             case "azure-native:security:Standard":
                 return new Standard(name, <any>undefined, { urn })
+            case "azure-native:security:StandardAssignment":
+                return new StandardAssignment(name, <any>undefined, { urn })
             case "azure-native:security:WorkspaceSetting":
                 return new WorkspaceSetting(name, <any>undefined, { urn })
             default:

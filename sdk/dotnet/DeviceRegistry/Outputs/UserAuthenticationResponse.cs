@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DeviceRegistry.Outputs
     public sealed class UserAuthenticationResponse
     {
         /// <summary>
-        /// Defines the mode to authenticate the user of the client at the server.
+        /// Defines the method to authenticate the user of the client at the server.
         /// </summary>
         public readonly string Mode;
         /// <summary>

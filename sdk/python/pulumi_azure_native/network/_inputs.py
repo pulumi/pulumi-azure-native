@@ -430,6 +430,8 @@ __all__ = [
     'NetworkInterfaceIPConfigurationArgsDict',
     'NetworkManagerPropertiesNetworkManagerScopesArgs',
     'NetworkManagerPropertiesNetworkManagerScopesArgsDict',
+    'NetworkManagerRoutingGroupItemArgs',
+    'NetworkManagerRoutingGroupItemArgsDict',
     'NetworkManagerSecurityGroupItemArgs',
     'NetworkManagerSecurityGroupItemArgsDict',
     'NetworkRuleConditionArgs',
@@ -534,6 +536,10 @@ __all__ = [
     'RoutingConfigurationArgsDict',
     'RoutingPolicyArgs',
     'RoutingPolicyArgsDict',
+    'RoutingRuleNextHopArgs',
+    'RoutingRuleNextHopArgsDict',
+    'RoutingRuleRouteDestinationArgs',
+    'RoutingRuleRouteDestinationArgsDict',
     'RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgs',
     'RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgsDict',
     'RoutingRuleArgs',
@@ -546,6 +552,8 @@ __all__ = [
     'RulesEngineRuleArgsDict',
     'SecurityRuleArgs',
     'SecurityRuleArgsDict',
+    'SecurityUserGroupItemArgs',
+    'SecurityUserGroupItemArgsDict',
     'ServiceAssociationLinkArgs',
     'ServiceAssociationLinkArgsDict',
     'ServiceEndpointPolicyDefinitionArgs',
@@ -21027,6 +21035,41 @@ class NetworkManagerPropertiesNetworkManagerScopesArgs:
 
 
 if not MYPY:
+    class NetworkManagerRoutingGroupItemArgsDict(TypedDict):
+        """
+        Network manager routing group item.
+        """
+        network_group_id: pulumi.Input[str]
+        """
+        Network manager group Id.
+        """
+elif False:
+    NetworkManagerRoutingGroupItemArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkManagerRoutingGroupItemArgs:
+    def __init__(__self__, *,
+                 network_group_id: pulumi.Input[str]):
+        """
+        Network manager routing group item.
+        :param pulumi.Input[str] network_group_id: Network manager group Id.
+        """
+        pulumi.set(__self__, "network_group_id", network_group_id)
+
+    @property
+    @pulumi.getter(name="networkGroupId")
+    def network_group_id(self) -> pulumi.Input[str]:
+        """
+        Network manager group Id.
+        """
+        return pulumi.get(self, "network_group_id")
+
+    @network_group_id.setter
+    def network_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_group_id", value)
+
+
+if not MYPY:
     class NetworkManagerSecurityGroupItemArgsDict(TypedDict):
         """
         Network manager security group item.
@@ -26150,10 +26193,6 @@ if not MYPY:
         """
         A unique read-only string that changes whenever the resource is updated.
         """
-        has_bgp_override: NotRequired[pulumi.Input[bool]]
-        """
-        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
-        """
         id: NotRequired[pulumi.Input[str]]
         """
         Resource ID.
@@ -26183,7 +26222,6 @@ class RouteArgs:
                  next_hop_type: pulumi.Input[Union[str, 'RouteNextHopType']],
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 has_bgp_override: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  next_hop_ip_address: Optional[pulumi.Input[str]] = None,
@@ -26194,7 +26232,6 @@ class RouteArgs:
         :param pulumi.Input[Union[str, 'RouteNextHopType']] next_hop_type: The type of Azure hop the packet should be sent to.
         :param pulumi.Input[str] address_prefix: The destination CIDR to which the route applies.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[bool] has_bgp_override: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
@@ -26206,8 +26243,6 @@ class RouteArgs:
             pulumi.set(__self__, "address_prefix", address_prefix)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
-        if has_bgp_override is not None:
-            pulumi.set(__self__, "has_bgp_override", has_bgp_override)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
@@ -26254,18 +26289,6 @@ class RouteArgs:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
-
-    @property
-    @pulumi.getter(name="hasBgpOverride")
-    def has_bgp_override(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
-        """
-        return pulumi.get(self, "has_bgp_override")
-
-    @has_bgp_override.setter
-    def has_bgp_override(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "has_bgp_override", value)
 
     @property
     @pulumi.getter
@@ -26515,6 +26538,115 @@ class RoutingPolicyArgs:
     @next_hop.setter
     def next_hop(self, value: pulumi.Input[str]):
         pulumi.set(self, "next_hop", value)
+
+
+if not MYPY:
+    class RoutingRuleNextHopArgsDict(TypedDict):
+        """
+        Next hop.
+        """
+        next_hop_type: pulumi.Input[Union[str, 'RoutingRuleNextHopType']]
+        """
+        Next hop type.
+        """
+        next_hop_address: NotRequired[pulumi.Input[str]]
+        """
+        Next hop address. Only required if the next hop type is VirtualAppliance.
+        """
+elif False:
+    RoutingRuleNextHopArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoutingRuleNextHopArgs:
+    def __init__(__self__, *,
+                 next_hop_type: pulumi.Input[Union[str, 'RoutingRuleNextHopType']],
+                 next_hop_address: Optional[pulumi.Input[str]] = None):
+        """
+        Next hop.
+        :param pulumi.Input[Union[str, 'RoutingRuleNextHopType']] next_hop_type: Next hop type.
+        :param pulumi.Input[str] next_hop_address: Next hop address. Only required if the next hop type is VirtualAppliance.
+        """
+        pulumi.set(__self__, "next_hop_type", next_hop_type)
+        if next_hop_address is not None:
+            pulumi.set(__self__, "next_hop_address", next_hop_address)
+
+    @property
+    @pulumi.getter(name="nextHopType")
+    def next_hop_type(self) -> pulumi.Input[Union[str, 'RoutingRuleNextHopType']]:
+        """
+        Next hop type.
+        """
+        return pulumi.get(self, "next_hop_type")
+
+    @next_hop_type.setter
+    def next_hop_type(self, value: pulumi.Input[Union[str, 'RoutingRuleNextHopType']]):
+        pulumi.set(self, "next_hop_type", value)
+
+    @property
+    @pulumi.getter(name="nextHopAddress")
+    def next_hop_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Next hop address. Only required if the next hop type is VirtualAppliance.
+        """
+        return pulumi.get(self, "next_hop_address")
+
+    @next_hop_address.setter
+    def next_hop_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "next_hop_address", value)
+
+
+if not MYPY:
+    class RoutingRuleRouteDestinationArgsDict(TypedDict):
+        """
+        Route destination.
+        """
+        destination_address: pulumi.Input[str]
+        """
+        Destination address.
+        """
+        type: pulumi.Input[Union[str, 'RoutingRuleDestinationType']]
+        """
+        Destination type.
+        """
+elif False:
+    RoutingRuleRouteDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoutingRuleRouteDestinationArgs:
+    def __init__(__self__, *,
+                 destination_address: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'RoutingRuleDestinationType']]):
+        """
+        Route destination.
+        :param pulumi.Input[str] destination_address: Destination address.
+        :param pulumi.Input[Union[str, 'RoutingRuleDestinationType']] type: Destination type.
+        """
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> pulumi.Input[str]:
+        """
+        Destination address.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @destination_address.setter
+    def destination_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_address", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'RoutingRuleDestinationType']]:
+        """
+        Destination type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'RoutingRuleDestinationType']]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:
@@ -27482,6 +27614,41 @@ class SecurityRuleArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class SecurityUserGroupItemArgsDict(TypedDict):
+        """
+        Network manager security user group item.
+        """
+        network_group_id: pulumi.Input[str]
+        """
+        Network manager group Id.
+        """
+elif False:
+    SecurityUserGroupItemArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecurityUserGroupItemArgs:
+    def __init__(__self__, *,
+                 network_group_id: pulumi.Input[str]):
+        """
+        Network manager security user group item.
+        :param pulumi.Input[str] network_group_id: Network manager group Id.
+        """
+        pulumi.set(__self__, "network_group_id", network_group_id)
+
+    @property
+    @pulumi.getter(name="networkGroupId")
+    def network_group_id(self) -> pulumi.Input[str]:
+        """
+        Network manager group Id.
+        """
+        return pulumi.get(self, "network_group_id")
+
+    @network_group_id.setter
+    def network_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_group_id", value)
 
 
 if not MYPY:

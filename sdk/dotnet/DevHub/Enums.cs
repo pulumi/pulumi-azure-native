@@ -237,6 +237,55 @@ namespace Pulumi.AzureNative.DevHub
     }
 
     /// <summary>
+    /// Determines the authorization status of requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct QuickStartTemplateType : IEquatable<QuickStartTemplateType>
+    {
+        private readonly string _value;
+
+        private QuickStartTemplateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The template has not use quick start template
+        /// </summary>
+        public static QuickStartTemplateType None { get; } = new QuickStartTemplateType("None");
+        /// <summary>
+        /// The template use quick start template of HCI
+        /// </summary>
+        public static QuickStartTemplateType HCI { get; } = new QuickStartTemplateType("HCI");
+        /// <summary>
+        /// The template use quick start template of HCI and AKS
+        /// </summary>
+        public static QuickStartTemplateType HCIAKS { get; } = new QuickStartTemplateType("HCIAKS");
+        /// <summary>
+        /// The template use quick start template of HCI and ArcVM
+        /// </summary>
+        public static QuickStartTemplateType HCIARCVM { get; } = new QuickStartTemplateType("HCIARCVM");
+        /// <summary>
+        /// The template use quick start template of All supported products
+        /// </summary>
+        public static QuickStartTemplateType ALL { get; } = new QuickStartTemplateType("ALL");
+
+        public static bool operator ==(QuickStartTemplateType left, QuickStartTemplateType right) => left.Equals(right);
+        public static bool operator !=(QuickStartTemplateType left, QuickStartTemplateType right) => !left.Equals(right);
+
+        public static explicit operator string(QuickStartTemplateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QuickStartTemplateType other && Equals(other);
+        public bool Equals(QuickStartTemplateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes the status of the workflow run
     /// </summary>
     [EnumType]

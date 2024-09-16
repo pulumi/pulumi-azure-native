@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute
     /// A private endpoint connection
     /// Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2021-03-25-preview.
     /// 
-    /// Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10.
+    /// Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.HybridCompute
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240331preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240520preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240710:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

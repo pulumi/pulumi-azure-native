@@ -72,7 +72,7 @@ class GetAssetEndpointProfileResult:
     @pulumi.getter(name="additionalConfiguration")
     def additional_configuration(self) -> Optional[str]:
         """
-        Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         """
         return pulumi.get(self, "additional_configuration")
 
@@ -201,6 +201,8 @@ def get_asset_endpoint_profile(asset_endpoint_profile_name: Optional[str] = None
     Get a AssetEndpointProfile
     Azure REST API version: 2023-11-01-preview.
 
+    Other available API versions: 2024-09-01-preview.
+
 
     :param str asset_endpoint_profile_name: Asset Endpoint Profile name parameter.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -234,6 +236,8 @@ def get_asset_endpoint_profile_output(asset_endpoint_profile_name: Optional[pulu
     """
     Get a AssetEndpointProfile
     Azure REST API version: 2023-11-01-preview.
+
+    Other available API versions: 2024-09-01-preview.
 
 
     :param str asset_endpoint_profile_name: Asset Endpoint Profile name parameter.

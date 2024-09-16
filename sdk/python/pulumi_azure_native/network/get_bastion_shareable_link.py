@@ -71,7 +71,7 @@ def get_bastion_shareable_link(bastion_host_name: Optional[str] = None,
     Return the Bastion Shareable Links for all the VMs specified in the request.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
+    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.
@@ -99,7 +99,7 @@ def get_bastion_shareable_link_output(bastion_host_name: Optional[pulumi.Input[s
     Return the Bastion Shareable Links for all the VMs specified in the request.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
+    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.

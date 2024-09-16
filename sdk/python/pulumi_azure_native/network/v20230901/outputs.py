@@ -23430,14 +23430,14 @@ class RouteResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "nextHopType":
+        if key == "hasBgpOverride":
+            suggest = "has_bgp_override"
+        elif key == "nextHopType":
             suggest = "next_hop_type"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "addressPrefix":
             suggest = "address_prefix"
-        elif key == "hasBgpOverride":
-            suggest = "has_bgp_override"
         elif key == "nextHopIpAddress":
             suggest = "next_hop_ip_address"
 
@@ -23454,10 +23454,10 @@ class RouteResponse(dict):
 
     def __init__(__self__, *,
                  etag: str,
+                 has_bgp_override: bool,
                  next_hop_type: str,
                  provisioning_state: str,
                  address_prefix: Optional[str] = None,
-                 has_bgp_override: Optional[bool] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  next_hop_ip_address: Optional[str] = None,
@@ -23465,22 +23465,21 @@ class RouteResponse(dict):
         """
         Route resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param bool has_bgp_override: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         :param str next_hop_type: The type of Azure hop the packet should be sent to.
         :param str provisioning_state: The provisioning state of the route resource.
         :param str address_prefix: The destination CIDR to which the route applies.
-        :param bool has_bgp_override: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
         :param str type: The type of the resource.
         """
         pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "has_bgp_override", has_bgp_override)
         pulumi.set(__self__, "next_hop_type", next_hop_type)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
-        if has_bgp_override is not None:
-            pulumi.set(__self__, "has_bgp_override", has_bgp_override)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
@@ -23497,6 +23496,14 @@ class RouteResponse(dict):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="hasBgpOverride")
+    def has_bgp_override(self) -> bool:
+        """
+        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        """
+        return pulumi.get(self, "has_bgp_override")
 
     @property
     @pulumi.getter(name="nextHopType")
@@ -23521,14 +23528,6 @@ class RouteResponse(dict):
         The destination CIDR to which the route applies.
         """
         return pulumi.get(self, "address_prefix")
-
-    @property
-    @pulumi.getter(name="hasBgpOverride")
-    def has_bgp_override(self) -> Optional[bool]:
-        """
-        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
-        """
-        return pulumi.get(self, "has_bgp_override")
 
     @property
     @pulumi.getter

@@ -73,7 +73,7 @@ class GetRouteResult:
 
     @property
     @pulumi.getter(name="hasBgpOverride")
-    def has_bgp_override(self) -> Optional[bool]:
+    def has_bgp_override(self) -> bool:
         """
         A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         """

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// Returns a description for the specified topic.
         /// Azure REST API version: 2022-01-01-preview.
         /// 
-        /// Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview.
+        /// Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:servicebus:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// Returns a description for the specified topic.
         /// Azure REST API version: 2022-01-01-preview.
         /// 
-        /// Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview.
+        /// Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:servicebus:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());

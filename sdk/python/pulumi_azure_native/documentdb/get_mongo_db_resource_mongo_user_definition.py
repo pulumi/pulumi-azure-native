@@ -154,7 +154,7 @@ def get_mongo_db_resource_mongo_user_definition(account_name: Optional[str] = No
     Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
     Azure REST API version: 2023-04-15.
 
-    Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview.
+    Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -189,7 +189,7 @@ def get_mongo_db_resource_mongo_user_definition_output(account_name: Optional[pu
     Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
     Azure REST API version: 2023-04-15.
 
-    Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview.
+    Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview.
 
 
     :param str account_name: Cosmos DB database account name.

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Asset Endpoint Profile definition.
  * Azure REST API version: 2023-11-01-preview.
+ *
+ * Other available API versions: 2024-09-01-preview.
  */
 export class AssetEndpointProfile extends pulumi.CustomResource {
     /**
@@ -39,7 +41,7 @@ export class AssetEndpointProfile extends pulumi.CustomResource {
     }
 
     /**
-     * Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+     * Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
      */
     public readonly additionalConfiguration!: pulumi.Output<string | undefined>;
     /**
@@ -136,7 +138,7 @@ export class AssetEndpointProfile extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20231101preview:AssetEndpointProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20231101preview:AssetEndpointProfile" }, { type: "azure-native:deviceregistry/v20240901preview:AssetEndpointProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssetEndpointProfile.__pulumiType, name, resourceInputs, opts);
     }
@@ -147,7 +149,7 @@ export class AssetEndpointProfile extends pulumi.CustomResource {
  */
 export interface AssetEndpointProfileArgs {
     /**
-     * Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+     * Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
      */
     additionalConfiguration?: pulumi.Input<string>;
     /**

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Defines the admin rule collection.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
  *
- * Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview.
+ * Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01.
  */
 export class AdminRuleCollection extends pulumi.CustomResource {
     /**
@@ -119,7 +119,7 @@ export class AdminRuleCollection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:AdminRuleCollection" }, { type: "azure-native:network/v20210501preview:AdminRuleCollection" }, { type: "azure-native:network/v20220101:AdminRuleCollection" }, { type: "azure-native:network/v20220201preview:AdminRuleCollection" }, { type: "azure-native:network/v20220401preview:AdminRuleCollection" }, { type: "azure-native:network/v20220501:AdminRuleCollection" }, { type: "azure-native:network/v20220701:AdminRuleCollection" }, { type: "azure-native:network/v20220901:AdminRuleCollection" }, { type: "azure-native:network/v20221101:AdminRuleCollection" }, { type: "azure-native:network/v20230201:AdminRuleCollection" }, { type: "azure-native:network/v20230401:AdminRuleCollection" }, { type: "azure-native:network/v20230501:AdminRuleCollection" }, { type: "azure-native:network/v20230601:AdminRuleCollection" }, { type: "azure-native:network/v20230901:AdminRuleCollection" }, { type: "azure-native:network/v20231101:AdminRuleCollection" }, { type: "azure-native:network/v20240101:AdminRuleCollection" }, { type: "azure-native:network/v20240101preview:AdminRuleCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:AdminRuleCollection" }, { type: "azure-native:network/v20210501preview:AdminRuleCollection" }, { type: "azure-native:network/v20220101:AdminRuleCollection" }, { type: "azure-native:network/v20220201preview:AdminRuleCollection" }, { type: "azure-native:network/v20220401preview:AdminRuleCollection" }, { type: "azure-native:network/v20220501:AdminRuleCollection" }, { type: "azure-native:network/v20220701:AdminRuleCollection" }, { type: "azure-native:network/v20220901:AdminRuleCollection" }, { type: "azure-native:network/v20221101:AdminRuleCollection" }, { type: "azure-native:network/v20230201:AdminRuleCollection" }, { type: "azure-native:network/v20230401:AdminRuleCollection" }, { type: "azure-native:network/v20230501:AdminRuleCollection" }, { type: "azure-native:network/v20230601:AdminRuleCollection" }, { type: "azure-native:network/v20230901:AdminRuleCollection" }, { type: "azure-native:network/v20231101:AdminRuleCollection" }, { type: "azure-native:network/v20240101:AdminRuleCollection" }, { type: "azure-native:network/v20240101preview:AdminRuleCollection" }, { type: "azure-native:network/v20240301:AdminRuleCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AdminRuleCollection.__pulumiType, name, resourceInputs, opts);
     }

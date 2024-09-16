@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:UserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:UserRuleCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240301:UserRuleCollection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

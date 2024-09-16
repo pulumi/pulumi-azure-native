@@ -48,7 +48,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
      */
-    public readonly hasBgpOverride!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly hasBgpOverride!: pulumi.Output<boolean>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -91,7 +91,6 @@ export class Route extends pulumi.CustomResource {
                 throw new Error("Missing required property 'routeTableName'");
             }
             resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["hasBgpOverride"] = args ? args.hasBgpOverride : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nextHopIpAddress"] = args ? args.nextHopIpAddress : undefined;
@@ -101,6 +100,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["routeTableName"] = args ? args.routeTableName : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["hasBgpOverride"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
             resourceInputs["addressPrefix"] = undefined /*out*/;
@@ -113,7 +113,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:Route" }, { type: "azure-native:network/v20150501preview:Route" }, { type: "azure-native:network/v20150615:Route" }, { type: "azure-native:network/v20160330:Route" }, { type: "azure-native:network/v20160601:Route" }, { type: "azure-native:network/v20160901:Route" }, { type: "azure-native:network/v20161201:Route" }, { type: "azure-native:network/v20170301:Route" }, { type: "azure-native:network/v20170601:Route" }, { type: "azure-native:network/v20170801:Route" }, { type: "azure-native:network/v20170901:Route" }, { type: "azure-native:network/v20171001:Route" }, { type: "azure-native:network/v20171101:Route" }, { type: "azure-native:network/v20180101:Route" }, { type: "azure-native:network/v20180201:Route" }, { type: "azure-native:network/v20180401:Route" }, { type: "azure-native:network/v20180601:Route" }, { type: "azure-native:network/v20180701:Route" }, { type: "azure-native:network/v20180801:Route" }, { type: "azure-native:network/v20181001:Route" }, { type: "azure-native:network/v20181101:Route" }, { type: "azure-native:network/v20181201:Route" }, { type: "azure-native:network/v20190201:Route" }, { type: "azure-native:network/v20190401:Route" }, { type: "azure-native:network/v20190601:Route" }, { type: "azure-native:network/v20190701:Route" }, { type: "azure-native:network/v20190801:Route" }, { type: "azure-native:network/v20190901:Route" }, { type: "azure-native:network/v20191101:Route" }, { type: "azure-native:network/v20191201:Route" }, { type: "azure-native:network/v20200301:Route" }, { type: "azure-native:network/v20200401:Route" }, { type: "azure-native:network/v20200501:Route" }, { type: "azure-native:network/v20200601:Route" }, { type: "azure-native:network/v20200701:Route" }, { type: "azure-native:network/v20200801:Route" }, { type: "azure-native:network/v20201101:Route" }, { type: "azure-native:network/v20210201:Route" }, { type: "azure-native:network/v20210301:Route" }, { type: "azure-native:network/v20210501:Route" }, { type: "azure-native:network/v20210801:Route" }, { type: "azure-native:network/v20220101:Route" }, { type: "azure-native:network/v20220501:Route" }, { type: "azure-native:network/v20220701:Route" }, { type: "azure-native:network/v20220901:Route" }, { type: "azure-native:network/v20221101:Route" }, { type: "azure-native:network/v20230201:Route" }, { type: "azure-native:network/v20230401:Route" }, { type: "azure-native:network/v20230601:Route" }, { type: "azure-native:network/v20230901:Route" }, { type: "azure-native:network/v20231101:Route" }, { type: "azure-native:network/v20240101:Route" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:Route" }, { type: "azure-native:network/v20150501preview:Route" }, { type: "azure-native:network/v20150615:Route" }, { type: "azure-native:network/v20160330:Route" }, { type: "azure-native:network/v20160601:Route" }, { type: "azure-native:network/v20160901:Route" }, { type: "azure-native:network/v20161201:Route" }, { type: "azure-native:network/v20170301:Route" }, { type: "azure-native:network/v20170601:Route" }, { type: "azure-native:network/v20170801:Route" }, { type: "azure-native:network/v20170901:Route" }, { type: "azure-native:network/v20171001:Route" }, { type: "azure-native:network/v20171101:Route" }, { type: "azure-native:network/v20180101:Route" }, { type: "azure-native:network/v20180201:Route" }, { type: "azure-native:network/v20180401:Route" }, { type: "azure-native:network/v20180601:Route" }, { type: "azure-native:network/v20180701:Route" }, { type: "azure-native:network/v20180801:Route" }, { type: "azure-native:network/v20181001:Route" }, { type: "azure-native:network/v20181101:Route" }, { type: "azure-native:network/v20181201:Route" }, { type: "azure-native:network/v20190201:Route" }, { type: "azure-native:network/v20190401:Route" }, { type: "azure-native:network/v20190601:Route" }, { type: "azure-native:network/v20190701:Route" }, { type: "azure-native:network/v20190801:Route" }, { type: "azure-native:network/v20190901:Route" }, { type: "azure-native:network/v20191101:Route" }, { type: "azure-native:network/v20191201:Route" }, { type: "azure-native:network/v20200301:Route" }, { type: "azure-native:network/v20200401:Route" }, { type: "azure-native:network/v20200501:Route" }, { type: "azure-native:network/v20200601:Route" }, { type: "azure-native:network/v20200701:Route" }, { type: "azure-native:network/v20200801:Route" }, { type: "azure-native:network/v20201101:Route" }, { type: "azure-native:network/v20210201:Route" }, { type: "azure-native:network/v20210301:Route" }, { type: "azure-native:network/v20210501:Route" }, { type: "azure-native:network/v20210801:Route" }, { type: "azure-native:network/v20220101:Route" }, { type: "azure-native:network/v20220501:Route" }, { type: "azure-native:network/v20220701:Route" }, { type: "azure-native:network/v20220901:Route" }, { type: "azure-native:network/v20221101:Route" }, { type: "azure-native:network/v20230201:Route" }, { type: "azure-native:network/v20230401:Route" }, { type: "azure-native:network/v20230601:Route" }, { type: "azure-native:network/v20230901:Route" }, { type: "azure-native:network/v20231101:Route" }, { type: "azure-native:network/v20240101:Route" }, { type: "azure-native:network/v20240301:Route" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Route.__pulumiType, name, resourceInputs, opts);
     }
@@ -127,10 +127,6 @@ export interface RouteArgs {
      * The destination CIDR to which the route applies.
      */
     addressPrefix?: pulumi.Input<string>;
-    /**
-     * A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
-     */
-    hasBgpOverride?: pulumi.Input<boolean>;
     /**
      * Resource ID.
      */

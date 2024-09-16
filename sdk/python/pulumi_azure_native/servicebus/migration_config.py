@@ -116,7 +116,7 @@ class MigrationConfig(pulumi.CustomResource):
         Single item in List or Get Migration Config operation
         Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview.
+        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,7 +136,7 @@ class MigrationConfig(pulumi.CustomResource):
         Single item in List or Get Migration Config operation
         Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview.
+        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param MigrationConfigArgs args: The arguments to use to populate this resource's properties.
@@ -187,7 +187,7 @@ class MigrationConfig(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20211101:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20230101preview:MigrationConfig")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20211101:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20230101preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20240101:MigrationConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MigrationConfig, __self__).__init__(
             'azure-native:servicebus:MigrationConfig',

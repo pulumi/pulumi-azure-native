@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_adoo_auth_info import *
 from .get_git_hub_o_auth import *
 from .get_iac_profile import *
 from .get_workflow import *
@@ -24,9 +25,12 @@ if typing.TYPE_CHECKING:
     v20230801 = __v20230801
     import pulumi_azure_native.devhub.v20240501preview as __v20240501preview
     v20240501preview = __v20240501preview
+    import pulumi_azure_native.devhub.v20240801preview as __v20240801preview
+    v20240801preview = __v20240801preview
 else:
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.devhub.v20220401preview')
     v20221011preview = _utilities.lazy_import('pulumi_azure_native.devhub.v20221011preview')
     v20230801 = _utilities.lazy_import('pulumi_azure_native.devhub.v20230801')
     v20240501preview = _utilities.lazy_import('pulumi_azure_native.devhub.v20240501preview')
+    v20240801preview = _utilities.lazy_import('pulumi_azure_native.devhub.v20240801preview')
 

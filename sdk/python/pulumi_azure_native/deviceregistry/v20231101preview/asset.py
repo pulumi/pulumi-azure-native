@@ -54,14 +54,14 @@ class AssetArgs:
         :param pulumi.Input[str] asset_name: Asset name parameter.
         :param pulumi.Input[str] asset_type: Resource path to asset type (model) definition.
         :param Any attributes: A set of key-value pairs that contain custom attributes set by the customer.
-        :param pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]] data_points: Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
-        :param pulumi.Input[str] default_data_points_configuration: Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
-        :param pulumi.Input[str] default_events_configuration: Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        :param pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]] data_points: Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
+        :param pulumi.Input[str] default_data_points_configuration: Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+        :param pulumi.Input[str] default_events_configuration: Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
         :param pulumi.Input[str] description: Human-readable description of the asset.
         :param pulumi.Input[str] display_name: Human-readable display name.
         :param pulumi.Input[str] documentation_uri: Reference to the documentation.
         :param pulumi.Input[bool] enabled: Enabled/Disabled status of the asset.
-        :param pulumi.Input[Sequence[pulumi.Input['EventArgs']]] events: Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
+        :param pulumi.Input[Sequence[pulumi.Input['EventArgs']]] events: Array of events that are part of the asset. Each event can have per-event configuration.
         :param pulumi.Input[str] external_asset_id: Asset id provided by the customer.
         :param pulumi.Input[str] hardware_revision: Revision number of the hardware.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -195,7 +195,7 @@ class AssetArgs:
     @pulumi.getter(name="dataPoints")
     def data_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]]]:
         """
-        Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
+        Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
         """
         return pulumi.get(self, "data_points")
 
@@ -207,7 +207,7 @@ class AssetArgs:
     @pulumi.getter(name="defaultDataPointsConfiguration")
     def default_data_points_configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
         """
         return pulumi.get(self, "default_data_points_configuration")
 
@@ -219,7 +219,7 @@ class AssetArgs:
     @pulumi.getter(name="defaultEventsConfiguration")
     def default_events_configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
         """
         return pulumi.get(self, "default_events_configuration")
 
@@ -279,7 +279,7 @@ class AssetArgs:
     @pulumi.getter
     def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventArgs']]]]:
         """
-        Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
+        Array of events that are part of the asset. Each event can have per-event configuration.
         """
         return pulumi.get(self, "events")
 
@@ -447,14 +447,14 @@ class Asset(pulumi.CustomResource):
         :param pulumi.Input[str] asset_name: Asset name parameter.
         :param pulumi.Input[str] asset_type: Resource path to asset type (model) definition.
         :param Any attributes: A set of key-value pairs that contain custom attributes set by the customer.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataPointArgs', 'DataPointArgsDict']]]] data_points: Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
-        :param pulumi.Input[str] default_data_points_configuration: Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
-        :param pulumi.Input[str] default_events_configuration: Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataPointArgs', 'DataPointArgsDict']]]] data_points: Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
+        :param pulumi.Input[str] default_data_points_configuration: Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+        :param pulumi.Input[str] default_events_configuration: Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
         :param pulumi.Input[str] description: Human-readable description of the asset.
         :param pulumi.Input[str] display_name: Human-readable display name.
         :param pulumi.Input[str] documentation_uri: Reference to the documentation.
         :param pulumi.Input[bool] enabled: Enabled/Disabled status of the asset.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventArgs', 'EventArgsDict']]]] events: Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventArgs', 'EventArgsDict']]]] events: Array of events that are part of the asset. Each event can have per-event configuration.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location.
         :param pulumi.Input[str] external_asset_id: Asset id provided by the customer.
         :param pulumi.Input[str] hardware_revision: Revision number of the hardware.
@@ -562,7 +562,7 @@ class Asset(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry:Asset")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry:Asset"), pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:Asset")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Asset, __self__).__init__(
             'azure-native:deviceregistry/v20231101preview:Asset',
@@ -645,7 +645,7 @@ class Asset(pulumi.CustomResource):
     @pulumi.getter(name="dataPoints")
     def data_points(self) -> pulumi.Output[Optional[Sequence['outputs.DataPointResponse']]]:
         """
-        Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
+        Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
         """
         return pulumi.get(self, "data_points")
 
@@ -653,7 +653,7 @@ class Asset(pulumi.CustomResource):
     @pulumi.getter(name="defaultDataPointsConfiguration")
     def default_data_points_configuration(self) -> pulumi.Output[Optional[str]]:
         """
-        Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
         """
         return pulumi.get(self, "default_data_points_configuration")
 
@@ -661,7 +661,7 @@ class Asset(pulumi.CustomResource):
     @pulumi.getter(name="defaultEventsConfiguration")
     def default_events_configuration(self) -> pulumi.Output[Optional[str]]:
         """
-        Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
         """
         return pulumi.get(self, "default_events_configuration")
 
@@ -701,7 +701,7 @@ class Asset(pulumi.CustomResource):
     @pulumi.getter
     def events(self) -> pulumi.Output[Optional[Sequence['outputs.EventResponse']]]:
         """
-        Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
+        Array of events that are part of the asset. Each event can have per-event configuration.
         """
         return pulumi.get(self, "events")
 

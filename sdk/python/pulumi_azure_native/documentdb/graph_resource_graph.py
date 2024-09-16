@@ -170,7 +170,7 @@ class GraphResourceGraph(pulumi.CustomResource):
         An Azure Cosmos DB Graph resource.
         Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
 
-        Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview.
+        Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +193,7 @@ class GraphResourceGraph(pulumi.CustomResource):
         An Azure Cosmos DB Graph resource.
         Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
 
-        Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview.
+        Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param GraphResourceGraphArgs args: The arguments to use to populate this resource's properties.
@@ -243,7 +243,7 @@ class GraphResourceGraph(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20210701preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20240515preview:GraphResourceGraph")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20210701preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20240515preview:GraphResourceGraph"), pulumi.Alias(type_="azure-native:documentdb/v20240901preview:GraphResourceGraph")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GraphResourceGraph, __self__).__init__(
             'azure-native:documentdb:GraphResourceGraph',

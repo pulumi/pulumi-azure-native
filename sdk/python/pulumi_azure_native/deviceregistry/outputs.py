@@ -20,10 +20,15 @@ __all__ = [
     'AssetStatusErrorResponse',
     'AssetStatusResponse',
     'DataPointResponse',
+    'DiscoveredDataPointResponse',
+    'DiscoveredDatasetResponse',
+    'DiscoveredEventResponse',
     'EventResponse',
     'ExtendedLocationResponse',
     'OwnCertificateResponse',
+    'SystemAssignedServiceIdentityResponse',
     'SystemDataResponse',
+    'TopicResponse',
     'TransportAuthenticationResponse',
     'UserAuthenticationResponse',
     'UsernamePasswordCredentialsResponse',
@@ -36,21 +41,19 @@ class AssetStatusErrorResponse(dict):
     Defines the asset status error properties.
     """
     def __init__(__self__, *,
-                 code: Optional[int] = None,
-                 message: Optional[str] = None):
+                 code: int,
+                 message: str):
         """
         Defines the asset status error properties.
         :param int code: Error code for classification of errors (ex: 400, 404, 500, etc.).
         :param str message: Human readable helpful error message to provide additional context for error (ex: “capability Id 'foo' does not exist”).
         """
-        if code is not None:
-            pulumi.set(__self__, "code", code)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[int]:
+    def code(self) -> int:
         """
         Error code for classification of errors (ex: 400, 404, 500, etc.).
         """
@@ -58,7 +61,7 @@ class AssetStatusErrorResponse(dict):
 
     @property
     @pulumi.getter
-    def message(self) -> Optional[str]:
+    def message(self) -> str:
         """
         Human readable helpful error message to provide additional context for error (ex: “capability Id 'foo' does not exist”).
         """
@@ -71,21 +74,19 @@ class AssetStatusResponse(dict):
     Defines the asset status properties.
     """
     def __init__(__self__, *,
-                 errors: Optional[Sequence['outputs.AssetStatusErrorResponse']] = None,
-                 version: Optional[int] = None):
+                 errors: Sequence['outputs.AssetStatusErrorResponse'],
+                 version: int):
         """
         Defines the asset status properties.
         :param Sequence['AssetStatusErrorResponse'] errors: Array object to transfer and persist errors that originate from the Edge.
         :param int version: A read only incremental counter indicating the number of times the configuration has been modified from the perspective of the current actual (Edge) state of the Asset. Edge would be the only writer of this value and would sync back up to the cloud. In steady state, this should equal version.
         """
-        if errors is not None:
-            pulumi.set(__self__, "errors", errors)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
+        pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.AssetStatusErrorResponse']]:
+    def errors(self) -> Sequence['outputs.AssetStatusErrorResponse']:
         """
         Array object to transfer and persist errors that originate from the Edge.
         """
@@ -93,7 +94,7 @@ class AssetStatusResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[int]:
+    def version(self) -> int:
         """
         A read only incremental counter indicating the number of times the configuration has been modified from the perspective of the current actual (Edge) state of the Asset. Edge would be the only writer of this value and would sync back up to the cloud. In steady state, this should equal version.
         """
@@ -138,7 +139,7 @@ class DataPointResponse(dict):
         Defines the data point properties.
         :param str data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param str capability_id: The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
-        :param str data_point_configuration: Protocol-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        :param str data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         :param str name: The name of the data point.
         :param str observability_mode: An indication of how the data point should be mapped to OpenTelemetry.
         """
@@ -174,7 +175,7 @@ class DataPointResponse(dict):
     @pulumi.getter(name="dataPointConfiguration")
     def data_point_configuration(self) -> Optional[str]:
         """
-        Protocol-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
         return pulumi.get(self, "data_point_configuration")
 
@@ -193,6 +194,251 @@ class DataPointResponse(dict):
         An indication of how the data point should be mapped to OpenTelemetry.
         """
         return pulumi.get(self, "observability_mode")
+
+
+@pulumi.output_type
+class DiscoveredDataPointResponse(dict):
+    """
+    Defines the data point properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "dataPointConfiguration":
+            suggest = "data_point_configuration"
+        elif key == "lastUpdatedOn":
+            suggest = "last_updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiscoveredDataPointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiscoveredDataPointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiscoveredDataPointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 name: str,
+                 data_point_configuration: Optional[str] = None,
+                 last_updated_on: Optional[str] = None):
+        """
+        Defines the data point properties.
+        :param str data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+        :param str name: The name of the data point.
+        :param str data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        :param str last_updated_on: UTC timestamp indicating when the data point was added or modified.
+        """
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        if data_point_configuration is not None:
+            pulumi.set(__self__, "data_point_configuration", data_point_configuration)
+        if last_updated_on is not None:
+            pulumi.set(__self__, "last_updated_on", last_updated_on)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        """
+        The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+        """
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the data point.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="dataPointConfiguration")
+    def data_point_configuration(self) -> Optional[str]:
+        """
+        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        """
+        return pulumi.get(self, "data_point_configuration")
+
+    @property
+    @pulumi.getter(name="lastUpdatedOn")
+    def last_updated_on(self) -> Optional[str]:
+        """
+        UTC timestamp indicating when the data point was added or modified.
+        """
+        return pulumi.get(self, "last_updated_on")
+
+
+@pulumi.output_type
+class DiscoveredDatasetResponse(dict):
+    """
+    Defines the dataset properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataPoints":
+            suggest = "data_points"
+        elif key == "datasetConfiguration":
+            suggest = "dataset_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiscoveredDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiscoveredDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiscoveredDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 data_points: Optional[Sequence['outputs.DiscoveredDataPointResponse']] = None,
+                 dataset_configuration: Optional[str] = None,
+                 topic: Optional['outputs.TopicResponse'] = None):
+        """
+        Defines the dataset properties.
+        :param str name: Name of the dataset.
+        :param Sequence['DiscoveredDataPointResponse'] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+        :param str dataset_configuration: Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
+        :param 'TopicResponse' topic: Object that describes the topic information for the specific dataset.
+        """
+        pulumi.set(__self__, "name", name)
+        if data_points is not None:
+            pulumi.set(__self__, "data_points", data_points)
+        if dataset_configuration is not None:
+            pulumi.set(__self__, "dataset_configuration", dataset_configuration)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="dataPoints")
+    def data_points(self) -> Optional[Sequence['outputs.DiscoveredDataPointResponse']]:
+        """
+        Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+        """
+        return pulumi.get(self, "data_points")
+
+    @property
+    @pulumi.getter(name="datasetConfiguration")
+    def dataset_configuration(self) -> Optional[str]:
+        """
+        Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
+        """
+        return pulumi.get(self, "dataset_configuration")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional['outputs.TopicResponse']:
+        """
+        Object that describes the topic information for the specific dataset.
+        """
+        return pulumi.get(self, "topic")
+
+
+@pulumi.output_type
+class DiscoveredEventResponse(dict):
+    """
+    Defines the event properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventNotifier":
+            suggest = "event_notifier"
+        elif key == "eventConfiguration":
+            suggest = "event_configuration"
+        elif key == "lastUpdatedOn":
+            suggest = "last_updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiscoveredEventResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiscoveredEventResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiscoveredEventResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_notifier: str,
+                 name: str,
+                 event_configuration: Optional[str] = None,
+                 last_updated_on: Optional[str] = None,
+                 topic: Optional['outputs.TopicResponse'] = None):
+        """
+        Defines the event properties.
+        :param str event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
+        :param str name: The name of the event.
+        :param str event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        :param str last_updated_on: UTC timestamp indicating when the event was added or modified.
+        :param 'TopicResponse' topic: Object that describes the topic information for the specific event.
+        """
+        pulumi.set(__self__, "event_notifier", event_notifier)
+        pulumi.set(__self__, "name", name)
+        if event_configuration is not None:
+            pulumi.set(__self__, "event_configuration", event_configuration)
+        if last_updated_on is not None:
+            pulumi.set(__self__, "last_updated_on", last_updated_on)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter(name="eventNotifier")
+    def event_notifier(self) -> str:
+        """
+        The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
+        """
+        return pulumi.get(self, "event_notifier")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the event.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="eventConfiguration")
+    def event_configuration(self) -> Optional[str]:
+        """
+        Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        """
+        return pulumi.get(self, "event_configuration")
+
+    @property
+    @pulumi.getter(name="lastUpdatedOn")
+    def last_updated_on(self) -> Optional[str]:
+        """
+        UTC timestamp indicating when the event was added or modified.
+        """
+        return pulumi.get(self, "last_updated_on")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional['outputs.TopicResponse']:
+        """
+        Object that describes the topic information for the specific event.
+        """
+        return pulumi.get(self, "topic")
 
 
 @pulumi.output_type
@@ -233,7 +479,7 @@ class EventResponse(dict):
         Defines the event properties.
         :param str event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
         :param str capability_id: The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
-        :param str event_configuration: Protocol-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        :param str event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         :param str name: The name of the event.
         :param str observability_mode: An indication of how the event should be mapped to OpenTelemetry.
         """
@@ -269,7 +515,7 @@ class EventResponse(dict):
     @pulumi.getter(name="eventConfiguration")
     def event_configuration(self) -> Optional[str]:
         """
-        Protocol-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
         return pulumi.get(self, "event_configuration")
 
@@ -392,6 +638,69 @@ class OwnCertificateResponse(dict):
 
 
 @pulumi.output_type
+class SystemAssignedServiceIdentityResponse(dict):
+    """
+    Managed service identity (either system assigned, or none)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemAssignedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemAssignedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemAssignedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        Managed service identity (either system assigned, or none)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (either system assigned, or none).
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (either system assigned, or none).
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -502,6 +811,42 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class TopicResponse(dict):
+    """
+    Object that describes the topic information.
+    """
+    def __init__(__self__, *,
+                 path: str,
+                 retain: Optional[str] = None):
+        """
+        Object that describes the topic information.
+        :param str path: The topic path for messages published to an MQTT broker.
+        :param str retain: When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
+        """
+        pulumi.set(__self__, "path", path)
+        if retain is None:
+            retain = 'Never'
+        if retain is not None:
+            pulumi.set(__self__, "retain", retain)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The topic path for messages published to an MQTT broker.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def retain(self) -> Optional[str]:
+        """
+        When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
+        """
+        return pulumi.get(self, "retain")
+
+
+@pulumi.output_type
 class TransportAuthenticationResponse(dict):
     """
     Definition of the authentication mechanism for the southbound connector.
@@ -570,7 +915,7 @@ class UserAuthenticationResponse(dict):
                  x509_credentials: Optional['outputs.X509CredentialsResponse'] = None):
         """
         Definition of the client authentication mechanism to the server.
-        :param str mode: Defines the mode to authenticate the user of the client at the server.
+        :param str mode: Defines the method to authenticate the user of the client at the server.
         :param 'UsernamePasswordCredentialsResponse' username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
         :param 'X509CredentialsResponse' x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
         """
@@ -586,7 +931,7 @@ class UserAuthenticationResponse(dict):
     @pulumi.getter
     def mode(self) -> str:
         """
-        Defines the mode to authenticate the user of the client at the server.
+        Defines the method to authenticate the user of the client at the server.
         """
         return pulumi.get(self, "mode")
 

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Get a AssetEndpointProfile
         /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Other available API versions: 2024-09-01-preview.
         /// </summary>
         public static Task<GetAssetEndpointProfileResult> InvokeAsync(GetAssetEndpointProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetEndpointProfileResult>("azure-native:deviceregistry:getAssetEndpointProfile", args ?? new GetAssetEndpointProfileArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Get a AssetEndpointProfile
         /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Other available API versions: 2024-09-01-preview.
         /// </summary>
         public static Output<GetAssetEndpointProfileResult> Invoke(GetAssetEndpointProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetEndpointProfileResult>("azure-native:deviceregistry:getAssetEndpointProfile", args ?? new GetAssetEndpointProfileInvokeArgs(), options.WithDefaults());
@@ -72,7 +76,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
     public sealed class GetAssetEndpointProfileResult
     {
         /// <summary>
-        /// Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        /// Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         /// </summary>
         public readonly string? AdditionalConfiguration;
         /// <summary>

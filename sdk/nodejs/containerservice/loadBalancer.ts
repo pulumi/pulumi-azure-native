@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
  * Azure REST API version: 2024-03-02-preview.
  *
- * Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview.
+ * Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview.
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
@@ -124,7 +124,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20240302preview:LoadBalancer" }, { type: "azure-native:containerservice/v20240402preview:LoadBalancer" }, { type: "azure-native:containerservice/v20240502preview:LoadBalancer" }, { type: "azure-native:containerservice/v20240602preview:LoadBalancer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20240302preview:LoadBalancer" }, { type: "azure-native:containerservice/v20240402preview:LoadBalancer" }, { type: "azure-native:containerservice/v20240502preview:LoadBalancer" }, { type: "azure-native:containerservice/v20240602preview:LoadBalancer" }, { type: "azure-native:containerservice/v20240702preview:LoadBalancer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }

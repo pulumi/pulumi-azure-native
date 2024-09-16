@@ -20,6 +20,7 @@ from .azure_servers_setting import *
 from .connector import *
 from .custom_assessment_automation import *
 from .custom_entity_store_assignment import *
+from .custom_recommendation import *
 from .defender_for_storage import *
 from .dev_ops_configuration import *
 from .dev_ops_policy_assignment import *
@@ -38,6 +39,7 @@ from .get_azure_servers_setting import *
 from .get_connector import *
 from .get_custom_assessment_automation import *
 from .get_custom_entity_store_assignment import *
+from .get_custom_recommendation import *
 from .get_defender_for_storage import *
 from .get_dev_ops_configuration import *
 from .get_dev_ops_policy_assignment import *
@@ -51,9 +53,11 @@ from .get_security_connector import *
 from .get_security_connector_application import *
 from .get_security_contact import *
 from .get_security_operator import *
+from .get_security_standard import *
 from .get_server_vulnerability_assessment import *
 from .get_sql_vulnerability_assessment_baseline_rule import *
 from .get_standard import *
+from .get_standard_assignment import *
 from .get_workspace_setting import *
 from .governance_assignment import *
 from .governance_rule import *
@@ -68,9 +72,11 @@ from .security_connector import *
 from .security_connector_application import *
 from .security_contact import *
 from .security_operator import *
+from .security_standard import *
 from .server_vulnerability_assessment import *
 from .sql_vulnerability_assessment_baseline_rule import *
 from .standard import *
+from .standard_assignment import *
 from .workspace_setting import *
 from ._inputs import *
 from . import outputs
@@ -127,6 +133,8 @@ if typing.TYPE_CHECKING:
     v20240401 = __v20240401
     import pulumi_azure_native.security.v20240515preview as __v20240515preview
     v20240515preview = __v20240515preview
+    import pulumi_azure_native.security.v20240801 as __v20240801
+    v20240801 = __v20240801
 else:
     v20170801preview = _utilities.lazy_import('pulumi_azure_native.security.v20170801preview')
     v20190101 = _utilities.lazy_import('pulumi_azure_native.security.v20190101')
@@ -153,4 +161,5 @@ else:
     v20240301preview = _utilities.lazy_import('pulumi_azure_native.security.v20240301preview')
     v20240401 = _utilities.lazy_import('pulumi_azure_native.security.v20240401')
     v20240515preview = _utilities.lazy_import('pulumi_azure_native.security.v20240515preview')
+    v20240801 = _utilities.lazy_import('pulumi_azure_native.security.v20240801')
 

@@ -35,7 +35,7 @@ export interface GetAssetEndpointProfileArgs {
  */
 export interface GetAssetEndpointProfileResult {
     /**
-     * Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+     * Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
      */
     readonly additionalConfiguration?: string;
     /**

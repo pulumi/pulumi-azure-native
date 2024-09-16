@@ -147,7 +147,7 @@ class GetAssetResult:
     @pulumi.getter(name="dataPoints")
     def data_points(self) -> Optional[Sequence['outputs.DataPointResponse']]:
         """
-        Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
+        Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
         """
         return pulumi.get(self, "data_points")
 
@@ -155,7 +155,7 @@ class GetAssetResult:
     @pulumi.getter(name="defaultDataPointsConfiguration")
     def default_data_points_configuration(self) -> Optional[str]:
         """
-        Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
         """
         return pulumi.get(self, "default_data_points_configuration")
 
@@ -163,7 +163,7 @@ class GetAssetResult:
     @pulumi.getter(name="defaultEventsConfiguration")
     def default_events_configuration(self) -> Optional[str]:
         """
-        Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
         """
         return pulumi.get(self, "default_events_configuration")
 
@@ -203,7 +203,7 @@ class GetAssetResult:
     @pulumi.getter
     def events(self) -> Optional[Sequence['outputs.EventResponse']]:
         """
-        Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
+        Array of events that are part of the asset. Each event can have per-event configuration.
         """
         return pulumi.get(self, "events")
 

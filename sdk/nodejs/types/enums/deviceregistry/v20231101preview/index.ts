@@ -48,20 +48,20 @@ export type EventsObservabilityMode = (typeof EventsObservabilityMode)[keyof typ
 
 export const UserAuthenticationMode = {
     /**
-     * The user authentication mode is anonymous.
+     * The user authentication method is anonymous.
      */
     Anonymous: "Anonymous",
     /**
-     * The user authentication mode is an x509 certificate.
+     * The user authentication method is an x509 certificate.
      */
     Certificate: "Certificate",
     /**
-     * The user authentication mode is a username and password.
+     * The user authentication method is a username and password.
      */
     UsernamePassword: "UsernamePassword",
 } as const;
 
 /**
- * Defines the mode to authenticate the user of the client at the server.
+ * Defines the method to authenticate the user of the client at the server.
  */
 export type UserAuthenticationMode = (typeof UserAuthenticationMode)[keyof typeof UserAuthenticationMode];

@@ -36,21 +36,19 @@ class AssetStatusErrorResponse(dict):
     Defines the asset status error properties.
     """
     def __init__(__self__, *,
-                 code: Optional[int] = None,
-                 message: Optional[str] = None):
+                 code: int,
+                 message: str):
         """
         Defines the asset status error properties.
         :param int code: Error code for classification of errors (ex: 400, 404, 500, etc.).
         :param str message: Human readable helpful error message to provide additional context for error (ex: “capability Id 'foo' does not exist”).
         """
-        if code is not None:
-            pulumi.set(__self__, "code", code)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[int]:
+    def code(self) -> int:
         """
         Error code for classification of errors (ex: 400, 404, 500, etc.).
         """
@@ -58,7 +56,7 @@ class AssetStatusErrorResponse(dict):
 
     @property
     @pulumi.getter
-    def message(self) -> Optional[str]:
+    def message(self) -> str:
         """
         Human readable helpful error message to provide additional context for error (ex: “capability Id 'foo' does not exist”).
         """
@@ -71,21 +69,19 @@ class AssetStatusResponse(dict):
     Defines the asset status properties.
     """
     def __init__(__self__, *,
-                 errors: Optional[Sequence['outputs.AssetStatusErrorResponse']] = None,
-                 version: Optional[int] = None):
+                 errors: Sequence['outputs.AssetStatusErrorResponse'],
+                 version: int):
         """
         Defines the asset status properties.
         :param Sequence['AssetStatusErrorResponse'] errors: Array object to transfer and persist errors that originate from the Edge.
         :param int version: A read only incremental counter indicating the number of times the configuration has been modified from the perspective of the current actual (Edge) state of the Asset. Edge would be the only writer of this value and would sync back up to the cloud. In steady state, this should equal version.
         """
-        if errors is not None:
-            pulumi.set(__self__, "errors", errors)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
+        pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.AssetStatusErrorResponse']]:
+    def errors(self) -> Sequence['outputs.AssetStatusErrorResponse']:
         """
         Array object to transfer and persist errors that originate from the Edge.
         """
@@ -93,7 +89,7 @@ class AssetStatusResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[int]:
+    def version(self) -> int:
         """
         A read only incremental counter indicating the number of times the configuration has been modified from the perspective of the current actual (Edge) state of the Asset. Edge would be the only writer of this value and would sync back up to the cloud. In steady state, this should equal version.
         """
@@ -138,7 +134,7 @@ class DataPointResponse(dict):
         Defines the data point properties.
         :param str data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param str capability_id: The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
-        :param str data_point_configuration: Protocol-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        :param str data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         :param str name: The name of the data point.
         :param str observability_mode: An indication of how the data point should be mapped to OpenTelemetry.
         """
@@ -174,7 +170,7 @@ class DataPointResponse(dict):
     @pulumi.getter(name="dataPointConfiguration")
     def data_point_configuration(self) -> Optional[str]:
         """
-        Protocol-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
         return pulumi.get(self, "data_point_configuration")
 
@@ -233,7 +229,7 @@ class EventResponse(dict):
         Defines the event properties.
         :param str event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
         :param str capability_id: The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
-        :param str event_configuration: Protocol-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        :param str event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         :param str name: The name of the event.
         :param str observability_mode: An indication of how the event should be mapped to OpenTelemetry.
         """
@@ -269,7 +265,7 @@ class EventResponse(dict):
     @pulumi.getter(name="eventConfiguration")
     def event_configuration(self) -> Optional[str]:
         """
-        Protocol-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
         return pulumi.get(self, "event_configuration")
 
@@ -570,7 +566,7 @@ class UserAuthenticationResponse(dict):
                  x509_credentials: Optional['outputs.X509CredentialsResponse'] = None):
         """
         Definition of the client authentication mechanism to the server.
-        :param str mode: Defines the mode to authenticate the user of the client at the server.
+        :param str mode: Defines the method to authenticate the user of the client at the server.
         :param 'UsernamePasswordCredentialsResponse' username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
         :param 'X509CredentialsResponse' x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
         """
@@ -586,7 +582,7 @@ class UserAuthenticationResponse(dict):
     @pulumi.getter
     def mode(self) -> str:
         """
-        Defines the mode to authenticate the user of the client at the server.
+        Defines the method to authenticate the user of the client at the server.
         """
         return pulumi.get(self, "mode")
 

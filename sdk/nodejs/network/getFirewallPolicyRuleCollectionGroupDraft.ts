@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get Rule Collection Group Draft.
  * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2024-01-01.
+ * Other available API versions: 2024-01-01, 2024-03-01.
  */
 export function getFirewallPolicyRuleCollectionGroupDraft(args: GetFirewallPolicyRuleCollectionGroupDraftArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyRuleCollectionGroupDraftResult> {
 
@@ -71,7 +71,7 @@ export interface GetFirewallPolicyRuleCollectionGroupDraftResult {
  * Get Rule Collection Group Draft.
  * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2024-01-01.
+ * Other available API versions: 2024-01-01, 2024-03-01.
  */
 export function getFirewallPolicyRuleCollectionGroupDraftOutput(args: GetFirewallPolicyRuleCollectionGroupDraftOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyRuleCollectionGroupDraftResult> {
     return pulumi.output(args).apply((a: any) => getFirewallPolicyRuleCollectionGroupDraft(a, opts))

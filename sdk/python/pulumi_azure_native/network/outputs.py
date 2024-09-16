@@ -260,6 +260,7 @@ __all__ = [
     'NetworkInterfaceTapConfigurationResponse',
     'NetworkManagerDeploymentStatusResponse',
     'NetworkManagerPropertiesResponseNetworkManagerScopes',
+    'NetworkManagerRoutingGroupItemResponse',
     'NetworkManagerSecurityGroupItemResponse',
     'NetworkRuleConditionResponse',
     'NetworkRuleResponse',
@@ -322,7 +323,9 @@ __all__ = [
     'RoutingConfigurationResponse',
     'RoutingPolicyResponse',
     'RoutingRuleLinkResponse',
+    'RoutingRuleNextHopResponse',
     'RoutingRuleResponse',
+    'RoutingRuleRouteDestinationResponse',
     'RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink',
     'RulesEngineActionResponse',
     'RulesEngineMatchConditionResponse',
@@ -330,10 +333,12 @@ __all__ = [
     'RulesEngineRuleResponse',
     'SecurityPolicyLinkResponse',
     'SecurityRuleResponse',
+    'SecurityUserGroupItemResponse',
     'ServiceAssociationLinkResponse',
     'ServiceEndpointPolicyDefinitionResponse',
     'ServiceEndpointPolicyResponse',
     'ServiceEndpointPropertiesFormatResponse',
+    'SharedKeyPropertiesResponse',
     'SingleQueryResultResponse',
     'SkuResponse',
     'SoaRecordResponse',
@@ -23599,6 +23604,45 @@ class NetworkManagerPropertiesResponseNetworkManagerScopes(dict):
 
 
 @pulumi.output_type
+class NetworkManagerRoutingGroupItemResponse(dict):
+    """
+    Network manager routing group item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkGroupId":
+            suggest = "network_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagerRoutingGroupItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkManagerRoutingGroupItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkManagerRoutingGroupItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_group_id: str):
+        """
+        Network manager routing group item.
+        :param str network_group_id: Network manager group Id.
+        """
+        pulumi.set(__self__, "network_group_id", network_group_id)
+
+    @property
+    @pulumi.getter(name="networkGroupId")
+    def network_group_id(self) -> str:
+        """
+        Network manager group Id.
+        """
+        return pulumi.get(self, "network_group_id")
+
+
+@pulumi.output_type
 class NetworkManagerSecurityGroupItemResponse(dict):
     """
     Network manager security group item.
@@ -29126,14 +29170,14 @@ class RouteResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "nextHopType":
+        if key == "hasBgpOverride":
+            suggest = "has_bgp_override"
+        elif key == "nextHopType":
             suggest = "next_hop_type"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "addressPrefix":
             suggest = "address_prefix"
-        elif key == "hasBgpOverride":
-            suggest = "has_bgp_override"
         elif key == "nextHopIpAddress":
             suggest = "next_hop_ip_address"
 
@@ -29150,10 +29194,10 @@ class RouteResponse(dict):
 
     def __init__(__self__, *,
                  etag: str,
+                 has_bgp_override: bool,
                  next_hop_type: str,
                  provisioning_state: str,
                  address_prefix: Optional[str] = None,
-                 has_bgp_override: Optional[bool] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  next_hop_ip_address: Optional[str] = None,
@@ -29161,22 +29205,21 @@ class RouteResponse(dict):
         """
         Route resource.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param bool has_bgp_override: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         :param str next_hop_type: The type of Azure hop the packet should be sent to.
         :param str provisioning_state: The provisioning state of the route resource.
         :param str address_prefix: The destination CIDR to which the route applies.
-        :param bool has_bgp_override: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         :param str id: Resource ID.
         :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param str next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
         :param str type: The type of the resource.
         """
         pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "has_bgp_override", has_bgp_override)
         pulumi.set(__self__, "next_hop_type", next_hop_type)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
-        if has_bgp_override is not None:
-            pulumi.set(__self__, "has_bgp_override", has_bgp_override)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
@@ -29193,6 +29236,14 @@ class RouteResponse(dict):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="hasBgpOverride")
+    def has_bgp_override(self) -> bool:
+        """
+        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        """
+        return pulumi.get(self, "has_bgp_override")
 
     @property
     @pulumi.getter(name="nextHopType")
@@ -29217,14 +29268,6 @@ class RouteResponse(dict):
         The destination CIDR to which the route applies.
         """
         return pulumi.get(self, "address_prefix")
-
-    @property
-    @pulumi.getter(name="hasBgpOverride")
-    def has_bgp_override(self) -> Optional[bool]:
-        """
-        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
-        """
-        return pulumi.get(self, "has_bgp_override")
 
     @property
     @pulumi.getter
@@ -29598,6 +29641,59 @@ class RoutingRuleLinkResponse(dict):
 
 
 @pulumi.output_type
+class RoutingRuleNextHopResponse(dict):
+    """
+    Next hop.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nextHopType":
+            suggest = "next_hop_type"
+        elif key == "nextHopAddress":
+            suggest = "next_hop_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingRuleNextHopResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingRuleNextHopResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingRuleNextHopResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 next_hop_type: str,
+                 next_hop_address: Optional[str] = None):
+        """
+        Next hop.
+        :param str next_hop_type: Next hop type.
+        :param str next_hop_address: Next hop address. Only required if the next hop type is VirtualAppliance.
+        """
+        pulumi.set(__self__, "next_hop_type", next_hop_type)
+        if next_hop_address is not None:
+            pulumi.set(__self__, "next_hop_address", next_hop_address)
+
+    @property
+    @pulumi.getter(name="nextHopType")
+    def next_hop_type(self) -> str:
+        """
+        Next hop type.
+        """
+        return pulumi.get(self, "next_hop_type")
+
+    @property
+    @pulumi.getter(name="nextHopAddress")
+    def next_hop_address(self) -> Optional[str]:
+        """
+        Next hop address. Only required if the next hop type is VirtualAppliance.
+        """
+        return pulumi.get(self, "next_hop_address")
+
+
+@pulumi.output_type
 class RoutingRuleResponse(dict):
     """
     A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
@@ -29767,6 +29863,56 @@ class RoutingRuleResponse(dict):
         Defines the Web Application Firewall policy for each routing rule (if applicable)
         """
         return pulumi.get(self, "web_application_firewall_policy_link")
+
+
+@pulumi.output_type
+class RoutingRuleRouteDestinationResponse(dict):
+    """
+    Route destination.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddress":
+            suggest = "destination_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingRuleRouteDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingRuleRouteDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingRuleRouteDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_address: str,
+                 type: str):
+        """
+        Route destination.
+        :param str destination_address: Destination address.
+        :param str type: Destination type.
+        """
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> str:
+        """
+        Destination address.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Destination type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -30440,6 +30586,45 @@ class SecurityRuleResponse(dict):
 
 
 @pulumi.output_type
+class SecurityUserGroupItemResponse(dict):
+    """
+    Network manager security user group item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkGroupId":
+            suggest = "network_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityUserGroupItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityUserGroupItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityUserGroupItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_group_id: str):
+        """
+        Network manager security user group item.
+        :param str network_group_id: Network manager group Id.
+        """
+        pulumi.set(__self__, "network_group_id", network_group_id)
+
+    @property
+    @pulumi.getter(name="networkGroupId")
+    def network_group_id(self) -> str:
+        """
+        Network manager group Id.
+        """
+        return pulumi.get(self, "network_group_id")
+
+
+@pulumi.output_type
 class ServiceAssociationLinkResponse(dict):
     """
     ServiceAssociationLink resource.
@@ -30946,6 +31131,52 @@ class ServiceEndpointPropertiesFormatResponse(dict):
         The type of the endpoint service.
         """
         return pulumi.get(self, "service")
+
+
+@pulumi.output_type
+class SharedKeyPropertiesResponse(dict):
+    """
+    Parameters for SharedKey.
+    """
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 shared_key: Optional[str] = None,
+                 shared_key_length: Optional[int] = None):
+        """
+        Parameters for SharedKey.
+        :param str provisioning_state: The provisioning state of the SharedKey resource.
+        :param str shared_key: The value of the shared key for the vpn link connection.
+        :param int shared_key_length: The length of the shared key for the vpn link connection.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if shared_key is not None:
+            pulumi.set(__self__, "shared_key", shared_key)
+        if shared_key_length is not None:
+            pulumi.set(__self__, "shared_key_length", shared_key_length)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the SharedKey resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[str]:
+        """
+        The value of the shared key for the vpn link connection.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @property
+    @pulumi.getter(name="sharedKeyLength")
+    def shared_key_length(self) -> Optional[int]:
+        """
+        The length of the shared key for the vpn link connection.
+        """
+        return pulumi.get(self, "shared_key_length")
 
 
 @pulumi.output_type

@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Network.V20230901.Inputs
         public Input<string>? AddressPrefix { get; set; }
 
         /// <summary>
-        /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
-        /// </summary>
-        [Input("hasBgpOverride")]
-        public Input<bool>? HasBgpOverride { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]

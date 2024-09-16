@@ -319,12 +319,12 @@ class IacTemplatePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "quickStartTemplateType":
-            suggest = "quick_start_template_type"
-        elif key == "instanceName":
+        if key == "instanceName":
             suggest = "instance_name"
         elif key == "instanceStage":
             suggest = "instance_stage"
+        elif key == "quickStartTemplateType":
+            suggest = "quick_start_template_type"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
         elif key == "templateDetails":
@@ -344,39 +344,32 @@ class IacTemplatePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 quick_start_template_type: str,
                  instance_name: Optional[str] = None,
                  instance_stage: Optional[str] = None,
+                 quick_start_template_type: Optional[str] = None,
                  source_resource_id: Optional[str] = None,
                  template_details: Optional[Sequence['outputs.IacTemplateDetailsResponse']] = None,
                  template_name: Optional[str] = None):
         """
         Properties of a IacTemplate.
-        :param str quick_start_template_type: Determines the authorization status of requests.
         :param str instance_name: the sample instance name of the template
         :param str instance_stage: the source stage of the template
+        :param str quick_start_template_type: Determines the authorization status of requests.
         :param str source_resource_id: the source store of the template
         :param str template_name: Template Name
         """
-        pulumi.set(__self__, "quick_start_template_type", quick_start_template_type)
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
         if instance_stage is not None:
             pulumi.set(__self__, "instance_stage", instance_stage)
+        if quick_start_template_type is not None:
+            pulumi.set(__self__, "quick_start_template_type", quick_start_template_type)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
         if template_details is not None:
             pulumi.set(__self__, "template_details", template_details)
         if template_name is not None:
             pulumi.set(__self__, "template_name", template_name)
-
-    @property
-    @pulumi.getter(name="quickStartTemplateType")
-    def quick_start_template_type(self) -> str:
-        """
-        Determines the authorization status of requests.
-        """
-        return pulumi.get(self, "quick_start_template_type")
 
     @property
     @pulumi.getter(name="instanceName")
@@ -393,6 +386,14 @@ class IacTemplatePropertiesResponse(dict):
         the source stage of the template
         """
         return pulumi.get(self, "instance_stage")
+
+    @property
+    @pulumi.getter(name="quickStartTemplateType")
+    def quick_start_template_type(self) -> Optional[str]:
+        """
+        Determines the authorization status of requests.
+        """
+        return pulumi.get(self, "quick_start_template_type")
 
     @property
     @pulumi.getter(name="sourceResourceId")

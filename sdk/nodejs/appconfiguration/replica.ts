@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The replica resource.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export class Replica extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class Replica extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration/v20220301preview:Replica" }, { type: "azure-native:appconfiguration/v20230301:Replica" }, { type: "azure-native:appconfiguration/v20230801preview:Replica" }, { type: "azure-native:appconfiguration/v20230901preview:Replica" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration/v20220301preview:Replica" }, { type: "azure-native:appconfiguration/v20230301:Replica" }, { type: "azure-native:appconfiguration/v20230801preview:Replica" }, { type: "azure-native:appconfiguration/v20230901preview:Replica" }, { type: "azure-native:appconfiguration/v20240501:Replica" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Replica.__pulumiType, name, resourceInputs, opts);
     }

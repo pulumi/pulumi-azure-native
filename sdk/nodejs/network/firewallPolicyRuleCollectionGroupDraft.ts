@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Rule Collection Group resource.
  * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2024-01-01.
+ * Other available API versions: 2024-01-01, 2024-03-01.
  */
 export class FirewallPolicyRuleCollectionGroupDraft extends pulumi.CustomResource {
     /**
@@ -98,7 +98,7 @@ export class FirewallPolicyRuleCollectionGroupDraft extends pulumi.CustomResourc
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20231101:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native:network/v20240101:FirewallPolicyRuleCollectionGroupDraft" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20231101:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native:network/v20240101:FirewallPolicyRuleCollectionGroupDraft" }, { type: "azure-native:network/v20240301:FirewallPolicyRuleCollectionGroupDraft" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallPolicyRuleCollectionGroupDraft.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// describe the properties of a of a security standard object reference
+    /// Describe the properties of a of a standard assignments object reference
     /// </summary>
     [OutputType]
     public sealed class AssignedStandardItemResponse
     {
         /// <summary>
-        /// full resourceId of the Microsoft.Security/standard object
+        /// Full resourceId of the Microsoft.Security/standard object
         /// </summary>
         public readonly string? Id;
 

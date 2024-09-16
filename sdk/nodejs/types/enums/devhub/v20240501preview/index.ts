@@ -126,6 +126,34 @@ export const ManifestType = {
  */
 export type ManifestType = (typeof ManifestType)[keyof typeof ManifestType];
 
+export const QuickStartTemplateType = {
+    /**
+     * The template has not use quick start template
+     */
+    None: "None",
+    /**
+     * The template use quick start template of HCI
+     */
+    HCI: "HCI",
+    /**
+     * The template use quick start template of HCI and AKS
+     */
+    HCIAKS: "HCIAKS",
+    /**
+     * The template use quick start template of HCI and ArcVM
+     */
+    HCIARCVM: "HCIARCVM",
+    /**
+     * The template use quick start template of All supported products
+     */
+    ALL: "ALL",
+} as const;
+
+/**
+ * Determines the authorization status of requests.
+ */
+export type QuickStartTemplateType = (typeof QuickStartTemplateType)[keyof typeof QuickStartTemplateType];
+
 export const WorkflowRunStatus = {
     /**
      * Workflow run is queued

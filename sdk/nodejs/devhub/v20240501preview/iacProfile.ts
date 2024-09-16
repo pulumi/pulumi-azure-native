@@ -165,7 +165,7 @@ export class IacProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devhub:IacProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devhub:IacProfile" }, { type: "azure-native:devhub/v20240801preview:IacProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IacProfile.__pulumiType, name, resourceInputs, opts);
     }

@@ -26,8 +26,11 @@ if typing.TYPE_CHECKING:
     v20230801preview = __v20230801preview
     import pulumi_azure_native.appconfiguration.v20230901preview as __v20230901preview
     v20230901preview = __v20230901preview
+    import pulumi_azure_native.appconfiguration.v20240501 as __v20240501
+    v20240501 = __v20240501
 else:
     v20230301 = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20230301')
     v20230801preview = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20230801preview')
     v20230901preview = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20230901preview')
+    v20240501 = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20240501')
 

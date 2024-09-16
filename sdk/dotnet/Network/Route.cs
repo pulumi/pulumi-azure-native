@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     /// Route resource.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
     /// 
-    /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
+    /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Route")]
     public partial class Route : global::Pulumi.CustomResource
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Network
         /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         /// </summary>
         [Output("hasBgpOverride")]
-        public Output<bool?> HasBgpOverride { get; private set; } = null!;
+        public Output<bool> HasBgpOverride { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -143,6 +143,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:Route" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:Route" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:Route" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240301:Route" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -171,12 +172,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("addressPrefix")]
         public Input<string>? AddressPrefix { get; set; }
-
-        /// <summary>
-        /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
-        /// </summary>
-        [Input("hasBgpOverride")]
-        public Input<bool>? HasBgpOverride { get; set; }
 
         /// <summary>
         /// Resource ID.

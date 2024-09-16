@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// <summary>
     /// Asset definition.
     /// Azure REST API version: 2023-11-01-preview.
+    /// 
+    /// Other available API versions: 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:Asset")]
     public partial class Asset : global::Pulumi.CustomResource
@@ -35,19 +37,19 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Output<object?> Attributes { get; private set; } = null!;
 
         /// <summary>
-        /// Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
+        /// Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
         /// </summary>
         [Output("dataPoints")]
         public Output<ImmutableArray<Outputs.DataPointResponse>> DataPoints { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        /// Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
         /// </summary>
         [Output("defaultDataPointsConfiguration")]
         public Output<string?> DefaultDataPointsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        /// Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
         /// </summary>
         [Output("defaultEventsConfiguration")]
         public Output<string?> DefaultEventsConfiguration { get; private set; } = null!;
@@ -77,7 +79,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
+        /// Array of events that are part of the asset. Each event can have per-event configuration.
         /// </summary>
         [Output("events")]
         public Output<ImmutableArray<Outputs.EventResponse>> Events { get; private set; } = null!;
@@ -216,6 +218,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20231101preview:Asset" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20240901preview:Asset" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -267,7 +270,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
         private InputList<Inputs.DataPointArgs>? _dataPoints;
 
         /// <summary>
-        /// Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
+        /// Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
         /// </summary>
         public InputList<Inputs.DataPointArgs> DataPoints
         {
@@ -276,13 +279,13 @@ namespace Pulumi.AzureNative.DeviceRegistry
         }
 
         /// <summary>
-        /// Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        /// Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
         /// </summary>
         [Input("defaultDataPointsConfiguration")]
         public Input<string>? DefaultDataPointsConfiguration { get; set; }
 
         /// <summary>
-        /// Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        /// Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
         /// </summary>
         [Input("defaultEventsConfiguration")]
         public Input<string>? DefaultEventsConfiguration { get; set; }
@@ -315,7 +318,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
         private InputList<Inputs.EventArgs>? _events;
 
         /// <summary>
-        /// Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
+        /// Array of events that are part of the asset. Each event can have per-event configuration.
         /// </summary>
         public InputList<Inputs.EventArgs> Events
         {

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     /// FirewallPolicy Resource.
     /// Azure REST API version: 2023-11-01.
     /// 
-    /// Other available API versions: 2024-01-01.
+    /// Other available API versions: 2024-01-01, 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:FirewallPolicyDraft")]
     public partial class FirewallPolicyDraft : global::Pulumi.CustomResource
@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.Network
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:FirewallPolicyDraft" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:FirewallPolicyDraft" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240301:FirewallPolicyDraft" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

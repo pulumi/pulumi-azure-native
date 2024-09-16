@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20231101Preview
     public sealed class GetAssetEndpointProfileResult
     {
         /// <summary>
-        /// Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        /// Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         /// </summary>
         public readonly string? AdditionalConfiguration;
         /// <summary>

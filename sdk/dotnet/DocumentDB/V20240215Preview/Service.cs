@@ -80,6 +80,8 @@ namespace Pulumi.AzureNative.DocumentDB.V20240215Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240515:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240515preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240815:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240901preview:Service" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

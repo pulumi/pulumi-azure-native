@@ -36,7 +36,7 @@ class AssetEndpointProfileArgs:
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] target_address: The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
-        :param pulumi.Input[str] additional_configuration: Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        :param pulumi.Input[str] additional_configuration: Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         :param pulumi.Input[str] asset_endpoint_profile_name: Asset Endpoint Profile name parameter.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -99,7 +99,7 @@ class AssetEndpointProfileArgs:
     @pulumi.getter(name="additionalConfiguration")
     def additional_configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         """
         return pulumi.get(self, "additional_configuration")
 
@@ -187,9 +187,11 @@ class AssetEndpointProfile(pulumi.CustomResource):
         Asset Endpoint Profile definition.
         Azure REST API version: 2023-11-01-preview.
 
+        Other available API versions: 2024-09-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] additional_configuration: Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        :param pulumi.Input[str] additional_configuration: Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         :param pulumi.Input[str] asset_endpoint_profile_name: Asset Endpoint Profile name parameter.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -208,6 +210,8 @@ class AssetEndpointProfile(pulumi.CustomResource):
         """
         Asset Endpoint Profile definition.
         Azure REST API version: 2023-11-01-preview.
+
+        Other available API versions: 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AssetEndpointProfileArgs args: The arguments to use to populate this resource's properties.
@@ -262,7 +266,7 @@ class AssetEndpointProfile(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20231101preview:AssetEndpointProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20231101preview:AssetEndpointProfile"), pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:AssetEndpointProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssetEndpointProfile, __self__).__init__(
             'azure-native:deviceregistry:AssetEndpointProfile',
@@ -304,7 +308,7 @@ class AssetEndpointProfile(pulumi.CustomResource):
     @pulumi.getter(name="additionalConfiguration")
     def additional_configuration(self) -> pulumi.Output[Optional[str]]:
         """
-        Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         """
         return pulumi.get(self, "additional_configuration")
 

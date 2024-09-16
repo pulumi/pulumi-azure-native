@@ -149,6 +149,7 @@ namespace Pulumi.AzureNative.DevHub.V20240501Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devhub:IacProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:devhub/v20240801preview:IacProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

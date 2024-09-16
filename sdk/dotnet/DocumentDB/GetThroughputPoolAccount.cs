@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
         /// Azure REST API version: 2023-11-15-preview.
         /// 
-        /// Other available API versions: 2024-02-15-preview, 2024-05-15-preview.
+        /// Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
         /// </summary>
         public static Task<GetThroughputPoolAccountResult> InvokeAsync(GetThroughputPoolAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetThroughputPoolAccountResult>("azure-native:documentdb:getThroughputPoolAccount", args ?? new GetThroughputPoolAccountArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
         /// Azure REST API version: 2023-11-15-preview.
         /// 
-        /// Other available API versions: 2024-02-15-preview, 2024-05-15-preview.
+        /// Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetThroughputPoolAccountResult> Invoke(GetThroughputPoolAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThroughputPoolAccountResult>("azure-native:documentdb:getThroughputPoolAccount", args ?? new GetThroughputPoolAccountInvokeArgs(), options.WithDefaults());

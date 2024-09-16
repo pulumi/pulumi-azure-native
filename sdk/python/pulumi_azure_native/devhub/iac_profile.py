@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['IacProfileArgs', 'IacProfile']
@@ -265,6 +266,8 @@ class IacProfile(pulumi.CustomResource):
         Resource representation of a IacProfile.
         Azure REST API version: 2024-05-01-preview.
 
+        Other available API versions: 2024-08-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch_name: Repository Branch Name
@@ -289,6 +292,8 @@ class IacProfile(pulumi.CustomResource):
         """
         Resource representation of a IacProfile.
         Azure REST API version: 2024-05-01-preview.
+
+        Other available API versions: 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IacProfileArgs args: The arguments to use to populate this resource's properties.
@@ -351,7 +356,7 @@ class IacProfile(pulumi.CustomResource):
             __props__.__dict__["pull_number"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devhub/v20240501preview:IacProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devhub/v20240501preview:IacProfile"), pulumi.Alias(type_="azure-native:devhub/v20240801preview:IacProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IacProfile, __self__).__init__(
             'azure-native:devhub:IacProfile',

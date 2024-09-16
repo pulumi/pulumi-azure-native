@@ -3354,7 +3354,6 @@ namespace Pulumi.AzureNative.Network.V20240101
         public static PfsGroup ECP384 { get; } = new PfsGroup("ECP384");
         public static PfsGroup PFS24 { get; } = new PfsGroup("PFS24");
         public static PfsGroup PFS14 { get; } = new PfsGroup("PFS14");
-        public static PfsGroup PFSMM { get; } = new PfsGroup("PFSMM");
 
         public static bool operator ==(PfsGroup left, PfsGroup right) => left.Equals(right);
         public static bool operator !=(PfsGroup left, PfsGroup right) => !left.Equals(right);

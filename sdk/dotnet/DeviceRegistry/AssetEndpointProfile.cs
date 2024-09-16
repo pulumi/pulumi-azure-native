@@ -12,12 +12,14 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// <summary>
     /// Asset Endpoint Profile definition.
     /// Azure REST API version: 2023-11-01-preview.
+    /// 
+    /// Other available API versions: 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:AssetEndpointProfile")]
     public partial class AssetEndpointProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        /// Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         /// </summary>
         [Output("additionalConfiguration")]
         public Output<string?> AdditionalConfiguration { get; private set; } = null!;
@@ -114,6 +116,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20231101preview:AssetEndpointProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20240901preview:AssetEndpointProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -138,7 +141,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
     public sealed class AssetEndpointProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        /// Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         /// </summary>
         [Input("additionalConfiguration")]
         public Input<string>? AdditionalConfiguration { get; set; }

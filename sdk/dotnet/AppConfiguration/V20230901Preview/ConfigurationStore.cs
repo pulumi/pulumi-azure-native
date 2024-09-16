@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.AppConfiguration.V20230901Preview
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:ConfigurationStore" },
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230301:ConfigurationStore" },
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230801preview:ConfigurationStore" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20240501:ConfigurationStore" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

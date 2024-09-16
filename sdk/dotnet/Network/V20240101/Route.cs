@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Network.V20240101
         /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         /// </summary>
         [Output("hasBgpOverride")]
-        public Output<bool?> HasBgpOverride { get; private set; } = null!;
+        public Output<bool> HasBgpOverride { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -140,6 +140,7 @@ namespace Pulumi.AzureNative.Network.V20240101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230601:Route" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:Route" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:Route" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240301:Route" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -168,12 +169,6 @@ namespace Pulumi.AzureNative.Network.V20240101
         /// </summary>
         [Input("addressPrefix")]
         public Input<string>? AddressPrefix { get; set; }
-
-        /// <summary>
-        /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
-        /// </summary>
-        [Input("hasBgpOverride")]
-        public Input<bool>? HasBgpOverride { get; set; }
 
         /// <summary>
         /// Resource ID.

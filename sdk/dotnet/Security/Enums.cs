@@ -216,6 +216,38 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// Attest category of this assignment
+    /// </summary>
+    [EnumType]
+    public readonly struct AttestationComplianceState : IEquatable<AttestationComplianceState>
+    {
+        private readonly string _value;
+
+        private AttestationComplianceState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AttestationComplianceState Unknown { get; } = new AttestationComplianceState("unknown");
+        public static AttestationComplianceState Compliant { get; } = new AttestationComplianceState("compliant");
+        public static AttestationComplianceState NonCompliant { get; } = new AttestationComplianceState("nonCompliant");
+
+        public static bool operator ==(AttestationComplianceState left, AttestationComplianceState right) => left.Equals(right);
+        public static bool operator !=(AttestationComplianceState left, AttestationComplianceState right) => !left.Equals(right);
+
+        public static explicit operator string(AttestationComplianceState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AttestationComplianceState other && Equals(other);
+        public bool Equals(AttestationComplianceState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
     /// </summary>
     [EnumType]
@@ -532,6 +564,38 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// Expected effect of this assignment (Audit/Exempt/Attest)
+    /// </summary>
+    [EnumType]
+    public readonly struct Effect : IEquatable<Effect>
+    {
+        private readonly string _value;
+
+        private Effect(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Effect Audit { get; } = new Effect("Audit");
+        public static Effect Exempt { get; } = new Effect("Exempt");
+        public static Effect Attest { get; } = new Effect("Attest");
+
+        public static bool operator ==(Effect left, Effect right) => left.Equals(right);
+        public static bool operator !=(Effect left, Effect right) => !left.Equals(right);
+
+        public static explicit operator string(Effect value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Effect other && Equals(other);
+        public bool Equals(Effect other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// If set to "False", it allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False"). If set to "True", it prevents overrides and forces this pricing configuration on all the descendants of this scope. This field is only available for subscription-level pricing.
     /// </summary>
     [EnumType]
@@ -635,6 +699,37 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EventSource other && Equals(other);
         public bool Equals(EventSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Exemption category of this assignment
+    /// </summary>
+    [EnumType]
+    public readonly struct ExemptionCategory : IEquatable<ExemptionCategory>
+    {
+        private readonly string _value;
+
+        private ExemptionCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExemptionCategory Waiver { get; } = new ExemptionCategory("waiver");
+        public static ExemptionCategory Mitigated { get; } = new ExemptionCategory("mitigated");
+
+        public static bool operator ==(ExemptionCategory left, ExemptionCategory right) => left.Equals(right);
+        public static bool operator !=(ExemptionCategory left, ExemptionCategory right) => !left.Equals(right);
+
+        public static explicit operator string(ExemptionCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExemptionCategory other && Equals(other);
+        public bool Equals(ExemptionCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1162,6 +1257,38 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// The cloud that the recommendation is supported on.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecommendationSupportedClouds : IEquatable<RecommendationSupportedClouds>
+    {
+        private readonly string _value;
+
+        private RecommendationSupportedClouds(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecommendationSupportedClouds Azure { get; } = new RecommendationSupportedClouds("Azure");
+        public static RecommendationSupportedClouds AWS { get; } = new RecommendationSupportedClouds("AWS");
+        public static RecommendationSupportedClouds GCP { get; } = new RecommendationSupportedClouds("GCP");
+
+        public static bool operator ==(RecommendationSupportedClouds left, RecommendationSupportedClouds right) => left.Equals(right);
+        public static bool operator !=(RecommendationSupportedClouds left, RecommendationSupportedClouds right) => !left.Equals(right);
+
+        public static explicit operator string(RecommendationSupportedClouds value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecommendationSupportedClouds other && Equals(other);
+        public bool Equals(RecommendationSupportedClouds other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of IoT Security recommendation.
     /// </summary>
     [EnumType]
@@ -1362,6 +1489,41 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// The severity to relate to the assessments generated by this Recommendation.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityIssue : IEquatable<SecurityIssue>
+    {
+        private readonly string _value;
+
+        private SecurityIssue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityIssue Vulnerability { get; } = new SecurityIssue("Vulnerability");
+        public static SecurityIssue ExcessivePermissions { get; } = new SecurityIssue("ExcessivePermissions");
+        public static SecurityIssue AnonymousAccess { get; } = new SecurityIssue("AnonymousAccess");
+        public static SecurityIssue NetworkExposure { get; } = new SecurityIssue("NetworkExposure");
+        public static SecurityIssue TrafficEncryption { get; } = new SecurityIssue("TrafficEncryption");
+        public static SecurityIssue BestPractices { get; } = new SecurityIssue("BestPractices");
+
+        public static bool operator ==(SecurityIssue left, SecurityIssue right) => left.Equals(right);
+        public static bool operator !=(SecurityIssue left, SecurityIssue right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityIssue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityIssue other && Equals(other);
+        public bool Equals(SecurityIssue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status of the IoT Security solution.
     /// </summary>
     [EnumType]
@@ -1488,7 +1650,7 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// The severity to relate to the assessments generated by this assessment automation.
+    /// The severity to relate to the assessments generated by this Recommendation.
     /// </summary>
     [EnumType]
     public readonly struct SeverityEnum : IEquatable<SeverityEnum>
@@ -1553,6 +1715,38 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Source other && Equals(other);
         public bool Equals(Source other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The cloud that the standard is supported on.
+    /// </summary>
+    [EnumType]
+    public readonly struct StandardSupportedCloud : IEquatable<StandardSupportedCloud>
+    {
+        private readonly string _value;
+
+        private StandardSupportedCloud(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StandardSupportedCloud Azure { get; } = new StandardSupportedCloud("Azure");
+        public static StandardSupportedCloud AWS { get; } = new StandardSupportedCloud("AWS");
+        public static StandardSupportedCloud GCP { get; } = new StandardSupportedCloud("GCP");
+
+        public static bool operator ==(StandardSupportedCloud left, StandardSupportedCloud right) => left.Equals(right);
+        public static bool operator !=(StandardSupportedCloud left, StandardSupportedCloud right) => !left.Equals(right);
+
+        public static explicit operator string(StandardSupportedCloud value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StandardSupportedCloud other && Equals(other);
+        public bool Equals(StandardSupportedCloud other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

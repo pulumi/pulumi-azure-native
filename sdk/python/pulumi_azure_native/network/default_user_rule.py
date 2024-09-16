@@ -232,7 +232,7 @@ class DefaultUserRule(pulumi.CustomResource):
             __props__.__dict__["sources"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:DefaultUserRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20240301:DefaultUserRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefaultUserRule, __self__).__init__(
             'azure-native:network:DefaultUserRule',

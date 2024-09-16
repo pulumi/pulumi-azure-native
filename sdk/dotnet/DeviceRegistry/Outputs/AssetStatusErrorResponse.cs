@@ -19,17 +19,17 @@ namespace Pulumi.AzureNative.DeviceRegistry.Outputs
         /// <summary>
         /// Error code for classification of errors (ex: 400, 404, 500, etc.).
         /// </summary>
-        public readonly int? Code;
+        public readonly int Code;
         /// <summary>
         /// Human readable helpful error message to provide additional context for error (ex: “capability Id 'foo' does not exist”).
         /// </summary>
-        public readonly string? Message;
+        public readonly string Message;
 
         [OutputConstructor]
         private AssetStatusErrorResponse(
-            int? code,
+            int code,
 
-            string? message)
+            string message)
         {
             Code = code;
             Message = message;

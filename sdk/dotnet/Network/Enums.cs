@@ -1668,6 +1668,37 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// Determines whether BGP route propagation is enabled. Defaults to true.
+    /// </summary>
+    [EnumType]
+    public readonly struct DisableBgpRoutePropagation : IEquatable<DisableBgpRoutePropagation>
+    {
+        private readonly string _value;
+
+        private DisableBgpRoutePropagation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DisableBgpRoutePropagation False { get; } = new DisableBgpRoutePropagation("False");
+        public static DisableBgpRoutePropagation True { get; } = new DisableBgpRoutePropagation("True");
+
+        public static bool operator ==(DisableBgpRoutePropagation left, DisableBgpRoutePropagation right) => left.Equals(right);
+        public static bool operator !=(DisableBgpRoutePropagation left, DisableBgpRoutePropagation right) => !left.Equals(right);
+
+        public static explicit operator string(DisableBgpRoutePropagation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DisableBgpRoutePropagation other && Equals(other);
+        public bool Equals(DisableBgpRoutePropagation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether to use dynamic compression for cached content
     /// </summary>
     [EnumType]
@@ -5066,6 +5097,37 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// Destination type.
+    /// </summary>
+    [EnumType]
+    public readonly struct RoutingRuleDestinationType : IEquatable<RoutingRuleDestinationType>
+    {
+        private readonly string _value;
+
+        private RoutingRuleDestinationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoutingRuleDestinationType AddressPrefix { get; } = new RoutingRuleDestinationType("AddressPrefix");
+        public static RoutingRuleDestinationType ServiceTag { get; } = new RoutingRuleDestinationType("ServiceTag");
+
+        public static bool operator ==(RoutingRuleDestinationType left, RoutingRuleDestinationType right) => left.Equals(right);
+        public static bool operator !=(RoutingRuleDestinationType left, RoutingRuleDestinationType right) => !left.Equals(right);
+
+        public static explicit operator string(RoutingRuleDestinationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoutingRuleDestinationType other && Equals(other);
+        public bool Equals(RoutingRuleDestinationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
     /// </summary>
     [EnumType]
@@ -5089,6 +5151,40 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RoutingRuleEnabledState other && Equals(other);
         public bool Equals(RoutingRuleEnabledState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Next hop type.
+    /// </summary>
+    [EnumType]
+    public readonly struct RoutingRuleNextHopType : IEquatable<RoutingRuleNextHopType>
+    {
+        private readonly string _value;
+
+        private RoutingRuleNextHopType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoutingRuleNextHopType Internet { get; } = new RoutingRuleNextHopType("Internet");
+        public static RoutingRuleNextHopType NoNextHop { get; } = new RoutingRuleNextHopType("NoNextHop");
+        public static RoutingRuleNextHopType VirtualAppliance { get; } = new RoutingRuleNextHopType("VirtualAppliance");
+        public static RoutingRuleNextHopType VirtualNetworkGateway { get; } = new RoutingRuleNextHopType("VirtualNetworkGateway");
+        public static RoutingRuleNextHopType VnetLocal { get; } = new RoutingRuleNextHopType("VnetLocal");
+
+        public static bool operator ==(RoutingRuleNextHopType left, RoutingRuleNextHopType right) => left.Equals(right);
+        public static bool operator !=(RoutingRuleNextHopType left, RoutingRuleNextHopType right) => !left.Equals(right);
+
+        public static explicit operator string(RoutingRuleNextHopType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoutingRuleNextHopType other && Equals(other);
+        public bool Equals(RoutingRuleNextHopType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * VpnGatewayNatRule Resource.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
  *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
+ * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export class NatRule extends pulumi.CustomResource {
     /**
@@ -125,7 +125,7 @@ export class NatRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200801:NatRule" }, { type: "azure-native:network/v20201101:NatRule" }, { type: "azure-native:network/v20210201:NatRule" }, { type: "azure-native:network/v20210301:NatRule" }, { type: "azure-native:network/v20210501:NatRule" }, { type: "azure-native:network/v20210801:NatRule" }, { type: "azure-native:network/v20220101:NatRule" }, { type: "azure-native:network/v20220501:NatRule" }, { type: "azure-native:network/v20220701:NatRule" }, { type: "azure-native:network/v20220901:NatRule" }, { type: "azure-native:network/v20221101:NatRule" }, { type: "azure-native:network/v20230201:NatRule" }, { type: "azure-native:network/v20230401:NatRule" }, { type: "azure-native:network/v20230501:NatRule" }, { type: "azure-native:network/v20230601:NatRule" }, { type: "azure-native:network/v20230901:NatRule" }, { type: "azure-native:network/v20231101:NatRule" }, { type: "azure-native:network/v20240101:NatRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200801:NatRule" }, { type: "azure-native:network/v20201101:NatRule" }, { type: "azure-native:network/v20210201:NatRule" }, { type: "azure-native:network/v20210301:NatRule" }, { type: "azure-native:network/v20210501:NatRule" }, { type: "azure-native:network/v20210801:NatRule" }, { type: "azure-native:network/v20220101:NatRule" }, { type: "azure-native:network/v20220501:NatRule" }, { type: "azure-native:network/v20220701:NatRule" }, { type: "azure-native:network/v20220901:NatRule" }, { type: "azure-native:network/v20221101:NatRule" }, { type: "azure-native:network/v20230201:NatRule" }, { type: "azure-native:network/v20230401:NatRule" }, { type: "azure-native:network/v20230501:NatRule" }, { type: "azure-native:network/v20230601:NatRule" }, { type: "azure-native:network/v20230901:NatRule" }, { type: "azure-native:network/v20231101:NatRule" }, { type: "azure-native:network/v20240101:NatRule" }, { type: "azure-native:network/v20240301:NatRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NatRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -5,11 +5,13 @@
 import * as v20221011preview from "./v20221011preview";
 import * as v20230801 from "./v20230801";
 import * as v20240501preview from "./v20240501preview";
+import * as v20240801preview from "./v20240801preview";
 
 export {
     v20221011preview,
     v20230801,
     v20240501preview,
+    v20240801preview,
 };
 
 export const DockerfileGenerationMode = {
@@ -135,6 +137,34 @@ export const ManifestType = {
  * Determines the type of manifests within the repository.
  */
 export type ManifestType = (typeof ManifestType)[keyof typeof ManifestType];
+
+export const QuickStartTemplateType = {
+    /**
+     * The template has not use quick start template
+     */
+    None: "None",
+    /**
+     * The template use quick start template of HCI
+     */
+    HCI: "HCI",
+    /**
+     * The template use quick start template of HCI and AKS
+     */
+    HCIAKS: "HCIAKS",
+    /**
+     * The template use quick start template of HCI and ArcVM
+     */
+    HCIARCVM: "HCIARCVM",
+    /**
+     * The template use quick start template of All supported products
+     */
+    ALL: "ALL",
+} as const;
+
+/**
+ * Determines the authorization status of requests.
+ */
+export type QuickStartTemplateType = (typeof QuickStartTemplateType)[keyof typeof QuickStartTemplateType];
 
 export const WorkflowRunStatus = {
     /**

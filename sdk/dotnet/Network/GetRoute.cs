@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified route from a route table.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
+        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:network:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified route from a route table.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01.
+        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:network:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         /// </summary>
-        public readonly bool? HasBgpOverride;
+        public readonly bool HasBgpOverride;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Network
 
             string etag,
 
-            bool? hasBgpOverride,
+            bool hasBgpOverride,
 
             string? id,
 

@@ -5,10 +5,33 @@
 from enum import Enum
 
 __all__ = [
+    'AuthenticationMethod',
     'DataPointsObservabilityMode',
     'EventsObservabilityMode',
+    'Format',
+    'SchemaType',
+    'SystemAssignedServiceIdentityType',
+    'TopicRetainType',
     'UserAuthenticationMode',
 ]
+
+
+class AuthenticationMethod(str, Enum):
+    """
+    The method to authenticate the user of the client at the server.
+    """
+    ANONYMOUS = "Anonymous"
+    """
+    The user authentication method is anonymous.
+    """
+    CERTIFICATE = "Certificate"
+    """
+    The user authentication method is an x509 certificate.
+    """
+    USERNAME_PASSWORD = "UsernamePassword"
+    """
+    The user authentication method is a username and password.
+    """
 
 
 class DataPointsObservabilityMode(str, Enum):
@@ -51,19 +74,65 @@ class EventsObservabilityMode(str, Enum):
     """
 
 
+class Format(str, Enum):
+    """
+    Format of the schema.
+    """
+    JSON_SCHEMA_DRAFT7 = "JsonSchema/draft-07"
+    """
+    JSON Schema version draft 7 format
+    """
+    DELTA_1_0 = "Delta/1.0"
+    """
+    Delta format
+    """
+
+
+class SchemaType(str, Enum):
+    """
+    Type of the schema.
+    """
+    MESSAGE_SCHEMA = "MessageSchema"
+    """
+    Message Schema schema type
+    """
+
+
+class SystemAssignedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (either system assigned, or none).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class TopicRetainType(str, Enum):
+    """
+    When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
+    """
+    KEEP = "Keep"
+    """
+    Retain the messages.
+    """
+    NEVER = "Never"
+    """
+    Never retain messages.
+    """
+
+
 class UserAuthenticationMode(str, Enum):
     """
-    Defines the mode to authenticate the user of the client at the server.
+    Defines the method to authenticate the user of the client at the server.
     """
     ANONYMOUS = "Anonymous"
     """
-    The user authentication mode is anonymous.
+    The user authentication method is anonymous.
     """
     CERTIFICATE = "Certificate"
     """
-    The user authentication mode is an x509 certificate.
+    The user authentication method is an x509 certificate.
     """
     USERNAME_PASSWORD = "UsernamePassword"
     """
-    The user authentication mode is a username and password.
+    The user authentication method is a username and password.
     """

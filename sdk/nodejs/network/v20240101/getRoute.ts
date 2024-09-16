@@ -47,7 +47,7 @@ export interface GetRouteResult {
     /**
      * A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
      */
-    readonly hasBgpOverride?: boolean;
+    readonly hasBgpOverride: boolean;
     /**
      * Resource ID.
      */

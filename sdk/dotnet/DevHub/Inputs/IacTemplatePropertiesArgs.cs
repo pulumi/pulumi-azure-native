@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DevHub.Inputs
         public Input<string>? InstanceStage { get; set; }
 
         /// <summary>
+        /// Determines the authorization status of requests.
+        /// </summary>
+        [Input("quickStartTemplateType")]
+        public InputUnion<string, Pulumi.AzureNative.DevHub.QuickStartTemplateType>? QuickStartTemplateType { get; set; }
+
+        /// <summary>
         /// the source store of the template
         /// </summary>
         [Input("sourceResourceId")]

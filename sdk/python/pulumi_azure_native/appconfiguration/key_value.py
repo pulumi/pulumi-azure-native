@@ -136,7 +136,7 @@ class KeyValue(pulumi.CustomResource):
         The key-value resource along with all resource properties.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-07-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-09-01-preview.
+        Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,7 +158,7 @@ class KeyValue(pulumi.CustomResource):
         The key-value resource along with all resource properties.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-07-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-09-01-preview.
+        Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param KeyValueArgs args: The arguments to use to populate this resource's properties.
@@ -207,7 +207,7 @@ class KeyValue(pulumi.CustomResource):
             __props__.__dict__["locked"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appconfiguration/v20200701preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20210301preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20211001preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20220301preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20220501:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20230301:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20230801preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20230901preview:KeyValue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appconfiguration/v20200701preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20210301preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20211001preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20220301preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20220501:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20230301:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20230801preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20230901preview:KeyValue"), pulumi.Alias(type_="azure-native:appconfiguration/v20240501:KeyValue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KeyValue, __self__).__init__(
             'azure-native:appconfiguration:KeyValue',

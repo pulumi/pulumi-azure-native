@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Network.V20240101
         /// <summary>
         /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         /// </summary>
-        public readonly bool? HasBgpOverride;
+        public readonly bool HasBgpOverride;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Network.V20240101
 
             string etag,
 
-            bool? hasBgpOverride,
+            bool hasBgpOverride,
 
             string? id,
 

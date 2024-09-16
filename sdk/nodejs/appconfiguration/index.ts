@@ -58,11 +58,13 @@ export * from "../types/enums/appconfiguration";
 import * as v20230301 from "./v20230301";
 import * as v20230801preview from "./v20230801preview";
 import * as v20230901preview from "./v20230901preview";
+import * as v20240501 from "./v20240501";
 
 export {
     v20230301,
     v20230801preview,
     v20230901preview,
+    v20240501,
 };
 
 const _module = {

@@ -1195,7 +1195,6 @@ export const PfsGroup = {
     ECP384: "ECP384",
     PFS24: "PFS24",
     PFS14: "PFS14",
-    PFSMM: "PFSMM",
 } as const;
 
 /**

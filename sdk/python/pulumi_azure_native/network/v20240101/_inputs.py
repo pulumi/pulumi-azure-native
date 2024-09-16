@@ -21114,10 +21114,6 @@ if not MYPY:
         """
         The destination CIDR to which the route applies.
         """
-        has_bgp_override: NotRequired[pulumi.Input[bool]]
-        """
-        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
-        """
         id: NotRequired[pulumi.Input[str]]
         """
         Resource ID.
@@ -21142,7 +21138,6 @@ class RouteArgs:
     def __init__(__self__, *,
                  next_hop_type: pulumi.Input[Union[str, 'RouteNextHopType']],
                  address_prefix: Optional[pulumi.Input[str]] = None,
-                 has_bgp_override: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  next_hop_ip_address: Optional[pulumi.Input[str]] = None,
@@ -21151,7 +21146,6 @@ class RouteArgs:
         Route resource.
         :param pulumi.Input[Union[str, 'RouteNextHopType']] next_hop_type: The type of Azure hop the packet should be sent to.
         :param pulumi.Input[str] address_prefix: The destination CIDR to which the route applies.
-        :param pulumi.Input[bool] has_bgp_override: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
@@ -21160,8 +21154,6 @@ class RouteArgs:
         pulumi.set(__self__, "next_hop_type", next_hop_type)
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
-        if has_bgp_override is not None:
-            pulumi.set(__self__, "has_bgp_override", has_bgp_override)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
@@ -21194,18 +21186,6 @@ class RouteArgs:
     @address_prefix.setter
     def address_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "address_prefix", value)
-
-    @property
-    @pulumi.getter(name="hasBgpOverride")
-    def has_bgp_override(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
-        """
-        return pulumi.get(self, "has_bgp_override")
-
-    @has_bgp_override.setter
-    def has_bgp_override(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "has_bgp_override", value)
 
     @property
     @pulumi.getter

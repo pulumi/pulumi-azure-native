@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB
     /// An Azure Cosmos DB Throughputpool Account
     /// Azure REST API version: 2023-11-15-preview.
     /// 
-    /// Other available API versions: 2024-02-15-preview, 2024-05-15-preview.
+    /// Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:ThroughputPoolAccount")]
     public partial class ThroughputPoolAccount : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:ThroughputPoolAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240515preview:ThroughputPoolAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240901preview:ThroughputPoolAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

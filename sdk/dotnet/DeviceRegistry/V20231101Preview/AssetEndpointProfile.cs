@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20231101Preview
     public partial class AssetEndpointProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        /// Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         /// </summary>
         [Output("additionalConfiguration")]
         public Output<string?> AdditionalConfiguration { get; private set; } = null!;
@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20231101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry:AssetEndpointProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20240901preview:AssetEndpointProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,7 +138,7 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20231101Preview
     public sealed class AssetEndpointProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        /// Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         /// </summary>
         [Input("additionalConfiguration")]
         public Input<string>? AdditionalConfiguration { get; set; }

@@ -56,6 +56,7 @@ __all__ = [
     'DeleteOptions',
     'DestinationPortBehavior',
     'DhGroup',
+    'DisableBgpRoutePropagation',
     'DynamicCompressionEnabled',
     'EndpointMonitorStatus',
     'EndpointStatus',
@@ -161,7 +162,9 @@ __all__ = [
     'RouteMapActionType',
     'RouteMapMatchCondition',
     'RouteNextHopType',
+    'RoutingRuleDestinationType',
     'RoutingRuleEnabledState',
+    'RoutingRuleNextHopType',
     'RuleType',
     'RulesEngineMatchVariable',
     'RulesEngineOperator',
@@ -705,6 +708,14 @@ class DhGroup(str, Enum):
     ECP256 = "ECP256"
     ECP384 = "ECP384"
     DH_GROUP24 = "DHGroup24"
+
+
+class DisableBgpRoutePropagation(str, Enum):
+    """
+    Determines whether BGP route propagation is enabled. Defaults to true.
+    """
+    FALSE = "False"
+    TRUE = "True"
 
 
 class DynamicCompressionEnabled(str, Enum):
@@ -1690,12 +1701,31 @@ class RouteNextHopType(str, Enum):
     NONE = "None"
 
 
+class RoutingRuleDestinationType(str, Enum):
+    """
+    Destination type.
+    """
+    ADDRESS_PREFIX = "AddressPrefix"
+    SERVICE_TAG = "ServiceTag"
+
+
 class RoutingRuleEnabledState(str, Enum):
     """
     Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class RoutingRuleNextHopType(str, Enum):
+    """
+    Next hop type.
+    """
+    INTERNET = "Internet"
+    NO_NEXT_HOP = "NoNextHop"
+    VIRTUAL_APPLIANCE = "VirtualAppliance"
+    VIRTUAL_NETWORK_GATEWAY = "VirtualNetworkGateway"
+    VNET_LOCAL = "VnetLocal"
 
 
 class RuleType(str, Enum):

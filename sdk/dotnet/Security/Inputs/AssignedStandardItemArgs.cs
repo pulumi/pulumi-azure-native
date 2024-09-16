@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.Security.Inputs
 {
 
     /// <summary>
-    /// describe the properties of a of a security standard object reference
+    /// Describe the properties of a of a standard assignments object reference
     /// </summary>
     public sealed class AssignedStandardItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// full resourceId of the Microsoft.Security/standard object
+        /// Full resourceId of the Microsoft.Security/standard object
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

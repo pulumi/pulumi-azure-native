@@ -36,6 +36,7 @@ import * as v20231101 from "./v20231101";
 import * as v20240101 from "./v20240101";
 import * as v20240101preview from "./v20240101preview";
 import * as v20240201 from "./v20240201";
+import * as v20240301 from "./v20240301";
 import * as v20240601 from "./v20240601";
 
 export {
@@ -73,6 +74,7 @@ export {
     v20240101,
     v20240101preview,
     v20240201,
+    v20240301,
     v20240601,
 };
 
@@ -664,6 +666,16 @@ export const DhGroup = {
  * The DH Group used in IKE Phase 1 for initial SA.
  */
 export type DhGroup = (typeof DhGroup)[keyof typeof DhGroup];
+
+export const DisableBgpRoutePropagation = {
+    False: "False",
+    True: "True",
+} as const;
+
+/**
+ * Determines whether BGP route propagation is enabled. Defaults to true.
+ */
+export type DisableBgpRoutePropagation = (typeof DisableBgpRoutePropagation)[keyof typeof DisableBgpRoutePropagation];
 
 export const DynamicCompressionEnabled = {
     Enabled: "Enabled",
@@ -1858,6 +1870,16 @@ export const RouteNextHopType = {
  */
 export type RouteNextHopType = (typeof RouteNextHopType)[keyof typeof RouteNextHopType];
 
+export const RoutingRuleDestinationType = {
+    AddressPrefix: "AddressPrefix",
+    ServiceTag: "ServiceTag",
+} as const;
+
+/**
+ * Destination type.
+ */
+export type RoutingRuleDestinationType = (typeof RoutingRuleDestinationType)[keyof typeof RoutingRuleDestinationType];
+
 export const RoutingRuleEnabledState = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -1867,6 +1889,19 @@ export const RoutingRuleEnabledState = {
  * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
  */
 export type RoutingRuleEnabledState = (typeof RoutingRuleEnabledState)[keyof typeof RoutingRuleEnabledState];
+
+export const RoutingRuleNextHopType = {
+    Internet: "Internet",
+    NoNextHop: "NoNextHop",
+    VirtualAppliance: "VirtualAppliance",
+    VirtualNetworkGateway: "VirtualNetworkGateway",
+    VnetLocal: "VnetLocal",
+} as const;
+
+/**
+ * Next hop type.
+ */
+export type RoutingRuleNextHopType = (typeof RoutingRuleNextHopType)[keyof typeof RoutingRuleNextHopType];
 
 export const RuleType = {
     MatchRule: "MatchRule",

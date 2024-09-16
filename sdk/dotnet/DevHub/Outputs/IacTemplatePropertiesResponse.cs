@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DevHub.Outputs
         /// <summary>
         /// Determines the authorization status of requests.
         /// </summary>
-        public readonly string QuickStartTemplateType;
+        public readonly string? QuickStartTemplateType;
         /// <summary>
         /// the source store of the template
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.DevHub.Outputs
 
             string? instanceStage,
 
-            string quickStartTemplateType,
+            string? quickStartTemplateType,
 
             string? sourceResourceId,
 

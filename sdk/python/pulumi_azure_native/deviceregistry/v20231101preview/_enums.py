@@ -53,17 +53,17 @@ class EventsObservabilityMode(str, Enum):
 
 class UserAuthenticationMode(str, Enum):
     """
-    Defines the mode to authenticate the user of the client at the server.
+    Defines the method to authenticate the user of the client at the server.
     """
     ANONYMOUS = "Anonymous"
     """
-    The user authentication mode is anonymous.
+    The user authentication method is anonymous.
     """
     CERTIFICATE = "Certificate"
     """
-    The user authentication mode is an x509 certificate.
+    The user authentication method is an x509 certificate.
     """
     USERNAME_PASSWORD = "UsernamePassword"
     """
-    The user authentication mode is a username and password.
+    The user authentication method is a username and password.
     """

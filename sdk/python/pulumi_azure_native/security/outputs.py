@@ -22,9 +22,11 @@ __all__ = [
     'AllowlistCustomAlertRuleResponse',
     'AssessmentLinksResponse',
     'AssessmentStatusResponseResponse',
+    'AssignedAssessmentItemResponse',
     'AssignedComponentItemResponse',
     'AssignedStandardItemResponse',
     'AssignmentPropertiesResponseAdditionalData',
+    'AttestationEvidenceResponse',
     'AuthorizationResponse',
     'AutomationActionEventHubResponse',
     'AutomationActionLogicAppResponse',
@@ -134,6 +136,7 @@ __all__ = [
     'OnPremiseSqlResourceDetailsResponse',
     'OnUploadPropertiesResponse',
     'OperationStatusResponse',
+    'PartialAssessmentPropertiesResponse',
     'ProxyServerPropertiesResponse',
     'RecommendationConfigurationPropertiesResponse',
     'RemediationEtaResponse',
@@ -147,7 +150,11 @@ __all__ = [
     'SecurityContactPropertiesResponseNotificationsByRole',
     'SensitiveDataDiscoveryPropertiesResponse',
     'ServicePrincipalPropertiesResponse',
+    'StandardAssignmentMetadataResponse',
+    'StandardAssignmentPropertiesResponseAttestationData',
+    'StandardAssignmentPropertiesResponseExemptionData',
     'StandardComponentPropertiesResponse',
+    'StandardMetadataResponse',
     'SuppressionAlertsScopeResponse',
     'SystemDataResponse',
     'TargetBranchConfigurationResponse',
@@ -524,6 +531,46 @@ class AssessmentStatusResponseResponse(dict):
 
 
 @pulumi.output_type
+class AssignedAssessmentItemResponse(dict):
+    """
+    Describe the properties of a security assessment object reference (by key)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assessmentKey":
+            suggest = "assessment_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssignedAssessmentItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssignedAssessmentItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssignedAssessmentItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assessment_key: Optional[str] = None):
+        """
+        Describe the properties of a security assessment object reference (by key)
+        :param str assessment_key: Unique key to a security assessment object
+        """
+        if assessment_key is not None:
+            pulumi.set(__self__, "assessment_key", assessment_key)
+
+    @property
+    @pulumi.getter(name="assessmentKey")
+    def assessment_key(self) -> Optional[str]:
+        """
+        Unique key to a security assessment object
+        """
+        return pulumi.get(self, "assessment_key")
+
+
+@pulumi.output_type
 class AssignedComponentItemResponse(dict):
     """
     describe the properties of a security assessment object reference (by key)
@@ -549,13 +596,13 @@ class AssignedComponentItemResponse(dict):
 @pulumi.output_type
 class AssignedStandardItemResponse(dict):
     """
-    describe the properties of a of a security standard object reference
+    Describe the properties of a of a standard assignments object reference
     """
     def __init__(__self__, *,
                  id: Optional[str] = None):
         """
-        describe the properties of a of a security standard object reference
-        :param str id: full resourceId of the Microsoft.Security/standard object
+        Describe the properties of a of a standard assignments object reference
+        :param str id: Full resourceId of the Microsoft.Security/standard object
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -564,7 +611,7 @@ class AssignedStandardItemResponse(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        full resourceId of the Microsoft.Security/standard object
+        Full resourceId of the Microsoft.Security/standard object
         """
         return pulumi.get(self, "id")
 
@@ -607,6 +654,58 @@ class AssignmentPropertiesResponseAdditionalData(dict):
         Exemption category of this assignment
         """
         return pulumi.get(self, "exemption_category")
+
+
+@pulumi.output_type
+class AttestationEvidenceResponse(dict):
+    """
+    Describe the properties of a assignment attestation
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceUrl":
+            suggest = "source_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AttestationEvidenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AttestationEvidenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AttestationEvidenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 source_url: Optional[str] = None):
+        """
+        Describe the properties of a assignment attestation
+        :param str description: The description of the evidence
+        :param str source_url: The source url of the evidence
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if source_url is not None:
+            pulumi.set(__self__, "source_url", source_url)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the evidence
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="sourceUrl")
+    def source_url(self) -> Optional[str]:
+        """
+        The source url of the evidence
+        """
+        return pulumi.get(self, "source_url")
 
 
 @pulumi.output_type
@@ -7669,6 +7768,46 @@ class OperationStatusResponse(dict):
 
 
 @pulumi.output_type
+class PartialAssessmentPropertiesResponse(dict):
+    """
+    Describes properties of an assessment as related to the standard
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assessmentKey":
+            suggest = "assessment_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartialAssessmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartialAssessmentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartialAssessmentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assessment_key: Optional[str] = None):
+        """
+        Describes properties of an assessment as related to the standard
+        :param str assessment_key: The assessment key
+        """
+        if assessment_key is not None:
+            pulumi.set(__self__, "assessment_key", assessment_key)
+
+    @property
+    @pulumi.getter(name="assessmentKey")
+    def assessment_key(self) -> Optional[str]:
+        """
+        The assessment key
+        """
+        return pulumi.get(self, "assessment_key")
+
+
+@pulumi.output_type
 class ProxyServerPropertiesResponse(dict):
     """
     For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
@@ -8357,6 +8496,217 @@ class ServicePrincipalPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class StandardAssignmentMetadataResponse(dict):
+    """
+    The standard assignment metadata
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "lastUpdatedBy":
+            suggest = "last_updated_by"
+        elif key == "lastUpdatedOn":
+            suggest = "last_updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StandardAssignmentMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StandardAssignmentMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StandardAssignmentMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_by: str,
+                 created_on: str,
+                 last_updated_by: str,
+                 last_updated_on: str):
+        """
+        The standard assignment metadata
+        :param str created_by: Standard assignment Created by object id (GUID)
+        :param str created_on: Standard assignment creation date
+        :param str last_updated_by: Standard assignment last updated by object id (GUID)
+        :param str last_updated_on: Standard assignment last update date
+        """
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "last_updated_by", last_updated_by)
+        pulumi.set(__self__, "last_updated_on", last_updated_on)
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> str:
+        """
+        Standard assignment Created by object id (GUID)
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        Standard assignment creation date
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="lastUpdatedBy")
+    def last_updated_by(self) -> str:
+        """
+        Standard assignment last updated by object id (GUID)
+        """
+        return pulumi.get(self, "last_updated_by")
+
+    @property
+    @pulumi.getter(name="lastUpdatedOn")
+    def last_updated_on(self) -> str:
+        """
+        Standard assignment last update date
+        """
+        return pulumi.get(self, "last_updated_on")
+
+
+@pulumi.output_type
+class StandardAssignmentPropertiesResponseAttestationData(dict):
+    """
+    Additional data about assignment that has Attest effect
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "complianceDate":
+            suggest = "compliance_date"
+        elif key == "assignedAssessment":
+            suggest = "assigned_assessment"
+        elif key == "complianceState":
+            suggest = "compliance_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StandardAssignmentPropertiesResponseAttestationData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StandardAssignmentPropertiesResponseAttestationData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StandardAssignmentPropertiesResponseAttestationData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compliance_date: str,
+                 assigned_assessment: Optional['outputs.AssignedAssessmentItemResponse'] = None,
+                 compliance_state: Optional[str] = None,
+                 evidence: Optional[Sequence['outputs.AttestationEvidenceResponse']] = None):
+        """
+        Additional data about assignment that has Attest effect
+        :param str compliance_date: Attestation compliance date
+        :param 'AssignedAssessmentItemResponse' assigned_assessment: Component item with key as applied to this standard assignment over the given scope
+        :param str compliance_state: Attest category of this assignment
+        :param Sequence['AttestationEvidenceResponse'] evidence: Array of links to attestation evidence
+        """
+        pulumi.set(__self__, "compliance_date", compliance_date)
+        if assigned_assessment is not None:
+            pulumi.set(__self__, "assigned_assessment", assigned_assessment)
+        if compliance_state is not None:
+            pulumi.set(__self__, "compliance_state", compliance_state)
+        if evidence is not None:
+            pulumi.set(__self__, "evidence", evidence)
+
+    @property
+    @pulumi.getter(name="complianceDate")
+    def compliance_date(self) -> str:
+        """
+        Attestation compliance date
+        """
+        return pulumi.get(self, "compliance_date")
+
+    @property
+    @pulumi.getter(name="assignedAssessment")
+    def assigned_assessment(self) -> Optional['outputs.AssignedAssessmentItemResponse']:
+        """
+        Component item with key as applied to this standard assignment over the given scope
+        """
+        return pulumi.get(self, "assigned_assessment")
+
+    @property
+    @pulumi.getter(name="complianceState")
+    def compliance_state(self) -> Optional[str]:
+        """
+        Attest category of this assignment
+        """
+        return pulumi.get(self, "compliance_state")
+
+    @property
+    @pulumi.getter
+    def evidence(self) -> Optional[Sequence['outputs.AttestationEvidenceResponse']]:
+        """
+        Array of links to attestation evidence
+        """
+        return pulumi.get(self, "evidence")
+
+
+@pulumi.output_type
+class StandardAssignmentPropertiesResponseExemptionData(dict):
+    """
+    Additional data about assignment that has Exempt effect
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignedAssessment":
+            suggest = "assigned_assessment"
+        elif key == "exemptionCategory":
+            suggest = "exemption_category"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StandardAssignmentPropertiesResponseExemptionData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StandardAssignmentPropertiesResponseExemptionData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StandardAssignmentPropertiesResponseExemptionData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assigned_assessment: Optional['outputs.AssignedAssessmentItemResponse'] = None,
+                 exemption_category: Optional[str] = None):
+        """
+        Additional data about assignment that has Exempt effect
+        :param 'AssignedAssessmentItemResponse' assigned_assessment: Component item with key as applied to this standard assignment over the given scope
+        :param str exemption_category: Exemption category of this assignment
+        """
+        if assigned_assessment is not None:
+            pulumi.set(__self__, "assigned_assessment", assigned_assessment)
+        if exemption_category is not None:
+            pulumi.set(__self__, "exemption_category", exemption_category)
+
+    @property
+    @pulumi.getter(name="assignedAssessment")
+    def assigned_assessment(self) -> Optional['outputs.AssignedAssessmentItemResponse']:
+        """
+        Component item with key as applied to this standard assignment over the given scope
+        """
+        return pulumi.get(self, "assigned_assessment")
+
+    @property
+    @pulumi.getter(name="exemptionCategory")
+    def exemption_category(self) -> Optional[str]:
+        """
+        Exemption category of this assignment
+        """
+        return pulumi.get(self, "exemption_category")
+
+
+@pulumi.output_type
 class StandardComponentPropertiesResponse(dict):
     """
     Describes properties of an component as related to the standard
@@ -8377,6 +8727,84 @@ class StandardComponentPropertiesResponse(dict):
         Component Key matching componentMetadata
         """
         return pulumi.get(self, "key")
+
+
+@pulumi.output_type
+class StandardMetadataResponse(dict):
+    """
+    The standard metadata
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "lastUpdatedBy":
+            suggest = "last_updated_by"
+        elif key == "lastUpdatedOn":
+            suggest = "last_updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StandardMetadataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StandardMetadataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StandardMetadataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_by: str,
+                 created_on: str,
+                 last_updated_by: str,
+                 last_updated_on: str):
+        """
+        The standard metadata
+        :param str created_by: Standard Created by object id (GUID)
+        :param str created_on: Standard creation date
+        :param str last_updated_by: Standard last updated by object id (GUID)
+        :param str last_updated_on: Standard last update date
+        """
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "last_updated_by", last_updated_by)
+        pulumi.set(__self__, "last_updated_on", last_updated_on)
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> str:
+        """
+        Standard Created by object id (GUID)
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        Standard creation date
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="lastUpdatedBy")
+    def last_updated_by(self) -> str:
+        """
+        Standard last updated by object id (GUID)
+        """
+        return pulumi.get(self, "last_updated_by")
+
+    @property
+    @pulumi.getter(name="lastUpdatedOn")
+    def last_updated_on(self) -> str:
+        """
+        Standard last update date
+        """
+        return pulumi.get(self, "last_updated_on")
 
 
 @pulumi.output_type

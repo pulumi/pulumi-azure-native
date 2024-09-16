@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Resource representation of a IacProfile.
  * Azure REST API version: 2024-05-01-preview.
+ *
+ * Other available API versions: 2024-08-01-preview.
  */
 export function getIacProfile(args: GetIacProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetIacProfileResult> {
 
@@ -113,6 +115,8 @@ export interface GetIacProfileResult {
 /**
  * Resource representation of a IacProfile.
  * Azure REST API version: 2024-05-01-preview.
+ *
+ * Other available API versions: 2024-08-01-preview.
  */
 export function getIacProfileOutput(args: GetIacProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIacProfileResult> {
     return pulumi.output(args).apply((a: any) => getIacProfile(a, opts))

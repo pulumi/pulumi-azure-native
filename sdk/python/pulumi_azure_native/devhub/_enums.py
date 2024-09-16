@@ -10,6 +10,7 @@ __all__ = [
     'GenerationManifestType',
     'ManifestGenerationMode',
     'ManifestType',
+    'QuickStartTemplateType',
     'WorkflowRunStatus',
 ]
 
@@ -125,6 +126,32 @@ class ManifestType(str, Enum):
     KUBE = "kube"
     """
     Repositories using kubernetes manifests
+    """
+
+
+class QuickStartTemplateType(str, Enum):
+    """
+    Determines the authorization status of requests.
+    """
+    NONE = "None"
+    """
+    The template has not use quick start template
+    """
+    HCI = "HCI"
+    """
+    The template use quick start template of HCI
+    """
+    HCIAKS = "HCIAKS"
+    """
+    The template use quick start template of HCI and AKS
+    """
+    HCIARCVM = "HCIARCVM"
+    """
+    The template use quick start template of HCI and ArcVM
+    """
+    ALL = "ALL"
+    """
+    The template use quick start template of All supported products
     """
 
 

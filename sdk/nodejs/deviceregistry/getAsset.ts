@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a Asset
  * Azure REST API version: 2023-11-01-preview.
+ *
+ * Other available API versions: 2024-09-01-preview.
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
 
@@ -48,15 +50,15 @@ export interface GetAssetResult {
      */
     readonly attributes?: any;
     /**
-     * Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
+     * Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
      */
     readonly dataPoints?: outputs.deviceregistry.DataPointResponse[];
     /**
-     * Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+     * Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
      */
     readonly defaultDataPointsConfiguration?: string;
     /**
-     * Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+     * Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
      */
     readonly defaultEventsConfiguration?: string;
     /**
@@ -76,7 +78,7 @@ export interface GetAssetResult {
      */
     readonly enabled?: boolean;
     /**
-     * Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
+     * Array of events that are part of the asset. Each event can have per-event configuration.
      */
     readonly events?: outputs.deviceregistry.EventResponse[];
     /**
@@ -159,6 +161,8 @@ export interface GetAssetResult {
 /**
  * Get a Asset
  * Azure REST API version: 2023-11-01-preview.
+ *
+ * Other available API versions: 2024-09-01-preview.
  */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
     return pulumi.output(args).apply((a: any) => getAsset(a, opts))

@@ -273,7 +273,7 @@ class FirewallPolicyDraft(pulumi.CustomResource):
         FirewallPolicy Resource.
         Azure REST API version: 2023-11-01.
 
-        Other available API versions: 2024-01-01.
+        Other available API versions: 2024-01-01, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -302,7 +302,7 @@ class FirewallPolicyDraft(pulumi.CustomResource):
         FirewallPolicy Resource.
         Azure REST API version: 2023-11-01.
 
-        Other available API versions: 2024-01-01.
+        Other available API versions: 2024-01-01, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyDraftArgs args: The arguments to use to populate this resource's properties.
@@ -362,7 +362,7 @@ class FirewallPolicyDraft(pulumi.CustomResource):
             __props__.__dict__["threat_intel_whitelist"] = threat_intel_whitelist
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20231101:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native:network/v20240101:FirewallPolicyDraft")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20231101:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native:network/v20240101:FirewallPolicyDraft"), pulumi.Alias(type_="azure-native:network/v20240301:FirewallPolicyDraft")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicyDraft, __self__).__init__(
             'azure-native:network:FirewallPolicyDraft',

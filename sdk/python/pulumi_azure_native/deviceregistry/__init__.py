@@ -8,8 +8,18 @@ import typing
 from ._enums import *
 from .asset import *
 from .asset_endpoint_profile import *
+from .discovered_asset import *
+from .discovered_asset_endpoint_profile import *
 from .get_asset import *
 from .get_asset_endpoint_profile import *
+from .get_discovered_asset import *
+from .get_discovered_asset_endpoint_profile import *
+from .get_schema import *
+from .get_schema_registry import *
+from .get_schema_version import *
+from .schema import *
+from .schema_registry import *
+from .schema_version import *
 from ._inputs import *
 from . import outputs
 
@@ -17,6 +27,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.deviceregistry.v20231101preview as __v20231101preview
     v20231101preview = __v20231101preview
+    import pulumi_azure_native.deviceregistry.v20240901preview as __v20240901preview
+    v20240901preview = __v20240901preview
 else:
     v20231101preview = _utilities.lazy_import('pulumi_azure_native.deviceregistry.v20231101preview')
+    v20240901preview = _utilities.lazy_import('pulumi_azure_native.deviceregistry.v20240901preview')
 

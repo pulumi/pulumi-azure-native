@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
         /// Azure REST API version: 2023-03-15-preview.
         /// 
-        /// Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview.
+        /// Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
         /// </summary>
         public static Task<GetGraphResourceGraphResult> InvokeAsync(GetGraphResourceGraphArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGraphResourceGraphResult>("azure-native:documentdb:getGraphResourceGraph", args ?? new GetGraphResourceGraphArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
         /// Azure REST API version: 2023-03-15-preview.
         /// 
-        /// Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview.
+        /// Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetGraphResourceGraphResult> Invoke(GetGraphResourceGraphInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphResourceGraphResult>("azure-native:documentdb:getGraphResourceGraph", args ?? new GetGraphResourceGraphInvokeArgs(), options.WithDefaults());

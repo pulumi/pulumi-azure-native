@@ -104,6 +104,7 @@ from .get_network_group import *
 from .get_network_interface import *
 from .get_network_interface_tap_configuration import *
 from .get_network_manager import *
+from .get_network_manager_routing_configuration import *
 from .get_network_profile import *
 from .get_network_security_group import *
 from .get_network_security_perimeter import *
@@ -139,12 +140,16 @@ from .get_route_filter_rule import *
 from .get_route_map import *
 from .get_route_table import *
 from .get_routing_intent import *
+from .get_routing_rule import *
+from .get_routing_rule_collection import *
 from .get_rules_engine import *
 from .get_scope_connection import *
 from .get_security_admin_configuration import *
 from .get_security_partner_provider import *
 from .get_security_rule import *
 from .get_security_user_configuration import *
+from .get_security_user_rule import *
+from .get_security_user_rule_collection import *
 from .get_service_endpoint_policy import *
 from .get_service_endpoint_policy_definition import *
 from .get_static_cidr import *
@@ -211,6 +216,7 @@ from .list_network_manager_deployment_status import *
 from .list_network_manager_effective_connectivity_configurations import *
 from .list_network_manager_effective_security_admin_rule import *
 from .list_network_manager_effective_security_admin_rules import *
+from .list_vpn_link_connection_default_shared_key import *
 from .load_balancer import *
 from .load_balancer_backend_address_pool import *
 from .local_network_gateway import *
@@ -222,6 +228,7 @@ from .network_group import *
 from .network_interface import *
 from .network_interface_tap_configuration import *
 from .network_manager import *
+from .network_manager_routing_configuration import *
 from .network_profile import *
 from .network_security_group import *
 from .network_security_perimeter import *
@@ -255,12 +262,16 @@ from .route_filter_rule import *
 from .route_map import *
 from .route_table import *
 from .routing_intent import *
+from .routing_rule import *
+from .routing_rule_collection import *
 from .rules_engine import *
 from .scope_connection import *
 from .security_admin_configuration import *
 from .security_partner_provider import *
 from .security_rule import *
 from .security_user_configuration import *
+from .security_user_rule import *
+from .security_user_rule_collection import *
 from .service_endpoint_policy import *
 from .service_endpoint_policy_definition import *
 from .static_cidr import *
@@ -371,6 +382,8 @@ if typing.TYPE_CHECKING:
     v20240101preview = __v20240101preview
     import pulumi_azure_native.network.v20240201 as __v20240201
     v20240201 = __v20240201
+    import pulumi_azure_native.network.v20240301 as __v20240301
+    v20240301 = __v20240301
     import pulumi_azure_native.network.v20240601 as __v20240601
     v20240601 = __v20240601
 else:
@@ -411,5 +424,6 @@ else:
     v20240101 = _utilities.lazy_import('pulumi_azure_native.network.v20240101')
     v20240101preview = _utilities.lazy_import('pulumi_azure_native.network.v20240101preview')
     v20240201 = _utilities.lazy_import('pulumi_azure_native.network.v20240201')
+    v20240301 = _utilities.lazy_import('pulumi_azure_native.network.v20240301')
     v20240601 = _utilities.lazy_import('pulumi_azure_native.network.v20240601')
 

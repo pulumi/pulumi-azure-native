@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
-        /// </summary>
-        [Input("hasBgpOverride")]
-        public Input<bool>? HasBgpOverride { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]

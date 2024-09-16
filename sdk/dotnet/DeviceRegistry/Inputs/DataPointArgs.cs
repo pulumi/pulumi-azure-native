@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DeviceRegistry.Inputs
         public Input<string>? CapabilityId { get; set; }
 
         /// <summary>
-        /// Protocol-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        /// Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         /// </summary>
         [Input("dataPointConfiguration")]
         public Input<string>? DataPointConfiguration { get; set; }

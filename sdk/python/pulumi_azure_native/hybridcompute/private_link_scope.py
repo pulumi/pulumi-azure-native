@@ -121,7 +121,7 @@ class PrivateLinkScope(pulumi.CustomResource):
         An Azure Arc PrivateLinkScope definition.
         Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2021-03-25-preview.
 
-        Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10.
+        Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +141,7 @@ class PrivateLinkScope(pulumi.CustomResource):
         An Azure Arc PrivateLinkScope definition.
         Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2021-03-25-preview.
 
-        Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10.
+        Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopeArgs args: The arguments to use to populate this resource's properties.
@@ -182,7 +182,7 @@ class PrivateLinkScope(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20220811preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20221110:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20230315preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20230620preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20240710:PrivateLinkScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20220811preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20221110:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20230315preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20230620preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20240710:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:PrivateLinkScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkScope, __self__).__init__(
             'azure-native:hybridcompute:PrivateLinkScope',

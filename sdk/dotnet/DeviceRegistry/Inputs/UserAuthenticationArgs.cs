@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DeviceRegistry.Inputs
     public sealed class UserAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines the mode to authenticate the user of the client at the server.
+        /// Defines the method to authenticate the user of the client at the server.
         /// </summary>
         [Input("mode", required: true)]
         public InputUnion<string, Pulumi.AzureNative.DeviceRegistry.UserAuthenticationMode> Mode { get; set; } = null!;

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a private endpoint connection.
  * Azure REST API version: 2023-04-15.
  *
- * Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-05-15, 2024-05-15-preview, 2024-06-01-preview, 2024-07-01.
+ * Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-05-15, 2024-05-15-preview, 2024-06-01-preview, 2024-07-01, 2024-08-15, 2024-09-01-preview.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -75,7 +75,7 @@ export interface GetPrivateEndpointConnectionResult {
  * Gets a private endpoint connection.
  * Azure REST API version: 2023-04-15.
  *
- * Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-05-15, 2024-05-15-preview, 2024-06-01-preview, 2024-07-01.
+ * Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-05-15, 2024-05-15-preview, 2024-06-01-preview, 2024-07-01, 2024-08-15, 2024-09-01-preview.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))

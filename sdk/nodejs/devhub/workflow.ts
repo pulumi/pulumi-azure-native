@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Resource representation of a workflow
  * Azure REST API version: 2022-10-11-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
  *
- * Other available API versions: 2023-08-01, 2024-05-01-preview.
+ * Other available API versions: 2023-08-01, 2024-05-01-preview, 2024-08-01-preview.
  */
 export class Workflow extends pulumi.CustomResource {
     /**
@@ -246,7 +246,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devhub/v20220401preview:Workflow" }, { type: "azure-native:devhub/v20221011preview:Workflow" }, { type: "azure-native:devhub/v20230801:Workflow" }, { type: "azure-native:devhub/v20240501preview:Workflow" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devhub/v20220401preview:Workflow" }, { type: "azure-native:devhub/v20221011preview:Workflow" }, { type: "azure-native:devhub/v20230801:Workflow" }, { type: "azure-native:devhub/v20240501preview:Workflow" }, { type: "azure-native:devhub/v20240801preview:Workflow" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workflow.__pulumiType, name, resourceInputs, opts);
     }

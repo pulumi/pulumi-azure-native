@@ -370,7 +370,7 @@ def get_queue(namespace_name: Optional[str] = None,
     Returns a description for the specified queue.
     Azure REST API version: 2022-01-01-preview.
 
-    Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview.
+    Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
 
 
     :param str namespace_name: The namespace name
@@ -423,7 +423,7 @@ def get_queue_output(namespace_name: Optional[pulumi.Input[str]] = None,
     Returns a description for the specified queue.
     Azure REST API version: 2022-01-01-preview.
 
-    Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview.
+    Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
 
 
     :param str namespace_name: The namespace name

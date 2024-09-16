@@ -129,7 +129,7 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
     Returns a Azure Arc PrivateLinkScope.
     Azure REST API version: 2022-12-27.
 
-    Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10.
+    Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -159,7 +159,7 @@ def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str
     Returns a Azure Arc PrivateLinkScope.
     Azure REST API version: 2022-12-27.
 
-    Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10.
+    Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20231101Preview
     }
 
     /// <summary>
-    /// Defines the mode to authenticate the user of the client at the server.
+    /// Defines the method to authenticate the user of the client at the server.
     /// </summary>
     [EnumType]
     public readonly struct UserAuthenticationMode : IEquatable<UserAuthenticationMode>
@@ -107,15 +107,15 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20231101Preview
         }
 
         /// <summary>
-        /// The user authentication mode is anonymous.
+        /// The user authentication method is anonymous.
         /// </summary>
         public static UserAuthenticationMode Anonymous { get; } = new UserAuthenticationMode("Anonymous");
         /// <summary>
-        /// The user authentication mode is an x509 certificate.
+        /// The user authentication method is an x509 certificate.
         /// </summary>
         public static UserAuthenticationMode Certificate { get; } = new UserAuthenticationMode("Certificate");
         /// <summary>
-        /// The user authentication mode is a username and password.
+        /// The user authentication method is a username and password.
         /// </summary>
         public static UserAuthenticationMode UsernamePassword { get; } = new UserAuthenticationMode("UsernamePassword");
 
