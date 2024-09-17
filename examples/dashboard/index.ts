@@ -22,9 +22,9 @@ const dash = new portal.Dashboard("dash", {
                             content: {
                                 settings: {
                                     content: `<div style='line-height:50px;'>
-    <span style='font-size:16px;font-weight:bold'>AZURE RESOURCE INVENTORY - </span>
-    <span>This section gives you an overview of all your Azure resources across all subscriptions that you can access.</span>
-    </div>`,
+<span style='font-size:16px;font-weight:bold'>AZURE RESOURCE INVENTORY - </span>
+<span>This section gives you an overview of all your Azure resources across all subscriptions that you can access.</span>
+</div>`,
                                     subtitle: "",
                                     title: "",
                                 },
@@ -56,7 +56,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
                     },
                     position: {
                         colSpan: 3,
@@ -75,10 +77,10 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `summarize ResourceCount=count() by type
-    | order by ResourceCount
-    | extend ['Resource count']=ResourceCount, ['Resource type']=type
-    | project ['Resource type'], ['Resource count']
-    | take 10`,
+| order by ResourceCount
+| extend ['Resource count']=ResourceCount, ['Resource type']=type
+| project ['Resource type'], ['Resource count']
+| take 10`,
                             },
                             {
                                 name: "chartType",
@@ -86,7 +88,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQueryChartTile",
                     },
                     position: {
                         colSpan: 15,
@@ -102,9 +106,9 @@ const dash = new portal.Dashboard("dash", {
                             content: {
                                 settings: {
                                     content: `<div style='line-height:50px'>
-    <span style='font-size:16px;font-weight:bold'>AZURE COMPUTE INVENTORY - </span>
-    <span>This section gives you an overview of your Azure Compute usage.</span>
-    </div>`,
+<span style='font-size:16px;font-weight:bold'>AZURE COMPUTE INVENTORY - </span>
+<span>This section gives you an overview of your Azure Compute usage.</span>
+</div>`,
                                     subtitle: "",
                                     title: "",
                                 },
@@ -129,9 +133,9 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.compute/virtualmachines" or type=="microsoft.classiccompute/virtualmachines"
-    | summarize VMCount=count()
-    | extend ['Count (Virtual Machines)']=VMCount
-    | project ['Count (Virtual Machines)']`,
+| summarize VMCount=count()
+| extend ['Count (Virtual Machines)']=VMCount
+| project ['Count (Virtual Machines)']`,
                             },
                             {
                                 isOptional: true,
@@ -139,7 +143,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
                     },
                     position: {
                         colSpan: 4,
@@ -158,11 +164,11 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.compute/virtualmachines" or type == "microsoft.classiccompute/virtualmachines"
-    | extend OSType = iff(type == "microsoft.compute/virtualmachines", tostring(properties.storageProfile.osDisk.osType),tostring(properties.storageProfile.operatingSystemDisk.operatingSystem)) 
-    | summarize VMCount=count() by OSType
-    | order by VMCount desc
-    |extend ['Count (Virtual Machines)']=VMCount
-    | project OSType, ['Count (Virtual Machines)']`,
+| extend OSType = iff(type == "microsoft.compute/virtualmachines", tostring(properties.storageProfile.osDisk.osType),tostring(properties.storageProfile.operatingSystemDisk.operatingSystem)) 
+| summarize VMCount=count() by OSType
+| order by VMCount desc
+|extend ['Count (Virtual Machines)']=VMCount
+| project OSType, ['Count (Virtual Machines)']`,
                             },
                             {
                                 name: "chartType",
@@ -170,7 +176,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQueryChartTile",
                     },
                     position: {
                         colSpan: 4,
@@ -189,13 +197,13 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.compute/virtualmachines" or type == "microsoft.classiccompute/virtualmachines"
-    | extend Size = iff(type == "microsoft.compute/virtualmachines", tostring(properties.hardwareProfile.vmSize),  tostring(properties.hardwareProfile.size))
-    | extend Family = extract('([^_]+)_', 1, Size, typeof(string))
-    | extend Family = iff(strlen(Family) == 0, Size, Family)
-    | summarize VMCount=count() by Family
-    | order by VMCount desc
-    |extend ['Count (Virtual Machines)']=VMCount
-    | project Family, ['Count (Virtual Machines)']`,
+| extend Size = iff(type == "microsoft.compute/virtualmachines", tostring(properties.hardwareProfile.vmSize),  tostring(properties.hardwareProfile.size))
+| extend Family = extract('([^_]+)_', 1, Size, typeof(string))
+| extend Family = iff(strlen(Family) == 0, Size, Family)
+| summarize VMCount=count() by Family
+| order by VMCount desc
+|extend ['Count (Virtual Machines)']=VMCount
+| project Family, ['Count (Virtual Machines)']`,
                             },
                             {
                                 name: "chartType",
@@ -203,7 +211,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQueryChartTile",
                     },
                     position: {
                         colSpan: 6,
@@ -222,10 +232,10 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.compute/virtualmachines" or type=="microsoft.classiccompute/virtualmachines"
-    | summarize VMCount=count() by type
-    | extend ['Count (Virtual Machines)']=VMCount
-    | extend Type = iff(type == "microsoft.compute/virtualmachines", "Resource Manager", "Classic")
-    | project Type,['Count (Virtual Machines)']`,
+| summarize VMCount=count() by type
+| extend ['Count (Virtual Machines)']=VMCount
+| extend Type = iff(type == "microsoft.compute/virtualmachines", "Resource Manager", "Classic")
+| project Type,['Count (Virtual Machines)']`,
                             },
                             {
                                 name: "chartType",
@@ -233,7 +243,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQueryChartTile",
                     },
                     position: {
                         colSpan: 4,
@@ -249,9 +261,9 @@ const dash = new portal.Dashboard("dash", {
                             content: {
                                 settings: {
                                     content: `<div style='line-height:50px'>
-    <span style='font-size:16px;font-weight:bold'>AZURE STORAGE INVENTORY - </span>
-    <span>This section gives you an overview of your Azure Storage usage.</span>
-    </div>`,
+<span style='font-size:16px;font-weight:bold'>AZURE STORAGE INVENTORY - </span>
+<span>This section gives you an overview of your Azure Storage usage.</span>
+</div>`,
                                     subtitle: "",
                                     title: "",
                                 },
@@ -276,10 +288,10 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: ` where type == "microsoft.storage/storageaccounts"
-    | summarize StorageCount=count() by PrimaryStatus=tostring(properties.statusOfPrimary), SecondaryStatus=tostring(properties.statusOfSecondary)
-    | extend SecondaryStatus= iff(strlen(SecondaryStatus) == 0, "No secondary", SecondaryStatus)
-    | extend ['Count (Storage accounts)']=StorageCount
-    | project-away StorageCount`,
+ | summarize StorageCount=count() by PrimaryStatus=tostring(properties.statusOfPrimary), SecondaryStatus=tostring(properties.statusOfSecondary)
+ | extend SecondaryStatus= iff(strlen(SecondaryStatus) == 0, "No secondary", SecondaryStatus)
+ | extend ['Count (Storage accounts)']=StorageCount
+ | project-away StorageCount`,
                             },
                             {
                                 isOptional: true,
@@ -287,7 +299,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQueryGridTile",
                     },
                     position: {
                         colSpan: 6,
@@ -306,8 +320,8 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.compute/disks"
-    | extend SizeGB = tolong(properties.diskSizeGB)
-    | summarize ['Total Disk Size (GB)']=sum(SizeGB)`,
+| extend SizeGB = tolong(properties.diskSizeGB)
+| summarize ['Total Disk Size (GB)']=sum(SizeGB)`,
                             },
                             {
                                 isOptional: true,
@@ -315,7 +329,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
                     },
                     position: {
                         colSpan: 3,
@@ -334,10 +350,10 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.compute/disks"
-    | summarize DiskCount=count() by State=tostring(properties.diskState)
-    | order by DiskCount desc
-    | extend ["Count (Disks)"]=DiskCount
-    | project State, ["Count (Disks)"]`,
+| summarize DiskCount=count() by State=tostring(properties.diskState)
+| order by DiskCount desc
+| extend ["Count (Disks)"]=DiskCount
+| project State, ["Count (Disks)"]`,
                             },
                             {
                                 name: "chartType",
@@ -345,7 +361,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQueryChartTile",
                     },
                     position: {
                         colSpan: 5,
@@ -364,10 +382,10 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.storage/storageaccounts" or type=="microsoft.classicstorage/storageaccounts"
-    | summarize StorageCount=count() by type
-    | extend ['Count (Storage Accounts)']=StorageCount
-    | extend Type = iff(type == "microsoft.storage/storageaccounts", "Resource Manager", "Classic")
-    | project Type,['Count (Storage Accounts)']`,
+| summarize StorageCount=count() by type
+| extend ['Count (Storage Accounts)']=StorageCount
+| extend Type = iff(type == "microsoft.storage/storageaccounts", "Resource Manager", "Classic")
+| project Type,['Count (Storage Accounts)']`,
                             },
                             {
                                 name: "chartType",
@@ -375,7 +393,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQueryChartTile",
                     },
                     position: {
                         colSpan: 4,
@@ -391,9 +411,9 @@ const dash = new portal.Dashboard("dash", {
                             content: {
                                 settings: {
                                     content: `<div style='line-height:50px'>
-    <span style='font-size:16px;font-weight:bold'>AZURE NETWORKING INVENTORY - </span>
-    <span>This section gives you an overview of your Azure networking usage.</span>
-    </div>`,
+<span style='font-size:16px;font-weight:bold'>AZURE NETWORKING INVENTORY - </span>
+<span>This section gives you an overview of your Azure networking usage.</span>
+</div>`,
                                     subtitle: "",
                                     title: "",
                                 },
@@ -418,7 +438,7 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.network/virtualnetworks"or type == "microsoft.classicnetwork/virtualnetworks"
-    | summarize ['Virtual networks']=count()`,
+| summarize ['Virtual networks']=count()`,
                             },
                             {
                                 isOptional: true,
@@ -426,7 +446,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
                     },
                     position: {
                         colSpan: 4,
@@ -445,7 +467,7 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.network/networkinterfaces"
-    | summarize ['Network interfaces']=count()`,
+| summarize ['Network interfaces']=count()`,
                             },
                             {
                                 isOptional: true,
@@ -453,7 +475,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
                     },
                     position: {
                         colSpan: 3,
@@ -472,7 +496,7 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.network/publicipaddresses"
-    | summarize ['Number of public IP addresses']=count()`,
+| summarize ['Number of public IP addresses']=count()`,
                             },
                             {
                                 isOptional: true,
@@ -480,7 +504,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
                     },
                     position: {
                         colSpan: 3,
@@ -499,10 +525,10 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.network/virtualnetworks" or type=="microsoft.classicnetwork/virtualnetworks"
-    | summarize VNetCount=count() by type
-    | extend ['Count (Virtual Networks)']=VNetCount
-    | extend Type = iff(type == "microsoft.network/virtualnetworks", "Resource Manager", "Classic")
-    | project Type,['Count (Virtual Networks)']`,
+| summarize VNetCount=count() by type
+| extend ['Count (Virtual Networks)']=VNetCount
+| extend Type = iff(type == "microsoft.network/virtualnetworks", "Resource Manager", "Classic")
+| project Type,['Count (Virtual Networks)']`,
                             },
                             {
                                 name: "chartType",
@@ -510,7 +536,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQueryChartTile",
                     },
                     position: {
                         colSpan: 8,
@@ -526,9 +554,9 @@ const dash = new portal.Dashboard("dash", {
                             content: {
                                 settings: {
                                     content: `<div style='line-height:50px'>
-    <span style='font-size:16px;font-weight:bold'>AZURE SQL DATABASES INVENTORY - </span>
-    <span>This section gives you an overview of your Azure SQL database usage.</span>
-    </div>`,
+<span style='font-size:16px;font-weight:bold'>AZURE SQL DATABASES INVENTORY - </span>
+<span>This section gives you an overview of your Azure SQL database usage.</span>
+</div>`,
                                     subtitle: "",
                                     title: "",
                                 },
@@ -553,7 +581,7 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.sql/servers/databases"
-    | summarize DBCount=count()`,
+| summarize DBCount=count()`,
                             },
                             {
                                 isOptional: true,
@@ -561,7 +589,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
                     },
                     position: {
                         colSpan: 3,
@@ -580,10 +610,10 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.sql/servers/databases"
-    | summarize DBCount=count() by Tier=tostring(properties.currentSku.tier)
-    | order by DBCount desc
-    |extend ['Count (SQL Databases)']=DBCount
-    | project Tier, ['Count (SQL Databases)']`,
+| summarize DBCount=count() by Tier=tostring(properties.currentSku.tier)
+| order by DBCount desc
+|extend ['Count (SQL Databases)']=DBCount
+| project Tier, ['Count (SQL Databases)']`,
                             },
                             {
                                 name: "chartType",
@@ -591,7 +621,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQueryChartTile",
                     },
                     position: {
                         colSpan: 6,
@@ -610,11 +642,11 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.sql/servers/databases"
-    | extend GB = todouble(properties.maxSizeBytes) / (1024 * 1024 * 1024)
-    | summarize DBCount=count() by GB
-    | order by GB desc
-    |extend ['Count (SQL Databases)']=DBCount
-    | project GB=strcat(tostring(GB), " GB"), ['Count (SQL Databases)']`,
+| extend GB = todouble(properties.maxSizeBytes) / (1024 * 1024 * 1024)
+| summarize DBCount=count() by GB
+| order by GB desc
+|extend ['Count (SQL Databases)']=DBCount
+| project GB=strcat(tostring(GB), " GB"), ['Count (SQL Databases)']`,
                             },
                             {
                                 name: "chartType",
@@ -622,7 +654,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQueryChartTile",
                     },
                     position: {
                         colSpan: 9,
@@ -638,9 +672,9 @@ const dash = new portal.Dashboard("dash", {
                             content: {
                                 settings: {
                                     content: `<div style='line-height:50px'>
-    <span style='font-size:16px;font-weight:bold'>APP SERVICE INVENTORY - </span>
-    <span>This section gives you an overview of your Azure App Service usage.</span>
-    </div>`,
+<span style='font-size:16px;font-weight:bold'>APP SERVICE INVENTORY - </span>
+<span>This section gives you an overview of your Azure App Service usage.</span>
+</div>`,
                                     subtitle: "",
                                     title: "",
                                 },
@@ -665,9 +699,9 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.web/sites"
-    | summarize SiteCount=count() 
-    |extend ['Count (AppService Apps)']=SiteCount
-    | project ['Count (AppService Apps)']`,
+| summarize SiteCount=count() 
+|extend ['Count (AppService Apps)']=SiteCount
+| project ['Count (AppService Apps)']`,
                             },
                             {
                                 isOptional: true,
@@ -675,7 +709,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
                     },
                     position: {
                         colSpan: 3,
@@ -694,9 +730,9 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.web/serverfarms"
-    | summarize serverFarmCount=count() 
-    |extend ['Count (AppService plans)']=serverFarmCount
-    | project ['Count (AppService plans)']`,
+| summarize serverFarmCount=count() 
+|extend ['Count (AppService plans)']=serverFarmCount
+| project ['Count (AppService plans)']`,
                             },
                             {
                                 isOptional: true,
@@ -704,7 +740,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
                     },
                     position: {
                         colSpan: 3,
@@ -723,10 +761,10 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.web/sites"
-    | summarize SiteCount=count() by Status=tostring(properties.state) 
-    | order by SiteCount desc
-    |extend ['Count (AppService Apps)']=SiteCount
-    | project Status, ['Count (AppService Apps)']`,
+| summarize SiteCount=count() by Status=tostring(properties.state) 
+| order by SiteCount desc
+|extend ['Count (AppService Apps)']=SiteCount
+| project Status, ['Count (AppService Apps)']`,
                             },
                             {
                                 name: "chartType",
@@ -734,7 +772,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQueryChartTile",
                     },
                     position: {
                         colSpan: 4,
@@ -753,10 +793,10 @@ const dash = new portal.Dashboard("dash", {
                             {
                                 name: "query",
                                 value: `where type == "microsoft.web/sites"
-    | summarize SiteCount=count() by kind 
-    | order by SiteCount desc
-    |extend ['Count (AppService Apps)']=SiteCount
-    | project Kind=kind, ['Count (AppService Apps)']`,
+| summarize SiteCount=count() by kind 
+| order by SiteCount desc
+|extend ['Count (AppService Apps)']=SiteCount
+| project Kind=kind, ['Count (AppService Apps)']`,
                             },
                             {
                                 name: "chartType",
@@ -764,7 +804,9 @@ const dash = new portal.Dashboard("dash", {
                             },
                         ],
                         settings: {},
-                        type: "Extension/HubsExtension/PartType/MarkdownPart",
+                        // Note: This type is important here! The original version of this resource did not
+                        // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                        type: "Extension/HubsExtension/PartType/ArgQueryChartTile",
                     },
                     position: {
                         colSpan: 8,

@@ -27,18 +27,18 @@ return await Pulumi.Deployment.RunAsync(() =>
                     {
                         new DashboardPartsArgs
                         {
-                            Metadata = new MarkdownPartMetadataArgs
+                            Metadata = new DashboardPartMetadataArgs
                             {
                                 Inputs = new InputList<object>(),
-                                Settings = new MarkdownPartMetadataSettingsArgs {
-                                    Content = new MarkdownPartMetadataSettingsContentArgs {
-                                        Settings = new MarkdownPartMetadataSettingsContentSettingsArgs {
-                                            Content = @"<div style='line-height:50px;'>
+                                Settings = {
+                                    ["content"] = new Dictionary<string, object> {
+                                        ["settings"] = new Dictionary<string, object> {
+                                            ["content"] =  @"<div style='line-height:50px;'>
     <span style='font-size:16px;font-weight:bold'>AZURE RESOURCE INVENTORY - </span>
     <span>This section gives you an overview of all your Azure resources across all subscriptions that you can access.</span>
     </div>",
-                                            Subtitle = "",
-                                            Title = "",
+                                            ["subtitle"] = "",
+                                            ["title"] = "",
                                         }
                                     }
                                 },
@@ -54,7 +54,7 @@ return await Pulumi.Deployment.RunAsync(() =>
                         },
                         new DashboardPartsArgs
                         {
-                            Metadata = new MarkdownPartMetadataArgs
+                            Metadata = new DashboardPartMetadataArgs
                             {
                                 Inputs = new[]
                                 {
@@ -94,8 +94,10 @@ return await Pulumi.Deployment.RunAsync(() =>
                                         { "name", "queryScope" },
                                     },
                                 },
-                                Settings = new MarkdownPartMetadataSettingsArgs {},
-                                Type = "Extension/HubsExtension/PartType/MarkdownPart",
+                                Settings = new Dictionary<string, object>(),
+                                // Note: This Type is important here! The original version of this resource did not
+                                // allow setting it to anything other than MarkdownPart, so this is the essence of the test.
+                                Type = "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
                             },
                             Position = new DashboardPartsPositionArgs
                             {
