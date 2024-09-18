@@ -962,6 +962,8 @@ HybridNetwork:
         Site: "2023-09-01"
         SiteNetworkService: "2023-09-01"
         listArtifactManifestCredential: "2023-09-01"
+        listArtifactStoreNetworkFabricControllerPrivateEndPoints: "2024-04-15"
+        listArtifactStorePrivateEndPoints: "2024-04-15"
 ImportExport:
     tracking: "2021-01-01"
 Insights:
@@ -1588,6 +1590,8 @@ PowerPlatform:
     tracking: 2020-10-30-preview
 ProfessionalService:
     tracking: 2023-07-01-preview
+ProgrammableConnectivity:
+    tracking: 2024-01-15-preview
 ProviderHub:
     tracking: 2021-09-01-preview
 Purview:
@@ -1985,3 +1989,7 @@ Workloads:
         SapDiscoverySite: 2023-10-01-preview
         SapInstance: 2023-10-01-preview
         ServerInstance: 2023-10-01-preview
+        getSapVirtualInstanceInvokeAvailabilityZoneDetails: "2024-09-01"
+        getSapVirtualInstanceInvokeDiskConfigurations: "2024-09-01"
+        getSapVirtualInstanceInvokeSapSupportedSku: "2024-09-01"
+        getSapVirtualInstanceInvokeSizingRecommendations: "2024-09-01"

@@ -1326,6 +1326,8 @@
     "VendorSkuPreview": "2022-01-01-preview",
     "VendorSkus": "2022-01-01-preview",
     "listArtifactManifestCredential": "2023-09-01",
+    "listArtifactStoreNetworkFabricControllerPrivateEndPoints": "2024-04-15",
+    "listArtifactStorePrivateEndPoints": "2024-04-15",
     "listDeviceRegistrationKey": "2022-01-01-preview",
     "listVendorSkusCredential": "2022-01-01-preview"
   },
@@ -2163,6 +2165,10 @@
   "ProfessionalService": {
     "ProfessionalServiceSubscriptionLevel": "2023-07-01-preview"
   },
+  "ProgrammableConnectivity": {
+    "Gateway": "2024-01-15-preview",
+    "OperatorApiConnection": "2024-01-15-preview"
+  },
   "ProviderHub": {
     "DefaultRollout": "2021-09-01-preview",
     "NotificationRegistration": "2021-09-01-preview",
@@ -2886,6 +2892,10 @@
     "getSAPDiskConfigurations": "2023-04-01",
     "getSAPSizingRecommendations": "2023-04-01",
     "getSAPSupportedSku": "2023-04-01",
+    "getSapVirtualInstanceInvokeAvailabilityZoneDetails": "2024-09-01",
+    "getSapVirtualInstanceInvokeDiskConfigurations": "2024-09-01",
+    "getSapVirtualInstanceInvokeSapSupportedSku": "2024-09-01",
+    "getSapVirtualInstanceInvokeSizingRecommendations": "2024-09-01",
     "monitor": "2023-04-01"
   }
 }
