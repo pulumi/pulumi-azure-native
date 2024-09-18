@@ -131,6 +131,8 @@ def get_network_service_design_version(network_service_design_group_name: Option
     Gets information about a network service design version.
     Azure REST API version: 2023-09-01.
 
+    Other available API versions: 2024-04-15.
+
 
     :param str network_service_design_group_name: The name of the network service design group.
     :param str network_service_design_version_name: The name of the network service design version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
@@ -164,6 +166,8 @@ def get_network_service_design_version_output(network_service_design_group_name:
     """
     Gets information about a network service design version.
     Azure REST API version: 2023-09-01.
+
+    Other available API versions: 2024-04-15.
 
 
     :param str network_service_design_group_name: The name of the network service design group.

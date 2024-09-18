@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Relay
         /// Authorization rule for a namespace by name.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2017-04-01.
+        /// Other available API versions: 2017-04-01, 2024-01-01.
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure-native:relay:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Relay
         /// Authorization rule for a namespace by name.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2017-04-01.
+        /// Other available API versions: 2017-04-01, 2024-01-01.
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure-native:relay:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());

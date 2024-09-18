@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230801preview:WebPubSubCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240101preview:WebPubSubCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240401preview:WebPubSubCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240801preview:WebPubSubCustomCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

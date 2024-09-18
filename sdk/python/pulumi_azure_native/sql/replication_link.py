@@ -113,7 +113,7 @@ class ReplicationLink(pulumi.CustomResource):
         A replication link.
         Azure REST API version: 2023-05-01-preview.
 
-        Other available API versions: 2023-08-01-preview.
+        Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,7 +132,7 @@ class ReplicationLink(pulumi.CustomResource):
         A replication link.
         Azure REST API version: 2023-05-01-preview.
 
-        Other available API versions: 2023-08-01-preview.
+        Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ReplicationLinkArgs args: The arguments to use to populate this resource's properties.
@@ -187,7 +187,7 @@ class ReplicationLink(pulumi.CustomResource):
             __props__.__dict__["role"] = None
             __props__.__dict__["start_time"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20230501preview:ReplicationLink"), pulumi.Alias(type_="azure-native:sql/v20230801preview:ReplicationLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20230501preview:ReplicationLink"), pulumi.Alias(type_="azure-native:sql/v20230801preview:ReplicationLink"), pulumi.Alias(type_="azure-native:sql/v20240501preview:ReplicationLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationLink, __self__).__init__(
             'azure-native:sql:ReplicationLink',

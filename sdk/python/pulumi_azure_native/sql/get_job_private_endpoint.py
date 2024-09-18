@@ -106,7 +106,7 @@ def get_job_private_endpoint(job_agent_name: Optional[str] = None,
     Gets a private endpoint.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-08-01-preview.
+    Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
 
 
     :param str job_agent_name: The name of the job agent.
@@ -140,7 +140,7 @@ def get_job_private_endpoint_output(job_agent_name: Optional[pulumi.Input[str]] 
     Gets a private endpoint.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-08-01-preview.
+    Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
 
 
     :param str job_agent_name: The name of the job agent.

@@ -109,7 +109,7 @@ export class WebPubSubCustomCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230201:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240101preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240301:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240401preview:WebPubSubCustomCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230201:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240101preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240301:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240401preview:WebPubSubCustomCertificate" }, { type: "azure-native:webpubsub/v20240801preview:WebPubSubCustomCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubCustomCertificate.__pulumiType, name, resourceInputs, opts);
     }

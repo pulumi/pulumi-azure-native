@@ -355,6 +355,8 @@ if typing.TYPE_CHECKING:
     powerplatform = __powerplatform
     import pulumi_azure_native.professionalservice as __professionalservice
     professionalservice = __professionalservice
+    import pulumi_azure_native.programmableconnectivity as __programmableconnectivity
+    programmableconnectivity = __programmableconnectivity
     import pulumi_azure_native.providerhub as __providerhub
     providerhub = __providerhub
     import pulumi_azure_native.purview as __purview
@@ -643,6 +645,7 @@ else:
     powerbidedicated = _utilities.lazy_import('pulumi_azure_native.powerbidedicated')
     powerplatform = _utilities.lazy_import('pulumi_azure_native.powerplatform')
     professionalservice = _utilities.lazy_import('pulumi_azure_native.professionalservice')
+    programmableconnectivity = _utilities.lazy_import('pulumi_azure_native.programmableconnectivity')
     providerhub = _utilities.lazy_import('pulumi_azure_native.providerhub')
     purview = _utilities.lazy_import('pulumi_azure_native.purview')
     quantum = _utilities.lazy_import('pulumi_azure_native.quantum')
@@ -9729,6 +9732,25 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "hybridnetwork/v20240415",
+  "fqn": "pulumi_azure_native.hybridnetwork.v20240415",
+  "classes": {
+   "azure-native:hybridnetwork/v20240415:ArtifactManifest": "ArtifactManifest",
+   "azure-native:hybridnetwork/v20240415:ArtifactStore": "ArtifactStore",
+   "azure-native:hybridnetwork/v20240415:ConfigurationGroupSchema": "ConfigurationGroupSchema",
+   "azure-native:hybridnetwork/v20240415:ConfigurationGroupValue": "ConfigurationGroupValue",
+   "azure-native:hybridnetwork/v20240415:NetworkFunction": "NetworkFunction",
+   "azure-native:hybridnetwork/v20240415:NetworkFunctionDefinitionGroup": "NetworkFunctionDefinitionGroup",
+   "azure-native:hybridnetwork/v20240415:NetworkFunctionDefinitionVersion": "NetworkFunctionDefinitionVersion",
+   "azure-native:hybridnetwork/v20240415:NetworkServiceDesignGroup": "NetworkServiceDesignGroup",
+   "azure-native:hybridnetwork/v20240415:NetworkServiceDesignVersion": "NetworkServiceDesignVersion",
+   "azure-native:hybridnetwork/v20240415:Publisher": "Publisher",
+   "azure-native:hybridnetwork/v20240415:Site": "Site",
+   "azure-native:hybridnetwork/v20240415:SiteNetworkService": "SiteNetworkService"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "importexport",
   "fqn": "pulumi_azure_native.importexport",
   "classes": {
@@ -11863,6 +11885,15 @@ _utilities.register(
    "azure-native:maps/v20240101preview:Account": "Account",
    "azure-native:maps/v20240101preview:Creator": "Creator",
    "azure-native:maps/v20240101preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "maps/v20240701preview",
+  "fqn": "pulumi_azure_native.maps.v20240701preview",
+  "classes": {
+   "azure-native:maps/v20240701preview:Account": "Account",
+   "azure-native:maps/v20240701preview:Creator": "Creator"
   }
  },
  {
@@ -14641,6 +14672,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "programmableconnectivity",
+  "fqn": "pulumi_azure_native.programmableconnectivity",
+  "classes": {
+   "azure-native:programmableconnectivity:Gateway": "Gateway",
+   "azure-native:programmableconnectivity:OperatorApiConnection": "OperatorApiConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "programmableconnectivity/v20240115preview",
+  "fqn": "pulumi_azure_native.programmableconnectivity.v20240115preview",
+  "classes": {
+   "azure-native:programmableconnectivity/v20240115preview:Gateway": "Gateway",
+   "azure-native:programmableconnectivity/v20240115preview:OperatorApiConnection": "OperatorApiConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "providerhub",
   "fqn": "pulumi_azure_native.providerhub",
   "classes": {
@@ -15126,6 +15175,20 @@ _utilities.register(
    "azure-native:relay/v20211101:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:relay/v20211101:WCFRelay": "WCFRelay",
    "azure-native:relay/v20211101:WCFRelayAuthorizationRule": "WCFRelayAuthorizationRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "relay/v20240101",
+  "fqn": "pulumi_azure_native.relay.v20240101",
+  "classes": {
+   "azure-native:relay/v20240101:HybridConnection": "HybridConnection",
+   "azure-native:relay/v20240101:HybridConnectionAuthorizationRule": "HybridConnectionAuthorizationRule",
+   "azure-native:relay/v20240101:Namespace": "Namespace",
+   "azure-native:relay/v20240101:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:relay/v20240101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:relay/v20240101:WCFRelay": "WCFRelay",
+   "azure-native:relay/v20240101:WCFRelayAuthorizationRule": "WCFRelayAuthorizationRule"
   }
  },
  {
@@ -17074,6 +17137,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "signalrservice/v20240801preview",
+  "fqn": "pulumi_azure_native.signalrservice.v20240801preview",
+  "classes": {
+   "azure-native:signalrservice/v20240801preview:SignalR": "SignalR",
+   "azure-native:signalrservice/v20240801preview:SignalRCustomCertificate": "SignalRCustomCertificate",
+   "azure-native:signalrservice/v20240801preview:SignalRCustomDomain": "SignalRCustomDomain",
+   "azure-native:signalrservice/v20240801preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
+   "azure-native:signalrservice/v20240801preview:SignalRReplica": "SignalRReplica",
+   "azure-native:signalrservice/v20240801preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "softwareplan",
   "fqn": "pulumi_azure_native.softwareplan",
   "classes": {
@@ -17610,6 +17686,77 @@ _utilities.register(
    "azure-native:sql/v20230801preview:VirtualNetworkRule": "VirtualNetworkRule",
    "azure-native:sql/v20230801preview:WorkloadClassifier": "WorkloadClassifier",
    "azure-native:sql/v20230801preview:WorkloadGroup": "WorkloadGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "sql/v20240501preview",
+  "fqn": "pulumi_azure_native.sql.v20240501preview",
+  "classes": {
+   "azure-native:sql/v20240501preview:BackupShortTermRetentionPolicy": "BackupShortTermRetentionPolicy",
+   "azure-native:sql/v20240501preview:DataMaskingPolicy": "DataMaskingPolicy",
+   "azure-native:sql/v20240501preview:Database": "Database",
+   "azure-native:sql/v20240501preview:DatabaseAdvisor": "DatabaseAdvisor",
+   "azure-native:sql/v20240501preview:DatabaseBlobAuditingPolicy": "DatabaseBlobAuditingPolicy",
+   "azure-native:sql/v20240501preview:DatabaseSecurityAlertPolicy": "DatabaseSecurityAlertPolicy",
+   "azure-native:sql/v20240501preview:DatabaseSqlVulnerabilityAssessmentRuleBaseline": "DatabaseSqlVulnerabilityAssessmentRuleBaseline",
+   "azure-native:sql/v20240501preview:DatabaseVulnerabilityAssessment": "DatabaseVulnerabilityAssessment",
+   "azure-native:sql/v20240501preview:DatabaseVulnerabilityAssessmentRuleBaseline": "DatabaseVulnerabilityAssessmentRuleBaseline",
+   "azure-native:sql/v20240501preview:DistributedAvailabilityGroup": "DistributedAvailabilityGroup",
+   "azure-native:sql/v20240501preview:ElasticPool": "ElasticPool",
+   "azure-native:sql/v20240501preview:EncryptionProtector": "EncryptionProtector",
+   "azure-native:sql/v20240501preview:ExtendedDatabaseBlobAuditingPolicy": "ExtendedDatabaseBlobAuditingPolicy",
+   "azure-native:sql/v20240501preview:ExtendedServerBlobAuditingPolicy": "ExtendedServerBlobAuditingPolicy",
+   "azure-native:sql/v20240501preview:FailoverGroup": "FailoverGroup",
+   "azure-native:sql/v20240501preview:FirewallRule": "FirewallRule",
+   "azure-native:sql/v20240501preview:GeoBackupPolicy": "GeoBackupPolicy",
+   "azure-native:sql/v20240501preview:IPv6FirewallRule": "IPv6FirewallRule",
+   "azure-native:sql/v20240501preview:InstanceFailoverGroup": "InstanceFailoverGroup",
+   "azure-native:sql/v20240501preview:InstancePool": "InstancePool",
+   "azure-native:sql/v20240501preview:Job": "Job",
+   "azure-native:sql/v20240501preview:JobAgent": "JobAgent",
+   "azure-native:sql/v20240501preview:JobCredential": "JobCredential",
+   "azure-native:sql/v20240501preview:JobPrivateEndpoint": "JobPrivateEndpoint",
+   "azure-native:sql/v20240501preview:JobStep": "JobStep",
+   "azure-native:sql/v20240501preview:JobTargetGroup": "JobTargetGroup",
+   "azure-native:sql/v20240501preview:LongTermRetentionPolicy": "LongTermRetentionPolicy",
+   "azure-native:sql/v20240501preview:ManagedDatabase": "ManagedDatabase",
+   "azure-native:sql/v20240501preview:ManagedDatabaseSensitivityLabel": "ManagedDatabaseSensitivityLabel",
+   "azure-native:sql/v20240501preview:ManagedDatabaseVulnerabilityAssessment": "ManagedDatabaseVulnerabilityAssessment",
+   "azure-native:sql/v20240501preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline": "ManagedDatabaseVulnerabilityAssessmentRuleBaseline",
+   "azure-native:sql/v20240501preview:ManagedInstance": "ManagedInstance",
+   "azure-native:sql/v20240501preview:ManagedInstanceAdministrator": "ManagedInstanceAdministrator",
+   "azure-native:sql/v20240501preview:ManagedInstanceAzureADOnlyAuthentication": "ManagedInstanceAzureADOnlyAuthentication",
+   "azure-native:sql/v20240501preview:ManagedInstanceKey": "ManagedInstanceKey",
+   "azure-native:sql/v20240501preview:ManagedInstanceLongTermRetentionPolicy": "ManagedInstanceLongTermRetentionPolicy",
+   "azure-native:sql/v20240501preview:ManagedInstancePrivateEndpointConnection": "ManagedInstancePrivateEndpointConnection",
+   "azure-native:sql/v20240501preview:ManagedInstanceVulnerabilityAssessment": "ManagedInstanceVulnerabilityAssessment",
+   "azure-native:sql/v20240501preview:ManagedServerDnsAlias": "ManagedServerDnsAlias",
+   "azure-native:sql/v20240501preview:OutboundFirewallRule": "OutboundFirewallRule",
+   "azure-native:sql/v20240501preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:sql/v20240501preview:ReplicationLink": "ReplicationLink",
+   "azure-native:sql/v20240501preview:SensitivityLabel": "SensitivityLabel",
+   "azure-native:sql/v20240501preview:Server": "Server",
+   "azure-native:sql/v20240501preview:ServerAdvisor": "ServerAdvisor",
+   "azure-native:sql/v20240501preview:ServerAzureADAdministrator": "ServerAzureADAdministrator",
+   "azure-native:sql/v20240501preview:ServerAzureADOnlyAuthentication": "ServerAzureADOnlyAuthentication",
+   "azure-native:sql/v20240501preview:ServerBlobAuditingPolicy": "ServerBlobAuditingPolicy",
+   "azure-native:sql/v20240501preview:ServerDnsAlias": "ServerDnsAlias",
+   "azure-native:sql/v20240501preview:ServerKey": "ServerKey",
+   "azure-native:sql/v20240501preview:ServerSecurityAlertPolicy": "ServerSecurityAlertPolicy",
+   "azure-native:sql/v20240501preview:ServerTrustCertificate": "ServerTrustCertificate",
+   "azure-native:sql/v20240501preview:ServerTrustGroup": "ServerTrustGroup",
+   "azure-native:sql/v20240501preview:ServerVulnerabilityAssessment": "ServerVulnerabilityAssessment",
+   "azure-native:sql/v20240501preview:SqlVulnerabilityAssessmentRuleBaseline": "SqlVulnerabilityAssessmentRuleBaseline",
+   "azure-native:sql/v20240501preview:SqlVulnerabilityAssessmentsSetting": "SqlVulnerabilityAssessmentsSetting",
+   "azure-native:sql/v20240501preview:StartStopManagedInstanceSchedule": "StartStopManagedInstanceSchedule",
+   "azure-native:sql/v20240501preview:SyncAgent": "SyncAgent",
+   "azure-native:sql/v20240501preview:SyncGroup": "SyncGroup",
+   "azure-native:sql/v20240501preview:SyncMember": "SyncMember",
+   "azure-native:sql/v20240501preview:TransparentDataEncryption": "TransparentDataEncryption",
+   "azure-native:sql/v20240501preview:VirtualNetworkRule": "VirtualNetworkRule",
+   "azure-native:sql/v20240501preview:WorkloadClassifier": "WorkloadClassifier",
+   "azure-native:sql/v20240501preview:WorkloadGroup": "WorkloadGroup"
   }
  },
  {
@@ -19233,6 +19380,20 @@ _utilities.register(
    "azure-native:webpubsub/v20240401preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
    "azure-native:webpubsub/v20240401preview:WebPubSubReplica": "WebPubSubReplica",
    "azure-native:webpubsub/v20240401preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "webpubsub/v20240801preview",
+  "fqn": "pulumi_azure_native.webpubsub.v20240801preview",
+  "classes": {
+   "azure-native:webpubsub/v20240801preview:WebPubSub": "WebPubSub",
+   "azure-native:webpubsub/v20240801preview:WebPubSubCustomCertificate": "WebPubSubCustomCertificate",
+   "azure-native:webpubsub/v20240801preview:WebPubSubCustomDomain": "WebPubSubCustomDomain",
+   "azure-native:webpubsub/v20240801preview:WebPubSubHub": "WebPubSubHub",
+   "azure-native:webpubsub/v20240801preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
+   "azure-native:webpubsub/v20240801preview:WebPubSubReplica": "WebPubSubReplica",
+   "azure-native:webpubsub/v20240801preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
   }
  },
  {

@@ -90,6 +90,26 @@ export const getSapLandscapeMonitor: typeof import("./getSapLandscapeMonitor").g
 export const getSapLandscapeMonitorOutput: typeof import("./getSapLandscapeMonitor").getSapLandscapeMonitorOutput = null as any;
 utilities.lazyLoad(exports, ["getSapLandscapeMonitor","getSapLandscapeMonitorOutput"], () => require("./getSapLandscapeMonitor"));
 
+export { GetSapVirtualInstanceInvokeAvailabilityZoneDetailsArgs, GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult, GetSapVirtualInstanceInvokeAvailabilityZoneDetailsOutputArgs } from "./getSapVirtualInstanceInvokeAvailabilityZoneDetails";
+export const getSapVirtualInstanceInvokeAvailabilityZoneDetails: typeof import("./getSapVirtualInstanceInvokeAvailabilityZoneDetails").getSapVirtualInstanceInvokeAvailabilityZoneDetails = null as any;
+export const getSapVirtualInstanceInvokeAvailabilityZoneDetailsOutput: typeof import("./getSapVirtualInstanceInvokeAvailabilityZoneDetails").getSapVirtualInstanceInvokeAvailabilityZoneDetailsOutput = null as any;
+utilities.lazyLoad(exports, ["getSapVirtualInstanceInvokeAvailabilityZoneDetails","getSapVirtualInstanceInvokeAvailabilityZoneDetailsOutput"], () => require("./getSapVirtualInstanceInvokeAvailabilityZoneDetails"));
+
+export { GetSapVirtualInstanceInvokeDiskConfigurationsArgs, GetSapVirtualInstanceInvokeDiskConfigurationsResult, GetSapVirtualInstanceInvokeDiskConfigurationsOutputArgs } from "./getSapVirtualInstanceInvokeDiskConfigurations";
+export const getSapVirtualInstanceInvokeDiskConfigurations: typeof import("./getSapVirtualInstanceInvokeDiskConfigurations").getSapVirtualInstanceInvokeDiskConfigurations = null as any;
+export const getSapVirtualInstanceInvokeDiskConfigurationsOutput: typeof import("./getSapVirtualInstanceInvokeDiskConfigurations").getSapVirtualInstanceInvokeDiskConfigurationsOutput = null as any;
+utilities.lazyLoad(exports, ["getSapVirtualInstanceInvokeDiskConfigurations","getSapVirtualInstanceInvokeDiskConfigurationsOutput"], () => require("./getSapVirtualInstanceInvokeDiskConfigurations"));
+
+export { GetSapVirtualInstanceInvokeSapSupportedSkuArgs, GetSapVirtualInstanceInvokeSapSupportedSkuResult, GetSapVirtualInstanceInvokeSapSupportedSkuOutputArgs } from "./getSapVirtualInstanceInvokeSapSupportedSku";
+export const getSapVirtualInstanceInvokeSapSupportedSku: typeof import("./getSapVirtualInstanceInvokeSapSupportedSku").getSapVirtualInstanceInvokeSapSupportedSku = null as any;
+export const getSapVirtualInstanceInvokeSapSupportedSkuOutput: typeof import("./getSapVirtualInstanceInvokeSapSupportedSku").getSapVirtualInstanceInvokeSapSupportedSkuOutput = null as any;
+utilities.lazyLoad(exports, ["getSapVirtualInstanceInvokeSapSupportedSku","getSapVirtualInstanceInvokeSapSupportedSkuOutput"], () => require("./getSapVirtualInstanceInvokeSapSupportedSku"));
+
+export { GetSapVirtualInstanceInvokeSizingRecommendationsArgs, GetSapVirtualInstanceInvokeSizingRecommendationsResult, GetSapVirtualInstanceInvokeSizingRecommendationsOutputArgs } from "./getSapVirtualInstanceInvokeSizingRecommendations";
+export const getSapVirtualInstanceInvokeSizingRecommendations: typeof import("./getSapVirtualInstanceInvokeSizingRecommendations").getSapVirtualInstanceInvokeSizingRecommendations = null as any;
+export const getSapVirtualInstanceInvokeSizingRecommendationsOutput: typeof import("./getSapVirtualInstanceInvokeSizingRecommendations").getSapVirtualInstanceInvokeSizingRecommendationsOutput = null as any;
+utilities.lazyLoad(exports, ["getSapVirtualInstanceInvokeSizingRecommendations","getSapVirtualInstanceInvokeSizingRecommendationsOutput"], () => require("./getSapVirtualInstanceInvokeSizingRecommendations"));
+
 export { GetServerInstanceArgs, GetServerInstanceResult, GetServerInstanceOutputArgs } from "./getServerInstance";
 export const getServerInstance: typeof import("./getServerInstance").getServerInstance = null as any;
 export const getServerInstanceOutput: typeof import("./getServerInstance").getServerInstanceOutput = null as any;

@@ -5369,6 +5369,104 @@
     "Property": "scope"
   },
   {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "ArtifactManifest",
+    "ReferenceName": "ManifestArtifactFormat",
+    "Property": "artifactName"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "ArtifactManifest",
+    "ReferenceName": "ArtifactType",
+    "Property": "artifactType"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "ArtifactManifest",
+    "ReferenceName": "ManifestArtifactFormat",
+    "Property": "artifactVersion"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "ArtifactStore",
+    "ReferenceName": "backingResourcePublicNetworkAccess",
+    "Property": "backingResourcePublicNetworkAccess"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "ArtifactStore",
+    "ReferenceName": "ArtifactStorePropertiesFormat",
+    "Property": "location"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "ArtifactStore",
+    "ReferenceName": "ArtifactStorePropertiesFormat",
+    "Property": "name"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "ArtifactStore",
+    "ReferenceName": "ArtifactStorePropertiesFormat",
+    "Property": "storeType"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "NetworkFunctionDefinitionVersion",
+    "ReferenceName": "HelmMappingRuleProfile",
+    "Property": "values"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "NetworkFunctionDefinitionVersion",
+    "ReferenceName": "ContainerizedNetworkFunctionTemplate",
+    "Property": "nfviType"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "NetworkFunctionDefinitionVersion",
+    "ReferenceName": "NetworkFunctionType",
+    "Property": "networkFunctionType"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "NetworkFunctionDefinitionVersion",
+    "ReferenceName": "VirtualNetworkFunctionTemplate",
+    "Property": "nfviType"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "NetworkFunctionDefinitionVersion",
+    "ReferenceName": "VirtualNetworkFunctionTemplate",
+    "Property": "nfviType"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "NetworkFunctionDefinitionVersion",
+    "ReferenceName": "NetworkFunctionType",
+    "Property": "networkFunctionType"
+  },
+  {
+    "Module": "hybridnetwork/v20240415",
+    "Provider": "HybridNetwork",
+    "ResourceName": "Publisher",
+    "ReferenceName": "PublisherScope",
+    "Property": "scope"
+  },
+  {
     "Module": "iotoperations",
     "Provider": "IoTOperations",
     "ResourceName": "Broker",

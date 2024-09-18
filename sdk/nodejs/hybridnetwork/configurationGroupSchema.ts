@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Configuration group schema resource.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export class ConfigurationGroupSchema extends pulumi.CustomResource {
     /**
@@ -98,7 +100,7 @@ export class ConfigurationGroupSchema extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:ConfigurationGroupSchema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:ConfigurationGroupSchema" }, { type: "azure-native:hybridnetwork/v20240415:ConfigurationGroupSchema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationGroupSchema.__pulumiType, name, resourceInputs, opts);
     }

@@ -141,6 +141,8 @@ def get_publisher(publisher_name: Optional[str] = None,
     Gets information about the specified publisher.
     Azure REST API version: 2023-09-01.
 
+    Other available API versions: 2024-04-15.
+
 
     :param str publisher_name: The name of the publisher.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -169,6 +171,8 @@ def get_publisher_output(publisher_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified publisher.
     Azure REST API version: 2023-09-01.
+
+    Other available API versions: 2024-04-15.
 
 
     :param str publisher_name: The name of the publisher.

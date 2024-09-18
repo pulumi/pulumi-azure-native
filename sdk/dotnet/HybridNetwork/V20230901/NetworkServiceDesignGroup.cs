@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20230901
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:NetworkServiceDesignGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20240415:NetworkServiceDesignGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

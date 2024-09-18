@@ -10,10 +10,10 @@ from .get_sap_application_server_instance import *
 from .get_sap_central_server_instance import *
 from .get_sap_database_instance import *
 from .get_sap_virtual_instance import *
-from .get_sap_virtual_instance_availability_zone_details import *
-from .get_sap_virtual_instance_disk_configurations import *
-from .get_sap_virtual_instance_sap_supported_sku import *
-from .get_sap_virtual_instance_sizing_recommendations import *
+from .get_sap_virtual_instance_invoke_availability_zone_details import *
+from .get_sap_virtual_instance_invoke_disk_configurations import *
+from .get_sap_virtual_instance_invoke_sap_supported_sku import *
+from .get_sap_virtual_instance_invoke_sizing_recommendations import *
 from .sap_application_server_instance import *
 from .sap_central_server_instance import *
 from .sap_database_instance import *

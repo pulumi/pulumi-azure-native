@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Relay
     /// <summary>
     /// Description of hybrid connection resource.
     /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
+    /// 
+    /// Other available API versions: 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:HybridConnection")]
     public partial class HybridConnection : global::Pulumi.CustomResource
@@ -98,6 +100,7 @@ namespace Pulumi.AzureNative.Relay
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:HybridConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:HybridConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:HybridConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:relay/v20240101:HybridConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -261,7 +261,7 @@ def get_network_function(network_function_name: Optional[str] = None,
     Gets information about the specified network function resource.
     Azure REST API version: 2022-01-01-preview.
 
-    Other available API versions: 2023-09-01.
+    Other available API versions: 2023-09-01, 2024-04-15.
 
 
     :param str network_function_name: The name of the network function resource.
@@ -302,7 +302,7 @@ def get_network_function_output(network_function_name: Optional[pulumi.Input[str
     Gets information about the specified network function resource.
     Azure REST API version: 2022-01-01-preview.
 
-    Other available API versions: 2023-09-01.
+    Other available API versions: 2023-09-01, 2024-04-15.
 
 
     :param str network_function_name: The name of the network function resource.

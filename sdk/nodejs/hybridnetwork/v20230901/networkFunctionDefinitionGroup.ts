@@ -97,7 +97,7 @@ export class NetworkFunctionDefinitionGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:NetworkFunctionDefinitionGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:NetworkFunctionDefinitionGroup" }, { type: "azure-native:hybridnetwork/v20240415:NetworkFunctionDefinitionGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkFunctionDefinitionGroup.__pulumiType, name, resourceInputs, opts);
     }

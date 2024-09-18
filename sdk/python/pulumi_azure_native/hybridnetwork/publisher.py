@@ -138,6 +138,8 @@ class Publisher(pulumi.CustomResource):
         publisher resource.
         Azure REST API version: 2023-09-01.
 
+        Other available API versions: 2024-04-15.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed identity of the publisher, if configured.
@@ -156,6 +158,8 @@ class Publisher(pulumi.CustomResource):
         """
         publisher resource.
         Azure REST API version: 2023-09-01.
+
+        Other available API versions: 2024-04-15.
 
         :param str resource_name: The name of the resource.
         :param PublisherArgs args: The arguments to use to populate this resource's properties.
@@ -198,7 +202,7 @@ class Publisher(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20230901:Publisher")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20230901:Publisher"), pulumi.Alias(type_="azure-native:hybridnetwork/v20240415:Publisher")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Publisher, __self__).__init__(
             'azure-native:hybridnetwork:Publisher',

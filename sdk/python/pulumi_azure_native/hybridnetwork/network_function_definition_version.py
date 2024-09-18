@@ -153,6 +153,8 @@ class NetworkFunctionDefinitionVersion(pulumi.CustomResource):
         Network function definition version.
         Azure REST API version: 2023-09-01.
 
+        Other available API versions: 2024-04-15.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -172,6 +174,8 @@ class NetworkFunctionDefinitionVersion(pulumi.CustomResource):
         """
         Network function definition version.
         Azure REST API version: 2023-09-01.
+
+        Other available API versions: 2024-04-15.
 
         :param str resource_name: The name of the resource.
         :param NetworkFunctionDefinitionVersionArgs args: The arguments to use to populate this resource's properties.
@@ -220,7 +224,7 @@ class NetworkFunctionDefinitionVersion(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20230901:NetworkFunctionDefinitionVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20230901:NetworkFunctionDefinitionVersion"), pulumi.Alias(type_="azure-native:hybridnetwork/v20240415:NetworkFunctionDefinitionVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkFunctionDefinitionVersion, __self__).__init__(
             'azure-native:hybridnetwork:NetworkFunctionDefinitionVersion',

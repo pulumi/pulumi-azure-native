@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// <summary>
     /// Artifact manifest properties.
     /// Azure REST API version: 2023-09-01.
+    /// 
+    /// Other available API versions: 2024-04-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:ArtifactManifest")]
     public partial class ArtifactManifest : global::Pulumi.CustomResource
@@ -78,6 +80,7 @@ namespace Pulumi.AzureNative.HybridNetwork
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20230901:ArtifactManifest" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20240415:ArtifactManifest" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

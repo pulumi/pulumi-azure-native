@@ -34,8 +34,11 @@ if typing.TYPE_CHECKING:
     v20180101preview = __v20180101preview
     import pulumi_azure_native.relay.v20211101 as __v20211101
     v20211101 = __v20211101
+    import pulumi_azure_native.relay.v20240101 as __v20240101
+    v20240101 = __v20240101
 else:
     v20170401 = _utilities.lazy_import('pulumi_azure_native.relay.v20170401')
     v20180101preview = _utilities.lazy_import('pulumi_azure_native.relay.v20180101preview')
     v20211101 = _utilities.lazy_import('pulumi_azure_native.relay.v20211101')
+    v20240101 = _utilities.lazy_import('pulumi_azure_native.relay.v20240101')
 

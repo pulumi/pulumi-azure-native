@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about a network function definition version.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export function getNetworkFunctionDefinitionVersion(args: GetNetworkFunctionDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFunctionDefinitionVersionResult> {
 
@@ -77,6 +79,8 @@ export interface GetNetworkFunctionDefinitionVersionResult {
 /**
  * Gets information about a network function definition version.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export function getNetworkFunctionDefinitionVersionOutput(args: GetNetworkFunctionDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFunctionDefinitionVersionResult> {
     return pulumi.output(args).apply((a: any) => getNetworkFunctionDefinitionVersion(a, opts))

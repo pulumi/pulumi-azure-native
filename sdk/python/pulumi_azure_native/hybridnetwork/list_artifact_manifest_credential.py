@@ -58,6 +58,8 @@ def list_artifact_manifest_credential(artifact_manifest_name: Optional[str] = No
     List credential for publishing artifacts defined in artifact manifest.
     Azure REST API version: 2023-09-01.
 
+    Other available API versions: 2024-04-15.
+
 
     :param str artifact_manifest_name: The name of the artifact manifest.
     :param str artifact_store_name: The name of the artifact store.
@@ -85,6 +87,8 @@ def list_artifact_manifest_credential_output(artifact_manifest_name: Optional[pu
     """
     List credential for publishing artifacts defined in artifact manifest.
     Azure REST API version: 2023-09-01.
+
+    Other available API versions: 2024-04-15.
 
 
     :param str artifact_manifest_name: The name of the artifact manifest.

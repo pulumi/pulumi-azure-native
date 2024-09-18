@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Single item in a List or Get AuthorizationRule operation
  * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
  *
- * Other available API versions: 2017-04-01.
+ * Other available API versions: 2017-04-01, 2024-01-01.
  */
 export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:relay/v20160701:HybridConnectionAuthorizationRule" }, { type: "azure-native:relay/v20170401:HybridConnectionAuthorizationRule" }, { type: "azure-native:relay/v20211101:HybridConnectionAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:relay/v20160701:HybridConnectionAuthorizationRule" }, { type: "azure-native:relay/v20170401:HybridConnectionAuthorizationRule" }, { type: "azure-native:relay/v20211101:HybridConnectionAuthorizationRule" }, { type: "azure-native:relay/v20240101:HybridConnectionAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridConnectionAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }

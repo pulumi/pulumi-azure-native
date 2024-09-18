@@ -102,7 +102,7 @@ class WebPubSubHub(pulumi.CustomResource):
         A hub setting
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-10-01.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +121,7 @@ class WebPubSubHub(pulumi.CustomResource):
         A hub setting
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-10-01.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WebPubSubHubArgs args: The arguments to use to populate this resource's properties.
@@ -164,7 +164,7 @@ class WebPubSubHub(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20230201:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20230601preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20230801preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20240101preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20240301:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20240401preview:WebPubSubHub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20230201:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20230601preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20230801preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20240101preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20240301:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20240401preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20240801preview:WebPubSubHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebPubSubHub, __self__).__init__(
             'azure-native:webpubsub:WebPubSubHub',

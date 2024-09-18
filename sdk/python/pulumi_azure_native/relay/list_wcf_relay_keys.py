@@ -106,6 +106,8 @@ def list_wcf_relay_keys(authorization_rule_name: Optional[str] = None,
     Primary and secondary connection strings to the WCF relay.
     Azure REST API version: 2021-11-01.
 
+    Other available API versions: 2024-01-01.
+
 
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name
@@ -137,6 +139,8 @@ def list_wcf_relay_keys_output(authorization_rule_name: Optional[pulumi.Input[st
     """
     Primary and secondary connection strings to the WCF relay.
     Azure REST API version: 2021-11-01.
+
+    Other available API versions: 2024-01-01.
 
 
     :param str authorization_rule_name: The authorization rule name.

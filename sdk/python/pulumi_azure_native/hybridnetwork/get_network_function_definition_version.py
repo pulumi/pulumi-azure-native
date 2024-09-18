@@ -131,6 +131,8 @@ def get_network_function_definition_version(network_function_definition_group_na
     Gets information about a network function definition version.
     Azure REST API version: 2023-09-01.
 
+    Other available API versions: 2024-04-15.
+
 
     :param str network_function_definition_group_name: The name of the network function definition group.
     :param str network_function_definition_version_name: The name of the network function definition version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
@@ -164,6 +166,8 @@ def get_network_function_definition_version_output(network_function_definition_g
     """
     Gets information about a network function definition version.
     Azure REST API version: 2023-09-01.
+
+    Other available API versions: 2024-04-15.
 
 
     :param str network_function_definition_group_name: The name of the network function definition group.

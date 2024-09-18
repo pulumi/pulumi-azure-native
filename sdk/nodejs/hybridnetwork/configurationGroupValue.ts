@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Hybrid configuration group value resource.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export class ConfigurationGroupValue extends pulumi.CustomResource {
     /**
@@ -94,7 +96,7 @@ export class ConfigurationGroupValue extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:ConfigurationGroupValue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:ConfigurationGroupValue" }, { type: "azure-native:hybridnetwork/v20240415:ConfigurationGroupValue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationGroupValue.__pulumiType, name, resourceInputs, opts);
     }

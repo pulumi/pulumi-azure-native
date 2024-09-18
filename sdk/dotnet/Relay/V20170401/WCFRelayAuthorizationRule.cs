@@ -61,6 +61,7 @@ namespace Pulumi.AzureNative.Relay.V20170401
                     new global::Pulumi.Alias { Type = "azure-native:relay:WCFRelayAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:WCFRelayAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:WCFRelayAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:relay/v20240101:WCFRelayAuthorizationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

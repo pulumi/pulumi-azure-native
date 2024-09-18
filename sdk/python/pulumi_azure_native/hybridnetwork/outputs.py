@@ -22,6 +22,8 @@ __all__ = [
     'ArmTemplateArtifactProfileResponse',
     'ArmTemplateMappingRuleProfileResponse',
     'ArtifactManifestPropertiesFormatResponse',
+    'ArtifactStoreNetworkFabricControllerEndPointsResponse',
+    'ArtifactStorePrivateEndPointsFormatResponse',
     'ArtifactStorePropertiesFormatResponse',
     'ArtifactStorePropertiesFormatResponseManagedResourceGroupConfiguration',
     'AzureArcK8sClusterNFVIDetailsResponse',
@@ -399,6 +401,52 @@ class ArtifactManifestPropertiesFormatResponse(dict):
         The artifacts list.
         """
         return pulumi.get(self, "artifacts")
+
+
+@pulumi.output_type
+class ArtifactStoreNetworkFabricControllerEndPointsResponse(dict):
+    """
+    List of network fabric controller ids.
+    """
+    def __init__(__self__, *,
+                 network_fabric_controller_ids: Optional[Sequence['outputs.ReferencedResourceResponse']] = None):
+        """
+        List of network fabric controller ids.
+        :param Sequence['ReferencedResourceResponse'] network_fabric_controller_ids: list of network fabric controllers.
+        """
+        if network_fabric_controller_ids is not None:
+            pulumi.set(__self__, "network_fabric_controller_ids", network_fabric_controller_ids)
+
+    @property
+    @pulumi.getter(name="networkFabricControllerIds")
+    def network_fabric_controller_ids(self) -> Optional[Sequence['outputs.ReferencedResourceResponse']]:
+        """
+        list of network fabric controllers.
+        """
+        return pulumi.get(self, "network_fabric_controller_ids")
+
+
+@pulumi.output_type
+class ArtifactStorePrivateEndPointsFormatResponse(dict):
+    """
+    List of manual private endpoints.
+    """
+    def __init__(__self__, *,
+                 manual_private_end_point_connections: Optional[Sequence['outputs.ReferencedResourceResponse']] = None):
+        """
+        List of manual private endpoints.
+        :param Sequence['ReferencedResourceResponse'] manual_private_end_point_connections: list of private endpoints.
+        """
+        if manual_private_end_point_connections is not None:
+            pulumi.set(__self__, "manual_private_end_point_connections", manual_private_end_point_connections)
+
+    @property
+    @pulumi.getter(name="manualPrivateEndPointConnections")
+    def manual_private_end_point_connections(self) -> Optional[Sequence['outputs.ReferencedResourceResponse']]:
+        """
+        list of private endpoints.
+        """
+        return pulumi.get(self, "manual_private_end_point_connections")
 
 
 @pulumi.output_type

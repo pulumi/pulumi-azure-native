@@ -520,6 +520,9 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// ScaleUp Hana Database deployment type
+        /// </summary>
         public static SAPDatabaseScaleMethod ScaleUp { get; } = new SAPDatabaseScaleMethod("ScaleUp");
 
         public static bool operator ==(SAPDatabaseScaleMethod left, SAPDatabaseScaleMethod right) => left.Equals(right);
@@ -538,7 +541,7 @@ namespace Pulumi.AzureNative.Workloads
     }
 
     /// <summary>
-    /// The database type. Eg: HANA, DB2, etc
+    /// The database type.
     /// </summary>
     [EnumType]
     public readonly struct SAPDatabaseType : IEquatable<SAPDatabaseType>
@@ -550,7 +553,13 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// HANA Database type of SAP system.
+        /// </summary>
         public static SAPDatabaseType HANA { get; } = new SAPDatabaseType("HANA");
+        /// <summary>
+        /// DB2 database type of the SAP system.
+        /// </summary>
         public static SAPDatabaseType DB2 { get; } = new SAPDatabaseType("DB2");
 
         public static bool operator ==(SAPDatabaseType left, SAPDatabaseType right) => left.Equals(right);
@@ -581,7 +590,13 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SAP Single server deployment type.
+        /// </summary>
         public static SAPDeploymentType SingleServer { get; } = new SAPDeploymentType("SingleServer");
+        /// <summary>
+        /// SAP Distributed deployment type.
+        /// </summary>
         public static SAPDeploymentType ThreeTier { get; } = new SAPDeploymentType("ThreeTier");
 
         public static bool operator ==(SAPDeploymentType left, SAPDeploymentType right) => left.Equals(right);
@@ -612,7 +627,13 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Non Production SAP system.
+        /// </summary>
         public static SAPEnvironmentType NonProd { get; } = new SAPEnvironmentType("NonProd");
+        /// <summary>
+        /// Production SAP system.
+        /// </summary>
         public static SAPEnvironmentType Prod { get; } = new SAPEnvironmentType("Prod");
 
         public static bool operator ==(SAPEnvironmentType left, SAPEnvironmentType right) => left.Equals(right);
@@ -643,7 +664,13 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// HA deployment with availability sets.
+        /// </summary>
         public static SAPHighAvailabilityType AvailabilitySet { get; } = new SAPHighAvailabilityType("AvailabilitySet");
+        /// <summary>
+        /// HA deployment with availability zones.
+        /// </summary>
         public static SAPHighAvailabilityType AvailabilityZone { get; } = new SAPHighAvailabilityType("AvailabilityZone");
 
         public static bool operator ==(SAPHighAvailabilityType left, SAPHighAvailabilityType right) => left.Equals(right);
@@ -674,8 +701,17 @@ namespace Pulumi.AzureNative.Workloads
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// SAP Product ECC.
+        /// </summary>
         public static SAPProductType ECC { get; } = new SAPProductType("ECC");
+        /// <summary>
+        /// SAP Product S4HANA.
+        /// </summary>
         public static SAPProductType S4HANA { get; } = new SAPProductType("S4HANA");
+        /// <summary>
+        /// SAP Products other than the ones listed.
+        /// </summary>
         public static SAPProductType Other { get; } = new SAPProductType("Other");
 
         public static bool operator ==(SAPProductType left, SAPProductType right) => left.Equals(right);

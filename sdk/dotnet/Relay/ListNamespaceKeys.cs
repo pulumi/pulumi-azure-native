@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Primary and secondary connection strings to the namespace.
         /// Azure REST API version: 2021-11-01.
+        /// 
+        /// Other available API versions: 2024-01-01.
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:relay:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// Primary and secondary connection strings to the namespace.
         /// Azure REST API version: 2021-11-01.
+        /// 
+        /// Other available API versions: 2024-01-01.
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:relay:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());

@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:WorkloadGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:WorkloadGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:WorkloadGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:WorkloadGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

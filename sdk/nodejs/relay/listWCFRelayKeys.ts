@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Primary and secondary connection strings to the WCF relay.
  * Azure REST API version: 2021-11-01.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export function listWCFRelayKeys(args: ListWCFRelayKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWCFRelayKeysResult> {
 
@@ -66,6 +68,8 @@ export interface ListWCFRelayKeysResult {
 /**
  * Primary and secondary connection strings to the WCF relay.
  * Azure REST API version: 2021-11-01.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export function listWCFRelayKeysOutput(args: ListWCFRelayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWCFRelayKeysResult> {
     return pulumi.output(args).apply((a: any) => listWCFRelayKeys(a, opts))

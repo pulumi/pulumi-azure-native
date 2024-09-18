@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * List credential for publishing artifacts defined in artifact manifest.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export function listArtifactManifestCredential(args: ListArtifactManifestCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListArtifactManifestCredentialResult> {
 
@@ -50,6 +52,8 @@ export interface ListArtifactManifestCredentialResult {
 /**
  * List credential for publishing artifacts defined in artifact manifest.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export function listArtifactManifestCredentialOutput(args: ListArtifactManifestCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListArtifactManifestCredentialResult> {
     return pulumi.output(args).apply((a: any) => listArtifactManifestCredential(a, opts))

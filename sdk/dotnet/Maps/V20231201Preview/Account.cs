@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.Maps.V20231201Preview
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20230601:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20230801preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20240101preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20240701preview:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

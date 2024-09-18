@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about the specified artifact store.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export function getArtifactStore(args: GetArtifactStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactStoreResult> {
 
@@ -72,6 +74,8 @@ export interface GetArtifactStoreResult {
 /**
  * Gets information about the specified artifact store.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export function getArtifactStoreOutput(args: GetArtifactStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactStoreResult> {
     return pulumi.output(args).apply((a: any) => getArtifactStore(a, opts))

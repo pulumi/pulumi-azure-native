@@ -204,6 +204,9 @@ export const SAPConfigurationType = {
 export type SAPConfigurationType = (typeof SAPConfigurationType)[keyof typeof SAPConfigurationType];
 
 export const SAPDatabaseScaleMethod = {
+    /**
+     * ScaleUp Hana Database deployment type
+     */
     ScaleUp: "ScaleUp",
 } as const;
 
@@ -213,17 +216,29 @@ export const SAPDatabaseScaleMethod = {
 export type SAPDatabaseScaleMethod = (typeof SAPDatabaseScaleMethod)[keyof typeof SAPDatabaseScaleMethod];
 
 export const SAPDatabaseType = {
+    /**
+     * HANA Database type of SAP system.
+     */
     HANA: "HANA",
+    /**
+     * DB2 database type of the SAP system.
+     */
     DB2: "DB2",
 } as const;
 
 /**
- * The database type. Eg: HANA, DB2, etc
+ * The database type.
  */
 export type SAPDatabaseType = (typeof SAPDatabaseType)[keyof typeof SAPDatabaseType];
 
 export const SAPDeploymentType = {
+    /**
+     * SAP Single server deployment type.
+     */
     SingleServer: "SingleServer",
+    /**
+     * SAP Distributed deployment type.
+     */
     ThreeTier: "ThreeTier",
 } as const;
 
@@ -233,7 +248,13 @@ export const SAPDeploymentType = {
 export type SAPDeploymentType = (typeof SAPDeploymentType)[keyof typeof SAPDeploymentType];
 
 export const SAPEnvironmentType = {
+    /**
+     * Non Production SAP system.
+     */
     NonProd: "NonProd",
+    /**
+     * Production SAP system.
+     */
     Prod: "Prod",
 } as const;
 
@@ -243,7 +264,13 @@ export const SAPEnvironmentType = {
 export type SAPEnvironmentType = (typeof SAPEnvironmentType)[keyof typeof SAPEnvironmentType];
 
 export const SAPHighAvailabilityType = {
+    /**
+     * HA deployment with availability sets.
+     */
     AvailabilitySet: "AvailabilitySet",
+    /**
+     * HA deployment with availability zones.
+     */
     AvailabilityZone: "AvailabilityZone",
 } as const;
 
@@ -253,8 +280,17 @@ export const SAPHighAvailabilityType = {
 export type SAPHighAvailabilityType = (typeof SAPHighAvailabilityType)[keyof typeof SAPHighAvailabilityType];
 
 export const SAPProductType = {
+    /**
+     * SAP Product ECC.
+     */
     ECC: "ECC",
+    /**
+     * SAP Product S4HANA.
+     */
     S4HANA: "S4HANA",
+    /**
+     * SAP Products other than the ones listed.
+     */
     Other: "Other",
 } as const;
 

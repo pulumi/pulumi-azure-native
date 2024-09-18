@@ -155,6 +155,7 @@ import * as portal from "./portal";
 import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
+import * as programmableconnectivity from "./programmableconnectivity";
 import * as providerhub from "./providerhub";
 import * as purview from "./purview";
 import * as quantum from "./quantum";
@@ -361,6 +362,7 @@ export {
     powerbi,
     powerbidedicated,
     powerplatform,
+    programmableconnectivity,
     providerhub,
     purview,
     quantum,

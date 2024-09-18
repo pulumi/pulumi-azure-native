@@ -23,6 +23,10 @@ from .get_sap_landscape_monitor import *
 from .get_sap_sizing_recommendations import *
 from .get_sap_supported_sku import *
 from .get_sap_virtual_instance import *
+from .get_sap_virtual_instance_invoke_availability_zone_details import *
+from .get_sap_virtual_instance_invoke_disk_configurations import *
+from .get_sap_virtual_instance_invoke_sap_supported_sku import *
+from .get_sap_virtual_instance_invoke_sizing_recommendations import *
 from .get_server_instance import *
 from .monitor import *
 from .provider_instance import *

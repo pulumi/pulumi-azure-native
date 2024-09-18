@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Description of hybrid connection resource.
  * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export class HybridConnection extends pulumi.CustomResource {
     /**
@@ -116,7 +118,7 @@ export class HybridConnection extends pulumi.CustomResource {
             resourceInputs["userMetadata"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:relay/v20160701:HybridConnection" }, { type: "azure-native:relay/v20170401:HybridConnection" }, { type: "azure-native:relay/v20211101:HybridConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:relay/v20160701:HybridConnection" }, { type: "azure-native:relay/v20170401:HybridConnection" }, { type: "azure-native:relay/v20211101:HybridConnection" }, { type: "azure-native:relay/v20240101:HybridConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridConnection.__pulumiType, name, resourceInputs, opts);
     }

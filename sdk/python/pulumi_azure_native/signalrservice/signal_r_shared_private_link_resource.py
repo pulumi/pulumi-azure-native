@@ -133,7 +133,7 @@ class SignalRSharedPrivateLinkResource(pulumi.CustomResource):
         Describes a Shared Private Link Resource
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +154,7 @@ class SignalRSharedPrivateLinkResource(pulumi.CustomResource):
         Describes a Shared Private Link Resource
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SignalRSharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +205,7 @@ class SignalRSharedPrivateLinkResource(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice/v20210401preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20210601preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20211001:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20230301preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20230601preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20230801preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20240101preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20240301:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20240401preview:SignalRSharedPrivateLinkResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice/v20210401preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20210601preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20211001:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20230301preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20230601preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20230801preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20240101preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20240301:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20240401preview:SignalRSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:signalrservice/v20240801preview:SignalRSharedPrivateLinkResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalRSharedPrivateLinkResource, __self__).__init__(
             'azure-native:signalrservice:SignalRSharedPrivateLinkResource',

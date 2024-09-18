@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * network service design group resource.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export class NetworkServiceDesignGroup extends pulumi.CustomResource {
     /**
@@ -98,7 +100,7 @@ export class NetworkServiceDesignGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:NetworkServiceDesignGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:NetworkServiceDesignGroup" }, { type: "azure-native:hybridnetwork/v20240415:NetworkServiceDesignGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkServiceDesignGroup.__pulumiType, name, resourceInputs, opts);
     }

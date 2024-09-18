@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about the specified network site.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
 
@@ -67,6 +69,8 @@ export interface GetSiteResult {
 /**
  * Gets information about the specified network site.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
     return pulumi.output(args).apply((a: any) => getSite(a, opts))

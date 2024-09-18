@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * An IPv6 server firewall rule.
  * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-08-01-preview.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export class IPv6FirewallRule extends pulumi.CustomResource {
     /**
@@ -85,7 +85,7 @@ export class IPv6FirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20210801preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20211101:IPv6FirewallRule" }, { type: "azure-native:sql/v20211101preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20220201preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20220501preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20220801preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20221101preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20230201preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20230501preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20230801preview:IPv6FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20210801preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20211101:IPv6FirewallRule" }, { type: "azure-native:sql/v20211101preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20220201preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20220501preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20220801preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20221101preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20230201preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20230501preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20230801preview:IPv6FirewallRule" }, { type: "azure-native:sql/v20240501preview:IPv6FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IPv6FirewallRule.__pulumiType, name, resourceInputs, opts);
     }

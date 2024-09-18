@@ -115,6 +115,16 @@ export const listArtifactManifestCredential: typeof import("./listArtifactManife
 export const listArtifactManifestCredentialOutput: typeof import("./listArtifactManifestCredential").listArtifactManifestCredentialOutput = null as any;
 utilities.lazyLoad(exports, ["listArtifactManifestCredential","listArtifactManifestCredentialOutput"], () => require("./listArtifactManifestCredential"));
 
+export { ListArtifactStoreNetworkFabricControllerPrivateEndPointsArgs, ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult, ListArtifactStoreNetworkFabricControllerPrivateEndPointsOutputArgs } from "./listArtifactStoreNetworkFabricControllerPrivateEndPoints";
+export const listArtifactStoreNetworkFabricControllerPrivateEndPoints: typeof import("./listArtifactStoreNetworkFabricControllerPrivateEndPoints").listArtifactStoreNetworkFabricControllerPrivateEndPoints = null as any;
+export const listArtifactStoreNetworkFabricControllerPrivateEndPointsOutput: typeof import("./listArtifactStoreNetworkFabricControllerPrivateEndPoints").listArtifactStoreNetworkFabricControllerPrivateEndPointsOutput = null as any;
+utilities.lazyLoad(exports, ["listArtifactStoreNetworkFabricControllerPrivateEndPoints","listArtifactStoreNetworkFabricControllerPrivateEndPointsOutput"], () => require("./listArtifactStoreNetworkFabricControllerPrivateEndPoints"));
+
+export { ListArtifactStorePrivateEndPointsArgs, ListArtifactStorePrivateEndPointsResult, ListArtifactStorePrivateEndPointsOutputArgs } from "./listArtifactStorePrivateEndPoints";
+export const listArtifactStorePrivateEndPoints: typeof import("./listArtifactStorePrivateEndPoints").listArtifactStorePrivateEndPoints = null as any;
+export const listArtifactStorePrivateEndPointsOutput: typeof import("./listArtifactStorePrivateEndPoints").listArtifactStorePrivateEndPointsOutput = null as any;
+utilities.lazyLoad(exports, ["listArtifactStorePrivateEndPoints","listArtifactStorePrivateEndPointsOutput"], () => require("./listArtifactStorePrivateEndPoints"));
+
 export { ListDeviceRegistrationKeyArgs, ListDeviceRegistrationKeyResult, ListDeviceRegistrationKeyOutputArgs } from "./listDeviceRegistrationKey";
 export const listDeviceRegistrationKey: typeof import("./listDeviceRegistrationKey").listDeviceRegistrationKey = null as any;
 export const listDeviceRegistrationKeyOutput: typeof import("./listDeviceRegistrationKey").listDeviceRegistrationKeyOutput = null as any;
@@ -187,10 +197,12 @@ export * from "../types/enums/hybridnetwork";
 // Export sub-modules:
 import * as v20220101preview from "./v20220101preview";
 import * as v20230901 from "./v20230901";
+import * as v20240415 from "./v20240415";
 
 export {
     v20220101preview,
     v20230901,
+    v20240415,
 };
 
 const _module = {

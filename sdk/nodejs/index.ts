@@ -185,6 +185,7 @@ import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
 import * as professionalservice from "./professionalservice";
+import * as programmableconnectivity from "./programmableconnectivity";
 import * as providerhub from "./providerhub";
 import * as purview from "./purview";
 import * as quantum from "./quantum";
@@ -418,6 +419,7 @@ export {
     powerbidedicated,
     powerplatform,
     professionalservice,
+    programmableconnectivity,
     providerhub,
     purview,
     quantum,

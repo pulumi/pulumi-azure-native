@@ -104,7 +104,7 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:GeoBackupPolicy" }, { type: "azure-native:sql/v20140401:GeoBackupPolicy" }, { type: "azure-native:sql/v20211101:GeoBackupPolicy" }, { type: "azure-native:sql/v20220201preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20220501preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20220801preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20221101preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20230201preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20230801preview:GeoBackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:GeoBackupPolicy" }, { type: "azure-native:sql/v20140401:GeoBackupPolicy" }, { type: "azure-native:sql/v20211101:GeoBackupPolicy" }, { type: "azure-native:sql/v20220201preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20220501preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20220801preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20221101preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20230201preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20230801preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20240501preview:GeoBackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GeoBackupPolicy.__pulumiType, name, resourceInputs, opts);
     }

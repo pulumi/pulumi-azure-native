@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// <summary>
     /// Site resource.
     /// Azure REST API version: 2023-09-01.
+    /// 
+    /// Other available API versions: 2024-04-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:Site")]
     public partial class Site : global::Pulumi.CustomResource
@@ -78,6 +80,7 @@ namespace Pulumi.AzureNative.HybridNetwork
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20230901:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20240415:Site" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

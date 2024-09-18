@@ -344,6 +344,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "ProgrammableConnectivity",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "Quantum",
     "Detail": "expected no additions but found some"
   },

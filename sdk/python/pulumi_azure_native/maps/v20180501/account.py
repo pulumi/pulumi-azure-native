@@ -176,7 +176,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maps:Account"), pulumi.Alias(type_="azure-native:maps/v20170101preview:Account"), pulumi.Alias(type_="azure-native:maps/v20200201preview:Account"), pulumi.Alias(type_="azure-native:maps/v20210201:Account"), pulumi.Alias(type_="azure-native:maps/v20210701preview:Account"), pulumi.Alias(type_="azure-native:maps/v20211201preview:Account"), pulumi.Alias(type_="azure-native:maps/v20230601:Account"), pulumi.Alias(type_="azure-native:maps/v20230801preview:Account"), pulumi.Alias(type_="azure-native:maps/v20231201preview:Account"), pulumi.Alias(type_="azure-native:maps/v20240101preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maps:Account"), pulumi.Alias(type_="azure-native:maps/v20170101preview:Account"), pulumi.Alias(type_="azure-native:maps/v20200201preview:Account"), pulumi.Alias(type_="azure-native:maps/v20210201:Account"), pulumi.Alias(type_="azure-native:maps/v20210701preview:Account"), pulumi.Alias(type_="azure-native:maps/v20211201preview:Account"), pulumi.Alias(type_="azure-native:maps/v20230601:Account"), pulumi.Alias(type_="azure-native:maps/v20230801preview:Account"), pulumi.Alias(type_="azure-native:maps/v20231201preview:Account"), pulumi.Alias(type_="azure-native:maps/v20240101preview:Account"), pulumi.Alias(type_="azure-native:maps/v20240701preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:maps/v20180501:Account',

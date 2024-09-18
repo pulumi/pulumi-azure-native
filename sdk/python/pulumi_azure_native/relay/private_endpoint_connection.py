@@ -137,7 +137,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Properties of the PrivateEndpointConnection.
         Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2018-01-01-preview.
 
-        Other available API versions: 2018-01-01-preview.
+        Other available API versions: 2018-01-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,7 +158,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Properties of the PrivateEndpointConnection.
         Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2018-01-01-preview.
 
-        Other available API versions: 2018-01-01-preview.
+        Other available API versions: 2018-01-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.
@@ -204,7 +204,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay/v20180101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:relay/v20211101:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay/v20180101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:relay/v20211101:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:relay/v20240101:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:relay:PrivateEndpointConnection',

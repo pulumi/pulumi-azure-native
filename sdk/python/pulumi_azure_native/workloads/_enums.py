@@ -197,14 +197,23 @@ class SAPDatabaseScaleMethod(str, Enum):
     The DB scale method.
     """
     SCALE_UP = "ScaleUp"
+    """
+    ScaleUp Hana Database deployment type
+    """
 
 
 class SAPDatabaseType(str, Enum):
     """
-    The database type. Eg: HANA, DB2, etc
+    The database type.
     """
     HANA = "HANA"
+    """
+    HANA Database type of SAP system.
+    """
     DB2 = "DB2"
+    """
+    DB2 database type of the SAP system.
+    """
 
 
 class SAPDeploymentType(str, Enum):
@@ -212,7 +221,13 @@ class SAPDeploymentType(str, Enum):
     The deployment type. Eg: SingleServer/ThreeTier
     """
     SINGLE_SERVER = "SingleServer"
+    """
+    SAP Single server deployment type.
+    """
     THREE_TIER = "ThreeTier"
+    """
+    SAP Distributed deployment type.
+    """
 
 
 class SAPEnvironmentType(str, Enum):
@@ -220,7 +235,13 @@ class SAPEnvironmentType(str, Enum):
     Defines the environment type - Production/Non Production.
     """
     NON_PROD = "NonProd"
+    """
+    Non Production SAP system.
+    """
     PROD = "Prod"
+    """
+    Production SAP system.
+    """
 
 
 class SAPHighAvailabilityType(str, Enum):
@@ -228,7 +249,13 @@ class SAPHighAvailabilityType(str, Enum):
     The high availability type.
     """
     AVAILABILITY_SET = "AvailabilitySet"
+    """
+    HA deployment with availability sets.
+    """
     AVAILABILITY_ZONE = "AvailabilityZone"
+    """
+    HA deployment with availability zones.
+    """
 
 
 class SAPProductType(str, Enum):
@@ -236,8 +263,17 @@ class SAPProductType(str, Enum):
     Defines the SAP Product type.
     """
     ECC = "ECC"
+    """
+    SAP Product ECC.
+    """
     S4_HANA = "S4HANA"
+    """
+    SAP Product S4HANA.
+    """
     OTHER = "Other"
+    """
+    SAP Products other than the ones listed.
+    """
 
 
 class SAPSoftwareInstallationType(str, Enum):

@@ -255,7 +255,7 @@ class WebPubSubReplica(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub:WebPubSubReplica"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSubReplica"), pulumi.Alias(type_="azure-native:webpubsub/v20230601preview:WebPubSubReplica"), pulumi.Alias(type_="azure-native:webpubsub/v20230801preview:WebPubSubReplica"), pulumi.Alias(type_="azure-native:webpubsub/v20240301:WebPubSubReplica"), pulumi.Alias(type_="azure-native:webpubsub/v20240401preview:WebPubSubReplica")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub:WebPubSubReplica"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSubReplica"), pulumi.Alias(type_="azure-native:webpubsub/v20230601preview:WebPubSubReplica"), pulumi.Alias(type_="azure-native:webpubsub/v20230801preview:WebPubSubReplica"), pulumi.Alias(type_="azure-native:webpubsub/v20240301:WebPubSubReplica"), pulumi.Alias(type_="azure-native:webpubsub/v20240401preview:WebPubSubReplica"), pulumi.Alias(type_="azure-native:webpubsub/v20240801preview:WebPubSubReplica")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebPubSubReplica, __self__).__init__(
             'azure-native:webpubsub/v20240101preview:WebPubSubReplica',

@@ -130,7 +130,7 @@ def get_web_pub_sub_custom_domain(name: Optional[str] = None,
     Get a custom domain.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
 
 
     :param str name: Custom domain name.
@@ -163,7 +163,7 @@ def get_web_pub_sub_custom_domain_output(name: Optional[pulumi.Input[str]] = Non
     Get a custom domain.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
+    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
 
 
     :param str name: Custom domain name.

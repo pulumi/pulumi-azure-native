@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a private endpoint.
         /// Azure REST API version: 2023-05-01-preview.
         /// 
-        /// Other available API versions: 2023-08-01-preview.
+        /// Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetJobPrivateEndpointResult> InvokeAsync(GetJobPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobPrivateEndpointResult>("azure-native:sql:getJobPrivateEndpoint", args ?? new GetJobPrivateEndpointArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a private endpoint.
         /// Azure REST API version: 2023-05-01-preview.
         /// 
-        /// Other available API versions: 2023-08-01-preview.
+        /// Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetJobPrivateEndpointResult> Invoke(GetJobPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobPrivateEndpointResult>("azure-native:sql:getJobPrivateEndpoint", args ?? new GetJobPrivateEndpointInvokeArgs(), options.WithDefaults());

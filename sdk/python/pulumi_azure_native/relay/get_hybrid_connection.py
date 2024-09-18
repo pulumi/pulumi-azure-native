@@ -166,6 +166,8 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
     Returns the description for the specified hybrid connection.
     Azure REST API version: 2021-11-01.
 
+    Other available API versions: 2024-01-01.
+
 
     :param str hybrid_connection_name: The hybrid connection name.
     :param str namespace_name: The namespace name
@@ -199,6 +201,8 @@ def get_hybrid_connection_output(hybrid_connection_name: Optional[pulumi.Input[s
     """
     Returns the description for the specified hybrid connection.
     Azure REST API version: 2021-11-01.
+
+    Other available API versions: 2024-01-01.
 
 
     :param str hybrid_connection_name: The hybrid connection name.

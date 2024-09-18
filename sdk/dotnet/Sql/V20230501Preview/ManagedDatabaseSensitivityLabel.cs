@@ -128,6 +128,7 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ManagedDatabaseSensitivityLabel" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:ManagedDatabaseSensitivityLabel" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:ManagedDatabaseSensitivityLabel" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:ManagedDatabaseSensitivityLabel" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

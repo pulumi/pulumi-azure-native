@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * A long term retention policy.
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResourc
             resourceInputs["yearlyRetention"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20221101preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20230201preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20230501preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20230801preview:ManagedInstanceLongTermRetentionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20221101preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20230201preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20230501preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20230801preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20240501preview:ManagedInstanceLongTermRetentionPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceLongTermRetentionPolicy.__pulumiType, name, resourceInputs, opts);
     }

@@ -129,6 +129,8 @@ def get_site(resource_group_name: Optional[str] = None,
     Gets information about the specified network site.
     Azure REST API version: 2023-09-01.
 
+    Other available API versions: 2024-04-15.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: The name of the network service site.
@@ -156,6 +158,8 @@ def get_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified network site.
     Azure REST API version: 2023-09-01.
+
+    Other available API versions: 2024-04-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

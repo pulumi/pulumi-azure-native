@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A class represent a resource.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-05-01.
  *
- * Other available API versions: 2018-10-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
+ * Other available API versions: 2018-10-01, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
  */
 export class SignalR extends pulumi.CustomResource {
     /**
@@ -239,7 +239,7 @@ export class SignalR extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20180301preview:SignalR" }, { type: "azure-native:signalrservice/v20181001:SignalR" }, { type: "azure-native:signalrservice/v20200501:SignalR" }, { type: "azure-native:signalrservice/v20200701preview:SignalR" }, { type: "azure-native:signalrservice/v20210401preview:SignalR" }, { type: "azure-native:signalrservice/v20210601preview:SignalR" }, { type: "azure-native:signalrservice/v20210901preview:SignalR" }, { type: "azure-native:signalrservice/v20211001:SignalR" }, { type: "azure-native:signalrservice/v20220201:SignalR" }, { type: "azure-native:signalrservice/v20220801preview:SignalR" }, { type: "azure-native:signalrservice/v20230201:SignalR" }, { type: "azure-native:signalrservice/v20230301preview:SignalR" }, { type: "azure-native:signalrservice/v20230601preview:SignalR" }, { type: "azure-native:signalrservice/v20230801preview:SignalR" }, { type: "azure-native:signalrservice/v20240101preview:SignalR" }, { type: "azure-native:signalrservice/v20240301:SignalR" }, { type: "azure-native:signalrservice/v20240401preview:SignalR" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20180301preview:SignalR" }, { type: "azure-native:signalrservice/v20181001:SignalR" }, { type: "azure-native:signalrservice/v20200501:SignalR" }, { type: "azure-native:signalrservice/v20200701preview:SignalR" }, { type: "azure-native:signalrservice/v20210401preview:SignalR" }, { type: "azure-native:signalrservice/v20210601preview:SignalR" }, { type: "azure-native:signalrservice/v20210901preview:SignalR" }, { type: "azure-native:signalrservice/v20211001:SignalR" }, { type: "azure-native:signalrservice/v20220201:SignalR" }, { type: "azure-native:signalrservice/v20220801preview:SignalR" }, { type: "azure-native:signalrservice/v20230201:SignalR" }, { type: "azure-native:signalrservice/v20230301preview:SignalR" }, { type: "azure-native:signalrservice/v20230601preview:SignalR" }, { type: "azure-native:signalrservice/v20230801preview:SignalR" }, { type: "azure-native:signalrservice/v20240101preview:SignalR" }, { type: "azure-native:signalrservice/v20240301:SignalR" }, { type: "azure-native:signalrservice/v20240401preview:SignalR" }, { type: "azure-native:signalrservice/v20240801preview:SignalR" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalR.__pulumiType, name, resourceInputs, opts);
     }

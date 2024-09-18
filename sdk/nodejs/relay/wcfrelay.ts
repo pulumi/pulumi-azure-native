@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Description of the WCF relay resource.
  * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
  *
- * Other available API versions: 2016-07-01.
+ * Other available API versions: 2016-07-01, 2024-01-01.
  */
 export class WCFRelay extends pulumi.CustomResource {
     /**
@@ -136,7 +136,7 @@ export class WCFRelay extends pulumi.CustomResource {
             resourceInputs["userMetadata"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:relay/v20160701:WCFRelay" }, { type: "azure-native:relay/v20170401:WCFRelay" }, { type: "azure-native:relay/v20211101:WCFRelay" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:relay/v20160701:WCFRelay" }, { type: "azure-native:relay/v20170401:WCFRelay" }, { type: "azure-native:relay/v20211101:WCFRelay" }, { type: "azure-native:relay/v20240101:WCFRelay" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WCFRelay.__pulumiType, name, resourceInputs, opts);
     }

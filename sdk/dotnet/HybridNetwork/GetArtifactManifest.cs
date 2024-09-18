@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Gets information about a artifact manifest resource.
         /// Azure REST API version: 2023-09-01.
+        /// 
+        /// Other available API versions: 2024-04-15.
         /// </summary>
         public static Task<GetArtifactManifestResult> InvokeAsync(GetArtifactManifestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArtifactManifestResult>("azure-native:hybridnetwork:getArtifactManifest", args ?? new GetArtifactManifestArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Gets information about a artifact manifest resource.
         /// Azure REST API version: 2023-09-01.
+        /// 
+        /// Other available API versions: 2024-04-15.
         /// </summary>
         public static Output<GetArtifactManifestResult> Invoke(GetArtifactManifestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArtifactManifestResult>("azure-native:hybridnetwork:getArtifactManifest", args ?? new GetArtifactManifestInvokeArgs(), options.WithDefaults());

@@ -100,7 +100,7 @@ export class Creator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maps:Creator" }, { type: "azure-native:maps/v20200201preview:Creator" }, { type: "azure-native:maps/v20210201:Creator" }, { type: "azure-native:maps/v20210701preview:Creator" }, { type: "azure-native:maps/v20230601:Creator" }, { type: "azure-native:maps/v20230801preview:Creator" }, { type: "azure-native:maps/v20231201preview:Creator" }, { type: "azure-native:maps/v20240101preview:Creator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maps:Creator" }, { type: "azure-native:maps/v20200201preview:Creator" }, { type: "azure-native:maps/v20210201:Creator" }, { type: "azure-native:maps/v20210701preview:Creator" }, { type: "azure-native:maps/v20230601:Creator" }, { type: "azure-native:maps/v20230801preview:Creator" }, { type: "azure-native:maps/v20231201preview:Creator" }, { type: "azure-native:maps/v20240101preview:Creator" }, { type: "azure-native:maps/v20240701preview:Creator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Creator.__pulumiType, name, resourceInputs, opts);
     }

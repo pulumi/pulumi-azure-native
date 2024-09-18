@@ -119,7 +119,7 @@ def get_hybrid_connection_authorization_rule(authorization_rule_name: Optional[s
     Hybrid connection authorization rule for a hybrid connection by name.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2017-04-01.
+    Other available API versions: 2017-04-01, 2024-01-01.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -154,7 +154,7 @@ def get_hybrid_connection_authorization_rule_output(authorization_rule_name: Opt
     Hybrid connection authorization rule for a hybrid connection by name.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2017-04-01.
+    Other available API versions: 2017-04-01, 2024-01-01.
 
 
     :param str authorization_rule_name: The authorization rule name.

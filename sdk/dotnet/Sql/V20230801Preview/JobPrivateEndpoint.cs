@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.Sql.V20230801Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql:JobPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:JobPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:JobPrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

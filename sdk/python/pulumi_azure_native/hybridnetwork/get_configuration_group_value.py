@@ -129,6 +129,8 @@ def get_configuration_group_value(configuration_group_value_name: Optional[str] 
     Gets information about the specified hybrid configuration group values.
     Azure REST API version: 2023-09-01.
 
+    Other available API versions: 2024-04-15.
+
 
     :param str configuration_group_value_name: The name of the configuration group value.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -156,6 +158,8 @@ def get_configuration_group_value_output(configuration_group_value_name: Optiona
     """
     Gets information about the specified hybrid configuration group values.
     Azure REST API version: 2023-09-01.
+
+    Other available API versions: 2024-04-15.
 
 
     :param str configuration_group_value_name: The name of the configuration group value.

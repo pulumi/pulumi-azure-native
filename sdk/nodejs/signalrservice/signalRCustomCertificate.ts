@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A custom certificate.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
  */
 export class SignalRCustomCertificate extends pulumi.CustomResource {
     /**
@@ -112,7 +112,7 @@ export class SignalRCustomCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20220201:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20220801preview:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20230201:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20230301preview:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20230601preview:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20230801preview:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20240101preview:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20240301:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20240401preview:SignalRCustomCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20220201:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20220801preview:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20230201:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20230301preview:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20230601preview:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20230801preview:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20240101preview:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20240301:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20240401preview:SignalRCustomCertificate" }, { type: "azure-native:signalrservice/v20240801preview:SignalRCustomCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalRCustomCertificate.__pulumiType, name, resourceInputs, opts);
     }

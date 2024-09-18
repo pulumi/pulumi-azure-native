@@ -28,6 +28,8 @@ from .get_vendor import *
 from .get_vendor_sku_preview import *
 from .get_vendor_skus import *
 from .list_artifact_manifest_credential import *
+from .list_artifact_store_network_fabric_controller_private_end_points import *
+from .list_artifact_store_private_end_points import *
 from .list_device_registration_key import *
 from .list_vendor_skus_credential import *
 from .network_function import *
@@ -50,7 +52,10 @@ if typing.TYPE_CHECKING:
     v20220101preview = __v20220101preview
     import pulumi_azure_native.hybridnetwork.v20230901 as __v20230901
     v20230901 = __v20230901
+    import pulumi_azure_native.hybridnetwork.v20240415 as __v20240415
+    v20240415 = __v20240415
 else:
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.hybridnetwork.v20220101preview')
     v20230901 = _utilities.lazy_import('pulumi_azure_native.hybridnetwork.v20230901')
+    v20240415 = _utilities.lazy_import('pulumi_azure_native.hybridnetwork.v20240415')
 

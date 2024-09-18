@@ -130,6 +130,8 @@ def get_network_function_definition_group(network_function_definition_group_name
     Gets information about the specified networkFunctionDefinition group.
     Azure REST API version: 2023-09-01.
 
+    Other available API versions: 2024-04-15.
+
 
     :param str network_function_definition_group_name: The name of the network function definition group.
     :param str publisher_name: The name of the publisher.
@@ -160,6 +162,8 @@ def get_network_function_definition_group_output(network_function_definition_gro
     """
     Gets information about the specified networkFunctionDefinition group.
     Azure REST API version: 2023-09-01.
+
+    Other available API versions: 2024-04-15.
 
 
     :param str network_function_definition_group_name: The name of the network function definition group.

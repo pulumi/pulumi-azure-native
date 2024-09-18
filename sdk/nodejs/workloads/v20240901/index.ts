@@ -25,25 +25,25 @@ export const getSapVirtualInstance: typeof import("./getSapVirtualInstance").get
 export const getSapVirtualInstanceOutput: typeof import("./getSapVirtualInstance").getSapVirtualInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getSapVirtualInstance","getSapVirtualInstanceOutput"], () => require("./getSapVirtualInstance"));
 
-export { GetSapVirtualInstanceAvailabilityZoneDetailsArgs, GetSapVirtualInstanceAvailabilityZoneDetailsResult, GetSapVirtualInstanceAvailabilityZoneDetailsOutputArgs } from "./getSapVirtualInstanceAvailabilityZoneDetails";
-export const getSapVirtualInstanceAvailabilityZoneDetails: typeof import("./getSapVirtualInstanceAvailabilityZoneDetails").getSapVirtualInstanceAvailabilityZoneDetails = null as any;
-export const getSapVirtualInstanceAvailabilityZoneDetailsOutput: typeof import("./getSapVirtualInstanceAvailabilityZoneDetails").getSapVirtualInstanceAvailabilityZoneDetailsOutput = null as any;
-utilities.lazyLoad(exports, ["getSapVirtualInstanceAvailabilityZoneDetails","getSapVirtualInstanceAvailabilityZoneDetailsOutput"], () => require("./getSapVirtualInstanceAvailabilityZoneDetails"));
+export { GetSapVirtualInstanceInvokeAvailabilityZoneDetailsArgs, GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult, GetSapVirtualInstanceInvokeAvailabilityZoneDetailsOutputArgs } from "./getSapVirtualInstanceInvokeAvailabilityZoneDetails";
+export const getSapVirtualInstanceInvokeAvailabilityZoneDetails: typeof import("./getSapVirtualInstanceInvokeAvailabilityZoneDetails").getSapVirtualInstanceInvokeAvailabilityZoneDetails = null as any;
+export const getSapVirtualInstanceInvokeAvailabilityZoneDetailsOutput: typeof import("./getSapVirtualInstanceInvokeAvailabilityZoneDetails").getSapVirtualInstanceInvokeAvailabilityZoneDetailsOutput = null as any;
+utilities.lazyLoad(exports, ["getSapVirtualInstanceInvokeAvailabilityZoneDetails","getSapVirtualInstanceInvokeAvailabilityZoneDetailsOutput"], () => require("./getSapVirtualInstanceInvokeAvailabilityZoneDetails"));
 
-export { GetSapVirtualInstanceDiskConfigurationsArgs, GetSapVirtualInstanceDiskConfigurationsResult, GetSapVirtualInstanceDiskConfigurationsOutputArgs } from "./getSapVirtualInstanceDiskConfigurations";
-export const getSapVirtualInstanceDiskConfigurations: typeof import("./getSapVirtualInstanceDiskConfigurations").getSapVirtualInstanceDiskConfigurations = null as any;
-export const getSapVirtualInstanceDiskConfigurationsOutput: typeof import("./getSapVirtualInstanceDiskConfigurations").getSapVirtualInstanceDiskConfigurationsOutput = null as any;
-utilities.lazyLoad(exports, ["getSapVirtualInstanceDiskConfigurations","getSapVirtualInstanceDiskConfigurationsOutput"], () => require("./getSapVirtualInstanceDiskConfigurations"));
+export { GetSapVirtualInstanceInvokeDiskConfigurationsArgs, GetSapVirtualInstanceInvokeDiskConfigurationsResult, GetSapVirtualInstanceInvokeDiskConfigurationsOutputArgs } from "./getSapVirtualInstanceInvokeDiskConfigurations";
+export const getSapVirtualInstanceInvokeDiskConfigurations: typeof import("./getSapVirtualInstanceInvokeDiskConfigurations").getSapVirtualInstanceInvokeDiskConfigurations = null as any;
+export const getSapVirtualInstanceInvokeDiskConfigurationsOutput: typeof import("./getSapVirtualInstanceInvokeDiskConfigurations").getSapVirtualInstanceInvokeDiskConfigurationsOutput = null as any;
+utilities.lazyLoad(exports, ["getSapVirtualInstanceInvokeDiskConfigurations","getSapVirtualInstanceInvokeDiskConfigurationsOutput"], () => require("./getSapVirtualInstanceInvokeDiskConfigurations"));
 
-export { GetSapVirtualInstanceSapSupportedSkuArgs, GetSapVirtualInstanceSapSupportedSkuResult, GetSapVirtualInstanceSapSupportedSkuOutputArgs } from "./getSapVirtualInstanceSapSupportedSku";
-export const getSapVirtualInstanceSapSupportedSku: typeof import("./getSapVirtualInstanceSapSupportedSku").getSapVirtualInstanceSapSupportedSku = null as any;
-export const getSapVirtualInstanceSapSupportedSkuOutput: typeof import("./getSapVirtualInstanceSapSupportedSku").getSapVirtualInstanceSapSupportedSkuOutput = null as any;
-utilities.lazyLoad(exports, ["getSapVirtualInstanceSapSupportedSku","getSapVirtualInstanceSapSupportedSkuOutput"], () => require("./getSapVirtualInstanceSapSupportedSku"));
+export { GetSapVirtualInstanceInvokeSapSupportedSkuArgs, GetSapVirtualInstanceInvokeSapSupportedSkuResult, GetSapVirtualInstanceInvokeSapSupportedSkuOutputArgs } from "./getSapVirtualInstanceInvokeSapSupportedSku";
+export const getSapVirtualInstanceInvokeSapSupportedSku: typeof import("./getSapVirtualInstanceInvokeSapSupportedSku").getSapVirtualInstanceInvokeSapSupportedSku = null as any;
+export const getSapVirtualInstanceInvokeSapSupportedSkuOutput: typeof import("./getSapVirtualInstanceInvokeSapSupportedSku").getSapVirtualInstanceInvokeSapSupportedSkuOutput = null as any;
+utilities.lazyLoad(exports, ["getSapVirtualInstanceInvokeSapSupportedSku","getSapVirtualInstanceInvokeSapSupportedSkuOutput"], () => require("./getSapVirtualInstanceInvokeSapSupportedSku"));
 
-export { GetSapVirtualInstanceSizingRecommendationsArgs, GetSapVirtualInstanceSizingRecommendationsResult, GetSapVirtualInstanceSizingRecommendationsOutputArgs } from "./getSapVirtualInstanceSizingRecommendations";
-export const getSapVirtualInstanceSizingRecommendations: typeof import("./getSapVirtualInstanceSizingRecommendations").getSapVirtualInstanceSizingRecommendations = null as any;
-export const getSapVirtualInstanceSizingRecommendationsOutput: typeof import("./getSapVirtualInstanceSizingRecommendations").getSapVirtualInstanceSizingRecommendationsOutput = null as any;
-utilities.lazyLoad(exports, ["getSapVirtualInstanceSizingRecommendations","getSapVirtualInstanceSizingRecommendationsOutput"], () => require("./getSapVirtualInstanceSizingRecommendations"));
+export { GetSapVirtualInstanceInvokeSizingRecommendationsArgs, GetSapVirtualInstanceInvokeSizingRecommendationsResult, GetSapVirtualInstanceInvokeSizingRecommendationsOutputArgs } from "./getSapVirtualInstanceInvokeSizingRecommendations";
+export const getSapVirtualInstanceInvokeSizingRecommendations: typeof import("./getSapVirtualInstanceInvokeSizingRecommendations").getSapVirtualInstanceInvokeSizingRecommendations = null as any;
+export const getSapVirtualInstanceInvokeSizingRecommendationsOutput: typeof import("./getSapVirtualInstanceInvokeSizingRecommendations").getSapVirtualInstanceInvokeSizingRecommendationsOutput = null as any;
+utilities.lazyLoad(exports, ["getSapVirtualInstanceInvokeSizingRecommendations","getSapVirtualInstanceInvokeSizingRecommendationsOutput"], () => require("./getSapVirtualInstanceInvokeSizingRecommendations"));
 
 export { SapApplicationServerInstanceArgs } from "./sapApplicationServerInstance";
 export type SapApplicationServerInstance = import("./sapApplicationServerInstance").SapApplicationServerInstance;

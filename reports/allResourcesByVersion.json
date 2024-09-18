@@ -11768,6 +11768,23 @@
       "Site",
       "SiteNetworkService",
       "listArtifactManifestCredential"
+    ],
+    "2024-04-15": [
+      "ArtifactManifest",
+      "ArtifactStore",
+      "ConfigurationGroupSchema",
+      "ConfigurationGroupValue",
+      "NetworkFunction",
+      "NetworkFunctionDefinitionGroup",
+      "NetworkFunctionDefinitionVersion",
+      "NetworkServiceDesignGroup",
+      "NetworkServiceDesignVersion",
+      "Publisher",
+      "Site",
+      "SiteNetworkService",
+      "listArtifactManifestCredential",
+      "listArtifactStoreNetworkFabricControllerPrivateEndPoints",
+      "listArtifactStorePrivateEndPoints"
     ]
   },
   "ImportExport": {
@@ -13991,6 +14008,12 @@
       "Account",
       "Creator",
       "PrivateEndpointConnection",
+      "listAccountKeys",
+      "listAccountSas"
+    ],
+    "2024-07-01-preview": [
+      "Account",
+      "Creator",
       "listAccountKeys",
       "listAccountSas"
     ]
@@ -19243,6 +19266,12 @@
       "ProfessionalServiceSubscriptionLevel"
     ]
   },
+  "ProgrammableConnectivity": {
+    "2024-01-15-preview": [
+      "Gateway",
+      "OperatorApiConnection"
+    ]
+  },
   "ProviderHub": {
     "2020-11-20": [
       "DefaultRollout",
@@ -20035,6 +20064,18 @@
       "PrivateEndpointConnection"
     ],
     "2021-11-01": [
+      "HybridConnection",
+      "HybridConnectionAuthorizationRule",
+      "Namespace",
+      "NamespaceAuthorizationRule",
+      "PrivateEndpointConnection",
+      "WCFRelay",
+      "WCFRelayAuthorizationRule",
+      "listHybridConnectionKeys",
+      "listNamespaceKeys",
+      "listWCFRelayKeys"
+    ],
+    "2024-01-01": [
       "HybridConnection",
       "HybridConnectionAuthorizationRule",
       "Namespace",
@@ -22040,6 +22081,15 @@
       "SignalRReplica",
       "SignalRSharedPrivateLinkResource",
       "listSignalRKeys"
+    ],
+    "2024-08-01-preview": [
+      "SignalR",
+      "SignalRCustomCertificate",
+      "SignalRCustomDomain",
+      "SignalRPrivateEndpointConnection",
+      "SignalRReplica",
+      "SignalRSharedPrivateLinkResource",
+      "listSignalRKeys"
     ]
   },
   "SoftwarePlan": {
@@ -23023,6 +23073,72 @@
       "WorkloadGroup"
     ],
     "2023-08-01-preview": [
+      "BackupShortTermRetentionPolicy",
+      "DataMaskingPolicy",
+      "Database",
+      "DatabaseAdvisor",
+      "DatabaseBlobAuditingPolicy",
+      "DatabaseSecurityAlertPolicy",
+      "DatabaseSqlVulnerabilityAssessmentRuleBaseline",
+      "DatabaseVulnerabilityAssessment",
+      "DatabaseVulnerabilityAssessmentRuleBaseline",
+      "DistributedAvailabilityGroup",
+      "ElasticPool",
+      "EncryptionProtector",
+      "ExtendedDatabaseBlobAuditingPolicy",
+      "ExtendedServerBlobAuditingPolicy",
+      "FailoverGroup",
+      "FirewallRule",
+      "GeoBackupPolicy",
+      "IPv6FirewallRule",
+      "InstanceFailoverGroup",
+      "InstancePool",
+      "Job",
+      "JobAgent",
+      "JobCredential",
+      "JobPrivateEndpoint",
+      "JobStep",
+      "JobTargetGroup",
+      "LongTermRetentionPolicy",
+      "ManagedDatabase",
+      "ManagedDatabaseSensitivityLabel",
+      "ManagedDatabaseVulnerabilityAssessment",
+      "ManagedDatabaseVulnerabilityAssessmentRuleBaseline",
+      "ManagedInstance",
+      "ManagedInstanceAdministrator",
+      "ManagedInstanceAzureADOnlyAuthentication",
+      "ManagedInstanceKey",
+      "ManagedInstanceLongTermRetentionPolicy",
+      "ManagedInstancePrivateEndpointConnection",
+      "ManagedInstanceVulnerabilityAssessment",
+      "ManagedServerDnsAlias",
+      "OutboundFirewallRule",
+      "PrivateEndpointConnection",
+      "ReplicationLink",
+      "SensitivityLabel",
+      "Server",
+      "ServerAdvisor",
+      "ServerAzureADAdministrator",
+      "ServerAzureADOnlyAuthentication",
+      "ServerBlobAuditingPolicy",
+      "ServerDnsAlias",
+      "ServerKey",
+      "ServerSecurityAlertPolicy",
+      "ServerTrustCertificate",
+      "ServerTrustGroup",
+      "ServerVulnerabilityAssessment",
+      "SqlVulnerabilityAssessmentRuleBaseline",
+      "SqlVulnerabilityAssessmentsSetting",
+      "StartStopManagedInstanceSchedule",
+      "SyncAgent",
+      "SyncGroup",
+      "SyncMember",
+      "TransparentDataEncryption",
+      "VirtualNetworkRule",
+      "WorkloadClassifier",
+      "WorkloadGroup"
+    ],
+    "2024-05-01-preview": [
       "BackupShortTermRetentionPolicy",
       "DataMaskingPolicy",
       "Database",
@@ -25915,6 +26031,16 @@
       "WebPubSubReplica",
       "WebPubSubSharedPrivateLinkResource",
       "listWebPubSubKeys"
+    ],
+    "2024-08-01-preview": [
+      "WebPubSub",
+      "WebPubSubCustomCertificate",
+      "WebPubSubCustomDomain",
+      "WebPubSubHub",
+      "WebPubSubPrivateEndpointConnection",
+      "WebPubSubReplica",
+      "WebPubSubSharedPrivateLinkResource",
+      "listWebPubSubKeys"
     ]
   },
   "WindowsESU": {
@@ -26002,10 +26128,10 @@
       "SapCentralServerInstance",
       "SapDatabaseInstance",
       "SapVirtualInstance",
-      "getSapVirtualInstanceAvailabilityZoneDetails",
-      "getSapVirtualInstanceDiskConfigurations",
-      "getSapVirtualInstanceSapSupportedSku",
-      "getSapVirtualInstanceSizingRecommendations"
+      "getSapVirtualInstanceInvokeAvailabilityZoneDetails",
+      "getSapVirtualInstanceInvokeDiskConfigurations",
+      "getSapVirtualInstanceInvokeSapSupportedSku",
+      "getSapVirtualInstanceInvokeSizingRecommendations"
     ]
   }
 }

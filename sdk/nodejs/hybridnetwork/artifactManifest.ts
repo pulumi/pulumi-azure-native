@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Artifact manifest properties.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export class ArtifactManifest extends pulumi.CustomResource {
     /**
@@ -102,7 +104,7 @@ export class ArtifactManifest extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:ArtifactManifest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:ArtifactManifest" }, { type: "azure-native:hybridnetwork/v20240415:ArtifactManifest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArtifactManifest.__pulumiType, name, resourceInputs, opts);
     }

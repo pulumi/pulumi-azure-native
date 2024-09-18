@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about the specified networkFunctionDefinition group.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export function getNetworkFunctionDefinitionGroup(args: GetNetworkFunctionDefinitionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFunctionDefinitionGroupResult> {
 
@@ -72,6 +74,8 @@ export interface GetNetworkFunctionDefinitionGroupResult {
 /**
  * Gets information about the specified networkFunctionDefinition group.
  * Azure REST API version: 2023-09-01.
+ *
+ * Other available API versions: 2024-04-15.
  */
 export function getNetworkFunctionDefinitionGroupOutput(args: GetNetworkFunctionDefinitionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFunctionDefinitionGroupResult> {
     return pulumi.output(args).apply((a: any) => getNetworkFunctionDefinitionGroup(a, opts))

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Gets information about a network function definition version.
         /// Azure REST API version: 2023-09-01.
+        /// 
+        /// Other available API versions: 2024-04-15.
         /// </summary>
         public static Task<GetNetworkFunctionDefinitionVersionResult> InvokeAsync(GetNetworkFunctionDefinitionVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFunctionDefinitionVersionResult>("azure-native:hybridnetwork:getNetworkFunctionDefinitionVersion", args ?? new GetNetworkFunctionDefinitionVersionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Gets information about a network function definition version.
         /// Azure REST API version: 2023-09-01.
+        /// 
+        /// Other available API versions: 2024-04-15.
         /// </summary>
         public static Output<GetNetworkFunctionDefinitionVersionResult> Invoke(GetNetworkFunctionDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionDefinitionVersionResult>("azure-native:hybridnetwork:getNetworkFunctionDefinitionVersion", args ?? new GetNetworkFunctionDefinitionVersionInvokeArgs(), options.WithDefaults());

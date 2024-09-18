@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     /// A replication link.
     /// Azure REST API version: 2023-05-01-preview.
     /// 
-    /// Other available API versions: 2023-08-01-preview.
+    /// Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ReplicationLink")]
     public partial class ReplicationLink : global::Pulumi.CustomResource
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.Sql
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ReplicationLink" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:ReplicationLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:ReplicationLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
