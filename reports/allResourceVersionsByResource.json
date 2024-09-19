@@ -7114,7 +7114,8 @@
       "2023-10-01-preview",
       "2023-12-01-preview",
       "2023-12-30",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-06-01-preview"
     ],
     "ServerAdministrator": [
       "2017-12-01",
@@ -14853,7 +14854,8 @@
       "2023-10-01-preview"
     ],
     "PipelineGroup": [
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-10-01-preview"
     ]
   },
   "NetApp": {
