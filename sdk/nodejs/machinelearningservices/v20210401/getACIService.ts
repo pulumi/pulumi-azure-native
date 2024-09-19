@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Service by name.
  */
 export function getACIService(args: GetACIServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetACIServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20210401:getACIService", {
         "expand": args.expand,
@@ -85,7 +84,13 @@ export interface GetACIServiceResult {
  * Get a Service by name.
  */
 export function getACIServiceOutput(args: GetACIServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetACIServiceResult> {
-    return pulumi.output(args).apply((a: any) => getACIService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20210401:getACIService", {
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetACIServiceOutputArgs {

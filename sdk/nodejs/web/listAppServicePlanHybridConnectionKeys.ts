@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export function listAppServicePlanHybridConnectionKeys(args: ListAppServicePlanHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAppServicePlanHybridConnectionKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:listAppServicePlanHybridConnectionKeys", {
         "name": args.name,
@@ -76,7 +75,13 @@ export interface ListAppServicePlanHybridConnectionKeysResult {
  * Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export function listAppServicePlanHybridConnectionKeysOutput(args: ListAppServicePlanHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAppServicePlanHybridConnectionKeysResult> {
-    return pulumi.output(args).apply((a: any) => listAppServicePlanHybridConnectionKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:listAppServicePlanHybridConnectionKeys", {
+        "name": args.name,
+        "namespaceName": args.namespaceName,
+        "relayName": args.relayName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListAppServicePlanHybridConnectionKeysOutputArgs {

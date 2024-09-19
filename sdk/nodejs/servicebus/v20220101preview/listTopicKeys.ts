@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the primary and secondary connection strings for the topic.
  */
 export function listTopicKeys(args: ListTopicKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTopicKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20220101preview:listTopicKeys", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -74,7 +73,13 @@ export interface ListTopicKeysResult {
  * Gets the primary and secondary connection strings for the topic.
  */
 export function listTopicKeysOutput(args: ListTopicKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopicKeysResult> {
-    return pulumi.output(args).apply((a: any) => listTopicKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicebus/v20220101preview:listTopicKeys", {
+        "authorizationRuleName": args.authorizationRuleName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+        "topicName": args.topicName,
+    }, opts);
 }
 
 export interface ListTopicKeysOutputArgs {

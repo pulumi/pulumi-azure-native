@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List predefined URL categories for rulestack
  */
 export function listGlobalRulestackPredefinedUrlCategories(args: ListGlobalRulestackPredefinedUrlCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalRulestackPredefinedUrlCategoriesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20240119preview:listGlobalRulestackPredefinedUrlCategories", {
         "globalRulestackName": args.globalRulestackName,
@@ -46,7 +45,12 @@ export interface ListGlobalRulestackPredefinedUrlCategoriesResult {
  * List predefined URL categories for rulestack
  */
 export function listGlobalRulestackPredefinedUrlCategoriesOutput(args: ListGlobalRulestackPredefinedUrlCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalRulestackPredefinedUrlCategoriesResult> {
-    return pulumi.output(args).apply((a: any) => listGlobalRulestackPredefinedUrlCategories(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240119preview:listGlobalRulestackPredefinedUrlCategories", {
+        "globalRulestackName": args.globalRulestackName,
+        "skip": args.skip,
+        "top": args.top,
+    }, opts);
 }
 
 export interface ListGlobalRulestackPredefinedUrlCategoriesOutputArgs {

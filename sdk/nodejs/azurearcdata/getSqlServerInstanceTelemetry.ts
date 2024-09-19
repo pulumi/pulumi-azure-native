@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-01-01.
  */
 export function getSqlServerInstanceTelemetry(args: GetSqlServerInstanceTelemetryArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerInstanceTelemetryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata:getSqlServerInstanceTelemetry", {
         "aggregationType": args.aggregationType,
@@ -83,7 +82,17 @@ export interface GetSqlServerInstanceTelemetryResult {
  * Azure REST API version: 2024-01-01.
  */
 export function getSqlServerInstanceTelemetryOutput(args: GetSqlServerInstanceTelemetryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerInstanceTelemetryResult> {
-    return pulumi.output(args).apply((a: any) => getSqlServerInstanceTelemetry(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurearcdata:getSqlServerInstanceTelemetry", {
+        "aggregationType": args.aggregationType,
+        "databaseNames": args.databaseNames,
+        "datasetName": args.datasetName,
+        "endTime": args.endTime,
+        "interval": args.interval,
+        "resourceGroupName": args.resourceGroupName,
+        "sqlServerInstanceName": args.sqlServerInstanceName,
+        "startTime": args.startTime,
+    }, opts);
 }
 
 export interface GetSqlServerInstanceTelemetryOutputArgs {

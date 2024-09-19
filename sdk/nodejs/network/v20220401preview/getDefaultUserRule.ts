@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a user rule.
  */
 export function getDefaultUserRule(args: GetDefaultUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultUserRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220401preview:getDefaultUserRule", {
         "configurationName": args.configurationName,
@@ -115,7 +114,14 @@ export interface GetDefaultUserRuleResult {
  * Gets a user rule.
  */
 export function getDefaultUserRuleOutput(args: GetDefaultUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultUserRuleResult> {
-    return pulumi.output(args).apply((a: any) => getDefaultUserRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20220401preview:getDefaultUserRule", {
+        "configurationName": args.configurationName,
+        "networkManagerName": args.networkManagerName,
+        "resourceGroupName": args.resourceGroupName,
+        "ruleCollectionName": args.ruleCollectionName,
+        "ruleName": args.ruleName,
+    }, opts);
 }
 
 export interface GetDefaultUserRuleOutputArgs {

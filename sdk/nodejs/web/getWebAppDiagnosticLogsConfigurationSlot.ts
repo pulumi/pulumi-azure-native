@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01.
  */
 export function getWebAppDiagnosticLogsConfigurationSlot(args: GetWebAppDiagnosticLogsConfigurationSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDiagnosticLogsConfigurationSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getWebAppDiagnosticLogsConfigurationSlot", {
         "name": args.name,
@@ -82,7 +81,12 @@ export interface GetWebAppDiagnosticLogsConfigurationSlotResult {
  * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01.
  */
 export function getWebAppDiagnosticLogsConfigurationSlotOutput(args: GetWebAppDiagnosticLogsConfigurationSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDiagnosticLogsConfigurationSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppDiagnosticLogsConfigurationSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:getWebAppDiagnosticLogsConfigurationSlot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface GetWebAppDiagnosticLogsConfigurationSlotOutputArgs {

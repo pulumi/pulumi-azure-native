@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an existing delivery rule within a rule set.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20230701preview:getRule", {
         "profileName": args.profileName,
@@ -90,7 +89,13 @@ export interface GetRuleResult {
  * Gets an existing delivery rule within a rule set.
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
-    return pulumi.output(args).apply((a: any) => getRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cdn/v20230701preview:getRule", {
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+        "ruleName": args.ruleName,
+        "ruleSetName": args.ruleSetName,
+    }, opts);
 }
 
 export interface GetRuleOutputArgs {

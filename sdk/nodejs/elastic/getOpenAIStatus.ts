@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview.
  */
 export function getOpenAIStatus(args: GetOpenAIStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenAIStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic:getOpenAIStatus", {
         "integrationName": args.integrationName,
@@ -54,7 +53,12 @@ export interface GetOpenAIStatusResult {
  * Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview.
  */
 export function getOpenAIStatusOutput(args: GetOpenAIStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenAIStatusResult> {
-    return pulumi.output(args).apply((a: any) => getOpenAIStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:elastic:getOpenAIStatus", {
+        "integrationName": args.integrationName,
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetOpenAIStatusOutputArgs {

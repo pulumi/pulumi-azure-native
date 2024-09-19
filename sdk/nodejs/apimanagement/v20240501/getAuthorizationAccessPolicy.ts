@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the authorization access policy specified by its identifier.
  */
 export function getAuthorizationAccessPolicy(args: GetAuthorizationAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationAccessPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getAuthorizationAccessPolicy", {
         "authorizationAccessPolicyId": args.authorizationAccessPolicyId,
@@ -75,7 +74,14 @@ export interface GetAuthorizationAccessPolicyResult {
  * Gets the details of the authorization access policy specified by its identifier.
  */
 export function getAuthorizationAccessPolicyOutput(args: GetAuthorizationAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationAccessPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorizationAccessPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getAuthorizationAccessPolicy", {
+        "authorizationAccessPolicyId": args.authorizationAccessPolicyId,
+        "authorizationId": args.authorizationId,
+        "authorizationProviderId": args.authorizationProviderId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetAuthorizationAccessPolicyOutputArgs {

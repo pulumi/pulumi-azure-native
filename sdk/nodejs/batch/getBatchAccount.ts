@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-01-01, 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
  */
 export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch:getBatchAccount", {
         "accountName": args.accountName,
@@ -131,7 +130,11 @@ export interface GetBatchAccountResult {
  * Other available API versions: 2017-01-01, 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
  */
 export function getBatchAccountOutput(args: GetBatchAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchAccountResult> {
-    return pulumi.output(args).apply((a: any) => getBatchAccount(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:batch:getBatchAccount", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBatchAccountOutputArgs {

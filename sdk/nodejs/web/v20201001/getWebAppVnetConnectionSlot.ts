@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a virtual network the app (or deployment slot) is connected to by name.
  */
 export function getWebAppVnetConnectionSlot(args: GetWebAppVnetConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:getWebAppVnetConnectionSlot", {
         "name": args.name,
@@ -98,7 +97,13 @@ export interface GetWebAppVnetConnectionSlotResult {
  * Gets a virtual network the app (or deployment slot) is connected to by name.
  */
 export function getWebAppVnetConnectionSlotOutput(args: GetWebAppVnetConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppVnetConnectionSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppVnetConnectionSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:getWebAppVnetConnectionSlot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+        "vnetName": args.vnetName,
+    }, opts);
 }
 
 export interface GetWebAppVnetConnectionSlotOutputArgs {

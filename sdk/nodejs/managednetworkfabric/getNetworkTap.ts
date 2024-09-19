@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-06-15.
  */
 export function getNetworkTap(args: GetNetworkTapArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkTapResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric:getNetworkTap", {
         "networkTapName": args.networkTapName,
@@ -97,7 +96,11 @@ export interface GetNetworkTapResult {
  * Azure REST API version: 2023-06-15.
  */
 export function getNetworkTapOutput(args: GetNetworkTapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkTapResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkTap(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNetworkTap", {
+        "networkTapName": args.networkTapName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkTapOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the token used to connect to the endpoint where source code can be uploaded for a build.
  */
 export function listBuildAuthToken(args: ListBuildAuthTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildAuthTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20231102preview:listBuildAuthToken", {
         "buildName": args.buildName,
@@ -49,7 +48,12 @@ export interface ListBuildAuthTokenResult {
  * Gets the token used to connect to the endpoint where source code can be uploaded for a build.
  */
 export function listBuildAuthTokenOutput(args: ListBuildAuthTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildAuthTokenResult> {
-    return pulumi.output(args).apply((a: any) => listBuildAuthToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app/v20231102preview:listBuildAuthToken", {
+        "buildName": args.buildName,
+        "builderName": args.builderName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListBuildAuthTokenOutputArgs {

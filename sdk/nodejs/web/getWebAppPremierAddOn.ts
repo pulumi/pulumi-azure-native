@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export function getWebAppPremierAddOn(args: GetWebAppPremierAddOnArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getWebAppPremierAddOn", {
         "name": args.name,
@@ -91,7 +90,12 @@ export interface GetWebAppPremierAddOnResult {
  * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export function getWebAppPremierAddOnOutput(args: GetWebAppPremierAddOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPremierAddOnResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppPremierAddOn(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:getWebAppPremierAddOn", {
+        "name": args.name,
+        "premierAddOnName": args.premierAddOnName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWebAppPremierAddOnOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get the Global policy definition of the Api Management service.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getPolicy", {
         "format": args.format,
@@ -66,7 +65,13 @@ export interface GetPolicyResult {
  * Get the Global policy definition of the Api Management service.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getPolicy", {
+        "format": args.format,
+        "policyId": args.policyId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetPolicyOutputArgs {

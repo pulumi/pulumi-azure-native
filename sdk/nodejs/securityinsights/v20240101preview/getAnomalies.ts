@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a setting.
  */
 export function getAnomalies(args: GetAnomaliesArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomaliesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20240101preview:getAnomalies", {
         "resourceGroupName": args.resourceGroupName,
@@ -73,7 +72,12 @@ export interface GetAnomaliesResult {
  * Gets a setting.
  */
 export function getAnomaliesOutput(args: GetAnomaliesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomaliesResult> {
-    return pulumi.output(args).apply((a: any) => getAnomalies(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:getAnomalies", {
+        "resourceGroupName": args.resourceGroupName,
+        "settingsName": args.settingsName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetAnomaliesOutputArgs {

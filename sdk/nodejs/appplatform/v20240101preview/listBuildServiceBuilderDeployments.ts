@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * List deployments that are using the builder.
  */
 export function listBuildServiceBuilderDeployments(args: ListBuildServiceBuilderDeploymentsArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildServiceBuilderDeploymentsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20240101preview:listBuildServiceBuilderDeployments", {
         "buildServiceName": args.buildServiceName,
@@ -50,7 +49,13 @@ export interface ListBuildServiceBuilderDeploymentsResult {
  * List deployments that are using the builder.
  */
 export function listBuildServiceBuilderDeploymentsOutput(args: ListBuildServiceBuilderDeploymentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildServiceBuilderDeploymentsResult> {
-    return pulumi.output(args).apply((a: any) => listBuildServiceBuilderDeployments(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240101preview:listBuildServiceBuilderDeployments", {
+        "buildServiceName": args.buildServiceName,
+        "builderName": args.builderName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface ListBuildServiceBuilderDeploymentsOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a data export instance.
  */
 export function getDataExport(args: GetDataExportArgs, opts?: pulumi.InvokeOptions): Promise<GetDataExportResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200801:getDataExport", {
         "dataExportName": args.dataExportName,
@@ -81,7 +80,12 @@ export interface GetDataExportResult {
  * Gets a data export instance.
  */
 export function getDataExportOutput(args: GetDataExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataExportResult> {
-    return pulumi.output(args).apply((a: any) => getDataExport(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20200801:getDataExport", {
+        "dataExportName": args.dataExportName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetDataExportOutputArgs {

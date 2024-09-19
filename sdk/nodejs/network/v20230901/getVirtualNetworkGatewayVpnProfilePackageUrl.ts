@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets pre-generated VPN profile for P2S client of the virtual network gateway in the specified resource group. The profile needs to be generated first using generateVpnProfile.
  */
 export function getVirtualNetworkGatewayVpnProfilePackageUrl(args: GetVirtualNetworkGatewayVpnProfilePackageUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnProfilePackageUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230901:getVirtualNetworkGatewayVpnProfilePackageUrl", {
         "resourceGroupName": args.resourceGroupName,
@@ -34,7 +33,11 @@ export interface GetVirtualNetworkGatewayVpnProfilePackageUrlResult {
  * Gets pre-generated VPN profile for P2S client of the virtual network gateway in the specified resource group. The profile needs to be generated first using generateVpnProfile.
  */
 export function getVirtualNetworkGatewayVpnProfilePackageUrlOutput(args: GetVirtualNetworkGatewayVpnProfilePackageUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnProfilePackageUrlResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayVpnProfilePackageUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230901:getVirtualNetworkGatewayVpnProfilePackageUrl", {
+        "resourceGroupName": args.resourceGroupName,
+        "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
+    }, opts);
 }
 
 export interface GetVirtualNetworkGatewayVpnProfilePackageUrlOutputArgs {

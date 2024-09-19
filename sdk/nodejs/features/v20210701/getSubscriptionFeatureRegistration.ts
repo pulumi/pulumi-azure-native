@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns a feature registration
  */
 export function getSubscriptionFeatureRegistration(args: GetSubscriptionFeatureRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionFeatureRegistrationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:features/v20210701:getSubscriptionFeatureRegistration", {
         "featureName": args.featureName,
@@ -52,7 +51,11 @@ export interface GetSubscriptionFeatureRegistrationResult {
  * Returns a feature registration
  */
 export function getSubscriptionFeatureRegistrationOutput(args: GetSubscriptionFeatureRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionFeatureRegistrationResult> {
-    return pulumi.output(args).apply((a: any) => getSubscriptionFeatureRegistration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:features/v20210701:getSubscriptionFeatureRegistration", {
+        "featureName": args.featureName,
+        "providerNamespace": args.providerNamespace,
+    }, opts);
 }
 
 export interface GetSubscriptionFeatureRegistrationOutputArgs {

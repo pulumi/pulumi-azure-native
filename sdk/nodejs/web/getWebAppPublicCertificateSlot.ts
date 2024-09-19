@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export function getWebAppPublicCertificateSlot(args: GetWebAppPublicCertificateSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getWebAppPublicCertificateSlot", {
         "name": args.name,
@@ -80,7 +79,13 @@ export interface GetWebAppPublicCertificateSlotResult {
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export function getWebAppPublicCertificateSlotOutput(args: GetWebAppPublicCertificateSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPublicCertificateSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppPublicCertificateSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:getWebAppPublicCertificateSlot", {
+        "name": args.name,
+        "publicCertificateName": args.publicCertificateName,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface GetWebAppPublicCertificateSlotOutputArgs {

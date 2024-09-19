@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-05-01-preview.
  */
 export function getTenantActionGroup(args: GetTenantActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantActionGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getTenantActionGroup", {
         "managementGroupId": args.managementGroupId,
@@ -89,7 +88,11 @@ export interface GetTenantActionGroupResult {
  * Azure REST API version: 2023-05-01-preview.
  */
 export function getTenantActionGroupOutput(args: GetTenantActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantActionGroupResult> {
-    return pulumi.output(args).apply((a: any) => getTenantActionGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights:getTenantActionGroup", {
+        "managementGroupId": args.managementGroupId,
+        "tenantActionGroupName": args.tenantActionGroupName,
+    }, opts);
 }
 
 export interface GetTenantActionGroupOutputArgs {

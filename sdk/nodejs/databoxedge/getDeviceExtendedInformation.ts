@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-05-01-preview, 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export function getDeviceExtendedInformation(args: GetDeviceExtendedInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceExtendedInformationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge:getDeviceExtendedInformation", {
         "deviceName": args.deviceName,
@@ -121,7 +120,11 @@ export interface GetDeviceExtendedInformationResult {
  * Other available API versions: 2020-05-01-preview, 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export function getDeviceExtendedInformationOutput(args: GetDeviceExtendedInformationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceExtendedInformationResult> {
-    return pulumi.output(args).apply((a: any) => getDeviceExtendedInformation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:databoxedge:getDeviceExtendedInformation", {
+        "deviceName": args.deviceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDeviceExtendedInformationOutputArgs {

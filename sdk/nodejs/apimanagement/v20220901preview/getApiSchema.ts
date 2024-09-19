@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get the schema configuration at the API level.
  */
 export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetApiSchemaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220901preview:getApiSchema", {
         "apiId": args.apiId,
@@ -74,7 +73,13 @@ export interface GetApiSchemaResult {
  * Get the schema configuration at the API level.
  */
 export function getApiSchemaOutput(args: GetApiSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiSchemaResult> {
-    return pulumi.output(args).apply((a: any) => getApiSchema(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220901preview:getApiSchema", {
+        "apiId": args.apiId,
+        "resourceGroupName": args.resourceGroupName,
+        "schemaId": args.schemaId,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetApiSchemaOutputArgs {

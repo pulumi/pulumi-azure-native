@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an Event Hubs description for the specified Event Hub.
  */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20240101:getEventHub", {
         "eventHubName": args.eventHubName,
@@ -100,7 +99,12 @@ export interface GetEventHubResult {
  * Gets an Event Hubs description for the specified Event Hub.
  */
 export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {
-    return pulumi.output(args).apply((a: any) => getEventHub(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventhub/v20240101:getEventHub", {
+        "eventHubName": args.eventHubName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEventHubOutputArgs {

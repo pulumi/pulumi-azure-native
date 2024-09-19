@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01.
  */
 export function getSentinelOnboardingState(args: GetSentinelOnboardingStateArgs, opts?: pulumi.InvokeOptions): Promise<GetSentinelOnboardingStateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getSentinelOnboardingState", {
         "resourceGroupName": args.resourceGroupName,
@@ -74,7 +73,12 @@ export interface GetSentinelOnboardingStateResult {
  * Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01.
  */
 export function getSentinelOnboardingStateOutput(args: GetSentinelOnboardingStateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSentinelOnboardingStateResult> {
-    return pulumi.output(args).apply((a: any) => getSentinelOnboardingState(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights:getSentinelOnboardingState", {
+        "resourceGroupName": args.resourceGroupName,
+        "sentinelOnboardingStateName": args.sentinelOnboardingStateName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetSentinelOnboardingStateOutputArgs {

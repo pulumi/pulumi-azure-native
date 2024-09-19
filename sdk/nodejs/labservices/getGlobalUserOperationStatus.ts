@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-10-15.
  */
 export function getGlobalUserOperationStatus(args: GetGlobalUserOperationStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserOperationStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices:getGlobalUserOperationStatus", {
         "operationUrl": args.operationUrl,
@@ -42,7 +41,11 @@ export interface GetGlobalUserOperationStatusResult {
  * Azure REST API version: 2018-10-15.
  */
 export function getGlobalUserOperationStatusOutput(args: GetGlobalUserOperationStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserOperationStatusResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalUserOperationStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:labservices:getGlobalUserOperationStatus", {
+        "operationUrl": args.operationUrl,
+        "userName": args.userName,
+    }, opts);
 }
 
 export interface GetGlobalUserOperationStatusOutputArgs {

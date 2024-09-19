@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
  */
 export function listRedisKeys(args: ListRedisKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRedisKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20230501preview:listRedisKeys", {
         "name": args.name,
@@ -44,7 +43,11 @@ export interface ListRedisKeysResult {
  * Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
  */
 export function listRedisKeysOutput(args: ListRedisKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRedisKeysResult> {
-    return pulumi.output(args).apply((a: any) => listRedisKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cache/v20230501preview:listRedisKeys", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListRedisKeysOutputArgs {

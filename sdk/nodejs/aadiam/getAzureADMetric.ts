@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-07-01-preview.
  */
 export function getAzureADMetric(args: GetAzureADMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureADMetricResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aadiam:getAzureADMetric", {
         "azureADMetricsName": args.azureADMetricsName,
@@ -62,7 +61,11 @@ export interface GetAzureADMetricResult {
  * Azure REST API version: 2020-07-01-preview.
  */
 export function getAzureADMetricOutput(args: GetAzureADMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureADMetricResult> {
-    return pulumi.output(args).apply((a: any) => getAzureADMetric(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:aadiam:getAzureADMetric", {
+        "azureADMetricsName": args.azureADMetricsName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAzureADMetricOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Returns a sandbox custom image
  */
 export function getSandboxCustomImage(args: GetSandboxCustomImageArgs, opts?: pulumi.InvokeOptions): Promise<GetSandboxCustomImageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20230815:getSandboxCustomImage", {
         "clusterName": args.clusterName,
@@ -69,7 +68,12 @@ export interface GetSandboxCustomImageResult {
  * Returns a sandbox custom image
  */
 export function getSandboxCustomImageOutput(args: GetSandboxCustomImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSandboxCustomImageResult> {
-    return pulumi.output(args).apply((a: any) => getSandboxCustomImage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kusto/v20230815:getSandboxCustomImage", {
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+        "sandboxCustomImageName": args.sandboxCustomImageName,
+    }, opts);
 }
 
 export interface GetSandboxCustomImageOutputArgs {

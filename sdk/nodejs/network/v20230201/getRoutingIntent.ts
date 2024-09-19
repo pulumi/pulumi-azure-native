@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a RoutingIntent.
  */
 export function getRoutingIntent(args: GetRoutingIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingIntentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230201:getRoutingIntent", {
         "resourceGroupName": args.resourceGroupName,
@@ -68,7 +67,12 @@ export interface GetRoutingIntentResult {
  * Retrieves the details of a RoutingIntent.
  */
 export function getRoutingIntentOutput(args: GetRoutingIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingIntentResult> {
-    return pulumi.output(args).apply((a: any) => getRoutingIntent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getRoutingIntent", {
+        "resourceGroupName": args.resourceGroupName,
+        "routingIntentName": args.routingIntentName,
+        "virtualHubName": args.virtualHubName,
+    }, opts);
 }
 
 export interface GetRoutingIntentOutputArgs {

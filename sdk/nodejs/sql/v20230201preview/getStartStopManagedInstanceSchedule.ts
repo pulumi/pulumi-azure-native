@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the managed instance's Start/Stop schedule.
  */
 export function getStartStopManagedInstanceSchedule(args: GetStartStopManagedInstanceScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetStartStopManagedInstanceScheduleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230201preview:getStartStopManagedInstanceSchedule", {
         "managedInstanceName": args.managedInstanceName,
@@ -80,7 +79,12 @@ export interface GetStartStopManagedInstanceScheduleResult {
  * Gets the managed instance's Start/Stop schedule.
  */
 export function getStartStopManagedInstanceScheduleOutput(args: GetStartStopManagedInstanceScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStartStopManagedInstanceScheduleResult> {
-    return pulumi.output(args).apply((a: any) => getStartStopManagedInstanceSchedule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20230201preview:getStartStopManagedInstanceSchedule", {
+        "managedInstanceName": args.managedInstanceName,
+        "resourceGroupName": args.resourceGroupName,
+        "startStopScheduleName": args.startStopScheduleName,
+    }, opts);
 }
 
 export interface GetStartStopManagedInstanceScheduleOutputArgs {

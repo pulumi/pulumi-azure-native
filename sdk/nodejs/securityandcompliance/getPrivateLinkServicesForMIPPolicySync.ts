@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-03-08.
  */
 export function getPrivateLinkServicesForMIPPolicySync(args: GetPrivateLinkServicesForMIPPolicySyncArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForMIPPolicySyncResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance:getPrivateLinkServicesForMIPPolicySync", {
         "resourceGroupName": args.resourceGroupName,
@@ -81,7 +80,11 @@ export interface GetPrivateLinkServicesForMIPPolicySyncResult {
  * Azure REST API version: 2021-03-08.
  */
 export function getPrivateLinkServicesForMIPPolicySyncOutput(args: GetPrivateLinkServicesForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForMIPPolicySyncResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForMIPPolicySync(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityandcompliance:getPrivateLinkServicesForMIPPolicySync", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetPrivateLinkServicesForMIPPolicySyncOutputArgs {

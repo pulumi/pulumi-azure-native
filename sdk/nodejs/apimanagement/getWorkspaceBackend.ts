@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-05-01.
  */
 export function getWorkspaceBackend(args: GetWorkspaceBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceBackendResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getWorkspaceBackend", {
         "backendId": args.backendId,
@@ -108,7 +107,13 @@ export interface GetWorkspaceBackendResult {
  * Other available API versions: 2024-05-01.
  */
 export function getWorkspaceBackendOutput(args: GetWorkspaceBackendOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceBackendResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspaceBackend(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceBackend", {
+        "backendId": args.backendId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 export interface GetWorkspaceBackendOutputArgs {

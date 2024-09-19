@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get counters
  */
 export function getPreRuleCounters(args: GetPreRuleCountersArgs, opts?: pulumi.InvokeOptions): Promise<GetPreRuleCountersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20220829:getPreRuleCounters", {
         "firewallName": args.firewallName,
@@ -81,7 +80,12 @@ export interface GetPreRuleCountersResult {
  * Get counters
  */
 export function getPreRuleCountersOutput(args: GetPreRuleCountersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPreRuleCountersResult> {
-    return pulumi.output(args).apply((a: any) => getPreRuleCounters(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829:getPreRuleCounters", {
+        "firewallName": args.firewallName,
+        "globalRulestackName": args.globalRulestackName,
+        "priority": args.priority,
+    }, opts);
 }
 
 export interface GetPreRuleCountersOutputArgs {

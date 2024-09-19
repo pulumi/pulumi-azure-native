@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an integration account certificate.
  */
 export function getIntegrationAccountCertificate(args: GetIntegrationAccountCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20150801preview:getIntegrationAccountCertificate", {
         "certificateName": args.certificateName,
@@ -81,7 +80,12 @@ export interface GetIntegrationAccountCertificateResult {
  * Gets an integration account certificate.
  */
 export function getIntegrationAccountCertificateOutput(args: GetIntegrationAccountCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getIntegrationAccountCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:logic/v20150801preview:getIntegrationAccountCertificate", {
+        "certificateName": args.certificateName,
+        "integrationAccountName": args.integrationAccountName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIntegrationAccountCertificateOutputArgs {

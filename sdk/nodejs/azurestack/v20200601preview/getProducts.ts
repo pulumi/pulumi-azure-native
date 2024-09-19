@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns a list of products.
  */
 export function getProducts(args: GetProductsArgs, opts?: pulumi.InvokeOptions): Promise<GetProductsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestack/v20200601preview:getProducts", {
         "productName": args.productName,
@@ -52,7 +51,12 @@ export interface GetProductsResult {
  * Returns a list of products.
  */
 export function getProductsOutput(args: GetProductsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductsResult> {
-    return pulumi.output(args).apply((a: any) => getProducts(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestack/v20200601preview:getProducts", {
+        "productName": args.productName,
+        "registrationName": args.registrationName,
+        "resourceGroup": args.resourceGroup,
+    }, opts);
 }
 
 export interface GetProductsOutputArgs {

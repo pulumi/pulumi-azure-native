@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Retrieves the connection info for the notebook workspace
  */
 export function listNotebookWorkspaceConnectionInfo(args: ListNotebookWorkspaceConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<ListNotebookWorkspaceConnectionInfoResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20230915:listNotebookWorkspaceConnectionInfo", {
         "accountName": args.accountName,
@@ -49,7 +48,12 @@ export interface ListNotebookWorkspaceConnectionInfoResult {
  * Retrieves the connection info for the notebook workspace
  */
 export function listNotebookWorkspaceConnectionInfoOutput(args: ListNotebookWorkspaceConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotebookWorkspaceConnectionInfoResult> {
-    return pulumi.output(args).apply((a: any) => listNotebookWorkspaceConnectionInfo(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20230915:listNotebookWorkspaceConnectionInfo", {
+        "accountName": args.accountName,
+        "notebookWorkspaceName": args.notebookWorkspaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListNotebookWorkspaceConnectionInfoOutputArgs {

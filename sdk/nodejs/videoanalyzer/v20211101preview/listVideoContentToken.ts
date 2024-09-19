@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Generates a streaming token which can be used for accessing content from video content URLs, for a video resource with the given name.
  */
 export function listVideoContentToken(args: ListVideoContentTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListVideoContentTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20211101preview:listVideoContentToken", {
         "accountName": args.accountName,
@@ -49,7 +48,12 @@ export interface ListVideoContentTokenResult {
  * Generates a streaming token which can be used for accessing content from video content URLs, for a video resource with the given name.
  */
 export function listVideoContentTokenOutput(args: ListVideoContentTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVideoContentTokenResult> {
-    return pulumi.output(args).apply((a: any) => listVideoContentToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:videoanalyzer/v20211101preview:listVideoContentToken", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+        "videoName": args.videoName,
+    }, opts);
 }
 
 export interface ListVideoContentTokenOutputArgs {

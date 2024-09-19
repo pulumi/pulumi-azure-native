@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export function getWebAppInstanceFunctionSlot(args: GetWebAppInstanceFunctionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppInstanceFunctionSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getWebAppInstanceFunctionSlot", {
         "functionName": args.functionName,
@@ -120,7 +119,13 @@ export interface GetWebAppInstanceFunctionSlotResult {
  * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export function getWebAppInstanceFunctionSlotOutput(args: GetWebAppInstanceFunctionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppInstanceFunctionSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppInstanceFunctionSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:getWebAppInstanceFunctionSlot", {
+        "functionName": args.functionName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface GetWebAppInstanceFunctionSlotOutputArgs {

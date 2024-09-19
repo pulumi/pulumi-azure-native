@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get batch operation status
  */
 export function getGlobalUserOperationBatchStatus(args: GetGlobalUserOperationBatchStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserOperationBatchStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices/v20181015:getGlobalUserOperationBatchStatus", {
         "urls": args.urls,
@@ -43,7 +42,11 @@ export interface GetGlobalUserOperationBatchStatusResult {
  * Get batch operation status
  */
 export function getGlobalUserOperationBatchStatusOutput(args: GetGlobalUserOperationBatchStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserOperationBatchStatusResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalUserOperationBatchStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:labservices/v20181015:getGlobalUserOperationBatchStatus", {
+        "urls": args.urls,
+        "userName": args.userName,
+    }, opts);
 }
 
 export interface GetGlobalUserOperationBatchStatusOutputArgs {

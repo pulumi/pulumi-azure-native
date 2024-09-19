@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a MqResource
  */
 export function getMq(args: GetMqArgs, opts?: pulumi.InvokeOptions): Promise<GetMqResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsmq/v20231004preview:getMq", {
         "mqName": args.mqName,
@@ -71,7 +70,11 @@ export interface GetMqResult {
  * Get a MqResource
  */
 export function getMqOutput(args: GetMqOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMqResult> {
-    return pulumi.output(args).apply((a: any) => getMq(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq/v20231004preview:getMq", {
+        "mqName": args.mqName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMqOutputArgs {

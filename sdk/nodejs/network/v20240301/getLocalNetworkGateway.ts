@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified local network gateway in a resource group.
  */
 export function getLocalNetworkGateway(args: GetLocalNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNetworkGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:getLocalNetworkGateway", {
         "localNetworkGatewayName": args.localNetworkGatewayName,
@@ -87,7 +86,11 @@ export interface GetLocalNetworkGatewayResult {
  * Gets the specified local network gateway in a resource group.
  */
 export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getLocalNetworkGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getLocalNetworkGateway", {
+        "localNetworkGatewayName": args.localNetworkGatewayName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLocalNetworkGatewayOutputArgs {

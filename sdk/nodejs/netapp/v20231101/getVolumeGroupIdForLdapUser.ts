@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Returns the list of group Ids for a specific LDAP User
  */
 export function getVolumeGroupIdForLdapUser(args: GetVolumeGroupIdForLdapUserArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupIdForLdapUserResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20231101:getVolumeGroupIdForLdapUser", {
         "accountName": args.accountName,
@@ -55,7 +54,14 @@ export interface GetVolumeGroupIdForLdapUserResult {
  * Returns the list of group Ids for a specific LDAP User
  */
 export function getVolumeGroupIdForLdapUserOutput(args: GetVolumeGroupIdForLdapUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupIdForLdapUserResult> {
-    return pulumi.output(args).apply((a: any) => getVolumeGroupIdForLdapUser(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:netapp/v20231101:getVolumeGroupIdForLdapUser", {
+        "accountName": args.accountName,
+        "poolName": args.poolName,
+        "resourceGroupName": args.resourceGroupName,
+        "username": args.username,
+        "volumeName": args.volumeName,
+    }, opts);
 }
 
 export interface GetVolumeGroupIdForLdapUserOutputArgs {

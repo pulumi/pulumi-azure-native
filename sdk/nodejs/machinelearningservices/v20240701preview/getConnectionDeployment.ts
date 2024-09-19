@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getConnectionDeployment(args: GetConnectionDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionDeploymentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240701preview:getConnectionDeployment", {
         "connectionName": args.connectionName,
@@ -57,7 +56,13 @@ export interface GetConnectionDeploymentResult {
     readonly type: string;
 }
 export function getConnectionDeploymentOutput(args: GetConnectionDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getConnectionDeployment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240701preview:getConnectionDeployment", {
+        "connectionName": args.connectionName,
+        "deploymentName": args.deploymentName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetConnectionDeploymentOutputArgs {

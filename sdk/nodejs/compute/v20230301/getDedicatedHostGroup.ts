@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves information about a dedicated host group.
  */
 export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20230301:getDedicatedHostGroup", {
         "expand": args.expand,
@@ -88,7 +87,12 @@ export interface GetDedicatedHostGroupResult {
  * Retrieves information about a dedicated host group.
  */
 export function getDedicatedHostGroupOutput(args: GetDedicatedHostGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostGroupResult> {
-    return pulumi.output(args).apply((a: any) => getDedicatedHostGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute/v20230301:getDedicatedHostGroup", {
+        "expand": args.expand,
+        "hostGroupName": args.hostGroupName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDedicatedHostGroupOutputArgs {

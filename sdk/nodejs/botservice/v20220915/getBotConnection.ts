@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Connection Setting registration for a Bot Service
  */
 export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice/v20220915:getBotConnection", {
         "connectionName": args.connectionName,
@@ -84,7 +83,12 @@ export interface GetBotConnectionResult {
  * Get a Connection Setting registration for a Bot Service
  */
 export function getBotConnectionOutput(args: GetBotConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getBotConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:botservice/v20220915:getBotConnection", {
+        "connectionName": args.connectionName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetBotConnectionOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials.
  */
 export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeConnectionInfoResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getIntegrationRuntimeConnectionInfo", {
         "factoryName": args.factoryName,
@@ -65,7 +64,12 @@ export interface GetIntegrationRuntimeConnectionInfoResult {
  * Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials.
  */
 export function getIntegrationRuntimeConnectionInfoOutput(args: GetIntegrationRuntimeConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeConnectionInfoResult> {
-    return pulumi.output(args).apply((a: any) => getIntegrationRuntimeConnectionInfo(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getIntegrationRuntimeConnectionInfo", {
+        "factoryName": args.factoryName,
+        "integrationRuntimeName": args.integrationRuntimeName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIntegrationRuntimeConnectionInfoOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20220401preview:getDevice", {
         "deviceName": args.deviceName,
@@ -155,7 +154,11 @@ export interface GetDeviceResult {
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
-    return pulumi.output(args).apply((a: any) => getDevice(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20220401preview:getDevice", {
+        "deviceName": args.deviceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDeviceOutputArgs {

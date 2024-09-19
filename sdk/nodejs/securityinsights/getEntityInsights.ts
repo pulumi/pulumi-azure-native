@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-01-01-preview, 2021-09-01-preview, 2021-10-01-preview, 2022-01-01-preview, 2022-04-01-preview, 2022-05-01-preview, 2022-06-01-preview, 2022-07-01-preview, 2022-08-01-preview, 2022-09-01-preview, 2022-10-01-preview, 2022-11-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
  */
 export function getEntityInsights(args: GetEntityInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityInsightsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getEntityInsights", {
         "addDefaultExtendedTimeRange": args.addDefaultExtendedTimeRange,
@@ -78,7 +77,16 @@ export interface GetEntityInsightsResult {
  * Other available API versions: 2019-01-01-preview, 2021-09-01-preview, 2021-10-01-preview, 2022-01-01-preview, 2022-04-01-preview, 2022-05-01-preview, 2022-06-01-preview, 2022-07-01-preview, 2022-08-01-preview, 2022-09-01-preview, 2022-10-01-preview, 2022-11-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
  */
 export function getEntityInsightsOutput(args: GetEntityInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityInsightsResult> {
-    return pulumi.output(args).apply((a: any) => getEntityInsights(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights:getEntityInsights", {
+        "addDefaultExtendedTimeRange": args.addDefaultExtendedTimeRange,
+        "endTime": args.endTime,
+        "entityId": args.entityId,
+        "insightQueryIds": args.insightQueryIds,
+        "resourceGroupName": args.resourceGroupName,
+        "startTime": args.startTime,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetEntityInsightsOutputArgs {

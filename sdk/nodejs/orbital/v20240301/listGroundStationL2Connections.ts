@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns a list of L2 Connections attached to an ground station.
  */
 export function listGroundStationL2Connections(args: ListGroundStationL2ConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<ListGroundStationL2ConnectionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:orbital/v20240301:listGroundStationL2Connections", {
         "groundStationName": args.groundStationName,
@@ -47,7 +46,11 @@ export interface ListGroundStationL2ConnectionsResult {
  * Returns a list of L2 Connections attached to an ground station.
  */
 export function listGroundStationL2ConnectionsOutput(args: ListGroundStationL2ConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGroundStationL2ConnectionsResult> {
-    return pulumi.output(args).apply((a: any) => listGroundStationL2Connections(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:orbital/v20240301:listGroundStationL2Connections", {
+        "groundStationName": args.groundStationName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListGroundStationL2ConnectionsOutputArgs {

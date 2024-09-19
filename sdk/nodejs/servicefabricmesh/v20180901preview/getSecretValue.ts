@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
  */
 export function getSecretValue(args: GetSecretValueArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretValueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getSecretValue", {
         "resourceGroupName": args.resourceGroupName,
@@ -69,7 +68,12 @@ export interface GetSecretValueResult {
  * Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
  */
 export function getSecretValueOutput(args: GetSecretValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretValueResult> {
-    return pulumi.output(args).apply((a: any) => getSecretValue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh/v20180901preview:getSecretValue", {
+        "resourceGroupName": args.resourceGroupName,
+        "secretResourceName": args.secretResourceName,
+        "secretValueResourceName": args.secretValueResourceName,
+    }, opts);
 }
 
 export interface GetSecretValueOutputArgs {

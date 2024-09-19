@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a BusinessCase
  */
 export function getBusinessCaseOperation(args: GetBusinessCaseOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessCaseOperationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20230401preview:getBusinessCaseOperation", {
         "businessCaseName": args.businessCaseName,
@@ -76,7 +75,12 @@ export interface GetBusinessCaseOperationResult {
  * Get a BusinessCase
  */
 export function getBusinessCaseOperationOutput(args: GetBusinessCaseOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessCaseOperationResult> {
-    return pulumi.output(args).apply((a: any) => getBusinessCaseOperation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate/v20230401preview:getBusinessCaseOperation", {
+        "businessCaseName": args.businessCaseName,
+        "projectName": args.projectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBusinessCaseOperationOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The operation returns properties of a SyncSet.
  */
 export function getSyncSet(args: GetSyncSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20231122:getSyncSet", {
         "childResourceName": args.childResourceName,
@@ -64,7 +63,12 @@ export interface GetSyncSetResult {
  * The operation returns properties of a SyncSet.
  */
 export function getSyncSetOutput(args: GetSyncSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncSetResult> {
-    return pulumi.output(args).apply((a: any) => getSyncSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:redhatopenshift/v20231122:getSyncSet", {
+        "childResourceName": args.childResourceName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetSyncSetOutputArgs {

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-01-01.
  */
 export function getSolutionsControllerConfig(args: GetSolutionsControllerConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionsControllerConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getSolutionsControllerConfig", {
         "migrateProjectName": args.migrateProjectName,
@@ -47,7 +46,12 @@ export interface GetSolutionsControllerConfigResult {
  * Azure REST API version: 2023-01-01.
  */
 export function getSolutionsControllerConfigOutput(args: GetSolutionsControllerConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionsControllerConfigResult> {
-    return pulumi.output(args).apply((a: any) => getSolutionsControllerConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate:getSolutionsControllerConfig", {
+        "migrateProjectName": args.migrateProjectName,
+        "resourceGroupName": args.resourceGroupName,
+        "solutionName": args.solutionName,
+    }, opts);
 }
 
 export interface GetSolutionsControllerConfigOutputArgs {

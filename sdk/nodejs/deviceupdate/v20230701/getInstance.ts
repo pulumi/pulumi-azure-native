@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns instance details for the given instance and account name.
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceupdate/v20230701:getInstance", {
         "accountName": args.accountName,
@@ -88,7 +87,12 @@ export interface GetInstanceResult {
  * Returns instance details for the given instance and account name.
  */
 export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:deviceupdate/v20230701:getInstance", {
+        "accountName": args.accountName,
+        "instanceName": args.instanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetInstanceOutputArgs {

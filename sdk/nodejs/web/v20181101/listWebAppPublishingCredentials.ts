@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the Git/FTP publishing credentials of an app.
  */
 export function listWebAppPublishingCredentials(args: ListWebAppPublishingCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppPublishingCredentialsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20181101:listWebAppPublishingCredentials", {
         "name": args.name,
@@ -72,7 +71,11 @@ export interface ListWebAppPublishingCredentialsResult {
  * Gets the Git/FTP publishing credentials of an app.
  */
 export function listWebAppPublishingCredentialsOutput(args: ListWebAppPublishingCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppPublishingCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppPublishingCredentials(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20181101:listWebAppPublishingCredentials", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListWebAppPublishingCredentialsOutputArgs {

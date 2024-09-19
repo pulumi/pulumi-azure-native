@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-10-01.
  */
 export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationAssignmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedservices:getRegistrationAssignment", {
         "expandRegistrationDefinition": args.expandRegistrationDefinition,
@@ -66,7 +65,12 @@ export interface GetRegistrationAssignmentResult {
  * Azure REST API version: 2022-10-01.
  */
 export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getRegistrationAssignment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managedservices:getRegistrationAssignment", {
+        "expandRegistrationDefinition": args.expandRegistrationDefinition,
+        "registrationAssignmentId": args.registrationAssignmentId,
+        "scope": args.scope,
+    }, opts);
 }
 
 export interface GetRegistrationAssignmentOutputArgs {

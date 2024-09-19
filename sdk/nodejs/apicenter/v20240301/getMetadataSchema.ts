@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns details of the metadata schema.
  */
 export function getMetadataSchema(args: GetMetadataSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSchemaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apicenter/v20240301:getMetadataSchema", {
         "metadataSchemaName": args.metadataSchemaName,
@@ -68,7 +67,12 @@ export interface GetMetadataSchemaResult {
  * Returns details of the metadata schema.
  */
 export function getMetadataSchemaOutput(args: GetMetadataSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataSchemaResult> {
-    return pulumi.output(args).apply((a: any) => getMetadataSchema(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apicenter/v20240301:getMetadataSchema", {
+        "metadataSchemaName": args.metadataSchemaName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetMetadataSchemaOutputArgs {

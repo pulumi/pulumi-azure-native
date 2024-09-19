@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the application accelerator.
  */
 export function getApplicationAccelerator(args: GetApplicationAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationAcceleratorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20230501preview:getApplicationAccelerator", {
         "applicationAcceleratorName": args.applicationAcceleratorName,
@@ -68,7 +67,12 @@ export interface GetApplicationAcceleratorResult {
  * Get the application accelerator.
  */
 export function getApplicationAcceleratorOutput(args: GetApplicationAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationAcceleratorResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationAccelerator(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230501preview:getApplicationAccelerator", {
+        "applicationAcceleratorName": args.applicationAcceleratorName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetApplicationAcceleratorOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the specified network watcher by resource group.
  */
 export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20231101:getNetworkWatcher", {
         "networkWatcherName": args.networkWatcherName,
@@ -64,7 +63,11 @@ export interface GetNetworkWatcherResult {
  * Gets the specified network watcher by resource group.
  */
 export function getNetworkWatcherOutput(args: GetNetworkWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkWatcherResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkWatcher(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getNetworkWatcher", {
+        "networkWatcherName": args.networkWatcherName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkWatcherOutputArgs {

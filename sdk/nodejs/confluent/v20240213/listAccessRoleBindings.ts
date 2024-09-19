@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Details of the role bindings returned on successful response
  */
 export function listAccessRoleBindings(args: ListAccessRoleBindingsArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessRoleBindingsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:confluent/v20240213:listAccessRoleBindings", {
         "organizationName": args.organizationName,
@@ -56,7 +55,12 @@ export interface ListAccessRoleBindingsResult {
  * Details of the role bindings returned on successful response
  */
 export function listAccessRoleBindingsOutput(args: ListAccessRoleBindingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessRoleBindingsResult> {
-    return pulumi.output(args).apply((a: any) => listAccessRoleBindings(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:confluent/v20240213:listAccessRoleBindings", {
+        "organizationName": args.organizationName,
+        "resourceGroupName": args.resourceGroupName,
+        "searchFilters": args.searchFilters,
+    }, opts);
 }
 
 export interface ListAccessRoleBindingsOutputArgs {

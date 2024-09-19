@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elasticsan:getVolume", {
         "elasticSanName": args.elasticSanName,
@@ -91,7 +90,13 @@ export interface GetVolumeResult {
  * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:elasticsan:getVolume", {
+        "elasticSanName": args.elasticSanName,
+        "resourceGroupName": args.resourceGroupName,
+        "volumeGroupName": args.volumeGroupName,
+        "volumeName": args.volumeName,
+    }, opts);
 }
 
 export interface GetVolumeOutputArgs {

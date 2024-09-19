@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Lists DNS resolver resource IDs linked to a virtual network.
  */
 export function listDnsResolverByVirtualNetwork(args: ListDnsResolverByVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<ListDnsResolverByVirtualNetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200401preview:listDnsResolverByVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,
@@ -52,7 +51,12 @@ export interface ListDnsResolverByVirtualNetworkResult {
  * Lists DNS resolver resource IDs linked to a virtual network.
  */
 export function listDnsResolverByVirtualNetworkOutput(args: ListDnsResolverByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsResolverByVirtualNetworkResult> {
-    return pulumi.output(args).apply((a: any) => listDnsResolverByVirtualNetwork(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20200401preview:listDnsResolverByVirtualNetwork", {
+        "resourceGroupName": args.resourceGroupName,
+        "top": args.top,
+        "virtualNetworkName": args.virtualNetworkName,
+    }, opts);
 }
 
 export interface ListDnsResolverByVirtualNetworkOutputArgs {

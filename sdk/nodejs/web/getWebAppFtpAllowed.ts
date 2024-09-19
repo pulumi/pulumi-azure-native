@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01.
  */
 export function getWebAppFtpAllowed(args: GetWebAppFtpAllowedArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFtpAllowedResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getWebAppFtpAllowed", {
         "name": args.name,
@@ -62,7 +61,11 @@ export interface GetWebAppFtpAllowedResult {
  * Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01.
  */
 export function getWebAppFtpAllowedOutput(args: GetWebAppFtpAllowedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFtpAllowedResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppFtpAllowed(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:getWebAppFtpAllowed", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWebAppFtpAllowedOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-11-01.
  */
 export function getSetting(args: GetSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSettingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement:getSetting", {
         "settingName": args.settingName,
@@ -64,7 +63,10 @@ export interface GetSettingResult {
  * Azure REST API version: 2019-11-01.
  */
 export function getSettingOutput(args: GetSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSettingResult> {
-    return pulumi.output(args).apply((a: any) => getSetting(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:costmanagement:getSetting", {
+        "settingName": args.settingName,
+    }, opts);
 }
 
 export interface GetSettingOutputArgs {

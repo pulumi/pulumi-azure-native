@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
  */
 export function getAttachedNetworkByDevCenter(args: GetAttachedNetworkByDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedNetworkByDevCenterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter:getAttachedNetworkByDevCenter", {
         "attachedNetworkConnectionName": args.attachedNetworkConnectionName,
@@ -86,7 +85,12 @@ export interface GetAttachedNetworkByDevCenterResult {
  * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
  */
 export function getAttachedNetworkByDevCenterOutput(args: GetAttachedNetworkByDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedNetworkByDevCenterResult> {
-    return pulumi.output(args).apply((a: any) => getAttachedNetworkByDevCenter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devcenter:getAttachedNetworkByDevCenter", {
+        "attachedNetworkConnectionName": args.attachedNetworkConnectionName,
+        "devCenterName": args.devCenterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAttachedNetworkByDevCenterOutputArgs {

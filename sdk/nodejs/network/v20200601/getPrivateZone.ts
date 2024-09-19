@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
  */
 export function getPrivateZone(args: GetPrivateZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateZoneResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200601:getPrivateZone", {
         "privateZoneName": args.privateZoneName,
@@ -92,7 +91,11 @@ export interface GetPrivateZoneResult {
  * Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
  */
 export function getPrivateZoneOutput(args: GetPrivateZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateZoneResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateZone(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20200601:getPrivateZone", {
+        "privateZoneName": args.privateZoneName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPrivateZoneOutputArgs {

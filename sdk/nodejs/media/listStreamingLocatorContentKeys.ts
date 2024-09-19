@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-01-01.
  */
 export function listStreamingLocatorContentKeys(args: ListStreamingLocatorContentKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorContentKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:listStreamingLocatorContentKeys", {
         "accountName": args.accountName,
@@ -50,7 +49,12 @@ export interface ListStreamingLocatorContentKeysResult {
  * Azure REST API version: 2023-01-01.
  */
 export function listStreamingLocatorContentKeysOutput(args: ListStreamingLocatorContentKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStreamingLocatorContentKeysResult> {
-    return pulumi.output(args).apply((a: any) => listStreamingLocatorContentKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:media:listStreamingLocatorContentKeys", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+        "streamingLocatorName": args.streamingLocatorName,
+    }, opts);
 }
 
 export interface ListStreamingLocatorContentKeysOutputArgs {

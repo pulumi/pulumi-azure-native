@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-04-01-preview.
  */
 export function getBusinessCaseOperation(args: GetBusinessCaseOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessCaseOperationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getBusinessCaseOperation", {
         "businessCaseName": args.businessCaseName,
@@ -78,7 +77,12 @@ export interface GetBusinessCaseOperationResult {
  * Azure REST API version: 2023-04-01-preview.
  */
 export function getBusinessCaseOperationOutput(args: GetBusinessCaseOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessCaseOperationResult> {
-    return pulumi.output(args).apply((a: any) => getBusinessCaseOperation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate:getBusinessCaseOperation", {
+        "businessCaseName": args.businessCaseName,
+        "projectName": args.projectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBusinessCaseOperationOutputArgs {

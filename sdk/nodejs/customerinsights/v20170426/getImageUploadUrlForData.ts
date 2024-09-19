@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets data image upload URL.
  */
 export function getImageUploadUrlForData(args: GetImageUploadUrlForDataArgs, opts?: pulumi.InvokeOptions): Promise<GetImageUploadUrlForDataResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getImageUploadUrlForData", {
         "entityType": args.entityType,
@@ -63,7 +62,14 @@ export interface GetImageUploadUrlForDataResult {
  * Gets data image upload URL.
  */
 export function getImageUploadUrlForDataOutput(args: GetImageUploadUrlForDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageUploadUrlForDataResult> {
-    return pulumi.output(args).apply((a: any) => getImageUploadUrlForData(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getImageUploadUrlForData", {
+        "entityType": args.entityType,
+        "entityTypeName": args.entityTypeName,
+        "hubName": args.hubName,
+        "relativePath": args.relativePath,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetImageUploadUrlForDataOutputArgs {

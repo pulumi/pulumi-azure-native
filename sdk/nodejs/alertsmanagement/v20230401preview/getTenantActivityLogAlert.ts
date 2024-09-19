@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get Tenant Activity Log Alert rule.
  */
 export function getTenantActivityLogAlert(args: GetTenantActivityLogAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantActivityLogAlertResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20230401preview:getTenantActivityLogAlert", {
         "alertRuleName": args.alertRuleName,
@@ -83,7 +82,11 @@ export interface GetTenantActivityLogAlertResult {
  * Get Tenant Activity Log Alert rule.
  */
 export function getTenantActivityLogAlertOutput(args: GetTenantActivityLogAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantActivityLogAlertResult> {
-    return pulumi.output(args).apply((a: any) => getTenantActivityLogAlert(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:alertsmanagement/v20230401preview:getTenantActivityLogAlert", {
+        "alertRuleName": args.alertRuleName,
+        "managementGroupName": args.managementGroupName,
+    }, opts);
 }
 
 export interface GetTenantActivityLogAlertOutputArgs {

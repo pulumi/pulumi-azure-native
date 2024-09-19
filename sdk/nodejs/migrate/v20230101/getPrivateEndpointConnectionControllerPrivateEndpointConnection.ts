@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the private endpoint with the specified name.
  */
 export function getPrivateEndpointConnectionControllerPrivateEndpointConnection(args: GetPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20230101:getPrivateEndpointConnectionControllerPrivateEndpointConnection", {
         "migrateProjectName": args.migrateProjectName,
@@ -68,7 +67,12 @@ export interface GetPrivateEndpointConnectionControllerPrivateEndpointConnection
  * Get the private endpoint with the specified name.
  */
 export function getPrivateEndpointConnectionControllerPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionControllerPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionControllerPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionControllerPrivateEndpointConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate/v20230101:getPrivateEndpointConnectionControllerPrivateEndpointConnection", {
+        "migrateProjectName": args.migrateProjectName,
+        "peConnectionName": args.peConnectionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPrivateEndpointConnectionControllerPrivateEndpointConnectionOutputArgs {

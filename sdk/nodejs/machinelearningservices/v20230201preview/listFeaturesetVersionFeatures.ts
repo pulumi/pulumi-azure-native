@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * A paginated list of Feature entities.
  */
 export function listFeaturesetVersionFeatures(args: ListFeaturesetVersionFeaturesArgs, opts?: pulumi.InvokeOptions): Promise<ListFeaturesetVersionFeaturesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230201preview:listFeaturesetVersionFeatures", {
         "name": args.name,
@@ -67,7 +66,15 @@ export interface ListFeaturesetVersionFeaturesResult {
  * A paginated list of Feature entities.
  */
 export function listFeaturesetVersionFeaturesOutput(args: ListFeaturesetVersionFeaturesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeaturesetVersionFeaturesResult> {
-    return pulumi.output(args).apply((a: any) => listFeaturesetVersionFeatures(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230201preview:listFeaturesetVersionFeatures", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "skip": args.skip,
+        "tags": args.tags,
+        "version": args.version,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListFeaturesetVersionFeaturesOutputArgs {

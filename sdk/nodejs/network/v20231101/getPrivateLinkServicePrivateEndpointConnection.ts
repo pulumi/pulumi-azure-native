@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the specific private end point connection by specific private link service in the resource group.
  */
 export function getPrivateLinkServicePrivateEndpointConnection(args: GetPrivateLinkServicePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicePrivateEndpointConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20231101:getPrivateLinkServicePrivateEndpointConnection", {
         "expand": args.expand,
@@ -85,7 +84,13 @@ export interface GetPrivateLinkServicePrivateEndpointConnectionResult {
  * Get the specific private end point connection by specific private link service in the resource group.
  */
 export function getPrivateLinkServicePrivateEndpointConnectionOutput(args: GetPrivateLinkServicePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicePrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkServicePrivateEndpointConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getPrivateLinkServicePrivateEndpointConnection", {
+        "expand": args.expand,
+        "peConnectionName": args.peConnectionName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetPrivateLinkServicePrivateEndpointConnectionOutputArgs {

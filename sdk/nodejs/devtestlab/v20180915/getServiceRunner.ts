@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get service runner.
  */
 export function getServiceRunner(args: GetServiceRunnerArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRunnerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:getServiceRunner", {
         "labName": args.labName,
@@ -68,7 +67,12 @@ export interface GetServiceRunnerResult {
  * Get service runner.
  */
 export function getServiceRunnerOutput(args: GetServiceRunnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRunnerResult> {
-    return pulumi.output(args).apply((a: any) => getServiceRunner(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:getServiceRunner", {
+        "labName": args.labName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetServiceRunnerOutputArgs {

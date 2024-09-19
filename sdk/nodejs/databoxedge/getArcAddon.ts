@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-03-01.
  */
 export function getArcAddon(args: GetArcAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetArcAddonResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge:getArcAddon", {
         "addonName": args.addonName,
@@ -104,7 +103,13 @@ export interface GetArcAddonResult {
  * Azure REST API version: 2022-03-01.
  */
 export function getArcAddonOutput(args: GetArcAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcAddonResult> {
-    return pulumi.output(args).apply((a: any) => getArcAddon(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:databoxedge:getArcAddon", {
+        "addonName": args.addonName,
+        "deviceName": args.deviceName,
+        "resourceGroupName": args.resourceGroupName,
+        "roleName": args.roleName,
+    }, opts);
 }
 
 export interface GetArcAddonOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the archive.
  */
 export function getArchife(args: GetArchifeArgs, opts?: pulumi.InvokeOptions): Promise<GetArchifeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20231101preview:getArchife", {
         "archiveName": args.archiveName,
@@ -79,7 +78,13 @@ export interface GetArchifeResult {
  * Gets the properties of the archive.
  */
 export function getArchifeOutput(args: GetArchifeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArchifeResult> {
-    return pulumi.output(args).apply((a: any) => getArchife(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20231101preview:getArchife", {
+        "archiveName": args.archiveName,
+        "packageType": args.packageType,
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetArchifeOutputArgs {

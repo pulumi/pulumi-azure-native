@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a Log Analytics workspace table.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20221001:getTable", {
         "resourceGroupName": args.resourceGroupName,
@@ -108,7 +107,12 @@ export interface GetTableResult {
  * Gets a Log Analytics workspace table.
  */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
-    return pulumi.output(args).apply((a: any) => getTable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20221001:getTable", {
+        "resourceGroupName": args.resourceGroupName,
+        "tableName": args.tableName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetTableOutputArgs {

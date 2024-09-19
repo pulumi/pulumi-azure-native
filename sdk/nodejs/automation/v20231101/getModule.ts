@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve the module identified by module name.
  */
 export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20231101:getModule", {
         "automationAccountName": args.automationAccountName,
@@ -108,7 +107,12 @@ export interface GetModuleResult {
  * Retrieve the module identified by module name.
  */
 export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModuleResult> {
-    return pulumi.output(args).apply((a: any) => getModule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:automation/v20231101:getModule", {
+        "automationAccountName": args.automationAccountName,
+        "moduleName": args.moduleName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetModuleOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-10-05-preview.
  */
 export function getTagInheritanceSetting(args: GetTagInheritanceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetTagInheritanceSettingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement:getTagInheritanceSetting", {
         "scope": args.scope,
@@ -66,7 +65,11 @@ export interface GetTagInheritanceSettingResult {
  * Azure REST API version: 2022-10-05-preview.
  */
 export function getTagInheritanceSettingOutput(args: GetTagInheritanceSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagInheritanceSettingResult> {
-    return pulumi.output(args).apply((a: any) => getTagInheritanceSetting(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:costmanagement:getTagInheritanceSetting", {
+        "scope": args.scope,
+        "type": args.type,
+    }, opts);
 }
 
 export interface GetTagInheritanceSettingOutputArgs {

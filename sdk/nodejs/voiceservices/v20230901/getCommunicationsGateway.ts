@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a CommunicationsGateway
  */
 export function getCommunicationsGateway(args: GetCommunicationsGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationsGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:voiceservices/v20230901:getCommunicationsGateway", {
         "communicationsGatewayName": args.communicationsGatewayName,
@@ -143,7 +142,11 @@ export interface GetCommunicationsGatewayResult {
  * Get a CommunicationsGateway
  */
 export function getCommunicationsGatewayOutput(args: GetCommunicationsGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationsGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getCommunicationsGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:voiceservices/v20230901:getCommunicationsGateway", {
+        "communicationsGatewayName": args.communicationsGatewayName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCommunicationsGatewayOutputArgs {

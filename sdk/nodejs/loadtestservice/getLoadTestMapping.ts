@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-12-01-preview.
  */
 export function getLoadTestMapping(args: GetLoadTestMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadTestMappingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:loadtestservice:getLoadTestMapping", {
         "loadTestMappingName": args.loadTestMappingName,
@@ -69,7 +68,11 @@ export interface GetLoadTestMappingResult {
  * Azure REST API version: 2023-12-01-preview.
  */
 export function getLoadTestMappingOutput(args: GetLoadTestMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadTestMappingResult> {
-    return pulumi.output(args).apply((a: any) => getLoadTestMapping(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:loadtestservice:getLoadTestMapping", {
+        "loadTestMappingName": args.loadTestMappingName,
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetLoadTestMappingOutputArgs {

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-01-01-preview.
  */
 export function listDeviceRegistrationKey(args: ListDeviceRegistrationKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListDeviceRegistrationKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:listDeviceRegistrationKey", {
         "deviceName": args.deviceName,
@@ -42,7 +41,11 @@ export interface ListDeviceRegistrationKeyResult {
  * Azure REST API version: 2022-01-01-preview.
  */
 export function listDeviceRegistrationKeyOutput(args: ListDeviceRegistrationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceRegistrationKeyResult> {
-    return pulumi.output(args).apply((a: any) => listDeviceRegistrationKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:listDeviceRegistrationKey", {
+        "deviceName": args.deviceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListDeviceRegistrationKeyOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Primary and secondary connection strings to the queue.
  */
 export function listQueueKeys(args: ListQueueKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListQueueKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20240101:listQueueKeys", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -74,7 +73,13 @@ export interface ListQueueKeysResult {
  * Primary and secondary connection strings to the queue.
  */
 export function listQueueKeysOutput(args: ListQueueKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQueueKeysResult> {
-    return pulumi.output(args).apply((a: any) => listQueueKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicebus/v20240101:listQueueKeys", {
+        "authorizationRuleName": args.authorizationRuleName,
+        "namespaceName": args.namespaceName,
+        "queueName": args.queueName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListQueueKeysOutputArgs {

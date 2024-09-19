@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-09-01-preview.
  */
 export function getProviderRegistration(args: GetProviderRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderRegistrationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub:getProviderRegistration", {
         "providerNamespace": args.providerNamespace,
@@ -50,7 +49,10 @@ export interface GetProviderRegistrationResult {
  * Azure REST API version: 2021-09-01-preview.
  */
 export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderRegistrationResult> {
-    return pulumi.output(args).apply((a: any) => getProviderRegistration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:providerhub:getProviderRegistration", {
+        "providerNamespace": args.providerNamespace,
+    }, opts);
 }
 
 export interface GetProviderRegistrationOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-01-01-preview.
  */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:getVendor", {
         "vendorName": args.vendorName,
@@ -60,7 +59,10 @@ export interface GetVendorResult {
  * Azure REST API version: 2022-01-01-preview.
  */
 export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
-    return pulumi.output(args).apply((a: any) => getVendor(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getVendor", {
+        "vendorName": args.vendorName,
+    }, opts);
 }
 
 export interface GetVendorOutputArgs {

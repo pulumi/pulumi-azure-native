@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-12-01.
  */
 export function getWebAppSiteContainerSlot(args: GetWebAppSiteContainerSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteContainerSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getWebAppSiteContainerSlot", {
         "containerName": args.containerName,
@@ -115,7 +114,13 @@ export interface GetWebAppSiteContainerSlotResult {
  * Azure REST API version: 2023-12-01.
  */
 export function getWebAppSiteContainerSlotOutput(args: GetWebAppSiteContainerSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteContainerSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppSiteContainerSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:getWebAppSiteContainerSlot", {
+        "containerName": args.containerName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface GetWebAppSiteContainerSlotOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-02-01, 2023-01-01, 2023-12-01.
  */
 export function listStaticSiteBuildAppSettings(args: ListStaticSiteBuildAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteBuildAppSettingsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:listStaticSiteBuildAppSettings", {
         "environmentName": args.environmentName,
@@ -67,7 +66,12 @@ export interface ListStaticSiteBuildAppSettingsResult {
  * Other available API versions: 2021-02-01, 2023-01-01, 2023-12-01.
  */
 export function listStaticSiteBuildAppSettingsOutput(args: ListStaticSiteBuildAppSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteBuildAppSettingsResult> {
-    return pulumi.output(args).apply((a: any) => listStaticSiteBuildAppSettings(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:listStaticSiteBuildAppSettings", {
+        "environmentName": args.environmentName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListStaticSiteBuildAppSettingsOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve the job schedule identified by job schedule name.
  */
 export function getJobSchedule(args: GetJobScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetJobScheduleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20230515preview:getJobSchedule", {
         "automationAccountName": args.automationAccountName,
@@ -76,7 +75,12 @@ export interface GetJobScheduleResult {
  * Retrieve the job schedule identified by job schedule name.
  */
 export function getJobScheduleOutput(args: GetJobScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobScheduleResult> {
-    return pulumi.output(args).apply((a: any) => getJobSchedule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getJobSchedule", {
+        "automationAccountName": args.automationAccountName,
+        "jobScheduleId": args.jobScheduleId,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetJobScheduleOutputArgs {

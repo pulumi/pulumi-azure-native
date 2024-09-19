@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an existing KeyGroup within a profile.
  */
 export function getKeyGroup(args: GetKeyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20240501preview:getKeyGroup", {
         "keyGroupName": args.keyGroupName,
@@ -69,7 +68,12 @@ export interface GetKeyGroupResult {
  * Gets an existing KeyGroup within a profile.
  */
 export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyGroupResult> {
-    return pulumi.output(args).apply((a: any) => getKeyGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cdn/v20240501preview:getKeyGroup", {
+        "keyGroupName": args.keyGroupName,
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetKeyGroupOutputArgs {

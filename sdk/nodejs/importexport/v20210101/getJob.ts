@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about an existing job.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:importexport/v20210101:getJob", {
         "jobName": args.jobName,
@@ -71,7 +70,11 @@ export interface GetJobResult {
  * Gets information about an existing job.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
-    return pulumi.output(args).apply((a: any) => getJob(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:importexport/v20210101:getJob", {
+        "jobName": args.jobName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetJobOutputArgs {

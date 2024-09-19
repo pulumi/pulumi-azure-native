@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-06-01.
  */
 export function getTriggerEventSubscriptionStatus(args: GetTriggerEventSubscriptionStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerEventSubscriptionStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory:getTriggerEventSubscriptionStatus", {
         "factoryName": args.factoryName,
@@ -51,7 +50,12 @@ export interface GetTriggerEventSubscriptionStatusResult {
  * Azure REST API version: 2018-06-01.
  */
 export function getTriggerEventSubscriptionStatusOutput(args: GetTriggerEventSubscriptionStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerEventSubscriptionStatusResult> {
-    return pulumi.output(args).apply((a: any) => getTriggerEventSubscriptionStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory:getTriggerEventSubscriptionStatus", {
+        "factoryName": args.factoryName,
+        "resourceGroupName": args.resourceGroupName,
+        "triggerName": args.triggerName,
+    }, opts);
 }
 
 export interface GetTriggerEventSubscriptionStatusOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export function getWebAppSiteExtensionSlot(args: GetWebAppSiteExtensionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getWebAppSiteExtensionSlot", {
         "name": args.name,
@@ -145,7 +144,13 @@ export interface GetWebAppSiteExtensionSlotResult {
  * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export function getWebAppSiteExtensionSlotOutput(args: GetWebAppSiteExtensionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteExtensionSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppSiteExtensionSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:getWebAppSiteExtensionSlot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "siteExtensionId": args.siteExtensionId,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface GetWebAppSiteExtensionSlotOutputArgs {

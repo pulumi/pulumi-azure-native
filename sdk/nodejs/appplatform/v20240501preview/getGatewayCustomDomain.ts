@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the Spring Cloud Gateway custom domain.
  */
 export function getGatewayCustomDomain(args: GetGatewayCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayCustomDomainResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20240501preview:getGatewayCustomDomain", {
         "domainName": args.domainName,
@@ -69,7 +68,13 @@ export interface GetGatewayCustomDomainResult {
  * Get the Spring Cloud Gateway custom domain.
  */
 export function getGatewayCustomDomainOutput(args: GetGatewayCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayCustomDomainResult> {
-    return pulumi.output(args).apply((a: any) => getGatewayCustomDomain(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240501preview:getGatewayCustomDomain", {
+        "domainName": args.domainName,
+        "gatewayName": args.gatewayName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetGatewayCustomDomainOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get function keys for a function in a web site, or a deployment slot.
  */
 export function listWebAppFunctionKeysSlot(args: ListWebAppFunctionKeysSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionKeysSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:listWebAppFunctionKeysSlot", {
         "functionName": args.functionName,
@@ -73,7 +72,13 @@ export interface ListWebAppFunctionKeysSlotResult {
  * Get function keys for a function in a web site, or a deployment slot.
  */
 export function listWebAppFunctionKeysSlotOutput(args: ListWebAppFunctionKeysSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionKeysSlotResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppFunctionKeysSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:listWebAppFunctionKeysSlot", {
+        "functionName": args.functionName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface ListWebAppFunctionKeysSlotOutputArgs {

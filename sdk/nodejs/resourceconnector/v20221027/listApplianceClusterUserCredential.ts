@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns the cluster user credentials for the dedicated appliance.
  */
 export function listApplianceClusterUserCredential(args: ListApplianceClusterUserCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListApplianceClusterUserCredentialResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resourceconnector/v20221027:listApplianceClusterUserCredential", {
         "resourceGroupName": args.resourceGroupName,
@@ -47,7 +46,11 @@ export interface ListApplianceClusterUserCredentialResult {
  * Returns the cluster user credentials for the dedicated appliance.
  */
 export function listApplianceClusterUserCredentialOutput(args: ListApplianceClusterUserCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceClusterUserCredentialResult> {
-    return pulumi.output(args).apply((a: any) => listApplianceClusterUserCredential(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:resourceconnector/v20221027:listApplianceClusterUserCredential", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface ListApplianceClusterUserCredentialOutputArgs {

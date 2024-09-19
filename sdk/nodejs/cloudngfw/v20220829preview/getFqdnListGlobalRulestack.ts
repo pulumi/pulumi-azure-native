@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a FqdnListGlobalRulestackResource
  */
 export function getFqdnListGlobalRulestack(args: GetFqdnListGlobalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetFqdnListGlobalRulestackResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20220829preview:getFqdnListGlobalRulestack", {
         "globalRulestackName": args.globalRulestackName,
@@ -75,7 +74,11 @@ export interface GetFqdnListGlobalRulestackResult {
  * Get a FqdnListGlobalRulestackResource
  */
 export function getFqdnListGlobalRulestackOutput(args: GetFqdnListGlobalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFqdnListGlobalRulestackResult> {
-    return pulumi.output(args).apply((a: any) => getFqdnListGlobalRulestack(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829preview:getFqdnListGlobalRulestack", {
+        "globalRulestackName": args.globalRulestackName,
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetFqdnListGlobalRulestackOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified storage account credential name.
  */
 export function getStorageAccountCredential(args: GetStorageAccountCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountCredentialResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:getStorageAccountCredential", {
         "managerName": args.managerName,
@@ -76,7 +75,12 @@ export interface GetStorageAccountCredentialResult {
  * Gets the properties of the specified storage account credential name.
  */
 export function getStorageAccountCredentialOutput(args: GetStorageAccountCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountCredentialResult> {
-    return pulumi.output(args).apply((a: any) => getStorageAccountCredential(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:getStorageAccountCredential", {
+        "managerName": args.managerName,
+        "resourceGroupName": args.resourceGroupName,
+        "storageAccountCredentialName": args.storageAccountCredentialName,
+    }, opts);
 }
 
 export interface GetStorageAccountCredentialOutputArgs {

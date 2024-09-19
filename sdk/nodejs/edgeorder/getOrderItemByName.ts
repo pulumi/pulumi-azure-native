@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-12-01.
  */
 export function getOrderItemByName(args: GetOrderItemByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderItemByNameResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edgeorder:getOrderItemByName", {
         "expand": args.expand,
@@ -86,7 +85,12 @@ export interface GetOrderItemByNameResult {
  * Azure REST API version: 2021-12-01.
  */
 export function getOrderItemByNameOutput(args: GetOrderItemByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderItemByNameResult> {
-    return pulumi.output(args).apply((a: any) => getOrderItemByName(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:edgeorder:getOrderItemByName", {
+        "expand": args.expand,
+        "orderItemName": args.orderItemName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetOrderItemByNameOutputArgs {

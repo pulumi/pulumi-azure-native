@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Lists the associated resources for this identity.
  */
 export function listUserAssignedIdentityAssociatedResources(args: ListUserAssignedIdentityAssociatedResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListUserAssignedIdentityAssociatedResourcesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedidentity/v20220131preview:listUserAssignedIdentityAssociatedResources", {
         "filter": args.filter,
@@ -76,7 +75,16 @@ export interface ListUserAssignedIdentityAssociatedResourcesResult {
  * Lists the associated resources for this identity.
  */
 export function listUserAssignedIdentityAssociatedResourcesOutput(args: ListUserAssignedIdentityAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUserAssignedIdentityAssociatedResourcesResult> {
-    return pulumi.output(args).apply((a: any) => listUserAssignedIdentityAssociatedResources(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managedidentity/v20220131preview:listUserAssignedIdentityAssociatedResources", {
+        "filter": args.filter,
+        "orderby": args.orderby,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+        "skip": args.skip,
+        "skiptoken": args.skiptoken,
+        "top": args.top,
+    }, opts);
 }
 
 export interface ListUserAssignedIdentityAssociatedResourcesOutputArgs {

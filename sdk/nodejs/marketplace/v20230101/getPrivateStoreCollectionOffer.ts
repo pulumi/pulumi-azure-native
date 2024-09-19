@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about a specific offer.
  */
 export function getPrivateStoreCollectionOffer(args: GetPrivateStoreCollectionOfferArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionOfferResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:marketplace/v20230101:getPrivateStoreCollectionOffer", {
         "collectionId": args.collectionId,
@@ -104,7 +103,12 @@ export interface GetPrivateStoreCollectionOfferResult {
  * Gets information about a specific offer.
  */
 export function getPrivateStoreCollectionOfferOutput(args: GetPrivateStoreCollectionOfferOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionOfferResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateStoreCollectionOffer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:marketplace/v20230101:getPrivateStoreCollectionOffer", {
+        "collectionId": args.collectionId,
+        "offerId": args.offerId,
+        "privateStoreId": args.privateStoreId,
+    }, opts);
 }
 
 export interface GetPrivateStoreCollectionOfferOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the configuration of service URI and custom headers for the webhook.
  */
 export function getWebhookCallbackConfig(args: GetWebhookCallbackConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookCallbackConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20221201:getWebhookCallbackConfig", {
         "registryName": args.registryName,
@@ -49,7 +48,12 @@ export interface GetWebhookCallbackConfigResult {
  * Gets the configuration of service URI and custom headers for the webhook.
  */
 export function getWebhookCallbackConfigOutput(args: GetWebhookCallbackConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookCallbackConfigResult> {
-    return pulumi.output(args).apply((a: any) => getWebhookCallbackConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20221201:getWebhookCallbackConfig", {
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+        "webhookName": args.webhookName,
+    }, opts);
 }
 
 export interface GetWebhookCallbackConfigOutputArgs {

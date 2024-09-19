@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-11-11-preview.
  */
 export function getPublishedBlueprint(args: GetPublishedBlueprintArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedBlueprintResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint:getPublishedBlueprint", {
         "blueprintName": args.blueprintName,
@@ -94,7 +93,12 @@ export interface GetPublishedBlueprintResult {
  * Other available API versions: 2017-11-11-preview.
  */
 export function getPublishedBlueprintOutput(args: GetPublishedBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublishedBlueprintResult> {
-    return pulumi.output(args).apply((a: any) => getPublishedBlueprint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:blueprint:getPublishedBlueprint", {
+        "blueprintName": args.blueprintName,
+        "resourceScope": args.resourceScope,
+        "versionId": args.versionId,
+    }, opts);
 }
 
 export interface GetPublishedBlueprintOutputArgs {

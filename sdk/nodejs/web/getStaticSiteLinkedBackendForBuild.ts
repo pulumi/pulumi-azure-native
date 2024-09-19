@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01, 2023-12-01.
  */
 export function getStaticSiteLinkedBackendForBuild(args: GetStaticSiteLinkedBackendForBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteLinkedBackendForBuildResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getStaticSiteLinkedBackendForBuild", {
         "environmentName": args.environmentName,
@@ -84,7 +83,13 @@ export interface GetStaticSiteLinkedBackendForBuildResult {
  * Other available API versions: 2023-01-01, 2023-12-01.
  */
 export function getStaticSiteLinkedBackendForBuildOutput(args: GetStaticSiteLinkedBackendForBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteLinkedBackendForBuildResult> {
-    return pulumi.output(args).apply((a: any) => getStaticSiteLinkedBackendForBuild(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:getStaticSiteLinkedBackendForBuild", {
+        "environmentName": args.environmentName,
+        "linkedBackendName": args.linkedBackendName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetStaticSiteLinkedBackendForBuildOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-08-01-preview.
  */
 export function getAssignment(args: GetAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssignmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getAssignment", {
         "assignmentId": args.assignmentId,
@@ -109,7 +108,11 @@ export interface GetAssignmentResult {
  * Azure REST API version: 2021-08-01-preview.
  */
 export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getAssignment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security:getAssignment", {
+        "assignmentId": args.assignmentId,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAssignmentOutputArgs {

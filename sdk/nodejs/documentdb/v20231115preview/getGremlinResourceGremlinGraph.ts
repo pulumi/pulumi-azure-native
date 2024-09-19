@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the Gremlin graph under an existing Azure Cosmos DB database account.
  */
 export function getGremlinResourceGremlinGraph(args: GetGremlinResourceGremlinGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGremlinResourceGremlinGraphResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20231115preview:getGremlinResourceGremlinGraph", {
         "accountName": args.accountName,
@@ -75,7 +74,13 @@ export interface GetGremlinResourceGremlinGraphResult {
  * Gets the Gremlin graph under an existing Azure Cosmos DB database account.
  */
 export function getGremlinResourceGremlinGraphOutput(args: GetGremlinResourceGremlinGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGremlinResourceGremlinGraphResult> {
-    return pulumi.output(args).apply((a: any) => getGremlinResourceGremlinGraph(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20231115preview:getGremlinResourceGremlinGraph", {
+        "accountName": args.accountName,
+        "databaseName": args.databaseName,
+        "graphName": args.graphName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetGremlinResourceGremlinGraphOutputArgs {
