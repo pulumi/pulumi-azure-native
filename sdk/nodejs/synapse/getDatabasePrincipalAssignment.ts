@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-04-01-preview.
  */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:getDatabasePrincipalAssignment", {
         "databaseName": args.databaseName,
@@ -100,7 +99,14 @@ export interface GetDatabasePrincipalAssignmentResult {
  * Azure REST API version: 2021-04-01-preview.
  */
 export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getDatabasePrincipalAssignment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:synapse:getDatabasePrincipalAssignment", {
+        "databaseName": args.databaseName,
+        "kustoPoolName": args.kustoPoolName,
+        "principalAssignmentName": args.principalAssignmentName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetDatabasePrincipalAssignmentOutputArgs {

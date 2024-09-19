@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Target
  */
 export function getTarget(args: GetTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databasewatcher/v20230901preview:getTarget", {
         "resourceGroupName": args.resourceGroupName,
@@ -80,7 +79,12 @@ export interface GetTargetResult {
  * Get a Target
  */
 export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetResult> {
-    return pulumi.output(args).apply((a: any) => getTarget(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:databasewatcher/v20230901preview:getTarget", {
+        "resourceGroupName": args.resourceGroupName,
+        "targetName": args.targetName,
+        "watcherName": args.watcherName,
+    }, opts);
 }
 
 export interface GetTargetOutputArgs {

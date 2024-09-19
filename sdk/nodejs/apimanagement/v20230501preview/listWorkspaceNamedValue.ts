@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the secret of the named value specified by its identifier.
  */
 export function listWorkspaceNamedValue(args: ListWorkspaceNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNamedValueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230501preview:listWorkspaceNamedValue", {
         "namedValueId": args.namedValueId,
@@ -50,7 +49,13 @@ export interface ListWorkspaceNamedValueResult {
  * Gets the secret of the named value specified by its identifier.
  */
 export function listWorkspaceNamedValueOutput(args: ListWorkspaceNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNamedValueResult> {
-    return pulumi.output(args).apply((a: any) => listWorkspaceNamedValue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:listWorkspaceNamedValue", {
+        "namedValueId": args.namedValueId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 export interface ListWorkspaceNamedValueOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns the description for the specified WCF relay.
  */
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20211101:getWCFRelay", {
         "namespaceName": args.namespaceName,
@@ -96,7 +95,12 @@ export interface GetWCFRelayResult {
  * Returns the description for the specified WCF relay.
  */
 export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayResult> {
-    return pulumi.output(args).apply((a: any) => getWCFRelay(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:relay/v20211101:getWCFRelay", {
+        "namespaceName": args.namespaceName,
+        "relayName": args.relayName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWCFRelayOutputArgs {

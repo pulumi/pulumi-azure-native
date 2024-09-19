@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
  */
 export function getGraphResourceGraph(args: GetGraphResourceGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphResourceGraphResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20240515preview:getGraphResourceGraph", {
         "accountName": args.accountName,
@@ -70,7 +69,12 @@ export interface GetGraphResourceGraphResult {
  * Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
  */
 export function getGraphResourceGraphOutput(args: GetGraphResourceGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphResourceGraphResult> {
-    return pulumi.output(args).apply((a: any) => getGraphResourceGraph(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240515preview:getGraphResourceGraph", {
+        "accountName": args.accountName,
+        "graphName": args.graphName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetGraphResourceGraphOutputArgs {

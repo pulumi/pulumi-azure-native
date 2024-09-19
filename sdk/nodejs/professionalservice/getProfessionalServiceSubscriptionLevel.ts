@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getProfessionalServiceSubscriptionLevel(args: GetProfessionalServiceSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetProfessionalServiceSubscriptionLevelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:professionalservice:getProfessionalServiceSubscriptionLevel", {
         "resourceGroupName": args.resourceGroupName,
@@ -66,7 +65,12 @@ export interface GetProfessionalServiceSubscriptionLevelResult {
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getProfessionalServiceSubscriptionLevelOutput(args: GetProfessionalServiceSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfessionalServiceSubscriptionLevelResult> {
-    return pulumi.output(args).apply((a: any) => getProfessionalServiceSubscriptionLevel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:professionalservice:getProfessionalServiceSubscriptionLevel", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+        "subscriptionId": args.subscriptionId,
+    }, opts);
 }
 
 export interface GetProfessionalServiceSubscriptionLevelOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified diagnostics package.
  */
 export function getDiagnosticsPackage(args: GetDiagnosticsPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticsPackageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20240401:getDiagnosticsPackage", {
         "diagnosticsPackageName": args.diagnosticsPackageName,
@@ -72,7 +71,12 @@ export interface GetDiagnosticsPackageResult {
  * Gets information about the specified diagnostics package.
  */
 export function getDiagnosticsPackageOutput(args: GetDiagnosticsPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticsPackageResult> {
-    return pulumi.output(args).apply((a: any) => getDiagnosticsPackage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20240401:getDiagnosticsPackage", {
+        "diagnosticsPackageName": args.diagnosticsPackageName,
+        "packetCoreControlPlaneName": args.packetCoreControlPlaneName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDiagnosticsPackageOutputArgs {

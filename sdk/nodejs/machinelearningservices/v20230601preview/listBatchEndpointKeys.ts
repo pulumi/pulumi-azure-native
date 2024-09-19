@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Keys for endpoint authentication.
  */
 export function listBatchEndpointKeys(args: ListBatchEndpointKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListBatchEndpointKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230601preview:listBatchEndpointKeys", {
         "endpointName": args.endpointName,
@@ -49,7 +48,12 @@ export interface ListBatchEndpointKeysResult {
  * Keys for endpoint authentication.
  */
 export function listBatchEndpointKeysOutput(args: ListBatchEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBatchEndpointKeysResult> {
-    return pulumi.output(args).apply((a: any) => listBatchEndpointKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230601preview:listBatchEndpointKeys", {
+        "endpointName": args.endpointName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListBatchEndpointKeysOutputArgs {

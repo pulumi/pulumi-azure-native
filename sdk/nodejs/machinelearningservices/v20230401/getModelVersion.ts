@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getModelVersion(args: GetModelVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetModelVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230401:getModelVersion", {
         "name": args.name,
@@ -69,7 +68,13 @@ export interface GetModelVersionResult {
  * Azure Resource Manager resource envelope.
  */
 export function getModelVersionOutput(args: GetModelVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelVersionResult> {
-    return pulumi.output(args).apply((a: any) => getModelVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230401:getModelVersion", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "version": args.version,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetModelVersionOutputArgs {

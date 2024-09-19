@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-07-01-preview.
  */
 export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetDataFlowResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperations:getDataFlow", {
         "dataflowName": args.dataflowName,
@@ -75,7 +74,13 @@ export interface GetDataFlowResult {
  * Azure REST API version: 2024-07-01-preview.
  */
 export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataFlowResult> {
-    return pulumi.output(args).apply((a: any) => getDataFlow(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:iotoperations:getDataFlow", {
+        "dataflowName": args.dataflowName,
+        "dataflowProfileName": args.dataflowProfileName,
+        "instanceName": args.instanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDataFlowOutputArgs {

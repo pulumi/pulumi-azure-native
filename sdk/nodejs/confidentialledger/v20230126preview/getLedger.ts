@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the properties of a Confidential Ledger.
  */
 export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:confidentialledger/v20230126preview:getLedger", {
         "ledgerName": args.ledgerName,
@@ -67,7 +66,11 @@ export interface GetLedgerResult {
  * Retrieves the properties of a Confidential Ledger.
  */
 export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
-    return pulumi.output(args).apply((a: any) => getLedger(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:confidentialledger/v20230126preview:getLedger", {
+        "ledgerName": args.ledgerName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLedgerOutputArgs {

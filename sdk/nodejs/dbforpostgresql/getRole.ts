@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-03-02-preview.
  */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql:getRole", {
         "clusterName": args.clusterName,
@@ -70,7 +69,12 @@ export interface GetRoleResult {
  * Other available API versions: 2023-03-02-preview.
  */
 export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {
-    return pulumi.output(args).apply((a: any) => getRole(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql:getRole", {
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+        "roleName": args.roleName,
+    }, opts);
 }
 
 export interface GetRoleOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an Azure Bare Metal Instance for the specified subscription, resource group, and instance name.
  */
 export function getAzureBareMetalInstance(args: GetAzureBareMetalInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureBareMetalInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:baremetalinfrastructure/v20240801preview:getAzureBareMetalInstance", {
         "azureBareMetalInstanceName": args.azureBareMetalInstanceName,
@@ -103,7 +102,11 @@ export interface GetAzureBareMetalInstanceResult {
  * Gets an Azure Bare Metal Instance for the specified subscription, resource group, and instance name.
  */
 export function getAzureBareMetalInstanceOutput(args: GetAzureBareMetalInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureBareMetalInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getAzureBareMetalInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:baremetalinfrastructure/v20240801preview:getAzureBareMetalInstance", {
+        "azureBareMetalInstanceName": args.azureBareMetalInstanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAzureBareMetalInstanceOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getOffice365ProjectDataConnector(args: GetOffice365ProjectDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOffice365ProjectDataConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20240101preview:getOffice365ProjectDataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -77,7 +76,12 @@ export interface GetOffice365ProjectDataConnectorResult {
  * Gets a data connector.
  */
 export function getOffice365ProjectDataConnectorOutput(args: GetOffice365ProjectDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOffice365ProjectDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getOffice365ProjectDataConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:getOffice365ProjectDataConnector", {
+        "dataConnectorId": args.dataConnectorId,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetOffice365ProjectDataConnectorOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-08-01.
  */
 export function getSynapseWorkspaceSqlPoolTableDataSet(args: GetSynapseWorkspaceSqlPoolTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSynapseWorkspaceSqlPoolTableDataSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare:getSynapseWorkspaceSqlPoolTableDataSet", {
         "accountName": args.accountName,
@@ -80,7 +79,13 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetResult {
  * Azure REST API version: 2021-08-01.
  */
 export function getSynapseWorkspaceSqlPoolTableDataSetOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetResult> {
-    return pulumi.output(args).apply((a: any) => getSynapseWorkspaceSqlPoolTableDataSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datashare:getSynapseWorkspaceSqlPoolTableDataSet", {
+        "accountName": args.accountName,
+        "dataSetName": args.dataSetName,
+        "resourceGroupName": args.resourceGroupName,
+        "shareName": args.shareName,
+    }, opts);
 }
 
 export interface GetSynapseWorkspaceSqlPoolTableDataSetOutputArgs {

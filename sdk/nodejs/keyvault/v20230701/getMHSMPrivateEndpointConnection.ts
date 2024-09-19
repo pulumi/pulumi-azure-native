@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified private endpoint connection associated with the managed HSM Pool.
  */
 export function getMHSMPrivateEndpointConnection(args: GetMHSMPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMHSMPrivateEndpointConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:keyvault/v20230701:getMHSMPrivateEndpointConnection", {
         "name": args.name,
@@ -92,7 +91,12 @@ export interface GetMHSMPrivateEndpointConnectionResult {
  * Gets the specified private endpoint connection associated with the managed HSM Pool.
  */
 export function getMHSMPrivateEndpointConnectionOutput(args: GetMHSMPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMHSMPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getMHSMPrivateEndpointConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:keyvault/v20230701:getMHSMPrivateEndpointConnection", {
+        "name": args.name,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMHSMPrivateEndpointConnectionOutputArgs {

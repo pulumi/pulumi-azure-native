@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-09-01-preview.
  */
 export function getNotificationRegistration(args: GetNotificationRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationRegistrationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub:getNotificationRegistration", {
         "notificationRegistrationName": args.notificationRegistrationName,
@@ -58,7 +57,11 @@ export interface GetNotificationRegistrationResult {
  * Azure REST API version: 2021-09-01-preview.
  */
 export function getNotificationRegistrationOutput(args: GetNotificationRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationRegistrationResult> {
-    return pulumi.output(args).apply((a: any) => getNotificationRegistration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:providerhub:getNotificationRegistration", {
+        "notificationRegistrationName": args.notificationRegistrationName,
+        "providerNamespace": args.providerNamespace,
+    }, opts);
 }
 
 export interface GetNotificationRegistrationOutputArgs {

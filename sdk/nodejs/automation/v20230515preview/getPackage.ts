@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve the Package identified by Package name.
  */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20230515preview:getPackage", {
         "automationAccountName": args.automationAccountName,
@@ -101,7 +100,13 @@ export interface GetPackageResult {
  * Retrieve the Package identified by Package name.
  */
 export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
-    return pulumi.output(args).apply((a: any) => getPackage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getPackage", {
+        "automationAccountName": args.automationAccountName,
+        "packageName": args.packageName,
+        "resourceGroupName": args.resourceGroupName,
+        "runtimeEnvironmentName": args.runtimeEnvironmentName,
+    }, opts);
 }
 
 export interface GetPackageOutputArgs {

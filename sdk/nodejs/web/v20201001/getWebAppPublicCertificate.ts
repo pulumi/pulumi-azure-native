@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the named public certificate for an app (or deployment slot, if specified).
  */
 export function getWebAppPublicCertificate(args: GetWebAppPublicCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPublicCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:getWebAppPublicCertificate", {
         "name": args.name,
@@ -76,7 +75,12 @@ export interface GetWebAppPublicCertificateResult {
  * Get the named public certificate for an app (or deployment slot, if specified).
  */
 export function getWebAppPublicCertificateOutput(args: GetWebAppPublicCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPublicCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppPublicCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:getWebAppPublicCertificate", {
+        "name": args.name,
+        "publicCertificateName": args.publicCertificateName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWebAppPublicCertificateOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a DataSetMapping in a shareSubscription
  */
 export function getBlobDataSetMapping(args: GetBlobDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobDataSetMappingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:getBlobDataSetMapping", {
         "accountName": args.accountName,
@@ -106,7 +105,13 @@ export interface GetBlobDataSetMappingResult {
  * Get a DataSetMapping in a shareSubscription
  */
 export function getBlobDataSetMappingOutput(args: GetBlobDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobDataSetMappingResult> {
-    return pulumi.output(args).apply((a: any) => getBlobDataSetMapping(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getBlobDataSetMapping", {
+        "accountName": args.accountName,
+        "dataSetMappingName": args.dataSetMappingName,
+        "resourceGroupName": args.resourceGroupName,
+        "shareSubscriptionName": args.shareSubscriptionName,
+    }, opts);
 }
 
 export interface GetBlobDataSetMappingOutputArgs {

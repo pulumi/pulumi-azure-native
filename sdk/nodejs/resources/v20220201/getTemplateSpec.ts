@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a Template Spec with a given name.
  */
 export function getTemplateSpec(args: GetTemplateSpecArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20220201:getTemplateSpec", {
         "expand": args.expand,
@@ -84,7 +83,12 @@ export interface GetTemplateSpecResult {
  * Gets a Template Spec with a given name.
  */
 export function getTemplateSpecOutput(args: GetTemplateSpecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecResult> {
-    return pulumi.output(args).apply((a: any) => getTemplateSpec(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:resources/v20220201:getTemplateSpec", {
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+        "templateSpecName": args.templateSpecName,
+    }, opts);
 }
 
 export interface GetTemplateSpecOutputArgs {

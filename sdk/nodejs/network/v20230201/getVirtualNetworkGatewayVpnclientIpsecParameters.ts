@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
  */
 export function getVirtualNetworkGatewayVpnclientIpsecParameters(args: GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230201:getVirtualNetworkGatewayVpnclientIpsecParameters", {
         "resourceGroupName": args.resourceGroupName,
@@ -68,7 +67,11 @@ export interface GetVirtualNetworkGatewayVpnclientIpsecParametersResult {
  * The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
  */
 export function getVirtualNetworkGatewayVpnclientIpsecParametersOutput(args: GetVirtualNetworkGatewayVpnclientIpsecParametersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnclientIpsecParametersResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayVpnclientIpsecParameters(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getVirtualNetworkGatewayVpnclientIpsecParameters", {
+        "resourceGroupName": args.resourceGroupName,
+        "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
+    }, opts);
 }
 
 export interface GetVirtualNetworkGatewayVpnclientIpsecParametersOutputArgs {

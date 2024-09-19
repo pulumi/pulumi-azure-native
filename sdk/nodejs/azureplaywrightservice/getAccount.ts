@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-02-01-preview, 2024-08-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azureplaywrightservice:getAccount", {
         "name": args.name,
@@ -89,7 +88,11 @@ export interface GetAccountResult {
  * Other available API versions: 2024-02-01-preview, 2024-08-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azureplaywrightservice:getAccount", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAccountOutputArgs {

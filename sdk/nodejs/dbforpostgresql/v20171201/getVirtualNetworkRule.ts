@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a virtual network rule.
  */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20171201:getVirtualNetworkRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -65,7 +64,12 @@ export interface GetVirtualNetworkRuleResult {
  * Gets a virtual network rule.
  */
 export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20171201:getVirtualNetworkRule", {
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+        "virtualNetworkRuleName": args.virtualNetworkRuleName,
+    }, opts);
 }
 
 export interface GetVirtualNetworkRuleOutputArgs {

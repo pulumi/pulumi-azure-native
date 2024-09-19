@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
  */
 export function getCassandraResourceCassandraView(args: GetCassandraResourceCassandraViewArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraViewResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb:getCassandraResourceCassandraView", {
         "accountName": args.accountName,
@@ -81,7 +80,13 @@ export interface GetCassandraResourceCassandraViewResult {
  * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
  */
 export function getCassandraResourceCassandraViewOutput(args: GetCassandraResourceCassandraViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraViewResult> {
-    return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraView(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:documentdb:getCassandraResourceCassandraView", {
+        "accountName": args.accountName,
+        "keyspaceName": args.keyspaceName,
+        "resourceGroupName": args.resourceGroupName,
+        "viewName": args.viewName,
+    }, opts);
 }
 
 export interface GetCassandraResourceCassandraViewOutputArgs {

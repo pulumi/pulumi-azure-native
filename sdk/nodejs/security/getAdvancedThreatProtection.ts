@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-01-01.
  */
 export function getAdvancedThreatProtection(args: GetAdvancedThreatProtectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAdvancedThreatProtectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getAdvancedThreatProtection", {
         "resourceId": args.resourceId,
@@ -54,7 +53,11 @@ export interface GetAdvancedThreatProtectionResult {
  * Azure REST API version: 2019-01-01.
  */
 export function getAdvancedThreatProtectionOutput(args: GetAdvancedThreatProtectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdvancedThreatProtectionResult> {
-    return pulumi.output(args).apply((a: any) => getAdvancedThreatProtection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security:getAdvancedThreatProtection", {
+        "resourceId": args.resourceId,
+        "settingName": args.settingName,
+    }, opts);
 }
 
 export interface GetAdvancedThreatProtectionOutputArgs {

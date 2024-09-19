@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-09-01-preview, 2023-03-01-preview.
  */
 export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices:getIotDpsResource", {
         "provisioningServiceName": args.provisioningServiceName,
@@ -89,7 +88,11 @@ export interface GetIotDpsResourceResult {
  * Other available API versions: 2020-09-01-preview, 2023-03-01-preview.
  */
 export function getIotDpsResourceOutput(args: GetIotDpsResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourceResult> {
-    return pulumi.output(args).apply((a: any) => getIotDpsResource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devices:getIotDpsResource", {
+        "provisioningServiceName": args.provisioningServiceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIotDpsResourceOutputArgs {

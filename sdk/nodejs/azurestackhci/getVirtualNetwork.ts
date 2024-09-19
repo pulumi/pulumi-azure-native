@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01-preview.
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci:getVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,
@@ -97,7 +96,11 @@ export interface GetVirtualNetworkResult {
  * Other available API versions: 2023-07-01-preview.
  */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getVirtualNetwork", {
+        "resourceGroupName": args.resourceGroupName,
+        "virtualNetworkName": args.virtualNetworkName,
+    }, opts);
 }
 
 export interface GetVirtualNetworkOutputArgs {

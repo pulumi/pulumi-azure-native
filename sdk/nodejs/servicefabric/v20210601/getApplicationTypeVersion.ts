@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Service Fabric application type version resource created or in the process of being created in the Service Fabric application type name resource.
  */
 export function getApplicationTypeVersion(args: GetApplicationTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20210601:getApplicationTypeVersion", {
         "applicationTypeName": args.applicationTypeName,
@@ -89,7 +88,13 @@ export interface GetApplicationTypeVersionResult {
  * Get a Service Fabric application type version resource created or in the process of being created in the Service Fabric application type name resource.
  */
 export function getApplicationTypeVersionOutput(args: GetApplicationTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationTypeVersionResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationTypeVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20210601:getApplicationTypeVersion", {
+        "applicationTypeName": args.applicationTypeName,
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+        "version": args.version,
+    }, opts);
 }
 
 export interface GetApplicationTypeVersionOutputArgs {

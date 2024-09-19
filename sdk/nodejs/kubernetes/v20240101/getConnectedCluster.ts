@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
  */
 export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetes/v20240101:getConnectedCluster", {
         "clusterName": args.clusterName,
@@ -147,7 +146,11 @@ export interface GetConnectedClusterResult {
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
  */
 export function getConnectedClusterOutput(args: GetConnectedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedClusterResult> {
-    return pulumi.output(args).apply((a: any) => getConnectedCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kubernetes/v20240101:getConnectedCluster", {
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetConnectedClusterOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a server key.
  */
 export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20150501preview:getServerKey", {
         "keyName": args.keyName,
@@ -81,7 +80,12 @@ export interface GetServerKeyResult {
  * Gets a server key.
  */
 export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerKeyResult> {
-    return pulumi.output(args).apply((a: any) => getServerKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20150501preview:getServerKey", {
+        "keyName": args.keyName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetServerKeyOutputArgs {

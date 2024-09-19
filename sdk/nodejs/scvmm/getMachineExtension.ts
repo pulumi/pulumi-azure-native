@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01-preview.
  */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm:getMachineExtension", {
         "extensionName": args.extensionName,
@@ -110,7 +109,12 @@ export interface GetMachineExtensionResult {
  * Other available API versions: 2023-04-01-preview.
  */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
-    return pulumi.output(args).apply((a: any) => getMachineExtension(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:scvmm:getMachineExtension", {
+        "extensionName": args.extensionName,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualMachineName": args.virtualMachineName,
+    }, opts);
 }
 
 export interface GetMachineExtensionOutputArgs {

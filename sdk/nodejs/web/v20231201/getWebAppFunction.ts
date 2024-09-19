@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Description for Get function information by its ID for web site, or a deployment slot.
  */
 export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFunctionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20231201:getWebAppFunction", {
         "functionName": args.functionName,
@@ -109,7 +108,12 @@ export interface GetWebAppFunctionResult {
  * Description for Get function information by its ID for web site, or a deployment slot.
  */
 export function getWebAppFunctionOutput(args: GetWebAppFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFunctionResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppFunction(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20231201:getWebAppFunction", {
+        "functionName": args.functionName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWebAppFunctionOutputArgs {

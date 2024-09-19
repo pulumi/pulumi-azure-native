@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Implements ExternalNetworks GET method.
  */
 export function getExternalNetwork(args: GetExternalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetExternalNetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230201preview:getExternalNetwork", {
         "externalNetworkName": args.externalNetworkName,
@@ -100,7 +99,12 @@ export interface GetExternalNetworkResult {
  * Implements ExternalNetworks GET method.
  */
 export function getExternalNetworkOutput(args: GetExternalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getExternalNetwork(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230201preview:getExternalNetwork", {
+        "externalNetworkName": args.externalNetworkName,
+        "l3IsolationDomainName": args.l3IsolationDomainName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetExternalNetworkOutputArgs {

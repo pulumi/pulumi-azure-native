@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified NSP access rule by name.
  */
 export function getNspAccessRule(args: GetNspAccessRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNspAccessRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230801preview:getNspAccessRule", {
         "accessRuleName": args.accessRuleName,
@@ -105,7 +104,13 @@ export interface GetNspAccessRuleResult {
  * Gets the specified NSP access rule by name.
  */
 export function getNspAccessRuleOutput(args: GetNspAccessRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspAccessRuleResult> {
-    return pulumi.output(args).apply((a: any) => getNspAccessRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230801preview:getNspAccessRule", {
+        "accessRuleName": args.accessRuleName,
+        "networkSecurityPerimeterName": args.networkSecurityPerimeterName,
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNspAccessRuleOutputArgs {

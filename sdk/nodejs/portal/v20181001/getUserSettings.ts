@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
  */
 export function getUserSettings(args: GetUserSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSettingsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal/v20181001:getUserSettings", {
         "userSettingsName": args.userSettingsName,
@@ -38,7 +37,10 @@ export interface GetUserSettingsResult {
  * Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
  */
 export function getUserSettingsOutput(args: GetUserSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSettingsResult> {
-    return pulumi.output(args).apply((a: any) => getUserSettings(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:portal/v20181001:getUserSettings", {
+        "userSettingsName": args.userSettingsName,
+    }, opts);
 }
 
 export interface GetUserSettingsOutputArgs {

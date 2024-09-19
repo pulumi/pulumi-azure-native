@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getMTPDataConnector(args: GetMTPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMTPDataConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210301preview:getMTPDataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -82,7 +81,13 @@ export interface GetMTPDataConnectorResult {
  * Gets a data connector.
  */
 export function getMTPDataConnectorOutput(args: GetMTPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMTPDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getMTPDataConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210301preview:getMTPDataConnector", {
+        "dataConnectorId": args.dataConnectorId,
+        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetMTPDataConnectorOutputArgs {

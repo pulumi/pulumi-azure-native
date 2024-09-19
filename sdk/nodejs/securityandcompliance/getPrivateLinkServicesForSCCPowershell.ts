@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-03-08.
  */
 export function getPrivateLinkServicesForSCCPowershell(args: GetPrivateLinkServicesForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForSCCPowershellResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance:getPrivateLinkServicesForSCCPowershell", {
         "resourceGroupName": args.resourceGroupName,
@@ -81,7 +80,11 @@ export interface GetPrivateLinkServicesForSCCPowershellResult {
  * Azure REST API version: 2021-03-08.
  */
 export function getPrivateLinkServicesForSCCPowershellOutput(args: GetPrivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForSCCPowershellResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForSCCPowershell(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityandcompliance:getPrivateLinkServicesForSCCPowershell", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetPrivateLinkServicesForSCCPowershellOutputArgs {

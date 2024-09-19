@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-06-01-preview.
  */
 export function getSuppressionListAddress(args: GetSuppressionListAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionListAddressResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication:getSuppressionListAddress", {
         "addressId": args.addressId,
@@ -96,7 +95,14 @@ export interface GetSuppressionListAddressResult {
  * Azure REST API version: 2023-06-01-preview.
  */
 export function getSuppressionListAddressOutput(args: GetSuppressionListAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuppressionListAddressResult> {
-    return pulumi.output(args).apply((a: any) => getSuppressionListAddress(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:communication:getSuppressionListAddress", {
+        "addressId": args.addressId,
+        "domainName": args.domainName,
+        "emailServiceName": args.emailServiceName,
+        "resourceGroupName": args.resourceGroupName,
+        "suppressionListName": args.suppressionListName,
+    }, opts);
 }
 
 export interface GetSuppressionListAddressOutputArgs {

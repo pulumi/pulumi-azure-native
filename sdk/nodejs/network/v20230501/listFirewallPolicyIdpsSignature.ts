@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the current status of IDPS signatures for the relevant policy
  */
 export function listFirewallPolicyIdpsSignature(args: ListFirewallPolicyIdpsSignatureArgs, opts?: pulumi.InvokeOptions): Promise<ListFirewallPolicyIdpsSignatureResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230501:listFirewallPolicyIdpsSignature", {
         "filters": args.filters,
@@ -72,7 +71,16 @@ export interface ListFirewallPolicyIdpsSignatureResult {
  * Retrieves the current status of IDPS signatures for the relevant policy
  */
 export function listFirewallPolicyIdpsSignatureOutput(args: ListFirewallPolicyIdpsSignatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFirewallPolicyIdpsSignatureResult> {
-    return pulumi.output(args).apply((a: any) => listFirewallPolicyIdpsSignature(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230501:listFirewallPolicyIdpsSignature", {
+        "filters": args.filters,
+        "firewallPolicyName": args.firewallPolicyName,
+        "orderBy": args.orderBy,
+        "resourceGroupName": args.resourceGroupName,
+        "resultsPerPage": args.resultsPerPage,
+        "search": args.search,
+        "skip": args.skip,
+    }, opts);
 }
 
 export interface ListFirewallPolicyIdpsSignatureOutputArgs {

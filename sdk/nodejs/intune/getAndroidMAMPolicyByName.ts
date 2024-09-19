@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-01-14-privatepreview.
  */
 export function getAndroidMAMPolicyByName(args: GetAndroidMAMPolicyByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAndroidMAMPolicyByNameResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:intune:getAndroidMAMPolicyByName", {
         "hostName": args.hostName,
@@ -87,7 +86,12 @@ export interface GetAndroidMAMPolicyByNameResult {
  * Other available API versions: 2015-01-14-privatepreview.
  */
 export function getAndroidMAMPolicyByNameOutput(args: GetAndroidMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAndroidMAMPolicyByNameResult> {
-    return pulumi.output(args).apply((a: any) => getAndroidMAMPolicyByName(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:intune:getAndroidMAMPolicyByName", {
+        "hostName": args.hostName,
+        "policyName": args.policyName,
+        "select": args.select,
+    }, opts);
 }
 
 export interface GetAndroidMAMPolicyByNameOutputArgs {

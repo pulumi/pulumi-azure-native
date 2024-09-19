@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-11-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:visualstudio:getExtension", {
         "accountResourceName": args.accountResourceName,
@@ -74,7 +73,12 @@ export interface GetExtensionResult {
  * Azure REST API version: 2017-11-01-preview.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
-    return pulumi.output(args).apply((a: any) => getExtension(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:visualstudio:getExtension", {
+        "accountResourceName": args.accountResourceName,
+        "extensionResourceName": args.extensionResourceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetExtensionOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
  */
 export function getAFDCustomDomain(args: GetAFDCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDCustomDomainResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20240601preview:getAFDCustomDomain", {
         "customDomainName": args.customDomainName,
@@ -105,7 +104,12 @@ export interface GetAFDCustomDomainResult {
  * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
  */
 export function getAFDCustomDomainOutput(args: GetAFDCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDCustomDomainResult> {
-    return pulumi.output(args).apply((a: any) => getAFDCustomDomain(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cdn/v20240601preview:getAFDCustomDomain", {
+        "customDomainName": args.customDomainName,
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAFDCustomDomainOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the EmailService and its properties.
  */
 export function getEmailService(args: GetEmailServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication/v20230401preview:getEmailService", {
         "emailServiceName": args.emailServiceName,
@@ -71,7 +70,11 @@ export interface GetEmailServiceResult {
  * Get the EmailService and its properties.
  */
 export function getEmailServiceOutput(args: GetEmailServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailServiceResult> {
-    return pulumi.output(args).apply((a: any) => getEmailService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:communication/v20230401preview:getEmailService", {
+        "emailServiceName": args.emailServiceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEmailServiceOutputArgs {

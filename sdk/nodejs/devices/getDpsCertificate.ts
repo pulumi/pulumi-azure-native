@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-10-15, 2023-03-01-preview.
  */
 export function getDpsCertificate(args: GetDpsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices:getDpsCertificate", {
         "certificateName": args.certificateName,
@@ -74,7 +73,12 @@ export interface GetDpsCertificateResult {
  * Other available API versions: 2021-10-15, 2023-03-01-preview.
  */
 export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getDpsCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devices:getDpsCertificate", {
+        "certificateName": args.certificateName,
+        "provisioningServiceName": args.provisioningServiceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDpsCertificateOutputArgs {

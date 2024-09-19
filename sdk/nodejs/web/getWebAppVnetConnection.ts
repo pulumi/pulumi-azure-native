@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export function getWebAppVnetConnection(args: GetWebAppVnetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getWebAppVnetConnection", {
         "name": args.name,
@@ -95,7 +94,12 @@ export interface GetWebAppVnetConnectionResult {
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export function getWebAppVnetConnectionOutput(args: GetWebAppVnetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppVnetConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppVnetConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:getWebAppVnetConnection", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "vnetName": args.vnetName,
+    }, opts);
 }
 
 export interface GetWebAppVnetConnectionOutputArgs {

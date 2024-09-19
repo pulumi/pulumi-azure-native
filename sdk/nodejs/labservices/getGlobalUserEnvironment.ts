@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-10-15.
  */
 export function getGlobalUserEnvironment(args: GetGlobalUserEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserEnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices:getGlobalUserEnvironment", {
         "environmentId": args.environmentId,
@@ -50,7 +49,12 @@ export interface GetGlobalUserEnvironmentResult {
  * Azure REST API version: 2018-10-15.
  */
 export function getGlobalUserEnvironmentOutput(args: GetGlobalUserEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalUserEnvironment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:labservices:getGlobalUserEnvironment", {
+        "environmentId": args.environmentId,
+        "expand": args.expand,
+        "userName": args.userName,
+    }, opts);
 }
 
 export interface GetGlobalUserEnvironmentOutputArgs {

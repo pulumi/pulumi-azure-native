@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * View a threat intelligence indicator by name.
  */
 export function getThreatIntelligenceIndicator(args: GetThreatIntelligenceIndicatorArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelligenceIndicatorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230601preview:getThreatIntelligenceIndicator", {
         "name": args.name,
@@ -68,7 +67,12 @@ export interface GetThreatIntelligenceIndicatorResult {
  * View a threat intelligence indicator by name.
  */
 export function getThreatIntelligenceIndicatorOutput(args: GetThreatIntelligenceIndicatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelligenceIndicatorResult> {
-    return pulumi.output(args).apply((a: any) => getThreatIntelligenceIndicator(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230601preview:getThreatIntelligenceIndicator", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetThreatIntelligenceIndicatorOutputArgs {

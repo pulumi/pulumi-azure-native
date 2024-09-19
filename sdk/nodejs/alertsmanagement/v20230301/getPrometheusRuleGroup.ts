@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve a Prometheus rule group definition.
  */
 export function getPrometheusRuleGroup(args: GetPrometheusRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPrometheusRuleGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20230301:getPrometheusRuleGroup", {
         "resourceGroupName": args.resourceGroupName,
@@ -87,7 +86,11 @@ export interface GetPrometheusRuleGroupResult {
  * Retrieve a Prometheus rule group definition.
  */
 export function getPrometheusRuleGroupOutput(args: GetPrometheusRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrometheusRuleGroupResult> {
-    return pulumi.output(args).apply((a: any) => getPrometheusRuleGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:alertsmanagement/v20230301:getPrometheusRuleGroup", {
+        "resourceGroupName": args.resourceGroupName,
+        "ruleGroupName": args.ruleGroupName,
+    }, opts);
 }
 
 export interface GetPrometheusRuleGroupOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview.
  */
 export function getHostPoolRegistrationToken(args: GetHostPoolRegistrationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolRegistrationTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization:getHostPoolRegistrationToken", {
         "hostPoolName": args.hostPoolName,
@@ -54,7 +53,11 @@ export interface GetHostPoolRegistrationTokenResult {
  * Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview.
  */
 export function getHostPoolRegistrationTokenOutput(args: GetHostPoolRegistrationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolRegistrationTokenResult> {
-    return pulumi.output(args).apply((a: any) => getHostPoolRegistrationToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization:getHostPoolRegistrationToken", {
+        "hostPoolName": args.hostPoolName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetHostPoolRegistrationTokenOutputArgs {

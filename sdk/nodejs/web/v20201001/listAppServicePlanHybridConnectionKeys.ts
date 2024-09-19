@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the send key name and value of a Hybrid Connection.
  */
 export function listAppServicePlanHybridConnectionKeys(args: ListAppServicePlanHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAppServicePlanHybridConnectionKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:listAppServicePlanHybridConnectionKeys", {
         "name": args.name,
@@ -77,7 +76,13 @@ export interface ListAppServicePlanHybridConnectionKeysResult {
  * Get the send key name and value of a Hybrid Connection.
  */
 export function listAppServicePlanHybridConnectionKeysOutput(args: ListAppServicePlanHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAppServicePlanHybridConnectionKeysResult> {
-    return pulumi.output(args).apply((a: any) => listAppServicePlanHybridConnectionKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:listAppServicePlanHybridConnectionKeys", {
+        "name": args.name,
+        "namespaceName": args.namespaceName,
+        "relayName": args.relayName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListAppServicePlanHybridConnectionKeysOutputArgs {

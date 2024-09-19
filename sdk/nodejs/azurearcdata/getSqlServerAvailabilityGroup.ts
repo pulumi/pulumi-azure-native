@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-01-01.
  */
 export function getSqlServerAvailabilityGroup(args: GetSqlServerAvailabilityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerAvailabilityGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata:getSqlServerAvailabilityGroup", {
         "availabilityGroupName": args.availabilityGroupName,
@@ -74,7 +73,12 @@ export interface GetSqlServerAvailabilityGroupResult {
  * Azure REST API version: 2024-01-01.
  */
 export function getSqlServerAvailabilityGroupOutput(args: GetSqlServerAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerAvailabilityGroupResult> {
-    return pulumi.output(args).apply((a: any) => getSqlServerAvailabilityGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurearcdata:getSqlServerAvailabilityGroup", {
+        "availabilityGroupName": args.availabilityGroupName,
+        "resourceGroupName": args.resourceGroupName,
+        "sqlServerInstanceName": args.sqlServerInstanceName,
+    }, opts);
 }
 
 export interface GetSqlServerAvailabilityGroupOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets details of the Source Control Configuration.
  */
 export function getSourceControlConfiguration(args: GetSourceControlConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetesconfiguration/v20230501:getSourceControlConfiguration", {
         "clusterName": args.clusterName,
@@ -122,7 +121,14 @@ export interface GetSourceControlConfigurationResult {
  * Gets details of the Source Control Configuration.
  */
 export function getSourceControlConfigurationOutput(args: GetSourceControlConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getSourceControlConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kubernetesconfiguration/v20230501:getSourceControlConfiguration", {
+        "clusterName": args.clusterName,
+        "clusterResourceName": args.clusterResourceName,
+        "clusterRp": args.clusterRp,
+        "resourceGroupName": args.resourceGroupName,
+        "sourceControlConfigurationName": args.sourceControlConfigurationName,
+    }, opts);
 }
 
 export interface GetSourceControlConfigurationOutputArgs {

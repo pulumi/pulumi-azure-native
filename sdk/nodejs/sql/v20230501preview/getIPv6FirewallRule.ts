@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets an IPv6 firewall rule.
  */
 export function getIPv6FirewallRule(args: GetIPv6FirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetIPv6FirewallRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230501preview:getIPv6FirewallRule", {
         "firewallRuleName": args.firewallRuleName,
@@ -61,7 +60,12 @@ export interface GetIPv6FirewallRuleResult {
  * Gets an IPv6 firewall rule.
  */
 export function getIPv6FirewallRuleOutput(args: GetIPv6FirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPv6FirewallRuleResult> {
-    return pulumi.output(args).apply((a: any) => getIPv6FirewallRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20230501preview:getIPv6FirewallRule", {
+        "firewallRuleName": args.firewallRuleName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetIPv6FirewallRuleOutputArgs {

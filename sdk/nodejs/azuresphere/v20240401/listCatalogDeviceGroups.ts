@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List the device groups for the catalog.
  */
 export function listCatalogDeviceGroups(args: ListCatalogDeviceGroupsArgs, opts?: pulumi.InvokeOptions): Promise<ListCatalogDeviceGroupsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuresphere/v20240401:listCatalogDeviceGroups", {
         "catalogName": args.catalogName,
@@ -72,7 +71,16 @@ export interface ListCatalogDeviceGroupsResult {
  * List the device groups for the catalog.
  */
 export function listCatalogDeviceGroupsOutput(args: ListCatalogDeviceGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCatalogDeviceGroupsResult> {
-    return pulumi.output(args).apply((a: any) => listCatalogDeviceGroups(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuresphere/v20240401:listCatalogDeviceGroups", {
+        "catalogName": args.catalogName,
+        "deviceGroupName": args.deviceGroupName,
+        "filter": args.filter,
+        "maxpagesize": args.maxpagesize,
+        "resourceGroupName": args.resourceGroupName,
+        "skip": args.skip,
+        "top": args.top,
+    }, opts);
 }
 
 export interface ListCatalogDeviceGroupsOutputArgs {

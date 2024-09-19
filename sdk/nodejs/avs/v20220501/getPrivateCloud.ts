@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * A private cloud resource
  */
 export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateCloudResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20220501:getPrivateCloud", {
         "privateCloudName": args.privateCloudName,
@@ -143,7 +142,11 @@ export interface GetPrivateCloudResult {
  * A private cloud resource
  */
 export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateCloudResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateCloud(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs/v20220501:getPrivateCloud", {
+        "privateCloudName": args.privateCloudName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPrivateCloudOutputArgs {

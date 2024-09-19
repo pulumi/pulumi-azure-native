@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve an Azure ML commitment plan by its subscription, resource group and name.
  */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearning/v20160501preview:getCommitmentPlan", {
         "commitmentPlanName": args.commitmentPlanName,
@@ -71,7 +70,11 @@ export interface GetCommitmentPlanResult {
  * Retrieve an Azure ML commitment plan by its subscription, resource group and name.
  */
 export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanResult> {
-    return pulumi.output(args).apply((a: any) => getCommitmentPlan(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearning/v20160501preview:getCommitmentPlan", {
+        "commitmentPlanName": args.commitmentPlanName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCommitmentPlanOutputArgs {

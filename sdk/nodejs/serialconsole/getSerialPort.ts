@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-05-01.
  */
 export function getSerialPort(args: GetSerialPortArgs, opts?: pulumi.InvokeOptions): Promise<GetSerialPortResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:serialconsole:getSerialPort", {
         "parentResource": args.parentResource,
@@ -69,7 +68,14 @@ export interface GetSerialPortResult {
  * Azure REST API version: 2018-05-01.
  */
 export function getSerialPortOutput(args: GetSerialPortOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSerialPortResult> {
-    return pulumi.output(args).apply((a: any) => getSerialPort(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:serialconsole:getSerialPort", {
+        "parentResource": args.parentResource,
+        "parentResourceType": args.parentResourceType,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceProviderNamespace": args.resourceProviderNamespace,
+        "serialPort": args.serialPort,
+    }, opts);
 }
 
 export interface GetSerialPortOutputArgs {

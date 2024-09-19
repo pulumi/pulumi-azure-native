@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the JIT request.
  */
 export function getJitRequest(args: GetJitRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetJitRequestResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:solutions/v20210701:getJitRequest", {
         "jitRequestName": args.jitRequestName,
@@ -95,7 +94,11 @@ export interface GetJitRequestResult {
  * Gets the JIT request.
  */
 export function getJitRequestOutput(args: GetJitRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitRequestResult> {
-    return pulumi.output(args).apply((a: any) => getJitRequest(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:solutions/v20210701:getJitRequest", {
+        "jitRequestName": args.jitRequestName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetJitRequestOutputArgs {

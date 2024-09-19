@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-01-31-preview.
  */
 export function listUserAssignedIdentityAssociatedResources(args: ListUserAssignedIdentityAssociatedResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListUserAssignedIdentityAssociatedResourcesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedidentity:listUserAssignedIdentityAssociatedResources", {
         "filter": args.filter,
@@ -78,7 +77,16 @@ export interface ListUserAssignedIdentityAssociatedResourcesResult {
  * Azure REST API version: 2022-01-31-preview.
  */
 export function listUserAssignedIdentityAssociatedResourcesOutput(args: ListUserAssignedIdentityAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUserAssignedIdentityAssociatedResourcesResult> {
-    return pulumi.output(args).apply((a: any) => listUserAssignedIdentityAssociatedResources(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managedidentity:listUserAssignedIdentityAssociatedResources", {
+        "filter": args.filter,
+        "orderby": args.orderby,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+        "skip": args.skip,
+        "skiptoken": args.skiptoken,
+        "top": args.top,
+    }, opts);
 }
 
 export interface ListUserAssignedIdentityAssociatedResourcesOutputArgs {

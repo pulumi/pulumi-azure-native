@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the Schema specified by its identifier.
  */
 export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210401preview:getSchema", {
         "resourceGroupName": args.resourceGroupName,
@@ -65,7 +64,12 @@ export interface GetSchemaResult {
  * Gets the details of the Schema specified by its identifier.
  */
 export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
-    return pulumi.output(args).apply((a: any) => getSchema(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20210401preview:getSchema", {
+        "resourceGroupName": args.resourceGroupName,
+        "schemaId": args.schemaId,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetSchemaOutputArgs {

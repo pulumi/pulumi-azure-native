@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified route filter.
  */
 export function getRouteFilter(args: GetRouteFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:getRouteFilter", {
         "expand": args.expand,
@@ -84,7 +83,12 @@ export interface GetRouteFilterResult {
  * Gets the specified route filter.
  */
 export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterResult> {
-    return pulumi.output(args).apply((a: any) => getRouteFilter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getRouteFilter", {
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+        "routeFilterName": args.routeFilterName,
+    }, opts);
 }
 
 export interface GetRouteFilterOutputArgs {

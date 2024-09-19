@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Dapr component Secrets Collection for ListSecrets Action.
  */
 export function listDaprComponentSecrets(args: ListDaprComponentSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDaprComponentSecretsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20230801preview:listDaprComponentSecrets", {
         "componentName": args.componentName,
@@ -48,7 +47,12 @@ export interface ListDaprComponentSecretsResult {
  * Dapr component Secrets Collection for ListSecrets Action.
  */
 export function listDaprComponentSecretsOutput(args: ListDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDaprComponentSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listDaprComponentSecrets(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app/v20230801preview:listDaprComponentSecrets", {
+        "componentName": args.componentName,
+        "environmentName": args.environmentName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListDaprComponentSecretsOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a server DNS alias.
  */
 export function getManagedServerDnsAlias(args: GetManagedServerDnsAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedServerDnsAliasResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getManagedServerDnsAlias", {
         "dnsAliasName": args.dnsAliasName,
@@ -58,7 +57,12 @@ export interface GetManagedServerDnsAliasResult {
  * Gets a server DNS alias.
  */
 export function getManagedServerDnsAliasOutput(args: GetManagedServerDnsAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedServerDnsAliasResult> {
-    return pulumi.output(args).apply((a: any) => getManagedServerDnsAlias(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getManagedServerDnsAlias", {
+        "dnsAliasName": args.dnsAliasName,
+        "managedInstanceName": args.managedInstanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetManagedServerDnsAliasOutputArgs {

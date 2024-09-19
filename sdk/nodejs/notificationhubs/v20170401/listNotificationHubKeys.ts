@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the Primary and Secondary ConnectionStrings to the NotificationHub
  */
 export function listNotificationHubKeys(args: ListNotificationHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNotificationHubKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20170401:listNotificationHubKeys", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -66,7 +65,13 @@ export interface ListNotificationHubKeysResult {
  * Gets the Primary and Secondary ConnectionStrings to the NotificationHub
  */
 export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotificationHubKeysResult> {
-    return pulumi.output(args).apply((a: any) => listNotificationHubKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20170401:listNotificationHubKeys", {
+        "authorizationRuleName": args.authorizationRuleName,
+        "namespaceName": args.namespaceName,
+        "notificationHubName": args.notificationHubName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListNotificationHubKeysOutputArgs {

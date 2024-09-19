@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01-preview.
  */
 export function getImportCollectorsOperation(args: GetImportCollectorsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetImportCollectorsOperationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getImportCollectorsOperation", {
         "importCollectorName": args.importCollectorName,
@@ -82,7 +81,12 @@ export interface GetImportCollectorsOperationResult {
  * Other available API versions: 2023-04-01-preview.
  */
 export function getImportCollectorsOperationOutput(args: GetImportCollectorsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportCollectorsOperationResult> {
-    return pulumi.output(args).apply((a: any) => getImportCollectorsOperation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate:getImportCollectorsOperation", {
+        "importCollectorName": args.importCollectorName,
+        "projectName": args.projectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetImportCollectorsOperationOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a sync group.
  */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230801preview:getSyncGroup", {
         "databaseName": args.databaseName,
@@ -109,7 +108,13 @@ export interface GetSyncGroupResult {
  * Gets a sync group.
  */
 export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
-    return pulumi.output(args).apply((a: any) => getSyncGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getSyncGroup", {
+        "databaseName": args.databaseName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+        "syncGroupName": args.syncGroupName,
+    }, opts);
 }
 
 export interface GetSyncGroupOutputArgs {

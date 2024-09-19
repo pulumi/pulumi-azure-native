@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
  */
 export function listSqlMigrationServiceAuthKeys(args: ListSqlMigrationServiceAuthKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSqlMigrationServiceAuthKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20220330preview:listSqlMigrationServiceAuthKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -44,7 +43,11 @@ export interface ListSqlMigrationServiceAuthKeysResult {
  * Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
  */
 export function listSqlMigrationServiceAuthKeysOutput(args: ListSqlMigrationServiceAuthKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSqlMigrationServiceAuthKeysResult> {
-    return pulumi.output(args).apply((a: any) => listSqlMigrationServiceAuthKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datamigration/v20220330preview:listSqlMigrationServiceAuthKeys", {
+        "resourceGroupName": args.resourceGroupName,
+        "sqlMigrationServiceName": args.sqlMigrationServiceName,
+    }, opts);
 }
 
 export interface ListSqlMigrationServiceAuthKeysOutputArgs {

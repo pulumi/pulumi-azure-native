@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01, 2023-12-01.
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteBuild(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getStaticSiteUserProvidedFunctionAppForStaticSiteBuild", {
         "environmentName": args.environmentName,
@@ -80,7 +79,13 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult {
  * Other available API versions: 2023-01-01, 2023-12-01.
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> {
-    return pulumi.output(args).apply((a: any) => getStaticSiteUserProvidedFunctionAppForStaticSiteBuild(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:getStaticSiteUserProvidedFunctionAppForStaticSiteBuild", {
+        "environmentName": args.environmentName,
+        "functionAppName": args.functionAppName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutputArgs {

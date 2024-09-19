@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2015-05-01.
  */
 export function getAnalyticsItem(args: GetAnalyticsItemArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsItemResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getAnalyticsItem", {
         "id": args.id,
@@ -92,7 +91,14 @@ export interface GetAnalyticsItemResult {
  * Azure REST API version: 2015-05-01.
  */
 export function getAnalyticsItemOutput(args: GetAnalyticsItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsItemResult> {
-    return pulumi.output(args).apply((a: any) => getAnalyticsItem(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights:getAnalyticsItem", {
+        "id": args.id,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+        "scopePath": args.scopePath,
+    }, opts);
 }
 
 export interface GetAnalyticsItemOutputArgs {

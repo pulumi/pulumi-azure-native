@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-08-01.
  */
 export function getBlobContainerDataSetMapping(args: GetBlobContainerDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerDataSetMappingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare:getBlobContainerDataSetMapping", {
         "accountName": args.accountName,
@@ -100,7 +99,13 @@ export interface GetBlobContainerDataSetMappingResult {
  * Azure REST API version: 2021-08-01.
  */
 export function getBlobContainerDataSetMappingOutput(args: GetBlobContainerDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerDataSetMappingResult> {
-    return pulumi.output(args).apply((a: any) => getBlobContainerDataSetMapping(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datashare:getBlobContainerDataSetMapping", {
+        "accountName": args.accountName,
+        "dataSetMappingName": args.dataSetMappingName,
+        "resourceGroupName": args.resourceGroupName,
+        "shareSubscriptionName": args.shareSubscriptionName,
+    }, opts);
 }
 
 export interface GetBlobContainerDataSetMappingOutputArgs {

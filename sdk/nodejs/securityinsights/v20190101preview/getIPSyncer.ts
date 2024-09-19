@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a setting.
  */
 export function getIPSyncer(args: GetIPSyncerArgs, opts?: pulumi.InvokeOptions): Promise<GetIPSyncerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getIPSyncer", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
@@ -71,7 +70,13 @@ export interface GetIPSyncerResult {
  * Gets a setting.
  */
 export function getIPSyncerOutput(args: GetIPSyncerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPSyncerResult> {
-    return pulumi.output(args).apply((a: any) => getIPSyncer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20190101preview:getIPSyncer", {
+        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
+        "resourceGroupName": args.resourceGroupName,
+        "settingsName": args.settingsName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetIPSyncerOutputArgs {

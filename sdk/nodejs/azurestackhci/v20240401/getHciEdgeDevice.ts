@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a EdgeDevice
  */
 export function getHciEdgeDevice(args: GetHciEdgeDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetHciEdgeDeviceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20240401:getHciEdgeDevice", {
         "edgeDeviceName": args.edgeDeviceName,
@@ -64,7 +63,11 @@ export interface GetHciEdgeDeviceResult {
  * Get a EdgeDevice
  */
 export function getHciEdgeDeviceOutput(args: GetHciEdgeDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHciEdgeDeviceResult> {
-    return pulumi.output(args).apply((a: any) => getHciEdgeDevice(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240401:getHciEdgeDevice", {
+        "edgeDeviceName": args.edgeDeviceName,
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetHciEdgeDeviceOutputArgs {

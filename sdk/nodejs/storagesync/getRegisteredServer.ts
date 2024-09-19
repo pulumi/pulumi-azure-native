@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2022-09-01.
  */
 export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredServerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagesync:getRegisteredServer", {
         "resourceGroupName": args.resourceGroupName,
@@ -158,7 +157,12 @@ export interface GetRegisteredServerResult {
  * Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2022-09-01.
  */
 export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredServerResult> {
-    return pulumi.output(args).apply((a: any) => getRegisteredServer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storagesync:getRegisteredServer", {
+        "resourceGroupName": args.resourceGroupName,
+        "serverId": args.serverId,
+        "storageSyncServiceName": args.storageSyncServiceName,
+    }, opts);
 }
 
 export interface GetRegisteredServerOutputArgs {

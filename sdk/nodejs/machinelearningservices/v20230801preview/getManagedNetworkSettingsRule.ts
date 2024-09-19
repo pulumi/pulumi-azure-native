@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getManagedNetworkSettingsRule(args: GetManagedNetworkSettingsRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedNetworkSettingsRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230801preview:getManagedNetworkSettingsRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -55,7 +54,12 @@ export interface GetManagedNetworkSettingsRuleResult {
     readonly type: string;
 }
 export function getManagedNetworkSettingsRuleOutput(args: GetManagedNetworkSettingsRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkSettingsRuleResult> {
-    return pulumi.output(args).apply((a: any) => getManagedNetworkSettingsRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230801preview:getManagedNetworkSettingsRule", {
+        "resourceGroupName": args.resourceGroupName,
+        "ruleName": args.ruleName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetManagedNetworkSettingsRuleOutputArgs {

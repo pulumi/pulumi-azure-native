@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the customLocation with a specified resource group and name.
  */
 export function getCustomLocation(args: GetCustomLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomLocationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:extendedlocation/v20210815:getCustomLocation", {
         "resourceGroupName": args.resourceGroupName,
@@ -95,7 +94,11 @@ export interface GetCustomLocationResult {
  * Gets the details of the customLocation with a specified resource group and name.
  */
 export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomLocationResult> {
-    return pulumi.output(args).apply((a: any) => getCustomLocation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:extendedlocation/v20210815:getCustomLocation", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetCustomLocationOutputArgs {

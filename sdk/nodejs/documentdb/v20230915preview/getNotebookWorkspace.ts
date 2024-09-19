@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the notebook workspace for a Cosmos DB account.
  */
 export function getNotebookWorkspace(args: GetNotebookWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookWorkspaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20230915preview:getNotebookWorkspace", {
         "accountName": args.accountName,
@@ -61,7 +60,12 @@ export interface GetNotebookWorkspaceResult {
  * Gets the notebook workspace for a Cosmos DB account.
  */
 export function getNotebookWorkspaceOutput(args: GetNotebookWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookWorkspaceResult> {
-    return pulumi.output(args).apply((a: any) => getNotebookWorkspace(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20230915preview:getNotebookWorkspace", {
+        "accountName": args.accountName,
+        "notebookWorkspaceName": args.notebookWorkspaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNotebookWorkspaceOutputArgs {

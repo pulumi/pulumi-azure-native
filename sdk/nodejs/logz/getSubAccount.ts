@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-01-01-preview.
  */
 export function getSubAccount(args: GetSubAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSubAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz:getSubAccount", {
         "monitorName": args.monitorName,
@@ -64,7 +63,12 @@ export interface GetSubAccountResult {
  * Azure REST API version: 2022-01-01-preview.
  */
 export function getSubAccountOutput(args: GetSubAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubAccountResult> {
-    return pulumi.output(args).apply((a: any) => getSubAccount(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:logz:getSubAccount", {
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+        "subAccountName": args.subAccountName,
+    }, opts);
 }
 
 export interface GetSubAccountOutputArgs {

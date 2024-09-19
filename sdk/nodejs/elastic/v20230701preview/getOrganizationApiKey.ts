@@ -12,7 +12,6 @@ import * as utilities from "../../utilities";
  */
 export function getOrganizationApiKey(args?: GetOrganizationApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationApiKeyResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic/v20230701preview:getOrganizationApiKey", {
         "emailId": args.emailId,
@@ -36,7 +35,11 @@ export interface GetOrganizationApiKeyResult {
  * Fetch User API Key from internal database, if it was generated and stored while creating the Elasticsearch Organization.
  */
 export function getOrganizationApiKeyOutput(args?: GetOrganizationApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationApiKeyResult> {
-    return pulumi.output(args).apply((a: any) => getOrganizationApiKey(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:elastic/v20230701preview:getOrganizationApiKey", {
+        "emailId": args.emailId,
+    }, opts);
 }
 
 export interface GetOrganizationApiKeyOutputArgs {

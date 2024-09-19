@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of an ASR replication protected item.
  */
 export function getReplicationProtectedItem(args: GetReplicationProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectedItemResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20230401:getReplicationProtectedItem", {
         "fabricName": args.fabricName,
@@ -74,7 +73,14 @@ export interface GetReplicationProtectedItemResult {
  * Gets the details of an ASR replication protected item.
  */
 export function getReplicationProtectedItemOutput(args: GetReplicationProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectedItemResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationProtectedItem(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230401:getReplicationProtectedItem", {
+        "fabricName": args.fabricName,
+        "protectionContainerName": args.protectionContainerName,
+        "replicatedProtectedItemName": args.replicatedProtectedItemName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetReplicationProtectedItemOutputArgs {

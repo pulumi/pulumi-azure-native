@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns dedicated cloud node
  */
 export function getDedicatedCloudNode(args: GetDedicatedCloudNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedCloudNodeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:vmwarecloudsimple/v20190401:getDedicatedCloudNode", {
         "dedicatedCloudNodeName": args.dedicatedCloudNodeName,
@@ -115,7 +114,11 @@ export interface GetDedicatedCloudNodeResult {
  * Returns dedicated cloud node
  */
 export function getDedicatedCloudNodeOutput(args: GetDedicatedCloudNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedCloudNodeResult> {
-    return pulumi.output(args).apply((a: any) => getDedicatedCloudNode(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:vmwarecloudsimple/v20190401:getDedicatedCloudNode", {
+        "dedicatedCloudNodeName": args.dedicatedCloudNodeName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDedicatedCloudNodeOutputArgs {

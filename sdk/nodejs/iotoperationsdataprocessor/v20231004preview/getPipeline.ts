@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Pipeline
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsdataprocessor/v20231004preview:getPipeline", {
         "instanceName": args.instanceName,
@@ -92,7 +91,12 @@ export interface GetPipelineResult {
  * Get a Pipeline
  */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
-    return pulumi.output(args).apply((a: any) => getPipeline(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:iotoperationsdataprocessor/v20231004preview:getPipeline", {
+        "instanceName": args.instanceName,
+        "pipelineName": args.pipelineName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPipelineOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets project catalog synchronization error details
  */
 export function getProjectCatalogSyncErrorDetails(args: GetProjectCatalogSyncErrorDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectCatalogSyncErrorDetailsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20240201:getProjectCatalogSyncErrorDetails", {
         "catalogName": args.catalogName,
@@ -56,7 +55,12 @@ export interface GetProjectCatalogSyncErrorDetailsResult {
  * Gets project catalog synchronization error details
  */
 export function getProjectCatalogSyncErrorDetailsOutput(args: GetProjectCatalogSyncErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectCatalogSyncErrorDetailsResult> {
-    return pulumi.output(args).apply((a: any) => getProjectCatalogSyncErrorDetails(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240201:getProjectCatalogSyncErrorDetails", {
+        "catalogName": args.catalogName,
+        "projectName": args.projectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetProjectCatalogSyncErrorDetailsOutputArgs {

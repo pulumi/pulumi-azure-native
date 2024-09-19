@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-03-01-beta.
  */
 export function listSaasResourceAccessToken(args: ListSaasResourceAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListSaasResourceAccessTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:saas:listSaasResourceAccessToken", {
         "resourceId": args.resourceId,
@@ -41,7 +40,10 @@ export interface ListSaasResourceAccessTokenResult {
  * Azure REST API version: 2018-03-01-beta.
  */
 export function listSaasResourceAccessTokenOutput(args: ListSaasResourceAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSaasResourceAccessTokenResult> {
-    return pulumi.output(args).apply((a: any) => listSaasResourceAccessToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:saas:listSaasResourceAccessToken", {
+        "resourceId": args.resourceId,
+    }, opts);
 }
 
 export interface ListSaasResourceAccessTokenOutputArgs {

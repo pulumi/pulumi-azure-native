@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified artifact store.
  */
 export function getArtifactStore(args: GetArtifactStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactStoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20230901:getArtifactStore", {
         "artifactStoreName": args.artifactStoreName,
@@ -72,7 +71,12 @@ export interface GetArtifactStoreResult {
  * Gets information about the specified artifact store.
  */
 export function getArtifactStoreOutput(args: GetArtifactStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactStoreResult> {
-    return pulumi.output(args).apply((a: any) => getArtifactStore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20230901:getArtifactStore", {
+        "artifactStoreName": args.artifactStoreName,
+        "publisherName": args.publisherName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetArtifactStoreOutputArgs {

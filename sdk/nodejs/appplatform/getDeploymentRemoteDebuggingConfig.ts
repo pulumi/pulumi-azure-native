@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export function getDeploymentRemoteDebuggingConfig(args: GetDeploymentRemoteDebuggingConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentRemoteDebuggingConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform:getDeploymentRemoteDebuggingConfig", {
         "appName": args.appName,
@@ -60,7 +59,13 @@ export interface GetDeploymentRemoteDebuggingConfigResult {
  * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export function getDeploymentRemoteDebuggingConfigOutput(args: GetDeploymentRemoteDebuggingConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentRemoteDebuggingConfigResult> {
-    return pulumi.output(args).apply((a: any) => getDeploymentRemoteDebuggingConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appplatform:getDeploymentRemoteDebuggingConfig", {
+        "appName": args.appName,
+        "deploymentName": args.deploymentName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetDeploymentRemoteDebuggingConfigOutputArgs {

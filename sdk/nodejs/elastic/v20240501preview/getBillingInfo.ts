@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Marketplace Subscription and Organization details to which resource gets billed into.
  */
 export function getBillingInfo(args: GetBillingInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingInfoResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic/v20240501preview:getBillingInfo", {
         "monitorName": args.monitorName,
@@ -47,7 +46,11 @@ export interface GetBillingInfoResult {
  * Marketplace Subscription and Organization details to which resource gets billed into.
  */
 export function getBillingInfoOutput(args: GetBillingInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingInfoResult> {
-    return pulumi.output(args).apply((a: any) => getBillingInfo(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:elastic/v20240501preview:getBillingInfo", {
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBillingInfoOutputArgs {

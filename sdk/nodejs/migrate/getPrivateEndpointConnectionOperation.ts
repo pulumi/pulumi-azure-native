@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01-preview.
  */
 export function getPrivateEndpointConnectionOperation(args: GetPrivateEndpointConnectionOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionOperationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getPrivateEndpointConnectionOperation", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
@@ -82,7 +81,12 @@ export interface GetPrivateEndpointConnectionOperationResult {
  * Other available API versions: 2023-04-01-preview.
  */
 export function getPrivateEndpointConnectionOperationOutput(args: GetPrivateEndpointConnectionOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionOperationResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionOperation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate:getPrivateEndpointConnectionOperation", {
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
+        "projectName": args.projectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPrivateEndpointConnectionOperationOutputArgs {

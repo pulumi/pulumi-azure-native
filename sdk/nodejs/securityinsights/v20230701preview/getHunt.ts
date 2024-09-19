@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a hunt, without relations and comments.
  */
 export function getHunt(args: GetHuntArgs, opts?: pulumi.InvokeOptions): Promise<GetHuntResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230701preview:getHunt", {
         "huntId": args.huntId,
@@ -96,7 +95,12 @@ export interface GetHuntResult {
  * Gets a hunt, without relations and comments.
  */
 export function getHuntOutput(args: GetHuntOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHuntResult> {
-    return pulumi.output(args).apply((a: any) => getHunt(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230701preview:getHunt", {
+        "huntId": args.huntId,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetHuntOutputArgs {

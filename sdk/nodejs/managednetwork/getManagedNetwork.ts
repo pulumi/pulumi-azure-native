@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-06-01-preview.
  */
 export function getManagedNetwork(args: GetManagedNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedNetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetwork:getManagedNetwork", {
         "managedNetworkName": args.managedNetworkName,
@@ -77,7 +76,11 @@ export interface GetManagedNetworkResult {
  * Azure REST API version: 2019-06-01-preview.
  */
 export function getManagedNetworkOutput(args: GetManagedNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getManagedNetwork(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managednetwork:getManagedNetwork", {
+        "managedNetworkName": args.managedNetworkName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetManagedNetworkOutputArgs {

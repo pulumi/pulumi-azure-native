@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-06-15.
  */
 export function getNetworkPacketBroker(args: GetNetworkPacketBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkPacketBrokerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric:getNetworkPacketBroker", {
         "networkPacketBrokerName": args.networkPacketBrokerName,
@@ -89,7 +88,11 @@ export interface GetNetworkPacketBrokerResult {
  * Azure REST API version: 2023-06-15.
  */
 export function getNetworkPacketBrokerOutput(args: GetNetworkPacketBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPacketBrokerResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkPacketBroker(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNetworkPacketBroker", {
+        "networkPacketBrokerName": args.networkPacketBrokerName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkPacketBrokerOutputArgs {

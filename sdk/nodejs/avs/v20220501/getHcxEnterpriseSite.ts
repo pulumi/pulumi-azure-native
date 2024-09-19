@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * An HCX Enterprise Site resource
  */
 export function getHcxEnterpriseSite(args: GetHcxEnterpriseSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHcxEnterpriseSiteResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20220501:getHcxEnterpriseSite", {
         "hcxEnterpriseSiteName": args.hcxEnterpriseSiteName,
@@ -61,7 +60,12 @@ export interface GetHcxEnterpriseSiteResult {
  * An HCX Enterprise Site resource
  */
 export function getHcxEnterpriseSiteOutput(args: GetHcxEnterpriseSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHcxEnterpriseSiteResult> {
-    return pulumi.output(args).apply((a: any) => getHcxEnterpriseSite(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs/v20220501:getHcxEnterpriseSite", {
+        "hcxEnterpriseSiteName": args.hcxEnterpriseSiteName,
+        "privateCloudName": args.privateCloudName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetHcxEnterpriseSiteOutputArgs {

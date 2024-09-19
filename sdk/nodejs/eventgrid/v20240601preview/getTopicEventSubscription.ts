@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get properties of an event subscription of a topic.
  */
 export function getTopicEventSubscription(args: GetTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicEventSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20240601preview:getTopicEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,
@@ -108,7 +107,12 @@ export interface GetTopicEventSubscriptionResult {
  * Get properties of an event subscription of a topic.
  */
 export function getTopicEventSubscriptionOutput(args: GetTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicEventSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getTopicEventSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getTopicEventSubscription", {
+        "eventSubscriptionName": args.eventSubscriptionName,
+        "resourceGroupName": args.resourceGroupName,
+        "topicName": args.topicName,
+    }, opts);
 }
 
 export interface GetTopicEventSubscriptionOutputArgs {

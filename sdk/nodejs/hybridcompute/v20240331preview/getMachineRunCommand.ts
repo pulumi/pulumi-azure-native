@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The operation to get a run command.
  */
 export function getMachineRunCommand(args: GetMachineRunCommandArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineRunCommandResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute/v20240331preview:getMachineRunCommand", {
         "machineName": args.machineName,
@@ -120,7 +119,12 @@ export interface GetMachineRunCommandResult {
  * The operation to get a run command.
  */
 export function getMachineRunCommandOutput(args: GetMachineRunCommandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineRunCommandResult> {
-    return pulumi.output(args).apply((a: any) => getMachineRunCommand(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridcompute/v20240331preview:getMachineRunCommand", {
+        "machineName": args.machineName,
+        "resourceGroupName": args.resourceGroupName,
+        "runCommandName": args.runCommandName,
+    }, opts);
 }
 
 export interface GetMachineRunCommandOutputArgs {

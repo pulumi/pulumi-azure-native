@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-08-01-preview.
  */
 export function getProjectCatalogImageDefinitionBuildDetails(args: GetProjectCatalogImageDefinitionBuildDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectCatalogImageDefinitionBuildDetailsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter:getProjectCatalogImageDefinitionBuildDetails", {
         "buildName": args.buildName,
@@ -100,7 +99,14 @@ export interface GetProjectCatalogImageDefinitionBuildDetailsResult {
  * Other available API versions: 2024-08-01-preview.
  */
 export function getProjectCatalogImageDefinitionBuildDetailsOutput(args: GetProjectCatalogImageDefinitionBuildDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectCatalogImageDefinitionBuildDetailsResult> {
-    return pulumi.output(args).apply((a: any) => getProjectCatalogImageDefinitionBuildDetails(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devcenter:getProjectCatalogImageDefinitionBuildDetails", {
+        "buildName": args.buildName,
+        "catalogName": args.catalogName,
+        "imageDefinitionName": args.imageDefinitionName,
+        "projectName": args.projectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetProjectCatalogImageDefinitionBuildDetailsOutputArgs {

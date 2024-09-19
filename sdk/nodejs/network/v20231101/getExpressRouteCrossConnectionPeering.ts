@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified peering for the ExpressRouteCrossConnection.
  */
 export function getExpressRouteCrossConnectionPeering(args: GetExpressRouteCrossConnectionPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCrossConnectionPeeringResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20231101:getExpressRouteCrossConnectionPeering", {
         "crossConnectionName": args.crossConnectionName,
@@ -116,7 +115,12 @@ export interface GetExpressRouteCrossConnectionPeeringResult {
  * Gets the specified peering for the ExpressRouteCrossConnection.
  */
 export function getExpressRouteCrossConnectionPeeringOutput(args: GetExpressRouteCrossConnectionPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCrossConnectionPeeringResult> {
-    return pulumi.output(args).apply((a: any) => getExpressRouteCrossConnectionPeering(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getExpressRouteCrossConnectionPeering", {
+        "crossConnectionName": args.crossConnectionName,
+        "peeringName": args.peeringName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetExpressRouteCrossConnectionPeeringOutputArgs {

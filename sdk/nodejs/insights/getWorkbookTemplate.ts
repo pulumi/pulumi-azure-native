@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-11-20.
  */
 export function getWorkbookTemplate(args: GetWorkbookTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getWorkbookTemplate", {
         "resourceGroupName": args.resourceGroupName,
@@ -81,7 +80,11 @@ export interface GetWorkbookTemplateResult {
  * Azure REST API version: 2020-11-20.
  */
 export function getWorkbookTemplateOutput(args: GetWorkbookTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getWorkbookTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights:getWorkbookTemplate", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetWorkbookTemplateOutputArgs {

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01-preview.
  */
 export function getHypervCollectorsOperation(args: GetHypervCollectorsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetHypervCollectorsOperationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getHypervCollectorsOperation", {
         "hypervCollectorName": args.hypervCollectorName,
@@ -86,7 +85,12 @@ export interface GetHypervCollectorsOperationResult {
  * Other available API versions: 2023-04-01-preview.
  */
 export function getHypervCollectorsOperationOutput(args: GetHypervCollectorsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervCollectorsOperationResult> {
-    return pulumi.output(args).apply((a: any) => getHypervCollectorsOperation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate:getHypervCollectorsOperation", {
+        "hypervCollectorName": args.hypervCollectorName,
+        "projectName": args.projectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetHypervCollectorsOperationOutputArgs {

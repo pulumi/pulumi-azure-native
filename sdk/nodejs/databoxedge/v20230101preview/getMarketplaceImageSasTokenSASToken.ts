@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 export function getMarketplaceImageSasTokenSASToken(args: GetMarketplaceImageSasTokenSASTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetMarketplaceImageSasTokenSASTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20230101preview:getMarketplaceImageSasTokenSASToken", {
         "deviceName": args.deviceName,
@@ -34,7 +33,15 @@ export interface GetMarketplaceImageSasTokenSASTokenResult {
     readonly status?: string;
 }
 export function getMarketplaceImageSasTokenSASTokenOutput(args: GetMarketplaceImageSasTokenSASTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarketplaceImageSasTokenSASTokenResult> {
-    return pulumi.output(args).apply((a: any) => getMarketplaceImageSasTokenSASToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230101preview:getMarketplaceImageSasTokenSASToken", {
+        "deviceName": args.deviceName,
+        "offerName": args.offerName,
+        "publisherName": args.publisherName,
+        "resourceGroupName": args.resourceGroupName,
+        "skuName": args.skuName,
+        "versionName": args.versionName,
+    }, opts);
 }
 
 export interface GetMarketplaceImageSasTokenSASTokenOutputArgs {

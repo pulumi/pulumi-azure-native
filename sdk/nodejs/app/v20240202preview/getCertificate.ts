@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20240202preview:getCertificate", {
         "certificateName": args.certificateName,
@@ -72,7 +71,12 @@ export interface GetCertificateResult {
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app/v20240202preview:getCertificate", {
+        "certificateName": args.certificateName,
+        "environmentName": args.environmentName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCertificateOutputArgs {

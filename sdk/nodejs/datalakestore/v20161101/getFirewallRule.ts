@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the specified Data Lake Store firewall rule.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakestore/v20161101:getFirewallRule", {
         "accountName": args.accountName,
@@ -61,7 +60,12 @@ export interface GetFirewallRuleResult {
  * Gets the specified Data Lake Store firewall rule.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
-    return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datalakestore/v20161101:getFirewallRule", {
+        "accountName": args.accountName,
+        "firewallRuleName": args.firewallRuleName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFirewallRuleOutputArgs {

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-07-01-preview.
  */
 export function getConnectionRaiPolicy(args: GetConnectionRaiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionRaiPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getConnectionRaiPolicy", {
         "connectionName": args.connectionName,
@@ -75,7 +74,13 @@ export interface GetConnectionRaiPolicyResult {
  * Other available API versions: 2024-07-01-preview.
  */
 export function getConnectionRaiPolicyOutput(args: GetConnectionRaiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionRaiPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getConnectionRaiPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getConnectionRaiPolicy", {
+        "connectionName": args.connectionName,
+        "raiPolicyName": args.raiPolicyName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetConnectionRaiPolicyOutputArgs {

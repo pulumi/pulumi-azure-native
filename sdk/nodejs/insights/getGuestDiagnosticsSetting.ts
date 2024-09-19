@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-06-01-preview.
  */
 export function getGuestDiagnosticsSetting(args: GetGuestDiagnosticsSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestDiagnosticsSettingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getGuestDiagnosticsSetting", {
         "diagnosticSettingsName": args.diagnosticSettingsName,
@@ -70,7 +69,11 @@ export interface GetGuestDiagnosticsSettingResult {
  * Azure REST API version: 2018-06-01-preview.
  */
 export function getGuestDiagnosticsSettingOutput(args: GetGuestDiagnosticsSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestDiagnosticsSettingResult> {
-    return pulumi.output(args).apply((a: any) => getGuestDiagnosticsSetting(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights:getGuestDiagnosticsSetting", {
+        "diagnosticSettingsName": args.diagnosticSettingsName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetGuestDiagnosticsSettingOutputArgs {

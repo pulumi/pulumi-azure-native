@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the Git/FTP publishing credentials of an app.
  */
 export function listWebAppPublishingCredentialsSlot(args: ListWebAppPublishingCredentialsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppPublishingCredentialsSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:listWebAppPublishingCredentialsSlot", {
         "name": args.name,
@@ -84,7 +83,12 @@ export interface ListWebAppPublishingCredentialsSlotResult {
  * Gets the Git/FTP publishing credentials of an app.
  */
 export function listWebAppPublishingCredentialsSlotOutput(args: ListWebAppPublishingCredentialsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppPublishingCredentialsSlotResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppPublishingCredentialsSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:listWebAppPublishingCredentialsSlot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface ListWebAppPublishingCredentialsSlotOutputArgs {
