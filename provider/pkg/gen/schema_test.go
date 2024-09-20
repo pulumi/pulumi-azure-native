@@ -33,17 +33,29 @@ func TestTypeAliasFormatting(t *testing.T) {
 var _ Versioning = (*versioningStub)(nil)
 
 type versioningStub struct {
+	shouldIncline   func(provider string, version string, typeName, token string) bool
+	getDeprecations func(token string) (ResourceDeprecation, bool)
+	getAllVersions  func(provider, resource string) []string
 }
 
 func (v versioningStub) ShouldInclude(provider string, version string, typeName, token string) bool {
+	if v.shouldIncline != nil {
+		return v.shouldIncline(provider, version, typeName, token)
+	}
 	return true
 }
 
 func (v versioningStub) GetDeprecation(token string) (ResourceDeprecation, bool) {
+	if v.getDeprecations != nil {
+		return v.getDeprecations(token)
+	}
 	return ResourceDeprecation{}, false
 }
 
 func (v versioningStub) GetAllVersions(provider, resource string) []string {
+	if v.getAllVersions != nil {
+		return v.getAllVersions(provider, resource)
+	}
 	return []string{}
 }
 
