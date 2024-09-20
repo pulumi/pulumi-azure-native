@@ -3213,6 +3213,41 @@
     "Property": "storageRedundancy"
   },
   {
+    "Module": "dbformysql/v20240601preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "dataDirPath"
+  },
+  {
+    "Module": "dbformysql/v20240601preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "sasToken"
+  },
+  {
+    "Module": "dbformysql/v20240601preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "storageType"
+  },
+  {
+    "Module": "dbformysql/v20240601preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "storageUrl"
+  },
+  {
+    "Module": "dbformysql/v20240601preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "StorageRedundancyEnum",
+    "Property": "storageRedundancy"
+  },
+  {
     "Module": "dbforpostgresql",
     "Provider": "DBforPostgreSQL",
     "ResourceName": "Server",

@@ -3459,6 +3459,9 @@
       "VirtualMachineInstance"
     ]
   },
+  "AzureTerraform": {
+    "": []
+  },
   "BareMetalInfrastructure": {
     "": [],
     "2023-04-06": [
@@ -7082,6 +7085,9 @@
       "getGetPrivateDnsZoneSuffixExecute"
     ],
     "2024-02-01-preview": [
+      "Server"
+    ],
+    "2024-06-01-preview": [
       "Server"
     ]
   },
@@ -14519,6 +14525,9 @@
     ],
     "2023-10-01-preview": [
       "AzureMonitorWorkspace",
+      "PipelineGroup"
+    ],
+    "2024-10-01-preview": [
       "PipelineGroup"
     ]
   },

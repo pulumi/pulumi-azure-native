@@ -34782,6 +34782,7 @@
       {
         "resourceType": "locations/commitInternalAzureNetworkManagerConfiguration",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01-preview",
           "2024-01-01",
@@ -34991,6 +34992,7 @@
       {
         "resourceType": "locations/internalAzureVirtualNetworkManagerOperation",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01-preview",
           "2024-01-01",
@@ -35750,6 +35752,7 @@
       {
         "resourceType": "locations/verifierWorkspaceOperationResults",
         "apiVersions": [
+          "2024-05-01",
           "2024-01-01-preview"
         ]
       },
@@ -35992,6 +35995,7 @@
       {
         "resourceType": "networkManagerConnections",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01-preview",
           "2024-01-01",
@@ -36014,6 +36018,7 @@
       {
         "resourceType": "networkManagers",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01-preview",
           "2024-01-01",
@@ -36036,6 +36041,7 @@
       {
         "resourceType": "networkManagers/ipamPools",
         "apiVersions": [
+          "2024-05-01",
           "2024-01-01-preview",
           "2023-07-01-preview"
         ]
@@ -36043,6 +36049,7 @@
       {
         "resourceType": "networkManagers/verifierWorkspaces",
         "apiVersions": [
+          "2024-05-01",
           "2024-01-01-preview"
         ]
       },
@@ -37659,6 +37666,7 @@
       {
         "resourceType": "virtualNetworks/listNetworkManagerEffectiveConnectivityConfigurations",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01-preview",
           "2024-01-01",
@@ -37681,6 +37689,7 @@
       {
         "resourceType": "virtualNetworks/listNetworkManagerEffectiveSecurityAdminRules",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01-preview",
           "2024-01-01",

@@ -26992,6 +26992,7 @@
       "2024-01-01-preview",
       "2024-02-01",
       "2024-03-01",
+      "2024-05-01",
       "2024-06-01",
       "2024-06-01-preview"
     ],
@@ -29167,7 +29168,8 @@
       "2023-11-01",
       "2024-01-01",
       "2024-01-01-preview",
-      "2024-03-01"
+      "2024-03-01",
+      "2024-05-01"
     ],
     "locations/datatasks": [
       "2021-03-01",
@@ -29343,7 +29345,8 @@
       "2023-11-01",
       "2024-01-01",
       "2024-01-01-preview",
-      "2024-03-01"
+      "2024-03-01",
+      "2024-05-01"
     ],
     "locations/networksecurityperimeteroperationstatuses": [
       "2023-07-01-preview",
@@ -30023,7 +30026,8 @@
       "2024-03-01"
     ],
     "locations/verifierworkspaceoperationresults": [
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-05-01"
     ],
     "locations/virtualnetworkavailableendpointservices": [
       "2017-04-01",
@@ -30260,7 +30264,8 @@
       "2023-11-01",
       "2024-01-01",
       "2024-01-01-preview",
-      "2024-03-01"
+      "2024-03-01",
+      "2024-05-01"
     ],
     "networkmanagers": [
       "2022-01-01",
@@ -30279,14 +30284,17 @@
       "2023-11-01",
       "2024-01-01",
       "2024-01-01-preview",
-      "2024-03-01"
+      "2024-03-01",
+      "2024-05-01"
     ],
     "networkmanagers/ipampools": [
       "2023-07-01-preview",
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-05-01"
     ],
     "networkmanagers/verifierworkspaces": [
-      "2024-01-01-preview"
+      "2024-01-01-preview",
+      "2024-05-01"
     ],
     "networkprofiles": [
       "2018-05-01",
@@ -31725,7 +31733,8 @@
       "2023-11-01",
       "2024-01-01",
       "2024-01-01-preview",
-      "2024-03-01"
+      "2024-03-01",
+      "2024-05-01"
     ],
     "virtualnetworks/listnetworkmanagereffectivesecurityadminrules": [
       "2022-01-01",
@@ -31744,7 +31753,8 @@
       "2023-11-01",
       "2024-01-01",
       "2024-01-01-preview",
-      "2024-03-01"
+      "2024-03-01",
+      "2024-05-01"
     ],
     "virtualnetworks/privatednszonelinks": [
       "2020-06-01",

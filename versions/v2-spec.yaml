@@ -222,6 +222,7 @@ AzureStackHCI:
         VirtualMachine: 2022-12-15-preview
         VirtualMachineInstance: 2023-07-01-preview
         VirtualNetwork: 2022-12-15-preview
+AzureTerraform: {}
 BareMetalInfrastructure:
     tracking: "2023-04-06"
     additions:
@@ -546,6 +547,9 @@ DBforMySQL:
         - provider: DBforMySQL
           resourcename: Server
           detail: version 2024-02-01-preview is greater than 2017-12-01
+        - provider: DBforMySQL
+          resourcename: Server
+          detail: version 2024-06-01-preview is greater than 2017-12-01
 DBforPostgreSQL:
     tracking: "2022-12-01"
     additions:

@@ -149,6 +149,7 @@
     "2024-04-01",
     "2024-05-01-preview"
   ],
+  "AzureTerraform": [],
   "BareMetalInfrastructure": [
     "2023-08-04-preview",
     "2023-11-01-preview",
@@ -397,7 +398,8 @@
     "2023-10-01-preview",
     "2023-12-01-preview",
     "2023-12-30",
-    "2024-02-01-preview"
+    "2024-02-01-preview",
+    "2024-06-01-preview"
   ],
   "DBforPostgreSQL": [
     "2022-12-01",
@@ -875,7 +877,8 @@
     "2023-10-15-preview"
   ],
   "Monitor": [
-    "2023-10-01-preview"
+    "2023-10-01-preview",
+    "2024-10-01-preview"
   ],
   "NetApp": [
     "2022-11-01-preview",

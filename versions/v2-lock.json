@@ -441,6 +441,7 @@
     "VirtualMachineInstance": "2023-07-01-preview",
     "VirtualNetwork": "2022-12-15-preview"
   },
+  "AzureTerraform": {},
   "BareMetalInfrastructure": {
     "AzureBareMetalInstance": "2024-08-01-preview",
     "AzureBareMetalStorageInstance": "2023-04-06"

@@ -261,6 +261,9 @@
     "virtualmachines_Start": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualmachines/{virtualmachinesName}/start",
     "virtualmachines_Stop": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualmachines/{virtualmachinesName}/stop"
   },
+  "AzureTerraform": {
+    "ExportTerraform": "/subscriptions/{subscriptionId}/providers/Microsoft.AzureTerraform/exportTerraform"
+  },
   "BareMetalInfrastructure": {
     "AzureBareMetalInstances_Restart": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BareMetalInfrastructure/bareMetalInstances/{azureBareMetalInstanceName}/restart",
     "AzureBareMetalInstances_Shutdown": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BareMetalInfrastructure/bareMetalInstances/{azureBareMetalInstanceName}/shutdown",
