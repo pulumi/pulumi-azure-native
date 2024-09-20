@@ -53,7 +53,7 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 	return &CustomResource{
 		tok:  "azure-native:storage:BlobContainerLegalHold",
 		path: lhPath,
-		Schema: &schema.ResourceSpec{
+		LegacySchema: &schema.ResourceSpec{
 			ObjectTypeSpec: schema.ObjectTypeSpec{
 				Description: ".",
 				Type:        "object",

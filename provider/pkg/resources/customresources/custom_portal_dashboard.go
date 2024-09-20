@@ -27,7 +27,7 @@ import (
 func portalDashboard() *CustomResource {
 	return &CustomResource{
 		tok: "azure-native:portal:Dashboard",
-		SchemaF: func(resource *ResourceDefinition) (*ResourceDefinition, error) {
+		Schema: func(resource *ResourceDefinition) (*ResourceDefinition, error) {
 			if resource == nil {
 				// This should only happen if we're running with a namespace or version filter for testing, so we'll allow it to pass.
 				return nil, nil

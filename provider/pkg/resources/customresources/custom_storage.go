@@ -33,7 +33,7 @@ func newStorageAccountStaticWebsite(env *azure.Environment, accountsClient *stor
 		Update: r.update,
 		Read:   r.read,
 		Delete: r.delete,
-		Schema: &schema.ResourceSpec{
+		LegacySchema: &schema.ResourceSpec{
 			ObjectTypeSpec: schema.ObjectTypeSpec{
 				Description: "Enables the static website feature of a storage account.",
 				Type:        "object",
@@ -276,7 +276,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 				},
 			},
 		},
-		Schema: &schema.ResourceSpec{
+		LegacySchema: &schema.ResourceSpec{
 			ObjectTypeSpec: schema.ObjectTypeSpec{
 				Description: "Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).",
 				Type:        "object",
