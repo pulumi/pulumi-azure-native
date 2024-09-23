@@ -29,7 +29,6 @@ func TestVnetGen(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	snaps.MatchSnapshot(t, generationResult.Schema)
-
-	snaps.MatchSnapshot(t, generationResult.Metadata)
+	snaps.MatchJSON(t, generationResult.Schema)
+	snaps.MatchJSON(t, generationResult.Metadata)
 }
