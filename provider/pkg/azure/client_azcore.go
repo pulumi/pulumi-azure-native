@@ -137,9 +137,6 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 	if err != nil {
 		return err
 	}
-	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusAccepted, http.StatusNoContent, http.StatusNotFound) {
-		return runtime.NewResponseError(resp)
-	}
 
 	// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
 	// poll for the deletion result in that case.
@@ -156,10 +153,14 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 			if resp.StatusCode == 202 && respErr.StatusCode == 404 && strings.Contains(respErr.Error(), "ResourceNotFound") {
 				// Consider this specific error to be a success of deletion.
 				// Work around https://github.com/pulumi/pulumi-azure-nextgen/issues/120
-				// Upstream fix is tracked in https://github.com/Azure/go-autorest/issues/596
 				return nil
 			}
 		}
+		return err
+	}
+
+	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusAccepted, http.StatusNoContent, http.StatusNotFound) {
+		return runtime.NewResponseError(resp)
 	}
 	return err
 }

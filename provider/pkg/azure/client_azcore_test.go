@@ -268,7 +268,7 @@ func TestErrorStatusCodes(t *testing.T) {
 		}
 	})
 
-	t.Run("polling success after 202 response", func(t *testing.T) {
+	t.Run("PUT polling success after 202 response", func(t *testing.T) {
 		client := newClientWithPreparedResponses([]*http.Response{
 			{
 				StatusCode: 202,
@@ -300,7 +300,7 @@ func TestErrorStatusCodes(t *testing.T) {
 		assert.True(t, found)
 	})
 
-	t.Run("polling success when asyncStyle is given", func(t *testing.T) {
+	t.Run("PUT polling success when asyncStyle is given", func(t *testing.T) {
 		client := newClientWithPreparedResponses([]*http.Response{
 			{
 				StatusCode: 201, // created
@@ -331,6 +331,65 @@ func TestErrorStatusCodes(t *testing.T) {
 			"the actual value doesn't matter!")
 		require.NoError(t, err)
 		assert.True(t, found)
+	})
+
+	t.Run("DELETE polling success when asyncStyle is given", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{
+			{
+				StatusCode: 202,
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "InProgress"}`)),
+			},
+			{
+				StatusCode: 503, // temporary failure
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "Unavailable"}`)),
+			},
+			{
+				StatusCode: 200,
+				Body:       io.NopCloser(strings.NewReader(`{"status": "Succeeded"}`)),
+			},
+		})
+		err := client.Delete(context.Background(), "/subscriptions/123/rg/rg", "2022-09-01", "the actual value doesn't matter!", nil)
+		require.NoError(t, err)
+	})
+
+	t.Run("DELETE polling success on 404 when asyncStyle is given", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{
+			{
+				StatusCode: 202,
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "InProgress"}`)),
+			},
+			{
+				StatusCode: 404,
+				Body:       io.NopCloser(strings.NewReader(`{"error": "ResourceNotFound"}`)),
+			},
+		})
+		err := client.Delete(context.Background(), "/subscriptions/123/rg/rg", "2022-09-01", "the actual value doesn't matter!", nil)
+		require.NoError(t, err)
+	})
+
+	t.Run("DELETE polling failure when asyncStyle is given", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{
+			{
+				StatusCode: 202,
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "InProgress"}`)),
+			},
+			{
+				StatusCode: 503, // temporary failure
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "Unavailable"}`)),
+			},
+			{
+				StatusCode: 400,
+				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
+				Body:       io.NopCloser(strings.NewReader(`{"status": "Unavailable"}`)),
+			},
+		})
+		err := client.Delete(context.Background(), "/subscriptions/123/rg/rg", "2022-09-01", "the actual value doesn't matter!", nil)
+		require.Error(t, err)
 	})
 }
 
@@ -515,6 +574,7 @@ func newClientWithPreparedResponses(responses []*http.Response) *azCoreClient {
 	client, _ := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
 	azCoreClient := client.(*azCoreClient)
 	azCoreClient.updatePollingIntervalSeconds = 1
+	azCoreClient.deletePollingIntervalSeconds = 1
 	return azCoreClient
 }
 
