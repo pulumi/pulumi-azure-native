@@ -2676,6 +2676,13 @@
   {
     "Module": "containerservice",
     "Provider": "ContainerService",
+    "ResourceName": "AutoUpgradeProfile",
+    "ReferenceName": "AutoUpgradeNodeImageSelectionType",
+    "Property": "type"
+  },
+  {
+    "Module": "containerservice",
+    "Provider": "ContainerService",
     "ResourceName": "Fleet",
     "ReferenceName": "FleetHubProfile",
     "Property": "dnsPrefix"
@@ -2968,6 +2975,83 @@
     "Property": "nodeImageSelection"
   },
   {
+    "Module": "containerservice/v20240502preview",
+    "Provider": "ContainerService",
+    "ResourceName": "AutoUpgradeProfile",
+    "ReferenceName": "AutoUpgradeNodeImageSelectionType",
+    "Property": "type"
+  },
+  {
+    "Module": "containerservice/v20240502preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "SubnetResourceId",
+    "Property": "subnetId"
+  },
+  {
+    "Module": "containerservice/v20240502preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "AgentProfile",
+    "Property": "vmSize"
+  },
+  {
+    "Module": "containerservice/v20240502preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "AgentProfile",
+    "Property": "agentProfile"
+  },
+  {
+    "Module": "containerservice/v20240502preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "enablePrivateCluster"
+  },
+  {
+    "Module": "containerservice/v20240502preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "enableVnetIntegration"
+  },
+  {
+    "Module": "containerservice/v20240502preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "SubnetResourceId",
+    "Property": "subnetId"
+  },
+  {
+    "Module": "containerservice/v20240502preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "apiServerAccessProfile"
+  },
+  {
+    "Module": "containerservice/v20240502preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "FleetHubProfile",
+    "Property": "dnsPrefix"
+  },
+  {
+    "Module": "containerservice/v20240502preview",
+    "Provider": "ContainerService",
+    "ResourceName": "UpdateRun",
+    "ReferenceName": "NodeImageSelectionType",
+    "Property": "type"
+  },
+  {
+    "Module": "containerservice/v20240502preview",
+    "Provider": "ContainerService",
+    "ResourceName": "UpdateRun",
+    "ReferenceName": "NodeImageSelection",
+    "Property": "nodeImageSelection"
+  },
+  {
     "Module": "containerstorage",
     "Provider": "ContainerStorage",
     "ResourceName": "Pool",
@@ -3207,6 +3291,41 @@
   },
   {
     "Module": "dbformysql/v20240201preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "StorageRedundancyEnum",
+    "Property": "storageRedundancy"
+  },
+  {
+    "Module": "dbformysql/v20240601preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "dataDirPath"
+  },
+  {
+    "Module": "dbformysql/v20240601preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "sasToken"
+  },
+  {
+    "Module": "dbformysql/v20240601preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "storageType"
+  },
+  {
+    "Module": "dbformysql/v20240601preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "storageUrl"
+  },
+  {
+    "Module": "dbformysql/v20240601preview",
     "Provider": "DBforMySQL",
     "ResourceName": "Server",
     "ReferenceName": "StorageRedundancyEnum",

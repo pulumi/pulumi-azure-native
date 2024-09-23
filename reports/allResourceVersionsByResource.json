@@ -3782,6 +3782,7 @@
       "2021-09-01-preview"
     ]
   },
+  "AzureTerraform": {},
   "BareMetalInfrastructure": {
     "AzureBareMetalInstance": [
       "2024-08-01-preview"
@@ -6148,6 +6149,9 @@
       "2024-07-01",
       "2024-07-02-preview"
     ],
+    "AutoUpgradeProfile": [
+      "2024-05-02-preview"
+    ],
     "ContainerService": [
       "2015-11-01-preview",
       "2016-03-30",
@@ -6163,7 +6167,8 @@
       "2023-08-15-preview",
       "2023-10-15",
       "2024-02-02-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-05-02-preview"
     ],
     "FleetMember": [
       "2022-06-02-preview",
@@ -6174,13 +6179,15 @@
       "2023-08-15-preview",
       "2023-10-15",
       "2024-02-02-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-05-02-preview"
     ],
     "FleetUpdateStrategy": [
       "2023-08-15-preview",
       "2023-10-15",
       "2024-02-02-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-05-02-preview"
     ],
     "LoadBalancer": [
       "2024-03-02-preview",
@@ -6540,7 +6547,8 @@
       "2023-08-15-preview",
       "2023-10-15",
       "2024-02-02-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-05-02-preview"
     ],
     "listFleetCredentials": [
       "2022-06-02-preview",
@@ -6551,7 +6559,8 @@
       "2023-08-15-preview",
       "2023-10-15",
       "2024-02-02-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-05-02-preview"
     ],
     "listManagedClusterAccessProfile": [
       "2017-08-31",
@@ -7114,7 +7123,8 @@
       "2023-10-01-preview",
       "2023-12-01-preview",
       "2023-12-30",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-06-01-preview"
     ],
     "ServerAdministrator": [
       "2017-12-01",
@@ -11960,7 +11970,8 @@
       "2022-06-15",
       "2022-08-01-preview",
       "2023-03-15-preview",
-      "2023-12-01"
+      "2023-12-01",
+      "2024-01-01-preview"
     ],
     "SubscriptionDiagnosticSetting": [
       "2017-05-01-preview",
@@ -14853,7 +14864,8 @@
       "2023-10-01-preview"
     ],
     "PipelineGroup": [
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-10-01-preview"
     ]
   },
   "NetApp": {

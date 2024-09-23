@@ -3459,6 +3459,9 @@
       "VirtualMachineInstance"
     ]
   },
+  "AzureTerraform": {
+    "": []
+  },
   "BareMetalInfrastructure": {
     "": [],
     "2023-04-06": [
@@ -6698,6 +6701,10 @@
     ],
     "2024-05-02-preview": [
       "AgentPool",
+      "AutoUpgradeProfile",
+      "Fleet",
+      "FleetMember",
+      "FleetUpdateStrategy",
       "LoadBalancer",
       "MaintenanceConfiguration",
       "ManagedCluster",
@@ -6705,6 +6712,8 @@
       "PrivateEndpointConnection",
       "Snapshot",
       "TrustedAccessRoleBinding",
+      "UpdateRun",
+      "listFleetCredentials",
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
@@ -7082,6 +7091,9 @@
       "getGetPrivateDnsZoneSuffixExecute"
     ],
     "2024-02-01-preview": [
+      "Server"
+    ],
+    "2024-06-01-preview": [
       "Server"
     ]
   },
@@ -12000,6 +12012,9 @@
     ],
     "2023-12-01": [
       "ScheduledQueryRule"
+    ],
+    "2024-01-01-preview": [
+      "ScheduledQueryRule"
     ]
   },
   "IntegrationSpaces": {
@@ -14519,6 +14534,9 @@
     ],
     "2023-10-01-preview": [
       "AzureMonitorWorkspace",
+      "PipelineGroup"
+    ],
+    "2024-10-01-preview": [
       "PipelineGroup"
     ]
   },
