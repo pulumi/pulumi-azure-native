@@ -215,10 +215,6 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 	// its API as long-running by an oversight.
 	created := false
 	if asyncStyle != "" || resp.StatusCode == http.StatusAccepted {
-		// We have now created a resource. It is very important to ensure that from this point on,
-		// any other error below returns the ID using the `pulumirpc.ErrorResourceInitFailed` error
-		// details annotation. Otherwise, the resource is leaked. We ensure that we wrap any await
-		// errors as a partial error to the RPC.
 		created = resp.StatusCode < 400
 
 		apiVersion := queryParameters["api-version"].(string)
