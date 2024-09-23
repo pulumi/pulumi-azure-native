@@ -384,7 +384,7 @@ func (c *azCoreClient) CanCreate(ctx context.Context, id, path, apiVersion, read
 	}
 }
 
-// handleResponseError checks for certain kinds of errors and returns a more informative error message.
+// handleAzCoreResponseError checks for certain kinds of errors and returns a more informative error message.
 // Most of the time, it will return the original error.
 func handleAzCoreResponseError(err error, resp *http.Response) error {
 	if err == nil {

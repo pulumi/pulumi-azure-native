@@ -142,6 +142,15 @@ func TestRequestQueryParams(t *testing.T) {
 		client.Delete(context.Background(), resourceId, "2022-02-02", "", nil)
 	})
 
+	t.Run("DELETE combines API version with other query params", func(t *testing.T) {
+		client := createTestClient(t, func(t *testing.T, req *http.Request) {
+			q := req.URL.Query()
+			assert.Equal(t, "2022-02-02", q.Get("api-version"))
+			assert.Equal(t, "bar", q.Get("foo"))
+		})
+		client.Delete(context.Background(), resourceId, "2022-02-02", "", map[string]any{"foo": "bar"})
+	})
+
 	t.Run("POST adds all query params", func(t *testing.T) {
 		client := createTestClient(t, func(t *testing.T, req *http.Request) {
 			q := req.URL.Query()
@@ -418,7 +427,7 @@ func TestCanCreateUsesResourcePath(t *testing.T) {
 
 }
 
-func TestCanCreateResponses(t *testing.T) {
+func TestCanCreate_Responses(t *testing.T) {
 	id := "/subscriptions/123/resourceGroups/rg"
 
 	type testCase struct {
@@ -603,5 +612,29 @@ func TestHandleResponseError(t *testing.T) {
 
 		handledErr := handleAzCoreResponseError(err, &resp)
 		assert.Same(t, err, handledErr)
+	})
+}
+
+func TestPutPatchRequestBody(t *testing.T) {
+	qp := map[string]any{"api-version": "2022-09-01"}
+
+	t.Run("PUT", func(t *testing.T) {
+		client := createTestClient(t, func(t *testing.T, req *http.Request) {
+			body, err := io.ReadAll(req.Body)
+			require.NoError(t, err)
+			assert.Equal(t, `{"foo":"bar"}`, string(body))
+		})
+		client.Put(context.Background(), "/subscriptions/123", map[string]any{"foo": "bar"}, qp, "")
+	})
+
+	t.Run("PATCH", func(t *testing.T) {
+		client := createTestClient(t, func(t *testing.T, req *http.Request) {
+			body, err := io.ReadAll(req.Body)
+			require.NoError(t, err)
+			assert.Equal(t, `{"foo":{"bar":11}}`, string(body))
+		})
+		client.Patch(context.Background(), "/subscriptions/123",
+			map[string]any{"foo": map[string]any{"bar": 11}},
+			qp, "")
 	})
 }
