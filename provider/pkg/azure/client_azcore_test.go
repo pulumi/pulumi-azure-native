@@ -65,10 +65,12 @@ func TestInitRequestQueryParams(t *testing.T) {
 	client := c.(*azCoreClient)
 
 	queryParams := map[string]any{
-		"api-version": "2022-09-01",
-		"bool":        true,
-		"int":         42,
-		"slice":       []string{"a", "b"},
+		"api-version":                 "2022-09-01",
+		"string_with_unescaped_slash": "a/path",
+		"string_with_escaped_slash":   "a%2Fpath",
+		"bool":                        true,
+		"int":                         42,
+		"slice":                       []string{"a", "b"},
 	}
 	req, err := client.initRequest(context.Background(), http.MethodGet, "/subscriptions/123", queryParams)
 	require.NoError(t, err)
@@ -76,6 +78,8 @@ func TestInitRequestQueryParams(t *testing.T) {
 	query := req.Raw().URL.Query()
 	assert.Len(t, query, len(queryParams))
 	assert.Equal(t, "2022-09-01", query.Get("api-version"))
+	assert.Equal(t, "a/path", query.Get("string_with_unescaped_slash"))
+	assert.Equal(t, "a/path", query.Get("string_with_escaped_slash"))
 	assert.Equal(t, "true", query.Get("bool"))
 	assert.Equal(t, "42", query.Get("int"))
 	assert.Equal(t, "a", query.Get("slice"))

@@ -91,7 +91,19 @@ func (c *azCoreClient) initRequest(ctx context.Context, method, id string, query
 	c.setHeaders(req, method == http.MethodPost || method == http.MethodPut || method == http.MethodPatch)
 
 	urlValues := MapToValues(queryParams)
-	// TODO,tkappler go-autorest WithQueryParameters in preparer.go does an additional query-unescape for each value - why?
+	// URL-unescape each value before encoding the URL (which encodes all values). Presumably, this
+	// prevents double-encoding. It's not clear to me that this is necessary but Autorest does it and
+	// we want to match behavior here as closely as possible.
+	for key, value := range urlValues {
+		for i := range value {
+			d, err := url.QueryUnescape(value[i])
+			if err != nil {
+				return nil, err
+			}
+			value[i] = d
+		}
+		urlValues[key] = value
+	}
 	req.Raw().URL.RawQuery = urlValues.Encode()
 
 	return req, nil
