@@ -441,6 +441,7 @@
     "VirtualMachineInstance": "2023-07-01-preview",
     "VirtualNetwork": "2022-12-15-preview"
   },
+  "AzureTerraform": {},
   "BareMetalInfrastructure": {
     "AzureBareMetalInstance": "2024-08-01-preview",
     "AzureBareMetalStorageInstance": "2023-04-06"
@@ -697,6 +698,7 @@
   },
   "ContainerService": {
     "AgentPool": "2023-04-01",
+    "AutoUpgradeProfile": "2024-05-02-preview",
     "Fleet": "2023-03-15-preview",
     "FleetMember": "2023-03-15-preview",
     "FleetUpdateStrategy": "2023-08-15-preview",

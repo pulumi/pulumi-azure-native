@@ -3139,6 +3139,15 @@
       "listListPendingConnection",
       "listListPendingFlow",
       "listListSchema"
+    ],
+    "2024-09-11": [
+      "Connection",
+      "Flow",
+      "Pipeline",
+      "listAzureDataTransferApprovedSchemas",
+      "listListPendingConnection",
+      "listListPendingFlow",
+      "listListSchema"
     ]
   },
   "AzureFleet": {
@@ -3458,6 +3467,9 @@
       "VirtualHardDisk",
       "VirtualMachineInstance"
     ]
+  },
+  "AzureTerraform": {
+    "": []
   },
   "BareMetalInfrastructure": {
     "": [],
@@ -4660,6 +4672,19 @@
       "listAccountKeys"
     ],
     "2024-06-01-preview": [
+      "Account",
+      "CommitmentPlan",
+      "CommitmentPlanAssociation",
+      "Deployment",
+      "EncryptionScope",
+      "PrivateEndpointConnection",
+      "RaiBlocklist",
+      "RaiBlocklistItem",
+      "RaiPolicy",
+      "SharedCommitmentPlan",
+      "listAccountKeys"
+    ],
+    "2024-10-01": [
       "Account",
       "CommitmentPlan",
       "CommitmentPlanAssociation",
@@ -6698,6 +6723,10 @@
     ],
     "2024-05-02-preview": [
       "AgentPool",
+      "AutoUpgradeProfile",
+      "Fleet",
+      "FleetMember",
+      "FleetUpdateStrategy",
       "LoadBalancer",
       "MaintenanceConfiguration",
       "ManagedCluster",
@@ -6705,6 +6734,8 @@
       "PrivateEndpointConnection",
       "Snapshot",
       "TrustedAccessRoleBinding",
+      "UpdateRun",
+      "listFleetCredentials",
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
@@ -6739,6 +6770,17 @@
       "MaintenanceConfiguration",
       "ManagedCluster",
       "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2024-08-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
       "PrivateEndpointConnection",
       "Snapshot",
       "TrustedAccessRoleBinding",
@@ -7082,6 +7124,9 @@
       "getGetPrivateDnsZoneSuffixExecute"
     ],
     "2024-02-01-preview": [
+      "Server"
+    ],
+    "2024-06-01-preview": [
       "Server"
     ]
   },
@@ -12000,6 +12045,9 @@
     ],
     "2023-12-01": [
       "ScheduledQueryRule"
+    ],
+    "2024-01-01-preview": [
+      "ScheduledQueryRule"
     ]
   },
   "IntegrationSpaces": {
@@ -14519,6 +14567,9 @@
     ],
     "2023-10-01-preview": [
       "AzureMonitorWorkspace",
+      "PipelineGroup"
+    ],
+    "2024-10-01-preview": [
       "PipelineGroup"
     ]
   },
