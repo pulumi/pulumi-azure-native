@@ -4,13 +4,15 @@ package provider
 
 import (
 	"context"
+	"crypto"
+	"crypto/x509"
 	"encoding/json"
 	"fmt"
+	"os"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/Azure/go-autorest/autorest"
-	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
@@ -67,6 +69,85 @@ func (k *azureNativeProvider) newPulumiAuthCredential() (*azidentity.ChainedToke
 	return azidentity.NewChainedTokenCredential(credentials, nil)
 }
 
+func readCertificate(certPath, certPassword string) ([]*x509.Certificate, crypto.PrivateKey, error) {
+	cert, err := os.ReadFile(certPath)
+	if err != nil {
+		return nil, nil, errors.Wrapf(err, "failed to read certificate from %s", certPath)
+	}
+
+	var pwBytes []byte
+	if certPassword != "" {
+		pwBytes = []byte(certPassword)
+	}
+
+	certs, key, err := azidentity.ParseCertificates(cert, pwBytes)
+	if err != nil || len(certs) == 0 {
+		return nil, nil, errors.Wrapf(err, "failed to parse certificate from %s", certPath)
+	}
+
+	return certs, key, nil
+}
+
+func (k *azureNativeProvider) newSingleMethodAuthCredential() (azcore.TokenCredential, error) {
+	authConf, err := k.getAuthConfig3()
+	if err != nil {
+		return nil, err
+	}
+
+	if authConf.clientSecret != "" {
+		spCert, err := azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, nil)
+		if err == nil {
+			return spCert, nil
+		}
+		logging.V(9).Infof("SP with client secret credential cannot be used: %v", err)
+	} else {
+		logging.V(9).Infof("SP with client secret credential is not enabled, skipping")
+	}
+
+	if authConf.clientCertPath != "" {
+		certs, key, err := readCertificate(authConf.clientCertPath, authConf.clientCertPassword)
+		if err != nil {
+			return nil, err
+		}
+
+		spCert, err := azidentity.NewClientCertificateCredential(authConf.tenantId, authConf.clientId, certs, key, nil)
+		if err == nil {
+			return spCert, nil
+		}
+		logging.V(9).Infof("SP with client certificate credential cannot be used: %v", err)
+	} else {
+		logging.V(9).Infof("SP with client certificate credential is not enabled, skipping")
+	}
+
+	if k.getConfig("useOidc", "ARM_USE_OIDC") == "true" {
+		oidc, err := newOidcCredential(authConf)
+		if err == nil {
+			return oidc, nil
+		}
+		logging.V(9).Infof("OIDC credential cannot be used: %v", err)
+	} else {
+		logging.V(9).Infof("OIDC credential is not enabled, skipping")
+	}
+
+	if k.getConfig("useMsi", "ARM_USE_MSI") == "true" {
+		managedIdentity, err := azidentity.NewManagedIdentityCredential(nil)
+		if err == nil {
+			return managedIdentity, nil
+		}
+		logging.V(9).Infof("Managed Identity (MSI) credential cannot be used: %v", err)
+	} else {
+		logging.V(9).Infof("Managed Identity (MSI) credential is not enabled, skipping")
+	}
+
+	cli, err := azidentity.NewAzureCLICredential(nil)
+	if err == nil {
+		return cli, nil
+	}
+	logging.V(9).Infof("Azure CLI credential cannot be used: %v", err)
+
+	return nil, errors.Errorf("Failed to find any valid credentials")
+}
+
 type authConfiguration struct {
 	subscriptionId string
 	cloud          string
@@ -75,8 +156,11 @@ type authConfiguration struct {
 	tenantId   string
 	auxTenants []string
 
-	oidcToken    string
-	clientSecret string
+	oidcToken string
+
+	clientSecret       string
+	clientCertPath     string
+	clientCertPassword string
 }
 
 func (k *azureNativeProvider) getAuthConfig3() (*authConfiguration, error) {
@@ -95,98 +179,16 @@ func (k *azureNativeProvider) getAuthConfig3() (*authConfiguration, error) {
 	}
 
 	return &authConfiguration{
-		subscriptionId: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
-		clientId:       k.getConfig("clientId", "ARM_CLIENT_ID"),
-		tenantId:       k.getConfig("tenantId", "ARM_TENANT_ID"),
-		auxTenants:     auxTenants,
-		cloud:          envName,
-		clientSecret:   k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
+		subscriptionId:     k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
+		clientId:           k.getConfig("clientId", "ARM_CLIENT_ID"),
+		tenantId:           k.getConfig("tenantId", "ARM_TENANT_ID"),
+		auxTenants:         auxTenants,
+		cloud:              envName,
+		clientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
+		clientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
+		clientCertPassword: k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),
 	}, nil
 }
-
-func (k *azureNativeProvider) getAuthConfig2() (*authConfig, error) {
-	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
-	var auxTenants []string
-	if auxTenantsString != "" {
-		err := json.Unmarshal([]byte(auxTenantsString), &auxTenants)
-		if err != nil {
-			return nil, errors.Wrapf(err, "failed to unmarshal '%s' as Auxiliary Tenants", auxTenantsString)
-		}
-	}
-	envName := k.getConfig("environment", "ARM_ENVIRONMENT")
-	if envName == "" {
-		envName = "public"
-	}
-
-	useOIDC := k.getConfig("useOidc", "ARM_USE_OIDC") == "true"
-	oidcConf, err := k.determineOidcConfig()
-	if useOIDC && err != nil {
-		return nil, err
-	}
-
-	builder := &authentication.Builder{
-		SubscriptionID:       k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
-		ClientID:             k.getConfig("clientId", "ARM_CLIENT_ID"),
-		TenantID:             k.getConfig("tenantId", "ARM_TENANT_ID"),
-		Environment:          envName,
-		MsiEndpoint:          k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
-		AuxiliaryTenantIDs:   auxTenants,
-		ClientSecretDocsLink: "https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/#service-principal-authentication",
-		MetadataHost:         k.getConfig("metadataHost", "ARM_METADATA_HOSTNAME"),
-
-		// Service Principal section.
-		ClientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
-		ClientCertPassword: k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),
-		ClientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
-
-		// OIDC section.
-		IDTokenRequestToken: oidcConf.oidcRequestToken,
-		IDTokenRequestURL:   oidcConf.oidcRequestUrl,
-		IDToken:             oidcConf.oidcToken,
-		IDTokenFilePath:     oidcConf.oidcTokenFilePath,
-
-		// Feature Toggles
-		SupportsClientCertAuth:         true,
-		SupportsClientSecretAuth:       true,
-		SupportsOIDCAuth:               useOIDC,
-		UseMicrosoftGraph:              useOIDC,
-		SupportsManagedServiceIdentity: k.getConfig("useMsi", "ARM_USE_MSI") == "true",
-		SupportsAzureCliToken:          !useOIDC,
-		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
-	}
-
-	needCli := needAzCli(builder)
-	if needCli {
-		requireCliHint := "MSI, OIDC, client secret and client certificate authentication are not configured so we require the AZ CLI for authentication"
-		// Check that we have a good version of the cli (#1565). The check needs to happen before
-		// builder.Build(), or we return the less fitting error message from go-azure-helpers.
-		v, err := getAzVersion()
-		if err != nil {
-			return nil, fmt.Errorf("checking az cli version: %w: %s", err, requireCliHint)
-		}
-		if err = assertAzVersion(v); err != nil {
-			return nil, err
-		}
-	}
-
-	c, err := builder.Build()
-	if err != nil {
-		return nil, err
-	}
-
-	// CLI authentication can only use the environment that the CLI is configured for.
-	// Fail early if that's not the one from config, to avoid obscure errors about missing subscriptions or endpoints later.
-	if c.Environment != envName {
-		return nil, errors.Errorf(`The configured Azure environment '%s' does not match the determined environment '%s'.
-When authenticating using the Azure CLI, the configured environment needs to match the one shown by 'az account show'.
-You can change environments using 'az cloud set --name <environment>'.`,
-			envName, c.Environment)
-	}
-
-	return &authConfig{c, needCli}, nil
-}
-
-// type AuthorizerFactory func(api environments.Api) (autorest.Authorizer, error)
 
 func (k *azureNativeProvider) makeAuthorizerFactories2(ctx context.Context,
 	authConfig *authConfig) (AuthorizerFactory, AuthorizerFactory, error) {
