@@ -82,6 +82,43 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// The node image upgrade type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoUpgradeNodeImageSelectionType : IEquatable<AutoUpgradeNodeImageSelectionType>
+    {
+        private readonly string _value;
+
+        private AutoUpgradeNodeImageSelectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Use the latest image version when upgrading nodes. Clusters may use different image versions (e.g., 'AKSUbuntu-1804gen2containerd-2021.10.12' and 'AKSUbuntu-1804gen2containerd-2021.10.19') because, for example, the latest available version is different in different regions.
+        /// </summary>
+        public static AutoUpgradeNodeImageSelectionType Latest { get; } = new AutoUpgradeNodeImageSelectionType("Latest");
+        /// <summary>
+        /// The image versions to upgrade nodes to are selected as described below: for each node pool in managed clusters affected by the update run, the system selects the latest image version such that it is available across all other node pools (in all other clusters) of the same image type. As a result, all node pools of the same image type will be upgraded to the same image version. For example, if the latest image version for image type 'AKSUbuntu-1804gen2containerd' is 'AKSUbuntu-1804gen2containerd-2021.10.12' for a node pool in cluster A in region X, and is 'AKSUbuntu-1804gen2containerd-2021.10.17' for a node pool in cluster B in region Y, the system will upgrade both node pools to image version 'AKSUbuntu-1804gen2containerd-2021.10.12'.
+        /// </summary>
+        public static AutoUpgradeNodeImageSelectionType Consistent { get; } = new AutoUpgradeNodeImageSelectionType("Consistent");
+
+        public static bool operator ==(AutoUpgradeNodeImageSelectionType left, AutoUpgradeNodeImageSelectionType right) => left.Equals(right);
+        public static bool operator !=(AutoUpgradeNodeImageSelectionType left, AutoUpgradeNodeImageSelectionType right) => !left.Equals(right);
+
+        public static explicit operator string(AutoUpgradeNodeImageSelectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoUpgradeNodeImageSelectionType other && Equals(other);
+        public bool Equals(AutoUpgradeNodeImageSelectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Tells whether the cluster is Running or Stopped
     /// </summary>
     [EnumType]

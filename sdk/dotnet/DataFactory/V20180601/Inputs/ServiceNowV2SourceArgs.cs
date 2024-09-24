@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? MaxConcurrentConnections { get; set; }
 
         /// <summary>
+        /// Page size of the result. Type: integer (or Expression with resultType integer).
+        /// </summary>
+        [Input("pageSize")]
+        public Input<object>? PageSize { get; set; }
+
+        /// <summary>
         /// Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
         [Input("queryTimeout")]

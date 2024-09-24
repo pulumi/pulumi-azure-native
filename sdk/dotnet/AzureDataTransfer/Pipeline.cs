@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
     /// The pipeline resource definition.
     /// Azure REST API version: 2023-10-11-preview.
     /// 
-    /// Other available API versions: 2024-01-25, 2024-05-07.
+    /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11.
     /// </summary>
     [AzureNativeResourceType("azure-native:azuredatatransfer:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20231011preview:Pipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240125:Pipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240507:Pipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240911:Pipeline" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

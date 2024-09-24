@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights
     /// The scheduled query rule resource.
     /// Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2018-04-16.
     /// 
-    /// Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01.
+    /// Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ScheduledQueryRule")]
     public partial class ScheduledQueryRule : global::Pulumi.CustomResource
@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
         /// </summary>
-        [Output("ruleResolveConfiguration")]
-        public Output<Outputs.RuleResolveConfigurationResponse?> RuleResolveConfiguration { get; private set; } = null!;
+        [Output("resolveConfiguration")]
+        public Output<Outputs.RuleResolveConfigurationResponse?> ResolveConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The list of resource id's that this scheduled query rule is scoped to.
@@ -213,6 +213,7 @@ namespace Pulumi.AzureNative.Insights
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220801preview:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20230315preview:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20231201:ScheduledQueryRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20240101preview:ScheduledQueryRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -315,6 +316,12 @@ namespace Pulumi.AzureNative.Insights
         public Input<string>? OverrideQueryTimeRange { get; set; }
 
         /// <summary>
+        /// Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        /// </summary>
+        [Input("resolveConfiguration")]
+        public Input<Inputs.RuleResolveConfigurationArgs>? ResolveConfiguration { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -325,12 +332,6 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
-
-        /// <summary>
-        /// Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
-        /// </summary>
-        [Input("ruleResolveConfiguration")]
-        public Input<Inputs.RuleResolveConfigurationArgs>? RuleResolveConfiguration { get; set; }
 
         [Input("scopes", required: true)]
         private InputList<string>? _scopes;

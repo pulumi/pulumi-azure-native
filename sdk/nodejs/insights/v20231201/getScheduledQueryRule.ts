@@ -112,7 +112,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
      */
-    readonly ruleResolveConfiguration?: outputs.insights.v20231201.RuleResolveConfigurationResponse;
+    readonly resolveConfiguration?: outputs.insights.v20231201.RuleResolveConfigurationResponse;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */

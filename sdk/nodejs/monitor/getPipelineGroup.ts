@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns the specific pipeline group instance.
  * Azure REST API version: 2023-10-01-preview.
+ *
+ * Other available API versions: 2024-10-01-preview.
  */
 export function getPipelineGroup(args: GetPipelineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,6 +96,8 @@ export interface GetPipelineGroupResult {
 /**
  * Returns the specific pipeline group instance.
  * Azure REST API version: 2023-10-01-preview.
+ *
+ * Other available API versions: 2024-10-01-preview.
  */
 export function getPipelineGroupOutput(args: GetPipelineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

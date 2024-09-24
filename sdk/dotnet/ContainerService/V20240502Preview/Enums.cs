@@ -201,6 +201,43 @@ namespace Pulumi.AzureNative.ContainerService.V20240502Preview
     }
 
     /// <summary>
+    /// The node image upgrade type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoUpgradeNodeImageSelectionType : IEquatable<AutoUpgradeNodeImageSelectionType>
+    {
+        private readonly string _value;
+
+        private AutoUpgradeNodeImageSelectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Use the latest image version when upgrading nodes. Clusters may use different image versions (e.g., 'AKSUbuntu-1804gen2containerd-2021.10.12' and 'AKSUbuntu-1804gen2containerd-2021.10.19') because, for example, the latest available version is different in different regions.
+        /// </summary>
+        public static AutoUpgradeNodeImageSelectionType Latest { get; } = new AutoUpgradeNodeImageSelectionType("Latest");
+        /// <summary>
+        /// The image versions to upgrade nodes to are selected as described below: for each node pool in managed clusters affected by the update run, the system selects the latest image version such that it is available across all other node pools (in all other clusters) of the same image type. As a result, all node pools of the same image type will be upgraded to the same image version. For example, if the latest image version for image type 'AKSUbuntu-1804gen2containerd' is 'AKSUbuntu-1804gen2containerd-2021.10.12' for a node pool in cluster A in region X, and is 'AKSUbuntu-1804gen2containerd-2021.10.17' for a node pool in cluster B in region Y, the system will upgrade both node pools to image version 'AKSUbuntu-1804gen2containerd-2021.10.12'.
+        /// </summary>
+        public static AutoUpgradeNodeImageSelectionType Consistent { get; } = new AutoUpgradeNodeImageSelectionType("Consistent");
+
+        public static bool operator ==(AutoUpgradeNodeImageSelectionType left, AutoUpgradeNodeImageSelectionType right) => left.Equals(right);
+        public static bool operator !=(AutoUpgradeNodeImageSelectionType left, AutoUpgradeNodeImageSelectionType right) => !left.Equals(right);
+
+        public static explicit operator string(AutoUpgradeNodeImageSelectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoUpgradeNodeImageSelectionType other && Equals(other);
+        public bool Equals(AutoUpgradeNodeImageSelectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the managed inbound Load Balancer BackendPool.
     /// </summary>
     [EnumType]
@@ -854,6 +891,80 @@ namespace Pulumi.AzureNative.ContainerService.V20240502Preview
     }
 
     /// <summary>
+    /// ManagedClusterUpgradeType is the type of upgrade to be applied.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedClusterUpgradeType : IEquatable<ManagedClusterUpgradeType>
+    {
+        private readonly string _value;
+
+        private ManagedClusterUpgradeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Full upgrades the control plane and all agent pools of the target ManagedClusters. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to be set.
+        /// </summary>
+        public static ManagedClusterUpgradeType Full { get; } = new ManagedClusterUpgradeType("Full");
+        /// <summary>
+        /// NodeImageOnly upgrades only the node images of the target ManagedClusters. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to NOT be set.
+        /// </summary>
+        public static ManagedClusterUpgradeType NodeImageOnly { get; } = new ManagedClusterUpgradeType("NodeImageOnly");
+        /// <summary>
+        /// ControlPlaneOnly upgrades only targets the KubernetesVersion of the ManagedClusters and will not be applied to the AgentPool. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to be set.
+        /// </summary>
+        public static ManagedClusterUpgradeType ControlPlaneOnly { get; } = new ManagedClusterUpgradeType("ControlPlaneOnly");
+
+        public static bool operator ==(ManagedClusterUpgradeType left, ManagedClusterUpgradeType right) => left.Equals(right);
+        public static bool operator !=(ManagedClusterUpgradeType left, ManagedClusterUpgradeType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedClusterUpgradeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedClusterUpgradeType other && Equals(other);
+        public bool Equals(ManagedClusterUpgradeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned, UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specify which proxy mode to use ('IPTABLES' or 'IPVS')
     /// </summary>
     [EnumType]
@@ -1076,6 +1187,47 @@ namespace Pulumi.AzureNative.ContainerService.V20240502Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NetworkPolicy other && Equals(other);
         public bool Equals(NetworkPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The node image upgrade type.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodeImageSelectionType : IEquatable<NodeImageSelectionType>
+    {
+        private readonly string _value;
+
+        private NodeImageSelectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Use the latest image version when upgrading nodes. Clusters may use different image versions (e.g., 'AKSUbuntu-1804gen2containerd-2021.10.12' and 'AKSUbuntu-1804gen2containerd-2021.10.19') because, for example, the latest available version is different in different regions.
+        /// </summary>
+        public static NodeImageSelectionType Latest { get; } = new NodeImageSelectionType("Latest");
+        /// <summary>
+        /// The image versions to upgrade nodes to are selected as described below: for each node pool in managed clusters affected by the update run, the system selects the latest image version such that it is available across all other node pools (in all other clusters) of the same image type. As a result, all node pools of the same image type will be upgraded to the same image version. For example, if the latest image version for image type 'AKSUbuntu-1804gen2containerd' is 'AKSUbuntu-1804gen2containerd-2021.10.12' for a node pool in cluster A in region X, and is 'AKSUbuntu-1804gen2containerd-2021.10.17' for a node pool in cluster B in region Y, the system will upgrade both node pools to image version 'AKSUbuntu-1804gen2containerd-2021.10.12'.
+        /// </summary>
+        public static NodeImageSelectionType Consistent { get; } = new NodeImageSelectionType("Consistent");
+        /// <summary>
+        /// Upgrade the nodes to the custom image versions. When set, update run will use node image versions provided in customNodeImageVersions to upgrade the nodes. If set, customNodeImageVersions must not be empty.
+        /// </summary>
+        public static NodeImageSelectionType Custom { get; } = new NodeImageSelectionType("Custom");
+
+        public static bool operator ==(NodeImageSelectionType left, NodeImageSelectionType right) => left.Equals(right);
+        public static bool operator !=(NodeImageSelectionType left, NodeImageSelectionType right) => !left.Equals(right);
+
+        public static explicit operator string(NodeImageSelectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodeImageSelectionType other && Equals(other);
+        public bool Equals(NodeImageSelectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

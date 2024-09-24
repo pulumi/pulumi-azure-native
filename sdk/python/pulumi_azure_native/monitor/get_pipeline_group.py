@@ -213,6 +213,8 @@ def get_pipeline_group(pipeline_group_name: Optional[str] = None,
     Returns the specific pipeline group instance.
     Azure REST API version: 2023-10-01-preview.
 
+    Other available API versions: 2024-10-01-preview.
+
 
     :param str pipeline_group_name: The name of pipeline group. The name is case insensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -247,6 +249,8 @@ def get_pipeline_group_output(pipeline_group_name: Optional[pulumi.Input[str]] =
     """
     Returns the specific pipeline group instance.
     Azure REST API version: 2023-10-01-preview.
+
+    Other available API versions: 2024-10-01-preview.
 
 
     :param str pipeline_group_name: The name of pipeline group. The name is case insensitive.

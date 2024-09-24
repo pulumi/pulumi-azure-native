@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? MaxConcurrentConnections;
         /// <summary>
+        /// Page size of the result. Type: integer (or Expression with resultType integer).
+        /// </summary>
+        public readonly object? PageSize;
+        /// <summary>
         /// Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
         public readonly object? QueryTimeout;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? maxConcurrentConnections,
 
+            object? pageSize,
+
             object? queryTimeout,
 
             object? sourceRetryCount,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             DisableMetricsCollection = disableMetricsCollection;
             Expression = expression;
             MaxConcurrentConnections = maxConcurrentConnections;
+            PageSize = pageSize;
             QueryTimeout = queryTimeout;
             SourceRetryCount = sourceRetryCount;
             SourceRetryWait = sourceRetryWait;

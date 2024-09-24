@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20230403 from "./v20230403";
 import * as v20231001preview from "./v20231001preview";
+import * as v20241001preview from "./v20241001preview";
 
 export {
     v20230403,
     v20231001preview,
+    v20241001preview,
 };
 
 export const ExporterType = {

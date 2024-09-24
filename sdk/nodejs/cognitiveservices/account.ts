@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2017-04-18.
  *
- * Other available API versions: 2017-04-18, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2017-04-18, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -120,7 +120,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20160201preview:Account" }, { type: "azure-native:cognitiveservices/v20170418:Account" }, { type: "azure-native:cognitiveservices/v20210430:Account" }, { type: "azure-native:cognitiveservices/v20211001:Account" }, { type: "azure-native:cognitiveservices/v20220301:Account" }, { type: "azure-native:cognitiveservices/v20221001:Account" }, { type: "azure-native:cognitiveservices/v20221201:Account" }, { type: "azure-native:cognitiveservices/v20230501:Account" }, { type: "azure-native:cognitiveservices/v20231001preview:Account" }, { type: "azure-native:cognitiveservices/v20240401preview:Account" }, { type: "azure-native:cognitiveservices/v20240601preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20160201preview:Account" }, { type: "azure-native:cognitiveservices/v20170418:Account" }, { type: "azure-native:cognitiveservices/v20210430:Account" }, { type: "azure-native:cognitiveservices/v20211001:Account" }, { type: "azure-native:cognitiveservices/v20220301:Account" }, { type: "azure-native:cognitiveservices/v20221001:Account" }, { type: "azure-native:cognitiveservices/v20221201:Account" }, { type: "azure-native:cognitiveservices/v20230501:Account" }, { type: "azure-native:cognitiveservices/v20231001preview:Account" }, { type: "azure-native:cognitiveservices/v20240401preview:Account" }, { type: "azure-native:cognitiveservices/v20240601preview:Account" }, { type: "azure-native:cognitiveservices/v20241001:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

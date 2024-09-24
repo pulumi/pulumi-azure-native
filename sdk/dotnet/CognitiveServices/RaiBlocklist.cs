@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Cognitive Services RaiBlocklist.
     /// Azure REST API version: 2023-10-01-preview.
     /// 
-    /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview.
+    /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:RaiBlocklist")]
     public partial class RaiBlocklist : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:RaiBlocklist" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:RaiBlocklist" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240601preview:RaiBlocklist" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20241001:RaiBlocklist" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

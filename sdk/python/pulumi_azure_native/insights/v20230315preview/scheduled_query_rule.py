@@ -37,8 +37,8 @@ class ScheduledQueryRuleArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  mute_actions_duration: Optional[pulumi.Input[str]] = None,
                  override_query_time_range: Optional[pulumi.Input[str]] = None,
+                 resolve_configuration: Optional[pulumi.Input['RuleResolveConfigurationArgs']] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 rule_resolve_configuration: Optional[pulumi.Input['RuleResolveConfigurationArgs']] = None,
                  severity: Optional[pulumi.Input[float]] = None,
                  skip_query_validation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -61,8 +61,8 @@ class ScheduledQueryRuleArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[str] override_query_time_range: If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input['RuleResolveConfigurationArgs'] resolve_configuration: Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[str] rule_name: The name of the rule.
-        :param pulumi.Input['RuleResolveConfigurationArgs'] rule_resolve_configuration: Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[float] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
         :param pulumi.Input[bool] skip_query_validation: The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -95,10 +95,10 @@ class ScheduledQueryRuleArgs:
             pulumi.set(__self__, "mute_actions_duration", mute_actions_duration)
         if override_query_time_range is not None:
             pulumi.set(__self__, "override_query_time_range", override_query_time_range)
+        if resolve_configuration is not None:
+            pulumi.set(__self__, "resolve_configuration", resolve_configuration)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
-        if rule_resolve_configuration is not None:
-            pulumi.set(__self__, "rule_resolve_configuration", rule_resolve_configuration)
         if severity is not None:
             pulumi.set(__self__, "severity", severity)
         if skip_query_validation is not None:
@@ -291,6 +291,18 @@ class ScheduledQueryRuleArgs:
         pulumi.set(self, "override_query_time_range", value)
 
     @property
+    @pulumi.getter(name="resolveConfiguration")
+    def resolve_configuration(self) -> Optional[pulumi.Input['RuleResolveConfigurationArgs']]:
+        """
+        Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "resolve_configuration")
+
+    @resolve_configuration.setter
+    def resolve_configuration(self, value: Optional[pulumi.Input['RuleResolveConfigurationArgs']]):
+        pulumi.set(self, "resolve_configuration", value)
+
+    @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -301,18 +313,6 @@ class ScheduledQueryRuleArgs:
     @rule_name.setter
     def rule_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rule_name", value)
-
-    @property
-    @pulumi.getter(name="ruleResolveConfiguration")
-    def rule_resolve_configuration(self) -> Optional[pulumi.Input['RuleResolveConfigurationArgs']]:
-        """
-        Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
-        """
-        return pulumi.get(self, "rule_resolve_configuration")
-
-    @rule_resolve_configuration.setter
-    def rule_resolve_configuration(self, value: Optional[pulumi.Input['RuleResolveConfigurationArgs']]):
-        pulumi.set(self, "rule_resolve_configuration", value)
 
     @property
     @pulumi.getter
@@ -393,9 +393,9 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  mute_actions_duration: Optional[pulumi.Input[str]] = None,
                  override_query_time_range: Optional[pulumi.Input[str]] = None,
+                 resolve_configuration: Optional[pulumi.Input[Union['RuleResolveConfigurationArgs', 'RuleResolveConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 rule_resolve_configuration: Optional[pulumi.Input[Union['RuleResolveConfigurationArgs', 'RuleResolveConfigurationArgsDict']]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  severity: Optional[pulumi.Input[float]] = None,
                  skip_query_validation: Optional[pulumi.Input[bool]] = None,
@@ -421,9 +421,9 @@ class ScheduledQueryRule(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] mute_actions_duration: Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[str] override_query_time_range: If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[Union['RuleResolveConfigurationArgs', 'RuleResolveConfigurationArgsDict']] resolve_configuration: Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_name: The name of the rule.
-        :param pulumi.Input[Union['RuleResolveConfigurationArgs', 'RuleResolveConfigurationArgsDict']] rule_resolve_configuration: Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
         :param pulumi.Input[float] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
         :param pulumi.Input[bool] skip_query_validation: The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
@@ -468,9 +468,9 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  mute_actions_duration: Optional[pulumi.Input[str]] = None,
                  override_query_time_range: Optional[pulumi.Input[str]] = None,
+                 resolve_configuration: Optional[pulumi.Input[Union['RuleResolveConfigurationArgs', 'RuleResolveConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 rule_resolve_configuration: Optional[pulumi.Input[Union['RuleResolveConfigurationArgs', 'RuleResolveConfigurationArgsDict']]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  severity: Optional[pulumi.Input[float]] = None,
                  skip_query_validation: Optional[pulumi.Input[bool]] = None,
@@ -503,11 +503,11 @@ class ScheduledQueryRule(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["mute_actions_duration"] = mute_actions_duration
             __props__.__dict__["override_query_time_range"] = override_query_time_range
+            __props__.__dict__["resolve_configuration"] = resolve_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rule_name"] = rule_name
-            __props__.__dict__["rule_resolve_configuration"] = rule_resolve_configuration
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__.__dict__["scopes"] = scopes
@@ -523,7 +523,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20180416:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20200501preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20210201preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20210801:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20220615:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20220801preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20231201:ScheduledQueryRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20180416:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20200501preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20210201preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20210801:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20220615:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20220801preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20231201:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20240101preview:ScheduledQueryRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScheduledQueryRule, __self__).__init__(
             'azure-native:insights/v20230315preview:ScheduledQueryRule',
@@ -565,7 +565,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
         __props__.__dict__["mute_actions_duration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["override_query_time_range"] = None
-        __props__.__dict__["rule_resolve_configuration"] = None
+        __props__.__dict__["resolve_configuration"] = None
         __props__.__dict__["scopes"] = None
         __props__.__dict__["severity"] = None
         __props__.__dict__["skip_query_validation"] = None
@@ -721,12 +721,12 @@ class ScheduledQueryRule(pulumi.CustomResource):
         return pulumi.get(self, "override_query_time_range")
 
     @property
-    @pulumi.getter(name="ruleResolveConfiguration")
-    def rule_resolve_configuration(self) -> pulumi.Output[Optional['outputs.RuleResolveConfigurationResponse']]:
+    @pulumi.getter(name="resolveConfiguration")
+    def resolve_configuration(self) -> pulumi.Output[Optional['outputs.RuleResolveConfigurationResponse']]:
         """
         Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
         """
-        return pulumi.get(self, "rule_resolve_configuration")
+        return pulumi.get(self, "resolve_configuration")
 
     @property
     @pulumi.getter

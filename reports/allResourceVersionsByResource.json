@@ -3404,37 +3404,44 @@
     "Connection": [
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11"
     ],
     "Flow": [
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11"
     ],
     "Pipeline": [
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11"
     ],
     "listAzureDataTransferApprovedSchemas": [
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11"
     ],
     "listListPendingConnection": [
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11"
     ],
     "listListPendingFlow": [
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11"
     ],
     "listListSchema": [
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11"
     ]
   },
   "AzureFleet": {
@@ -3782,6 +3789,7 @@
       "2021-09-01-preview"
     ]
   },
+  "AzureTerraform": {},
   "BareMetalInfrastructure": {
     "AzureBareMetalInstance": [
       "2024-08-01-preview"
@@ -4878,7 +4886,8 @@
       "2023-05-01",
       "2023-10-01-preview",
       "2024-04-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-10-01"
     ],
     "CognitiveServicesAccount": [
       "2016-02-01-preview"
@@ -4891,14 +4900,16 @@
       "2023-05-01",
       "2023-10-01-preview",
       "2024-04-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-10-01"
     ],
     "CommitmentPlanAssociation": [
       "2022-12-01",
       "2023-05-01",
       "2023-10-01-preview",
       "2024-04-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-10-01"
     ],
     "Deployment": [
       "2021-10-01",
@@ -4908,12 +4919,14 @@
       "2023-05-01",
       "2023-10-01-preview",
       "2024-04-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-10-01"
     ],
     "EncryptionScope": [
       "2023-10-01-preview",
       "2024-04-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-10-01"
     ],
     "PrivateEndpointConnection": [
       "2017-04-18",
@@ -4925,29 +4938,34 @@
       "2023-05-01",
       "2023-10-01-preview",
       "2024-04-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-10-01"
     ],
     "RaiBlocklist": [
       "2023-10-01-preview",
       "2024-04-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-10-01"
     ],
     "RaiBlocklistItem": [
       "2023-10-01-preview",
       "2024-04-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-10-01"
     ],
     "RaiPolicy": [
       "2023-10-01-preview",
       "2024-04-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-10-01"
     ],
     "SharedCommitmentPlan": [
       "2022-12-01",
       "2023-05-01",
       "2023-10-01-preview",
       "2024-04-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-10-01"
     ],
     "listAccountKeys": [
       "2017-04-18",
@@ -4959,7 +4977,8 @@
       "2023-05-01",
       "2023-10-01-preview",
       "2024-04-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-10-01"
     ],
     "listCognitiveServicesAccountKeys": [
       "2016-02-01-preview"
@@ -6146,7 +6165,11 @@
       "2024-05-02-preview",
       "2024-06-02-preview",
       "2024-07-01",
-      "2024-07-02-preview"
+      "2024-07-02-preview",
+      "2024-08-01"
+    ],
+    "AutoUpgradeProfile": [
+      "2024-05-02-preview"
     ],
     "ContainerService": [
       "2015-11-01-preview",
@@ -6163,7 +6186,8 @@
       "2023-08-15-preview",
       "2023-10-15",
       "2024-02-02-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-05-02-preview"
     ],
     "FleetMember": [
       "2022-06-02-preview",
@@ -6174,13 +6198,15 @@
       "2023-08-15-preview",
       "2023-10-15",
       "2024-02-02-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-05-02-preview"
     ],
     "FleetUpdateStrategy": [
       "2023-08-15-preview",
       "2023-10-15",
       "2024-02-02-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-05-02-preview"
     ],
     "LoadBalancer": [
       "2024-03-02-preview",
@@ -6251,7 +6277,8 @@
       "2024-05-02-preview",
       "2024-06-02-preview",
       "2024-07-01",
-      "2024-07-02-preview"
+      "2024-07-02-preview",
+      "2024-08-01"
     ],
     "ManagedCluster": [
       "2017-08-31",
@@ -6332,7 +6359,8 @@
       "2024-05-02-preview",
       "2024-06-02-preview",
       "2024-07-01",
-      "2024-07-02-preview"
+      "2024-07-02-preview",
+      "2024-08-01"
     ],
     "ManagedClusterSnapshot": [
       "2022-02-02-preview",
@@ -6437,7 +6465,8 @@
       "2024-05-02-preview",
       "2024-06-02-preview",
       "2024-07-01",
-      "2024-07-02-preview"
+      "2024-07-02-preview",
+      "2024-08-01"
     ],
     "Snapshot": [
       "2021-08-01",
@@ -6496,7 +6525,8 @@
       "2024-05-02-preview",
       "2024-06-02-preview",
       "2024-07-01",
-      "2024-07-02-preview"
+      "2024-07-02-preview",
+      "2024-08-01"
     ],
     "TrustedAccessRoleBinding": [
       "2022-04-02-preview",
@@ -6532,7 +6562,8 @@
       "2024-05-02-preview",
       "2024-06-02-preview",
       "2024-07-01",
-      "2024-07-02-preview"
+      "2024-07-02-preview",
+      "2024-08-01"
     ],
     "UpdateRun": [
       "2023-03-15-preview",
@@ -6540,7 +6571,8 @@
       "2023-08-15-preview",
       "2023-10-15",
       "2024-02-02-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-05-02-preview"
     ],
     "listFleetCredentials": [
       "2022-06-02-preview",
@@ -6551,7 +6583,8 @@
       "2023-08-15-preview",
       "2023-10-15",
       "2024-02-02-preview",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-05-02-preview"
     ],
     "listManagedClusterAccessProfile": [
       "2017-08-31",
@@ -6645,7 +6678,8 @@
       "2024-05-02-preview",
       "2024-06-02-preview",
       "2024-07-01",
-      "2024-07-02-preview"
+      "2024-07-02-preview",
+      "2024-08-01"
     ],
     "listManagedClusterMonitoringUserCredentials": [
       "2019-10-01",
@@ -6719,7 +6753,8 @@
       "2024-05-02-preview",
       "2024-06-02-preview",
       "2024-07-01",
-      "2024-07-02-preview"
+      "2024-07-02-preview",
+      "2024-08-01"
     ],
     "listManagedClusterUserCredentials": [
       "2018-03-31",
@@ -6799,7 +6834,8 @@
       "2024-05-02-preview",
       "2024-06-02-preview",
       "2024-07-01",
-      "2024-07-02-preview"
+      "2024-07-02-preview",
+      "2024-08-01"
     ]
   },
   "ContainerStorage": {
@@ -7114,7 +7150,8 @@
       "2023-10-01-preview",
       "2023-12-01-preview",
       "2023-12-30",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-06-01-preview"
     ],
     "ServerAdministrator": [
       "2017-12-01",
@@ -11960,7 +11997,8 @@
       "2022-06-15",
       "2022-08-01-preview",
       "2023-03-15-preview",
-      "2023-12-01"
+      "2023-12-01",
+      "2024-01-01-preview"
     ],
     "SubscriptionDiagnosticSetting": [
       "2017-05-01-preview",
@@ -14853,7 +14891,8 @@
       "2023-10-01-preview"
     ],
     "PipelineGroup": [
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-10-01-preview"
     ]
   },
   "NetApp": {

@@ -100,7 +100,7 @@ export class FleetUpdateStrategy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:FleetUpdateStrategy" }, { type: "azure-native:containerservice/v20230815preview:FleetUpdateStrategy" }, { type: "azure-native:containerservice/v20231015:FleetUpdateStrategy" }, { type: "azure-native:containerservice/v20240202preview:FleetUpdateStrategy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:FleetUpdateStrategy" }, { type: "azure-native:containerservice/v20230815preview:FleetUpdateStrategy" }, { type: "azure-native:containerservice/v20231015:FleetUpdateStrategy" }, { type: "azure-native:containerservice/v20240202preview:FleetUpdateStrategy" }, { type: "azure-native:containerservice/v20240502preview:FleetUpdateStrategy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FleetUpdateStrategy.__pulumiType, name, resourceInputs, opts);
     }

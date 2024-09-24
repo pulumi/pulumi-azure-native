@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Retrieve an scheduled query rule definition.
  * Azure REST API version: 2023-03-15-preview.
  *
- * Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01.
+ * Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview.
  */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -115,7 +115,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
      */
-    readonly ruleResolveConfiguration?: outputs.insights.RuleResolveConfigurationResponse;
+    readonly resolveConfiguration?: outputs.insights.RuleResolveConfigurationResponse;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
@@ -153,7 +153,7 @@ export interface GetScheduledQueryRuleResult {
  * Retrieve an scheduled query rule definition.
  * Azure REST API version: 2023-03-15-preview.
  *
- * Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01.
+ * Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview.
  */
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

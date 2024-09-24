@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// Gets pipeline resource.
         /// Azure REST API version: 2023-10-11-preview.
         /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07.
+        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11.
         /// </summary>
         public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-native:azuredatatransfer:getPipeline", args ?? new GetPipelineArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// Gets pipeline resource.
         /// Azure REST API version: 2023-10-11-preview.
         /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07.
+        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11.
         /// </summary>
         public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("azure-native:azuredatatransfer:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());

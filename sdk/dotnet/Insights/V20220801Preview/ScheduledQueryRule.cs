@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.Insights.V20220801Preview
         /// <summary>
         /// Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
         /// </summary>
-        [Output("ruleResolveConfiguration")]
-        public Output<Outputs.RuleResolveConfigurationResponse?> RuleResolveConfiguration { get; private set; } = null!;
+        [Output("resolveConfiguration")]
+        public Output<Outputs.RuleResolveConfigurationResponse?> ResolveConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The list of resource id's that this scheduled query rule is scoped to.
@@ -216,6 +216,7 @@ namespace Pulumi.AzureNative.Insights.V20220801Preview
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220615:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20230315preview:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20231201:ScheduledQueryRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20240101preview:ScheduledQueryRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -324,6 +325,12 @@ namespace Pulumi.AzureNative.Insights.V20220801Preview
         public InputUnion<string, Pulumi.AzureNative.Insights.V20220801Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
+        /// Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+        /// </summary>
+        [Input("resolveConfiguration")]
+        public Input<Inputs.RuleResolveConfigurationArgs>? ResolveConfiguration { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -334,12 +341,6 @@ namespace Pulumi.AzureNative.Insights.V20220801Preview
         /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
-
-        /// <summary>
-        /// Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
-        /// </summary>
-        [Input("ruleResolveConfiguration")]
-        public Input<Inputs.RuleResolveConfigurationArgs>? RuleResolveConfiguration { get; set; }
 
         [Input("scopes", required: true)]
         private InputList<string>? _scopes;

@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.ContainerService.V20240401
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230815preview:FleetUpdateStrategy" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20231015:FleetUpdateStrategy" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240202preview:FleetUpdateStrategy" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240502preview:FleetUpdateStrategy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

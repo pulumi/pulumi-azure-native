@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Insights
         /// Retrieve an scheduled query rule definition.
         /// Azure REST API version: 2023-03-15-preview.
         /// 
-        /// Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01.
+        /// Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview.
         /// </summary>
         public static Task<GetScheduledQueryRuleResult> InvokeAsync(GetScheduledQueryRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRuleResult>("azure-native:insights:getScheduledQueryRule", args ?? new GetScheduledQueryRuleArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Insights
         /// Retrieve an scheduled query rule definition.
         /// Azure REST API version: 2023-03-15-preview.
         /// 
-        /// Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01.
+        /// Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview.
         /// </summary>
         public static Output<GetScheduledQueryRuleResult> Invoke(GetScheduledQueryRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRuleResult>("azure-native:insights:getScheduledQueryRule", args ?? new GetScheduledQueryRuleInvokeArgs(), options.WithDefaults());
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
         /// </summary>
-        public readonly Outputs.RuleResolveConfigurationResponse? RuleResolveConfiguration;
+        public readonly Outputs.RuleResolveConfigurationResponse? ResolveConfiguration;
         /// <summary>
         /// The list of resource id's that this scheduled query rule is scoped to.
         /// </summary>
@@ -228,7 +228,7 @@ namespace Pulumi.AzureNative.Insights
 
             string? overrideQueryTimeRange,
 
-            Outputs.RuleResolveConfigurationResponse? ruleResolveConfiguration,
+            Outputs.RuleResolveConfigurationResponse? resolveConfiguration,
 
             ImmutableArray<string> scopes,
 
@@ -265,7 +265,7 @@ namespace Pulumi.AzureNative.Insights
             MuteActionsDuration = muteActionsDuration;
             Name = name;
             OverrideQueryTimeRange = overrideQueryTimeRange;
-            RuleResolveConfiguration = ruleResolveConfiguration;
+            ResolveConfiguration = resolveConfiguration;
             Scopes = scopes;
             Severity = severity;
             SkipQueryValidation = skipQueryValidation;

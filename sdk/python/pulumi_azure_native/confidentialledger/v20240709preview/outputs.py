@@ -260,6 +260,10 @@ class LedgerPropertiesResponse(dict):
             suggest = "running_state"
         elif key == "subjectName":
             suggest = "subject_name"
+        elif key == "workerThreads":
+            suggest = "worker_threads"
+        elif key == "writeLBAddressPrefix":
+            suggest = "write_lb_address_prefix"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LedgerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -286,7 +290,9 @@ class LedgerPropertiesResponse(dict):
                  max_body_size_in_mb: Optional[int] = None,
                  node_count: Optional[int] = None,
                  running_state: Optional[str] = None,
-                 subject_name: Optional[str] = None):
+                 subject_name: Optional[str] = None,
+                 worker_threads: Optional[int] = None,
+                 write_lb_address_prefix: Optional[str] = None):
         """
         Additional Confidential Ledger properties.
         :param str identity_service_uri: Endpoint for accessing network identity.
@@ -303,6 +309,8 @@ class LedgerPropertiesResponse(dict):
         :param int node_count: Number of CCF nodes in the ACC Ledger.
         :param str running_state: Object representing RunningState for Ledger.
         :param str subject_name: CCF Property for the subject name to include in the node certificate. Default: CN=CCF Node.
+        :param int worker_threads: Number of additional threads processing incoming client requests in the enclave (modify with care!)
+        :param str write_lb_address_prefix: Prefix for the write load balancer. Example: write
         """
         pulumi.set(__self__, "identity_service_uri", identity_service_uri)
         pulumi.set(__self__, "ledger_internal_namespace", ledger_internal_namespace)
@@ -327,6 +335,10 @@ class LedgerPropertiesResponse(dict):
             pulumi.set(__self__, "running_state", running_state)
         if subject_name is not None:
             pulumi.set(__self__, "subject_name", subject_name)
+        if worker_threads is not None:
+            pulumi.set(__self__, "worker_threads", worker_threads)
+        if write_lb_address_prefix is not None:
+            pulumi.set(__self__, "write_lb_address_prefix", write_lb_address_prefix)
 
     @property
     @pulumi.getter(name="identityServiceUri")
@@ -439,6 +451,22 @@ class LedgerPropertiesResponse(dict):
         CCF Property for the subject name to include in the node certificate. Default: CN=CCF Node.
         """
         return pulumi.get(self, "subject_name")
+
+    @property
+    @pulumi.getter(name="workerThreads")
+    def worker_threads(self) -> Optional[int]:
+        """
+        Number of additional threads processing incoming client requests in the enclave (modify with care!)
+        """
+        return pulumi.get(self, "worker_threads")
+
+    @property
+    @pulumi.getter(name="writeLBAddressPrefix")
+    def write_lb_address_prefix(self) -> Optional[str]:
+        """
+        Prefix for the write load balancer. Example: write
+        """
+        return pulumi.get(self, "write_lb_address_prefix")
 
 
 @pulumi.output_type

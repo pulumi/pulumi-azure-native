@@ -191,6 +191,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20240201Preview
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20231001preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20231201preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20231230:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20240601preview:Server" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

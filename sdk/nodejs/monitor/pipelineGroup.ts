@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * A pipeline group definition.
  * Azure REST API version: 2023-10-01-preview.
+ *
+ * Other available API versions: 2024-10-01-preview.
  */
 export class PipelineGroup extends pulumi.CustomResource {
     /**
@@ -148,7 +150,7 @@ export class PipelineGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:monitor/v20231001preview:PipelineGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:monitor/v20231001preview:PipelineGroup" }, { type: "azure-native:monitor/v20241001preview:PipelineGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PipelineGroup.__pulumiType, name, resourceInputs, opts);
     }

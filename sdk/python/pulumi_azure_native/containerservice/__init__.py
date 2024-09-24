@@ -7,10 +7,12 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .agent_pool import *
+from .auto_upgrade_profile import *
 from .fleet import *
 from .fleet_member import *
 from .fleet_update_strategy import *
 from .get_agent_pool import *
+from .get_auto_upgrade_profile import *
 from .get_fleet import *
 from .get_fleet_member import *
 from .get_fleet_update_strategy import *
@@ -120,6 +122,8 @@ if typing.TYPE_CHECKING:
     v20240701 = __v20240701
     import pulumi_azure_native.containerservice.v20240702preview as __v20240702preview
     v20240702preview = __v20240702preview
+    import pulumi_azure_native.containerservice.v20240801 as __v20240801
+    v20240801 = __v20240801
 else:
     v20190601 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20190601')
     v20191027preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20191027preview')
@@ -160,4 +164,5 @@ else:
     v20240602preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20240602preview')
     v20240701 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20240701')
     v20240702preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20240702preview')
+    v20240801 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20240801')
 

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
  * Azure REST API version: 2023-03-15-preview.
  *
- * Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
+ * Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
  */
 export class FleetMember extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class FleetMember extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220602preview:FleetMember" }, { type: "azure-native:containerservice/v20220702preview:FleetMember" }, { type: "azure-native:containerservice/v20220902preview:FleetMember" }, { type: "azure-native:containerservice/v20230315preview:FleetMember" }, { type: "azure-native:containerservice/v20230615preview:FleetMember" }, { type: "azure-native:containerservice/v20230815preview:FleetMember" }, { type: "azure-native:containerservice/v20231015:FleetMember" }, { type: "azure-native:containerservice/v20240202preview:FleetMember" }, { type: "azure-native:containerservice/v20240401:FleetMember" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220602preview:FleetMember" }, { type: "azure-native:containerservice/v20220702preview:FleetMember" }, { type: "azure-native:containerservice/v20220902preview:FleetMember" }, { type: "azure-native:containerservice/v20230315preview:FleetMember" }, { type: "azure-native:containerservice/v20230615preview:FleetMember" }, { type: "azure-native:containerservice/v20230815preview:FleetMember" }, { type: "azure-native:containerservice/v20231015:FleetMember" }, { type: "azure-native:containerservice/v20240202preview:FleetMember" }, { type: "azure-native:containerservice/v20240401:FleetMember" }, { type: "azure-native:containerservice/v20240502preview:FleetMember" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FleetMember.__pulumiType, name, resourceInputs, opts);
     }

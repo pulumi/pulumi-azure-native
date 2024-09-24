@@ -81,6 +81,18 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20240709Preview.Inputs
         [Input("subjectName")]
         public Input<string>? SubjectName { get; set; }
 
+        /// <summary>
+        /// Number of additional threads processing incoming client requests in the enclave (modify with care!)
+        /// </summary>
+        [Input("workerThreads")]
+        public Input<int>? WorkerThreads { get; set; }
+
+        /// <summary>
+        /// Prefix for the write load balancer. Example: write
+        /// </summary>
+        [Input("writeLBAddressPrefix")]
+        public Input<string>? WriteLBAddressPrefix { get; set; }
+
         public LedgerPropertiesArgs()
         {
         }

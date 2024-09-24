@@ -3044,6 +3044,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azuredatatransfer/v20240911",
+  "fqn": "pulumi_azure_native.azuredatatransfer.v20240911",
+  "classes": {
+   "azure-native:azuredatatransfer/v20240911:Connection": "Connection",
+   "azure-native:azuredatatransfer/v20240911:Flow": "Flow",
+   "azure-native:azuredatatransfer/v20240911:Pipeline": "Pipeline"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azurefleet",
   "fqn": "pulumi_azure_native.azurefleet",
   "classes": {
@@ -4412,6 +4422,23 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cognitiveservices/v20241001",
+  "fqn": "pulumi_azure_native.cognitiveservices.v20241001",
+  "classes": {
+   "azure-native:cognitiveservices/v20241001:Account": "Account",
+   "azure-native:cognitiveservices/v20241001:CommitmentPlan": "CommitmentPlan",
+   "azure-native:cognitiveservices/v20241001:CommitmentPlanAssociation": "CommitmentPlanAssociation",
+   "azure-native:cognitiveservices/v20241001:Deployment": "Deployment",
+   "azure-native:cognitiveservices/v20241001:EncryptionScope": "EncryptionScope",
+   "azure-native:cognitiveservices/v20241001:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cognitiveservices/v20241001:RaiBlocklist": "RaiBlocklist",
+   "azure-native:cognitiveservices/v20241001:RaiBlocklistItem": "RaiBlocklistItem",
+   "azure-native:cognitiveservices/v20241001:RaiPolicy": "RaiPolicy",
+   "azure-native:cognitiveservices/v20241001:SharedCommitmentPlan": "SharedCommitmentPlan"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "communication",
   "fqn": "pulumi_azure_native.communication",
   "classes": {
@@ -5226,6 +5253,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.containerservice",
   "classes": {
    "azure-native:containerservice:AgentPool": "AgentPool",
+   "azure-native:containerservice:AutoUpgradeProfile": "AutoUpgradeProfile",
    "azure-native:containerservice:Fleet": "Fleet",
    "azure-native:containerservice:FleetMember": "FleetMember",
    "azure-native:containerservice:FleetUpdateStrategy": "FleetUpdateStrategy",
@@ -5650,13 +5678,18 @@ _utilities.register(
   "fqn": "pulumi_azure_native.containerservice.v20240502preview",
   "classes": {
    "azure-native:containerservice/v20240502preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20240502preview:AutoUpgradeProfile": "AutoUpgradeProfile",
+   "azure-native:containerservice/v20240502preview:Fleet": "Fleet",
+   "azure-native:containerservice/v20240502preview:FleetMember": "FleetMember",
+   "azure-native:containerservice/v20240502preview:FleetUpdateStrategy": "FleetUpdateStrategy",
    "azure-native:containerservice/v20240502preview:LoadBalancer": "LoadBalancer",
    "azure-native:containerservice/v20240502preview:MaintenanceConfiguration": "MaintenanceConfiguration",
    "azure-native:containerservice/v20240502preview:ManagedCluster": "ManagedCluster",
    "azure-native:containerservice/v20240502preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
    "azure-native:containerservice/v20240502preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:containerservice/v20240502preview:Snapshot": "Snapshot",
-   "azure-native:containerservice/v20240502preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+   "azure-native:containerservice/v20240502preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding",
+   "azure-native:containerservice/v20240502preview:UpdateRun": "UpdateRun"
   }
  },
  {
@@ -5700,6 +5733,19 @@ _utilities.register(
    "azure-native:containerservice/v20240702preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:containerservice/v20240702preview:Snapshot": "Snapshot",
    "azure-native:containerservice/v20240702preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerservice/v20240801",
+  "fqn": "pulumi_azure_native.containerservice.v20240801",
+  "classes": {
+   "azure-native:containerservice/v20240801:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20240801:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20240801:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20240801:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20240801:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20240801:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
   }
  },
  {
@@ -6956,6 +7002,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.dbformysql.v20240201preview",
   "classes": {
    "azure-native:dbformysql/v20240201preview:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dbformysql/v20240601preview",
+  "fqn": "pulumi_azure_native.dbformysql.v20240601preview",
+  "classes": {
+   "azure-native:dbformysql/v20240601preview:Server": "Server"
   }
  },
  {
@@ -10093,6 +10147,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "insights/v20240101preview",
+  "fqn": "pulumi_azure_native.insights.v20240101preview",
+  "classes": {
+   "azure-native:insights/v20240101preview:ScheduledQueryRule": "ScheduledQueryRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "integrationspaces",
   "fqn": "pulumi_azure_native.integrationspaces",
   "classes": {
@@ -12420,6 +12482,14 @@ _utilities.register(
   "classes": {
    "azure-native:monitor/v20231001preview:AzureMonitorWorkspace": "AzureMonitorWorkspace",
    "azure-native:monitor/v20231001preview:PipelineGroup": "PipelineGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20241001preview",
+  "fqn": "pulumi_azure_native.monitor.v20241001preview",
+  "classes": {
+   "azure-native:monitor/v20241001preview:PipelineGroup": "PipelineGroup"
   }
  },
  {

@@ -72,6 +72,14 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20240709Preview.Outputs
         /// CCF Property for the subject name to include in the node certificate. Default: CN=CCF Node.
         /// </summary>
         public readonly string? SubjectName;
+        /// <summary>
+        /// Number of additional threads processing incoming client requests in the enclave (modify with care!)
+        /// </summary>
+        public readonly int? WorkerThreads;
+        /// <summary>
+        /// Prefix for the write load balancer. Example: write
+        /// </summary>
+        public readonly string? WriteLBAddressPrefix;
 
         [OutputConstructor]
         private LedgerPropertiesResponse(
@@ -101,7 +109,11 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20240709Preview.Outputs
 
             string? runningState,
 
-            string? subjectName)
+            string? subjectName,
+
+            int? workerThreads,
+
+            string? writeLBAddressPrefix)
         {
             AadBasedSecurityPrincipals = aadBasedSecurityPrincipals;
             CertBasedSecurityPrincipals = certBasedSecurityPrincipals;
@@ -117,6 +129,8 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20240709Preview.Outputs
             ProvisioningState = provisioningState;
             RunningState = runningState;
             SubjectName = subjectName;
+            WorkerThreads = workerThreads;
+            WriteLBAddressPrefix = writeLBAddressPrefix;
         }
     }
 }

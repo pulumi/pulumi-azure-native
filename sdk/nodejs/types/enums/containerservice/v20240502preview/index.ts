@@ -90,6 +90,22 @@ export const ArtifactSource = {
  */
 export type ArtifactSource = (typeof ArtifactSource)[keyof typeof ArtifactSource];
 
+export const AutoUpgradeNodeImageSelectionType = {
+    /**
+     * Use the latest image version when upgrading nodes. Clusters may use different image versions (e.g., 'AKSUbuntu-1804gen2containerd-2021.10.12' and 'AKSUbuntu-1804gen2containerd-2021.10.19') because, for example, the latest available version is different in different regions.
+     */
+    Latest: "Latest",
+    /**
+     * The image versions to upgrade nodes to are selected as described below: for each node pool in managed clusters affected by the update run, the system selects the latest image version such that it is available across all other node pools (in all other clusters) of the same image type. As a result, all node pools of the same image type will be upgraded to the same image version. For example, if the latest image version for image type 'AKSUbuntu-1804gen2containerd' is 'AKSUbuntu-1804gen2containerd-2021.10.12' for a node pool in cluster A in region X, and is 'AKSUbuntu-1804gen2containerd-2021.10.17' for a node pool in cluster B in region Y, the system will upgrade both node pools to image version 'AKSUbuntu-1804gen2containerd-2021.10.12'.
+     */
+    Consistent: "Consistent",
+} as const;
+
+/**
+ * The node image upgrade type.
+ */
+export type AutoUpgradeNodeImageSelectionType = (typeof AutoUpgradeNodeImageSelectionType)[keyof typeof AutoUpgradeNodeImageSelectionType];
+
 export const BackendPoolType = {
     /**
      * The type of the managed inbound Load Balancer BackendPool. https://cloud-provider-azure.sigs.k8s.io/topics/loadbalancer/#configure-load-balancer-backend.
@@ -365,6 +381,38 @@ export const ManagedClusterSKUTier = {
  */
 export type ManagedClusterSKUTier = (typeof ManagedClusterSKUTier)[keyof typeof ManagedClusterSKUTier];
 
+export const ManagedClusterUpgradeType = {
+    /**
+     * Full upgrades the control plane and all agent pools of the target ManagedClusters. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to be set.
+     */
+    Full: "Full",
+    /**
+     * NodeImageOnly upgrades only the node images of the target ManagedClusters. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to NOT be set.
+     */
+    NodeImageOnly: "NodeImageOnly",
+    /**
+     * ControlPlaneOnly upgrades only targets the KubernetesVersion of the ManagedClusters and will not be applied to the AgentPool. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to be set.
+     */
+    ControlPlaneOnly: "ControlPlaneOnly",
+} as const;
+
+/**
+ * ManagedClusterUpgradeType is the type of upgrade to be applied.
+ */
+export type ManagedClusterUpgradeType = (typeof ManagedClusterUpgradeType)[keyof typeof ManagedClusterUpgradeType];
+
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const Mode = {
     /**
      * IPTables proxy mode
@@ -468,6 +516,26 @@ export const NetworkPolicy = {
  * Network policy used for building the Kubernetes network.
  */
 export type NetworkPolicy = (typeof NetworkPolicy)[keyof typeof NetworkPolicy];
+
+export const NodeImageSelectionType = {
+    /**
+     * Use the latest image version when upgrading nodes. Clusters may use different image versions (e.g., 'AKSUbuntu-1804gen2containerd-2021.10.12' and 'AKSUbuntu-1804gen2containerd-2021.10.19') because, for example, the latest available version is different in different regions.
+     */
+    Latest: "Latest",
+    /**
+     * The image versions to upgrade nodes to are selected as described below: for each node pool in managed clusters affected by the update run, the system selects the latest image version such that it is available across all other node pools (in all other clusters) of the same image type. As a result, all node pools of the same image type will be upgraded to the same image version. For example, if the latest image version for image type 'AKSUbuntu-1804gen2containerd' is 'AKSUbuntu-1804gen2containerd-2021.10.12' for a node pool in cluster A in region X, and is 'AKSUbuntu-1804gen2containerd-2021.10.17' for a node pool in cluster B in region Y, the system will upgrade both node pools to image version 'AKSUbuntu-1804gen2containerd-2021.10.12'.
+     */
+    Consistent: "Consistent",
+    /**
+     * Upgrade the nodes to the custom image versions. When set, update run will use node image versions provided in customNodeImageVersions to upgrade the nodes. If set, customNodeImageVersions must not be empty.
+     */
+    Custom: "Custom",
+} as const;
+
+/**
+ * The node image upgrade type.
+ */
+export type NodeImageSelectionType = (typeof NodeImageSelectionType)[keyof typeof NodeImageSelectionType];
 
 export const NodeOSUpgradeChannel = {
     /**

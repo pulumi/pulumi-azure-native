@@ -10,6 +10,11 @@ export type AgentPool = import("./agentPool").AgentPool;
 export const AgentPool: typeof import("./agentPool").AgentPool = null as any;
 utilities.lazyLoad(exports, ["AgentPool"], () => require("./agentPool"));
 
+export { AutoUpgradeProfileArgs } from "./autoUpgradeProfile";
+export type AutoUpgradeProfile = import("./autoUpgradeProfile").AutoUpgradeProfile;
+export const AutoUpgradeProfile: typeof import("./autoUpgradeProfile").AutoUpgradeProfile = null as any;
+utilities.lazyLoad(exports, ["AutoUpgradeProfile"], () => require("./autoUpgradeProfile"));
+
 export { FleetArgs } from "./fleet";
 export type Fleet = import("./fleet").Fleet;
 export const Fleet: typeof import("./fleet").Fleet = null as any;
@@ -29,6 +34,11 @@ export { GetAgentPoolArgs, GetAgentPoolResult, GetAgentPoolOutputArgs } from "./
 export const getAgentPool: typeof import("./getAgentPool").getAgentPool = null as any;
 export const getAgentPoolOutput: typeof import("./getAgentPool").getAgentPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getAgentPool","getAgentPoolOutput"], () => require("./getAgentPool"));
+
+export { GetAutoUpgradeProfileArgs, GetAutoUpgradeProfileResult, GetAutoUpgradeProfileOutputArgs } from "./getAutoUpgradeProfile";
+export const getAutoUpgradeProfile: typeof import("./getAutoUpgradeProfile").getAutoUpgradeProfile = null as any;
+export const getAutoUpgradeProfileOutput: typeof import("./getAutoUpgradeProfile").getAutoUpgradeProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getAutoUpgradeProfile","getAutoUpgradeProfileOutput"], () => require("./getAutoUpgradeProfile"));
 
 export { GetFleetArgs, GetFleetResult, GetFleetOutputArgs } from "./getFleet";
 export const getFleet: typeof import("./getFleet").getFleet = null as any;
@@ -204,6 +214,7 @@ import * as v20240502preview from "./v20240502preview";
 import * as v20240602preview from "./v20240602preview";
 import * as v20240701 from "./v20240701";
 import * as v20240702preview from "./v20240702preview";
+import * as v20240801 from "./v20240801";
 
 export {
     v20190601,
@@ -245,6 +256,7 @@ export {
     v20240602preview,
     v20240701,
     v20240702preview,
+    v20240801,
 };
 
 const _module = {
@@ -253,6 +265,8 @@ const _module = {
         switch (type) {
             case "azure-native:containerservice:AgentPool":
                 return new AgentPool(name, <any>undefined, { urn })
+            case "azure-native:containerservice:AutoUpgradeProfile":
+                return new AutoUpgradeProfile(name, <any>undefined, { urn })
             case "azure-native:containerservice:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
             case "azure-native:containerservice:FleetMember":

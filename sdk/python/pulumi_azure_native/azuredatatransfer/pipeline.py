@@ -121,7 +121,7 @@ class Pipeline(pulumi.CustomResource):
         The pipeline resource definition.
         Azure REST API version: 2023-10-11-preview.
 
-        Other available API versions: 2024-01-25, 2024-05-07.
+        Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +141,7 @@ class Pipeline(pulumi.CustomResource):
         The pipeline resource definition.
         Azure REST API version: 2023-10-11-preview.
 
-        Other available API versions: 2024-01-25, 2024-05-07.
+        Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11.
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.
@@ -182,7 +182,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuredatatransfer/v20231011preview:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240125:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240507:Pipeline")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuredatatransfer/v20231011preview:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240125:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240507:Pipeline"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240911:Pipeline")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pipeline, __self__).__init__(
             'azure-native:azuredatatransfer:Pipeline',

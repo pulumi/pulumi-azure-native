@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Cognitive Services account commitment plan.
     /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01.
     /// 
-    /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
+    /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:CommitmentPlan")]
     public partial class CommitmentPlan : global::Pulumi.CustomResource
@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:CommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:CommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240601preview:CommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20241001:CommitmentPlan" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

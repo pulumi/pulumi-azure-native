@@ -27,8 +27,11 @@ if typing.TYPE_CHECKING:
     v20240125 = __v20240125
     import pulumi_azure_native.azuredatatransfer.v20240507 as __v20240507
     v20240507 = __v20240507
+    import pulumi_azure_native.azuredatatransfer.v20240911 as __v20240911
+    v20240911 = __v20240911
 else:
     v20231011preview = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20231011preview')
     v20240125 = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20240125')
     v20240507 = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20240507')
+    v20240911 = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20240911')
 

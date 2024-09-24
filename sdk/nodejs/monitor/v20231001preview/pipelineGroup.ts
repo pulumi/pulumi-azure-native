@@ -147,7 +147,7 @@ export class PipelineGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:monitor:PipelineGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:monitor:PipelineGroup" }, { type: "azure-native:monitor/v20241001preview:PipelineGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PipelineGroup.__pulumiType, name, resourceInputs, opts);
     }

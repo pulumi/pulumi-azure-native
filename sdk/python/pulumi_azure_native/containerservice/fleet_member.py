@@ -117,7 +117,7 @@ class FleetMember(pulumi.CustomResource):
         A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
         Azure REST API version: 2023-03-15-preview.
 
-        Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
+        Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,7 +137,7 @@ class FleetMember(pulumi.CustomResource):
         A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
         Azure REST API version: 2023-03-15-preview.
 
-        Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
+        Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
 
         :param str resource_name: The name of the resource.
         :param FleetMemberArgs args: The arguments to use to populate this resource's properties.
@@ -184,7 +184,7 @@ class FleetMember(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20220602preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20220702preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20220902preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20230315preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20230615preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20230815preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20231015:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20240202preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20240401:FleetMember")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20220602preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20220702preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20220902preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20230315preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20230615preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20230815preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20231015:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20240202preview:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20240401:FleetMember"), pulumi.Alias(type_="azure-native:containerservice/v20240502preview:FleetMember")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FleetMember, __self__).__init__(
             'azure-native:containerservice:FleetMember',

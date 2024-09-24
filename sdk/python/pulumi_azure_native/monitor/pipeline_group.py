@@ -219,6 +219,8 @@ class PipelineGroup(pulumi.CustomResource):
         A pipeline group definition.
         Azure REST API version: 2023-10-01-preview.
 
+        Other available API versions: 2024-10-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExporterArgs', 'ExporterArgsDict']]]] exporters: The exporters specified for a pipeline group instance.
@@ -242,6 +244,8 @@ class PipelineGroup(pulumi.CustomResource):
         """
         A pipeline group definition.
         Azure REST API version: 2023-10-01-preview.
+
+        Other available API versions: 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PipelineGroupArgs args: The arguments to use to populate this resource's properties.
@@ -303,7 +307,7 @@ class PipelineGroup(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor/v20231001preview:PipelineGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor/v20231001preview:PipelineGroup"), pulumi.Alias(type_="azure-native:monitor/v20241001preview:PipelineGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PipelineGroup, __self__).__init__(
             'azure-native:monitor:PipelineGroup',

@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'AgentPoolUpgradeSettingsResponse',
+    'AutoUpgradeNodeImageSelectionResponse',
     'AzureKeyVaultKmsResponse',
     'ContainerServiceLinuxProfileResponse',
     'ContainerServiceNetworkProfileResponse',
@@ -149,6 +150,28 @@ class AgentPoolUpgradeSettingsResponse(dict):
         This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
         """
         return pulumi.get(self, "max_surge")
+
+
+@pulumi.output_type
+class AutoUpgradeNodeImageSelectionResponse(dict):
+    """
+    The node image upgrade to be applied to the target clusters in auto upgrade.
+    """
+    def __init__(__self__, *,
+                 type: str):
+        """
+        The node image upgrade to be applied to the target clusters in auto upgrade.
+        :param str type: The node image upgrade type.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The node image upgrade type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

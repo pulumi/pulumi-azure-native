@@ -74989,6 +74989,8 @@ class ServiceNowV2SourceResponse(dict):
             suggest = "disable_metrics_collection"
         elif key == "maxConcurrentConnections":
             suggest = "max_concurrent_connections"
+        elif key == "pageSize":
+            suggest = "page_size"
         elif key == "queryTimeout":
             suggest = "query_timeout"
         elif key == "sourceRetryCount":
@@ -75013,6 +75015,7 @@ class ServiceNowV2SourceResponse(dict):
                  disable_metrics_collection: Optional[Any] = None,
                  expression: Optional['outputs.ExpressionV2Response'] = None,
                  max_concurrent_connections: Optional[Any] = None,
+                 page_size: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None):
@@ -75024,6 +75027,7 @@ class ServiceNowV2SourceResponse(dict):
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param 'ExpressionV2Response' expression: Expression to filter data from source.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any page_size: Page size of the result. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -75037,6 +75041,8 @@ class ServiceNowV2SourceResponse(dict):
             pulumi.set(__self__, "expression", expression)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if page_size is not None:
+            pulumi.set(__self__, "page_size", page_size)
         if query_timeout is not None:
             pulumi.set(__self__, "query_timeout", query_timeout)
         if source_retry_count is not None:
@@ -75084,6 +75090,14 @@ class ServiceNowV2SourceResponse(dict):
         The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="pageSize")
+    def page_size(self) -> Optional[Any]:
+        """
+        Page size of the result. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "page_size")
 
     @property
     @pulumi.getter(name="queryTimeout")

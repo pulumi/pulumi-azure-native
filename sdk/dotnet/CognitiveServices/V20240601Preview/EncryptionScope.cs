@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20240601Preview
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices:EncryptionScope" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:EncryptionScope" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:EncryptionScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20241001:EncryptionScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

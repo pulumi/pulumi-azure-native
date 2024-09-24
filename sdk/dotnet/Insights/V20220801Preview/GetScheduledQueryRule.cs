@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.Insights.V20220801Preview
         /// <summary>
         /// Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
         /// </summary>
-        public readonly Outputs.RuleResolveConfigurationResponse? RuleResolveConfiguration;
+        public readonly Outputs.RuleResolveConfigurationResponse? ResolveConfiguration;
         /// <summary>
         /// The list of resource id's that this scheduled query rule is scoped to.
         /// </summary>
@@ -228,7 +228,7 @@ namespace Pulumi.AzureNative.Insights.V20220801Preview
 
             string? publicNetworkAccess,
 
-            Outputs.RuleResolveConfigurationResponse? ruleResolveConfiguration,
+            Outputs.RuleResolveConfigurationResponse? resolveConfiguration,
 
             ImmutableArray<string> scopes,
 
@@ -266,7 +266,7 @@ namespace Pulumi.AzureNative.Insights.V20220801Preview
             Name = name;
             OverrideQueryTimeRange = overrideQueryTimeRange;
             PublicNetworkAccess = publicNetworkAccess;
-            RuleResolveConfiguration = ruleResolveConfiguration;
+            ResolveConfiguration = resolveConfiguration;
             Scopes = scopes;
             Severity = severity;
             SkipQueryValidation = skipQueryValidation;

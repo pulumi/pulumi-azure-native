@@ -27,7 +27,7 @@ class GetScheduledQueryRuleResult:
     """
     The scheduled query rule resource.
     """
-    def __init__(__self__, actions=None, auto_mitigate=None, check_workspace_alerts_storage_configured=None, created_with_api_version=None, criteria=None, description=None, display_name=None, enabled=None, etag=None, evaluation_frequency=None, id=None, identity=None, is_legacy_log_analytics_rule=None, is_workspace_alerts_storage_configured=None, kind=None, location=None, mute_actions_duration=None, name=None, override_query_time_range=None, public_network_access=None, rule_resolve_configuration=None, scopes=None, severity=None, skip_query_validation=None, system_data=None, tags=None, target_resource_types=None, type=None, window_size=None):
+    def __init__(__self__, actions=None, auto_mitigate=None, check_workspace_alerts_storage_configured=None, created_with_api_version=None, criteria=None, description=None, display_name=None, enabled=None, etag=None, evaluation_frequency=None, id=None, identity=None, is_legacy_log_analytics_rule=None, is_workspace_alerts_storage_configured=None, kind=None, location=None, mute_actions_duration=None, name=None, override_query_time_range=None, public_network_access=None, resolve_configuration=None, scopes=None, severity=None, skip_query_validation=None, system_data=None, tags=None, target_resource_types=None, type=None, window_size=None):
         if actions and not isinstance(actions, dict):
             raise TypeError("Expected argument 'actions' to be a dict")
         pulumi.set(__self__, "actions", actions)
@@ -88,9 +88,9 @@ class GetScheduledQueryRuleResult:
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
-        if rule_resolve_configuration and not isinstance(rule_resolve_configuration, dict):
-            raise TypeError("Expected argument 'rule_resolve_configuration' to be a dict")
-        pulumi.set(__self__, "rule_resolve_configuration", rule_resolve_configuration)
+        if resolve_configuration and not isinstance(resolve_configuration, dict):
+            raise TypeError("Expected argument 'resolve_configuration' to be a dict")
+        pulumi.set(__self__, "resolve_configuration", resolve_configuration)
         if scopes and not isinstance(scopes, list):
             raise TypeError("Expected argument 'scopes' to be a list")
         pulumi.set(__self__, "scopes", scopes)
@@ -277,12 +277,12 @@ class GetScheduledQueryRuleResult:
         return pulumi.get(self, "public_network_access")
 
     @property
-    @pulumi.getter(name="ruleResolveConfiguration")
-    def rule_resolve_configuration(self) -> Optional['outputs.RuleResolveConfigurationResponse']:
+    @pulumi.getter(name="resolveConfiguration")
+    def resolve_configuration(self) -> Optional['outputs.RuleResolveConfigurationResponse']:
         """
         Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
         """
-        return pulumi.get(self, "rule_resolve_configuration")
+        return pulumi.get(self, "resolve_configuration")
 
     @property
     @pulumi.getter
@@ -375,7 +375,7 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
             name=self.name,
             override_query_time_range=self.override_query_time_range,
             public_network_access=self.public_network_access,
-            rule_resolve_configuration=self.rule_resolve_configuration,
+            resolve_configuration=self.resolve_configuration,
             scopes=self.scopes,
             severity=self.severity,
             skip_query_validation=self.skip_query_validation,
@@ -423,7 +423,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         override_query_time_range=pulumi.get(__ret__, 'override_query_time_range'),
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
-        rule_resolve_configuration=pulumi.get(__ret__, 'rule_resolve_configuration'),
+        resolve_configuration=pulumi.get(__ret__, 'resolve_configuration'),
         scopes=pulumi.get(__ret__, 'scopes'),
         severity=pulumi.get(__ret__, 'severity'),
         skip_query_validation=pulumi.get(__ret__, 'skip_query_validation'),

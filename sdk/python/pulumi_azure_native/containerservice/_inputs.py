@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'AgentPoolUpgradeSettingsArgs',
     'AgentPoolUpgradeSettingsArgsDict',
+    'AutoUpgradeNodeImageSelectionArgs',
+    'AutoUpgradeNodeImageSelectionArgsDict',
     'AzureKeyVaultKmsArgs',
     'AzureKeyVaultKmsArgsDict',
     'ContainerServiceLinuxProfileArgs',
@@ -202,6 +204,41 @@ class AgentPoolUpgradeSettingsArgs:
     @max_surge.setter
     def max_surge(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "max_surge", value)
+
+
+if not MYPY:
+    class AutoUpgradeNodeImageSelectionArgsDict(TypedDict):
+        """
+        The node image upgrade to be applied to the target clusters in auto upgrade.
+        """
+        type: pulumi.Input[Union[str, 'AutoUpgradeNodeImageSelectionType']]
+        """
+        The node image upgrade type.
+        """
+elif False:
+    AutoUpgradeNodeImageSelectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutoUpgradeNodeImageSelectionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'AutoUpgradeNodeImageSelectionType']]):
+        """
+        The node image upgrade to be applied to the target clusters in auto upgrade.
+        :param pulumi.Input[Union[str, 'AutoUpgradeNodeImageSelectionType']] type: The node image upgrade type.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'AutoUpgradeNodeImageSelectionType']]:
+        """
+        The node image upgrade type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'AutoUpgradeNodeImageSelectionType']]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

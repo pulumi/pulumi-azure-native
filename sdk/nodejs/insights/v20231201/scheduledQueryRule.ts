@@ -112,7 +112,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
      */
-    public readonly ruleResolveConfiguration!: pulumi.Output<outputs.insights.v20231201.RuleResolveConfigurationResponse | undefined>;
+    public readonly resolveConfiguration!: pulumi.Output<outputs.insights.v20231201.RuleResolveConfigurationResponse | undefined>;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
@@ -182,9 +182,9 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["muteActionsDuration"] = args ? args.muteActionsDuration : undefined;
             resourceInputs["overrideQueryTimeRange"] = args ? args.overrideQueryTimeRange : undefined;
+            resourceInputs["resolveConfiguration"] = args ? args.resolveConfiguration : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["ruleResolveConfiguration"] = args ? args.ruleResolveConfiguration : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["severity"] = args ? args.severity : undefined;
             resourceInputs["skipQueryValidation"] = args ? args.skipQueryValidation : undefined;
@@ -217,7 +217,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             resourceInputs["muteActionsDuration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["overrideQueryTimeRange"] = undefined /*out*/;
-            resourceInputs["ruleResolveConfiguration"] = undefined /*out*/;
+            resourceInputs["resolveConfiguration"] = undefined /*out*/;
             resourceInputs["scopes"] = undefined /*out*/;
             resourceInputs["severity"] = undefined /*out*/;
             resourceInputs["skipQueryValidation"] = undefined /*out*/;
@@ -228,7 +228,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             resourceInputs["windowSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights:ScheduledQueryRule" }, { type: "azure-native:insights/v20180416:ScheduledQueryRule" }, { type: "azure-native:insights/v20200501preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20210201preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20210801:ScheduledQueryRule" }, { type: "azure-native:insights/v20220615:ScheduledQueryRule" }, { type: "azure-native:insights/v20220801preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20230315preview:ScheduledQueryRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:ScheduledQueryRule" }, { type: "azure-native:insights/v20180416:ScheduledQueryRule" }, { type: "azure-native:insights/v20200501preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20210201preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20210801:ScheduledQueryRule" }, { type: "azure-native:insights/v20220615:ScheduledQueryRule" }, { type: "azure-native:insights/v20220801preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20230315preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20240101preview:ScheduledQueryRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledQueryRule.__pulumiType, name, resourceInputs, opts);
     }
@@ -291,6 +291,10 @@ export interface ScheduledQueryRuleArgs {
      */
     overrideQueryTimeRange?: pulumi.Input<string>;
     /**
+     * Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
+     */
+    resolveConfiguration?: pulumi.Input<inputs.insights.v20231201.RuleResolveConfigurationArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -298,10 +302,6 @@ export interface ScheduledQueryRuleArgs {
      * The name of the rule.
      */
     ruleName?: pulumi.Input<string>;
-    /**
-     * Defines the configuration for resolving fired alerts. Relevant only for rules of the kind LogAlert.
-     */
-    ruleResolveConfiguration?: pulumi.Input<inputs.insights.v20231201.RuleResolveConfigurationArgs>;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */

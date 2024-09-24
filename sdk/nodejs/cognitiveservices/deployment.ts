@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Cognitive Services account deployment.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
  */
 export class Deployment extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20211001:Deployment" }, { type: "azure-native:cognitiveservices/v20220301:Deployment" }, { type: "azure-native:cognitiveservices/v20221001:Deployment" }, { type: "azure-native:cognitiveservices/v20221201:Deployment" }, { type: "azure-native:cognitiveservices/v20230501:Deployment" }, { type: "azure-native:cognitiveservices/v20231001preview:Deployment" }, { type: "azure-native:cognitiveservices/v20240401preview:Deployment" }, { type: "azure-native:cognitiveservices/v20240601preview:Deployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20211001:Deployment" }, { type: "azure-native:cognitiveservices/v20220301:Deployment" }, { type: "azure-native:cognitiveservices/v20221001:Deployment" }, { type: "azure-native:cognitiveservices/v20221201:Deployment" }, { type: "azure-native:cognitiveservices/v20230501:Deployment" }, { type: "azure-native:cognitiveservices/v20231001preview:Deployment" }, { type: "azure-native:cognitiveservices/v20240401preview:Deployment" }, { type: "azure-native:cognitiveservices/v20240601preview:Deployment" }, { type: "azure-native:cognitiveservices/v20241001:Deployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Deployment.__pulumiType, name, resourceInputs, opts);
     }

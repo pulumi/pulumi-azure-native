@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Monitor
     /// <summary>
     /// A pipeline group definition.
     /// Azure REST API version: 2023-10-01-preview.
+    /// 
+    /// Other available API versions: 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:PipelineGroup")]
     public partial class PipelineGroup : global::Pulumi.CustomResource
@@ -120,6 +122,7 @@ namespace Pulumi.AzureNative.Monitor
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20231001preview:PipelineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20241001preview:PipelineGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

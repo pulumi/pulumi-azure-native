@@ -63,11 +63,13 @@ export * from "../types/enums/azuredatatransfer";
 import * as v20231011preview from "./v20231011preview";
 import * as v20240125 from "./v20240125";
 import * as v20240507 from "./v20240507";
+import * as v20240911 from "./v20240911";
 
 export {
     v20231011preview,
     v20240125,
     v20240507,
+    v20240911,
 };
 
 const _module = {

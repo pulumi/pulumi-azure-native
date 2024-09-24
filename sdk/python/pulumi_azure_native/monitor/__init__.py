@@ -19,7 +19,10 @@ if typing.TYPE_CHECKING:
     v20230403 = __v20230403
     import pulumi_azure_native.monitor.v20231001preview as __v20231001preview
     v20231001preview = __v20231001preview
+    import pulumi_azure_native.monitor.v20241001preview as __v20241001preview
+    v20241001preview = __v20241001preview
 else:
     v20230403 = _utilities.lazy_import('pulumi_azure_native.monitor.v20230403')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20231001preview')
+    v20241001preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20241001preview')
 

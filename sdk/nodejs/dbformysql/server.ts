@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a server.
  * Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
  *
- * Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview.
+ * Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -189,7 +189,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200701preview:Server" }, { type: "azure-native:dbformysql/v20200701privatepreview:Server" }, { type: "azure-native:dbformysql/v20210501:Server" }, { type: "azure-native:dbformysql/v20210501preview:Server" }, { type: "azure-native:dbformysql/v20211201preview:Server" }, { type: "azure-native:dbformysql/v20220101:Server" }, { type: "azure-native:dbformysql/v20220930preview:Server" }, { type: "azure-native:dbformysql/v20230601preview:Server" }, { type: "azure-native:dbformysql/v20230630:Server" }, { type: "azure-native:dbformysql/v20231001preview:Server" }, { type: "azure-native:dbformysql/v20231201preview:Server" }, { type: "azure-native:dbformysql/v20231230:Server" }, { type: "azure-native:dbformysql/v20240201preview:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200701preview:Server" }, { type: "azure-native:dbformysql/v20200701privatepreview:Server" }, { type: "azure-native:dbformysql/v20210501:Server" }, { type: "azure-native:dbformysql/v20210501preview:Server" }, { type: "azure-native:dbformysql/v20211201preview:Server" }, { type: "azure-native:dbformysql/v20220101:Server" }, { type: "azure-native:dbformysql/v20220930preview:Server" }, { type: "azure-native:dbformysql/v20230601preview:Server" }, { type: "azure-native:dbformysql/v20230630:Server" }, { type: "azure-native:dbformysql/v20231001preview:Server" }, { type: "azure-native:dbformysql/v20231201preview:Server" }, { type: "azure-native:dbformysql/v20231230:Server" }, { type: "azure-native:dbformysql/v20240201preview:Server" }, { type: "azure-native:dbformysql/v20240601preview:Server" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Server.__pulumiType, name, resourceInputs, opts);
     }
