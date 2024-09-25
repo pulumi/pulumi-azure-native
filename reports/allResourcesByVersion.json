@@ -18872,6 +18872,26 @@
       "TrunkedNetwork",
       "VirtualMachine",
       "Volume"
+    ],
+    "2024-07-01": [
+      "AgentPool",
+      "BareMetalMachine",
+      "BareMetalMachineKeySet",
+      "BmcKeySet",
+      "CloudServicesNetwork",
+      "Cluster",
+      "ClusterManager",
+      "Console",
+      "KubernetesCluster",
+      "KubernetesClusterFeature",
+      "L2Network",
+      "L3Network",
+      "MetricsConfiguration",
+      "Rack",
+      "StorageAppliance",
+      "TrunkedNetwork",
+      "VirtualMachine",
+      "Volume"
     ]
   },
   "NetworkFunction": {

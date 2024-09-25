@@ -956,7 +956,8 @@
   ],
   "NetworkAnalytics": [],
   "NetworkCloud": [
-    "2024-06-01-preview"
+    "2024-06-01-preview",
+    "2024-07-01"
   ],
   "NetworkFunction": [],
   "NotificationHubs": [
