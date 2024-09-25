@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"log"
 	"math"
-	"net/http"
 	"os"
 	"reflect"
 	"regexp"
@@ -21,6 +20,9 @@ import (
 	"github.com/segmentio/encoding/json"
 	"google.golang.org/protobuf/types/known/emptypb"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
@@ -84,8 +86,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 
 	// Return the new provider
 	p := &azureNativeProvider{
-		// This client will be regnerated with correct environment and authorizer in Configure.
-		azureClient:   azure.NewAzureClient(azureEnv.PublicCloud, nil, azure.BuildUserAgent(PulumiPartnerID)),
+		// Note: azureClient and subscriptionId will be initialized in Configure.
 		host:          host,
 		name:          name,
 		version:       version,
@@ -215,9 +216,13 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	userAgent := k.getUserAgent()
 
-	k.azureClient = azure.NewAzureClient(env, resourceManagerAuth, userAgent)
-
 	azCoreTokenCredential := azCoreTokenCredential{p: k}
+
+	k.azureClient, err = k.newAzureClient(resourceManagerBearerAuth, azCoreTokenCredential, userAgent)
+	if err != nil {
+		return nil, fmt.Errorf("creating Azure client: %w", err)
+	}
+
 	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)
 	if err != nil {
@@ -229,6 +234,24 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	return &rpc.ConfigureResponse{
 		SupportsPreview: true,
 	}, nil
+}
+
+func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
+	if os.Getenv("PULUMI_USE_AUTOREST") == "false" {
+		return azure.NewAzCoreClient(tokenCred, userAgent, k.getAzureCloud(), nil)
+	}
+	return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
+}
+
+func (k *azureNativeProvider) getAzureCloud() cloud.Configuration {
+	switch k.environment.Name {
+	case azureEnv.ChinaCloud.Name:
+		return cloud.AzureChina
+	case azureEnv.USGovernmentCloud.Name:
+		return cloud.AzureGovernment
+	default:
+		return cloud.AzurePublic
+	}
 }
 
 // Invoke dynamically executes a built-in function in the provider.
@@ -803,9 +826,6 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 		HasDetailedDiff:     true,
 	}
 
-	// response.DetailedDiff["agentPoolProfiles"] = detailedDiff["agentPoolProfiles[0].count"]
-	// delete(response.DetailedDiff, "agentPoolProfiles[0].count")
-
 	response.Diffs[0] = "agentPoolProfiles"
 
 	return &response, nil
@@ -1119,7 +1139,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	}
 	if err != nil {
-		if reqErr, ok := err.(*azureEnv.RequestError); ok && reqErr.StatusCode == http.StatusNotFound {
+		if azure.IsNotFound(err) {
 			// 404 means that the resource was deleted.
 			return &rpc.ReadResponse{Id: ""}, nil
 		}

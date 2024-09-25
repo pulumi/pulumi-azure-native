@@ -339,7 +339,7 @@ func (cred azCoreTokenCredential) GetToken(ctx context.Context, options policy.T
 	if err != nil {
 		return azcore.AccessToken{}, err
 	}
-	token, err := cred.p.getOAuthToken(ctx, authConfig, string(environments.ResourceManagerPublic.Endpoint))
+	token, err := cred.p.getOAuthToken(ctx, authConfig, cred.p.environment.ResourceManagerEndpoint)
 	if err != nil {
 		return azcore.AccessToken{}, err
 	}

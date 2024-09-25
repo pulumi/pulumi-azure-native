@@ -350,7 +350,7 @@ func (r *resourceCrudClient) ResponseBodyToSdkOutputs(response map[string]any) m
 }
 
 func (r *resourceCrudClient) CanCreate(ctx context.Context, id string) error {
-	return r.azureClient.CanCreate(ctx, id, r.res.ReadMethod, r.res.APIVersion, r.res.ReadMethod, r.res.Singleton, r.res.DefaultBody != nil, func(outputs map[string]any) bool {
+	return r.azureClient.CanCreate(ctx, id, r.res.ReadPath, r.res.APIVersion, r.res.ReadMethod, r.res.Singleton, r.res.DefaultBody != nil, func(outputs map[string]any) bool {
 		return r.converter.IsDefaultResponse(r.res.PutParameters, outputs, r.res.DefaultBody)
 	})
 }

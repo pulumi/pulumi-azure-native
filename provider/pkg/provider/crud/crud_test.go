@@ -1,8 +1,15 @@
 package crud
 
 import (
+	"context"
+	"net/http"
 	"testing"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -94,4 +101,105 @@ func TestPathParamsErrorHandling(t *testing.T) {
 		require.NoError(t, err)
 		assert.Equal(t, "/path/deepVal", id)
 	})
+}
+
+func TestCanCreate_RequestUrls(t *testing.T) {
+	const resourceId = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm"
+
+	runTest := func(t *testing.T, res *resources.AzureAPIResource, assertions func(t *testing.T, req *http.Request)) {
+		transp := &requestAssertingTransporter{
+			t:          t,
+			assertions: assertions,
+		}
+		opts := arm.ClientOptions{
+			ClientOptions: policy.ClientOptions{
+				Retry:     policy.RetryOptions{MaxRetries: -1}, // speeds up the tests
+				Telemetry: policy.TelemetryOptions{Disabled: true},
+				Transport: transp,
+			},
+			DisableRPRegistration: true,
+		}
+		client, err := azure.NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+		require.NoError(t, err)
+
+		crudClient := NewResourceCrudClient(client, nil, nil, "123", res)
+		// Runs the assertions as part of HTTP transport
+		crudClient.CanCreate(context.Background(), resourceId)
+	}
+
+	t.Run("explicit GET, no read path", func(t *testing.T) {
+		res := resources.AzureAPIResource{
+			ReadMethod: "GET",
+		}
+		assertions := func(t *testing.T, req *http.Request) {
+			assert.Equal(t, "GET", req.Method)
+			assert.Equal(t, resourceId, req.URL.Path)
+		}
+		runTest(t, &res, assertions)
+	})
+
+	t.Run("explicit GET, read path", func(t *testing.T) {
+		res := resources.AzureAPIResource{
+			ReadMethod: "GET",
+			ReadPath:   "/read/me",
+		}
+		assertions := func(t *testing.T, req *http.Request) {
+			assert.Equal(t, "GET", req.Method)
+			assert.Equal(t, resourceId+"/read/me", req.URL.Path)
+		}
+		runTest(t, &res, assertions)
+	})
+
+	t.Run("implicit GET, no read path", func(t *testing.T) {
+		res := resources.AzureAPIResource{}
+		assertions := func(t *testing.T, req *http.Request) {
+			assert.Equal(t, "GET", req.Method)
+			assert.Equal(t, resourceId, req.URL.Path)
+		}
+		runTest(t, &res, assertions)
+	})
+
+	t.Run("implicit GET, read path", func(t *testing.T) {
+		res := resources.AzureAPIResource{
+			ReadPath: "/read/me",
+		}
+		assertions := func(t *testing.T, req *http.Request) {
+			assert.Equal(t, "GET", req.Method)
+			assert.Equal(t, resourceId+"/read/me", req.URL.Path)
+		}
+		runTest(t, &res, assertions)
+	})
+
+	t.Run("POST, no read path", func(t *testing.T) {
+		res := resources.AzureAPIResource{
+			ReadMethod: "POST",
+			ReadPath:   "/read/me",
+		}
+		assertions := func(t *testing.T, req *http.Request) {
+			assert.Equal(t, "POST", req.Method)
+			assert.Equal(t, resourceId+"/read/me", req.URL.Path)
+		}
+		runTest(t, &res, assertions)
+	})
+
+	t.Run("POST, read path", func(t *testing.T) {
+		res := resources.AzureAPIResource{
+			ReadMethod: "POST",
+		}
+		assertions := func(t *testing.T, req *http.Request) {
+			assert.Equal(t, "POST", req.Method)
+			assert.Equal(t, resourceId, req.URL.Path)
+		}
+		runTest(t, &res, assertions)
+	})
+}
+
+type requestAssertingTransporter struct {
+	t          *testing.T
+	assertions func(*testing.T, *http.Request)
+}
+
+func (r *requestAssertingTransporter) Do(req *http.Request) (*http.Response, error) {
+	r.assertions(r.t, req)
+	return nil, nil
 }
