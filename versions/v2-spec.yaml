@@ -1701,6 +1701,7 @@ SecurityInsights:
     tracking: "2023-02-01"
     additions:
         BookmarkRelation: 2023-06-01-preview
+        BusinessApplicationAgent: 2024-04-01-preview
         ContentPackage: 2023-06-01-preview
         ContentTemplate: 2023-06-01-preview
         DataConnectorDefinition: 2023-07-01-preview
@@ -1712,6 +1713,7 @@ SecurityInsights:
         IncidentTask: 2023-06-01-preview
         ProductSetting: 2023-06-01-preview
         SourceControl: 2023-05-01-preview
+        System: 2024-04-01-preview
         WorkspaceManagerAssignment: 2023-06-01-preview
         WorkspaceManagerConfiguration: 2023-06-01-preview
         WorkspaceManagerGroup: 2023-06-01-preview
@@ -1720,6 +1722,7 @@ SecurityInsights:
         getEntityInsights: 2023-06-01-preview
         listGeodataByIp: 2024-01-01-preview
         listSourceControlRepositories: 2023-06-01-preview
+        listSystemActions: 2024-04-01-preview
         listWhoisByDomain: 2024-01-01-preview
 SerialConsole:
     tracking: "2018-05-01"
@@ -1976,6 +1979,12 @@ Web:
         - provider: Web
           resourcename: listContainerAppSecrets
           detail: version 2023-12-01 is greater than 2022-09-01
+        - provider: Web
+          resourcename: ContainerApp
+          detail: version 2024-04-01 is greater than 2022-09-01
+        - provider: Web
+          resourcename: listContainerAppSecrets
+          detail: version 2024-04-01 is greater than 2022-09-01
 WebPubSub:
     tracking: "2023-02-01"
     additions:

@@ -2369,6 +2369,7 @@
     "AutomationRule": "2023-02-01",
     "Bookmark": "2023-02-01",
     "BookmarkRelation": "2023-06-01-preview",
+    "BusinessApplicationAgent": "2024-04-01-preview",
     "ContentPackage": "2023-06-01-preview",
     "ContentTemplate": "2023-06-01-preview",
     "DataConnector": "2023-02-01",
@@ -2387,6 +2388,7 @@
     "SecurityMLAnalyticsSetting": "2023-02-01",
     "SentinelOnboardingState": "2023-02-01",
     "SourceControl": "2023-05-01-preview",
+    "System": "2024-04-01-preview",
     "ThreatIntelligenceIndicator": "2023-02-01",
     "Watchlist": "2023-02-01",
     "WatchlistItem": "2023-02-01",
@@ -2398,6 +2400,7 @@
     "getEntityInsights": "2023-06-01-preview",
     "listGeodataByIp": "2024-01-01-preview",
     "listSourceControlRepositories": "2023-06-01-preview",
+    "listSystemActions": "2024-04-01-preview",
     "listWhoisByDomain": "2024-01-01-preview"
   },
   "SerialConsole": {

@@ -12880,15 +12880,18 @@
     "namespace": "Microsoft.ComputeSchedule",
     "resourceTypes": [
       {
-        "resourceType": "Operations",
+        "resourceType": "location",
         "apiVersions": [
-          "2023-12-01-preview"
+          "2024-08-15-preview",
+          "2024-08-01-preview",
+          "2024-06-01-preview"
         ]
       },
       {
         "resourceType": "locations",
         "apiVersions": [
           "2024-08-15-preview",
+          "2024-08-01-preview",
           "2024-06-01-preview"
         ]
       },
@@ -12897,6 +12900,12 @@
         "apiVersions": [
           "2024-08-15-preview",
           "2024-06-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/operationstatuses",
+        "apiVersions": [
+          "2024-08-01-preview"
         ]
       },
       {
@@ -12964,6 +12973,13 @@
       },
       {
         "resourceType": "locations/virtualMachinesSubmitStart",
+        "apiVersions": [
+          "2024-08-15-preview",
+          "2024-06-01-preview"
+        ]
+      },
+      {
+        "resourceType": "operations",
         "apiVersions": [
           "2024-08-15-preview",
           "2024-06-01-preview"
@@ -18386,27 +18402,6 @@
     "namespace": "Microsoft.DataLakeStore",
     "resourceTypes": [
       {
-        "resourceType": "accounts",
-        "apiVersions": [
-          "2016-11-01",
-          "2015-10-01-preview"
-        ]
-      },
-      {
-        "resourceType": "accounts/eventGridFilters",
-        "apiVersions": [
-          "2016-11-01",
-          "2015-10-01-preview"
-        ]
-      },
-      {
-        "resourceType": "accounts/firewallRules",
-        "apiVersions": [
-          "2016-11-01",
-          "2015-10-01-preview"
-        ]
-      },
-      {
         "resourceType": "locations",
         "apiVersions": [
           "2016-11-01",
@@ -19226,7 +19221,14 @@
       {
         "resourceType": "watchers",
         "apiVersions": [
+          "2024-07-19-preview",
           "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "watchers/alertRuleResources",
+        "apiVersions": [
+          "2024-07-19-preview"
         ]
       },
       {
@@ -23237,6 +23239,7 @@
       {
         "resourceType": "elasticSans",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-05-01",
           "2023-01-01",
           "2022-12-01-preview",
@@ -23246,6 +23249,7 @@
       {
         "resourceType": "elasticSans/volumeGroups",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-05-01",
           "2023-01-01",
           "2022-12-01-preview",
@@ -23255,12 +23259,14 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2021-11-20-preview"
         ]
       },
       {
         "resourceType": "locations/asyncoperations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-05-01",
           "2023-01-01",
           "2022-12-01-preview",
@@ -23270,6 +23276,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-05-01",
           "2023-01-01",
           "2022-12-01-preview",
@@ -38192,20 +38199,6 @@
     "namespace": "Microsoft.NetworkAnalytics",
     "resourceTypes": [
       {
-        "resourceType": "DataProducts",
-        "apiVersions": [
-          "2024-04-01-preview",
-          "2023-11-15"
-        ]
-      },
-      {
-        "resourceType": "DataProducts/DataTypes",
-        "apiVersions": [
-          "2024-04-01-preview",
-          "2023-11-15"
-        ]
-      },
-      {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
           "2024-04-01-preview",
@@ -38227,13 +38220,6 @@
         "resourceType": "locations",
         "apiVersions": [
           "2024-04-01-preview",
-          "2022-11-15-preview"
-        ]
-      },
-      {
-        "resourceType": "registeredSubscriptions",
-        "apiVersions": [
-          "2023-03-31-preview",
           "2022-11-15-preview"
         ]
       }
@@ -39044,6 +39030,8 @@
       {
         "resourceType": "clusters",
         "apiVersions": [
+          "2023-09-01",
+          "2022-10-01",
           "2021-06-01",
           "2020-10-01",
           "2020-08-01",
@@ -39054,6 +39042,7 @@
       {
         "resourceType": "deletedWorkspaces",
         "apiVersions": [
+          "2023-09-01",
           "2022-10-01",
           "2021-12-01-preview",
           "2020-10-01",
@@ -39092,6 +39081,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2023-09-01",
           "2023-01-01-preview",
           "2022-10-01",
           "2022-09-01-privatepreview",
@@ -39130,6 +39120,7 @@
       {
         "resourceType": "querypacks",
         "apiVersions": [
+          "2023-09-01",
           "2019-09-01-preview",
           "2019-09-01"
         ]
@@ -39172,6 +39163,7 @@
       {
         "resourceType": "workspaces/dataExports",
         "apiVersions": [
+          "2023-09-01",
           "2020-08-01",
           "2020-03-01-preview",
           "2019-08-01-preview"
@@ -39180,6 +39172,7 @@
       {
         "resourceType": "workspaces/dataSources",
         "apiVersions": [
+          "2023-09-01",
           "2020-08-01",
           "2020-03-01-preview",
           "2015-11-01-preview"
@@ -39188,6 +39181,7 @@
       {
         "resourceType": "workspaces/linkedServices",
         "apiVersions": [
+          "2023-09-01",
           "2020-08-01",
           "2020-03-01-preview",
           "2019-08-01-preview",
@@ -39197,6 +39191,7 @@
       {
         "resourceType": "workspaces/linkedStorageAccounts",
         "apiVersions": [
+          "2023-09-01",
           "2020-08-01",
           "2020-03-01-preview",
           "2019-08-01-preview"
@@ -39223,6 +39218,7 @@
       {
         "resourceType": "workspaces/operations",
         "apiVersions": [
+          "2023-09-01",
           "2022-10-01",
           "2020-08-01",
           "2017-04-26-preview",
@@ -39232,6 +39228,7 @@
       {
         "resourceType": "workspaces/purge",
         "apiVersions": [
+          "2023-09-01",
           "2022-10-01",
           "2020-10-01",
           "2020-08-01",
@@ -39256,6 +39253,7 @@
       {
         "resourceType": "workspaces/storageInsightConfigs",
         "apiVersions": [
+          "2023-09-01",
           "2020-08-01",
           "2020-03-01-preview",
           "2017-04-26-preview",
@@ -39275,6 +39273,7 @@
       {
         "resourceType": "workspaces/tables",
         "apiVersions": [
+          "2023-09-01",
           "2023-01-01-preview",
           "2022-10-01",
           "2021-12-01-preview",
@@ -42840,6 +42839,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-07-15-preview",
           "2024-06-05-preview",
           "2023-07-07-preview",
           "2023-06-30",
@@ -42851,6 +42851,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2024-07-15-preview",
           "2024-01-01-preview",
           "2023-07-07-preview",
           "2022-09-13-preview",
@@ -42861,6 +42862,7 @@
       {
         "resourceType": "managedInstances",
         "apiVersions": [
+          "2024-07-15-preview",
           "2024-01-01-preview",
           "2023-07-07-preview",
           "2022-09-13-preview",
@@ -42871,6 +42873,7 @@
       {
         "resourceType": "managedInstances/managedGateways",
         "apiVersions": [
+          "2024-07-15-preview",
           "2024-01-01-preview",
           "2023-07-07-preview"
         ]
@@ -42878,6 +42881,7 @@
       {
         "resourceType": "managedInstances/monitoredResources",
         "apiVersions": [
+          "2024-07-15-preview",
           "2024-01-01-preview",
           "2023-07-07-preview"
         ]
