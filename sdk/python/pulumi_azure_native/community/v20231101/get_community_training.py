@@ -250,9 +250,6 @@ def get_community_training(community_training_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zone_redundancy_enabled=pulumi.get(__ret__, 'zone_redundancy_enabled'))
-
-
-@_utilities.lift_output_func(get_community_training)
 def get_community_training_output(community_training_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommunityTrainingResult]:
@@ -263,4 +260,24 @@ def get_community_training_output(community_training_name: Optional[pulumi.Input
     :param str community_training_name: The name of the Community Training Resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['communityTrainingName'] = community_training_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:community/v20231101:getCommunityTraining', __args__, opts=opts, typ=GetCommunityTrainingResult)
+    return __ret__.apply(lambda __response__: GetCommunityTrainingResult(
+        disaster_recovery_enabled=pulumi.get(__response__, 'disaster_recovery_enabled'),
+        id=pulumi.get(__response__, 'id'),
+        identity_configuration=pulumi.get(__response__, 'identity_configuration'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        portal_admin_email_address=pulumi.get(__response__, 'portal_admin_email_address'),
+        portal_name=pulumi.get(__response__, 'portal_name'),
+        portal_owner_email_address=pulumi.get(__response__, 'portal_owner_email_address'),
+        portal_owner_organization_name=pulumi.get(__response__, 'portal_owner_organization_name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        zone_redundancy_enabled=pulumi.get(__response__, 'zone_redundancy_enabled')))

@@ -185,9 +185,6 @@ def get_evidence(evidence_name: Optional[str] = None,
         responsibility_id=pulumi.get(__ret__, 'responsibility_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_evidence)
 def get_evidence_output(evidence_name: Optional[pulumi.Input[str]] = None,
                         report_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEvidenceResult]:
@@ -198,4 +195,19 @@ def get_evidence_output(evidence_name: Optional[pulumi.Input[str]] = None,
     :param str evidence_name: The evidence name.
     :param str report_name: Report Name.
     """
-    ...
+    __args__ = dict()
+    __args__['evidenceName'] = evidence_name
+    __args__['reportName'] = report_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation/v20240627:getEvidence', __args__, opts=opts, typ=GetEvidenceResult)
+    return __ret__.apply(lambda __response__: GetEvidenceResult(
+        control_id=pulumi.get(__response__, 'control_id'),
+        evidence_type=pulumi.get(__response__, 'evidence_type'),
+        extra_data=pulumi.get(__response__, 'extra_data'),
+        file_path=pulumi.get(__response__, 'file_path'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        responsibility_id=pulumi.get(__response__, 'responsibility_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

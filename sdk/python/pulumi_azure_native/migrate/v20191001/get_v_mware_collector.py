@@ -105,9 +105,6 @@ def get_v_mware_collector(project_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_v_mware_collector)
 def get_v_mware_collector_output(project_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  vm_ware_collector_name: Optional[pulumi.Input[str]] = None,
@@ -120,4 +117,15 @@ def get_v_mware_collector_output(project_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     :param str vm_ware_collector_name: Unique name of a VMware collector within a project.
     """
-    ...
+    __args__ = dict()
+    __args__['projectName'] = project_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vmWareCollectorName'] = vm_ware_collector_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20191001:getVMwareCollector', __args__, opts=opts, typ=GetVMwareCollectorResult)
+    return __ret__.apply(lambda __response__: GetVMwareCollectorResult(
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        type=pulumi.get(__response__, 'type')))

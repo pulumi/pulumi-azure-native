@@ -112,9 +112,6 @@ def get_product_group_link(group_link_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_product_group_link)
 def get_product_group_link_output(group_link_id: Optional[pulumi.Input[str]] = None,
                                   product_id: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -129,4 +126,15 @@ def get_product_group_link_output(group_link_id: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    ...
+    __args__ = dict()
+    __args__['groupLinkId'] = group_link_id
+    __args__['productId'] = product_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230301preview:getProductGroupLink', __args__, opts=opts, typ=GetProductGroupLinkResult)
+    return __ret__.apply(lambda __response__: GetProductGroupLinkResult(
+        group_id=pulumi.get(__response__, 'group_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type')))

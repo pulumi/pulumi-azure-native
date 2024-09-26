@@ -211,9 +211,6 @@ def get_tenant_action_group(management_group_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         voice_receivers=pulumi.get(__ret__, 'voice_receivers'),
         webhook_receivers=pulumi.get(__ret__, 'webhook_receivers'))
-
-
-@_utilities.lift_output_func(get_tenant_action_group)
 def get_tenant_action_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                    tenant_action_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTenantActionGroupResult]:
@@ -224,4 +221,21 @@ def get_tenant_action_group_output(management_group_id: Optional[pulumi.Input[st
     :param str management_group_id: The management group id.
     :param str tenant_action_group_name: The name of the action group.
     """
-    ...
+    __args__ = dict()
+    __args__['managementGroupId'] = management_group_id
+    __args__['tenantActionGroupName'] = tenant_action_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20230501preview:getTenantActionGroup', __args__, opts=opts, typ=GetTenantActionGroupResult)
+    return __ret__.apply(lambda __response__: GetTenantActionGroupResult(
+        azure_app_push_receivers=pulumi.get(__response__, 'azure_app_push_receivers'),
+        email_receivers=pulumi.get(__response__, 'email_receivers'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        group_short_name=pulumi.get(__response__, 'group_short_name'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        sms_receivers=pulumi.get(__response__, 'sms_receivers'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        voice_receivers=pulumi.get(__response__, 'voice_receivers'),
+        webhook_receivers=pulumi.get(__response__, 'webhook_receivers')))

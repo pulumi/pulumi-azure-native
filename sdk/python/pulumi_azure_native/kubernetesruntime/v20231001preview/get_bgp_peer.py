@@ -159,9 +159,6 @@ def get_bgp_peer(bgp_peer_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_bgp_peer)
 def get_bgp_peer_output(bgp_peer_name: Optional[pulumi.Input[str]] = None,
                         resource_uri: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBgpPeerResult]:
@@ -172,4 +169,17 @@ def get_bgp_peer_output(bgp_peer_name: Optional[pulumi.Input[str]] = None,
     :param str bgp_peer_name: The name of the BgpPeer
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['bgpPeerName'] = bgp_peer_name
+    __args__['resourceUri'] = resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesruntime/v20231001preview:getBgpPeer', __args__, opts=opts, typ=GetBgpPeerResult)
+    return __ret__.apply(lambda __response__: GetBgpPeerResult(
+        id=pulumi.get(__response__, 'id'),
+        my_asn=pulumi.get(__response__, 'my_asn'),
+        name=pulumi.get(__response__, 'name'),
+        peer_address=pulumi.get(__response__, 'peer_address'),
+        peer_asn=pulumi.get(__response__, 'peer_asn'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

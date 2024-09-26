@@ -106,9 +106,6 @@ def get_advanced_threat_protection(resource_id: Optional[str] = None,
         is_enabled=pulumi.get(__ret__, 'is_enabled'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_advanced_threat_protection)
 def get_advanced_threat_protection_output(resource_id: Optional[pulumi.Input[str]] = None,
                                           setting_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdvancedThreatProtectionResult]:
@@ -119,4 +116,13 @@ def get_advanced_threat_protection_output(resource_id: Optional[pulumi.Input[str
     :param str resource_id: The identifier of the resource.
     :param str setting_name: Advanced Threat Protection setting name.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceId'] = resource_id
+    __args__['settingName'] = setting_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20190101:getAdvancedThreatProtection', __args__, opts=opts, typ=GetAdvancedThreatProtectionResult)
+    return __ret__.apply(lambda __response__: GetAdvancedThreatProtectionResult(
+        id=pulumi.get(__response__, 'id'),
+        is_enabled=pulumi.get(__response__, 'is_enabled'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type')))

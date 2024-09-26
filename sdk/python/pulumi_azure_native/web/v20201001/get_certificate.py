@@ -393,9 +393,6 @@ def get_certificate(name: Optional[str] = None,
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'),
         valid=pulumi.get(__ret__, 'valid'))
-
-
-@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
@@ -406,4 +403,35 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
+    return __ret__.apply(lambda __response__: GetCertificateResult(
+        canonical_name=pulumi.get(__response__, 'canonical_name'),
+        cer_blob=pulumi.get(__response__, 'cer_blob'),
+        expiration_date=pulumi.get(__response__, 'expiration_date'),
+        friendly_name=pulumi.get(__response__, 'friendly_name'),
+        host_names=pulumi.get(__response__, 'host_names'),
+        hosting_environment_profile=pulumi.get(__response__, 'hosting_environment_profile'),
+        id=pulumi.get(__response__, 'id'),
+        issue_date=pulumi.get(__response__, 'issue_date'),
+        issuer=pulumi.get(__response__, 'issuer'),
+        key_vault_id=pulumi.get(__response__, 'key_vault_id'),
+        key_vault_secret_name=pulumi.get(__response__, 'key_vault_secret_name'),
+        key_vault_secret_status=pulumi.get(__response__, 'key_vault_secret_status'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        pfx_blob=pulumi.get(__response__, 'pfx_blob'),
+        public_key_hash=pulumi.get(__response__, 'public_key_hash'),
+        self_link=pulumi.get(__response__, 'self_link'),
+        server_farm_id=pulumi.get(__response__, 'server_farm_id'),
+        site_name=pulumi.get(__response__, 'site_name'),
+        subject_name=pulumi.get(__response__, 'subject_name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        thumbprint=pulumi.get(__response__, 'thumbprint'),
+        type=pulumi.get(__response__, 'type'),
+        valid=pulumi.get(__response__, 'valid')))

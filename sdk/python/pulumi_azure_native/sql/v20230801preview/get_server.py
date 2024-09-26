@@ -344,9 +344,6 @@ def get_server(expand: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'),
         workspace_feature=pulumi.get(__ret__, 'workspace_feature'))
-
-
-@_utilities.lift_output_func(get_server)
 def get_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       server_name: Optional[pulumi.Input[str]] = None,
@@ -359,4 +356,32 @@ def get_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230801preview:getServer', __args__, opts=opts, typ=GetServerResult)
+    return __ret__.apply(lambda __response__: GetServerResult(
+        administrator_login=pulumi.get(__response__, 'administrator_login'),
+        administrators=pulumi.get(__response__, 'administrators'),
+        external_governance_status=pulumi.get(__response__, 'external_governance_status'),
+        federated_client_id=pulumi.get(__response__, 'federated_client_id'),
+        fully_qualified_domain_name=pulumi.get(__response__, 'fully_qualified_domain_name'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        is_i_pv6_enabled=pulumi.get(__response__, 'is_i_pv6_enabled'),
+        key_id=pulumi.get(__response__, 'key_id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        minimal_tls_version=pulumi.get(__response__, 'minimal_tls_version'),
+        name=pulumi.get(__response__, 'name'),
+        primary_user_assigned_identity_id=pulumi.get(__response__, 'primary_user_assigned_identity_id'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        restrict_outbound_network_access=pulumi.get(__response__, 'restrict_outbound_network_access'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version'),
+        workspace_feature=pulumi.get(__response__, 'workspace_feature')))

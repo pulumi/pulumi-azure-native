@@ -227,9 +227,6 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
         per_node_details=pulumi.get(__ret__, 'per_node_details'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_arc_setting)
 def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                            cluster_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -242,4 +239,23 @@ def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['arcSettingName'] = arc_setting_name
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20210901preview:getArcSetting', __args__, opts=opts, typ=GetArcSettingResult)
+    return __ret__.apply(lambda __response__: GetArcSettingResult(
+        aggregate_state=pulumi.get(__response__, 'aggregate_state'),
+        arc_instance_resource_group=pulumi.get(__response__, 'arc_instance_resource_group'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        created_by_type=pulumi.get(__response__, 'created_by_type'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_at=pulumi.get(__response__, 'last_modified_at'),
+        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
+        last_modified_by_type=pulumi.get(__response__, 'last_modified_by_type'),
+        name=pulumi.get(__response__, 'name'),
+        per_node_details=pulumi.get(__response__, 'per_node_details'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type')))

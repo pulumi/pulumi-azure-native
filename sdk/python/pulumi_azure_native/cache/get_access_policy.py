@@ -125,9 +125,6 @@ def get_access_policy(access_policy_name: Optional[str] = None,
         permissions=pulumi.get(__ret__, 'permissions'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_access_policy)
 def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = None,
                              cache_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -143,4 +140,15 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
     :param str cache_name: The name of the Redis cache.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['accessPolicyName'] = access_policy_name
+    __args__['cacheName'] = cache_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cache:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult)
+    return __ret__.apply(lambda __response__: GetAccessPolicyResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        permissions=pulumi.get(__response__, 'permissions'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type')))

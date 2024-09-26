@@ -227,9 +227,6 @@ def get_diagnostic(diagnostic_id: Optional[str] = None,
         sampling=pulumi.get(__ret__, 'sampling'),
         type=pulumi.get(__ret__, 'type'),
         verbosity=pulumi.get(__ret__, 'verbosity'))
-
-
-@_utilities.lift_output_func(get_diagnostic)
 def get_diagnostic_output(diagnostic_id: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           service_name: Optional[pulumi.Input[str]] = None,
@@ -242,4 +239,23 @@ def get_diagnostic_output(diagnostic_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    ...
+    __args__ = dict()
+    __args__['diagnosticId'] = diagnostic_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:getDiagnostic', __args__, opts=opts, typ=GetDiagnosticResult)
+    return __ret__.apply(lambda __response__: GetDiagnosticResult(
+        always_log=pulumi.get(__response__, 'always_log'),
+        backend=pulumi.get(__response__, 'backend'),
+        frontend=pulumi.get(__response__, 'frontend'),
+        http_correlation_protocol=pulumi.get(__response__, 'http_correlation_protocol'),
+        id=pulumi.get(__response__, 'id'),
+        log_client_ip=pulumi.get(__response__, 'log_client_ip'),
+        logger_id=pulumi.get(__response__, 'logger_id'),
+        metrics=pulumi.get(__response__, 'metrics'),
+        name=pulumi.get(__response__, 'name'),
+        operation_name_format=pulumi.get(__response__, 'operation_name_format'),
+        sampling=pulumi.get(__response__, 'sampling'),
+        type=pulumi.get(__response__, 'type'),
+        verbosity=pulumi.get(__response__, 'verbosity')))

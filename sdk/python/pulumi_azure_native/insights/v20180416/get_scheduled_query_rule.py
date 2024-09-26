@@ -289,9 +289,6 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
         source=pulumi.get(__ret__, 'source'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_scheduled_query_rule)
 def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     rule_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryRuleResult]:
@@ -302,4 +299,27 @@ def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['ruleName'] = rule_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20180416:getScheduledQueryRule', __args__, opts=opts, typ=GetScheduledQueryRuleResult)
+    return __ret__.apply(lambda __response__: GetScheduledQueryRuleResult(
+        action=pulumi.get(__response__, 'action'),
+        auto_mitigate=pulumi.get(__response__, 'auto_mitigate'),
+        created_with_api_version=pulumi.get(__response__, 'created_with_api_version'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        is_legacy_log_analytics_rule=pulumi.get(__response__, 'is_legacy_log_analytics_rule'),
+        kind=pulumi.get(__response__, 'kind'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        schedule=pulumi.get(__response__, 'schedule'),
+        source=pulumi.get(__response__, 'source'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

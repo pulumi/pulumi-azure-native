@@ -536,9 +536,6 @@ def get_scope_access_review_schedule_definition_by_id(schedule_definition_id: Op
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'),
         user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
-
-
-@_utilities.lift_output_func(get_scope_access_review_schedule_definition_by_id)
 def get_scope_access_review_schedule_definition_by_id_output(schedule_definition_id: Optional[pulumi.Input[str]] = None,
                                                              scope: Optional[pulumi.Input[str]] = None,
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeAccessReviewScheduleDefinitionByIdResult]:
@@ -549,4 +546,46 @@ def get_scope_access_review_schedule_definition_by_id_output(schedule_definition
     :param str schedule_definition_id: The id of the access review schedule definition.
     :param str scope: The scope of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['scheduleDefinitionId'] = schedule_definition_id
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20211201preview:getScopeAccessReviewScheduleDefinitionById', __args__, opts=opts, typ=GetScopeAccessReviewScheduleDefinitionByIdResult)
+    return __ret__.apply(lambda __response__: GetScopeAccessReviewScheduleDefinitionByIdResult(
+        assignment_state=pulumi.get(__response__, 'assignment_state'),
+        auto_apply_decisions_enabled=pulumi.get(__response__, 'auto_apply_decisions_enabled'),
+        backup_reviewers=pulumi.get(__response__, 'backup_reviewers'),
+        default_decision=pulumi.get(__response__, 'default_decision'),
+        default_decision_enabled=pulumi.get(__response__, 'default_decision_enabled'),
+        description_for_admins=pulumi.get(__response__, 'description_for_admins'),
+        description_for_reviewers=pulumi.get(__response__, 'description_for_reviewers'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        end_date=pulumi.get(__response__, 'end_date'),
+        exclude_resource_id=pulumi.get(__response__, 'exclude_resource_id'),
+        exclude_role_definition_id=pulumi.get(__response__, 'exclude_role_definition_id'),
+        expand_nested_memberships=pulumi.get(__response__, 'expand_nested_memberships'),
+        id=pulumi.get(__response__, 'id'),
+        inactive_duration=pulumi.get(__response__, 'inactive_duration'),
+        include_access_below_resource=pulumi.get(__response__, 'include_access_below_resource'),
+        include_inherited_access=pulumi.get(__response__, 'include_inherited_access'),
+        instance_duration_in_days=pulumi.get(__response__, 'instance_duration_in_days'),
+        instances=pulumi.get(__response__, 'instances'),
+        interval=pulumi.get(__response__, 'interval'),
+        justification_required_on_approval=pulumi.get(__response__, 'justification_required_on_approval'),
+        mail_notifications_enabled=pulumi.get(__response__, 'mail_notifications_enabled'),
+        name=pulumi.get(__response__, 'name'),
+        number_of_occurrences=pulumi.get(__response__, 'number_of_occurrences'),
+        principal_id=pulumi.get(__response__, 'principal_id'),
+        principal_name=pulumi.get(__response__, 'principal_name'),
+        principal_type=pulumi.get(__response__, 'principal_type'),
+        recommendation_look_back_duration=pulumi.get(__response__, 'recommendation_look_back_duration'),
+        recommendations_enabled=pulumi.get(__response__, 'recommendations_enabled'),
+        reminder_notifications_enabled=pulumi.get(__response__, 'reminder_notifications_enabled'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        reviewers=pulumi.get(__response__, 'reviewers'),
+        reviewers_type=pulumi.get(__response__, 'reviewers_type'),
+        role_definition_id=pulumi.get(__response__, 'role_definition_id'),
+        start_date=pulumi.get(__response__, 'start_date'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type'),
+        user_principal_name=pulumi.get(__response__, 'user_principal_name')))

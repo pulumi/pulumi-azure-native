@@ -68,9 +68,6 @@ def list_mongo_cluster_connection_strings(mongo_cluster_name: Optional[str] = No
 
     return AwaitableListMongoClusterConnectionStringsResult(
         connection_strings=pulumi.get(__ret__, 'connection_strings'))
-
-
-@_utilities.lift_output_func(list_mongo_cluster_connection_strings)
 def list_mongo_cluster_connection_strings_output(mongo_cluster_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMongoClusterConnectionStringsResult]:
@@ -81,4 +78,10 @@ def list_mongo_cluster_connection_strings_output(mongo_cluster_name: Optional[pu
     :param str mongo_cluster_name: The name of the mongo cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['mongoClusterName'] = mongo_cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20240701:listMongoClusterConnectionStrings', __args__, opts=opts, typ=ListMongoClusterConnectionStringsResult)
+    return __ret__.apply(lambda __response__: ListMongoClusterConnectionStringsResult(
+        connection_strings=pulumi.get(__response__, 'connection_strings')))

@@ -185,9 +185,6 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_wan=pulumi.get(__ret__, 'virtual_wan'))
-
-
-@_utilities.lift_output_func(get_virtual_hub)
 def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            virtual_hub_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubResult]:
@@ -198,4 +195,19 @@ def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualHubName'] = virtual_hub_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20180701:getVirtualHub', __args__, opts=opts, typ=GetVirtualHubResult)
+    return __ret__.apply(lambda __response__: GetVirtualHubResult(
+        address_prefix=pulumi.get(__response__, 'address_prefix'),
+        etag=pulumi.get(__response__, 'etag'),
+        hub_virtual_network_connections=pulumi.get(__response__, 'hub_virtual_network_connections'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_wan=pulumi.get(__response__, 'virtual_wan')))

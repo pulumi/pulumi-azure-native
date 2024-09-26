@@ -172,9 +172,6 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
         service_selector=pulumi.get(__ret__, 'service_selector'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_load_balancer)
 def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = None,
                              resource_uri: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
@@ -185,4 +182,18 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
     :param str load_balancer_name: The name of the LoadBalancer
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['loadBalancerName'] = load_balancer_name
+    __args__['resourceUri'] = resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesruntime/v20240301:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
+    return __ret__.apply(lambda __response__: GetLoadBalancerResult(
+        addresses=pulumi.get(__response__, 'addresses'),
+        advertise_mode=pulumi.get(__response__, 'advertise_mode'),
+        bgp_peers=pulumi.get(__response__, 'bgp_peers'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        service_selector=pulumi.get(__response__, 'service_selector'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

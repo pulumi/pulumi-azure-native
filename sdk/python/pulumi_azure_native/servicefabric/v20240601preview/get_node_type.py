@@ -786,9 +786,6 @@ def get_node_type(cluster_name: Optional[str] = None,
         vm_shared_gallery_image_id=pulumi.get(__ret__, 'vm_shared_gallery_image_id'),
         vm_size=pulumi.get(__ret__, 'vm_size'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_node_type)
 def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          node_type_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -801,4 +798,66 @@ def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str node_type_name: The name of the node type.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['nodeTypeName'] = node_type_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20240601preview:getNodeType', __args__, opts=opts, typ=GetNodeTypeResult)
+    return __ret__.apply(lambda __response__: GetNodeTypeResult(
+        additional_data_disks=pulumi.get(__response__, 'additional_data_disks'),
+        additional_network_interface_configurations=pulumi.get(__response__, 'additional_network_interface_configurations'),
+        application_ports=pulumi.get(__response__, 'application_ports'),
+        capacities=pulumi.get(__response__, 'capacities'),
+        computer_name_prefix=pulumi.get(__response__, 'computer_name_prefix'),
+        data_disk_letter=pulumi.get(__response__, 'data_disk_letter'),
+        data_disk_size_gb=pulumi.get(__response__, 'data_disk_size_gb'),
+        data_disk_type=pulumi.get(__response__, 'data_disk_type'),
+        dscp_configuration_id=pulumi.get(__response__, 'dscp_configuration_id'),
+        enable_accelerated_networking=pulumi.get(__response__, 'enable_accelerated_networking'),
+        enable_encryption_at_host=pulumi.get(__response__, 'enable_encryption_at_host'),
+        enable_node_public_ip=pulumi.get(__response__, 'enable_node_public_ip'),
+        enable_node_public_i_pv6=pulumi.get(__response__, 'enable_node_public_i_pv6'),
+        enable_over_provisioning=pulumi.get(__response__, 'enable_over_provisioning'),
+        ephemeral_ports=pulumi.get(__response__, 'ephemeral_ports'),
+        eviction_policy=pulumi.get(__response__, 'eviction_policy'),
+        frontend_configurations=pulumi.get(__response__, 'frontend_configurations'),
+        host_group_id=pulumi.get(__response__, 'host_group_id'),
+        id=pulumi.get(__response__, 'id'),
+        is_primary=pulumi.get(__response__, 'is_primary'),
+        is_spot_vm=pulumi.get(__response__, 'is_spot_vm'),
+        is_stateless=pulumi.get(__response__, 'is_stateless'),
+        multiple_placement_groups=pulumi.get(__response__, 'multiple_placement_groups'),
+        name=pulumi.get(__response__, 'name'),
+        nat_configurations=pulumi.get(__response__, 'nat_configurations'),
+        nat_gateway_id=pulumi.get(__response__, 'nat_gateway_id'),
+        network_security_rules=pulumi.get(__response__, 'network_security_rules'),
+        placement_properties=pulumi.get(__response__, 'placement_properties'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        secure_boot_enabled=pulumi.get(__response__, 'secure_boot_enabled'),
+        security_type=pulumi.get(__response__, 'security_type'),
+        service_artifact_reference_id=pulumi.get(__response__, 'service_artifact_reference_id'),
+        sku=pulumi.get(__response__, 'sku'),
+        spot_restore_timeout=pulumi.get(__response__, 'spot_restore_timeout'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        use_default_public_load_balancer=pulumi.get(__response__, 'use_default_public_load_balancer'),
+        use_ephemeral_os_disk=pulumi.get(__response__, 'use_ephemeral_os_disk'),
+        use_temp_data_disk=pulumi.get(__response__, 'use_temp_data_disk'),
+        vm_applications=pulumi.get(__response__, 'vm_applications'),
+        vm_extensions=pulumi.get(__response__, 'vm_extensions'),
+        vm_image_offer=pulumi.get(__response__, 'vm_image_offer'),
+        vm_image_plan=pulumi.get(__response__, 'vm_image_plan'),
+        vm_image_publisher=pulumi.get(__response__, 'vm_image_publisher'),
+        vm_image_resource_id=pulumi.get(__response__, 'vm_image_resource_id'),
+        vm_image_sku=pulumi.get(__response__, 'vm_image_sku'),
+        vm_image_version=pulumi.get(__response__, 'vm_image_version'),
+        vm_instance_count=pulumi.get(__response__, 'vm_instance_count'),
+        vm_managed_identity=pulumi.get(__response__, 'vm_managed_identity'),
+        vm_secrets=pulumi.get(__response__, 'vm_secrets'),
+        vm_setup_actions=pulumi.get(__response__, 'vm_setup_actions'),
+        vm_shared_gallery_image_id=pulumi.get(__response__, 'vm_shared_gallery_image_id'),
+        vm_size=pulumi.get(__response__, 'vm_size'),
+        zones=pulumi.get(__response__, 'zones')))

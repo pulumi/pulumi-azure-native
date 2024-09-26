@@ -588,9 +588,6 @@ def get_disk(disk_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         unique_id=pulumi.get(__ret__, 'unique_id'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_disk)
 def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskResult]:
@@ -601,4 +598,50 @@ def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
     :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['diskName'] = disk_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20220702:getDisk', __args__, opts=opts, typ=GetDiskResult)
+    return __ret__.apply(lambda __response__: GetDiskResult(
+        bursting_enabled=pulumi.get(__response__, 'bursting_enabled'),
+        bursting_enabled_time=pulumi.get(__response__, 'bursting_enabled_time'),
+        completion_percent=pulumi.get(__response__, 'completion_percent'),
+        creation_data=pulumi.get(__response__, 'creation_data'),
+        data_access_auth_mode=pulumi.get(__response__, 'data_access_auth_mode'),
+        disk_access_id=pulumi.get(__response__, 'disk_access_id'),
+        disk_iops_read_only=pulumi.get(__response__, 'disk_iops_read_only'),
+        disk_iops_read_write=pulumi.get(__response__, 'disk_iops_read_write'),
+        disk_m_bps_read_only=pulumi.get(__response__, 'disk_m_bps_read_only'),
+        disk_m_bps_read_write=pulumi.get(__response__, 'disk_m_bps_read_write'),
+        disk_size_bytes=pulumi.get(__response__, 'disk_size_bytes'),
+        disk_size_gb=pulumi.get(__response__, 'disk_size_gb'),
+        disk_state=pulumi.get(__response__, 'disk_state'),
+        encryption=pulumi.get(__response__, 'encryption'),
+        encryption_settings_collection=pulumi.get(__response__, 'encryption_settings_collection'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        hyper_v_generation=pulumi.get(__response__, 'hyper_v_generation'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        managed_by=pulumi.get(__response__, 'managed_by'),
+        managed_by_extended=pulumi.get(__response__, 'managed_by_extended'),
+        max_shares=pulumi.get(__response__, 'max_shares'),
+        name=pulumi.get(__response__, 'name'),
+        network_access_policy=pulumi.get(__response__, 'network_access_policy'),
+        optimized_for_frequent_attach=pulumi.get(__response__, 'optimized_for_frequent_attach'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        property_updates_in_progress=pulumi.get(__response__, 'property_updates_in_progress'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        purchase_plan=pulumi.get(__response__, 'purchase_plan'),
+        security_profile=pulumi.get(__response__, 'security_profile'),
+        share_info=pulumi.get(__response__, 'share_info'),
+        sku=pulumi.get(__response__, 'sku'),
+        supported_capabilities=pulumi.get(__response__, 'supported_capabilities'),
+        supports_hibernation=pulumi.get(__response__, 'supports_hibernation'),
+        tags=pulumi.get(__response__, 'tags'),
+        tier=pulumi.get(__response__, 'tier'),
+        time_created=pulumi.get(__response__, 'time_created'),
+        type=pulumi.get(__response__, 'type'),
+        unique_id=pulumi.get(__response__, 'unique_id'),
+        zones=pulumi.get(__response__, 'zones')))

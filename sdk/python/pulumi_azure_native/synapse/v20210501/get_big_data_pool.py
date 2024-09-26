@@ -357,9 +357,6 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
         spark_version=pulumi.get(__ret__, 'spark_version'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_big_data_pool)
 def get_big_data_pool_output(big_data_pool_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              workspace_name: Optional[pulumi.Input[str]] = None,
@@ -372,4 +369,33 @@ def get_big_data_pool_output(big_data_pool_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
-    ...
+    __args__ = dict()
+    __args__['bigDataPoolName'] = big_data_pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210501:getBigDataPool', __args__, opts=opts, typ=GetBigDataPoolResult)
+    return __ret__.apply(lambda __response__: GetBigDataPoolResult(
+        auto_pause=pulumi.get(__response__, 'auto_pause'),
+        auto_scale=pulumi.get(__response__, 'auto_scale'),
+        cache_size=pulumi.get(__response__, 'cache_size'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        custom_libraries=pulumi.get(__response__, 'custom_libraries'),
+        default_spark_log_folder=pulumi.get(__response__, 'default_spark_log_folder'),
+        dynamic_executor_allocation=pulumi.get(__response__, 'dynamic_executor_allocation'),
+        id=pulumi.get(__response__, 'id'),
+        is_compute_isolation_enabled=pulumi.get(__response__, 'is_compute_isolation_enabled'),
+        last_succeeded_timestamp=pulumi.get(__response__, 'last_succeeded_timestamp'),
+        library_requirements=pulumi.get(__response__, 'library_requirements'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        node_count=pulumi.get(__response__, 'node_count'),
+        node_size=pulumi.get(__response__, 'node_size'),
+        node_size_family=pulumi.get(__response__, 'node_size_family'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        session_level_packages_enabled=pulumi.get(__response__, 'session_level_packages_enabled'),
+        spark_config_properties=pulumi.get(__response__, 'spark_config_properties'),
+        spark_events_folder=pulumi.get(__response__, 'spark_events_folder'),
+        spark_version=pulumi.get(__response__, 'spark_version'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

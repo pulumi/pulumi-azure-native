@@ -237,9 +237,6 @@ def get_route_policy(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_route_policy)
 def get_route_policy_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             route_policy_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoutePolicyResult]:
@@ -250,4 +247,23 @@ def get_route_policy_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str route_policy_name: Name of the Route Policy.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['routePolicyName'] = route_policy_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getRoutePolicy', __args__, opts=opts, typ=GetRoutePolicyResult)
+    return __ret__.apply(lambda __response__: GetRoutePolicyResult(
+        address_family_type=pulumi.get(__response__, 'address_family_type'),
+        administrative_state=pulumi.get(__response__, 'administrative_state'),
+        annotation=pulumi.get(__response__, 'annotation'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
+        default_action=pulumi.get(__response__, 'default_action'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_fabric_id=pulumi.get(__response__, 'network_fabric_id'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        statements=pulumi.get(__response__, 'statements'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

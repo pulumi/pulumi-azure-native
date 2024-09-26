@@ -269,9 +269,6 @@ def get_lab(expand: Optional[str] = None,
         usage_quota=pulumi.get(__ret__, 'usage_quota'),
         user_access_mode=pulumi.get(__ret__, 'user_access_mode'),
         user_quota=pulumi.get(__ret__, 'user_quota'))
-
-
-@_utilities.lift_output_func(get_lab)
 def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    lab_account_name: Optional[pulumi.Input[str]] = None,
                    lab_name: Optional[pulumi.Input[str]] = None,
@@ -286,4 +283,27 @@ def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str lab_name: The name of the lab.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['labAccountName'] = lab_account_name
+    __args__['labName'] = lab_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices/v20181015:getLab', __args__, opts=opts, typ=GetLabResult)
+    return __ret__.apply(lambda __response__: GetLabResult(
+        created_by_object_id=pulumi.get(__response__, 'created_by_object_id'),
+        created_by_user_principal_name=pulumi.get(__response__, 'created_by_user_principal_name'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        id=pulumi.get(__response__, 'id'),
+        invitation_code=pulumi.get(__response__, 'invitation_code'),
+        latest_operation_result=pulumi.get(__response__, 'latest_operation_result'),
+        location=pulumi.get(__response__, 'location'),
+        max_users_in_lab=pulumi.get(__response__, 'max_users_in_lab'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        unique_identifier=pulumi.get(__response__, 'unique_identifier'),
+        usage_quota=pulumi.get(__response__, 'usage_quota'),
+        user_access_mode=pulumi.get(__response__, 'user_access_mode'),
+        user_quota=pulumi.get(__response__, 'user_quota')))

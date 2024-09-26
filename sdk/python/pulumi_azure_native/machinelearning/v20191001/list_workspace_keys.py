@@ -80,9 +80,6 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
     return AwaitableListWorkspaceKeysResult(
         primary_token=pulumi.get(__ret__, 'primary_token'),
         secondary_token=pulumi.get(__ret__, 'secondary_token'))
-
-
-@_utilities.lift_output_func(list_workspace_keys)
 def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
@@ -93,4 +90,11 @@ def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group to which the machine learning workspace belongs.
     :param str workspace_name: The name of the machine learning workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearning/v20191001:listWorkspaceKeys', __args__, opts=opts, typ=ListWorkspaceKeysResult)
+    return __ret__.apply(lambda __response__: ListWorkspaceKeysResult(
+        primary_token=pulumi.get(__response__, 'primary_token'),
+        secondary_token=pulumi.get(__response__, 'secondary_token')))

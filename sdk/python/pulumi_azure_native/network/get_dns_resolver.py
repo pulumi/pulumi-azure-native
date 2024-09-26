@@ -199,9 +199,6 @@ def get_dns_resolver(dns_resolver_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'))
-
-
-@_utilities.lift_output_func(get_dns_resolver)
 def get_dns_resolver_output(dns_resolver_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsResolverResult]:
@@ -213,4 +210,20 @@ def get_dns_resolver_output(dns_resolver_name: Optional[pulumi.Input[str]] = Non
     :param str dns_resolver_name: The name of the DNS resolver.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['dnsResolverName'] = dns_resolver_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getDnsResolver', __args__, opts=opts, typ=GetDnsResolverResult)
+    return __ret__.apply(lambda __response__: GetDnsResolverResult(
+        dns_resolver_state=pulumi.get(__response__, 'dns_resolver_state'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_network=pulumi.get(__response__, 'virtual_network')))

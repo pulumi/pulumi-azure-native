@@ -193,9 +193,6 @@ def get_web_app_relay_service_connection(entity_name: Optional[str] = None,
         resource_type=pulumi.get(__ret__, 'resource_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_web_app_relay_service_connection)
 def get_web_app_relay_service_connection_output(entity_name: Optional[pulumi.Input[str]] = None,
                                                 name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -208,4 +205,22 @@ def get_web_app_relay_service_connection_output(entity_name: Optional[pulumi.Inp
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['entityName'] = entity_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:getWebAppRelayServiceConnection', __args__, opts=opts, typ=GetWebAppRelayServiceConnectionResult)
+    return __ret__.apply(lambda __response__: GetWebAppRelayServiceConnectionResult(
+        biztalk_uri=pulumi.get(__response__, 'biztalk_uri'),
+        entity_connection_string=pulumi.get(__response__, 'entity_connection_string'),
+        entity_name=pulumi.get(__response__, 'entity_name'),
+        hostname=pulumi.get(__response__, 'hostname'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        port=pulumi.get(__response__, 'port'),
+        resource_connection_string=pulumi.get(__response__, 'resource_connection_string'),
+        resource_type=pulumi.get(__response__, 'resource_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

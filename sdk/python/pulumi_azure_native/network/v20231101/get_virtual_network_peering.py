@@ -370,9 +370,6 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         type=pulumi.get(__ret__, 'type'),
         use_remote_gateways=pulumi.get(__ret__, 'use_remote_gateways'))
-
-
-@_utilities.lift_output_func(get_virtual_network_peering)
 def get_virtual_network_peering_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        virtual_network_name: Optional[pulumi.Input[str]] = None,
                                        virtual_network_peering_name: Optional[pulumi.Input[str]] = None,
@@ -385,4 +382,34 @@ def get_virtual_network_peering_output(resource_group_name: Optional[pulumi.Inpu
     :param str virtual_network_name: The name of the virtual network.
     :param str virtual_network_peering_name: The name of the virtual network peering.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualNetworkName'] = virtual_network_name
+    __args__['virtualNetworkPeeringName'] = virtual_network_peering_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20231101:getVirtualNetworkPeering', __args__, opts=opts, typ=GetVirtualNetworkPeeringResult)
+    return __ret__.apply(lambda __response__: GetVirtualNetworkPeeringResult(
+        allow_forwarded_traffic=pulumi.get(__response__, 'allow_forwarded_traffic'),
+        allow_gateway_transit=pulumi.get(__response__, 'allow_gateway_transit'),
+        allow_virtual_network_access=pulumi.get(__response__, 'allow_virtual_network_access'),
+        do_not_verify_remote_gateways=pulumi.get(__response__, 'do_not_verify_remote_gateways'),
+        enable_only_i_pv6_peering=pulumi.get(__response__, 'enable_only_i_pv6_peering'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        local_address_space=pulumi.get(__response__, 'local_address_space'),
+        local_subnet_names=pulumi.get(__response__, 'local_subnet_names'),
+        local_virtual_network_address_space=pulumi.get(__response__, 'local_virtual_network_address_space'),
+        name=pulumi.get(__response__, 'name'),
+        peer_complete_vnets=pulumi.get(__response__, 'peer_complete_vnets'),
+        peering_state=pulumi.get(__response__, 'peering_state'),
+        peering_sync_level=pulumi.get(__response__, 'peering_sync_level'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        remote_address_space=pulumi.get(__response__, 'remote_address_space'),
+        remote_bgp_communities=pulumi.get(__response__, 'remote_bgp_communities'),
+        remote_subnet_names=pulumi.get(__response__, 'remote_subnet_names'),
+        remote_virtual_network=pulumi.get(__response__, 'remote_virtual_network'),
+        remote_virtual_network_address_space=pulumi.get(__response__, 'remote_virtual_network_address_space'),
+        remote_virtual_network_encryption=pulumi.get(__response__, 'remote_virtual_network_encryption'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        type=pulumi.get(__response__, 'type'),
+        use_remote_gateways=pulumi.get(__response__, 'use_remote_gateways')))

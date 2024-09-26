@@ -177,9 +177,6 @@ def get_sync_agent(resource_group_name: Optional[str] = None,
         sync_database_id=pulumi.get(__ret__, 'sync_database_id'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_sync_agent)
 def get_sync_agent_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                           server_name: Optional[pulumi.Input[str]] = None,
                           sync_agent_name: Optional[pulumi.Input[str]] = None,
@@ -195,4 +192,19 @@ def get_sync_agent_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     :param str server_name: The name of the server on which the sync agent is hosted.
     :param str sync_agent_name: The name of the sync agent.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    __args__['syncAgentName'] = sync_agent_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getSyncAgent', __args__, opts=opts, typ=GetSyncAgentResult)
+    return __ret__.apply(lambda __response__: GetSyncAgentResult(
+        expiry_time=pulumi.get(__response__, 'expiry_time'),
+        id=pulumi.get(__response__, 'id'),
+        is_up_to_date=pulumi.get(__response__, 'is_up_to_date'),
+        last_alive_time=pulumi.get(__response__, 'last_alive_time'),
+        name=pulumi.get(__response__, 'name'),
+        state=pulumi.get(__response__, 'state'),
+        sync_database_id=pulumi.get(__response__, 'sync_database_id'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

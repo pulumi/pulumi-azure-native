@@ -165,9 +165,6 @@ def get_provider_instance(monitor_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_provider_instance)
 def get_provider_instance_output(monitor_name: Optional[pulumi.Input[str]] = None,
                                  provider_instance_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -183,4 +180,18 @@ def get_provider_instance_output(monitor_name: Optional[pulumi.Input[str]] = Non
     :param str provider_instance_name: Name of the provider instance.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['monitorName'] = monitor_name
+    __args__['providerInstanceName'] = provider_instance_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getProviderInstance', __args__, opts=opts, typ=GetProviderInstanceResult)
+    return __ret__.apply(lambda __response__: GetProviderInstanceResult(
+        errors=pulumi.get(__response__, 'errors'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        name=pulumi.get(__response__, 'name'),
+        provider_settings=pulumi.get(__response__, 'provider_settings'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -124,9 +124,6 @@ def listprovisioned_cluster_instance_admin_kubeconfig(connected_cluster_resource
         properties=pulumi.get(__ret__, 'properties'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(listprovisioned_cluster_instance_admin_kubeconfig)
 def listprovisioned_cluster_instance_admin_kubeconfig_output(connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListprovisionedClusterInstanceAdminKubeconfigResult]:
     """
@@ -135,4 +132,14 @@ def listprovisioned_cluster_instance_admin_kubeconfig_output(connected_cluster_r
 
     :param str connected_cluster_resource_uri: The fully qualified Azure Resource Manager identifier of the connected cluster resource.
     """
-    ...
+    __args__ = dict()
+    __args__['connectedClusterResourceUri'] = connected_cluster_resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice/v20240101:listprovisionedClusterInstanceAdminKubeconfig', __args__, opts=opts, typ=ListprovisionedClusterInstanceAdminKubeconfigResult)
+    return __ret__.apply(lambda __response__: ListprovisionedClusterInstanceAdminKubeconfigResult(
+        error=pulumi.get(__response__, 'error'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        status=pulumi.get(__response__, 'status')))

@@ -184,9 +184,6 @@ def get_graph_query(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_modified=pulumi.get(__ret__, 'time_modified'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_graph_query)
 def get_graph_query_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            resource_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphQueryResult]:
@@ -197,4 +194,19 @@ def get_graph_query_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the Graph Query resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:resourcegraph/v20180901preview:getGraphQuery', __args__, opts=opts, typ=GetGraphQueryResult)
+    return __ret__.apply(lambda __response__: GetGraphQueryResult(
+        description=pulumi.get(__response__, 'description'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        query=pulumi.get(__response__, 'query'),
+        result_kind=pulumi.get(__response__, 'result_kind'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_modified=pulumi.get(__response__, 'time_modified'),
+        type=pulumi.get(__response__, 'type')))

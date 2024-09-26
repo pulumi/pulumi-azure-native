@@ -360,9 +360,6 @@ def get_web_pub_sub(resource_group_name: Optional[str] = None,
         tls=pulumi.get(__ret__, 'tls'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_web_pub_sub)
 def get_web_pub_sub_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            resource_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubResult]:
@@ -373,4 +370,32 @@ def get_web_pub_sub_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:webpubsub/v20210901preview:getWebPubSub', __args__, opts=opts, typ=GetWebPubSubResult)
+    return __ret__.apply(lambda __response__: GetWebPubSubResult(
+        disable_aad_auth=pulumi.get(__response__, 'disable_aad_auth'),
+        disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
+        event_handler=pulumi.get(__response__, 'event_handler'),
+        external_ip=pulumi.get(__response__, 'external_ip'),
+        host_name=pulumi.get(__response__, 'host_name'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        live_trace_configuration=pulumi.get(__response__, 'live_trace_configuration'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_acls=pulumi.get(__response__, 'network_acls'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        public_port=pulumi.get(__response__, 'public_port'),
+        server_port=pulumi.get(__response__, 'server_port'),
+        shared_private_link_resources=pulumi.get(__response__, 'shared_private_link_resources'),
+        sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        tls=pulumi.get(__response__, 'tls'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

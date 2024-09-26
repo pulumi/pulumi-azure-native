@@ -510,9 +510,6 @@ def get_account(account_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_rules=pulumi.get(__ret__, 'virtual_network_rules'))
-
-
-@_utilities.lift_output_func(get_account)
 def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
@@ -523,4 +520,44 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: The name of the Data Lake Analytics account.
     :param str resource_group_name: The name of the Azure resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datalakeanalytics/v20191101preview:getAccount', __args__, opts=opts, typ=GetAccountResult)
+    return __ret__.apply(lambda __response__: GetAccountResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        compute_policies=pulumi.get(__response__, 'compute_policies'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        current_tier=pulumi.get(__response__, 'current_tier'),
+        data_lake_store_accounts=pulumi.get(__response__, 'data_lake_store_accounts'),
+        debug_data_access_level=pulumi.get(__response__, 'debug_data_access_level'),
+        default_data_lake_store_account=pulumi.get(__response__, 'default_data_lake_store_account'),
+        default_data_lake_store_account_type=pulumi.get(__response__, 'default_data_lake_store_account_type'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        firewall_allow_azure_ips=pulumi.get(__response__, 'firewall_allow_azure_ips'),
+        firewall_rules=pulumi.get(__response__, 'firewall_rules'),
+        firewall_state=pulumi.get(__response__, 'firewall_state'),
+        hive_metastores=pulumi.get(__response__, 'hive_metastores'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        location=pulumi.get(__response__, 'location'),
+        max_active_job_count_per_user=pulumi.get(__response__, 'max_active_job_count_per_user'),
+        max_degree_of_parallelism=pulumi.get(__response__, 'max_degree_of_parallelism'),
+        max_degree_of_parallelism_per_job=pulumi.get(__response__, 'max_degree_of_parallelism_per_job'),
+        max_job_count=pulumi.get(__response__, 'max_job_count'),
+        max_job_running_time_in_min=pulumi.get(__response__, 'max_job_running_time_in_min'),
+        max_queued_job_count_per_user=pulumi.get(__response__, 'max_queued_job_count_per_user'),
+        min_priority_per_job=pulumi.get(__response__, 'min_priority_per_job'),
+        name=pulumi.get(__response__, 'name'),
+        new_tier=pulumi.get(__response__, 'new_tier'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_data_lake_store_accounts=pulumi.get(__response__, 'public_data_lake_store_accounts'),
+        query_store_retention=pulumi.get(__response__, 'query_store_retention'),
+        state=pulumi.get(__response__, 'state'),
+        storage_accounts=pulumi.get(__response__, 'storage_accounts'),
+        system_max_degree_of_parallelism=pulumi.get(__response__, 'system_max_degree_of_parallelism'),
+        system_max_job_count=pulumi.get(__response__, 'system_max_job_count'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_network_rules=pulumi.get(__response__, 'virtual_network_rules')))

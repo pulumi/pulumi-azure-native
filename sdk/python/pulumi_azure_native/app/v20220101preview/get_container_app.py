@@ -250,9 +250,6 @@ def get_container_app(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template=pulumi.get(__ret__, 'template'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_container_app)
 def get_container_app_output(name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppResult]:
@@ -263,4 +260,24 @@ def get_container_app_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the Container App.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20220101preview:getContainerApp', __args__, opts=opts, typ=GetContainerAppResult)
+    return __ret__.apply(lambda __response__: GetContainerAppResult(
+        configuration=pulumi.get(__response__, 'configuration'),
+        custom_domain_verification_id=pulumi.get(__response__, 'custom_domain_verification_id'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        latest_revision_fqdn=pulumi.get(__response__, 'latest_revision_fqdn'),
+        latest_revision_name=pulumi.get(__response__, 'latest_revision_name'),
+        location=pulumi.get(__response__, 'location'),
+        managed_environment_id=pulumi.get(__response__, 'managed_environment_id'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        template=pulumi.get(__response__, 'template'),
+        type=pulumi.get(__response__, 'type')))

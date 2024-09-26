@@ -68,9 +68,6 @@ def get_event_subscription_delivery_attributes(event_subscription_name: Optional
 
     return AwaitableGetEventSubscriptionDeliveryAttributesResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_event_subscription_delivery_attributes)
 def get_event_subscription_delivery_attributes_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                       scope: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionDeliveryAttributesResult]:
@@ -81,4 +78,10 @@ def get_event_subscription_delivery_attributes_output(event_subscription_name: O
     :param str event_subscription_name: Name of the event subscription.
     :param str scope: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
     """
-    ...
+    __args__ = dict()
+    __args__['eventSubscriptionName'] = event_subscription_name
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20240601preview:getEventSubscriptionDeliveryAttributes', __args__, opts=opts, typ=GetEventSubscriptionDeliveryAttributesResult)
+    return __ret__.apply(lambda __response__: GetEventSubscriptionDeliveryAttributesResult(
+        value=pulumi.get(__response__, 'value')))

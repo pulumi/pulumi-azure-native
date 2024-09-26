@@ -129,9 +129,6 @@ def get_labeling_job(include_job_instructions: Optional[bool] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_labeling_job)
 def get_labeling_job_output(include_job_instructions: Optional[pulumi.Input[Optional[bool]]] = None,
                             include_label_categories: Optional[pulumi.Input[Optional[bool]]] = None,
                             labeling_job_id: Optional[pulumi.Input[str]] = None,
@@ -148,4 +145,17 @@ def get_labeling_job_output(include_job_instructions: Optional[pulumi.Input[Opti
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['includeJobInstructions'] = include_job_instructions
+    __args__['includeLabelCategories'] = include_label_categories
+    __args__['labelingJobId'] = labeling_job_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20200901preview:getLabelingJob', __args__, opts=opts, typ=GetLabelingJobResult)
+    return __ret__.apply(lambda __response__: GetLabelingJobResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

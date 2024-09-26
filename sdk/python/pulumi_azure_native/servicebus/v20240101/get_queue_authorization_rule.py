@@ -139,9 +139,6 @@ def get_queue_authorization_rule(authorization_rule_name: Optional[str] = None,
         rights=pulumi.get(__ret__, 'rights'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_queue_authorization_rule)
 def get_queue_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
                                         namespace_name: Optional[pulumi.Input[str]] = None,
                                         queue_name: Optional[pulumi.Input[str]] = None,
@@ -156,4 +153,17 @@ def get_queue_authorization_rule_output(authorization_rule_name: Optional[pulumi
     :param str queue_name: The queue name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['authorizationRuleName'] = authorization_rule_name
+    __args__['namespaceName'] = namespace_name
+    __args__['queueName'] = queue_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus/v20240101:getQueueAuthorizationRule', __args__, opts=opts, typ=GetQueueAuthorizationRuleResult)
+    return __ret__.apply(lambda __response__: GetQueueAuthorizationRuleResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        rights=pulumi.get(__response__, 'rights'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

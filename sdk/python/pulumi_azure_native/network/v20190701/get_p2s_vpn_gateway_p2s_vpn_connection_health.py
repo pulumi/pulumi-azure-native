@@ -224,9 +224,6 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health(gateway_name: Optional[str] = 
         vpn_client_address_pool=pulumi.get(__ret__, 'vpn_client_address_pool'),
         vpn_client_connection_health=pulumi.get(__ret__, 'vpn_client_connection_health'),
         vpn_gateway_scale_unit=pulumi.get(__ret__, 'vpn_gateway_scale_unit'))
-
-
-@_utilities.lift_output_func(get_p2s_vpn_gateway_p2s_vpn_connection_health)
 def get_p2s_vpn_gateway_p2s_vpn_connection_health_output(gateway_name: Optional[pulumi.Input[str]] = None,
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetP2sVpnGatewayP2sVpnConnectionHealthResult]:
@@ -237,4 +234,22 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_output(gateway_name: Optional[
     :param str gateway_name: The name of the P2SVpnGateway.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['gatewayName'] = gateway_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20190701:getP2sVpnGatewayP2sVpnConnectionHealth', __args__, opts=opts, typ=GetP2sVpnGatewayP2sVpnConnectionHealthResult)
+    return __ret__.apply(lambda __response__: GetP2sVpnGatewayP2sVpnConnectionHealthResult(
+        custom_routes=pulumi.get(__response__, 'custom_routes'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        p2_s_vpn_server_configuration=pulumi.get(__response__, 'p2_s_vpn_server_configuration'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_hub=pulumi.get(__response__, 'virtual_hub'),
+        vpn_client_address_pool=pulumi.get(__response__, 'vpn_client_address_pool'),
+        vpn_client_connection_health=pulumi.get(__response__, 'vpn_client_connection_health'),
+        vpn_gateway_scale_unit=pulumi.get(__response__, 'vpn_gateway_scale_unit')))

@@ -136,9 +136,6 @@ def list_static_site_build_function_app_settings(name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(list_static_site_build_function_app_settings)
 def list_static_site_build_function_app_settings_output(name: Optional[pulumi.Input[str]] = None,
                                                         pr_id: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,4 +148,16 @@ def list_static_site_build_function_app_settings_output(name: Optional[pulumi.In
     :param str pr_id: The stage site identifier.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['prId'] = pr_id
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:listStaticSiteBuildFunctionAppSettings', __args__, opts=opts, typ=ListStaticSiteBuildFunctionAppSettingsResult)
+    return __ret__.apply(lambda __response__: ListStaticSiteBuildFunctionAppSettingsResult(
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

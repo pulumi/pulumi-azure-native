@@ -302,9 +302,6 @@ def get_workbook(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_id=pulumi.get(__ret__, 'user_id'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_workbook)
 def get_workbook_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookResult]:
@@ -315,4 +312,28 @@ def get_workbook_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20210308:getWorkbook', __args__, opts=opts, typ=GetWorkbookResult)
+    return __ret__.apply(lambda __response__: GetWorkbookResult(
+        category=pulumi.get(__response__, 'category'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        revision=pulumi.get(__response__, 'revision'),
+        serialized_data=pulumi.get(__response__, 'serialized_data'),
+        source_id=pulumi.get(__response__, 'source_id'),
+        storage_uri=pulumi.get(__response__, 'storage_uri'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_modified=pulumi.get(__response__, 'time_modified'),
+        type=pulumi.get(__response__, 'type'),
+        user_id=pulumi.get(__response__, 'user_id'),
+        version=pulumi.get(__response__, 'version')))

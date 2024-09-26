@@ -132,9 +132,6 @@ def get_guest_diagnostics_settings_association(association_name: Optional[str] =
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_guest_diagnostics_settings_association)
 def get_guest_diagnostics_settings_association_output(association_name: Optional[pulumi.Input[str]] = None,
                                                       resource_uri: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestDiagnosticsSettingsAssociationResult]:
@@ -145,4 +142,15 @@ def get_guest_diagnostics_settings_association_output(association_name: Optional
     :param str association_name: The name of the diagnostic settings association.
     :param str resource_uri: The fully qualified ID of the resource, including the resource name and resource type.
     """
-    ...
+    __args__ = dict()
+    __args__['associationName'] = association_name
+    __args__['resourceUri'] = resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20180601preview:getGuestDiagnosticsSettingsAssociation', __args__, opts=opts, typ=GetGuestDiagnosticsSettingsAssociationResult)
+    return __ret__.apply(lambda __response__: GetGuestDiagnosticsSettingsAssociationResult(
+        guest_diagnostic_settings_name=pulumi.get(__response__, 'guest_diagnostic_settings_name'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

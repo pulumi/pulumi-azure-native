@@ -238,9 +238,6 @@ def get_private_store_collection(collection_id: Optional[str] = None,
         subscriptions_list=pulumi.get(__ret__, 'subscriptions_list'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_private_store_collection)
 def get_private_store_collection_output(collection_id: Optional[pulumi.Input[str]] = None,
                                         private_store_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreCollectionResult]:
@@ -252,4 +249,23 @@ def get_private_store_collection_output(collection_id: Optional[pulumi.Input[str
     :param str collection_id: The collection ID
     :param str private_store_id: The store ID - must use the tenant ID
     """
-    ...
+    __args__ = dict()
+    __args__['collectionId'] = collection_id
+    __args__['privateStoreId'] = private_store_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:marketplace:getPrivateStoreCollection', __args__, opts=opts, typ=GetPrivateStoreCollectionResult)
+    return __ret__.apply(lambda __response__: GetPrivateStoreCollectionResult(
+        all_subscriptions=pulumi.get(__response__, 'all_subscriptions'),
+        applied_rules=pulumi.get(__response__, 'applied_rules'),
+        approve_all_items=pulumi.get(__response__, 'approve_all_items'),
+        approve_all_items_modified_at=pulumi.get(__response__, 'approve_all_items_modified_at'),
+        claim=pulumi.get(__response__, 'claim'),
+        collection_id=pulumi.get(__response__, 'collection_id'),
+        collection_name=pulumi.get(__response__, 'collection_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        number_of_offers=pulumi.get(__response__, 'number_of_offers'),
+        subscriptions_list=pulumi.get(__response__, 'subscriptions_list'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

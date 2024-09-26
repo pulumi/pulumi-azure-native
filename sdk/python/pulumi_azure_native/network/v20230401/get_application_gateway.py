@@ -627,9 +627,6 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
         url_path_maps=pulumi.get(__ret__, 'url_path_maps'),
         web_application_firewall_configuration=pulumi.get(__ret__, 'web_application_firewall_configuration'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_application_gateway)
 def get_application_gateway_output(application_gateway_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGatewayResult]:
@@ -640,4 +637,53 @@ def get_application_gateway_output(application_gateway_name: Optional[pulumi.Inp
     :param str application_gateway_name: The name of the application gateway.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationGatewayName'] = application_gateway_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getApplicationGateway', __args__, opts=opts, typ=GetApplicationGatewayResult)
+    return __ret__.apply(lambda __response__: GetApplicationGatewayResult(
+        authentication_certificates=pulumi.get(__response__, 'authentication_certificates'),
+        autoscale_configuration=pulumi.get(__response__, 'autoscale_configuration'),
+        backend_address_pools=pulumi.get(__response__, 'backend_address_pools'),
+        backend_http_settings_collection=pulumi.get(__response__, 'backend_http_settings_collection'),
+        backend_settings_collection=pulumi.get(__response__, 'backend_settings_collection'),
+        custom_error_configurations=pulumi.get(__response__, 'custom_error_configurations'),
+        default_predefined_ssl_policy=pulumi.get(__response__, 'default_predefined_ssl_policy'),
+        enable_fips=pulumi.get(__response__, 'enable_fips'),
+        enable_http2=pulumi.get(__response__, 'enable_http2'),
+        etag=pulumi.get(__response__, 'etag'),
+        firewall_policy=pulumi.get(__response__, 'firewall_policy'),
+        force_firewall_policy_association=pulumi.get(__response__, 'force_firewall_policy_association'),
+        frontend_ip_configurations=pulumi.get(__response__, 'frontend_ip_configurations'),
+        frontend_ports=pulumi.get(__response__, 'frontend_ports'),
+        gateway_ip_configurations=pulumi.get(__response__, 'gateway_ip_configurations'),
+        global_configuration=pulumi.get(__response__, 'global_configuration'),
+        http_listeners=pulumi.get(__response__, 'http_listeners'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        listeners=pulumi.get(__response__, 'listeners'),
+        load_distribution_policies=pulumi.get(__response__, 'load_distribution_policies'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        operational_state=pulumi.get(__response__, 'operational_state'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        private_link_configurations=pulumi.get(__response__, 'private_link_configurations'),
+        probes=pulumi.get(__response__, 'probes'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        redirect_configurations=pulumi.get(__response__, 'redirect_configurations'),
+        request_routing_rules=pulumi.get(__response__, 'request_routing_rules'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        rewrite_rule_sets=pulumi.get(__response__, 'rewrite_rule_sets'),
+        routing_rules=pulumi.get(__response__, 'routing_rules'),
+        sku=pulumi.get(__response__, 'sku'),
+        ssl_certificates=pulumi.get(__response__, 'ssl_certificates'),
+        ssl_policy=pulumi.get(__response__, 'ssl_policy'),
+        ssl_profiles=pulumi.get(__response__, 'ssl_profiles'),
+        tags=pulumi.get(__response__, 'tags'),
+        trusted_client_certificates=pulumi.get(__response__, 'trusted_client_certificates'),
+        trusted_root_certificates=pulumi.get(__response__, 'trusted_root_certificates'),
+        type=pulumi.get(__response__, 'type'),
+        url_path_maps=pulumi.get(__response__, 'url_path_maps'),
+        web_application_firewall_configuration=pulumi.get(__response__, 'web_application_firewall_configuration'),
+        zones=pulumi.get(__response__, 'zones')))

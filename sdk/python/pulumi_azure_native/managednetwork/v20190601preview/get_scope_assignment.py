@@ -145,9 +145,6 @@ def get_scope_assignment(scope: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_scope_assignment)
 def get_scope_assignment_output(scope: Optional[pulumi.Input[str]] = None,
                                 scope_assignment_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeAssignmentResult]:
@@ -158,4 +155,16 @@ def get_scope_assignment_output(scope: Optional[pulumi.Input[str]] = None,
     :param str scope: The base resource of the scope assignment.
     :param str scope_assignment_name: The name of the scope assignment to get.
     """
-    ...
+    __args__ = dict()
+    __args__['scope'] = scope
+    __args__['scopeAssignmentName'] = scope_assignment_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetwork/v20190601preview:getScopeAssignment', __args__, opts=opts, typ=GetScopeAssignmentResult)
+    return __ret__.apply(lambda __response__: GetScopeAssignmentResult(
+        assigned_managed_network=pulumi.get(__response__, 'assigned_managed_network'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type')))

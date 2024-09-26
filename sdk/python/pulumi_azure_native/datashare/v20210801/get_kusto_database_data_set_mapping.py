@@ -192,9 +192,6 @@ def get_kusto_database_data_set_mapping(account_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_kusto_database_data_set_mapping)
 def get_kusto_database_data_set_mapping_output(account_name: Optional[pulumi.Input[str]] = None,
                                                data_set_mapping_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -209,4 +206,21 @@ def get_kusto_database_data_set_mapping_output(account_name: Optional[pulumi.Inp
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['dataSetMappingName'] = data_set_mapping_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['shareSubscriptionName'] = share_subscription_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20210801:getKustoDatabaseDataSetMapping', __args__, opts=opts, typ=GetKustoDatabaseDataSetMappingResult)
+    return __ret__.apply(lambda __response__: GetKustoDatabaseDataSetMappingResult(
+        data_set_id=pulumi.get(__response__, 'data_set_id'),
+        data_set_mapping_status=pulumi.get(__response__, 'data_set_mapping_status'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        kusto_cluster_resource_id=pulumi.get(__response__, 'kusto_cluster_resource_id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

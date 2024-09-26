@@ -240,9 +240,6 @@ def get_project_environment_type(environment_type_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         user_role_assignments=pulumi.get(__ret__, 'user_role_assignments'))
-
-
-@_utilities.lift_output_func(get_project_environment_type)
 def get_project_environment_type_output(environment_type_name: Optional[pulumi.Input[str]] = None,
                                         project_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -255,4 +252,24 @@ def get_project_environment_type_output(environment_type_name: Optional[pulumi.I
     :param str project_name: The name of the project.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['environmentTypeName'] = environment_type_name
+    __args__['projectName'] = project_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20240501preview:getProjectEnvironmentType', __args__, opts=opts, typ=GetProjectEnvironmentTypeResult)
+    return __ret__.apply(lambda __response__: GetProjectEnvironmentTypeResult(
+        creator_role_assignment=pulumi.get(__response__, 'creator_role_assignment'),
+        deployment_target_id=pulumi.get(__response__, 'deployment_target_id'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        environment_count=pulumi.get(__response__, 'environment_count'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        user_role_assignments=pulumi.get(__response__, 'user_role_assignments')))

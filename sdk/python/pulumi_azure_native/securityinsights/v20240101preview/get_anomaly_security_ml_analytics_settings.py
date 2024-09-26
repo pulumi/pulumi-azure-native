@@ -319,9 +319,6 @@ def get_anomaly_security_ml_analytics_settings(resource_group_name: Optional[str
         tactics=pulumi.get(__ret__, 'tactics'),
         techniques=pulumi.get(__ret__, 'techniques'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_anomaly_security_ml_analytics_settings)
 def get_anomaly_security_ml_analytics_settings_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                       settings_resource_name: Optional[pulumi.Input[str]] = None,
                                                       workspace_name: Optional[pulumi.Input[str]] = None,
@@ -334,4 +331,30 @@ def get_anomaly_security_ml_analytics_settings_output(resource_group_name: Optio
     :param str settings_resource_name: Security ML Analytics Settings resource name
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['settingsResourceName'] = settings_resource_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240101preview:getAnomalySecurityMLAnalyticsSettings', __args__, opts=opts, typ=GetAnomalySecurityMLAnalyticsSettingsResult)
+    return __ret__.apply(lambda __response__: GetAnomalySecurityMLAnalyticsSettingsResult(
+        anomaly_settings_version=pulumi.get(__response__, 'anomaly_settings_version'),
+        anomaly_version=pulumi.get(__response__, 'anomaly_version'),
+        customizable_observations=pulumi.get(__response__, 'customizable_observations'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        etag=pulumi.get(__response__, 'etag'),
+        frequency=pulumi.get(__response__, 'frequency'),
+        id=pulumi.get(__response__, 'id'),
+        is_default_settings=pulumi.get(__response__, 'is_default_settings'),
+        kind=pulumi.get(__response__, 'kind'),
+        last_modified_utc=pulumi.get(__response__, 'last_modified_utc'),
+        name=pulumi.get(__response__, 'name'),
+        required_data_connectors=pulumi.get(__response__, 'required_data_connectors'),
+        settings_definition_id=pulumi.get(__response__, 'settings_definition_id'),
+        settings_status=pulumi.get(__response__, 'settings_status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tactics=pulumi.get(__response__, 'tactics'),
+        techniques=pulumi.get(__response__, 'techniques'),
+        type=pulumi.get(__response__, 'type')))

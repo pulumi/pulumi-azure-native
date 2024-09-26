@@ -110,9 +110,6 @@ def get_queue_service_properties(account_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_queue_service_properties)
 def get_queue_service_properties_output(account_name: Optional[pulumi.Input[str]] = None,
                                         queue_service_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -125,4 +122,14 @@ def get_queue_service_properties_output(account_name: Optional[pulumi.Input[str]
     :param str queue_service_name: The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['queueServiceName'] = queue_service_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230501:getQueueServiceProperties', __args__, opts=opts, typ=GetQueueServicePropertiesResult)
+    return __ret__.apply(lambda __response__: GetQueueServicePropertiesResult(
+        cors=pulumi.get(__response__, 'cors'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type')))

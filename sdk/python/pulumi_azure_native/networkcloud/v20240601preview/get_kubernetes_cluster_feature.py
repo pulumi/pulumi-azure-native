@@ -224,9 +224,6 @@ def get_kubernetes_cluster_feature(feature_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_kubernetes_cluster_feature)
 def get_kubernetes_cluster_feature_output(feature_name: Optional[pulumi.Input[str]] = None,
                                           kubernetes_cluster_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -239,4 +236,23 @@ def get_kubernetes_cluster_feature_output(feature_name: Optional[pulumi.Input[st
     :param str kubernetes_cluster_name: The name of the Kubernetes cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['featureName'] = feature_name
+    __args__['kubernetesClusterName'] = kubernetes_cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20240601preview:getKubernetesClusterFeature', __args__, opts=opts, typ=GetKubernetesClusterFeatureResult)
+    return __ret__.apply(lambda __response__: GetKubernetesClusterFeatureResult(
+        availability_lifecycle=pulumi.get(__response__, 'availability_lifecycle'),
+        detailed_status=pulumi.get(__response__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        options=pulumi.get(__response__, 'options'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        required=pulumi.get(__response__, 'required'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

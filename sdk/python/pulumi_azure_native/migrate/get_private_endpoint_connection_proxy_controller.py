@@ -125,9 +125,6 @@ def get_private_endpoint_connection_proxy_controller(migrate_project_name: Optio
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_private_endpoint_connection_proxy_controller)
 def get_private_endpoint_connection_proxy_controller_output(migrate_project_name: Optional[pulumi.Input[str]] = None,
                                                             pec_proxy_name: Optional[pulumi.Input[str]] = None,
                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -141,4 +138,16 @@ def get_private_endpoint_connection_proxy_controller_output(migrate_project_name
     :param str pec_proxy_name: Private link proxy name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['migrateProjectName'] = migrate_project_name
+    __args__['pecProxyName'] = pec_proxy_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getPrivateEndpointConnectionProxyController', __args__, opts=opts, typ=GetPrivateEndpointConnectionProxyControllerResult)
+    return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionProxyControllerResult(
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

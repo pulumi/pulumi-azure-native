@@ -164,9 +164,6 @@ def get_api_tag_description(api_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tag_id=pulumi.get(__ret__, 'tag_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_api_tag_description)
 def get_api_tag_description_output(api_id: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    service_name: Optional[pulumi.Input[str]] = None,
@@ -181,4 +178,19 @@ def get_api_tag_description_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of the API Management service.
     :param str tag_description_id: Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
     """
-    ...
+    __args__ = dict()
+    __args__['apiId'] = api_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['tagDescriptionId'] = tag_description_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240501:getApiTagDescription', __args__, opts=opts, typ=GetApiTagDescriptionResult)
+    return __ret__.apply(lambda __response__: GetApiTagDescriptionResult(
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        external_docs_description=pulumi.get(__response__, 'external_docs_description'),
+        external_docs_url=pulumi.get(__response__, 'external_docs_url'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tag_id=pulumi.get(__response__, 'tag_id'),
+        type=pulumi.get(__response__, 'type')))

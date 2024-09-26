@@ -380,9 +380,6 @@ def get_namespace(namespace_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-
-
-@_utilities.lift_output_func(get_namespace)
 def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
@@ -393,4 +390,34 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub/v20240101:getNamespace', __args__, opts=opts, typ=GetNamespaceResult)
+    return __ret__.apply(lambda __response__: GetNamespaceResult(
+        alternate_name=pulumi.get(__response__, 'alternate_name'),
+        cluster_arm_id=pulumi.get(__response__, 'cluster_arm_id'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
+        encryption=pulumi.get(__response__, 'encryption'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        is_auto_inflate_enabled=pulumi.get(__response__, 'is_auto_inflate_enabled'),
+        kafka_enabled=pulumi.get(__response__, 'kafka_enabled'),
+        location=pulumi.get(__response__, 'location'),
+        maximum_throughput_units=pulumi.get(__response__, 'maximum_throughput_units'),
+        metric_id=pulumi.get(__response__, 'metric_id'),
+        minimum_tls_version=pulumi.get(__response__, 'minimum_tls_version'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        service_bus_endpoint=pulumi.get(__response__, 'service_bus_endpoint'),
+        sku=pulumi.get(__response__, 'sku'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        updated_at=pulumi.get(__response__, 'updated_at'),
+        zone_redundant=pulumi.get(__response__, 'zone_redundant')))

@@ -212,9 +212,6 @@ def get_internet_gateway(internet_gateway_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_internet_gateway)
 def get_internet_gateway_output(internet_gateway_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternetGatewayResult]:
@@ -226,4 +223,21 @@ def get_internet_gateway_output(internet_gateway_name: Optional[pulumi.Input[str
     :param str internet_gateway_name: Name of the Internet Gateway.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['internetGatewayName'] = internet_gateway_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getInternetGateway', __args__, opts=opts, typ=GetInternetGatewayResult)
+    return __ret__.apply(lambda __response__: GetInternetGatewayResult(
+        annotation=pulumi.get(__response__, 'annotation'),
+        id=pulumi.get(__response__, 'id'),
+        internet_gateway_rule_id=pulumi.get(__response__, 'internet_gateway_rule_id'),
+        ipv4_address=pulumi.get(__response__, 'ipv4_address'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_fabric_controller_id=pulumi.get(__response__, 'network_fabric_controller_id'),
+        port=pulumi.get(__response__, 'port'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

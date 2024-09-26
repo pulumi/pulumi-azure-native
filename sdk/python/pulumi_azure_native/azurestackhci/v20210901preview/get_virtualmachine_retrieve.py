@@ -285,9 +285,6 @@ def get_virtualmachine_retrieve(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_id=pulumi.get(__ret__, 'vm_id'))
-
-
-@_utilities.lift_output_func(get_virtualmachine_retrieve)
 def get_virtualmachine_retrieve_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        virtualmachines_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualmachineRetrieveResult]:
@@ -297,4 +294,27 @@ def get_virtualmachine_retrieve_output(resource_group_name: Optional[pulumi.Inpu
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualmachinesName'] = virtualmachines_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20210901preview:getVirtualmachineRetrieve', __args__, opts=opts, typ=GetVirtualmachineRetrieveResult)
+    return __ret__.apply(lambda __response__: GetVirtualmachineRetrieveResult(
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        guest_agent_profile=pulumi.get(__response__, 'guest_agent_profile'),
+        hardware_profile=pulumi.get(__response__, 'hardware_profile'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
+        os_profile=pulumi.get(__response__, 'os_profile'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_name=pulumi.get(__response__, 'resource_name'),
+        security_profile=pulumi.get(__response__, 'security_profile'),
+        status=pulumi.get(__response__, 'status'),
+        storage_profile=pulumi.get(__response__, 'storage_profile'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        vm_id=pulumi.get(__response__, 'vm_id')))

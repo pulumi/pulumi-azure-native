@@ -204,9 +204,6 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         validation_data=pulumi.get(__ret__, 'validation_data'))
-
-
-@_utilities.lift_output_func(get_custom_domain)
 def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = None,
                              endpoint_name: Optional[pulumi.Input[str]] = None,
                              profile_name: Optional[pulumi.Input[str]] = None,
@@ -221,4 +218,22 @@ def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = N
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['customDomainName'] = custom_domain_name
+    __args__['endpointName'] = endpoint_name
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20230501:getCustomDomain', __args__, opts=opts, typ=GetCustomDomainResult)
+    return __ret__.apply(lambda __response__: GetCustomDomainResult(
+        custom_https_parameters=pulumi.get(__response__, 'custom_https_parameters'),
+        custom_https_provisioning_state=pulumi.get(__response__, 'custom_https_provisioning_state'),
+        custom_https_provisioning_substate=pulumi.get(__response__, 'custom_https_provisioning_substate'),
+        host_name=pulumi.get(__response__, 'host_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_state=pulumi.get(__response__, 'resource_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        validation_data=pulumi.get(__response__, 'validation_data')))

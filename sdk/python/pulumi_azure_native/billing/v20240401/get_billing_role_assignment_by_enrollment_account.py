@@ -136,9 +136,6 @@ def get_billing_role_assignment_by_enrollment_account(billing_account_name: Opti
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_billing_role_assignment_by_enrollment_account)
 def get_billing_role_assignment_by_enrollment_account_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                                              billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
                                                              enrollment_account_name: Optional[pulumi.Input[str]] = None,
@@ -151,4 +148,16 @@ def get_billing_role_assignment_by_enrollment_account_output(billing_account_nam
     :param str billing_role_assignment_name: The ID that uniquely identifies a role assignment.
     :param str enrollment_account_name: The name of the enrollment account.
     """
-    ...
+    __args__ = dict()
+    __args__['billingAccountName'] = billing_account_name
+    __args__['billingRoleAssignmentName'] = billing_role_assignment_name
+    __args__['enrollmentAccountName'] = enrollment_account_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:billing/v20240401:getBillingRoleAssignmentByEnrollmentAccount', __args__, opts=opts, typ=GetBillingRoleAssignmentByEnrollmentAccountResult)
+    return __ret__.apply(lambda __response__: GetBillingRoleAssignmentByEnrollmentAccountResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

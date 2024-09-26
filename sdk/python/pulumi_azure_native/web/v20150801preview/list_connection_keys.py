@@ -98,9 +98,6 @@ def list_connection_keys(connection_name: Optional[str] = None,
     return AwaitableListConnectionKeysResult(
         connection_key=pulumi.get(__ret__, 'connection_key'),
         parameter_values=pulumi.get(__ret__, 'parameter_values'))
-
-
-@_utilities.lift_output_func(list_connection_keys)
 def list_connection_keys_output(connection_name: Optional[pulumi.Input[str]] = None,
                                 id: Optional[pulumi.Input[Optional[str]]] = None,
                                 kind: Optional[pulumi.Input[Optional[str]]] = None,
@@ -125,4 +122,18 @@ def list_connection_keys_output(connection_name: Optional[pulumi.Input[str]] = N
     :param str type: Resource type
     :param str validity_time_span: time span for how long the keys will be valid
     """
-    ...
+    __args__ = dict()
+    __args__['connectionName'] = connection_name
+    __args__['id'] = id
+    __args__['kind'] = kind
+    __args__['location'] = location
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    __args__['type'] = type
+    __args__['validityTimeSpan'] = validity_time_span
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20150801preview:listConnectionKeys', __args__, opts=opts, typ=ListConnectionKeysResult)
+    return __ret__.apply(lambda __response__: ListConnectionKeysResult(
+        connection_key=pulumi.get(__response__, 'connection_key'),
+        parameter_values=pulumi.get(__response__, 'parameter_values')))

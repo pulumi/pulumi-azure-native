@@ -162,9 +162,6 @@ def get_hybrid_runbook_worker_group(automation_account_name: Optional[str] = Non
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_hybrid_runbook_worker_group)
 def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                            hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -177,4 +174,18 @@ def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pul
     :param str hybrid_runbook_worker_group_name: The hybrid runbook worker group name
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['automationAccountName'] = automation_account_name
+    __args__['hybridRunbookWorkerGroupName'] = hybrid_runbook_worker_group_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:getHybridRunbookWorkerGroup', __args__, opts=opts, typ=GetHybridRunbookWorkerGroupResult)
+    return __ret__.apply(lambda __response__: GetHybridRunbookWorkerGroupResult(
+        credential=pulumi.get(__response__, 'credential'),
+        group_type=pulumi.get(__response__, 'group_type'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

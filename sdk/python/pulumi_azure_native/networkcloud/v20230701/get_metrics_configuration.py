@@ -224,9 +224,6 @@ def get_metrics_configuration(cluster_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_metrics_configuration)
 def get_metrics_configuration_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                      metrics_configuration_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -239,4 +236,23 @@ def get_metrics_configuration_output(cluster_name: Optional[pulumi.Input[str]] =
     :param str metrics_configuration_name: The name of the metrics configuration for the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['metricsConfigurationName'] = metrics_configuration_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20230701:getMetricsConfiguration', __args__, opts=opts, typ=GetMetricsConfigurationResult)
+    return __ret__.apply(lambda __response__: GetMetricsConfigurationResult(
+        collection_interval=pulumi.get(__response__, 'collection_interval'),
+        detailed_status=pulumi.get(__response__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        disabled_metrics=pulumi.get(__response__, 'disabled_metrics'),
+        enabled_metrics=pulumi.get(__response__, 'enabled_metrics'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

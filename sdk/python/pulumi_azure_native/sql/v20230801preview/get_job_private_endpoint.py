@@ -125,9 +125,6 @@ def get_job_private_endpoint(job_agent_name: Optional[str] = None,
         private_endpoint_id=pulumi.get(__ret__, 'private_endpoint_id'),
         target_server_azure_resource_id=pulumi.get(__ret__, 'target_server_azure_resource_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_job_private_endpoint)
 def get_job_private_endpoint_output(job_agent_name: Optional[pulumi.Input[str]] = None,
                                     private_endpoint_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -142,4 +139,16 @@ def get_job_private_endpoint_output(job_agent_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    ...
+    __args__ = dict()
+    __args__['jobAgentName'] = job_agent_name
+    __args__['privateEndpointName'] = private_endpoint_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230801preview:getJobPrivateEndpoint', __args__, opts=opts, typ=GetJobPrivateEndpointResult)
+    return __ret__.apply(lambda __response__: GetJobPrivateEndpointResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint_id=pulumi.get(__response__, 'private_endpoint_id'),
+        target_server_azure_resource_id=pulumi.get(__response__, 'target_server_azure_resource_id'),
+        type=pulumi.get(__response__, 'type')))

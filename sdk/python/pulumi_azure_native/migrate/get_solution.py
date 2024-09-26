@@ -124,9 +124,6 @@ def get_solution(migrate_project_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_solution)
 def get_solution_output(migrate_project_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         solution_name: Optional[pulumi.Input[str]] = None,
@@ -140,4 +137,15 @@ def get_solution_output(migrate_project_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: Name of the Azure Resource Group that migrate project is part of.
     :param str solution_name: Unique name of a migration solution within a migrate project.
     """
-    ...
+    __args__ = dict()
+    __args__['migrateProjectName'] = migrate_project_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['solutionName'] = solution_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getSolution', __args__, opts=opts, typ=GetSolutionResult)
+    return __ret__.apply(lambda __response__: GetSolutionResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        type=pulumi.get(__response__, 'type')))

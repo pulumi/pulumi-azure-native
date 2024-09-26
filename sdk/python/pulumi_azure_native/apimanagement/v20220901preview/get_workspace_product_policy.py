@@ -131,9 +131,6 @@ def get_workspace_product_policy(format: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_workspace_product_policy)
 def get_workspace_product_policy_output(format: Optional[pulumi.Input[Optional[str]]] = None,
                                         policy_id: Optional[pulumi.Input[str]] = None,
                                         product_id: Optional[pulumi.Input[str]] = None,
@@ -152,4 +149,18 @@ def get_workspace_product_policy_output(format: Optional[pulumi.Input[Optional[s
     :param str service_name: The name of the API Management service.
     :param str workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
     """
-    ...
+    __args__ = dict()
+    __args__['format'] = format
+    __args__['policyId'] = policy_id
+    __args__['productId'] = product_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20220901preview:getWorkspaceProductPolicy', __args__, opts=opts, typ=GetWorkspaceProductPolicyResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceProductPolicyResult(
+        format=pulumi.get(__response__, 'format'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type'),
+        value=pulumi.get(__response__, 'value')))
