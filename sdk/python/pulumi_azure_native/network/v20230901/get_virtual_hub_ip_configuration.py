@@ -175,9 +175,6 @@ def get_virtual_hub_ip_configuration(ip_config_name: Optional[str] = None,
         public_ip_address=pulumi.get(__ret__, 'public_ip_address'),
         subnet=pulumi.get(__ret__, 'subnet'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_virtual_hub_ip_configuration)
 def get_virtual_hub_ip_configuration_output(ip_config_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             virtual_hub_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_virtual_hub_ip_configuration_output(ip_config_name: Optional[pulumi.Inpu
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
-    ...
+    __args__ = dict()
+    __args__['ipConfigName'] = ip_config_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualHubName'] = virtual_hub_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230901:getVirtualHubIpConfiguration', __args__, opts=opts, typ=GetVirtualHubIpConfigurationResult)
+    return __ret__.apply(lambda __response__: GetVirtualHubIpConfigurationResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        private_ip_address=pulumi.get(__response__, 'private_ip_address'),
+        private_ip_allocation_method=pulumi.get(__response__, 'private_ip_allocation_method'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_ip_address=pulumi.get(__response__, 'public_ip_address'),
+        subnet=pulumi.get(__response__, 'subnet'),
+        type=pulumi.get(__response__, 'type')))

@@ -292,9 +292,6 @@ def get_express_route_cross_connection_peering(cross_connection_name: Optional[s
         shared_key=pulumi.get(__ret__, 'shared_key'),
         state=pulumi.get(__ret__, 'state'),
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
-
-
-@_utilities.lift_output_func(get_express_route_cross_connection_peering)
 def get_express_route_cross_connection_peering_output(cross_connection_name: Optional[pulumi.Input[str]] = None,
                                                       peering_name: Optional[pulumi.Input[str]] = None,
                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -307,4 +304,28 @@ def get_express_route_cross_connection_peering_output(cross_connection_name: Opt
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['crossConnectionName'] = cross_connection_name
+    __args__['peeringName'] = peering_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:getExpressRouteCrossConnectionPeering', __args__, opts=opts, typ=GetExpressRouteCrossConnectionPeeringResult)
+    return __ret__.apply(lambda __response__: GetExpressRouteCrossConnectionPeeringResult(
+        azure_asn=pulumi.get(__response__, 'azure_asn'),
+        etag=pulumi.get(__response__, 'etag'),
+        gateway_manager_etag=pulumi.get(__response__, 'gateway_manager_etag'),
+        id=pulumi.get(__response__, 'id'),
+        ipv6_peering_config=pulumi.get(__response__, 'ipv6_peering_config'),
+        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
+        microsoft_peering_config=pulumi.get(__response__, 'microsoft_peering_config'),
+        name=pulumi.get(__response__, 'name'),
+        peer_asn=pulumi.get(__response__, 'peer_asn'),
+        peering_type=pulumi.get(__response__, 'peering_type'),
+        primary_azure_port=pulumi.get(__response__, 'primary_azure_port'),
+        primary_peer_address_prefix=pulumi.get(__response__, 'primary_peer_address_prefix'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        secondary_azure_port=pulumi.get(__response__, 'secondary_azure_port'),
+        secondary_peer_address_prefix=pulumi.get(__response__, 'secondary_peer_address_prefix'),
+        shared_key=pulumi.get(__response__, 'shared_key'),
+        state=pulumi.get(__response__, 'state'),
+        vlan_id=pulumi.get(__response__, 'vlan_id')))

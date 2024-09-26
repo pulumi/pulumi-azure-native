@@ -201,9 +201,6 @@ def get_availability_set(availability_set_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machines=pulumi.get(__ret__, 'virtual_machines'))
-
-
-@_utilities.lift_output_func(get_availability_set)
 def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilitySetResult]:
@@ -217,4 +214,20 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str
     :param str availability_set_name: The name of the availability set.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['availabilitySetName'] = availability_set_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getAvailabilitySet', __args__, opts=opts, typ=GetAvailabilitySetResult)
+    return __ret__.apply(lambda __response__: GetAvailabilitySetResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        platform_fault_domain_count=pulumi.get(__response__, 'platform_fault_domain_count'),
+        platform_update_domain_count=pulumi.get(__response__, 'platform_update_domain_count'),
+        proximity_placement_group=pulumi.get(__response__, 'proximity_placement_group'),
+        sku=pulumi.get(__response__, 'sku'),
+        statuses=pulumi.get(__response__, 'statuses'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_machines=pulumi.get(__response__, 'virtual_machines')))

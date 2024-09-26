@@ -80,9 +80,6 @@ def list_topic_shared_access_keys(resource_group_name: Optional[str] = None,
     return AwaitableListTopicSharedAccessKeysResult(
         key1=pulumi.get(__ret__, 'key1'),
         key2=pulumi.get(__ret__, 'key2'))
-
-
-@_utilities.lift_output_func(list_topic_shared_access_keys)
 def list_topic_shared_access_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                          topic_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTopicSharedAccessKeysResult]:
@@ -93,4 +90,11 @@ def list_topic_shared_access_keys_output(resource_group_name: Optional[pulumi.In
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the topic.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['topicName'] = topic_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20240601preview:listTopicSharedAccessKeys', __args__, opts=opts, typ=ListTopicSharedAccessKeysResult)
+    return __ret__.apply(lambda __response__: ListTopicSharedAccessKeysResult(
+        key1=pulumi.get(__response__, 'key1'),
+        key2=pulumi.get(__response__, 'key2')))

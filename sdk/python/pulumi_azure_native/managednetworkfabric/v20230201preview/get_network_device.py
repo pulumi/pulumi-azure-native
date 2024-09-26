@@ -237,9 +237,6 @@ def get_network_device(network_device_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_network_device)
 def get_network_device_output(network_device_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkDeviceResult]:
@@ -250,4 +247,23 @@ def get_network_device_output(network_device_name: Optional[pulumi.Input[str]] =
     :param str network_device_name: Name of the Network Device
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['networkDeviceName'] = network_device_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230201preview:getNetworkDevice', __args__, opts=opts, typ=GetNetworkDeviceResult)
+    return __ret__.apply(lambda __response__: GetNetworkDeviceResult(
+        annotation=pulumi.get(__response__, 'annotation'),
+        host_name=pulumi.get(__response__, 'host_name'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_device_role=pulumi.get(__response__, 'network_device_role'),
+        network_device_sku=pulumi.get(__response__, 'network_device_sku'),
+        network_rack_id=pulumi.get(__response__, 'network_rack_id'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        serial_number=pulumi.get(__response__, 'serial_number'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

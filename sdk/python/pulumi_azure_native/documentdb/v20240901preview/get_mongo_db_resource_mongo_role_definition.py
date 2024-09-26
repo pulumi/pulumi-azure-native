@@ -149,9 +149,6 @@ def get_mongo_db_resource_mongo_role_definition(account_name: Optional[str] = No
         role_name=pulumi.get(__ret__, 'role_name'),
         roles=pulumi.get(__ret__, 'roles'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_mongo_db_resource_mongo_role_definition)
 def get_mongo_db_resource_mongo_role_definition_output(account_name: Optional[pulumi.Input[str]] = None,
                                                        mongo_role_definition_id: Optional[pulumi.Input[str]] = None,
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -164,4 +161,17 @@ def get_mongo_db_resource_mongo_role_definition_output(account_name: Optional[pu
     :param str mongo_role_definition_id: The ID for the Role Definition {dbName.roleName}.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['mongoRoleDefinitionId'] = mongo_role_definition_id
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20240901preview:getMongoDBResourceMongoRoleDefinition', __args__, opts=opts, typ=GetMongoDBResourceMongoRoleDefinitionResult)
+    return __ret__.apply(lambda __response__: GetMongoDBResourceMongoRoleDefinitionResult(
+        database_name=pulumi.get(__response__, 'database_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        privileges=pulumi.get(__response__, 'privileges'),
+        role_name=pulumi.get(__response__, 'role_name'),
+        roles=pulumi.get(__response__, 'roles'),
+        type=pulumi.get(__response__, 'type')))

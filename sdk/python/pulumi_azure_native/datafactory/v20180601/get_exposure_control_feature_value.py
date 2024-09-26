@@ -83,9 +83,6 @@ def get_exposure_control_feature_value(feature_name: Optional[str] = None,
     return AwaitableGetExposureControlFeatureValueResult(
         feature_name=pulumi.get(__ret__, 'feature_name'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_exposure_control_feature_value)
 def get_exposure_control_feature_value_output(feature_name: Optional[pulumi.Input[Optional[str]]] = None,
                                               feature_type: Optional[pulumi.Input[Optional[str]]] = None,
                                               location_id: Optional[pulumi.Input[str]] = None,
@@ -98,4 +95,12 @@ def get_exposure_control_feature_value_output(feature_name: Optional[pulumi.Inpu
     :param str feature_type: The feature type.
     :param str location_id: The location identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['featureName'] = feature_name
+    __args__['featureType'] = feature_type
+    __args__['locationId'] = location_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory/v20180601:getExposureControlFeatureValue', __args__, opts=opts, typ=GetExposureControlFeatureValueResult)
+    return __ret__.apply(lambda __response__: GetExposureControlFeatureValueResult(
+        feature_name=pulumi.get(__response__, 'feature_name'),
+        value=pulumi.get(__response__, 'value')))

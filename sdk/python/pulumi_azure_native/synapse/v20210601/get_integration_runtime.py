@@ -123,9 +123,6 @@ def get_integration_runtime(integration_runtime_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_integration_runtime)
 def get_integration_runtime_output(integration_runtime_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    workspace_name: Optional[pulumi.Input[str]] = None,
@@ -138,4 +135,15 @@ def get_integration_runtime_output(integration_runtime_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['integrationRuntimeName'] = integration_runtime_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601:getIntegrationRuntime', __args__, opts=opts, typ=GetIntegrationRuntimeResult)
+    return __ret__.apply(lambda __response__: GetIntegrationRuntimeResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        type=pulumi.get(__response__, 'type')))

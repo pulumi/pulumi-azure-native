@@ -340,9 +340,6 @@ def get_topic(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_topic)
 def get_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      topic_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
@@ -353,4 +350,31 @@ def get_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the topic.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['topicName'] = topic_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20230601preview:getTopic', __args__, opts=opts, typ=GetTopicResult)
+    return __ret__.apply(lambda __response__: GetTopicResult(
+        data_residency_boundary=pulumi.get(__response__, 'data_residency_boundary'),
+        disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        event_type_info=pulumi.get(__response__, 'event_type_info'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        inbound_ip_rules=pulumi.get(__response__, 'inbound_ip_rules'),
+        input_schema=pulumi.get(__response__, 'input_schema'),
+        input_schema_mapping=pulumi.get(__response__, 'input_schema_mapping'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        metric_resource_id=pulumi.get(__response__, 'metric_resource_id'),
+        minimum_tls_version_allowed=pulumi.get(__response__, 'minimum_tls_version_allowed'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

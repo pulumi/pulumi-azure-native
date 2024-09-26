@@ -172,9 +172,6 @@ def get_prefix_list_global_rulestack(global_rulestack_name: Optional[str] = None
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_prefix_list_global_rulestack)
 def get_prefix_list_global_rulestack_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
                                             name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixListGlobalRulestackResult]:
@@ -185,4 +182,18 @@ def get_prefix_list_global_rulestack_output(global_rulestack_name: Optional[pulu
     :param str global_rulestack_name: GlobalRulestack resource name
     :param str name: Local Rule priority
     """
-    ...
+    __args__ = dict()
+    __args__['globalRulestackName'] = global_rulestack_name
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20220829preview:getPrefixListGlobalRulestack', __args__, opts=opts, typ=GetPrefixListGlobalRulestackResult)
+    return __ret__.apply(lambda __response__: GetPrefixListGlobalRulestackResult(
+        audit_comment=pulumi.get(__response__, 'audit_comment'),
+        description=pulumi.get(__response__, 'description'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        prefix_list=pulumi.get(__response__, 'prefix_list'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

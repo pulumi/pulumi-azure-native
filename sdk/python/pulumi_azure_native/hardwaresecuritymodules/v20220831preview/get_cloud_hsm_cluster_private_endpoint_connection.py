@@ -175,9 +175,6 @@ def get_cloud_hsm_cluster_private_endpoint_connection(cloud_hsm_cluster_name: Op
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_cloud_hsm_cluster_private_endpoint_connection)
 def get_cloud_hsm_cluster_private_endpoint_connection_output(cloud_hsm_cluster_name: Optional[pulumi.Input[str]] = None,
                                                              pe_connection_name: Optional[pulumi.Input[str]] = None,
                                                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_cloud_hsm_cluster_private_endpoint_connection_output(cloud_hsm_cluster_n
     :param str pe_connection_name: Name of the private endpoint connection associated with the Cloud HSM Cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['cloudHsmClusterName'] = cloud_hsm_cluster_name
+    __args__['peConnectionName'] = pe_connection_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hardwaresecuritymodules/v20220831preview:getCloudHsmClusterPrivateEndpointConnection', __args__, opts=opts, typ=GetCloudHsmClusterPrivateEndpointConnectionResult)
+    return __ret__.apply(lambda __response__: GetCloudHsmClusterPrivateEndpointConnectionResult(
+        etag=pulumi.get(__response__, 'etag'),
+        group_ids=pulumi.get(__response__, 'group_ids'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint=pulumi.get(__response__, 'private_endpoint'),
+        private_link_service_connection_state=pulumi.get(__response__, 'private_link_service_connection_state'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

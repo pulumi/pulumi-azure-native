@@ -152,9 +152,6 @@ def get_app(app_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_app)
 def get_app_output(app_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    service_name: Optional[pulumi.Input[str]] = None,
@@ -169,4 +166,18 @@ def get_app_output(app_name: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of the Service resource.
     :param str sync_status: Indicates whether sync status
     """
-    ...
+    __args__ = dict()
+    __args__['appName'] = app_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['syncStatus'] = sync_status
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20240501preview:getApp', __args__, opts=opts, typ=GetAppResult)
+    return __ret__.apply(lambda __response__: GetAppResult(
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

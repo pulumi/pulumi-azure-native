@@ -253,9 +253,6 @@ def get_azure_large_instance(azure_large_instance_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_azure_large_instance)
 def get_azure_large_instance_output(azure_large_instance_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureLargeInstanceResult]:
@@ -268,4 +265,24 @@ def get_azure_large_instance_output(azure_large_instance_name: Optional[pulumi.I
     :param str azure_large_instance_name: Name of the AzureLargeInstance.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['azureLargeInstanceName'] = azure_large_instance_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurelargeinstance:getAzureLargeInstance', __args__, opts=opts, typ=GetAzureLargeInstanceResult)
+    return __ret__.apply(lambda __response__: GetAzureLargeInstanceResult(
+        azure_large_instance_id=pulumi.get(__response__, 'azure_large_instance_id'),
+        hardware_profile=pulumi.get(__response__, 'hardware_profile'),
+        hw_revision=pulumi.get(__response__, 'hw_revision'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
+        os_profile=pulumi.get(__response__, 'os_profile'),
+        power_state=pulumi.get(__response__, 'power_state'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        proximity_placement_group=pulumi.get(__response__, 'proximity_placement_group'),
+        storage_profile=pulumi.get(__response__, 'storage_profile'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

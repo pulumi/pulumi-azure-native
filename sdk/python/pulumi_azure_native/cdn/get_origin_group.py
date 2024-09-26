@@ -194,9 +194,6 @@ def get_origin_group(endpoint_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=pulumi.get(__ret__, 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_origin_group)
 def get_origin_group_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                             origin_group_name: Optional[pulumi.Input[str]] = None,
                             profile_name: Optional[pulumi.Input[str]] = None,
@@ -214,4 +211,21 @@ def get_origin_group_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['endpointName'] = endpoint_name
+    __args__['originGroupName'] = origin_group_name
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getOriginGroup', __args__, opts=opts, typ=GetOriginGroupResult)
+    return __ret__.apply(lambda __response__: GetOriginGroupResult(
+        health_probe_settings=pulumi.get(__response__, 'health_probe_settings'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        origins=pulumi.get(__response__, 'origins'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_state=pulumi.get(__response__, 'resource_state'),
+        response_based_origin_error_detection_settings=pulumi.get(__response__, 'response_based_origin_error_detection_settings'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=pulumi.get(__response__, 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes'),
+        type=pulumi.get(__response__, 'type')))

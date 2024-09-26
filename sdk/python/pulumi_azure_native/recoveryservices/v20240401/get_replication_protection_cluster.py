@@ -116,9 +116,6 @@ def get_replication_protection_cluster(fabric_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_replication_protection_cluster)
 def get_replication_protection_cluster_output(fabric_name: Optional[pulumi.Input[str]] = None,
                                               protection_container_name: Optional[pulumi.Input[str]] = None,
                                               replication_protection_cluster_name: Optional[pulumi.Input[str]] = None,
@@ -135,4 +132,16 @@ def get_replication_protection_cluster_output(fabric_name: Optional[pulumi.Input
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
-    ...
+    __args__ = dict()
+    __args__['fabricName'] = fabric_name
+    __args__['protectionContainerName'] = protection_container_name
+    __args__['replicationProtectionClusterName'] = replication_protection_cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20240401:getReplicationProtectionCluster', __args__, opts=opts, typ=GetReplicationProtectionClusterResult)
+    return __ret__.apply(lambda __response__: GetReplicationProtectionClusterResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        type=pulumi.get(__response__, 'type')))

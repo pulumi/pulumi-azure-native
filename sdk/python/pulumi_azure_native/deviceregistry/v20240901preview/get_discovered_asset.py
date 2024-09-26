@@ -367,9 +367,6 @@ def get_discovered_asset(discovered_asset_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_discovered_asset)
 def get_discovered_asset_output(discovered_asset_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiscoveredAssetResult]:
@@ -380,4 +377,33 @@ def get_discovered_asset_output(discovered_asset_name: Optional[pulumi.Input[str
     :param str discovered_asset_name: Discovered Asset name parameter.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['discoveredAssetName'] = discovered_asset_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry/v20240901preview:getDiscoveredAsset', __args__, opts=opts, typ=GetDiscoveredAssetResult)
+    return __ret__.apply(lambda __response__: GetDiscoveredAssetResult(
+        asset_endpoint_profile_ref=pulumi.get(__response__, 'asset_endpoint_profile_ref'),
+        datasets=pulumi.get(__response__, 'datasets'),
+        default_datasets_configuration=pulumi.get(__response__, 'default_datasets_configuration'),
+        default_events_configuration=pulumi.get(__response__, 'default_events_configuration'),
+        default_topic=pulumi.get(__response__, 'default_topic'),
+        discovery_id=pulumi.get(__response__, 'discovery_id'),
+        documentation_uri=pulumi.get(__response__, 'documentation_uri'),
+        events=pulumi.get(__response__, 'events'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        hardware_revision=pulumi.get(__response__, 'hardware_revision'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        manufacturer=pulumi.get(__response__, 'manufacturer'),
+        manufacturer_uri=pulumi.get(__response__, 'manufacturer_uri'),
+        model=pulumi.get(__response__, 'model'),
+        name=pulumi.get(__response__, 'name'),
+        product_code=pulumi.get(__response__, 'product_code'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        serial_number=pulumi.get(__response__, 'serial_number'),
+        software_revision=pulumi.get(__response__, 'software_revision'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

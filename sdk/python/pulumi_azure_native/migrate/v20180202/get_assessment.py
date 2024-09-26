@@ -385,9 +385,6 @@ def get_assessment(assessment_name: Optional[str] = None,
         time_range=pulumi.get(__ret__, 'time_range'),
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
-
-
-@_utilities.lift_output_func(get_assessment)
 def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
                           group_name: Optional[pulumi.Input[str]] = None,
                           project_name: Optional[pulumi.Input[str]] = None,
@@ -402,4 +399,36 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
-    ...
+    __args__ = dict()
+    __args__['assessmentName'] = assessment_name
+    __args__['groupName'] = group_name
+    __args__['projectName'] = project_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20180202:getAssessment', __args__, opts=opts, typ=GetAssessmentResult)
+    return __ret__.apply(lambda __response__: GetAssessmentResult(
+        azure_hybrid_use_benefit=pulumi.get(__response__, 'azure_hybrid_use_benefit'),
+        azure_location=pulumi.get(__response__, 'azure_location'),
+        azure_offer_code=pulumi.get(__response__, 'azure_offer_code'),
+        azure_pricing_tier=pulumi.get(__response__, 'azure_pricing_tier'),
+        azure_storage_redundancy=pulumi.get(__response__, 'azure_storage_redundancy'),
+        confidence_rating_in_percentage=pulumi.get(__response__, 'confidence_rating_in_percentage'),
+        created_timestamp=pulumi.get(__response__, 'created_timestamp'),
+        currency=pulumi.get(__response__, 'currency'),
+        discount_percentage=pulumi.get(__response__, 'discount_percentage'),
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        id=pulumi.get(__response__, 'id'),
+        monthly_bandwidth_cost=pulumi.get(__response__, 'monthly_bandwidth_cost'),
+        monthly_compute_cost=pulumi.get(__response__, 'monthly_compute_cost'),
+        monthly_storage_cost=pulumi.get(__response__, 'monthly_storage_cost'),
+        name=pulumi.get(__response__, 'name'),
+        number_of_machines=pulumi.get(__response__, 'number_of_machines'),
+        percentile=pulumi.get(__response__, 'percentile'),
+        prices_timestamp=pulumi.get(__response__, 'prices_timestamp'),
+        scaling_factor=pulumi.get(__response__, 'scaling_factor'),
+        sizing_criterion=pulumi.get(__response__, 'sizing_criterion'),
+        stage=pulumi.get(__response__, 'stage'),
+        status=pulumi.get(__response__, 'status'),
+        time_range=pulumi.get(__response__, 'time_range'),
+        type=pulumi.get(__response__, 'type'),
+        updated_timestamp=pulumi.get(__response__, 'updated_timestamp')))

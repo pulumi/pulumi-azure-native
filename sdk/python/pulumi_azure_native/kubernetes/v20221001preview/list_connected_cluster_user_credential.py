@@ -88,9 +88,6 @@ def list_connected_cluster_user_credential(authentication_method: Optional[Union
     return AwaitableListConnectedClusterUserCredentialResult(
         hybrid_connection_config=pulumi.get(__ret__, 'hybrid_connection_config'),
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
-
-
-@_utilities.lift_output_func(list_connected_cluster_user_credential)
 def list_connected_cluster_user_credential_output(authentication_method: Optional[pulumi.Input[Union[str, 'AuthenticationMethod']]] = None,
                                                   client_proxy: Optional[pulumi.Input[bool]] = None,
                                                   cluster_name: Optional[pulumi.Input[str]] = None,
@@ -105,4 +102,13 @@ def list_connected_cluster_user_credential_output(authentication_method: Optiona
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['authenticationMethod'] = authentication_method
+    __args__['clientProxy'] = client_proxy
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetes/v20221001preview:listConnectedClusterUserCredential', __args__, opts=opts, typ=ListConnectedClusterUserCredentialResult)
+    return __ret__.apply(lambda __response__: ListConnectedClusterUserCredentialResult(
+        hybrid_connection_config=pulumi.get(__response__, 'hybrid_connection_config'),
+        kubeconfigs=pulumi.get(__response__, 'kubeconfigs')))

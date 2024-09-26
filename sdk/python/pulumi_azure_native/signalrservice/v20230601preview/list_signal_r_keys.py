@@ -106,9 +106,6 @@ def list_signal_r_keys(resource_group_name: Optional[str] = None,
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-
-
-@_utilities.lift_output_func(list_signal_r_keys)
 def list_signal_r_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               resource_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSignalRKeysResult]:
@@ -119,4 +116,13 @@ def list_signal_r_keys_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:signalrservice/v20230601preview:listSignalRKeys', __args__, opts=opts, typ=ListSignalRKeysResult)
+    return __ret__.apply(lambda __response__: ListSignalRKeysResult(
+        primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
+        primary_key=pulumi.get(__response__, 'primary_key'),
+        secondary_connection_string=pulumi.get(__response__, 'secondary_connection_string'),
+        secondary_key=pulumi.get(__response__, 'secondary_key')))

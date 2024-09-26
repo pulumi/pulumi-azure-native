@@ -98,9 +98,6 @@ def list_firewall_policy_idps_signature(filters: Optional[Sequence[Union['Filter
     return AwaitableListFirewallPolicyIdpsSignatureResult(
         matching_records_count=pulumi.get(__ret__, 'matching_records_count'),
         signatures=pulumi.get(__ret__, 'signatures'))
-
-
-@_utilities.lift_output_func(list_firewall_policy_idps_signature)
 def list_firewall_policy_idps_signature_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['FilterItems', 'FilterItemsDict']]]]] = None,
                                                firewall_policy_name: Optional[pulumi.Input[str]] = None,
                                                order_by: Optional[pulumi.Input[Optional[Union['OrderBy', 'OrderByDict']]]] = None,
@@ -121,4 +118,16 @@ def list_firewall_policy_idps_signature_output(filters: Optional[pulumi.Input[Op
     :param str search: Search term in all columns
     :param int skip: The number of records matching the filter to skip
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['firewallPolicyName'] = firewall_policy_name
+    __args__['orderBy'] = order_by
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resultsPerPage'] = results_per_page
+    __args__['search'] = search
+    __args__['skip'] = skip
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:listFirewallPolicyIdpsSignature', __args__, opts=opts, typ=ListFirewallPolicyIdpsSignatureResult)
+    return __ret__.apply(lambda __response__: ListFirewallPolicyIdpsSignatureResult(
+        matching_records_count=pulumi.get(__response__, 'matching_records_count'),
+        signatures=pulumi.get(__response__, 'signatures')))

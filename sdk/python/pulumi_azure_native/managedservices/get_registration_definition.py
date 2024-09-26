@@ -134,9 +134,6 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_registration_definition)
 def get_registration_definition_output(registration_definition_id: Optional[pulumi.Input[str]] = None,
                                        scope: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationDefinitionResult]:
@@ -148,4 +145,15 @@ def get_registration_definition_output(registration_definition_id: Optional[pulu
     :param str registration_definition_id: The GUID of the registration definition.
     :param str scope: The scope of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['registrationDefinitionId'] = registration_definition_id
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:managedservices:getRegistrationDefinition', __args__, opts=opts, typ=GetRegistrationDefinitionResult)
+    return __ret__.apply(lambda __response__: GetRegistrationDefinitionResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        plan=pulumi.get(__response__, 'plan'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

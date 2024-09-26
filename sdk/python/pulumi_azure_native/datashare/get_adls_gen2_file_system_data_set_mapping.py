@@ -219,9 +219,6 @@ def get_adls_gen2_file_system_data_set_mapping(account_name: Optional[str] = Non
         subscription_id=pulumi.get(__ret__, 'subscription_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_adls_gen2_file_system_data_set_mapping)
 def get_adls_gen2_file_system_data_set_mapping_output(account_name: Optional[pulumi.Input[str]] = None,
                                                       data_set_mapping_name: Optional[pulumi.Input[str]] = None,
                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -237,4 +234,23 @@ def get_adls_gen2_file_system_data_set_mapping_output(account_name: Optional[pul
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['dataSetMappingName'] = data_set_mapping_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['shareSubscriptionName'] = share_subscription_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getADLSGen2FileSystemDataSetMapping', __args__, opts=opts, typ=GetADLSGen2FileSystemDataSetMappingResult)
+    return __ret__.apply(lambda __response__: GetADLSGen2FileSystemDataSetMappingResult(
+        data_set_id=pulumi.get(__response__, 'data_set_id'),
+        data_set_mapping_status=pulumi.get(__response__, 'data_set_mapping_status'),
+        file_system=pulumi.get(__response__, 'file_system'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_group=pulumi.get(__response__, 'resource_group'),
+        storage_account_name=pulumi.get(__response__, 'storage_account_name'),
+        subscription_id=pulumi.get(__response__, 'subscription_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

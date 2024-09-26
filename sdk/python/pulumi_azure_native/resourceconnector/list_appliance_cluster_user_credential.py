@@ -84,9 +84,6 @@ def list_appliance_cluster_user_credential(resource_group_name: Optional[str] = 
     return AwaitableListApplianceClusterUserCredentialResult(
         hybrid_connection_config=pulumi.get(__ret__, 'hybrid_connection_config'),
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
-
-
-@_utilities.lift_output_func(list_appliance_cluster_user_credential)
 def list_appliance_cluster_user_credential_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   resource_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplianceClusterUserCredentialResult]:
@@ -100,4 +97,11 @@ def list_appliance_cluster_user_credential_output(resource_group_name: Optional[
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Appliances name.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:resourceconnector:listApplianceClusterUserCredential', __args__, opts=opts, typ=ListApplianceClusterUserCredentialResult)
+    return __ret__.apply(lambda __response__: ListApplianceClusterUserCredentialResult(
+        hybrid_connection_config=pulumi.get(__response__, 'hybrid_connection_config'),
+        kubeconfigs=pulumi.get(__response__, 'kubeconfigs')))

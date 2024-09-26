@@ -145,9 +145,6 @@ def getmanaged_maintenance_window_status(cluster_name: Optional[str] = None,
         last_window_end_time_utc=pulumi.get(__ret__, 'last_window_end_time_utc'),
         last_window_start_time_utc=pulumi.get(__ret__, 'last_window_start_time_utc'),
         last_window_status_update_at_utc=pulumi.get(__ret__, 'last_window_status_update_at_utc'))
-
-
-@_utilities.lift_output_func(getmanaged_maintenance_window_status)
 def getmanaged_maintenance_window_status_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetmanagedMaintenanceWindowStatusResult]:
@@ -158,4 +155,16 @@ def getmanaged_maintenance_window_status_output(cluster_name: Optional[pulumi.In
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20240601preview:getmanagedMaintenanceWindowStatus', __args__, opts=opts, typ=GetmanagedMaintenanceWindowStatusResult)
+    return __ret__.apply(lambda __response__: GetmanagedMaintenanceWindowStatusResult(
+        can_apply_updates=pulumi.get(__response__, 'can_apply_updates'),
+        is_region_ready=pulumi.get(__response__, 'is_region_ready'),
+        is_window_active=pulumi.get(__response__, 'is_window_active'),
+        is_window_enabled=pulumi.get(__response__, 'is_window_enabled'),
+        last_window_end_time_utc=pulumi.get(__response__, 'last_window_end_time_utc'),
+        last_window_start_time_utc=pulumi.get(__response__, 'last_window_start_time_utc'),
+        last_window_status_update_at_utc=pulumi.get(__response__, 'last_window_status_update_at_utc')))

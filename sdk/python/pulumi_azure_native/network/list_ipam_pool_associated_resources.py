@@ -82,9 +82,6 @@ def list_ipam_pool_associated_resources(network_manager_name: Optional[str] = No
     return AwaitableListIpamPoolAssociatedResourcesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_ipam_pool_associated_resources)
 def list_ipam_pool_associated_resources_output(network_manager_name: Optional[pulumi.Input[str]] = None,
                                                pool_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -98,4 +95,12 @@ def list_ipam_pool_associated_resources_output(network_manager_name: Optional[pu
     :param str pool_name: Pool resource name.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['networkManagerName'] = network_manager_name
+    __args__['poolName'] = pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network:listIpamPoolAssociatedResources', __args__, opts=opts, typ=ListIpamPoolAssociatedResourcesResult)
+    return __ret__.apply(lambda __response__: ListIpamPoolAssociatedResourcesResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

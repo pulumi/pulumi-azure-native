@@ -250,9 +250,6 @@ def get_application(application_resource_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unhealthy_evaluation=pulumi.get(__ret__, 'unhealthy_evaluation'))
-
-
-@_utilities.lift_output_func(get_application)
 def get_application_output(application_resource_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
@@ -263,4 +260,24 @@ def get_application_output(application_resource_name: Optional[pulumi.Input[str]
     :param str application_resource_name: The identity of the application.
     :param str resource_group_name: Azure resource group name
     """
-    ...
+    __args__ = dict()
+    __args__['applicationResourceName'] = application_resource_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh/v20180901preview:getApplication', __args__, opts=opts, typ=GetApplicationResult)
+    return __ret__.apply(lambda __response__: GetApplicationResult(
+        debug_params=pulumi.get(__response__, 'debug_params'),
+        description=pulumi.get(__response__, 'description'),
+        diagnostics=pulumi.get(__response__, 'diagnostics'),
+        health_state=pulumi.get(__response__, 'health_state'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        service_names=pulumi.get(__response__, 'service_names'),
+        services=pulumi.get(__response__, 'services'),
+        status=pulumi.get(__response__, 'status'),
+        status_details=pulumi.get(__response__, 'status_details'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        unhealthy_evaluation=pulumi.get(__response__, 'unhealthy_evaluation')))

@@ -201,9 +201,6 @@ def get_hyperv_host_controller(host_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_hyperv_host_controller)
 def get_hyperv_host_controller_output(host_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       site_name: Optional[pulumi.Input[str]] = None,
@@ -216,4 +213,21 @@ def get_hyperv_host_controller_output(host_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: Site name
     """
-    ...
+    __args__ = dict()
+    __args__['hostName'] = host_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['siteName'] = site_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:offazure/v20230606:getHypervHostController', __args__, opts=opts, typ=GetHypervHostControllerResult)
+    return __ret__.apply(lambda __response__: GetHypervHostControllerResult(
+        created_timestamp=pulumi.get(__response__, 'created_timestamp'),
+        errors=pulumi.get(__response__, 'errors'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        run_as_account_id=pulumi.get(__response__, 'run_as_account_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        updated_timestamp=pulumi.get(__response__, 'updated_timestamp'),
+        version=pulumi.get(__response__, 'version')))

@@ -367,9 +367,6 @@ def get_workspace(resource_group_name: Optional[str] = None,
         virtual_network_profile=pulumi.get(__ret__, 'virtual_network_profile'),
         workspace_repository_configuration=pulumi.get(__ret__, 'workspace_repository_configuration'),
         workspace_uid=pulumi.get(__ret__, 'workspace_uid'))
-
-
-@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
@@ -380,4 +377,33 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210501:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        adla_resource_id=pulumi.get(__response__, 'adla_resource_id'),
+        connectivity_endpoints=pulumi.get(__response__, 'connectivity_endpoints'),
+        csp_workspace_admin_properties=pulumi.get(__response__, 'csp_workspace_admin_properties'),
+        default_data_lake_storage=pulumi.get(__response__, 'default_data_lake_storage'),
+        encryption=pulumi.get(__response__, 'encryption'),
+        extra_properties=pulumi.get(__response__, 'extra_properties'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        managed_resource_group_name=pulumi.get(__response__, 'managed_resource_group_name'),
+        managed_virtual_network=pulumi.get(__response__, 'managed_virtual_network'),
+        managed_virtual_network_settings=pulumi.get(__response__, 'managed_virtual_network_settings'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        purview_configuration=pulumi.get(__response__, 'purview_configuration'),
+        sql_administrator_login=pulumi.get(__response__, 'sql_administrator_login'),
+        sql_administrator_login_password=pulumi.get(__response__, 'sql_administrator_login_password'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_network_profile=pulumi.get(__response__, 'virtual_network_profile'),
+        workspace_repository_configuration=pulumi.get(__response__, 'workspace_repository_configuration'),
+        workspace_uid=pulumi.get(__response__, 'workspace_uid')))

@@ -238,9 +238,6 @@ def get_discovered_asset_endpoint_profile(discovered_asset_endpoint_profile_name
         target_address=pulumi.get(__ret__, 'target_address'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_discovered_asset_endpoint_profile)
 def get_discovered_asset_endpoint_profile_output(discovered_asset_endpoint_profile_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiscoveredAssetEndpointProfileResult]:
@@ -252,4 +249,23 @@ def get_discovered_asset_endpoint_profile_output(discovered_asset_endpoint_profi
     :param str discovered_asset_endpoint_profile_name: Discovered Asset Endpoint Profile name parameter.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['discoveredAssetEndpointProfileName'] = discovered_asset_endpoint_profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry:getDiscoveredAssetEndpointProfile', __args__, opts=opts, typ=GetDiscoveredAssetEndpointProfileResult)
+    return __ret__.apply(lambda __response__: GetDiscoveredAssetEndpointProfileResult(
+        additional_configuration=pulumi.get(__response__, 'additional_configuration'),
+        discovery_id=pulumi.get(__response__, 'discovery_id'),
+        endpoint_profile_type=pulumi.get(__response__, 'endpoint_profile_type'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        supported_authentication_methods=pulumi.get(__response__, 'supported_authentication_methods'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_address=pulumi.get(__response__, 'target_address'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

@@ -201,9 +201,6 @@ def get_failover_group(failover_group_name: Optional[str] = None,
         replication_state=pulumi.get(__ret__, 'replication_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_failover_group)
 def get_failover_group_output(failover_group_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               server_name: Optional[pulumi.Input[str]] = None,
@@ -216,4 +213,21 @@ def get_failover_group_output(failover_group_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server containing the failover group.
     """
-    ...
+    __args__ = dict()
+    __args__['failoverGroupName'] = failover_group_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230201preview:getFailoverGroup', __args__, opts=opts, typ=GetFailoverGroupResult)
+    return __ret__.apply(lambda __response__: GetFailoverGroupResult(
+        databases=pulumi.get(__response__, 'databases'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        partner_servers=pulumi.get(__response__, 'partner_servers'),
+        read_only_endpoint=pulumi.get(__response__, 'read_only_endpoint'),
+        read_write_endpoint=pulumi.get(__response__, 'read_write_endpoint'),
+        replication_role=pulumi.get(__response__, 'replication_role'),
+        replication_state=pulumi.get(__response__, 'replication_state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

@@ -172,9 +172,6 @@ def get_delegated_subnet_service_details(resource_group_name: Optional[str] = No
         subnet_details=pulumi.get(__ret__, 'subnet_details'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_delegated_subnet_service_details)
 def get_delegated_subnet_service_details_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 resource_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegatedSubnetServiceDetailsResult]:
@@ -185,4 +182,18 @@ def get_delegated_subnet_service_details_output(resource_group_name: Optional[pu
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:delegatednetwork/v20210315:getDelegatedSubnetServiceDetails', __args__, opts=opts, typ=GetDelegatedSubnetServiceDetailsResult)
+    return __ret__.apply(lambda __response__: GetDelegatedSubnetServiceDetailsResult(
+        controller_details=pulumi.get(__response__, 'controller_details'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        subnet_details=pulumi.get(__response__, 'subnet_details'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

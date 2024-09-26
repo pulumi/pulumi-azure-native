@@ -158,9 +158,6 @@ def get_virtual_network_gateway_vpnclient_ipsec_parameters(resource_group_name: 
         pfs_group=pulumi.get(__ret__, 'pfs_group'),
         sa_data_size_kilobytes=pulumi.get(__ret__, 'sa_data_size_kilobytes'),
         sa_life_time_seconds=pulumi.get(__ret__, 'sa_life_time_seconds'))
-
-
-@_utilities.lift_output_func(get_virtual_network_gateway_vpnclient_ipsec_parameters)
 def get_virtual_network_gateway_vpnclient_ipsec_parameters_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                   virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnclientIpsecParametersResult]:
@@ -171,4 +168,17 @@ def get_virtual_network_gateway_vpnclient_ipsec_parameters_output(resource_group
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The virtual network gateway name.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getVirtualNetworkGatewayVpnclientIpsecParameters', __args__, opts=opts, typ=GetVirtualNetworkGatewayVpnclientIpsecParametersResult)
+    return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayVpnclientIpsecParametersResult(
+        dh_group=pulumi.get(__response__, 'dh_group'),
+        ike_encryption=pulumi.get(__response__, 'ike_encryption'),
+        ike_integrity=pulumi.get(__response__, 'ike_integrity'),
+        ipsec_encryption=pulumi.get(__response__, 'ipsec_encryption'),
+        ipsec_integrity=pulumi.get(__response__, 'ipsec_integrity'),
+        pfs_group=pulumi.get(__response__, 'pfs_group'),
+        sa_data_size_kilobytes=pulumi.get(__response__, 'sa_data_size_kilobytes'),
+        sa_life_time_seconds=pulumi.get(__response__, 'sa_life_time_seconds')))

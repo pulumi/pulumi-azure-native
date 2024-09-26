@@ -227,9 +227,6 @@ def get_image(catalog_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         uri=pulumi.get(__ret__, 'uri'))
-
-
-@_utilities.lift_output_func(get_image)
 def get_image_output(catalog_name: Optional[pulumi.Input[str]] = None,
                      image_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -242,4 +239,23 @@ def get_image_output(catalog_name: Optional[pulumi.Input[str]] = None,
     :param str image_name: Image name. Use an image GUID for GA versions of the API.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['catalogName'] = catalog_name
+    __args__['imageName'] = image_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azuresphere/v20220901preview:getImage', __args__, opts=opts, typ=GetImageResult)
+    return __ret__.apply(lambda __response__: GetImageResult(
+        component_id=pulumi.get(__response__, 'component_id'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        image=pulumi.get(__response__, 'image'),
+        image_id=pulumi.get(__response__, 'image_id'),
+        image_name=pulumi.get(__response__, 'image_name'),
+        image_type=pulumi.get(__response__, 'image_type'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        regional_data_boundary=pulumi.get(__response__, 'regional_data_boundary'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        uri=pulumi.get(__response__, 'uri')))

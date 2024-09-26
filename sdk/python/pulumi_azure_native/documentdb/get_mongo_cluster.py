@@ -227,9 +227,6 @@ def get_mongo_cluster(mongo_cluster_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_mongo_cluster)
 def get_mongo_cluster_output(mongo_cluster_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoClusterResult]:
@@ -243,4 +240,22 @@ def get_mongo_cluster_output(mongo_cluster_name: Optional[pulumi.Input[str]] = N
     :param str mongo_cluster_name: The name of the mongo cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['mongoClusterName'] = mongo_cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb:getMongoCluster', __args__, opts=opts, typ=GetMongoClusterResult)
+    return __ret__.apply(lambda __response__: GetMongoClusterResult(
+        administrator_login=pulumi.get(__response__, 'administrator_login'),
+        cluster_status=pulumi.get(__response__, 'cluster_status'),
+        connection_string=pulumi.get(__response__, 'connection_string'),
+        earliest_restore_time=pulumi.get(__response__, 'earliest_restore_time'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        node_group_specs=pulumi.get(__response__, 'node_group_specs'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        server_version=pulumi.get(__response__, 'server_version'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

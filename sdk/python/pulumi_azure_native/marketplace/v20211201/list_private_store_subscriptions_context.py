@@ -61,9 +61,6 @@ def list_private_store_subscriptions_context(private_store_id: Optional[str] = N
 
     return AwaitableListPrivateStoreSubscriptionsContextResult(
         subscriptions_ids=pulumi.get(__ret__, 'subscriptions_ids'))
-
-
-@_utilities.lift_output_func(list_private_store_subscriptions_context)
 def list_private_store_subscriptions_context_output(private_store_id: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPrivateStoreSubscriptionsContextResult]:
     """
@@ -72,4 +69,9 @@ def list_private_store_subscriptions_context_output(private_store_id: Optional[p
 
     :param str private_store_id: The store ID - must use the tenant ID
     """
-    ...
+    __args__ = dict()
+    __args__['privateStoreId'] = private_store_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:marketplace/v20211201:listPrivateStoreSubscriptionsContext', __args__, opts=opts, typ=ListPrivateStoreSubscriptionsContextResult)
+    return __ret__.apply(lambda __response__: ListPrivateStoreSubscriptionsContextResult(
+        subscriptions_ids=pulumi.get(__response__, 'subscriptions_ids')))

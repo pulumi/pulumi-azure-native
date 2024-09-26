@@ -263,9 +263,6 @@ def get_storage_class(resource_uri: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         type_properties=pulumi.get(__ret__, 'type_properties'),
         volume_binding_mode=pulumi.get(__ret__, 'volume_binding_mode'))
-
-
-@_utilities.lift_output_func(get_storage_class)
 def get_storage_class_output(resource_uri: Optional[pulumi.Input[str]] = None,
                              storage_class_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageClassResult]:
@@ -276,4 +273,25 @@ def get_storage_class_output(resource_uri: Optional[pulumi.Input[str]] = None,
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param str storage_class_name: The name of the the storage class
     """
-    ...
+    __args__ = dict()
+    __args__['resourceUri'] = resource_uri
+    __args__['storageClassName'] = storage_class_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesruntime/v20240301:getStorageClass', __args__, opts=opts, typ=GetStorageClassResult)
+    return __ret__.apply(lambda __response__: GetStorageClassResult(
+        access_modes=pulumi.get(__response__, 'access_modes'),
+        allow_volume_expansion=pulumi.get(__response__, 'allow_volume_expansion'),
+        data_resilience=pulumi.get(__response__, 'data_resilience'),
+        failover_speed=pulumi.get(__response__, 'failover_speed'),
+        id=pulumi.get(__response__, 'id'),
+        limitations=pulumi.get(__response__, 'limitations'),
+        mount_options=pulumi.get(__response__, 'mount_options'),
+        name=pulumi.get(__response__, 'name'),
+        performance=pulumi.get(__response__, 'performance'),
+        priority=pulumi.get(__response__, 'priority'),
+        provisioner=pulumi.get(__response__, 'provisioner'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        type_properties=pulumi.get(__response__, 'type_properties'),
+        volume_binding_mode=pulumi.get(__response__, 'volume_binding_mode')))

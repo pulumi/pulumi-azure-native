@@ -86,9 +86,6 @@ def list_web_app_function_secrets_slot(function_name: Optional[str] = None,
     return AwaitableListWebAppFunctionSecretsSlotResult(
         key=pulumi.get(__ret__, 'key'),
         trigger_url=pulumi.get(__ret__, 'trigger_url'))
-
-
-@_utilities.lift_output_func(list_web_app_function_secrets_slot)
 def list_web_app_function_secrets_slot_output(function_name: Optional[pulumi.Input[str]] = None,
                                               name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -103,4 +100,13 @@ def list_web_app_function_secrets_slot_output(function_name: Optional[pulumi.Inp
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot.
     """
-    ...
+    __args__ = dict()
+    __args__['functionName'] = function_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['slot'] = slot
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:listWebAppFunctionSecretsSlot', __args__, opts=opts, typ=ListWebAppFunctionSecretsSlotResult)
+    return __ret__.apply(lambda __response__: ListWebAppFunctionSecretsSlotResult(
+        key=pulumi.get(__response__, 'key'),
+        trigger_url=pulumi.get(__response__, 'trigger_url')))

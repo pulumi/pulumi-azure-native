@@ -110,9 +110,6 @@ def list_user_assigned_identity_associated_resources(filter: Optional[str] = Non
         next_link=pulumi.get(__ret__, 'next_link'),
         total_count=pulumi.get(__ret__, 'total_count'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_user_assigned_identity_associated_resources)
 def list_user_assigned_identity_associated_resources_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
                                                             orderby: Optional[pulumi.Input[Optional[str]]] = None,
                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -134,4 +131,17 @@ def list_user_assigned_identity_associated_resources_output(filter: Optional[pul
     :param str skiptoken: A skip token is used to continue retrieving items after an operation returns a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
     :param int top: Number of records to return.
     """
-    ...
+    __args__ = dict()
+    __args__['filter'] = filter
+    __args__['orderby'] = orderby
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    __args__['skip'] = skip
+    __args__['skiptoken'] = skiptoken
+    __args__['top'] = top
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:managedidentity:listUserAssignedIdentityAssociatedResources', __args__, opts=opts, typ=ListUserAssignedIdentityAssociatedResourcesResult)
+    return __ret__.apply(lambda __response__: ListUserAssignedIdentityAssociatedResourcesResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        total_count=pulumi.get(__response__, 'total_count'),
+        value=pulumi.get(__response__, 'value')))

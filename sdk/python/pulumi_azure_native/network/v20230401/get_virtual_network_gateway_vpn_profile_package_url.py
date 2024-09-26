@@ -61,9 +61,6 @@ def get_virtual_network_gateway_vpn_profile_package_url(resource_group_name: Opt
 
     return AwaitableGetVirtualNetworkGatewayVpnProfilePackageUrlResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_virtual_network_gateway_vpn_profile_package_url)
 def get_virtual_network_gateway_vpn_profile_package_url_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnProfilePackageUrlResult]:
@@ -74,4 +71,10 @@ def get_virtual_network_gateway_vpn_profile_package_url_output(resource_group_na
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The name of the virtual network gateway.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getVirtualNetworkGatewayVpnProfilePackageUrl', __args__, opts=opts, typ=GetVirtualNetworkGatewayVpnProfilePackageUrlResult)
+    return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayVpnProfilePackageUrlResult(
+        value=pulumi.get(__response__, 'value')))

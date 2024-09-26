@@ -164,9 +164,6 @@ def get_sql_server(expand: Optional[str] = None,
         registration_id=pulumi.get(__ret__, 'registration_id'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_sql_server)
 def get_sql_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           sql_server_name: Optional[pulumi.Input[str]] = None,
@@ -181,4 +178,19 @@ def get_sql_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str sql_server_name: Name of the SQL Server.
     :param str sql_server_registration_name: Name of the SQL Server registration.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sqlServerName'] = sql_server_name
+    __args__['sqlServerRegistrationName'] = sql_server_registration_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azuredata/v20190724preview:getSqlServer', __args__, opts=opts, typ=GetSqlServerResult)
+    return __ret__.apply(lambda __response__: GetSqlServerResult(
+        cores=pulumi.get(__response__, 'cores'),
+        edition=pulumi.get(__response__, 'edition'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        property_bag=pulumi.get(__response__, 'property_bag'),
+        registration_id=pulumi.get(__response__, 'registration_id'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

@@ -212,9 +212,6 @@ def get_cloud_connection(cloud_connection_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
-
-
-@_utilities.lift_output_func(get_cloud_connection)
 def get_cloud_connection_output(cloud_connection_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudConnectionResult]:
@@ -226,4 +223,21 @@ def get_cloud_connection_output(cloud_connection_name: Optional[pulumi.Input[str
     :param str cloud_connection_name: The name of the cloud connection resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['cloudConnectionName'] = cloud_connection_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcloud:getCloudConnection', __args__, opts=opts, typ=GetCloudConnectionResult)
+    return __ret__.apply(lambda __response__: GetCloudConnectionResult(
+        cloud_connector=pulumi.get(__response__, 'cloud_connector'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        remote_resource_id=pulumi.get(__response__, 'remote_resource_id'),
+        shared_key=pulumi.get(__response__, 'shared_key'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_hub=pulumi.get(__response__, 'virtual_hub')))

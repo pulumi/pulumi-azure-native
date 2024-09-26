@@ -188,9 +188,6 @@ def get_certificate_object_local_rulestack(local_rulestack_name: Optional[str] =
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_certificate_object_local_rulestack)
 def get_certificate_object_local_rulestack_output(local_rulestack_name: Optional[pulumi.Input[str]] = None,
                                                   name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -203,4 +200,20 @@ def get_certificate_object_local_rulestack_output(local_rulestack_name: Optional
     :param str name: certificate name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['localRulestackName'] = local_rulestack_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240207preview:getCertificateObjectLocalRulestack', __args__, opts=opts, typ=GetCertificateObjectLocalRulestackResult)
+    return __ret__.apply(lambda __response__: GetCertificateObjectLocalRulestackResult(
+        audit_comment=pulumi.get(__response__, 'audit_comment'),
+        certificate_self_signed=pulumi.get(__response__, 'certificate_self_signed'),
+        certificate_signer_resource_id=pulumi.get(__response__, 'certificate_signer_resource_id'),
+        description=pulumi.get(__response__, 'description'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -497,9 +497,6 @@ def get_cluster(cluster_name: Optional[str] = None,
         uri=pulumi.get(__ret__, 'uri'),
         virtual_network_configuration=pulumi.get(__ret__, 'virtual_network_configuration'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -510,4 +507,43 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the Kusto cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20230502:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        accepted_audiences=pulumi.get(__response__, 'accepted_audiences'),
+        allowed_fqdn_list=pulumi.get(__response__, 'allowed_fqdn_list'),
+        allowed_ip_range_list=pulumi.get(__response__, 'allowed_ip_range_list'),
+        data_ingestion_uri=pulumi.get(__response__, 'data_ingestion_uri'),
+        enable_auto_stop=pulumi.get(__response__, 'enable_auto_stop'),
+        enable_disk_encryption=pulumi.get(__response__, 'enable_disk_encryption'),
+        enable_double_encryption=pulumi.get(__response__, 'enable_double_encryption'),
+        enable_purge=pulumi.get(__response__, 'enable_purge'),
+        enable_streaming_ingest=pulumi.get(__response__, 'enable_streaming_ingest'),
+        engine_type=pulumi.get(__response__, 'engine_type'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        key_vault_properties=pulumi.get(__response__, 'key_vault_properties'),
+        language_extensions=pulumi.get(__response__, 'language_extensions'),
+        location=pulumi.get(__response__, 'location'),
+        migration_cluster=pulumi.get(__response__, 'migration_cluster'),
+        name=pulumi.get(__response__, 'name'),
+        optimized_autoscale=pulumi.get(__response__, 'optimized_autoscale'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_ip_type=pulumi.get(__response__, 'public_ip_type'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        restrict_outbound_network_access=pulumi.get(__response__, 'restrict_outbound_network_access'),
+        sku=pulumi.get(__response__, 'sku'),
+        state=pulumi.get(__response__, 'state'),
+        state_reason=pulumi.get(__response__, 'state_reason'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        trusted_external_tenants=pulumi.get(__response__, 'trusted_external_tenants'),
+        type=pulumi.get(__response__, 'type'),
+        uri=pulumi.get(__response__, 'uri'),
+        virtual_network_configuration=pulumi.get(__response__, 'virtual_network_configuration'),
+        zones=pulumi.get(__response__, 'zones')))

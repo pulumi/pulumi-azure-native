@@ -302,9 +302,6 @@ def get_namespace(namespace_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_namespace)
 def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
@@ -315,4 +312,28 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: The namespace name.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:notificationhubs/v20170401:getNamespace', __args__, opts=opts, typ=GetNamespaceResult)
+    return __ret__.apply(lambda __response__: GetNamespaceResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        critical=pulumi.get(__response__, 'critical'),
+        data_center=pulumi.get(__response__, 'data_center'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        metric_id=pulumi.get(__response__, 'metric_id'),
+        name=pulumi.get(__response__, 'name'),
+        namespace_type=pulumi.get(__response__, 'namespace_type'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        region=pulumi.get(__response__, 'region'),
+        scale_unit=pulumi.get(__response__, 'scale_unit'),
+        service_bus_endpoint=pulumi.get(__response__, 'service_bus_endpoint'),
+        sku=pulumi.get(__response__, 'sku'),
+        status=pulumi.get(__response__, 'status'),
+        subscription_id=pulumi.get(__response__, 'subscription_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

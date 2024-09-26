@@ -201,9 +201,6 @@ def get_streaming_locator(account_name: Optional[str] = None,
         streaming_locator_id=pulumi.get(__ret__, 'streaming_locator_id'),
         streaming_policy_name=pulumi.get(__ret__, 'streaming_policy_name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_streaming_locator)
 def get_streaming_locator_output(account_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  streaming_locator_name: Optional[pulumi.Input[str]] = None,
@@ -216,4 +213,21 @@ def get_streaming_locator_output(account_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str streaming_locator_name: The Streaming Locator name.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['streamingLocatorName'] = streaming_locator_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:media/v20180330preview:getStreamingLocator', __args__, opts=opts, typ=GetStreamingLocatorResult)
+    return __ret__.apply(lambda __response__: GetStreamingLocatorResult(
+        asset_name=pulumi.get(__response__, 'asset_name'),
+        content_keys=pulumi.get(__response__, 'content_keys'),
+        created=pulumi.get(__response__, 'created'),
+        default_content_key_policy_name=pulumi.get(__response__, 'default_content_key_policy_name'),
+        end_time=pulumi.get(__response__, 'end_time'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        start_time=pulumi.get(__response__, 'start_time'),
+        streaming_locator_id=pulumi.get(__response__, 'streaming_locator_id'),
+        streaming_policy_name=pulumi.get(__response__, 'streaming_policy_name'),
+        type=pulumi.get(__response__, 'type')))

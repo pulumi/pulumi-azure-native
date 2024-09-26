@@ -214,9 +214,6 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_local_network_gateway)
 def get_local_network_gateway_output(local_network_gateway_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalNetworkGatewayResult]:
@@ -230,4 +227,21 @@ def get_local_network_gateway_output(local_network_gateway_name: Optional[pulumi
     :param str local_network_gateway_name: The name of the local network gateway.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['localNetworkGatewayName'] = local_network_gateway_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getLocalNetworkGateway', __args__, opts=opts, typ=GetLocalNetworkGatewayResult)
+    return __ret__.apply(lambda __response__: GetLocalNetworkGatewayResult(
+        bgp_settings=pulumi.get(__response__, 'bgp_settings'),
+        etag=pulumi.get(__response__, 'etag'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        gateway_ip_address=pulumi.get(__response__, 'gateway_ip_address'),
+        id=pulumi.get(__response__, 'id'),
+        local_network_address_space=pulumi.get(__response__, 'local_network_address_space'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

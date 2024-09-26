@@ -160,9 +160,6 @@ def get_integration_service_environment(integration_service_environment_name: Op
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_integration_service_environment)
 def get_integration_service_environment_output(integration_service_environment_name: Optional[pulumi.Input[str]] = None,
                                                resource_group: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentResult]:
@@ -174,4 +171,17 @@ def get_integration_service_environment_output(integration_service_environment_n
     :param str integration_service_environment_name: The integration service environment name.
     :param str resource_group: The resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['integrationServiceEnvironmentName'] = integration_service_environment_name
+    __args__['resourceGroup'] = resource_group
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getIntegrationServiceEnvironment', __args__, opts=opts, typ=GetIntegrationServiceEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetIntegrationServiceEnvironmentResult(
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

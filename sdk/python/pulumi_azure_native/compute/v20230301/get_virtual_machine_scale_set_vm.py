@@ -425,9 +425,6 @@ def get_virtual_machine_scale_set_vm(expand: Optional[str] = None,
         user_data=pulumi.get(__ret__, 'user_data'),
         vm_id=pulumi.get(__ret__, 'vm_id'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_virtual_machine_scale_set_vm)
 def get_virtual_machine_scale_set_vm_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                             instance_id: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -442,4 +439,39 @@ def get_virtual_machine_scale_set_vm_output(expand: Optional[pulumi.Input[Option
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['instanceId'] = instance_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vmScaleSetName'] = vm_scale_set_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230301:getVirtualMachineScaleSetVM', __args__, opts=opts, typ=GetVirtualMachineScaleSetVMResult)
+    return __ret__.apply(lambda __response__: GetVirtualMachineScaleSetVMResult(
+        additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),
+        availability_set=pulumi.get(__response__, 'availability_set'),
+        diagnostics_profile=pulumi.get(__response__, 'diagnostics_profile'),
+        hardware_profile=pulumi.get(__response__, 'hardware_profile'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        instance_view=pulumi.get(__response__, 'instance_view'),
+        latest_model_applied=pulumi.get(__response__, 'latest_model_applied'),
+        license_type=pulumi.get(__response__, 'license_type'),
+        location=pulumi.get(__response__, 'location'),
+        model_definition_applied=pulumi.get(__response__, 'model_definition_applied'),
+        name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
+        network_profile_configuration=pulumi.get(__response__, 'network_profile_configuration'),
+        os_profile=pulumi.get(__response__, 'os_profile'),
+        plan=pulumi.get(__response__, 'plan'),
+        protection_policy=pulumi.get(__response__, 'protection_policy'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resources=pulumi.get(__response__, 'resources'),
+        security_profile=pulumi.get(__response__, 'security_profile'),
+        sku=pulumi.get(__response__, 'sku'),
+        storage_profile=pulumi.get(__response__, 'storage_profile'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        user_data=pulumi.get(__response__, 'user_data'),
+        vm_id=pulumi.get(__response__, 'vm_id'),
+        zones=pulumi.get(__response__, 'zones')))

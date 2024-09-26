@@ -164,9 +164,6 @@ def get_route_filter_rule(resource_group_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         route_filter_rule_type=pulumi.get(__ret__, 'route_filter_rule_type'))
-
-
-@_utilities.lift_output_func(get_route_filter_rule)
 def get_route_filter_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  route_filter_name: Optional[pulumi.Input[str]] = None,
                                  rule_name: Optional[pulumi.Input[str]] = None,
@@ -182,4 +179,18 @@ def get_route_filter_rule_output(resource_group_name: Optional[pulumi.Input[str]
     :param str route_filter_name: The name of the route filter.
     :param str rule_name: The name of the rule.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['routeFilterName'] = route_filter_name
+    __args__['ruleName'] = rule_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getRouteFilterRule', __args__, opts=opts, typ=GetRouteFilterRuleResult)
+    return __ret__.apply(lambda __response__: GetRouteFilterRuleResult(
+        access=pulumi.get(__response__, 'access'),
+        communities=pulumi.get(__response__, 'communities'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        route_filter_rule_type=pulumi.get(__response__, 'route_filter_rule_type')))

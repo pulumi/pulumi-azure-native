@@ -121,9 +121,6 @@ def get_saas_subscription_level(resource_group_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_saas_subscription_level)
 def get_saas_subscription_level_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        resource_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSaasSubscriptionLevelResult]:
@@ -135,4 +132,14 @@ def get_saas_subscription_level_output(resource_group_name: Optional[pulumi.Inpu
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:saas:getSaasSubscriptionLevel', __args__, opts=opts, typ=GetSaasSubscriptionLevelResult)
+    return __ret__.apply(lambda __response__: GetSaasSubscriptionLevelResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

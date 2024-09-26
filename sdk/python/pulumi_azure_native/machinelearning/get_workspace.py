@@ -238,9 +238,6 @@ def get_workspace(resource_group_name: Optional[str] = None,
         workspace_id=pulumi.get(__ret__, 'workspace_id'),
         workspace_state=pulumi.get(__ret__, 'workspace_state'),
         workspace_type=pulumi.get(__ret__, 'workspace_type'))
-
-
-@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
@@ -252,4 +249,23 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group to which the machine learning workspace belongs.
     :param str workspace_name: The name of the machine learning workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearning:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        id=pulumi.get(__response__, 'id'),
+        key_vault_identifier_id=pulumi.get(__response__, 'key_vault_identifier_id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        owner_email=pulumi.get(__response__, 'owner_email'),
+        sku=pulumi.get(__response__, 'sku'),
+        studio_endpoint=pulumi.get(__response__, 'studio_endpoint'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        user_storage_account_id=pulumi.get(__response__, 'user_storage_account_id'),
+        workspace_id=pulumi.get(__response__, 'workspace_id'),
+        workspace_state=pulumi.get(__response__, 'workspace_state'),
+        workspace_type=pulumi.get(__response__, 'workspace_type')))

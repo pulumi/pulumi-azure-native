@@ -250,9 +250,6 @@ def get_asset_endpoint_profile(asset_endpoint_profile_name: Optional[str] = None
         target_address=pulumi.get(__ret__, 'target_address'),
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
-
-
-@_utilities.lift_output_func(get_asset_endpoint_profile)
 def get_asset_endpoint_profile_output(asset_endpoint_profile_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetEndpointProfileResult]:
@@ -263,4 +260,24 @@ def get_asset_endpoint_profile_output(asset_endpoint_profile_name: Optional[pulu
     :param str asset_endpoint_profile_name: Asset Endpoint Profile name parameter.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['assetEndpointProfileName'] = asset_endpoint_profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry/v20240901preview:getAssetEndpointProfile', __args__, opts=opts, typ=GetAssetEndpointProfileResult)
+    return __ret__.apply(lambda __response__: GetAssetEndpointProfileResult(
+        additional_configuration=pulumi.get(__response__, 'additional_configuration'),
+        authentication=pulumi.get(__response__, 'authentication'),
+        discovered_asset_endpoint_profile_ref=pulumi.get(__response__, 'discovered_asset_endpoint_profile_ref'),
+        endpoint_profile_type=pulumi.get(__response__, 'endpoint_profile_type'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_address=pulumi.get(__response__, 'target_address'),
+        type=pulumi.get(__response__, 'type'),
+        uuid=pulumi.get(__response__, 'uuid')))
