@@ -400,6 +400,7 @@ func TestUsesCorrectAzureClient(t *testing.T) {
 	p := azureNativeProvider{}
 
 	t.Run("default", func(t *testing.T) {
+		t.Setenv("PULUMI_USE_AUTOREST", "")
 		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
 		require.NoError(t, err)
 		assert.Equal(t, "azureClientImpl", reflect.TypeOf(client).Elem().Name())
