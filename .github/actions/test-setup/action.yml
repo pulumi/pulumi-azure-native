@@ -66,9 +66,3 @@ runs:
     - name: Install dependencies
       run: make install_${{ inputs.language}}_sdk
       shell: bash
-
-    - name: Install gotestfmt
-      uses: jaxxstorm/action-install-gh-release@v1.11.0
-      with:
-        tag: v2.5.0
-        repo: GoTestTools/gotestfmt
