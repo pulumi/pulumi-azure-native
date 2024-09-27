@@ -238,8 +238,10 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
 	if os.Getenv("PULUMI_USE_AUTOREST") == "false" {
+		logging.V(9).Infof("AzureClient: using azCore")
 		return azure.NewAzCoreClient(tokenCred, userAgent, k.getAzureCloud(), nil)
 	}
+	logging.V(9).Infof("AzureClient: using autorest")
 	return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
 }
 
