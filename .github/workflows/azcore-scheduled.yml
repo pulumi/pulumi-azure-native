@@ -2,14 +2,11 @@ name: azcore-scheduled
 
 on:
   schedule:
-    - cron: 15 3 * * 1-6
+    - cron: 15 3 * * 1-6 # 3:15 am UTC, Mon-Sat
   workflow_dispatch: {}
   push:
     branches:
       - tkappler/azcore-scheduled
-
-env:
-  PULUMI_USE_AUTOREST: "false"
 
 jobs:
   version:
@@ -25,4 +22,4 @@ jobs:
       version: ${{ needs.version.outputs.version }}
       short_test: false
       retention_days: 7
-      # We don't specify oidc_arm_client_id, it will default to its correct value.
+      use_autorest: false
