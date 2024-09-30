@@ -33,14 +33,14 @@ func TestTypeAliasFormatting(t *testing.T) {
 var _ Versioning = (*versioningStub)(nil)
 
 type versioningStub struct {
-	shouldIncline   func(provider string, version string, typeName, token string) bool
+	shouldInclude   func(provider string, version string, typeName, token string) bool
 	getDeprecations func(token string) (ResourceDeprecation, bool)
 	getAllVersions  func(provider, resource string) []string
 }
 
 func (v versioningStub) ShouldInclude(provider string, version string, typeName, token string) bool {
-	if v.shouldIncline != nil {
-		return v.shouldIncline(provider, version, typeName, token)
+	if v.shouldInclude != nil {
+		return v.shouldInclude(provider, version, typeName, token)
 	}
 	return true
 }
