@@ -1,0 +1,22 @@
+name: azcore-scheduled
+
+on:
+  schedule:
+    - cron: 15 3 * * 1-6 # 3:15 am UTC, Mon-Sat
+  workflow_dispatch: {}
+
+jobs:
+  version:
+    uses: ./.github/workflows/version.yml
+    secrets: inherit
+
+  build_test:
+    uses: ./.github/workflows/build-test.yml
+    secrets: inherit
+    needs: version
+    with:
+      ref: ${{ github.ref }}
+      version: ${{ needs.version.outputs.version }}
+      short_test: false
+      retention_days: 7
+      use_autorest: false
