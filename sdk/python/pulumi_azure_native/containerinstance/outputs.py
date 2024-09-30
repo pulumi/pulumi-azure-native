@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'AzureFileVolumeResponse',
     'ConfidentialComputePropertiesResponse',
+    'ConfigMapResponse',
     'ContainerExecResponse',
     'ContainerGroupDiagnosticsResponse',
     'ContainerGroupIdentityResponse',
@@ -172,6 +173,46 @@ class ConfidentialComputePropertiesResponse(dict):
         The base64 encoded confidential compute enforcement policy
         """
         return pulumi.get(self, "cce_policy")
+
+
+@pulumi.output_type
+class ConfigMapResponse(dict):
+    """
+    The container config map.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyValuePairs":
+            suggest = "key_value_pairs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigMapResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigMapResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigMapResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_value_pairs: Optional[Mapping[str, str]] = None):
+        """
+        The container config map.
+        :param Mapping[str, str] key_value_pairs: The key value pairs dictionary in the config map.
+        """
+        if key_value_pairs is not None:
+            pulumi.set(__self__, "key_value_pairs", key_value_pairs)
+
+    @property
+    @pulumi.getter(name="keyValuePairs")
+    def key_value_pairs(self) -> Optional[Mapping[str, str]]:
+        """
+        The key value pairs dictionary in the config map.
+        """
+        return pulumi.get(self, "key_value_pairs")
 
 
 @pulumi.output_type
@@ -701,6 +742,8 @@ class ContainerResponse(dict):
         suggest = None
         if key == "instanceView":
             suggest = "instance_view"
+        elif key == "configMap":
+            suggest = "config_map"
         elif key == "environmentVariables":
             suggest = "environment_variables"
         elif key == "livenessProbe":
@@ -724,57 +767,55 @@ class ContainerResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 image: str,
                  instance_view: 'outputs.ContainerPropertiesResponseInstanceView',
                  name: str,
-                 resources: 'outputs.ResourceRequirementsResponse',
                  command: Optional[Sequence[str]] = None,
+                 config_map: Optional['outputs.ConfigMapResponse'] = None,
                  environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
+                 image: Optional[str] = None,
                  liveness_probe: Optional['outputs.ContainerProbeResponse'] = None,
                  ports: Optional[Sequence['outputs.ContainerPortResponse']] = None,
                  readiness_probe: Optional['outputs.ContainerProbeResponse'] = None,
+                 resources: Optional['outputs.ResourceRequirementsResponse'] = None,
                  security_context: Optional['outputs.SecurityContextDefinitionResponse'] = None,
                  volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
         """
         A container instance.
-        :param str image: The name of the image used to create the container instance.
         :param 'ContainerPropertiesResponseInstanceView' instance_view: The instance view of the container instance. Only valid in response.
         :param str name: The user-provided name of the container instance.
-        :param 'ResourceRequirementsResponse' resources: The resource requirements of the container instance.
         :param Sequence[str] command: The commands to execute within the container instance in exec form.
+        :param 'ConfigMapResponse' config_map: The config map.
         :param Sequence['EnvironmentVariableResponse'] environment_variables: The environment variables to set in the container instance.
+        :param str image: The name of the image used to create the container instance.
         :param 'ContainerProbeResponse' liveness_probe: The liveness probe.
         :param Sequence['ContainerPortResponse'] ports: The exposed ports on the container instance.
         :param 'ContainerProbeResponse' readiness_probe: The readiness probe.
+        :param 'ResourceRequirementsResponse' resources: The resource requirements of the container instance.
         :param 'SecurityContextDefinitionResponse' security_context: The container security properties.
         :param Sequence['VolumeMountResponse'] volume_mounts: The volume mounts available to the container instance.
         """
-        pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "instance_view", instance_view)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resources", resources)
         if command is not None:
             pulumi.set(__self__, "command", command)
+        if config_map is not None:
+            pulumi.set(__self__, "config_map", config_map)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
         if liveness_probe is not None:
             pulumi.set(__self__, "liveness_probe", liveness_probe)
         if ports is not None:
             pulumi.set(__self__, "ports", ports)
         if readiness_probe is not None:
             pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
         if security_context is not None:
             pulumi.set(__self__, "security_context", security_context)
         if volume_mounts is not None:
             pulumi.set(__self__, "volume_mounts", volume_mounts)
-
-    @property
-    @pulumi.getter
-    def image(self) -> str:
-        """
-        The name of the image used to create the container instance.
-        """
-        return pulumi.get(self, "image")
 
     @property
     @pulumi.getter(name="instanceView")
@@ -794,19 +835,19 @@ class ContainerResponse(dict):
 
     @property
     @pulumi.getter
-    def resources(self) -> 'outputs.ResourceRequirementsResponse':
-        """
-        The resource requirements of the container instance.
-        """
-        return pulumi.get(self, "resources")
-
-    @property
-    @pulumi.getter
     def command(self) -> Optional[Sequence[str]]:
         """
         The commands to execute within the container instance in exec form.
         """
         return pulumi.get(self, "command")
+
+    @property
+    @pulumi.getter(name="configMap")
+    def config_map(self) -> Optional['outputs.ConfigMapResponse']:
+        """
+        The config map.
+        """
+        return pulumi.get(self, "config_map")
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -815,6 +856,14 @@ class ContainerResponse(dict):
         The environment variables to set in the container instance.
         """
         return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[str]:
+        """
+        The name of the image used to create the container instance.
+        """
+        return pulumi.get(self, "image")
 
     @property
     @pulumi.getter(name="livenessProbe")
@@ -839,6 +888,14 @@ class ContainerResponse(dict):
         The readiness probe.
         """
         return pulumi.get(self, "readiness_probe")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional['outputs.ResourceRequirementsResponse']:
+        """
+        The resource requirements of the container instance.
+        """
+        return pulumi.get(self, "resources")
 
     @property
     @pulumi.getter(name="securityContext")

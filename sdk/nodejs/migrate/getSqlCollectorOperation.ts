@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a SqlCollector
  * Azure REST API version: 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
  */
 export function getSqlCollectorOperation(args: GetSqlCollectorOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlCollectorOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -82,7 +82,7 @@ export interface GetSqlCollectorOperationResult {
  * Get a SqlCollector
  * Azure REST API version: 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
  */
 export function getSqlCollectorOperationOutput(args: GetSqlCollectorOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlCollectorOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Gets a named add-on of an app.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
+        /// Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
         /// </summary>
         public static Task<GetWebAppPremierAddOnResult> InvokeAsync(GetWebAppPremierAddOnArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPremierAddOnResult>("azure-native:web:getWebAppPremierAddOn", args ?? new GetWebAppPremierAddOnArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Gets a named add-on of an app.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
+        /// Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
         /// </summary>
         public static Output<GetWebAppPremierAddOnResult> Invoke(GetWebAppPremierAddOnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPremierAddOnResult>("azure-native:web:getWebAppPremierAddOn", args ?? new GetWebAppPremierAddOnInvokeArgs(), options.WithDefaults());

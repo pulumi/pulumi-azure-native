@@ -667,7 +667,8 @@
     "Budget": "2023-05-01"
   },
   "ContainerInstance": {
-    "ContainerGroup": "2023-05-01"
+    "ContainerGroup": "2023-05-01",
+    "ContainerGroupProfile": "2024-05-01-preview"
   },
   "ContainerRegistry": {
     "AgentPool": "2019-06-01-preview",
@@ -1859,6 +1860,10 @@
     "DdosProtectionPlan": "2023-02-01",
     "DnsForwardingRuleset": "2022-07-01",
     "DnsResolver": "2022-07-01",
+    "DnsResolverDomainList": "2023-07-01-preview",
+    "DnsResolverPolicy": "2023-07-01-preview",
+    "DnsResolverPolicyVirtualNetworkLink": "2023-07-01-preview",
+    "DnsSecurityRule": "2023-07-01-preview",
     "DnssecConfig": "2018-05-01",
     "DscpConfiguration": "2023-02-01",
     "Endpoint": "2022-04-01",
@@ -1998,6 +2003,7 @@
     "listActiveSecurityUserRules": "2022-04-01-preview",
     "listDnsForwardingRulesetByVirtualNetwork": "2022-07-01",
     "listDnsResolverByVirtualNetwork": "2022-07-01",
+    "listDnsResolverPolicyByVirtualNetwork": "2023-07-01-preview",
     "listEffectiveConnectivityConfiguration": "2021-02-01-preview",
     "listEffectiveVirtualNetworkByNetworkGroup": "2021-02-01-preview",
     "listEffectiveVirtualNetworkByNetworkManager": "2022-04-01-preview",
@@ -2369,6 +2375,7 @@
     "AutomationRule": "2023-02-01",
     "Bookmark": "2023-02-01",
     "BookmarkRelation": "2023-06-01-preview",
+    "BusinessApplicationAgent": "2024-04-01-preview",
     "ContentPackage": "2023-06-01-preview",
     "ContentTemplate": "2023-06-01-preview",
     "DataConnector": "2023-02-01",
@@ -2387,6 +2394,7 @@
     "SecurityMLAnalyticsSetting": "2023-02-01",
     "SentinelOnboardingState": "2023-02-01",
     "SourceControl": "2023-05-01-preview",
+    "System": "2024-04-01-preview",
     "ThreatIntelligenceIndicator": "2023-02-01",
     "Watchlist": "2023-02-01",
     "WatchlistItem": "2023-02-01",
@@ -2398,6 +2406,7 @@
     "getEntityInsights": "2023-06-01-preview",
     "listGeodataByIp": "2024-01-01-preview",
     "listSourceControlRepositories": "2023-06-01-preview",
+    "listSystemActions": "2024-04-01-preview",
     "listWhoisByDomain": "2024-01-01-preview"
   },
   "SerialConsole": {

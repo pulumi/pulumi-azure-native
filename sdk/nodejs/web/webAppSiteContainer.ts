@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Container of a site
  * Azure REST API version: 2023-12-01.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export class WebAppSiteContainer extends pulumi.CustomResource {
     /**
@@ -157,7 +159,7 @@ export class WebAppSiteContainer extends pulumi.CustomResource {
             resourceInputs["volumeMounts"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20231201:WebAppSiteContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20231201:WebAppSiteContainer" }, { type: "azure-native:web/v20240401:WebAppSiteContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSiteContainer.__pulumiType, name, resourceInputs, opts);
     }

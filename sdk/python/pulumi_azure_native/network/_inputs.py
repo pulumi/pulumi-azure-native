@@ -218,6 +218,8 @@ __all__ = [
     'DhcpOptionsArgsDict',
     'DnsConfigArgs',
     'DnsConfigArgsDict',
+    'DnsSecurityRuleActionArgs',
+    'DnsSecurityRuleActionArgsDict',
     'DnsSettingsArgs',
     'DnsSettingsArgsDict',
     'EndpointPropertiesCustomHeadersArgs',
@@ -10867,6 +10869,62 @@ class DnsConfigArgs:
     @ttl.setter
     def ttl(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "ttl", value)
+
+
+if not MYPY:
+    class DnsSecurityRuleActionArgsDict(TypedDict):
+        """
+        The action to take on DNS requests that match the DNS security rule.
+        """
+        action_type: NotRequired[pulumi.Input[Union[str, 'ActionType']]]
+        """
+        The type of action to take.
+        """
+        block_response_code: NotRequired[pulumi.Input[Union[str, 'BlockResponseCode']]]
+        """
+        The response code for block actions.
+        """
+elif False:
+    DnsSecurityRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DnsSecurityRuleActionArgs:
+    def __init__(__self__, *,
+                 action_type: Optional[pulumi.Input[Union[str, 'ActionType']]] = None,
+                 block_response_code: Optional[pulumi.Input[Union[str, 'BlockResponseCode']]] = None):
+        """
+        The action to take on DNS requests that match the DNS security rule.
+        :param pulumi.Input[Union[str, 'ActionType']] action_type: The type of action to take.
+        :param pulumi.Input[Union[str, 'BlockResponseCode']] block_response_code: The response code for block actions.
+        """
+        if action_type is not None:
+            pulumi.set(__self__, "action_type", action_type)
+        if block_response_code is not None:
+            pulumi.set(__self__, "block_response_code", block_response_code)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> Optional[pulumi.Input[Union[str, 'ActionType']]]:
+        """
+        The type of action to take.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: Optional[pulumi.Input[Union[str, 'ActionType']]]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="blockResponseCode")
+    def block_response_code(self) -> Optional[pulumi.Input[Union[str, 'BlockResponseCode']]]:
+        """
+        The response code for block actions.
+        """
+        return pulumi.get(self, "block_response_code")
+
+    @block_response_code.setter
+    def block_response_code(self, value: Optional[pulumi.Input[Union[str, 'BlockResponseCode']]]):
+        pulumi.set(self, "block_response_code", value)
 
 
 if not MYPY:

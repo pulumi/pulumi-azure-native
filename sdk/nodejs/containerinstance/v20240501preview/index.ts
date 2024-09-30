@@ -10,10 +10,20 @@ export type ContainerGroup = import("./containerGroup").ContainerGroup;
 export const ContainerGroup: typeof import("./containerGroup").ContainerGroup = null as any;
 utilities.lazyLoad(exports, ["ContainerGroup"], () => require("./containerGroup"));
 
+export { ContainerGroupProfileArgs } from "./containerGroupProfile";
+export type ContainerGroupProfile = import("./containerGroupProfile").ContainerGroupProfile;
+export const ContainerGroupProfile: typeof import("./containerGroupProfile").ContainerGroupProfile = null as any;
+utilities.lazyLoad(exports, ["ContainerGroupProfile"], () => require("./containerGroupProfile"));
+
 export { GetContainerGroupArgs, GetContainerGroupResult, GetContainerGroupOutputArgs } from "./getContainerGroup";
 export const getContainerGroup: typeof import("./getContainerGroup").getContainerGroup = null as any;
 export const getContainerGroupOutput: typeof import("./getContainerGroup").getContainerGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getContainerGroup","getContainerGroupOutput"], () => require("./getContainerGroup"));
+
+export { GetContainerGroupProfileArgs, GetContainerGroupProfileResult, GetContainerGroupProfileOutputArgs } from "./getContainerGroupProfile";
+export const getContainerGroupProfile: typeof import("./getContainerGroupProfile").getContainerGroupProfile = null as any;
+export const getContainerGroupProfileOutput: typeof import("./getContainerGroupProfile").getContainerGroupProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getContainerGroupProfile","getContainerGroupProfileOutput"], () => require("./getContainerGroupProfile"));
 
 
 // Export enums:
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "azure-native:containerinstance/v20240501preview:ContainerGroup":
                 return new ContainerGroup(name, <any>undefined, { urn })
+            case "azure-native:containerinstance/v20240501preview:ContainerGroupProfile":
+                return new ContainerGroupProfile(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

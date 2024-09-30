@@ -1186,6 +1186,36 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// The response code for block actions.
+    /// </summary>
+    [EnumType]
+    public readonly struct BlockResponseCode : IEquatable<BlockResponseCode>
+    {
+        private readonly string _value;
+
+        private BlockResponseCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BlockResponseCode SERVFAIL { get; } = new BlockResponseCode("SERVFAIL");
+
+        public static bool operator ==(BlockResponseCode left, BlockResponseCode right) => left.Equals(right);
+        public static bool operator !=(BlockResponseCode left, BlockResponseCode right) => !left.Equals(right);
+
+        public static explicit operator string(BlockResponseCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BlockResponseCode other && Equals(other);
+        public bool Equals(BlockResponseCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The commissioned state of the Custom IP Prefix.
     /// </summary>
     [EnumType]
@@ -1691,6 +1721,37 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DisableBgpRoutePropagation other && Equals(other);
         public bool Equals(DisableBgpRoutePropagation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state of DNS security rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct DnsSecurityRuleState : IEquatable<DnsSecurityRuleState>
+    {
+        private readonly string _value;
+
+        private DnsSecurityRuleState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DnsSecurityRuleState Enabled { get; } = new DnsSecurityRuleState("Enabled");
+        public static DnsSecurityRuleState Disabled { get; } = new DnsSecurityRuleState("Disabled");
+
+        public static bool operator ==(DnsSecurityRuleState left, DnsSecurityRuleState right) => left.Equals(right);
+        public static bool operator !=(DnsSecurityRuleState left, DnsSecurityRuleState right) => !left.Equals(right);
+
+        public static explicit operator string(DnsSecurityRuleState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DnsSecurityRuleState other && Equals(other);
+        public bool Equals(DnsSecurityRuleState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

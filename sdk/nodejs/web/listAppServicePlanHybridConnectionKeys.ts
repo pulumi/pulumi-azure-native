@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Description for Get the send key name and value of a Hybrid Connection.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01.
+ * Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function listAppServicePlanHybridConnectionKeys(args: ListAppServicePlanHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAppServicePlanHybridConnectionKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,7 +72,7 @@ export interface ListAppServicePlanHybridConnectionKeysResult {
  * Description for Get the send key name and value of a Hybrid Connection.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01.
+ * Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function listAppServicePlanHybridConnectionKeysOutput(args: ListAppServicePlanHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAppServicePlanHybridConnectionKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

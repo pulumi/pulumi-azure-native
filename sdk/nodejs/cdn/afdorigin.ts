@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
  *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
  */
 export class AFDOrigin extends pulumi.CustomResource {
     /**
@@ -163,7 +163,7 @@ export class AFDOrigin extends pulumi.CustomResource {
             resourceInputs["weight"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDOrigin" }, { type: "azure-native:cdn/v20210601:AFDOrigin" }, { type: "azure-native:cdn/v20220501preview:AFDOrigin" }, { type: "azure-native:cdn/v20221101preview:AFDOrigin" }, { type: "azure-native:cdn/v20230501:AFDOrigin" }, { type: "azure-native:cdn/v20230701preview:AFDOrigin" }, { type: "azure-native:cdn/v20240201:AFDOrigin" }, { type: "azure-native:cdn/v20240501preview:AFDOrigin" }, { type: "azure-native:cdn/v20240601preview:AFDOrigin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDOrigin" }, { type: "azure-native:cdn/v20210601:AFDOrigin" }, { type: "azure-native:cdn/v20220501preview:AFDOrigin" }, { type: "azure-native:cdn/v20221101preview:AFDOrigin" }, { type: "azure-native:cdn/v20230501:AFDOrigin" }, { type: "azure-native:cdn/v20230701preview:AFDOrigin" }, { type: "azure-native:cdn/v20240201:AFDOrigin" }, { type: "azure-native:cdn/v20240501preview:AFDOrigin" }, { type: "azure-native:cdn/v20240601preview:AFDOrigin" }, { type: "azure-native:cdn/v20240901:AFDOrigin" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AFDOrigin.__pulumiType, name, resourceInputs, opts);
     }

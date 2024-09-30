@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// <summary>
     /// Azure REST API version: 2023-10-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01, 2024-06-01-preview.
+    /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource
@@ -165,6 +165,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:AgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:AgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:AgentPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:AgentPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

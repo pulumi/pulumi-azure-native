@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Describes a forwarding rule within a DNS forwarding ruleset.
     /// Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview.
+    /// 
+    /// Other available API versions: 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ForwardingRule")]
     public partial class ForwardingRule : global::Pulumi.CustomResource
@@ -97,6 +99,7 @@ namespace Pulumi.AzureNative.Network
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:ForwardingRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ForwardingRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:ForwardingRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

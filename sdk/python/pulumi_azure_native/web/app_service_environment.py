@@ -343,7 +343,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
         App Service Environment ARM resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01.
+        Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -376,7 +376,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
         App Service Environment ARM resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01.
+        Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param AppServiceEnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -452,7 +452,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
             __props__.__dict__["suspended"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["upgrade_availability"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20160901:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20180201:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20190801:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20200601:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20200901:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20201001:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20201201:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20210101:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20210115:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20210201:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20210301:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20220301:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20220901:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20230101:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20231201:AppServiceEnvironment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20160901:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20180201:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20190801:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20200601:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20200901:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20201001:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20201201:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20210101:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20210115:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20210201:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20210301:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20220301:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20220901:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20230101:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20231201:AppServiceEnvironment"), pulumi.Alias(type_="azure-native:web/v20240401:AppServiceEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServiceEnvironment, __self__).__init__(
             'azure-native:web:AppServiceEnvironment',

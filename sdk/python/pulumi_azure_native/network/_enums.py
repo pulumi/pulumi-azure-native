@@ -41,6 +41,7 @@ __all__ = [
     'AzureFirewallThreatIntelMode',
     'BackendEnabledState',
     'BastionHostSkuName',
+    'BlockResponseCode',
     'CommissionedState',
     'ConfigurationType',
     'ConnectionMonitorEndpointFilterItemType',
@@ -57,6 +58,7 @@ __all__ = [
     'DestinationPortBehavior',
     'DhGroup',
     'DisableBgpRoutePropagation',
+    'DnsSecurityRuleState',
     'DynamicCompressionEnabled',
     'EndpointMonitorStatus',
     'EndpointStatus',
@@ -573,6 +575,13 @@ class BastionHostSkuName(str, Enum):
     STANDARD = "Standard"
 
 
+class BlockResponseCode(str, Enum):
+    """
+    The response code for block actions.
+    """
+    SERVFAIL = "SERVFAIL"
+
+
 class CommissionedState(str, Enum):
     """
     The commissioned state of the Custom IP Prefix.
@@ -716,6 +725,14 @@ class DisableBgpRoutePropagation(str, Enum):
     """
     FALSE = "False"
     TRUE = "True"
+
+
+class DnsSecurityRuleState(str, Enum):
+    """
+    The state of DNS security rule.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class DynamicCompressionEnabled(str, Enum):

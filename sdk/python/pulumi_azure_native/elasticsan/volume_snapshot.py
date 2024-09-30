@@ -117,7 +117,7 @@ class VolumeSnapshot(pulumi.CustomResource):
         Response for Volume Snapshot request.
         Azure REST API version: 2023-01-01.
 
-        Other available API versions: 2024-05-01.
+        Other available API versions: 2024-05-01, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,7 +137,7 @@ class VolumeSnapshot(pulumi.CustomResource):
         Response for Volume Snapshot request.
         Azure REST API version: 2023-01-01.
 
-        Other available API versions: 2024-05-01.
+        Other available API versions: 2024-05-01, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VolumeSnapshotArgs args: The arguments to use to populate this resource's properties.
@@ -187,7 +187,7 @@ class VolumeSnapshot(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["volume_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elasticsan/v20230101:VolumeSnapshot"), pulumi.Alias(type_="azure-native:elasticsan/v20240501:VolumeSnapshot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elasticsan/v20230101:VolumeSnapshot"), pulumi.Alias(type_="azure-native:elasticsan/v20240501:VolumeSnapshot"), pulumi.Alias(type_="azure-native:elasticsan/v20240601preview:VolumeSnapshot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VolumeSnapshot, __self__).__init__(
             'azure-native:elasticsan:VolumeSnapshot',

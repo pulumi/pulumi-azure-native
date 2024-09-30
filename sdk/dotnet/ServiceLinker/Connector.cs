@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker
     /// Linker of source and target resource
     /// Azure REST API version: 2022-11-01-preview.
     /// 
-    /// Other available API versions: 2023-04-01-preview, 2024-04-01.
+    /// Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker:Connector")]
     public partial class Connector : global::Pulumi.CustomResource
@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.ServiceLinker
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20221101preview:Connector" },
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20230401preview:Connector" },
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20240401:Connector" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20240701preview:Connector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

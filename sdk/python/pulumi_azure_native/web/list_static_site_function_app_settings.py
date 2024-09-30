@@ -104,7 +104,7 @@ def list_static_site_function_app_settings(name: Optional[str] = None,
     Description for Gets the application settings of a static site.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01.
+    Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
 
     :param str name: Name of the static site.
@@ -129,7 +129,7 @@ def list_static_site_function_app_settings_output(name: Optional[pulumi.Input[st
     Description for Gets the application settings of a static site.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01.
+    Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
 
     :param str name: Name of the static site.

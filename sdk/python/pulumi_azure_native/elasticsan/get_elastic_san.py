@@ -237,7 +237,7 @@ def get_elastic_san(elastic_san_name: Optional[str] = None,
     Get a ElasticSan.
     Azure REST API version: 2021-11-20-preview.
 
-    Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01.
+    Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -273,7 +273,7 @@ def get_elastic_san_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
     Get a ElasticSan.
     Azure REST API version: 2021-11-20-preview.
 
-    Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01.
+    Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
 
 
     :param str elastic_san_name: The name of the ElasticSan.

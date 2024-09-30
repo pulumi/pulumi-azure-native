@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get properties of the provided the Kubernetes cluster feature.
  * Azure REST API version: 2024-06-01-preview.
+ *
+ * Other available API versions: 2024-07-01.
  */
 export function getKubernetesClusterFeature(args: GetKubernetesClusterFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterFeatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,6 +94,8 @@ export interface GetKubernetesClusterFeatureResult {
 /**
  * Get properties of the provided the Kubernetes cluster feature.
  * Azure REST API version: 2024-06-01-preview.
+ *
+ * Other available API versions: 2024-07-01.
  */
 export function getKubernetesClusterFeatureOutput(args: GetKubernetesClusterFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesClusterFeatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

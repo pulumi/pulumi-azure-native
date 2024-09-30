@@ -190,11 +190,13 @@
     "2023-07-01-preview",
     "2024-02-01",
     "2024-05-01-preview",
-    "2024-06-01-preview"
+    "2024-06-01-preview",
+    "2024-09-01"
   ],
   "CertificateRegistration": [
     "2023-01-01",
-    "2023-12-01"
+    "2023-12-01",
+    "2024-04-01"
   ],
   "ChangeAnalysis": [],
   "Chaos": [
@@ -511,7 +513,8 @@
     "2022-12-12",
     "2023-03-01-preview",
     "2023-06-30",
-    "2023-06-30-preview"
+    "2023-06-30-preview",
+    "2025-02-01-preview"
   ],
   "DigitalTwins": [],
   "DocumentDB": [
@@ -531,7 +534,8 @@
   ],
   "DomainRegistration": [
     "2023-01-01",
-    "2023-12-01"
+    "2023-12-01",
+    "2024-04-01"
   ],
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
@@ -557,7 +561,8 @@
   "ElasticSan": [
     "2022-12-01-preview",
     "2023-01-01",
-    "2024-05-01"
+    "2024-05-01",
+    "2024-06-01-preview"
   ],
   "EngagementFabric": [],
   "EnterpriseKnowledgeGraph": [],
@@ -865,6 +870,7 @@
     "2023-01-01",
     "2023-03-15",
     "2023-04-01-preview",
+    "2023-05-01-preview",
     "2023-08-01"
   ],
   "MixedReality": [
@@ -956,7 +962,8 @@
   ],
   "NetworkAnalytics": [],
   "NetworkCloud": [
-    "2024-06-01-preview"
+    "2024-06-01-preview",
+    "2024-07-01"
   ],
   "NetworkFunction": [],
   "NotificationHubs": [
@@ -1122,7 +1129,8 @@
     "2023-11-01",
     "2023-12-01-preview",
     "2024-01-01-preview",
-    "2024-03-01"
+    "2024-03-01",
+    "2024-04-01-preview"
   ],
   "SerialConsole": [],
   "ServiceBus": [
@@ -1146,7 +1154,8 @@
   "ServiceFabricMesh": [],
   "ServiceLinker": [
     "2023-04-01-preview",
-    "2024-04-01"
+    "2024-04-01",
+    "2024-07-01-preview"
   ],
   "ServiceNetworking": [
     "2023-11-01",
@@ -1246,7 +1255,8 @@
   "VideoIndexer": [
     "2024-01-01",
     "2024-04-01-preview",
-    "2024-06-01-preview"
+    "2024-06-01-preview",
+    "2024-09-23-preview"
   ],
   "VirtualMachineImages": [
     "2023-07-01",
@@ -1277,7 +1287,8 @@
     "2022-03-01",
     "2022-09-01",
     "2023-01-01",
-    "2023-12-01"
+    "2023-12-01",
+    "2024-04-01"
   ],
   "WebPubSub": [
     "2023-03-01-preview",

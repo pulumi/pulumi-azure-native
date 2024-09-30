@@ -48,7 +48,7 @@ class ContainerGroupArgs:
         """
         The set of arguments for constructing a ContainerGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]] containers: The containers within the container group.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ConfidentialComputePropertiesArgs'] confidential_compute_properties: The properties for confidential container group
         :param pulumi.Input[str] container_group_name: The name of the container group.
         :param pulumi.Input['ContainerGroupProfileReferenceDefinitionArgs'] container_group_profile: The reference container group profile properties.
@@ -135,7 +135,7 @@ class ContainerGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -448,7 +448,7 @@ class ContainerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Union[str, 'OperatingSystemTypes']] os_type: The operating system type required by the containers in the container group.
         :param pulumi.Input[Union[str, 'ContainerGroupPriority']] priority: The priority of the container group.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group. 
                - `Always` Always restart
                - `OnFailure` Restart on failure

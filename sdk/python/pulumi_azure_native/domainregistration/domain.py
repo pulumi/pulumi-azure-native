@@ -301,7 +301,7 @@ class Domain(pulumi.CustomResource):
         Information about a domain.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -331,7 +331,7 @@ class Domain(pulumi.CustomResource):
         Information about a domain.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
@@ -414,7 +414,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["ready_for_dns_record_management"] = None
             __props__.__dict__["registration_status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:domainregistration/v20150401:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20180201:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20190801:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20200601:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20200901:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20201001:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20201201:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210101:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210115:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210201:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210301:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20220301:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20220901:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20230101:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20231201:Domain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:domainregistration/v20150401:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20180201:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20190801:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20200601:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20200901:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20201001:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20201201:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210101:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210115:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210201:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20210301:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20220301:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20220901:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20230101:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20231201:Domain"), pulumi.Alias(type_="azure-native:domainregistration/v20240401:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Domain, __self__).__init__(
             'azure-native:domainregistration:Domain',

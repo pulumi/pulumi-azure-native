@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
             set => _command = value;
         }
 
+        /// <summary>
+        /// The config map.
+        /// </summary>
+        [Input("configMap")]
+        public Input<Inputs.ConfigMapArgs>? ConfigMap { get; set; }
+
         [Input("environmentVariables")]
         private InputList<Inputs.EnvironmentVariableArgs>? _environmentVariables;
 
@@ -42,8 +48,8 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
         /// <summary>
         /// The name of the image used to create the container instance.
         /// </summary>
-        [Input("image", required: true)]
-        public Input<string> Image { get; set; } = null!;
+        [Input("image")]
+        public Input<string>? Image { get; set; }
 
         /// <summary>
         /// The liveness probe.
@@ -78,8 +84,8 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
         /// <summary>
         /// The resource requirements of the container instance.
         /// </summary>
-        [Input("resources", required: true)]
-        public Input<Inputs.ResourceRequirementsArgs> Resources { get; set; } = null!;
+        [Input("resources")]
+        public Input<Inputs.ResourceRequirementsArgs>? Resources { get; set; }
 
         /// <summary>
         /// The container security properties.

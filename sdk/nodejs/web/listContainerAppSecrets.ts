@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Container App Secrets Collection ARM resource.
  * Azure REST API version: 2023-01-01.
  *
- * Other available API versions: 2023-12-01.
+ * Other available API versions: 2023-12-01, 2024-04-01.
  */
 export function listContainerAppSecrets(args: ListContainerAppSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListContainerAppSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,7 +40,7 @@ export interface ListContainerAppSecretsResult {
  * Container App Secrets Collection ARM resource.
  * Azure REST API version: 2023-01-01.
  *
- * Other available API versions: 2023-12-01.
+ * Other available API versions: 2023-12-01, 2024-04-01.
  */
 export function listContainerAppSecretsOutput(args: ListContainerAppSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListContainerAppSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

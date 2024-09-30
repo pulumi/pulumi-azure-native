@@ -178,7 +178,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         Virtual Network route contract used to pass routing information for a Virtual Network.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,7 +206,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         Virtual Network route contract used to pass routing information for a Virtual Network.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param AppServicePlanRouteForVnetArgs args: The arguments to use to populate this resource's properties.
@@ -255,7 +255,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vnet_name'")
             __props__.__dict__["vnet_name"] = vnet_name
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20200601:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20200901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20201001:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20201201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20210101:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20210115:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20210201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20210301:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20220301:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20220901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20230101:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20231201:AppServicePlanRouteForVnet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20160901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20180201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20190801:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20200601:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20200901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20201001:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20201201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20210101:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20210115:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20210201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20210301:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20220301:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20220901:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20230101:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20231201:AppServicePlanRouteForVnet"), pulumi.Alias(type_="azure-native:web/v20240401:AppServicePlanRouteForVnet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServicePlanRouteForVnet, __self__).__init__(
             'azure-native:web:AppServicePlanRouteForVnet',

@@ -356,7 +356,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20240501Preview
         public InputUnion<string, Pulumi.AzureNative.ContainerInstance.V20240501Preview.ContainerGroupPriority>? Priority { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

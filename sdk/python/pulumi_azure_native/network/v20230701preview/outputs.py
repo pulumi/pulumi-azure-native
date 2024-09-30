@@ -24,7 +24,9 @@ __all__ = [
     'DelegationSignerInfoResponse',
     'DigestResponse',
     'DnsResourceReferenceResponse',
+    'DnsSecurityRuleActionResponse',
     'DsRecordResponse',
+    'InboundEndpointIPConfigurationResponse',
     'MxRecordResponse',
     'NaptrRecordResponse',
     'NsRecordResponse',
@@ -36,8 +38,10 @@ __all__ = [
     'SubResourceResponse',
     'SubscriptionIdResponse',
     'SystemDataResponse',
+    'TargetDnsServerResponse',
     'TlsaRecordResponse',
     'TxtRecordResponse',
+    'VirtualNetworkDnsForwardingRulesetResponse',
 ]
 
 @pulumi.output_type
@@ -341,6 +345,60 @@ class DnsResourceReferenceResponse(dict):
 
 
 @pulumi.output_type
+class DnsSecurityRuleActionResponse(dict):
+    """
+    The action to take on DNS requests that match the DNS security rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionType":
+            suggest = "action_type"
+        elif key == "blockResponseCode":
+            suggest = "block_response_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DnsSecurityRuleActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DnsSecurityRuleActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DnsSecurityRuleActionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_type: Optional[str] = None,
+                 block_response_code: Optional[str] = None):
+        """
+        The action to take on DNS requests that match the DNS security rule.
+        :param str action_type: The type of action to take.
+        :param str block_response_code: The response code for block actions.
+        """
+        if action_type is not None:
+            pulumi.set(__self__, "action_type", action_type)
+        if block_response_code is not None:
+            pulumi.set(__self__, "block_response_code", block_response_code)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> Optional[str]:
+        """
+        The type of action to take.
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter(name="blockResponseCode")
+    def block_response_code(self) -> Optional[str]:
+        """
+        The response code for block actions.
+        """
+        return pulumi.get(self, "block_response_code")
+
+
+@pulumi.output_type
 class DsRecordResponse(dict):
     """
     A DS record. For more information about the DS record format, see RFC 4034: https://www.rfc-editor.org/rfc/rfc4034
@@ -402,6 +460,73 @@ class DsRecordResponse(dict):
         The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
         """
         return pulumi.get(self, "key_tag")
+
+
+@pulumi.output_type
+class InboundEndpointIPConfigurationResponse(dict):
+    """
+    IP configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAllocationMethod":
+            suggest = "private_ip_allocation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundEndpointIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundEndpointIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundEndpointIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet: 'outputs.SubResourceResponse',
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None):
+        """
+        IP configuration.
+        :param 'SubResourceResponse' subnet: The reference to the subnet bound to the IP configuration.
+        :param str private_ip_address: Private IP address of the IP configuration.
+        :param str private_ip_allocation_method: Private IP address allocation method.
+        """
+        pulumi.set(__self__, "subnet", subnet)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is None:
+            private_ip_allocation_method = 'Dynamic'
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> 'outputs.SubResourceResponse':
+        """
+        The reference to the subnet bound to the IP configuration.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        Private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        Private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
 
 
 @pulumi.output_type
@@ -907,22 +1032,21 @@ class SrvRecordResponse(dict):
 @pulumi.output_type
 class SubResourceResponse(dict):
     """
-    A reference to a another resource
+    Reference to another ARM resource.
     """
     def __init__(__self__, *,
-                 id: Optional[str] = None):
+                 id: str):
         """
-        A reference to a another resource
-        :param str id: Resource Id.
+        Reference to another ARM resource.
+        :param str id: Resource ID.
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def id(self) -> str:
         """
-        Resource Id.
+        Resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -1057,6 +1181,59 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class TargetDnsServerResponse(dict):
+    """
+    Describes a server to forward the DNS queries to.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetDnsServerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetDnsServerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetDnsServerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: str,
+                 port: Optional[int] = None):
+        """
+        Describes a server to forward the DNS queries to.
+        :param str ip_address: DNS server IP address.
+        :param int port: DNS server port.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        if port is None:
+            port = 53
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        DNS server IP address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        DNS server port.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
 class TlsaRecordResponse(dict):
     """
     A TLSA record. For more information about the TLSA record format, see RFC 6698: https://www.rfc-editor.org/rfc/rfc6698
@@ -1155,5 +1332,40 @@ class TxtRecordResponse(dict):
         The text value of this TXT record.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VirtualNetworkDnsForwardingRulesetResponse(dict):
+    """
+    Reference to DNS forwarding ruleset and associated virtual network link.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 virtual_network_link: Optional['outputs.SubResourceResponse'] = None):
+        """
+        Reference to DNS forwarding ruleset and associated virtual network link.
+        :param str id: DNS Forwarding Ruleset Resource ID.
+        :param 'SubResourceResponse' virtual_network_link: The reference to the virtual network link.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if virtual_network_link is not None:
+            pulumi.set(__self__, "virtual_network_link", virtual_network_link)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        DNS Forwarding Ruleset Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="virtualNetworkLink")
+    def virtual_network_link(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The reference to the virtual network link.
+        """
+        return pulumi.get(self, "virtual_network_link")
 
 

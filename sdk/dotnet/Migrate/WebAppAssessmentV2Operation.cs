@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// Web app Assessment REST resource.
     /// Azure REST API version: 2023-04-01-preview.
+    /// 
+    /// Other available API versions: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:WebAppAssessmentV2Operation")]
     public partial class WebAppAssessmentV2Operation : global::Pulumi.CustomResource
@@ -232,6 +234,7 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:WebAppAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:WebAppAssessmentV2Operation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

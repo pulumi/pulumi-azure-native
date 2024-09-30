@@ -118,7 +118,7 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
         Describes a virtual network link.
         Azure REST API version: 2022-07-01.
 
-        Other available API versions: 2020-04-01-preview.
+        Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +138,7 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
         Describes a virtual network link.
         Azure REST API version: 2022-07-01.
 
-        Other available API versions: 2020-04-01-preview.
+        Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateResolverVirtualNetworkLinkArgs args: The arguments to use to populate this resource's properties.
@@ -185,7 +185,7 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink"), pulumi.Alias(type_="azure-native:network/v20220701:PrivateResolverVirtualNetworkLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink"), pulumi.Alias(type_="azure-native:network/v20220701:PrivateResolverVirtualNetworkLink"), pulumi.Alias(type_="azure-native:network/v20230701preview:PrivateResolverVirtualNetworkLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateResolverVirtualNetworkLink, __self__).__init__(
             'azure-native:network:PrivateResolverVirtualNetworkLink',

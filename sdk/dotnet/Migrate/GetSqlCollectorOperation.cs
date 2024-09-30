@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a SqlCollector
         /// Azure REST API version: 2023-03-15.
         /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Task<GetSqlCollectorOperationResult> InvokeAsync(GetSqlCollectorOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlCollectorOperationResult>("azure-native:migrate:getSqlCollectorOperation", args ?? new GetSqlCollectorOperationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a SqlCollector
         /// Azure REST API version: 2023-03-15.
         /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Output<GetSqlCollectorOperationResult> Invoke(GetSqlCollectorOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlCollectorOperationResult>("azure-native:migrate:getSqlCollectorOperation", args ?? new GetSqlCollectorOperationInvokeArgs(), options.WithDefaults());

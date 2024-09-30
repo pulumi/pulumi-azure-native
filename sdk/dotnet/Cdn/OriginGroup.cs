@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cdn
     /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
+    /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:OriginGroup")]
     public partial class OriginGroup : global::Pulumi.CustomResource
@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.Cdn
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:OriginGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:OriginGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:OriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:OriginGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

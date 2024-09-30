@@ -87,7 +87,7 @@ export class WebAppFtpAllowedSlot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20201201:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210101:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210115:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210301:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20220301:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20220901:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20230101:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20231201:WebAppFtpAllowedSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20201201:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210101:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210115:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210301:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20220301:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20220901:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20230101:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20231201:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20240401:WebAppFtpAllowedSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppFtpAllowedSlot.__pulumiType, name, resourceInputs, opts);
     }

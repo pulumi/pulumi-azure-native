@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Container of a site
         /// Azure REST API version: 2023-12-01.
+        /// 
+        /// Other available API versions: 2024-04-01.
         /// </summary>
         public static Task<GetWebAppSiteContainerSlotResult> InvokeAsync(GetWebAppSiteContainerSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteContainerSlotResult>("azure-native:web:getWebAppSiteContainerSlot", args ?? new GetWebAppSiteContainerSlotArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Container of a site
         /// Azure REST API version: 2023-12-01.
+        /// 
+        /// Other available API versions: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppSiteContainerSlotResult> Invoke(GetWebAppSiteContainerSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerSlotResult>("azure-native:web:getWebAppSiteContainerSlot", args ?? new GetWebAppSiteContainerSlotInvokeArgs(), options.WithDefaults());

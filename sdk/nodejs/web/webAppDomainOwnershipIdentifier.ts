@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * A domain specific resource identifier.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01.
+ * Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
     /**
@@ -84,7 +84,7 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20180201:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20181101:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20190801:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20200601:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20200901:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20201001:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20201201:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20210101:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20210115:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20210201:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20210301:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20220301:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20220901:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20230101:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20231201:WebAppDomainOwnershipIdentifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20180201:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20181101:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20190801:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20200601:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20200901:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20201001:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20201201:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20210101:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20210115:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20210201:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20210301:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20220301:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20220901:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20230101:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20231201:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20240401:WebAppDomainOwnershipIdentifier" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppDomainOwnershipIdentifier.__pulumiType, name, resourceInputs, opts);
     }

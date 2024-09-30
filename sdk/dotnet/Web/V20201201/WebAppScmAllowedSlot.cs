@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.Web.V20201201
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppScmAllowedSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppScmAllowedSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppScmAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppScmAllowedSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get an Volume.
  * Azure REST API version: 2021-11-20-preview.
  *
- * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01.
+ * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,7 +87,7 @@ export interface GetVolumeResult {
  * Get an Volume.
  * Azure REST API version: 2021-11-20-preview.
  *
- * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01.
+ * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

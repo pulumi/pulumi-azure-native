@@ -172,7 +172,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
         Push settings for the App.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +198,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
         Push settings for the App.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppSitePushSettingsSlotArgs args: The arguments to use to populate this resource's properties.
@@ -249,7 +249,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
             __props__.__dict__["tag_whitelist_json"] = tag_whitelist_json
             __props__.__dict__["tags_requiring_auth"] = tags_requiring_auth
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppSitePushSettingsSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppSitePushSettingsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSitePushSettingsSlot, __self__).__init__(
             'azure-native:web:WebAppSitePushSettingsSlot',

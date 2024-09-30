@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.Web.V20181101
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppDomainOwnershipIdentifierSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppDomainOwnershipIdentifierSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppDomainOwnershipIdentifierSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppDomainOwnershipIdentifierSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

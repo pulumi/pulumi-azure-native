@@ -60,6 +60,11 @@ export type BookmarkRelation = import("./bookmarkRelation").BookmarkRelation;
 export const BookmarkRelation: typeof import("./bookmarkRelation").BookmarkRelation = null as any;
 utilities.lazyLoad(exports, ["BookmarkRelation"], () => require("./bookmarkRelation"));
 
+export { BusinessApplicationAgentArgs } from "./businessApplicationAgent";
+export type BusinessApplicationAgent = import("./businessApplicationAgent").BusinessApplicationAgent;
+export const BusinessApplicationAgent: typeof import("./businessApplicationAgent").BusinessApplicationAgent = null as any;
+utilities.lazyLoad(exports, ["BusinessApplicationAgent"], () => require("./businessApplicationAgent"));
+
 export { ContentPackageArgs } from "./contentPackage";
 export type ContentPackage = import("./contentPackage").ContentPackage;
 export const ContentPackage: typeof import("./contentPackage").ContentPackage = null as any;
@@ -149,6 +154,11 @@ export { GetBookmarkRelationArgs, GetBookmarkRelationResult, GetBookmarkRelation
 export const getBookmarkRelation: typeof import("./getBookmarkRelation").getBookmarkRelation = null as any;
 export const getBookmarkRelationOutput: typeof import("./getBookmarkRelation").getBookmarkRelationOutput = null as any;
 utilities.lazyLoad(exports, ["getBookmarkRelation","getBookmarkRelationOutput"], () => require("./getBookmarkRelation"));
+
+export { GetBusinessApplicationAgentArgs, GetBusinessApplicationAgentResult, GetBusinessApplicationAgentOutputArgs } from "./getBusinessApplicationAgent";
+export const getBusinessApplicationAgent: typeof import("./getBusinessApplicationAgent").getBusinessApplicationAgent = null as any;
+export const getBusinessApplicationAgentOutput: typeof import("./getBusinessApplicationAgent").getBusinessApplicationAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getBusinessApplicationAgent","getBusinessApplicationAgentOutput"], () => require("./getBusinessApplicationAgent"));
 
 export { GetContentPackageArgs, GetContentPackageResult, GetContentPackageOutputArgs } from "./getContentPackage";
 export const getContentPackage: typeof import("./getContentPackage").getContentPackage = null as any;
@@ -270,6 +280,11 @@ export const getSourceControl: typeof import("./getSourceControl").getSourceCont
 export const getSourceControlOutput: typeof import("./getSourceControl").getSourceControlOutput = null as any;
 utilities.lazyLoad(exports, ["getSourceControl","getSourceControlOutput"], () => require("./getSourceControl"));
 
+export { GetSystemArgs, GetSystemResult, GetSystemOutputArgs } from "./getSystem";
+export const getSystem: typeof import("./getSystem").getSystem = null as any;
+export const getSystemOutput: typeof import("./getSystem").getSystemOutput = null as any;
+utilities.lazyLoad(exports, ["getSystem","getSystemOutput"], () => require("./getSystem"));
+
 export { GetTIDataConnectorArgs, GetTIDataConnectorResult, GetTIDataConnectorOutputArgs } from "./getTIDataConnector";
 export const getTIDataConnector: typeof import("./getTIDataConnector").getTIDataConnector = null as any;
 export const getTIDataConnectorOutput: typeof import("./getTIDataConnector").getTIDataConnectorOutput = null as any;
@@ -360,6 +375,11 @@ export const listSourceControlRepositories: typeof import("./listSourceControlRe
 export const listSourceControlRepositoriesOutput: typeof import("./listSourceControlRepositories").listSourceControlRepositoriesOutput = null as any;
 utilities.lazyLoad(exports, ["listSourceControlRepositories","listSourceControlRepositoriesOutput"], () => require("./listSourceControlRepositories"));
 
+export { ListSystemActionsArgs, ListSystemActionsResult, ListSystemActionsOutputArgs } from "./listSystemActions";
+export const listSystemActions: typeof import("./listSystemActions").listSystemActions = null as any;
+export const listSystemActionsOutput: typeof import("./listSystemActions").listSystemActionsOutput = null as any;
+utilities.lazyLoad(exports, ["listSystemActions","listSystemActionsOutput"], () => require("./listSystemActions"));
+
 export { ListWhoisByDomainArgs, ListWhoisByDomainResult, ListWhoisByDomainOutputArgs } from "./listWhoisByDomain";
 export const listWhoisByDomain: typeof import("./listWhoisByDomain").listWhoisByDomain = null as any;
 export const listWhoisByDomainOutput: typeof import("./listWhoisByDomain").listWhoisByDomainOutput = null as any;
@@ -404,6 +424,11 @@ export { SourceControlArgs } from "./sourceControl";
 export type SourceControl = import("./sourceControl").SourceControl;
 export const SourceControl: typeof import("./sourceControl").SourceControl = null as any;
 utilities.lazyLoad(exports, ["SourceControl"], () => require("./sourceControl"));
+
+export { SystemArgs } from "./system";
+export type System = import("./system").System;
+export const System: typeof import("./system").System = null as any;
+utilities.lazyLoad(exports, ["System"], () => require("./system"));
 
 export { ThreatIntelligenceIndicatorArgs } from "./threatIntelligenceIndicator";
 export type ThreatIntelligenceIndicator = import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator;
@@ -484,6 +509,7 @@ import * as v20231101 from "./v20231101";
 import * as v20231201preview from "./v20231201preview";
 import * as v20240101preview from "./v20240101preview";
 import * as v20240301 from "./v20240301";
+import * as v20240401preview from "./v20240401preview";
 
 export {
     v20190101preview,
@@ -515,6 +541,7 @@ export {
     v20231201preview,
     v20240101preview,
     v20240301,
+    v20240401preview,
 };
 
 const _module = {
@@ -543,6 +570,8 @@ const _module = {
                 return new Bookmark(name, <any>undefined, { urn })
             case "azure-native:securityinsights:BookmarkRelation":
                 return new BookmarkRelation(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:BusinessApplicationAgent":
+                return new BusinessApplicationAgent(name, <any>undefined, { urn })
             case "azure-native:securityinsights:ContentPackage":
                 return new ContentPackage(name, <any>undefined, { urn })
             case "azure-native:securityinsights:ContentTemplate":
@@ -587,6 +616,8 @@ const _module = {
                 return new SentinelOnboardingState(name, <any>undefined, { urn })
             case "azure-native:securityinsights:SourceControl":
                 return new SourceControl(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:System":
+                return new System(name, <any>undefined, { urn })
             case "azure-native:securityinsights:TIDataConnector":
                 return new TIDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:ThreatIntelligenceIndicator":

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets properties of a forwarding rule in a DNS forwarding ruleset.
  * Azure REST API version: 2022-07-01.
+ *
+ * Other available API versions: 2023-07-01-preview.
  */
 export function getForwardingRule(args: GetForwardingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetForwardingRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,6 +85,8 @@ export interface GetForwardingRuleResult {
 /**
  * Gets properties of a forwarding rule in a DNS forwarding ruleset.
  * Azure REST API version: 2022-07-01.
+ *
+ * Other available API versions: 2023-07-01-preview.
  */
 export function getForwardingRuleOutput(args: GetForwardingRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetForwardingRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -165,7 +165,7 @@ class VMwareCollector(pulumi.CustomResource):
             __props__.__dict__["vm_ware_collector_name"] = vm_ware_collector_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:VMwareCollector"), pulumi.Alias(type_="azure-native:migrate/v20230315:VMwareCollector"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:VMwareCollector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:VMwareCollector"), pulumi.Alias(type_="azure-native:migrate/v20230315:VMwareCollector"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:VMwareCollector"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:VMwareCollector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VMwareCollector, __self__).__init__(
             'azure-native:migrate:VMwareCollector',

@@ -135,6 +135,8 @@ class KubernetesClusterFeature(pulumi.CustomResource):
         """
         Azure REST API version: 2024-06-01-preview.
 
+        Other available API versions: 2024-07-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] feature_name: The name of the feature.
@@ -152,6 +154,8 @@ class KubernetesClusterFeature(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure REST API version: 2024-06-01-preview.
+
+        Other available API versions: 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param KubernetesClusterFeatureArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +206,7 @@ class KubernetesClusterFeature(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:KubernetesClusterFeature")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:KubernetesClusterFeature"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:KubernetesClusterFeature")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KubernetesClusterFeature, __self__).__init__(
             'azure-native:networkcloud:KubernetesClusterFeature',

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ElasticSan
     ///  Response for PrivateEndpoint Connection object
     /// Azure REST API version: 2022-12-01-preview.
     /// 
-    /// Other available API versions: 2023-01-01, 2024-05-01.
+    /// Other available API versions: 2023-01-01, 2024-05-01, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.ElasticSan
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20221201preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20230101:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20240501:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20240601preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

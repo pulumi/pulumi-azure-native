@@ -290,7 +290,7 @@ export interface ContainerGroupArgs {
      */
     priority?: pulumi.Input<string | enums.containerinstance.v20240501preview.ContainerGroupPriority>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

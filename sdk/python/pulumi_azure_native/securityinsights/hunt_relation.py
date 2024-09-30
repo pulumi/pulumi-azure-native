@@ -133,7 +133,7 @@ class HuntRelation(pulumi.CustomResource):
         Represents a Hunt Relation in Azure Security Insights.
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +154,7 @@ class HuntRelation(pulumi.CustomResource):
         Represents a Hunt Relation in Azure Security Insights.
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param HuntRelationArgs args: The arguments to use to populate this resource's properties.
@@ -207,7 +207,7 @@ class HuntRelation(pulumi.CustomResource):
             __props__.__dict__["relation_type"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:HuntRelation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20240101preview:HuntRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20240401preview:HuntRelation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HuntRelation, __self__).__init__(
             'azure-native:securityinsights:HuntRelation',

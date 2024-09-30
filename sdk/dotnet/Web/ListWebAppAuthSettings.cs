@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Gets the Authentication/Authorization settings of an app.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
         /// </summary>
         public static Task<ListWebAppAuthSettingsResult> InvokeAsync(ListWebAppAuthSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsResult>("azure-native:web:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Gets the Authentication/Authorization settings of an app.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
         /// </summary>
         public static Output<ListWebAppAuthSettingsResult> Invoke(ListWebAppAuthSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppAuthSettingsResult>("azure-native:web:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsInvokeArgs(), options.WithDefaults());

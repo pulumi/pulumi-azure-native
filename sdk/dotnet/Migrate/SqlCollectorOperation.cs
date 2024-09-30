@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate
     /// The SQL collector REST object.
     /// Azure REST API version: 2023-03-15.
     /// 
-    /// Other available API versions: 2023-04-01-preview.
+    /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:SqlCollectorOperation")]
     public partial class SqlCollectorOperation : global::Pulumi.CustomResource
@@ -93,6 +93,7 @@ namespace Pulumi.AzureNative.Migrate
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:SqlCollectorOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:SqlCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:SqlCollectorOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

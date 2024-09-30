@@ -117,7 +117,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
         Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,7 +137,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
         Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppSwiftVirtualNetworkConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +178,7 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
             __props__.__dict__["subnet_resource_id"] = subnet_resource_id
             __props__.__dict__["swift_supported"] = swift_supported
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppSwiftVirtualNetworkConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppSwiftVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppSwiftVirtualNetworkConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSwiftVirtualNetworkConnection, __self__).__init__(
             'azure-native:web:WebAppSwiftVirtualNetworkConnection',

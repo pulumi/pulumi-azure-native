@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * String dictionary resource.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+ * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export class WebAppConnectionStrings extends pulumi.CustomResource {
     /**
@@ -86,7 +86,7 @@ export class WebAppConnectionStrings extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppConnectionStrings" }, { type: "azure-native:web/v20160801:WebAppConnectionStrings" }, { type: "azure-native:web/v20180201:WebAppConnectionStrings" }, { type: "azure-native:web/v20181101:WebAppConnectionStrings" }, { type: "azure-native:web/v20190801:WebAppConnectionStrings" }, { type: "azure-native:web/v20200601:WebAppConnectionStrings" }, { type: "azure-native:web/v20200901:WebAppConnectionStrings" }, { type: "azure-native:web/v20201001:WebAppConnectionStrings" }, { type: "azure-native:web/v20201201:WebAppConnectionStrings" }, { type: "azure-native:web/v20210101:WebAppConnectionStrings" }, { type: "azure-native:web/v20210115:WebAppConnectionStrings" }, { type: "azure-native:web/v20210201:WebAppConnectionStrings" }, { type: "azure-native:web/v20210301:WebAppConnectionStrings" }, { type: "azure-native:web/v20220301:WebAppConnectionStrings" }, { type: "azure-native:web/v20220901:WebAppConnectionStrings" }, { type: "azure-native:web/v20230101:WebAppConnectionStrings" }, { type: "azure-native:web/v20231201:WebAppConnectionStrings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppConnectionStrings" }, { type: "azure-native:web/v20160801:WebAppConnectionStrings" }, { type: "azure-native:web/v20180201:WebAppConnectionStrings" }, { type: "azure-native:web/v20181101:WebAppConnectionStrings" }, { type: "azure-native:web/v20190801:WebAppConnectionStrings" }, { type: "azure-native:web/v20200601:WebAppConnectionStrings" }, { type: "azure-native:web/v20200901:WebAppConnectionStrings" }, { type: "azure-native:web/v20201001:WebAppConnectionStrings" }, { type: "azure-native:web/v20201201:WebAppConnectionStrings" }, { type: "azure-native:web/v20210101:WebAppConnectionStrings" }, { type: "azure-native:web/v20210115:WebAppConnectionStrings" }, { type: "azure-native:web/v20210201:WebAppConnectionStrings" }, { type: "azure-native:web/v20210301:WebAppConnectionStrings" }, { type: "azure-native:web/v20220301:WebAppConnectionStrings" }, { type: "azure-native:web/v20220901:WebAppConnectionStrings" }, { type: "azure-native:web/v20230101:WebAppConnectionStrings" }, { type: "azure-native:web/v20231201:WebAppConnectionStrings" }, { type: "azure-native:web/v20240401:WebAppConnectionStrings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppConnectionStrings.__pulumiType, name, resourceInputs, opts);
     }

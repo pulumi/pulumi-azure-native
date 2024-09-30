@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// ARM model of AKS Assessment.
     /// Azure REST API version: 2023-04-01-preview.
+    /// 
+    /// Other available API versions: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AksAssessmentOperation")]
     public partial class AksAssessmentOperation : global::Pulumi.CustomResource
@@ -90,6 +92,7 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AksAssessmentOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AksAssessmentOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

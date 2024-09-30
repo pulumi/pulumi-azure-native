@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Describes a DNS resolver.
     /// Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview.
+    /// 
+    /// Other available API versions: 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DnsResolver")]
     public partial class DnsResolver : global::Pulumi.CustomResource
@@ -103,6 +105,7 @@ namespace Pulumi.AzureNative.Network
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:DnsResolver" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:DnsResolver" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:DnsResolver" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

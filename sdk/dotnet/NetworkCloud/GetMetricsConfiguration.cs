@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Get metrics configuration of the provided cluster.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
         /// </summary>
         public static Task<GetMetricsConfigurationResult> InvokeAsync(GetMetricsConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetricsConfigurationResult>("azure-native:networkcloud:getMetricsConfiguration", args ?? new GetMetricsConfigurationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Get metrics configuration of the provided cluster.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
         /// </summary>
         public static Output<GetMetricsConfigurationResult> Invoke(GetMetricsConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetricsConfigurationResult>("azure-native:networkcloud:getMetricsConfiguration", args ?? new GetMetricsConfigurationInvokeArgs(), options.WithDefaults());

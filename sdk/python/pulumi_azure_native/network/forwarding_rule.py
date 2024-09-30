@@ -152,6 +152,8 @@ class ForwardingRule(pulumi.CustomResource):
         Describes a forwarding rule within a DNS forwarding ruleset.
         Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview.
 
+        Other available API versions: 2023-07-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
@@ -171,6 +173,8 @@ class ForwardingRule(pulumi.CustomResource):
         """
         Describes a forwarding rule within a DNS forwarding ruleset.
         Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview.
+
+        Other available API versions: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ForwardingRuleArgs args: The arguments to use to populate this resource's properties.
@@ -223,7 +227,7 @@ class ForwardingRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200401preview:ForwardingRule"), pulumi.Alias(type_="azure-native:network/v20220701:ForwardingRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200401preview:ForwardingRule"), pulumi.Alias(type_="azure-native:network/v20220701:ForwardingRule"), pulumi.Alias(type_="azure-native:network/v20230701preview:ForwardingRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ForwardingRule, __self__).__init__(
             'azure-native:network:ForwardingRule',

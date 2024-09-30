@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.Web.V20231201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppSiteContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppSiteContainer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

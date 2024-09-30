@@ -148,6 +148,7 @@ namespace Pulumi.AzureNative.NetworkCloud.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud:CloudServicesNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:CloudServicesNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:CloudServicesNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:CloudServicesNetwork" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

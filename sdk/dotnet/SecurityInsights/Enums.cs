@@ -45,6 +45,36 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
+    /// Type of the agent
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentType : IEquatable<AgentType>
+    {
+        private readonly string _value;
+
+        private AgentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentType SAP { get; } = new AgentType("SAP");
+
+        public static bool operator ==(AgentType left, AgentType right) => left.Equals(right);
+        public static bool operator !=(AgentType left, AgentType right) => !left.Equals(right);
+
+        public static explicit operator string(AgentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentType other && Equals(other);
+        public bool Equals(AgentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Alert detail
     /// </summary>
     [EnumType]
@@ -763,6 +793,36 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
+    /// Represents the types of configuration for a system.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfigurationType : IEquatable<ConfigurationType>
+    {
+        private readonly string _value;
+
+        private ConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfigurationType SAP { get; } = new ConfigurationType("SAP");
+
+        public static bool operator ==(ConfigurationType left, ConfigurationType right) => left.Equals(right);
+        public static bool operator !=(ConfigurationType left, ConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigurationType other && Equals(other);
+        public bool Equals(ConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Content type.
     /// </summary>
     [EnumType]
@@ -1457,6 +1517,38 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
+    /// Represents the types of HTTPS configuration to connect to the SapControl service.
+    /// </summary>
+    [EnumType]
+    public readonly struct HttpsConfigurationType : IEquatable<HttpsConfigurationType>
+    {
+        private readonly string _value;
+
+        private HttpsConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HttpsConfigurationType HttpOnly { get; } = new HttpsConfigurationType("HttpOnly");
+        public static HttpsConfigurationType HttpsWithSslVerification { get; } = new HttpsConfigurationType("HttpsWithSslVerification");
+        public static HttpsConfigurationType HttpsWithoutSslVerification { get; } = new HttpsConfigurationType("HttpsWithoutSslVerification");
+
+        public static bool operator ==(HttpsConfigurationType left, HttpsConfigurationType right) => left.Equals(right);
+        public static bool operator !=(HttpsConfigurationType left, HttpsConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(HttpsConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HttpsConfigurationType other && Equals(other);
+        public bool Equals(HttpsConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The hypothesis status of the hunt.
     /// </summary>
     [EnumType]
@@ -1740,6 +1832,69 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
+    /// Types of ingestion.
+    /// </summary>
+    [EnumType]
+    public readonly struct IngestionType : IEquatable<IngestionType>
+    {
+        private readonly string _value;
+
+        private IngestionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IngestionType Full { get; } = new IngestionType("Full");
+        public static IngestionType Incremental { get; } = new IngestionType("Incremental");
+
+        public static bool operator ==(IngestionType left, IngestionType right) => left.Equals(right);
+        public static bool operator !=(IngestionType left, IngestionType right) => !left.Equals(right);
+
+        public static explicit operator string(IngestionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IngestionType other && Equals(other);
+        public bool Equals(IngestionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The key mode of the agent.
+    /// ManagedIdentity|ApplicationIdentity are the options
+    /// </summary>
+    [EnumType]
+    public readonly struct KeyVaultAuthenticationMode : IEquatable<KeyVaultAuthenticationMode>
+    {
+        private readonly string _value;
+
+        private KeyVaultAuthenticationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KeyVaultAuthenticationMode ManagedIdentity { get; } = new KeyVaultAuthenticationMode("ManagedIdentity");
+        public static KeyVaultAuthenticationMode ServicePrincipal { get; } = new KeyVaultAuthenticationMode("ServicePrincipal");
+
+        public static bool operator ==(KeyVaultAuthenticationMode left, KeyVaultAuthenticationMode right) => left.Equals(right);
+        public static bool operator !=(KeyVaultAuthenticationMode left, KeyVaultAuthenticationMode right) => !left.Equals(right);
+
+        public static explicit operator string(KeyVaultAuthenticationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeyVaultAuthenticationMode other && Equals(other);
+        public bool Equals(KeyVaultAuthenticationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of the content item we depend on
     /// </summary>
     [EnumType]
@@ -1778,6 +1933,98 @@ namespace Pulumi.AzureNative.SecurityInsights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Kind other && Equals(other);
         public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Types of log status.
+    /// </summary>
+    [EnumType]
+    public readonly struct LogStatusType : IEquatable<LogStatusType>
+    {
+        private readonly string _value;
+
+        private LogStatusType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LogStatusType Enabled { get; } = new LogStatusType("Enabled");
+        public static LogStatusType Disabled { get; } = new LogStatusType("Disabled");
+
+        public static bool operator ==(LogStatusType left, LogStatusType right) => left.Equals(right);
+        public static bool operator !=(LogStatusType left, LogStatusType right) => !left.Equals(right);
+
+        public static explicit operator string(LogStatusType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LogStatusType other && Equals(other);
+        public bool Equals(LogStatusType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Types of logs and tables.
+    /// </summary>
+    [EnumType]
+    public readonly struct LogType : IEquatable<LogType>
+    {
+        private readonly string _value;
+
+        private LogType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LogType AbapAuditLog { get; } = new LogType("AbapAuditLog");
+        public static LogType AbapJobLog { get; } = new LogType("AbapJobLog");
+        public static LogType AbapSpoolLog { get; } = new LogType("AbapSpoolLog");
+        public static LogType AbapSpoolOutputLog { get; } = new LogType("AbapSpoolOutputLog");
+        public static LogType AbapChangeDocsLog { get; } = new LogType("AbapChangeDocsLog");
+        public static LogType AbapAppLog { get; } = new LogType("AbapAppLog");
+        public static LogType AbapWorkflowLog { get; } = new LogType("AbapWorkflowLog");
+        public static LogType AbapCrLog { get; } = new LogType("AbapCrLog");
+        public static LogType AbapTableDataLog { get; } = new LogType("AbapTableDataLog");
+        public static LogType AbapFilesLogs { get; } = new LogType("AbapFilesLogs");
+        public static LogType JavaFilesLogs { get; } = new LogType("JavaFilesLogs");
+        public static LogType AGRTCODES { get; } = new LogType("AGRTCODES");
+        public static LogType USR01 { get; } = new LogType("USR01");
+        public static LogType USR02 { get; } = new LogType("USR02");
+        public static LogType AGR1251 { get; } = new LogType("AGR1251");
+        public static LogType AGRUSERS { get; } = new LogType("AGRUSERS");
+        public static LogType AGRPROF { get; } = new LogType("AGRPROF");
+        public static LogType UST04 { get; } = new LogType("UST04");
+        public static LogType USR21 { get; } = new LogType("USR21");
+        public static LogType ADR6 { get; } = new LogType("ADR6");
+        public static LogType ADCP { get; } = new LogType("ADCP");
+        public static LogType USR05 { get; } = new LogType("USR05");
+        public static LogType USGRPUSER { get; } = new LogType("USGRPUSER");
+        public static LogType USERADDR { get; } = new LogType("USERADDR");
+        public static LogType DEVACCESS { get; } = new LogType("DEVACCESS");
+        public static LogType AGRDEFINE { get; } = new LogType("AGRDEFINE");
+        public static LogType PAHI { get; } = new LogType("PAHI");
+        public static LogType AGRAGRS { get; } = new LogType("AGRAGRS");
+        public static LogType USRSTAMP { get; } = new LogType("USRSTAMP");
+        public static LogType AGRFLAGS { get; } = new LogType("AGRFLAGS");
+        public static LogType SNCSYSACL { get; } = new LogType("SNCSYSACL");
+        public static LogType USRACL { get; } = new LogType("USRACL");
+
+        public static bool operator ==(LogType left, LogType right) => left.Equals(right);
+        public static bool operator !=(LogType left, LogType right) => !left.Equals(right);
+
+        public static explicit operator string(LogType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LogType other && Equals(other);
+        public bool Equals(LogType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2064,6 +2311,69 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
+    /// The authentication type to SAP.
+    /// </summary>
+    [EnumType]
+    public readonly struct SapAuthenticationType : IEquatable<SapAuthenticationType>
+    {
+        private readonly string _value;
+
+        private SapAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SapAuthenticationType UsernamePassword { get; } = new SapAuthenticationType("UsernamePassword");
+        public static SapAuthenticationType Snc { get; } = new SapAuthenticationType("Snc");
+        public static SapAuthenticationType SncWithUsernamePassword { get; } = new SapAuthenticationType("SncWithUsernamePassword");
+
+        public static bool operator ==(SapAuthenticationType left, SapAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(SapAuthenticationType left, SapAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(SapAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SapAuthenticationType other && Equals(other);
+        public bool Equals(SapAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The secret source of the agent.
+    /// AzureKeyVault is the option
+    /// </summary>
+    [EnumType]
+    public readonly struct SecretSource : IEquatable<SecretSource>
+    {
+        private readonly string _value;
+
+        private SecretSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecretSource AzureKeyVault { get; } = new SecretSource("AzureKeyVault");
+
+        public static bool operator ==(SecretSource left, SecretSource right) => left.Equals(right);
+        public static bool operator !=(SecretSource left, SecretSource right) => !left.Equals(right);
+
+        public static explicit operator string(SecretSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecretSource other && Equals(other);
+        public bool Equals(SecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The kind of security ML Analytics Settings
     /// </summary>
     [EnumType]
@@ -2284,6 +2594,68 @@ namespace Pulumi.AzureNative.SecurityInsights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SupportTier other && Equals(other);
         public bool Equals(SupportTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Represents the types of SAP systems.
+    /// </summary>
+    [EnumType]
+    public readonly struct SystemConfigurationConnectorType : IEquatable<SystemConfigurationConnectorType>
+    {
+        private readonly string _value;
+
+        private SystemConfigurationConnectorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SystemConfigurationConnectorType Rfc { get; } = new SystemConfigurationConnectorType("Rfc");
+        public static SystemConfigurationConnectorType SapControl { get; } = new SystemConfigurationConnectorType("SapControl");
+
+        public static bool operator ==(SystemConfigurationConnectorType left, SystemConfigurationConnectorType right) => left.Equals(right);
+        public static bool operator !=(SystemConfigurationConnectorType left, SystemConfigurationConnectorType right) => !left.Equals(right);
+
+        public static explicit operator string(SystemConfigurationConnectorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SystemConfigurationConnectorType other && Equals(other);
+        public bool Equals(SystemConfigurationConnectorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the system.
+    /// </summary>
+    [EnumType]
+    public readonly struct SystemStatusType : IEquatable<SystemStatusType>
+    {
+        private readonly string _value;
+
+        private SystemStatusType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SystemStatusType Running { get; } = new SystemStatusType("Running");
+        public static SystemStatusType Stopped { get; } = new SystemStatusType("Stopped");
+
+        public static bool operator ==(SystemStatusType left, SystemStatusType right) => left.Equals(right);
+        public static bool operator !=(SystemStatusType left, SystemStatusType right) => !left.Equals(right);
+
+        public static explicit operator string(SystemStatusType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SystemStatusType other && Equals(other);
+        public bool Equals(SystemStatusType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

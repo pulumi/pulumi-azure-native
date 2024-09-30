@@ -199,6 +199,8 @@ def get_kubernetes_cluster_feature(feature_name: Optional[str] = None,
     Get properties of the provided the Kubernetes cluster feature.
     Azure REST API version: 2024-06-01-preview.
 
+    Other available API versions: 2024-07-01.
+
 
     :param str feature_name: The name of the feature.
     :param str kubernetes_cluster_name: The name of the Kubernetes cluster.
@@ -232,6 +234,8 @@ def get_kubernetes_cluster_feature_output(feature_name: Optional[pulumi.Input[st
     """
     Get properties of the provided the Kubernetes cluster feature.
     Azure REST API version: 2024-06-01-preview.
+
+    Other available API versions: 2024-07-01.
 
 
     :param str feature_name: The name of the feature.

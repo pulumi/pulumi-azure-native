@@ -358,7 +358,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2016-04-02, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
+    Other available API versions: 2016-04-02, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -407,7 +407,7 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2016-04-02, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
+    Other available API versions: 2016-04-02, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.

@@ -118,7 +118,7 @@ def list_app_service_plan_hybrid_connection_keys(name: Optional[str] = None,
     Description for Get the send key name and value of a Hybrid Connection.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01.
+    Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
 
     :param str name: Name of the App Service plan.
@@ -150,7 +150,7 @@ def list_app_service_plan_hybrid_connection_keys_output(name: Optional[pulumi.In
     Description for Get the send key name and value of a Hybrid Connection.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01.
+    Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
 
     :param str name: Name of the App Service plan.

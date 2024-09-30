@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Describes a DNS resolver.
  * Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview.
+ *
+ * Other available API versions: 2023-07-01-preview.
  */
 export class DnsResolver extends pulumi.CustomResource {
     /**
@@ -121,7 +123,7 @@ export class DnsResolver extends pulumi.CustomResource {
             resourceInputs["virtualNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:DnsResolver" }, { type: "azure-native:network/v20220701:DnsResolver" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:DnsResolver" }, { type: "azure-native:network/v20220701:DnsResolver" }, { type: "azure-native:network/v20230701preview:DnsResolver" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DnsResolver.__pulumiType, name, resourceInputs, opts);
     }

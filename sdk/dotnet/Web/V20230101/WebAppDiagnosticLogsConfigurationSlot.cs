@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.Web.V20230101
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppDiagnosticLogsConfigurationSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppDiagnosticLogsConfigurationSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppDiagnosticLogsConfigurationSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppDiagnosticLogsConfigurationSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

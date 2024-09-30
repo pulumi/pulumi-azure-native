@@ -94,6 +94,10 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly enabledHostNames!: pulumi.Output<string[]>;
     /**
+     * Whether to use end to end encryption between the FrontEnd and the Worker
+     */
+    public readonly endToEndEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Extended Location.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.web.v20231201.ExtendedLocationResponse | undefined>;
@@ -306,6 +310,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["daprConfig"] = args ? (args.daprConfig ? pulumi.output(args.daprConfig).apply(inputs.web.v20231201.daprConfigArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["dnsConfiguration"] = args ? args.dnsConfiguration : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["endToEndEncryptionEnabled"] = args ? args.endToEndEncryptionEnabled : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["functionAppConfig"] = args ? args.functionAppConfig : undefined;
             resourceInputs["hostNameSslStates"] = args ? args.hostNameSslStates : undefined;
@@ -370,6 +375,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["dnsConfiguration"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["enabledHostNames"] = undefined /*out*/;
+            resourceInputs["endToEndEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["functionAppConfig"] = undefined /*out*/;
             resourceInputs["hostNameSslStates"] = undefined /*out*/;
@@ -417,7 +423,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["workloadProfileName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSlot" }, { type: "azure-native:web/v20150801:WebAppSlot" }, { type: "azure-native:web/v20160801:WebAppSlot" }, { type: "azure-native:web/v20180201:WebAppSlot" }, { type: "azure-native:web/v20181101:WebAppSlot" }, { type: "azure-native:web/v20190801:WebAppSlot" }, { type: "azure-native:web/v20200601:WebAppSlot" }, { type: "azure-native:web/v20200901:WebAppSlot" }, { type: "azure-native:web/v20201001:WebAppSlot" }, { type: "azure-native:web/v20201201:WebAppSlot" }, { type: "azure-native:web/v20210101:WebAppSlot" }, { type: "azure-native:web/v20210115:WebAppSlot" }, { type: "azure-native:web/v20210201:WebAppSlot" }, { type: "azure-native:web/v20210301:WebAppSlot" }, { type: "azure-native:web/v20220301:WebAppSlot" }, { type: "azure-native:web/v20220901:WebAppSlot" }, { type: "azure-native:web/v20230101:WebAppSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSlot" }, { type: "azure-native:web/v20150801:WebAppSlot" }, { type: "azure-native:web/v20160801:WebAppSlot" }, { type: "azure-native:web/v20180201:WebAppSlot" }, { type: "azure-native:web/v20181101:WebAppSlot" }, { type: "azure-native:web/v20190801:WebAppSlot" }, { type: "azure-native:web/v20200601:WebAppSlot" }, { type: "azure-native:web/v20200901:WebAppSlot" }, { type: "azure-native:web/v20201001:WebAppSlot" }, { type: "azure-native:web/v20201201:WebAppSlot" }, { type: "azure-native:web/v20210101:WebAppSlot" }, { type: "azure-native:web/v20210115:WebAppSlot" }, { type: "azure-native:web/v20210201:WebAppSlot" }, { type: "azure-native:web/v20210301:WebAppSlot" }, { type: "azure-native:web/v20220301:WebAppSlot" }, { type: "azure-native:web/v20220901:WebAppSlot" }, { type: "azure-native:web/v20230101:WebAppSlot" }, { type: "azure-native:web/v20240401:WebAppSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSlot.__pulumiType, name, resourceInputs, opts);
     }
@@ -474,6 +480,10 @@ export interface WebAppSlotArgs {
      * <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Whether to use end to end encryption between the FrontEnd and the Worker
+     */
+    endToEndEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Extended Location.
      */

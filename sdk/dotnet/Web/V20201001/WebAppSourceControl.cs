@@ -117,6 +117,7 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppSourceControl" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppSourceControl" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppSourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppSourceControl" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

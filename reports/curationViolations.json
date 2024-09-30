@@ -104,6 +104,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "ContainerInstance",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "ContainerStorage",
     "Detail": "expected no additions but found some"
   },

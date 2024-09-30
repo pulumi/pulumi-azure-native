@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.Web.V20231201
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHostNameBindingSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppHostNameBindingSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppHostNameBindingSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppHostNameBindingSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

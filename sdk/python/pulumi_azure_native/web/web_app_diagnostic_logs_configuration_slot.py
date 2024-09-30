@@ -170,7 +170,7 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
         Configuration of App Service site logs.
         Azure REST API version: 2023-12-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +193,7 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
         Configuration of App Service site logs.
         Azure REST API version: 2023-12-01.
 
-        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01.
+        Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppDiagnosticLogsConfigurationSlotArgs args: The arguments to use to populate this resource's properties.
@@ -242,7 +242,7 @@ class WebAppDiagnosticLogsConfigurationSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slot'")
             __props__.__dict__["slot"] = slot
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppDiagnosticLogsConfigurationSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppDiagnosticLogsConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppDiagnosticLogsConfigurationSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppDiagnosticLogsConfigurationSlot, __self__).__init__(
             'azure-native:web:WebAppDiagnosticLogsConfigurationSlot',

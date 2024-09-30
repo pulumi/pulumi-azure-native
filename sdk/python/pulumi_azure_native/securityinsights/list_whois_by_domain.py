@@ -119,6 +119,8 @@ def list_whois_by_domain(domain: Optional[str] = None,
     Get whois information for a single domain name
     Azure REST API version: 2024-01-01-preview.
 
+    Other available API versions: 2024-04-01-preview.
+
 
     :param str domain: The domain name
     :param str enrichment_type: Enrichment type
@@ -148,6 +150,8 @@ def list_whois_by_domain_output(domain: Optional[pulumi.Input[Optional[str]]] = 
     """
     Get whois information for a single domain name
     Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2024-04-01-preview.
 
 
     :param str domain: The domain name

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Description for Get domain ownership identifier for web app.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01.
+ * Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getWebAppDomainOwnershipIdentifierSlot(args: GetWebAppDomainOwnershipIdentifierSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,7 +68,7 @@ export interface GetWebAppDomainOwnershipIdentifierSlotResult {
  * Description for Get domain ownership identifier for web app.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01.
+ * Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getWebAppDomainOwnershipIdentifierSlotOutput(args: GetWebAppDomainOwnershipIdentifierSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

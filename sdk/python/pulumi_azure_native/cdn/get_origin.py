@@ -263,7 +263,7 @@ def get_origin(endpoint_name: Optional[str] = None,
     Gets an existing origin within an endpoint.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
+    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -307,7 +307,7 @@ def get_origin_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     Gets an existing origin within an endpoint.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
+    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.

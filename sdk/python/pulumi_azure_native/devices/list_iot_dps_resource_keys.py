@@ -69,7 +69,7 @@ def list_iot_dps_resource_keys(provisioning_service_name: Optional[str] = None,
     List the primary and secondary keys for a provisioning service.
     Azure REST API version: 2022-12-12.
 
-    Other available API versions: 2020-09-01-preview, 2023-03-01-preview.
+    Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
 
 
     :param str provisioning_service_name: The provisioning service name to get the shared access keys for.
@@ -91,7 +91,7 @@ def list_iot_dps_resource_keys_output(provisioning_service_name: Optional[pulumi
     List the primary and secondary keys for a provisioning service.
     Azure REST API version: 2022-12-12.
 
-    Other available API versions: 2020-09-01-preview, 2023-03-01-preview.
+    Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
 
 
     :param str provisioning_service_name: The provisioning service name to get the shared access keys for.

@@ -118,7 +118,7 @@ def list_web_app_workflows_connections_slot(name: Optional[str] = None,
     Workflow properties definition.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01.
+    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 
 
     :param str name: Site name.
@@ -147,7 +147,7 @@ def list_web_app_workflows_connections_slot_output(name: Optional[pulumi.Input[s
     Workflow properties definition.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01.
+    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 
 
     :param str name: Site name.

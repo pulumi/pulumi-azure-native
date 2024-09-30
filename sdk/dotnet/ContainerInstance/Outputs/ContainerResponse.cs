@@ -21,13 +21,17 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Command;
         /// <summary>
+        /// The config map.
+        /// </summary>
+        public readonly Outputs.ConfigMapResponse? ConfigMap;
+        /// <summary>
         /// The environment variables to set in the container instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.EnvironmentVariableResponse> EnvironmentVariables;
         /// <summary>
         /// The name of the image used to create the container instance.
         /// </summary>
-        public readonly string Image;
+        public readonly string? Image;
         /// <summary>
         /// The instance view of the container instance. Only valid in response.
         /// </summary>
@@ -51,7 +55,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// <summary>
         /// The resource requirements of the container instance.
         /// </summary>
-        public readonly Outputs.ResourceRequirementsResponse Resources;
+        public readonly Outputs.ResourceRequirementsResponse? Resources;
         /// <summary>
         /// The container security properties.
         /// </summary>
@@ -65,9 +69,11 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         private ContainerResponse(
             ImmutableArray<string> command,
 
+            Outputs.ConfigMapResponse? configMap,
+
             ImmutableArray<Outputs.EnvironmentVariableResponse> environmentVariables,
 
-            string image,
+            string? image,
 
             Outputs.ContainerPropertiesResponseInstanceView instanceView,
 
@@ -79,13 +85,14 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
 
             Outputs.ContainerProbeResponse? readinessProbe,
 
-            Outputs.ResourceRequirementsResponse resources,
+            Outputs.ResourceRequirementsResponse? resources,
 
             Outputs.SecurityContextDefinitionResponse? securityContext,
 
             ImmutableArray<Outputs.VolumeMountResponse> volumeMounts)
         {
             Command = command;
+            ConfigMap = configMap;
             EnvironmentVariables = environmentVariables;
             Image = image;
             InstanceView = instanceView;

@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20240401
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20220501:Linker" },
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20221101preview:Linker" },
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20230401preview:Linker" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20240701preview:Linker" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Friendly Routes name mapping to the any Routes or secret related information.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
  *
- * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
  */
 export class Route extends pulumi.CustomResource {
     /**
@@ -169,7 +169,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:Route" }, { type: "azure-native:cdn/v20210601:Route" }, { type: "azure-native:cdn/v20220501preview:Route" }, { type: "azure-native:cdn/v20221101preview:Route" }, { type: "azure-native:cdn/v20230501:Route" }, { type: "azure-native:cdn/v20230701preview:Route" }, { type: "azure-native:cdn/v20240201:Route" }, { type: "azure-native:cdn/v20240501preview:Route" }, { type: "azure-native:cdn/v20240601preview:Route" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:Route" }, { type: "azure-native:cdn/v20210601:Route" }, { type: "azure-native:cdn/v20220501preview:Route" }, { type: "azure-native:cdn/v20221101preview:Route" }, { type: "azure-native:cdn/v20230501:Route" }, { type: "azure-native:cdn/v20230701preview:Route" }, { type: "azure-native:cdn/v20240201:Route" }, { type: "azure-native:cdn/v20240501preview:Route" }, { type: "azure-native:cdn/v20240601preview:Route" }, { type: "azure-native:cdn/v20240901:Route" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Route.__pulumiType, name, resourceInputs, opts);
     }

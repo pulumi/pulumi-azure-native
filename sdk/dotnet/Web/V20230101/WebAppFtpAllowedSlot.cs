@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.Web.V20230101
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppFtpAllowedSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppFtpAllowedSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppFtpAllowedSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppFtpAllowedSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

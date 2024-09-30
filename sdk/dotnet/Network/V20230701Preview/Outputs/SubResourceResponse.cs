@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.Network.V20230701Preview.Outputs
 {
 
     /// <summary>
-    /// A reference to a another resource
+    /// Reference to another ARM resource.
     /// </summary>
     [OutputType]
     public sealed class SubResourceResponse
     {
         /// <summary>
-        /// Resource Id.
+        /// Resource ID.
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
 
         [OutputConstructor]
-        private SubResourceResponse(string? id)
+        private SubResourceResponse(string id)
         {
             Id = id;
         }

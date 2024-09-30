@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a ImportCollector
         /// Azure REST API version: 2023-03-15.
         /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Task<GetImportCollectorsOperationResult> InvokeAsync(GetImportCollectorsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImportCollectorsOperationResult>("azure-native:migrate:getImportCollectorsOperation", args ?? new GetImportCollectorsOperationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a ImportCollector
         /// Azure REST API version: 2023-03-15.
         /// 
-        /// Other available API versions: 2023-04-01-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Output<GetImportCollectorsOperationResult> Invoke(GetImportCollectorsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImportCollectorsOperationResult>("azure-native:migrate:getImportCollectorsOperation", args ?? new GetImportCollectorsOperationInvokeArgs(), options.WithDefaults());

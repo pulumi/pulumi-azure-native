@@ -136,7 +136,7 @@ class StaticSitePrivateEndpointConnection(pulumi.CustomResource):
         Remote Private Endpoint Connection ARM resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-01-01, 2023-12-01.
+        Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +157,7 @@ class StaticSitePrivateEndpointConnection(pulumi.CustomResource):
         Remote Private Endpoint Connection ARM resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-01-01, 2023-12-01.
+        Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param StaticSitePrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +202,7 @@ class StaticSitePrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20201201:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210101:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210115:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210201:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210301:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20220301:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20220901:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20230101:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20231201:StaticSitePrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20201201:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210101:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210115:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210201:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20210301:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20220301:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20220901:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20230101:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20231201:StaticSitePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:web/v20240401:StaticSitePrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSitePrivateEndpointConnection, __self__).__init__(
             'azure-native:web:StaticSitePrivateEndpointConnection',

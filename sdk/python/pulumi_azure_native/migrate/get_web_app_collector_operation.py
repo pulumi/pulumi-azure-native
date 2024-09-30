@@ -154,6 +154,8 @@ def get_web_app_collector_operation(collector_name: Optional[str] = None,
     Get a WebAppCollector
     Azure REST API version: 2023-04-01-preview.
 
+    Other available API versions: 2023-05-01-preview.
+
 
     :param str collector_name: Web app collector ARM name.
     :param str project_name: Assessment Project Name
@@ -183,6 +185,8 @@ def get_web_app_collector_operation_output(collector_name: Optional[pulumi.Input
     """
     Get a WebAppCollector
     Azure REST API version: 2023-04-01-preview.
+
+    Other available API versions: 2023-05-01-preview.
 
 
     :param str collector_name: Web app collector ARM name.

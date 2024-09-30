@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.Devices.V20211015
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20220205:DpsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20221212:DpsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20230301preview:DpsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20250201preview:DpsCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

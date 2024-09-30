@@ -20,6 +20,8 @@ __all__ = [
     'AzureFileVolumeArgsDict',
     'ConfidentialComputePropertiesArgs',
     'ConfidentialComputePropertiesArgsDict',
+    'ConfigMapArgs',
+    'ConfigMapArgsDict',
     'ContainerExecArgs',
     'ContainerExecArgsDict',
     'ContainerGroupDiagnosticsArgs',
@@ -206,6 +208,42 @@ class ConfidentialComputePropertiesArgs:
     @cce_policy.setter
     def cce_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cce_policy", value)
+
+
+if not MYPY:
+    class ConfigMapArgsDict(TypedDict):
+        """
+        The container config map.
+        """
+        key_value_pairs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The key value pairs dictionary in the config map.
+        """
+elif False:
+    ConfigMapArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfigMapArgs:
+    def __init__(__self__, *,
+                 key_value_pairs: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The container config map.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] key_value_pairs: The key value pairs dictionary in the config map.
+        """
+        if key_value_pairs is not None:
+            pulumi.set(__self__, "key_value_pairs", key_value_pairs)
+
+    @property
+    @pulumi.getter(name="keyValuePairs")
+    def key_value_pairs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The key value pairs dictionary in the config map.
+        """
+        return pulumi.get(self, "key_value_pairs")
+
+    @key_value_pairs.setter
+    def key_value_pairs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "key_value_pairs", value)
 
 
 if not MYPY:
@@ -702,25 +740,25 @@ if not MYPY:
         """
         A container instance.
         """
-        image: pulumi.Input[str]
-        """
-        The name of the image used to create the container instance.
-        """
         name: pulumi.Input[str]
         """
         The user-provided name of the container instance.
-        """
-        resources: pulumi.Input['ResourceRequirementsArgsDict']
-        """
-        The resource requirements of the container instance.
         """
         command: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         The commands to execute within the container instance in exec form.
         """
+        config_map: NotRequired[pulumi.Input['ConfigMapArgsDict']]
+        """
+        The config map.
+        """
         environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
         """
         The environment variables to set in the container instance.
+        """
+        image: NotRequired[pulumi.Input[str]]
+        """
+        The name of the image used to create the container instance.
         """
         liveness_probe: NotRequired[pulumi.Input['ContainerProbeArgsDict']]
         """
@@ -733,6 +771,10 @@ if not MYPY:
         readiness_probe: NotRequired[pulumi.Input['ContainerProbeArgsDict']]
         """
         The readiness probe.
+        """
+        resources: NotRequired[pulumi.Input['ResourceRequirementsArgsDict']]
+        """
+        The resource requirements of the container instance.
         """
         security_context: NotRequired[pulumi.Input['SecurityContextDefinitionArgsDict']]
         """
@@ -748,58 +790,52 @@ elif False:
 @pulumi.input_type
 class ContainerArgs:
     def __init__(__self__, *,
-                 image: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 resources: pulumi.Input['ResourceRequirementsArgs'],
                  command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 config_map: Optional[pulumi.Input['ConfigMapArgs']] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
                  liveness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
                  ports: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]] = None,
                  readiness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
+                 resources: Optional[pulumi.Input['ResourceRequirementsArgs']] = None,
                  security_context: Optional[pulumi.Input['SecurityContextDefinitionArgs']] = None,
                  volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
         """
         A container instance.
-        :param pulumi.Input[str] image: The name of the image used to create the container instance.
         :param pulumi.Input[str] name: The user-provided name of the container instance.
-        :param pulumi.Input['ResourceRequirementsArgs'] resources: The resource requirements of the container instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The commands to execute within the container instance in exec form.
+        :param pulumi.Input['ConfigMapArgs'] config_map: The config map.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in the container instance.
+        :param pulumi.Input[str] image: The name of the image used to create the container instance.
         :param pulumi.Input['ContainerProbeArgs'] liveness_probe: The liveness probe.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]] ports: The exposed ports on the container instance.
         :param pulumi.Input['ContainerProbeArgs'] readiness_probe: The readiness probe.
+        :param pulumi.Input['ResourceRequirementsArgs'] resources: The resource requirements of the container instance.
         :param pulumi.Input['SecurityContextDefinitionArgs'] security_context: The container security properties.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the container instance.
         """
-        pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resources", resources)
         if command is not None:
             pulumi.set(__self__, "command", command)
+        if config_map is not None:
+            pulumi.set(__self__, "config_map", config_map)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
         if liveness_probe is not None:
             pulumi.set(__self__, "liveness_probe", liveness_probe)
         if ports is not None:
             pulumi.set(__self__, "ports", ports)
         if readiness_probe is not None:
             pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
         if security_context is not None:
             pulumi.set(__self__, "security_context", security_context)
         if volume_mounts is not None:
             pulumi.set(__self__, "volume_mounts", volume_mounts)
-
-    @property
-    @pulumi.getter
-    def image(self) -> pulumi.Input[str]:
-        """
-        The name of the image used to create the container instance.
-        """
-        return pulumi.get(self, "image")
-
-    @image.setter
-    def image(self, value: pulumi.Input[str]):
-        pulumi.set(self, "image", value)
 
     @property
     @pulumi.getter
@@ -815,18 +851,6 @@ class ContainerArgs:
 
     @property
     @pulumi.getter
-    def resources(self) -> pulumi.Input['ResourceRequirementsArgs']:
-        """
-        The resource requirements of the container instance.
-        """
-        return pulumi.get(self, "resources")
-
-    @resources.setter
-    def resources(self, value: pulumi.Input['ResourceRequirementsArgs']):
-        pulumi.set(self, "resources", value)
-
-    @property
-    @pulumi.getter
     def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The commands to execute within the container instance in exec form.
@@ -836,6 +860,18 @@ class ContainerArgs:
     @command.setter
     def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter(name="configMap")
+    def config_map(self) -> Optional[pulumi.Input['ConfigMapArgs']]:
+        """
+        The config map.
+        """
+        return pulumi.get(self, "config_map")
+
+    @config_map.setter
+    def config_map(self, value: Optional[pulumi.Input['ConfigMapArgs']]):
+        pulumi.set(self, "config_map", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -848,6 +884,18 @@ class ContainerArgs:
     @environment_variables.setter
     def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the image used to create the container instance.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
 
     @property
     @pulumi.getter(name="livenessProbe")
@@ -884,6 +932,18 @@ class ContainerArgs:
     @readiness_probe.setter
     def readiness_probe(self, value: Optional[pulumi.Input['ContainerProbeArgs']]):
         pulumi.set(self, "readiness_probe", value)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input['ResourceRequirementsArgs']]:
+        """
+        The resource requirements of the container instance.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input['ResourceRequirementsArgs']]):
+        pulumi.set(self, "resources", value)
 
     @property
     @pulumi.getter(name="securityContext")

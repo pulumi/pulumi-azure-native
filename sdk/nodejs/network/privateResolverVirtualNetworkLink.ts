@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes a virtual network link.
  * Azure REST API version: 2022-07-01.
  *
- * Other available API versions: 2020-04-01-preview.
+ * Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
  */
 export class PrivateResolverVirtualNetworkLink extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class PrivateResolverVirtualNetworkLink extends pulumi.CustomResource {
             resourceInputs["virtualNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink" }, { type: "azure-native:network/v20220701:PrivateResolverVirtualNetworkLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink" }, { type: "azure-native:network/v20220701:PrivateResolverVirtualNetworkLink" }, { type: "azure-native:network/v20230701preview:PrivateResolverVirtualNetworkLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateResolverVirtualNetworkLink.__pulumiType, name, resourceInputs, opts);
     }

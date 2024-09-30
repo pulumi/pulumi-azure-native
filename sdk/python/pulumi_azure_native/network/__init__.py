@@ -23,6 +23,10 @@ from .default_admin_rule import *
 from .default_user_rule import *
 from .dns_forwarding_ruleset import *
 from .dns_resolver import *
+from .dns_resolver_domain_list import *
+from .dns_resolver_policy import *
+from .dns_resolver_policy_virtual_network_link import *
+from .dns_security_rule import *
 from .dscp_configuration import *
 from .endpoint import *
 from .experiment import *
@@ -63,7 +67,11 @@ from .get_default_admin_rule import *
 from .get_default_user_rule import *
 from .get_dns_forwarding_ruleset import *
 from .get_dns_resolver import *
+from .get_dns_resolver_domain_list import *
+from .get_dns_resolver_policy import *
+from .get_dns_resolver_policy_virtual_network_link import *
 from .get_dns_resource_reference_by_tar_resources import *
+from .get_dns_security_rule import *
 from .get_dscp_configuration import *
 from .get_endpoint import *
 from .get_experiment import *
@@ -205,6 +213,7 @@ from .list_active_security_user_rule import *
 from .list_active_security_user_rules import *
 from .list_dns_forwarding_ruleset_by_virtual_network import *
 from .list_dns_resolver_by_virtual_network import *
+from .list_dns_resolver_policy_by_virtual_network import *
 from .list_effective_connectivity_configuration import *
 from .list_effective_virtual_network_by_network_group import *
 from .list_effective_virtual_network_by_network_manager import *

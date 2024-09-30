@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The X509 Certificate.
  * Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01.
  *
- * Other available API versions: 2021-10-15, 2023-03-01-preview.
+ * Other available API versions: 2021-10-15, 2023-03-01-preview, 2025-02-01-preview.
  */
 export class DpsCertificate extends pulumi.CustomResource {
     /**
@@ -94,7 +94,7 @@ export class DpsCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devices/v20170821preview:DpsCertificate" }, { type: "azure-native:devices/v20171115:DpsCertificate" }, { type: "azure-native:devices/v20180122:DpsCertificate" }, { type: "azure-native:devices/v20200101:DpsCertificate" }, { type: "azure-native:devices/v20200301:DpsCertificate" }, { type: "azure-native:devices/v20200901preview:DpsCertificate" }, { type: "azure-native:devices/v20211015:DpsCertificate" }, { type: "azure-native:devices/v20220205:DpsCertificate" }, { type: "azure-native:devices/v20221212:DpsCertificate" }, { type: "azure-native:devices/v20230301preview:DpsCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devices/v20170821preview:DpsCertificate" }, { type: "azure-native:devices/v20171115:DpsCertificate" }, { type: "azure-native:devices/v20180122:DpsCertificate" }, { type: "azure-native:devices/v20200101:DpsCertificate" }, { type: "azure-native:devices/v20200301:DpsCertificate" }, { type: "azure-native:devices/v20200901preview:DpsCertificate" }, { type: "azure-native:devices/v20211015:DpsCertificate" }, { type: "azure-native:devices/v20220205:DpsCertificate" }, { type: "azure-native:devices/v20221212:DpsCertificate" }, { type: "azure-native:devices/v20230301preview:DpsCertificate" }, { type: "azure-native:devices/v20250201preview:DpsCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DpsCertificate.__pulumiType, name, resourceInputs, opts);
     }

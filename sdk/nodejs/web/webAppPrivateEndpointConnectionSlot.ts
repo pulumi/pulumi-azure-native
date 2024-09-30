@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Remote Private Endpoint Connection ARM resource.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2023-01-01, 2023-12-01.
+ * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export class WebAppPrivateEndpointConnectionSlot extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class WebAppPrivateEndpointConnectionSlot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210101:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210115:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210201:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210301:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20220301:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20220901:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20230101:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20231201:WebAppPrivateEndpointConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210101:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210115:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210201:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210301:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20220301:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20220901:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20230101:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20231201:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20240401:WebAppPrivateEndpointConnectionSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppPrivateEndpointConnectionSlot.__pulumiType, name, resourceInputs, opts);
     }

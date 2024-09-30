@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a WebAppAssessmentV2
  * Azure REST API version: 2023-04-01-preview.
+ *
+ * Other available API versions: 2023-05-01-preview.
  */
 export function getWebAppAssessmentV2Operation(args: GetWebAppAssessmentV2OperationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppAssessmentV2OperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -180,6 +182,8 @@ export interface GetWebAppAssessmentV2OperationResult {
 /**
  * Get a WebAppAssessmentV2
  * Azure REST API version: 2023-04-01-preview.
+ *
+ * Other available API versions: 2023-05-01-preview.
  */
 export function getWebAppAssessmentV2OperationOutput(args: GetWebAppAssessmentV2OperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppAssessmentV2OperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

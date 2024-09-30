@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     /// A Kubernetes cluster specialized for web workloads by Azure App Service
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
     /// 
-    /// Other available API versions: 2023-01-01, 2023-12-01.
+    /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:KubeEnvironment")]
     public partial class KubeEnvironment : global::Pulumi.CustomResource
@@ -148,6 +148,7 @@ namespace Pulumi.AzureNative.Web
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:KubeEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:KubeEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:KubeEnvironment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
