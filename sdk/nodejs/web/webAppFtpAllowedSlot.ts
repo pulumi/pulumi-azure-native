@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Publishing Credentials Policies parameters.
  * Azure REST API version: 2023-12-01.
  *
- * Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01.
+ * Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
  */
 export class WebAppFtpAllowedSlot extends pulumi.CustomResource {
     /**
@@ -90,7 +90,7 @@ export class WebAppFtpAllowedSlot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20201201:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210101:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210115:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210201:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210301:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20220301:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20220901:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20230101:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20231201:WebAppFtpAllowedSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20201201:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210101:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210115:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210201:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20210301:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20220301:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20220901:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20230101:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20231201:WebAppFtpAllowedSlot" }, { type: "azure-native:web/v20240401:WebAppFtpAllowedSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppFtpAllowedSlot.__pulumiType, name, resourceInputs, opts);
     }

@@ -237,6 +237,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231201Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231101:ContentTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:ContentTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240301:ContentTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:ContentTemplate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

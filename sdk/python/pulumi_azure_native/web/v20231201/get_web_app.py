@@ -27,7 +27,7 @@ class GetWebAppResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, dapr_config=None, default_host_name=None, dns_configuration=None, enabled=None, enabled_host_names=None, extended_location=None, function_app_config=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, managed_environment_id=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, public_network_access=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_config=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None, vnet_backup_restore_enabled=None, vnet_content_share_enabled=None, vnet_image_pull_enabled=None, vnet_route_all_enabled=None, workload_profile_name=None):
+    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, dapr_config=None, default_host_name=None, dns_configuration=None, enabled=None, enabled_host_names=None, end_to_end_encryption_enabled=None, extended_location=None, function_app_config=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, managed_environment_id=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, public_network_access=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_config=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None, vnet_backup_restore_enabled=None, vnet_content_share_enabled=None, vnet_image_pull_enabled=None, vnet_route_all_enabled=None, workload_profile_name=None):
         if availability_state and not isinstance(availability_state, str):
             raise TypeError("Expected argument 'availability_state' to be a str")
         pulumi.set(__self__, "availability_state", availability_state)
@@ -67,6 +67,9 @@ class GetWebAppResult:
         if enabled_host_names and not isinstance(enabled_host_names, list):
             raise TypeError("Expected argument 'enabled_host_names' to be a list")
         pulumi.set(__self__, "enabled_host_names", enabled_host_names)
+        if end_to_end_encryption_enabled and not isinstance(end_to_end_encryption_enabled, bool):
+            raise TypeError("Expected argument 'end_to_end_encryption_enabled' to be a bool")
+        pulumi.set(__self__, "end_to_end_encryption_enabled", end_to_end_encryption_enabled)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -313,6 +316,14 @@ class GetWebAppResult:
         the app is not served on those hostnames.
         """
         return pulumi.get(self, "enabled_host_names")
+
+    @property
+    @pulumi.getter(name="endToEndEncryptionEnabled")
+    def end_to_end_encryption_enabled(self) -> Optional[bool]:
+        """
+        Whether to use end to end encryption between the FrontEnd and the Worker
+        """
+        return pulumi.get(self, "end_to_end_encryption_enabled")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -706,6 +717,7 @@ class AwaitableGetWebAppResult(GetWebAppResult):
             dns_configuration=self.dns_configuration,
             enabled=self.enabled,
             enabled_host_names=self.enabled_host_names,
+            end_to_end_encryption_enabled=self.end_to_end_encryption_enabled,
             extended_location=self.extended_location,
             function_app_config=self.function_app_config,
             host_name_ssl_states=self.host_name_ssl_states,
@@ -784,6 +796,7 @@ def get_web_app(name: Optional[str] = None,
         dns_configuration=pulumi.get(__ret__, 'dns_configuration'),
         enabled=pulumi.get(__ret__, 'enabled'),
         enabled_host_names=pulumi.get(__ret__, 'enabled_host_names'),
+        end_to_end_encryption_enabled=pulumi.get(__ret__, 'end_to_end_encryption_enabled'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         function_app_config=pulumi.get(__ret__, 'function_app_config'),
         host_name_ssl_states=pulumi.get(__ret__, 'host_name_ssl_states'),
@@ -859,6 +872,7 @@ def get_web_app_output(name: Optional[pulumi.Input[str]] = None,
         dns_configuration=pulumi.get(__response__, 'dns_configuration'),
         enabled=pulumi.get(__response__, 'enabled'),
         enabled_host_names=pulumi.get(__response__, 'enabled_host_names'),
+        end_to_end_encryption_enabled=pulumi.get(__response__, 'end_to_end_encryption_enabled'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         function_app_config=pulumi.get(__response__, 'function_app_config'),
         host_name_ssl_states=pulumi.get(__response__, 'host_name_ssl_states'),

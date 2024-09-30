@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
  *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
  */
 export class AFDCustomDomain extends pulumi.CustomResource {
     /**
@@ -141,7 +141,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             resourceInputs["validationProperties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDCustomDomain" }, { type: "azure-native:cdn/v20210601:AFDCustomDomain" }, { type: "azure-native:cdn/v20220501preview:AFDCustomDomain" }, { type: "azure-native:cdn/v20221101preview:AFDCustomDomain" }, { type: "azure-native:cdn/v20230501:AFDCustomDomain" }, { type: "azure-native:cdn/v20230701preview:AFDCustomDomain" }, { type: "azure-native:cdn/v20240201:AFDCustomDomain" }, { type: "azure-native:cdn/v20240501preview:AFDCustomDomain" }, { type: "azure-native:cdn/v20240601preview:AFDCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDCustomDomain" }, { type: "azure-native:cdn/v20210601:AFDCustomDomain" }, { type: "azure-native:cdn/v20220501preview:AFDCustomDomain" }, { type: "azure-native:cdn/v20221101preview:AFDCustomDomain" }, { type: "azure-native:cdn/v20230501:AFDCustomDomain" }, { type: "azure-native:cdn/v20230701preview:AFDCustomDomain" }, { type: "azure-native:cdn/v20240201:AFDCustomDomain" }, { type: "azure-native:cdn/v20240501preview:AFDCustomDomain" }, { type: "azure-native:cdn/v20240601preview:AFDCustomDomain" }, { type: "azure-native:cdn/v20240901:AFDCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AFDCustomDomain.__pulumiType, name, resourceInputs, opts);
     }

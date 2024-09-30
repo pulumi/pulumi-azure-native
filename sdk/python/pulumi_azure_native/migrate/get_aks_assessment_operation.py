@@ -154,6 +154,8 @@ def get_aks_assessment_operation(assessment_name: Optional[str] = None,
     Get a AKSAssessment
     Azure REST API version: 2023-04-01-preview.
 
+    Other available API versions: 2023-05-01-preview.
+
 
     :param str assessment_name: AKS Assessment Name.
     :param str project_name: Assessment Project Name
@@ -183,6 +185,8 @@ def get_aks_assessment_operation_output(assessment_name: Optional[pulumi.Input[s
     """
     Get a AKSAssessment
     Azure REST API version: 2023-04-01-preview.
+
+    Other available API versions: 2023-05-01-preview.
 
 
     :param str assessment_name: AKS Assessment Name.

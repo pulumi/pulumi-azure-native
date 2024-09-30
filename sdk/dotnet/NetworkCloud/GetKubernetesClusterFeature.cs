@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided the Kubernetes cluster feature.
         /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Other available API versions: 2024-07-01.
         /// </summary>
         public static Task<GetKubernetesClusterFeatureResult> InvokeAsync(GetKubernetesClusterFeatureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterFeatureResult>("azure-native:networkcloud:getKubernetesClusterFeature", args ?? new GetKubernetesClusterFeatureArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// Get properties of the provided the Kubernetes cluster feature.
         /// Azure REST API version: 2024-06-01-preview.
+        /// 
+        /// Other available API versions: 2024-07-01.
         /// </summary>
         public static Output<GetKubernetesClusterFeatureResult> Invoke(GetKubernetesClusterFeatureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterFeatureResult>("azure-native:networkcloud:getKubernetesClusterFeature", args ?? new GetKubernetesClusterFeatureInvokeArgs(), options.WithDefaults());

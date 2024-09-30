@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Get properties of the provided storage appliance.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
         /// </summary>
         public static Task<GetStorageApplianceResult> InvokeAsync(GetStorageApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageApplianceResult>("azure-native:networkcloud:getStorageAppliance", args ?? new GetStorageApplianceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Get properties of the provided storage appliance.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
         /// </summary>
         public static Output<GetStorageApplianceResult> Invoke(GetStorageApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageApplianceResult>("azure-native:networkcloud:getStorageAppliance", args ?? new GetStorageApplianceInvokeArgs(), options.WithDefaults());

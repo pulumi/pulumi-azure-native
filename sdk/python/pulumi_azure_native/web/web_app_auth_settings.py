@@ -834,7 +834,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
         Configuration settings for the Azure App Service Authentication / Authorization feature.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -942,7 +942,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
         Configuration settings for the Azure App Service Authentication / Authorization feature.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppAuthSettingsArgs args: The arguments to use to populate this resource's properties.
@@ -1055,7 +1055,7 @@ class WebAppAuthSettings(pulumi.CustomResource):
             __props__.__dict__["unauthenticated_client_action"] = unauthenticated_client_action
             __props__.__dict__["validate_issuer"] = validate_issuer
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppAuthSettings")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppAuthSettings"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppAuthSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppAuthSettings, __self__).__init__(
             'azure-native:web:WebAppAuthSettings',

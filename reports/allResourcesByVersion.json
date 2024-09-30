@@ -4207,6 +4207,24 @@
       "SecurityPolicy",
       "TunnelPolicy",
       "getProfileSupportedOptimizationTypes"
+    ],
+    "2024-09-01": [
+      "AFDCustomDomain",
+      "AFDEndpoint",
+      "AFDOrigin",
+      "AFDOriginGroup",
+      "CustomDomain",
+      "Endpoint",
+      "Origin",
+      "OriginGroup",
+      "Policy",
+      "Profile",
+      "Route",
+      "Rule",
+      "RuleSet",
+      "Secret",
+      "SecurityPolicy",
+      "getProfileSupportedOptimizationTypes"
     ]
   },
   "CertificateRegistration": {
@@ -4267,6 +4285,10 @@
       "AppServiceCertificateOrderCertificate"
     ],
     "2023-12-01": [
+      "AppServiceCertificateOrder",
+      "AppServiceCertificateOrderCertificate"
+    ],
+    "2024-04-01": [
       "AppServiceCertificateOrder",
       "AppServiceCertificateOrderCertificate"
     ]
@@ -5647,7 +5669,8 @@
       "ContainerGroup"
     ],
     "2024-05-01-preview": [
-      "ContainerGroup"
+      "ContainerGroup",
+      "ContainerGroupProfile"
     ]
   },
   "ContainerRegistry": {
@@ -9097,6 +9120,13 @@
       "PrivateEndpointConnection",
       "listIotHubResourceKeys",
       "listIotHubResourceKeysForKeyName"
+    ],
+    "2025-02-01-preview": [
+      "DpsCertificate",
+      "IotDpsResource",
+      "IotDpsResourcePrivateEndpointConnection",
+      "listIotDpsResourceKeys",
+      "listIotDpsResourceKeysForKeyName"
     ]
   },
   "DigitalTwins": {
@@ -10284,6 +10314,12 @@
       "DomainOwnershipIdentifier",
       "listDomainRecommendations",
       "listTopLevelDomainAgreements"
+    ],
+    "2024-04-01": [
+      "Domain",
+      "DomainOwnershipIdentifier",
+      "listDomainRecommendations",
+      "listTopLevelDomainAgreements"
     ]
   },
   "Dynamics365Fraudprotection": {
@@ -10584,6 +10620,13 @@
       "VolumeSnapshot"
     ],
     "2024-05-01": [
+      "ElasticSan",
+      "PrivateEndpointConnection",
+      "Volume",
+      "VolumeGroup",
+      "VolumeSnapshot"
+    ],
+    "2024-06-01-preview": [
       "ElasticSan",
       "PrivateEndpointConnection",
       "Volume",
@@ -14388,6 +14431,24 @@
       "VmwareCollectorsOperation"
     ],
     "2023-04-01-preview": [
+      "AksAssessmentOperation",
+      "AssessmentProjectsOperation",
+      "AssessmentsOperation",
+      "AvsAssessmentsOperation",
+      "BusinessCaseOperation",
+      "GroupsOperation",
+      "HypervCollectorsOperation",
+      "ImportCollectorsOperation",
+      "PrivateEndpointConnectionOperation",
+      "ServerCollectorsOperation",
+      "SqlAssessmentV2Operation",
+      "SqlCollectorOperation",
+      "VmwareCollectorsOperation",
+      "WebAppAssessmentV2Operation",
+      "WebAppCollectorOperation",
+      "getBusinessCaseOperationReportDownloadUrl"
+    ],
+    "2023-05-01-preview": [
       "AksAssessmentOperation",
       "AssessmentProjectsOperation",
       "AssessmentsOperation",
@@ -18314,15 +18375,28 @@
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
     "2023-07-01-preview": [
+      "DnsForwardingRuleset",
+      "DnsResolver",
+      "DnsResolverDomainList",
+      "DnsResolverPolicy",
+      "DnsResolverPolicyVirtualNetworkLink",
+      "DnsSecurityRule",
       "DnssecConfig",
+      "ForwardingRule",
+      "InboundEndpoint",
       "NetworkSecurityPerimeter",
       "NspAccessRule",
       "NspAssociation",
       "NspLink",
       "NspProfile",
+      "OutboundEndpoint",
+      "PrivateResolverVirtualNetworkLink",
       "RecordSet",
       "Zone",
-      "getDnsResourceReferenceByTarResources"
+      "getDnsResourceReferenceByTarResources",
+      "listDnsForwardingRulesetByVirtualNetwork",
+      "listDnsResolverByVirtualNetwork",
+      "listDnsResolverPolicyByVirtualNetwork"
     ],
     "2023-08-01-preview": [
       "NetworkSecurityPerimeter",
@@ -18854,6 +18928,26 @@
       "Volume"
     ],
     "2024-06-01-preview": [
+      "AgentPool",
+      "BareMetalMachine",
+      "BareMetalMachineKeySet",
+      "BmcKeySet",
+      "CloudServicesNetwork",
+      "Cluster",
+      "ClusterManager",
+      "Console",
+      "KubernetesCluster",
+      "KubernetesClusterFeature",
+      "L2Network",
+      "L3Network",
+      "MetricsConfiguration",
+      "Rack",
+      "StorageAppliance",
+      "TrunkedNetwork",
+      "VirtualMachine",
+      "Volume"
+    ],
+    "2024-07-01": [
       "AgentPool",
       "BareMetalMachine",
       "BareMetalMachineKeySet",
@@ -21502,6 +21596,45 @@
       "Watchlist",
       "WatchlistItem",
       "listSourceControlRepositories"
+    ],
+    "2024-04-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "BusinessApplicationAgent",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "DataConnectorDefinition",
+      "EntityQuery",
+      "FileImport",
+      "Hunt",
+      "HuntComment",
+      "HuntRelation",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "IncidentTask",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "System",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "WorkspaceManagerAssignment",
+      "WorkspaceManagerConfiguration",
+      "WorkspaceManagerGroup",
+      "WorkspaceManagerMember",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listGeodataByIp",
+      "listSourceControlRepositories",
+      "listSystemActions",
+      "listWhoisByDomain"
     ]
   },
   "SerialConsole": {
@@ -21982,6 +22115,13 @@
       "listLinkerConfigurations"
     ],
     "2024-04-01": [
+      "Connector",
+      "ConnectorDryrun",
+      "Linker",
+      "LinkerDryrun",
+      "listLinkerConfigurations"
+    ],
+    "2024-07-01-preview": [
       "Connector",
       "ConnectorDryrun",
       "Linker",
@@ -24302,6 +24442,9 @@
     "2024-06-01-preview": [
       "Account",
       "PrivateEndpointConnection"
+    ],
+    "2024-09-23-preview": [
+      "Account"
     ]
   },
   "VirtualMachineImages": {
@@ -25864,6 +26007,121 @@
       "listWorkflowTriggerCallbackUrl"
     ],
     "2023-12-01": [
+      "AppServiceEnvironment",
+      "AppServiceEnvironmentAseCustomDnsSuffixConfiguration",
+      "AppServiceEnvironmentPrivateEndpointConnection",
+      "AppServicePlan",
+      "AppServicePlanRouteForVnet",
+      "Certificate",
+      "ContainerApp",
+      "KubeEnvironment",
+      "StaticSite",
+      "StaticSiteBuildDatabaseConnection",
+      "StaticSiteCustomDomain",
+      "StaticSiteDatabaseConnection",
+      "StaticSiteLinkedBackend",
+      "StaticSiteLinkedBackendForBuild",
+      "StaticSitePrivateEndpointConnection",
+      "StaticSiteUserProvidedFunctionAppForStaticSite",
+      "StaticSiteUserProvidedFunctionAppForStaticSiteBuild",
+      "WebApp",
+      "WebAppApplicationSettings",
+      "WebAppApplicationSettingsSlot",
+      "WebAppAuthSettings",
+      "WebAppAuthSettingsSlot",
+      "WebAppAzureStorageAccounts",
+      "WebAppAzureStorageAccountsSlot",
+      "WebAppBackupConfiguration",
+      "WebAppBackupConfigurationSlot",
+      "WebAppConnectionStrings",
+      "WebAppConnectionStringsSlot",
+      "WebAppDeployment",
+      "WebAppDeploymentSlot",
+      "WebAppDiagnosticLogsConfiguration",
+      "WebAppDiagnosticLogsConfigurationSlot",
+      "WebAppDomainOwnershipIdentifier",
+      "WebAppDomainOwnershipIdentifierSlot",
+      "WebAppFtpAllowed",
+      "WebAppFtpAllowedSlot",
+      "WebAppFunction",
+      "WebAppHostNameBinding",
+      "WebAppHostNameBindingSlot",
+      "WebAppHybridConnection",
+      "WebAppHybridConnectionSlot",
+      "WebAppInstanceFunctionSlot",
+      "WebAppMetadata",
+      "WebAppMetadataSlot",
+      "WebAppPremierAddOn",
+      "WebAppPremierAddOnSlot",
+      "WebAppPrivateEndpointConnection",
+      "WebAppPrivateEndpointConnectionSlot",
+      "WebAppPublicCertificate",
+      "WebAppPublicCertificateSlot",
+      "WebAppRelayServiceConnection",
+      "WebAppRelayServiceConnectionSlot",
+      "WebAppScmAllowed",
+      "WebAppScmAllowedSlot",
+      "WebAppSiteContainer",
+      "WebAppSiteContainerSlot",
+      "WebAppSiteExtension",
+      "WebAppSiteExtensionSlot",
+      "WebAppSitePushSettings",
+      "WebAppSitePushSettingsSlot",
+      "WebAppSlot",
+      "WebAppSlotConfigurationNames",
+      "WebAppSourceControl",
+      "WebAppSourceControlSlot",
+      "WebAppSwiftVirtualNetworkConnection",
+      "WebAppSwiftVirtualNetworkConnectionSlot",
+      "WebAppVnetConnection",
+      "WebAppVnetConnectionSlot",
+      "listAppServicePlanHybridConnectionKeys",
+      "listContainerAppSecrets",
+      "listSiteIdentifiersAssignedToHostName",
+      "listStaticSiteAppSettings",
+      "listStaticSiteBuildAppSettings",
+      "listStaticSiteBuildFunctionAppSettings",
+      "listStaticSiteConfiguredRoles",
+      "listStaticSiteFunctionAppSettings",
+      "listStaticSiteSecrets",
+      "listStaticSiteUsers",
+      "listWebAppApplicationSettings",
+      "listWebAppApplicationSettingsSlot",
+      "listWebAppAuthSettings",
+      "listWebAppAuthSettingsSlot",
+      "listWebAppAzureStorageAccounts",
+      "listWebAppAzureStorageAccountsSlot",
+      "listWebAppBackupConfiguration",
+      "listWebAppBackupConfigurationSlot",
+      "listWebAppBackupStatusSecrets",
+      "listWebAppBackupStatusSecretsSlot",
+      "listWebAppConnectionStrings",
+      "listWebAppConnectionStringsSlot",
+      "listWebAppFunctionKeys",
+      "listWebAppFunctionKeysSlot",
+      "listWebAppFunctionSecrets",
+      "listWebAppFunctionSecretsSlot",
+      "listWebAppHostKeys",
+      "listWebAppHostKeysSlot",
+      "listWebAppMetadata",
+      "listWebAppMetadataSlot",
+      "listWebAppPublishingCredentials",
+      "listWebAppPublishingCredentialsSlot",
+      "listWebAppSiteBackups",
+      "listWebAppSiteBackupsSlot",
+      "listWebAppSitePushSettings",
+      "listWebAppSitePushSettingsSlot",
+      "listWebAppSyncFunctionTriggers",
+      "listWebAppSyncFunctionTriggersSlot",
+      "listWebAppSyncStatus",
+      "listWebAppSyncStatusSlot",
+      "listWebAppWorkflowsConnections",
+      "listWebAppWorkflowsConnectionsSlot",
+      "listWorkflowRunActionExpressionTraces",
+      "listWorkflowRunActionRepetitionExpressionTraces",
+      "listWorkflowTriggerCallbackUrl"
+    ],
+    "2024-04-01": [
       "AppServiceEnvironment",
       "AppServiceEnvironmentAseCustomDnsSuffixConfiguration",
       "AppServiceEnvironmentPrivateEndpointConnection",

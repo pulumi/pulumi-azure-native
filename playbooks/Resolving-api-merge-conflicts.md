@@ -11,3 +11,10 @@ approaches to resolve them depending on the source of the conflict:
 ## Example PR
 
 [Fix nightly upgrade due to incompatible refs · pulumi-azure-native/2961](https://github.com/pulumi/pulumi-azure-native/pull/2961) is an example PR for one of these fixes
+
+
+## Particular case "incompatible type T for resource R: required properties do not match: only required in A/B: p1, ..."
+
+This happens when the API spec defines a type in different places, with and without some required properties.
+
+The standard workaround is to add an exception to `genTypeSpec` in `types.go`. There are some already to copy.

@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.Migrate.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:migrate:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:ImportCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:ImportCollectorsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

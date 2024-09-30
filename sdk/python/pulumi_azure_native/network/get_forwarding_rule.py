@@ -166,6 +166,8 @@ def get_forwarding_rule(dns_forwarding_ruleset_name: Optional[str] = None,
     Gets properties of a forwarding rule in a DNS forwarding ruleset.
     Azure REST API version: 2022-07-01.
 
+    Other available API versions: 2023-07-01-preview.
+
 
     :param str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
     :param str forwarding_rule_name: The name of the forwarding rule.
@@ -196,6 +198,8 @@ def get_forwarding_rule_output(dns_forwarding_ruleset_name: Optional[pulumi.Inpu
     """
     Gets properties of a forwarding rule in a DNS forwarding ruleset.
     Azure REST API version: 2022-07-01.
+
+    Other available API versions: 2023-07-01-preview.
 
 
     :param str dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.

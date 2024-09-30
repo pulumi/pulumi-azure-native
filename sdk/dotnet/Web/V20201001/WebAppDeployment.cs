@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppDeployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppDeployment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

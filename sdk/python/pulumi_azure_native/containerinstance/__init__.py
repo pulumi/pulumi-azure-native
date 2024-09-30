@@ -7,7 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .container_group import *
+from .container_group_profile import *
 from .get_container_group import *
+from .get_container_group_profile import *
 from ._inputs import *
 from . import outputs
 

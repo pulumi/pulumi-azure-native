@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Network.V20220701
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:OutboundEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:OutboundEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:OutboundEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

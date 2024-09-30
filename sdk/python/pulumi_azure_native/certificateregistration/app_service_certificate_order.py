@@ -245,7 +245,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         SSL certificate purchase order.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,7 +272,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         SSL certificate purchase order.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param AppServiceCertificateOrderArgs args: The arguments to use to populate this resource's properties.
@@ -347,7 +347,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             __props__.__dict__["signed_certificate"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:certificateregistration/v20150801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20180201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20190801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20200601:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20200901:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20201001:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20201201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20210101:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20210115:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20210201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20210301:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20220301:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20220901:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20230101:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20231201:AppServiceCertificateOrder")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:certificateregistration/v20150801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20180201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20190801:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20200601:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20200901:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20201001:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20201201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20210101:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20210115:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20210201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20210301:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20220301:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20220901:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20230101:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20231201:AppServiceCertificateOrder"), pulumi.Alias(type_="azure-native:certificateregistration/v20240401:AppServiceCertificateOrder")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServiceCertificateOrder, __self__).__init__(
             'azure-native:certificateregistration:AppServiceCertificateOrder',

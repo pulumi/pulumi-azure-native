@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
+        /// The authentication type to use. Type: string.
+        /// </summary>
+        public readonly object AuthenticationType;
+        /// <summary>
         /// The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer.
         /// </summary>
         public readonly object? CommandTimeout;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private PostgreSqlV2LinkedServiceResponse(
             ImmutableArray<object> annotations,
 
+            object authenticationType,
+
             object? commandTimeout,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             string? version)
         {
             Annotations = annotations;
+            AuthenticationType = authenticationType;
             CommandTimeout = commandTimeout;
             ConnectVia = connectVia;
             ConnectionTimeout = connectionTimeout;

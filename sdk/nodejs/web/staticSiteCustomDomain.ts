@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Static Site Custom Domain Overview ARM resource.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2023-01-01, 2023-12-01.
+ * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export class StaticSiteCustomDomain extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class StaticSiteCustomDomain extends pulumi.CustomResource {
             resourceInputs["validationToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20201201:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210101:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210115:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210201:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210301:StaticSiteCustomDomain" }, { type: "azure-native:web/v20220301:StaticSiteCustomDomain" }, { type: "azure-native:web/v20220901:StaticSiteCustomDomain" }, { type: "azure-native:web/v20230101:StaticSiteCustomDomain" }, { type: "azure-native:web/v20231201:StaticSiteCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20201201:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210101:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210115:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210201:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210301:StaticSiteCustomDomain" }, { type: "azure-native:web/v20220301:StaticSiteCustomDomain" }, { type: "azure-native:web/v20220901:StaticSiteCustomDomain" }, { type: "azure-native:web/v20230101:StaticSiteCustomDomain" }, { type: "azure-native:web/v20231201:StaticSiteCustomDomain" }, { type: "azure-native:web/v20240401:StaticSiteCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteCustomDomain.__pulumiType, name, resourceInputs, opts);
     }

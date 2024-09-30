@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets a DNS forwarding ruleset properties.
         /// Azure REST API version: 2022-07-01.
         /// 
-        /// Other available API versions: 2020-04-01-preview.
+        /// Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
         /// </summary>
         public static Task<GetDnsForwardingRulesetResult> InvokeAsync(GetDnsForwardingRulesetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnsForwardingRulesetResult>("azure-native:network:getDnsForwardingRuleset", args ?? new GetDnsForwardingRulesetArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets a DNS forwarding ruleset properties.
         /// Azure REST API version: 2022-07-01.
         /// 
-        /// Other available API versions: 2020-04-01-preview.
+        /// Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
         /// </summary>
         public static Output<GetDnsForwardingRulesetResult> Invoke(GetDnsForwardingRulesetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsForwardingRulesetResult>("azure-native:network:getDnsForwardingRuleset", args ?? new GetDnsForwardingRulesetInvokeArgs(), options.WithDefaults());

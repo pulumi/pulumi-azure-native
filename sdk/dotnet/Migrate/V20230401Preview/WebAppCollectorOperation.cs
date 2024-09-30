@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Migrate.V20230401Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate:WebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:WebAppCollectorOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

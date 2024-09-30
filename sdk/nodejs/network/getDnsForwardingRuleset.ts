@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a DNS forwarding ruleset properties.
  * Azure REST API version: 2022-07-01.
  *
- * Other available API versions: 2020-04-01-preview.
+ * Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
  */
 export function getDnsForwardingRuleset(args: GetDnsForwardingRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsForwardingRulesetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,7 +81,7 @@ export interface GetDnsForwardingRulesetResult {
  * Gets a DNS forwarding ruleset properties.
  * Azure REST API version: 2022-07-01.
  *
- * Other available API versions: 2020-04-01-preview.
+ * Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
  */
 export function getDnsForwardingRulesetOutput(args: GetDnsForwardingRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsForwardingRulesetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

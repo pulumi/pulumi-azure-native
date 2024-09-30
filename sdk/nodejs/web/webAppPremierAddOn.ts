@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Premier add-on.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
+ * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export class WebAppPremierAddOn extends pulumi.CustomResource {
     /**
@@ -120,7 +120,7 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
             resourceInputs["vendor"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppPremierAddOn" }, { type: "azure-native:web/v20160801:WebAppPremierAddOn" }, { type: "azure-native:web/v20180201:WebAppPremierAddOn" }, { type: "azure-native:web/v20181101:WebAppPremierAddOn" }, { type: "azure-native:web/v20190801:WebAppPremierAddOn" }, { type: "azure-native:web/v20200601:WebAppPremierAddOn" }, { type: "azure-native:web/v20200901:WebAppPremierAddOn" }, { type: "azure-native:web/v20201001:WebAppPremierAddOn" }, { type: "azure-native:web/v20201201:WebAppPremierAddOn" }, { type: "azure-native:web/v20210101:WebAppPremierAddOn" }, { type: "azure-native:web/v20210115:WebAppPremierAddOn" }, { type: "azure-native:web/v20210201:WebAppPremierAddOn" }, { type: "azure-native:web/v20210301:WebAppPremierAddOn" }, { type: "azure-native:web/v20220301:WebAppPremierAddOn" }, { type: "azure-native:web/v20220901:WebAppPremierAddOn" }, { type: "azure-native:web/v20230101:WebAppPremierAddOn" }, { type: "azure-native:web/v20231201:WebAppPremierAddOn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppPremierAddOn" }, { type: "azure-native:web/v20160801:WebAppPremierAddOn" }, { type: "azure-native:web/v20180201:WebAppPremierAddOn" }, { type: "azure-native:web/v20181101:WebAppPremierAddOn" }, { type: "azure-native:web/v20190801:WebAppPremierAddOn" }, { type: "azure-native:web/v20200601:WebAppPremierAddOn" }, { type: "azure-native:web/v20200901:WebAppPremierAddOn" }, { type: "azure-native:web/v20201001:WebAppPremierAddOn" }, { type: "azure-native:web/v20201201:WebAppPremierAddOn" }, { type: "azure-native:web/v20210101:WebAppPremierAddOn" }, { type: "azure-native:web/v20210115:WebAppPremierAddOn" }, { type: "azure-native:web/v20210201:WebAppPremierAddOn" }, { type: "azure-native:web/v20210301:WebAppPremierAddOn" }, { type: "azure-native:web/v20220301:WebAppPremierAddOn" }, { type: "azure-native:web/v20220901:WebAppPremierAddOn" }, { type: "azure-native:web/v20230101:WebAppPremierAddOn" }, { type: "azure-native:web/v20231201:WebAppPremierAddOn" }, { type: "azure-native:web/v20240401:WebAppPremierAddOn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppPremierAddOn.__pulumiType, name, resourceInputs, opts);
     }

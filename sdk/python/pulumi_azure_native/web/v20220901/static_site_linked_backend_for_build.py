@@ -215,7 +215,7 @@ class StaticSiteLinkedBackendForBuild(pulumi.CustomResource):
             __props__.__dict__["created_on"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web:StaticSiteLinkedBackendForBuild"), pulumi.Alias(type_="azure-native:web/v20220301:StaticSiteLinkedBackendForBuild"), pulumi.Alias(type_="azure-native:web/v20230101:StaticSiteLinkedBackendForBuild"), pulumi.Alias(type_="azure-native:web/v20231201:StaticSiteLinkedBackendForBuild")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web:StaticSiteLinkedBackendForBuild"), pulumi.Alias(type_="azure-native:web/v20220301:StaticSiteLinkedBackendForBuild"), pulumi.Alias(type_="azure-native:web/v20230101:StaticSiteLinkedBackendForBuild"), pulumi.Alias(type_="azure-native:web/v20231201:StaticSiteLinkedBackendForBuild"), pulumi.Alias(type_="azure-native:web/v20240401:StaticSiteLinkedBackendForBuild")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSiteLinkedBackendForBuild, __self__).__init__(
             'azure-native:web/v20220901:StaticSiteLinkedBackendForBuild',

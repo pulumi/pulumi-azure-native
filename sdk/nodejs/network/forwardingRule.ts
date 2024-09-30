@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Describes a forwarding rule within a DNS forwarding ruleset.
  * Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview.
+ *
+ * Other available API versions: 2023-07-01-preview.
  */
 export class ForwardingRule extends pulumi.CustomResource {
     /**
@@ -122,7 +124,7 @@ export class ForwardingRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:ForwardingRule" }, { type: "azure-native:network/v20220701:ForwardingRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:ForwardingRule" }, { type: "azure-native:network/v20220701:ForwardingRule" }, { type: "azure-native:network/v20230701preview:ForwardingRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ForwardingRule.__pulumiType, name, resourceInputs, opts);
     }

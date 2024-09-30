@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Gets existing backups of an app.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
         /// </summary>
         public static Task<ListWebAppSiteBackupsResult> InvokeAsync(ListWebAppSiteBackupsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSiteBackupsResult>("azure-native:web:listWebAppSiteBackups", args ?? new ListWebAppSiteBackupsArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Gets existing backups of an app.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
         /// </summary>
         public static Output<ListWebAppSiteBackupsResult> Invoke(ListWebAppSiteBackupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppSiteBackupsResult>("azure-native:web:listWebAppSiteBackups", args ?? new ListWebAppSiteBackupsInvokeArgs(), options.WithDefaults());

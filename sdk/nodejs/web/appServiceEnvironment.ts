@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * App Service Environment ARM resource.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01.
+ * Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export class AppServiceEnvironment extends pulumi.CustomResource {
     /**
@@ -213,7 +213,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
             resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:AppServiceEnvironment" }, { type: "azure-native:web/v20160901:AppServiceEnvironment" }, { type: "azure-native:web/v20180201:AppServiceEnvironment" }, { type: "azure-native:web/v20190801:AppServiceEnvironment" }, { type: "azure-native:web/v20200601:AppServiceEnvironment" }, { type: "azure-native:web/v20200901:AppServiceEnvironment" }, { type: "azure-native:web/v20201001:AppServiceEnvironment" }, { type: "azure-native:web/v20201201:AppServiceEnvironment" }, { type: "azure-native:web/v20210101:AppServiceEnvironment" }, { type: "azure-native:web/v20210115:AppServiceEnvironment" }, { type: "azure-native:web/v20210201:AppServiceEnvironment" }, { type: "azure-native:web/v20210301:AppServiceEnvironment" }, { type: "azure-native:web/v20220301:AppServiceEnvironment" }, { type: "azure-native:web/v20220901:AppServiceEnvironment" }, { type: "azure-native:web/v20230101:AppServiceEnvironment" }, { type: "azure-native:web/v20231201:AppServiceEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:AppServiceEnvironment" }, { type: "azure-native:web/v20160901:AppServiceEnvironment" }, { type: "azure-native:web/v20180201:AppServiceEnvironment" }, { type: "azure-native:web/v20190801:AppServiceEnvironment" }, { type: "azure-native:web/v20200601:AppServiceEnvironment" }, { type: "azure-native:web/v20200901:AppServiceEnvironment" }, { type: "azure-native:web/v20201001:AppServiceEnvironment" }, { type: "azure-native:web/v20201201:AppServiceEnvironment" }, { type: "azure-native:web/v20210101:AppServiceEnvironment" }, { type: "azure-native:web/v20210115:AppServiceEnvironment" }, { type: "azure-native:web/v20210201:AppServiceEnvironment" }, { type: "azure-native:web/v20210301:AppServiceEnvironment" }, { type: "azure-native:web/v20220301:AppServiceEnvironment" }, { type: "azure-native:web/v20220901:AppServiceEnvironment" }, { type: "azure-native:web/v20230101:AppServiceEnvironment" }, { type: "azure-native:web/v20231201:AppServiceEnvironment" }, { type: "azure-native:web/v20240401:AppServiceEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServiceEnvironment.__pulumiType, name, resourceInputs, opts);
     }

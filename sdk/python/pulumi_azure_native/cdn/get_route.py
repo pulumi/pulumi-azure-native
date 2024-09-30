@@ -260,7 +260,7 @@ def get_route(endpoint_name: Optional[str] = None,
     Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
+    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -304,7 +304,7 @@ def get_route_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
+    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.

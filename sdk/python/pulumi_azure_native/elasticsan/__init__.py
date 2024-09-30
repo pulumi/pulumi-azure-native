@@ -29,9 +29,12 @@ if typing.TYPE_CHECKING:
     v20230101 = __v20230101
     import pulumi_azure_native.elasticsan.v20240501 as __v20240501
     v20240501 = __v20240501
+    import pulumi_azure_native.elasticsan.v20240601preview as __v20240601preview
+    v20240601preview = __v20240601preview
 else:
     v20211120preview = _utilities.lazy_import('pulumi_azure_native.elasticsan.v20211120preview')
     v20221201preview = _utilities.lazy_import('pulumi_azure_native.elasticsan.v20221201preview')
     v20230101 = _utilities.lazy_import('pulumi_azure_native.elasticsan.v20230101')
     v20240501 = _utilities.lazy_import('pulumi_azure_native.elasticsan.v20240501')
+    v20240601preview = _utilities.lazy_import('pulumi_azure_native.elasticsan.v20240601preview')
 

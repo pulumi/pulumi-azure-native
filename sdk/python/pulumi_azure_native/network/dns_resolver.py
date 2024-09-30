@@ -119,6 +119,8 @@ class DnsResolver(pulumi.CustomResource):
         Describes a DNS resolver.
         Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview.
 
+        Other available API versions: 2023-07-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_resolver_name: The name of the DNS resolver.
@@ -136,6 +138,8 @@ class DnsResolver(pulumi.CustomResource):
         """
         Describes a DNS resolver.
         Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview.
+
+        Other available API versions: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DnsResolverArgs args: The arguments to use to populate this resource's properties.
@@ -182,7 +186,7 @@ class DnsResolver(pulumi.CustomResource):
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200401preview:DnsResolver"), pulumi.Alias(type_="azure-native:network/v20220701:DnsResolver")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200401preview:DnsResolver"), pulumi.Alias(type_="azure-native:network/v20220701:DnsResolver"), pulumi.Alias(type_="azure-native:network/v20230701preview:DnsResolver")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DnsResolver, __self__).__init__(
             'azure-native:network:DnsResolver',

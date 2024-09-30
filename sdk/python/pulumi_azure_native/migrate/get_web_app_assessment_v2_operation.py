@@ -435,6 +435,8 @@ def get_web_app_assessment_v2_operation(assessment_name: Optional[str] = None,
     Get a WebAppAssessmentV2
     Azure REST API version: 2023-04-01-preview.
 
+    Other available API versions: 2023-05-01-preview.
+
 
     :param str assessment_name: Web app Assessment arm name.
     :param str group_name: Group ARM name
@@ -490,6 +492,8 @@ def get_web_app_assessment_v2_operation_output(assessment_name: Optional[pulumi.
     """
     Get a WebAppAssessmentV2
     Azure REST API version: 2023-04-01-preview.
+
+    Other available API versions: 2023-05-01-preview.
 
 
     :param str assessment_name: Web app Assessment arm name.

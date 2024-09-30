@@ -500,6 +500,15 @@ export const BastionHostSkuName = {
  */
 export type BastionHostSkuName = (typeof BastionHostSkuName)[keyof typeof BastionHostSkuName];
 
+export const BlockResponseCode = {
+    SERVFAIL: "SERVFAIL",
+} as const;
+
+/**
+ * The response code for block actions.
+ */
+export type BlockResponseCode = (typeof BlockResponseCode)[keyof typeof BlockResponseCode];
+
 export const CommissionedState = {
     Provisioning: "Provisioning",
     Provisioned: "Provisioned",
@@ -676,6 +685,16 @@ export const DisableBgpRoutePropagation = {
  * Determines whether BGP route propagation is enabled. Defaults to true.
  */
 export type DisableBgpRoutePropagation = (typeof DisableBgpRoutePropagation)[keyof typeof DisableBgpRoutePropagation];
+
+export const DnsSecurityRuleState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The state of DNS security rule.
+ */
+export type DnsSecurityRuleState = (typeof DnsSecurityRuleState)[keyof typeof DnsSecurityRuleState];
 
 export const DynamicCompressionEnabled = {
     Enabled: "Enabled",

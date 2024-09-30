@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get bare metal machine key set of the provided cluster.
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview.
+ * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
 export function getBareMetalMachineKeySet(args: GetBareMetalMachineKeySetArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineKeySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -115,7 +115,7 @@ export interface GetBareMetalMachineKeySetResult {
  * Get bare metal machine key set of the provided cluster.
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview.
+ * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
 export function getBareMetalMachineKeySetOutput(args: GetBareMetalMachineKeySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineKeySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

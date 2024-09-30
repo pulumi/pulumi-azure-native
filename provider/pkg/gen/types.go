@@ -105,8 +105,9 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 			}
 
 			// https://github.com/Azure/azure-rest-api-specs/issues/21431
-			// incompatible type "azure-native:network:SubResource" for resource "DnsForwardingRuleset" ("azure-native:network:DnsForwardingRuleset"): required properties do not match: only required in A: id
-			if tok == "azure-native:network/v20220701:SubResource" || tok == "azure-native:network:SubResource" {
+			// - incompatible type "azure-native:network:SubResource" for resource "DnsForwardingRuleset" ("azure-native:network:DnsForwardingRuleset"): required properties do not match: only required in A: id
+			// - incompatible type "azure-native:network/v20230701preview:SubResource" for resource "NspAssociation" ("azure-native:network/v20230701preview:NspAssociation"): required properties do not match: only required in B: id
+			if tok == "azure-native:network/v20220701:SubResource" || tok == "azure-native:network/v20230701preview:SubResource" || tok == "azure-native:network:SubResource" {
 				props.requiredProperties.Delete("id")
 				props.requiredSpecs.Delete("id")
 			}
@@ -126,6 +127,15 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 			if tok == "azure-native:testbase:TargetOSInfo" {
 				props.requiredProperties.Delete("targetOSs")
 				props.requiredSpecs.Delete("targetOSs")
+			}
+			// incompatible type "azure-native:containerinstance:Container" for resource "ContainerGroupProfile"
+			// ("azure-native:containerinstance:ContainerGroupProfile"): required properties do not match: only
+			// required in B: image,resources
+			if tok == "azure-native:containerinstance:Container" {
+				props.requiredProperties.Delete("image")
+				props.requiredSpecs.Delete("image")
+				props.requiredProperties.Delete("resources")
+				props.requiredSpecs.Delete("resources")
 			}
 
 			spec := pschema.ComplexTypeSpec{

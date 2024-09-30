@@ -78,7 +78,7 @@ def list_workflow_run_action_expression_traces(action_name: Optional[str] = None
     Lists a workflow run expression trace.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01.
+    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 
 
     :param str action_name: The workflow action name.
@@ -110,7 +110,7 @@ def list_workflow_run_action_expression_traces_output(action_name: Optional[pulu
     Lists a workflow run expression trace.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01.
+    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 
 
     :param str action_name: The workflow action name.

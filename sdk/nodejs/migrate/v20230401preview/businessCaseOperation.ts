@@ -103,7 +103,7 @@ export class BusinessCaseOperation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate:BusinessCaseOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate:BusinessCaseOperation" }, { type: "azure-native:migrate/v20230501preview:BusinessCaseOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BusinessCaseOperation.__pulumiType, name, resourceInputs, opts);
     }

@@ -140,7 +140,7 @@ def get_web_app_private_endpoint_connection_slot(name: Optional[str] = None,
     Description for Gets a private endpoint connection
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01.
+    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 
 
     :param str name: Name of the site.
@@ -174,7 +174,7 @@ def get_web_app_private_endpoint_connection_slot_output(name: Optional[pulumi.In
     Description for Gets a private endpoint connection
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01.
+    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
 
 
     :param str name: Name of the site.

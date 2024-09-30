@@ -136,6 +136,7 @@ __all__ = [
     'DhcpOptionsResponse',
     'DnsConfigResponse',
     'DnsResourceReferenceResponse',
+    'DnsSecurityRuleActionResponse',
     'DnsSettingsResponse',
     'EffectiveConnectivityConfigurationResponse',
     'EffectiveDefaultSecurityAdminRuleResponse',
@@ -12524,6 +12525,60 @@ class DnsResourceReferenceResponse(dict):
         A reference to an azure resource from where the dns resource value is taken.
         """
         return pulumi.get(self, "target_resource")
+
+
+@pulumi.output_type
+class DnsSecurityRuleActionResponse(dict):
+    """
+    The action to take on DNS requests that match the DNS security rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionType":
+            suggest = "action_type"
+        elif key == "blockResponseCode":
+            suggest = "block_response_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DnsSecurityRuleActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DnsSecurityRuleActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DnsSecurityRuleActionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_type: Optional[str] = None,
+                 block_response_code: Optional[str] = None):
+        """
+        The action to take on DNS requests that match the DNS security rule.
+        :param str action_type: The type of action to take.
+        :param str block_response_code: The response code for block actions.
+        """
+        if action_type is not None:
+            pulumi.set(__self__, "action_type", action_type)
+        if block_response_code is not None:
+            pulumi.set(__self__, "block_response_code", block_response_code)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> Optional[str]:
+        """
+        The type of action to take.
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter(name="blockResponseCode")
+    def block_response_code(self) -> Optional[str]:
+        """
+        The response code for block actions.
+        """
+        return pulumi.get(self, "block_response_code")
 
 
 @pulumi.output_type

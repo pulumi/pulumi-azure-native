@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
+        /// The authentication type to use. Type: string.
+        /// </summary>
+        [Input("authenticationType", required: true)]
+        public Input<object> AuthenticationType { get; set; } = null!;
+
+        /// <summary>
         /// The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer.
         /// </summary>
         [Input("commandTimeout")]

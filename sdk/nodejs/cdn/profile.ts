@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A profile is a logical grouping of endpoints that share the same settings.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
  *
- * Other available API versions: 2016-04-02, 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2016-04-02, 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
  */
 export class Profile extends pulumi.CustomResource {
     /**
@@ -141,7 +141,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20150601:Profile" }, { type: "azure-native:cdn/v20160402:Profile" }, { type: "azure-native:cdn/v20161002:Profile" }, { type: "azure-native:cdn/v20170402:Profile" }, { type: "azure-native:cdn/v20171012:Profile" }, { type: "azure-native:cdn/v20190415:Profile" }, { type: "azure-native:cdn/v20190615:Profile" }, { type: "azure-native:cdn/v20190615preview:Profile" }, { type: "azure-native:cdn/v20191231:Profile" }, { type: "azure-native:cdn/v20200331:Profile" }, { type: "azure-native:cdn/v20200415:Profile" }, { type: "azure-native:cdn/v20200901:Profile" }, { type: "azure-native:cdn/v20210601:Profile" }, { type: "azure-native:cdn/v20220501preview:Profile" }, { type: "azure-native:cdn/v20221101preview:Profile" }, { type: "azure-native:cdn/v20230501:Profile" }, { type: "azure-native:cdn/v20230701preview:Profile" }, { type: "azure-native:cdn/v20240201:Profile" }, { type: "azure-native:cdn/v20240501preview:Profile" }, { type: "azure-native:cdn/v20240601preview:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20150601:Profile" }, { type: "azure-native:cdn/v20160402:Profile" }, { type: "azure-native:cdn/v20161002:Profile" }, { type: "azure-native:cdn/v20170402:Profile" }, { type: "azure-native:cdn/v20171012:Profile" }, { type: "azure-native:cdn/v20190415:Profile" }, { type: "azure-native:cdn/v20190615:Profile" }, { type: "azure-native:cdn/v20190615preview:Profile" }, { type: "azure-native:cdn/v20191231:Profile" }, { type: "azure-native:cdn/v20200331:Profile" }, { type: "azure-native:cdn/v20200415:Profile" }, { type: "azure-native:cdn/v20200901:Profile" }, { type: "azure-native:cdn/v20210601:Profile" }, { type: "azure-native:cdn/v20220501preview:Profile" }, { type: "azure-native:cdn/v20221101preview:Profile" }, { type: "azure-native:cdn/v20230501:Profile" }, { type: "azure-native:cdn/v20230701preview:Profile" }, { type: "azure-native:cdn/v20240201:Profile" }, { type: "azure-native:cdn/v20240501preview:Profile" }, { type: "azure-native:cdn/v20240601preview:Profile" }, { type: "azure-native:cdn/v20240901:Profile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Profile.__pulumiType, name, resourceInputs, opts);
     }

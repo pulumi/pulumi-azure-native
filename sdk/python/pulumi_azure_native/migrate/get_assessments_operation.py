@@ -611,7 +611,7 @@ def get_assessments_operation(assessment_name: Optional[str] = None,
     Get a Assessment
     Azure REST API version: 2023-04-01-preview.
 
-    Other available API versions: 2023-03-15.
+    Other available API versions: 2023-03-15, 2023-05-01-preview.
 
 
     :param str assessment_name: Machine Assessment ARM name
@@ -683,7 +683,7 @@ def get_assessments_operation_output(assessment_name: Optional[pulumi.Input[str]
     Get a Assessment
     Azure REST API version: 2023-04-01-preview.
 
-    Other available API versions: 2023-03-15.
+    Other available API versions: 2023-03-15, 2023-05-01-preview.
 
 
     :param str assessment_name: Machine Assessment ARM name

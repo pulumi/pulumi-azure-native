@@ -31,6 +31,7 @@ import * as v20231101 from "./v20231101";
 import * as v20231201preview from "./v20231201preview";
 import * as v20240101preview from "./v20240101preview";
 import * as v20240301 from "./v20240301";
+import * as v20240401preview from "./v20240401preview";
 
 export {
     v20190101preview,
@@ -62,6 +63,7 @@ export {
     v20231201preview,
     v20240101preview,
     v20240301,
+    v20240401preview,
 };
 
 export const ActionType = {
@@ -79,6 +81,15 @@ export const ActionType = {
  * The type of the automation rule action.
  */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+export const AgentType = {
+    SAP: "SAP",
+} as const;
+
+/**
+ * Type of the agent
+ */
+export type AgentType = (typeof AgentType)[keyof typeof AgentType];
 
 export const AlertDetail = {
     /**
@@ -546,6 +557,15 @@ export const ConditionType = {
 
 export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
 
+export const ConfigurationType = {
+    SAP: "SAP",
+} as const;
+
+/**
+ * Represents the types of configuration for a system.
+ */
+export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
+
 export const ContentType = {
     AnalyticRule: "AnalyticRule",
     Workbook: "Workbook",
@@ -904,6 +924,17 @@ export const Flag = {
  */
 export type Flag = (typeof Flag)[keyof typeof Flag];
 
+export const HttpsConfigurationType = {
+    HttpOnly: "HttpOnly",
+    HttpsWithSslVerification: "HttpsWithSslVerification",
+    HttpsWithoutSslVerification: "HttpsWithoutSslVerification",
+} as const;
+
+/**
+ * Represents the types of HTTPS configuration to connect to the SapControl service.
+ */
+export type HttpsConfigurationType = (typeof HttpsConfigurationType)[keyof typeof HttpsConfigurationType];
+
 export const HypothesisStatus = {
     Unknown: "Unknown",
     Invalidated: "Invalidated",
@@ -1040,6 +1071,27 @@ export const IngestionMode = {
  */
 export type IngestionMode = (typeof IngestionMode)[keyof typeof IngestionMode];
 
+export const IngestionType = {
+    Full: "Full",
+    Incremental: "Incremental",
+} as const;
+
+/**
+ * Types of ingestion.
+ */
+export type IngestionType = (typeof IngestionType)[keyof typeof IngestionType];
+
+export const KeyVaultAuthenticationMode = {
+    ManagedIdentity: "ManagedIdentity",
+    ServicePrincipal: "ServicePrincipal",
+} as const;
+
+/**
+ * The key mode of the agent.
+ * ManagedIdentity|ApplicationIdentity are the options
+ */
+export type KeyVaultAuthenticationMode = (typeof KeyVaultAuthenticationMode)[keyof typeof KeyVaultAuthenticationMode];
+
 export const Kind = {
     DataConnector: "DataConnector",
     DataType: "DataType",
@@ -1064,6 +1116,56 @@ export const Kind = {
  * Type of the content item we depend on
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const LogStatusType = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Types of log status.
+ */
+export type LogStatusType = (typeof LogStatusType)[keyof typeof LogStatusType];
+
+export const LogType = {
+    AbapAuditLog: "AbapAuditLog",
+    AbapJobLog: "AbapJobLog",
+    AbapSpoolLog: "AbapSpoolLog",
+    AbapSpoolOutputLog: "AbapSpoolOutputLog",
+    AbapChangeDocsLog: "AbapChangeDocsLog",
+    AbapAppLog: "AbapAppLog",
+    AbapWorkflowLog: "AbapWorkflowLog",
+    AbapCrLog: "AbapCrLog",
+    AbapTableDataLog: "AbapTableDataLog",
+    AbapFilesLogs: "AbapFilesLogs",
+    JavaFilesLogs: "JavaFilesLogs",
+    AGRTCODES: "AGRTCODES",
+    USR01: "USR01",
+    USR02: "USR02",
+    AGR1251: "AGR1251",
+    AGRUSERS: "AGRUSERS",
+    AGRPROF: "AGRPROF",
+    UST04: "UST04",
+    USR21: "USR21",
+    ADR6: "ADR6",
+    ADCP: "ADCP",
+    USR05: "USR05",
+    USGRPUSER: "USGRPUSER",
+    USERADDR: "USERADDR",
+    DEVACCESS: "DEVACCESS",
+    AGRDEFINE: "AGRDEFINE",
+    PAHI: "PAHI",
+    AGRAGRS: "AGRAGRS",
+    USRSTAMP: "USRSTAMP",
+    AGRFLAGS: "AGRFLAGS",
+    SNCSYSACL: "SNCSYSACL",
+    USRACL: "USRACL",
+} as const;
+
+/**
+ * Types of logs and tables.
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
 
 export const MatchingMethod = {
     /**
@@ -1175,6 +1277,27 @@ export const RepoType = {
  */
 export type RepoType = (typeof RepoType)[keyof typeof RepoType];
 
+export const SapAuthenticationType = {
+    UsernamePassword: "UsernamePassword",
+    Snc: "Snc",
+    SncWithUsernamePassword: "SncWithUsernamePassword",
+} as const;
+
+/**
+ * The authentication type to SAP.
+ */
+export type SapAuthenticationType = (typeof SapAuthenticationType)[keyof typeof SapAuthenticationType];
+
+export const SecretSource = {
+    AzureKeyVault: "AzureKeyVault",
+} as const;
+
+/**
+ * The secret source of the agent.
+ * AzureKeyVault is the option
+ */
+export type SecretSource = (typeof SecretSource)[keyof typeof SecretSource];
+
 export const SecurityMLAnalyticsSettingsKind = {
     Anomaly: "Anomaly",
 } as const;
@@ -1255,6 +1378,26 @@ export const SupportTier = {
  * Type of support for content item
  */
 export type SupportTier = (typeof SupportTier)[keyof typeof SupportTier];
+
+export const SystemConfigurationConnectorType = {
+    Rfc: "Rfc",
+    SapControl: "SapControl",
+} as const;
+
+/**
+ * Represents the types of SAP systems.
+ */
+export type SystemConfigurationConnectorType = (typeof SystemConfigurationConnectorType)[keyof typeof SystemConfigurationConnectorType];
+
+export const SystemStatusType = {
+    Running: "Running",
+    Stopped: "Stopped",
+} as const;
+
+/**
+ * The status of the system.
+ */
+export type SystemStatusType = (typeof SystemStatusType)[keyof typeof SystemStatusType];
 
 export const ThreatIntelligenceResourceInnerKind = {
     /**

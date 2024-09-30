@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Site Extension Information.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
+ * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export class WebAppSiteExtension extends pulumi.CustomResource {
     /**
@@ -195,7 +195,7 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160801:WebAppSiteExtension" }, { type: "azure-native:web/v20180201:WebAppSiteExtension" }, { type: "azure-native:web/v20181101:WebAppSiteExtension" }, { type: "azure-native:web/v20190801:WebAppSiteExtension" }, { type: "azure-native:web/v20200601:WebAppSiteExtension" }, { type: "azure-native:web/v20200901:WebAppSiteExtension" }, { type: "azure-native:web/v20201001:WebAppSiteExtension" }, { type: "azure-native:web/v20201201:WebAppSiteExtension" }, { type: "azure-native:web/v20210101:WebAppSiteExtension" }, { type: "azure-native:web/v20210115:WebAppSiteExtension" }, { type: "azure-native:web/v20210201:WebAppSiteExtension" }, { type: "azure-native:web/v20210301:WebAppSiteExtension" }, { type: "azure-native:web/v20220301:WebAppSiteExtension" }, { type: "azure-native:web/v20220901:WebAppSiteExtension" }, { type: "azure-native:web/v20230101:WebAppSiteExtension" }, { type: "azure-native:web/v20231201:WebAppSiteExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160801:WebAppSiteExtension" }, { type: "azure-native:web/v20180201:WebAppSiteExtension" }, { type: "azure-native:web/v20181101:WebAppSiteExtension" }, { type: "azure-native:web/v20190801:WebAppSiteExtension" }, { type: "azure-native:web/v20200601:WebAppSiteExtension" }, { type: "azure-native:web/v20200901:WebAppSiteExtension" }, { type: "azure-native:web/v20201001:WebAppSiteExtension" }, { type: "azure-native:web/v20201201:WebAppSiteExtension" }, { type: "azure-native:web/v20210101:WebAppSiteExtension" }, { type: "azure-native:web/v20210115:WebAppSiteExtension" }, { type: "azure-native:web/v20210201:WebAppSiteExtension" }, { type: "azure-native:web/v20210301:WebAppSiteExtension" }, { type: "azure-native:web/v20220301:WebAppSiteExtension" }, { type: "azure-native:web/v20220901:WebAppSiteExtension" }, { type: "azure-native:web/v20230101:WebAppSiteExtension" }, { type: "azure-native:web/v20231201:WebAppSiteExtension" }, { type: "azure-native:web/v20240401:WebAppSiteExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSiteExtension.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes an inbound endpoint for a DNS resolver.
  * Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview.
  *
- * Other available API versions: 2020-04-01-preview.
+ * Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
  */
 export class InboundEndpoint extends pulumi.CustomResource {
     /**
@@ -121,7 +121,7 @@ export class InboundEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:InboundEndpoint" }, { type: "azure-native:network/v20220701:InboundEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:InboundEndpoint" }, { type: "azure-native:network/v20220701:InboundEndpoint" }, { type: "azure-native:network/v20230701preview:InboundEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InboundEndpoint.__pulumiType, name, resourceInputs, opts);
     }

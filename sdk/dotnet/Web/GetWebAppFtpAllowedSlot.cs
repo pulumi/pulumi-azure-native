@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Returns whether FTP is allowed on the site or not.
         /// Azure REST API version: 2023-12-01.
         /// 
-        /// Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01.
+        /// Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
         /// </summary>
         public static Task<GetWebAppFtpAllowedSlotResult> InvokeAsync(GetWebAppFtpAllowedSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFtpAllowedSlotResult>("azure-native:web:getWebAppFtpAllowedSlot", args ?? new GetWebAppFtpAllowedSlotArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Returns whether FTP is allowed on the site or not.
         /// Azure REST API version: 2023-12-01.
         /// 
-        /// Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01.
+        /// Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
         /// </summary>
         public static Output<GetWebAppFtpAllowedSlotResult> Invoke(GetWebAppFtpAllowedSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppFtpAllowedSlotResult>("azure-native:web:getWebAppFtpAllowedSlot", args ?? new GetWebAppFtpAllowedSlotInvokeArgs(), options.WithDefaults());

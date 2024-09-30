@@ -135,7 +135,7 @@ class WebAppPublicCertificate(pulumi.CustomResource):
         Public certificate object
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +156,7 @@ class WebAppPublicCertificate(pulumi.CustomResource):
         Public certificate object
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppPublicCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -200,7 +200,7 @@ class WebAppPublicCertificate(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppPublicCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppPublicCertificate"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppPublicCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPublicCertificate, __self__).__init__(
             'azure-native:web:WebAppPublicCertificate',

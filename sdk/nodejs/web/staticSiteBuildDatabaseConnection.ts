@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Static Site Database Connection resource.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2023-01-01, 2023-12-01.
+ * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export class StaticSiteBuildDatabaseConnection extends pulumi.CustomResource {
     /**
@@ -121,7 +121,7 @@ export class StaticSiteBuildDatabaseConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20220901:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20230101:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20231201:StaticSiteBuildDatabaseConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20220901:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20230101:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20231201:StaticSiteBuildDatabaseConnection" }, { type: "azure-native:web/v20240401:StaticSiteBuildDatabaseConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteBuildDatabaseConnection.__pulumiType, name, resourceInputs, opts);
     }

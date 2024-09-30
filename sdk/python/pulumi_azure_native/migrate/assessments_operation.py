@@ -454,7 +454,7 @@ class AssessmentsOperation(pulumi.CustomResource):
         Machine assessment resource.
         Azure REST API version: 2023-04-01-preview.
 
-        Other available API versions: 2023-03-15.
+        Other available API versions: 2023-03-15, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -499,7 +499,7 @@ class AssessmentsOperation(pulumi.CustomResource):
         Machine assessment resource.
         Azure REST API version: 2023-04-01-preview.
 
-        Other available API versions: 2023-03-15.
+        Other available API versions: 2023-03-15, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AssessmentsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -604,7 +604,7 @@ class AssessmentsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentsOperation, __self__).__init__(
             'azure-native:migrate:AssessmentsOperation',

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ActionType',
+    'AgentType',
     'AlertDetail',
     'AlertProperty',
     'AlertRuleKind',
@@ -18,6 +19,7 @@ __all__ = [
     'AutomationRulePropertyConditionSupportedOperator',
     'AutomationRulePropertyConditionSupportedProperty',
     'ConditionType',
+    'ConfigurationType',
     'ContentType',
     'CustomEntityQueryKind',
     'DataConnectorDefinitionKind',
@@ -34,6 +36,7 @@ __all__ = [
     'FileFormat',
     'FileImportContentType',
     'Flag',
+    'HttpsConfigurationType',
     'HypothesisStatus',
     'IncidentClassification',
     'IncidentClassificationReason',
@@ -41,7 +44,11 @@ __all__ = [
     'IncidentStatus',
     'IncidentTaskStatus',
     'IngestionMode',
+    'IngestionType',
+    'KeyVaultAuthenticationMode',
     'Kind',
+    'LogStatusType',
+    'LogType',
     'MatchingMethod',
     'MicrosoftSecurityProductName',
     'Mode',
@@ -50,6 +57,8 @@ __all__ = [
     'PackageKind',
     'ProviderPermissionsScope',
     'RepoType',
+    'SapAuthenticationType',
+    'SecretSource',
     'SecurityMLAnalyticsSettingsKind',
     'SettingKind',
     'SettingsStatus',
@@ -57,6 +66,8 @@ __all__ = [
     'SourceKind',
     'Status',
     'SupportTier',
+    'SystemConfigurationConnectorType',
+    'SystemStatusType',
     'ThreatIntelligenceResourceInnerKind',
     'TriggerOperator',
     'TriggersOn',
@@ -78,6 +89,13 @@ class ActionType(str, Enum):
     """
     Run a playbook on an object
     """
+
+
+class AgentType(str, Enum):
+    """
+    Type of the agent
+    """
+    SAP = "SAP"
 
 
 class AlertDetail(str, Enum):
@@ -522,6 +540,13 @@ class ConditionType(str, Enum):
     """
 
 
+class ConfigurationType(str, Enum):
+    """
+    Represents the types of configuration for a system.
+    """
+    SAP = "SAP"
+
+
 class ContentType(str, Enum):
     """
     Content type.
@@ -848,6 +873,15 @@ class Flag(str, Enum):
     FALSE = "false"
 
 
+class HttpsConfigurationType(str, Enum):
+    """
+    Represents the types of HTTPS configuration to connect to the SapControl service.
+    """
+    HTTP_ONLY = "HttpOnly"
+    HTTPS_WITH_SSL_VERIFICATION = "HttpsWithSslVerification"
+    HTTPS_WITHOUT_SSL_VERIFICATION = "HttpsWithoutSslVerification"
+
+
 class HypothesisStatus(str, Enum):
     """
     The hypothesis status of the hunt.
@@ -970,6 +1004,23 @@ class IngestionMode(str, Enum):
     """
 
 
+class IngestionType(str, Enum):
+    """
+    Types of ingestion.
+    """
+    FULL = "Full"
+    INCREMENTAL = "Incremental"
+
+
+class KeyVaultAuthenticationMode(str, Enum):
+    """
+    The key mode of the agent.
+    ManagedIdentity|ApplicationIdentity are the options
+    """
+    MANAGED_IDENTITY = "ManagedIdentity"
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+
+
 class Kind(str, Enum):
     """
     Type of the content item we depend on
@@ -991,6 +1042,52 @@ class Kind(str, Enum):
     AZURE_FUNCTION = "AzureFunction"
     LOGIC_APPS_CUSTOM_CONNECTOR = "LogicAppsCustomConnector"
     AUTOMATION_RULE = "AutomationRule"
+
+
+class LogStatusType(str, Enum):
+    """
+    Types of log status.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class LogType(str, Enum):
+    """
+    Types of logs and tables.
+    """
+    ABAP_AUDIT_LOG = "AbapAuditLog"
+    ABAP_JOB_LOG = "AbapJobLog"
+    ABAP_SPOOL_LOG = "AbapSpoolLog"
+    ABAP_SPOOL_OUTPUT_LOG = "AbapSpoolOutputLog"
+    ABAP_CHANGE_DOCS_LOG = "AbapChangeDocsLog"
+    ABAP_APP_LOG = "AbapAppLog"
+    ABAP_WORKFLOW_LOG = "AbapWorkflowLog"
+    ABAP_CR_LOG = "AbapCrLog"
+    ABAP_TABLE_DATA_LOG = "AbapTableDataLog"
+    ABAP_FILES_LOGS = "AbapFilesLogs"
+    JAVA_FILES_LOGS = "JavaFilesLogs"
+    AGRTCODES = "AGRTCODES"
+    USR01 = "USR01"
+    USR02 = "USR02"
+    AGR1251 = "AGR1251"
+    AGRUSERS = "AGRUSERS"
+    AGRPROF = "AGRPROF"
+    UST04 = "UST04"
+    USR21 = "USR21"
+    ADR6 = "ADR6"
+    ADCP = "ADCP"
+    USR05 = "USR05"
+    USGRPUSER = "USGRPUSER"
+    USERADDR = "USERADDR"
+    DEVACCESS = "DEVACCESS"
+    AGRDEFINE = "AGRDEFINE"
+    PAHI = "PAHI"
+    AGRAGRS = "AGRAGRS"
+    USRSTAMP = "USRSTAMP"
+    AGRFLAGS = "AGRFLAGS"
+    SNCSYSACL = "SNCSYSACL"
+    USRACL = "USRACL"
 
 
 class MatchingMethod(str, Enum):
@@ -1087,6 +1184,23 @@ class RepoType(str, Enum):
     DEV_OPS = "DevOps"
 
 
+class SapAuthenticationType(str, Enum):
+    """
+    The authentication type to SAP.
+    """
+    USERNAME_PASSWORD = "UsernamePassword"
+    SNC = "Snc"
+    SNC_WITH_USERNAME_PASSWORD = "SncWithUsernamePassword"
+
+
+class SecretSource(str, Enum):
+    """
+    The secret source of the agent.
+    AzureKeyVault is the option
+    """
+    AZURE_KEY_VAULT = "AzureKeyVault"
+
+
 class SecurityMLAnalyticsSettingsKind(str, Enum):
     """
     The kind of security ML Analytics Settings
@@ -1152,6 +1266,22 @@ class SupportTier(str, Enum):
     MICROSOFT = "Microsoft"
     PARTNER = "Partner"
     COMMUNITY = "Community"
+
+
+class SystemConfigurationConnectorType(str, Enum):
+    """
+    Represents the types of SAP systems.
+    """
+    RFC = "Rfc"
+    SAP_CONTROL = "SapControl"
+
+
+class SystemStatusType(str, Enum):
+    """
+    The status of the system.
+    """
+    RUNNING = "Running"
+    STOPPED = "Stopped"
 
 
 class ThreatIntelligenceResourceInnerKind(str, Enum):

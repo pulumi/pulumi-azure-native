@@ -163,7 +163,7 @@ export class BmcKeySet extends pulumi.CustomResource {
             resourceInputs["userListStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:BmcKeySet" }, { type: "azure-native:networkcloud/v20230701:BmcKeySet" }, { type: "azure-native:networkcloud/v20240601preview:BmcKeySet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:BmcKeySet" }, { type: "azure-native:networkcloud/v20230701:BmcKeySet" }, { type: "azure-native:networkcloud/v20240601preview:BmcKeySet" }, { type: "azure-native:networkcloud/v20240701:BmcKeySet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BmcKeySet.__pulumiType, name, resourceInputs, opts);
     }

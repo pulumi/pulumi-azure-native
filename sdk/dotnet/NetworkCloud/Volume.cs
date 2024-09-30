@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// <summary>
     /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
     /// 
-    /// Other available API versions: 2023-07-01, 2024-06-01-preview.
+    /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:Volume")]
     public partial class Volume : global::Pulumi.CustomResource
@@ -117,6 +117,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:Volume" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:Volume" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

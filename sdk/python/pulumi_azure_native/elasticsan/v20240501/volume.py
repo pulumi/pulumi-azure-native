@@ -222,7 +222,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["volume_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elasticsan:Volume"), pulumi.Alias(type_="azure-native:elasticsan/v20211120preview:Volume"), pulumi.Alias(type_="azure-native:elasticsan/v20221201preview:Volume"), pulumi.Alias(type_="azure-native:elasticsan/v20230101:Volume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elasticsan:Volume"), pulumi.Alias(type_="azure-native:elasticsan/v20211120preview:Volume"), pulumi.Alias(type_="azure-native:elasticsan/v20221201preview:Volume"), pulumi.Alias(type_="azure-native:elasticsan/v20230101:Volume"), pulumi.Alias(type_="azure-native:elasticsan/v20240601preview:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azure-native:elasticsan/v20240501:Volume',

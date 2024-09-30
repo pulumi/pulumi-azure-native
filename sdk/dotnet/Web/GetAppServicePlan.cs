@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Get an App Service plan.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01.
+        /// Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Get an App Service plan.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01.
+        /// Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
         /// </summary>
         public static Output<GetAppServicePlanResult> Invoke(GetAppServicePlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithDefaults());

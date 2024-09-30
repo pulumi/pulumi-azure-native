@@ -151,7 +151,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
         Public certificate object
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,7 +173,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
         Public certificate object
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppPublicCertificateSlotArgs args: The arguments to use to populate this resource's properties.
@@ -221,7 +221,7 @@ class WebAppPublicCertificateSlot(pulumi.CustomResource):
             __props__.__dict__["slot"] = slot
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppPublicCertificateSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppPublicCertificateSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppPublicCertificateSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPublicCertificateSlot, __self__).__init__(
             'azure-native:web:WebAppPublicCertificateSlot',

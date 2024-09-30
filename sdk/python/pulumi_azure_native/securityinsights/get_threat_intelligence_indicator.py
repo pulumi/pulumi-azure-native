@@ -59,7 +59,7 @@ class GetThreatIntelligenceIndicatorResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -118,7 +118,7 @@ def get_threat_intelligence_indicator(name: Optional[str] = None,
     View a threat intelligence indicator by name.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2021-04-01, 2021-09-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01.
+    Other available API versions: 2021-04-01, 2021-09-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
 
 
     :param str name: Threat intelligence indicator name field.
@@ -147,7 +147,7 @@ def get_threat_intelligence_indicator_output(name: Optional[pulumi.Input[str]] =
     View a threat intelligence indicator by name.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2021-04-01, 2021-09-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01.
+    Other available API versions: 2021-04-01, 2021-09-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
 
 
     :param str name: Threat intelligence indicator name field.

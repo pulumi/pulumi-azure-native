@@ -246,7 +246,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn:Rule"), pulumi.Alias(type_="azure-native:cdn/v20200901:Rule"), pulumi.Alias(type_="azure-native:cdn/v20210601:Rule"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20230701preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240201:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240601preview:Rule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn:Rule"), pulumi.Alias(type_="azure-native:cdn/v20200901:Rule"), pulumi.Alias(type_="azure-native:cdn/v20210601:Rule"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20230701preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240201:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240601preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240901:Rule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Rule, __self__).__init__(
             'azure-native:cdn/v20230501:Rule',

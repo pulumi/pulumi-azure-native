@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Description for Gets the source control configuration of an app.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+ * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getWebAppSourceControlSlot(args: GetWebAppSourceControlSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,7 +90,7 @@ export interface GetWebAppSourceControlSlotResult {
  * Description for Gets the source control configuration of an app.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
+ * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getWebAppSourceControlSlotOutput(args: GetWebAppSourceControlSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSourceControlSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -250,6 +250,8 @@ def list_geodata_by_ip(enrichment_type: Optional[str] = None,
     Get geodata for a single IP address
     Azure REST API version: 2024-01-01-preview.
 
+    Other available API versions: 2024-04-01-preview.
+
 
     :param str enrichment_type: Enrichment type
     :param str ip_address: The dotted-decimal or colon-separated string representation of the IP address
@@ -290,6 +292,8 @@ def list_geodata_by_ip_output(enrichment_type: Optional[pulumi.Input[str]] = Non
     """
     Get geodata for a single IP address
     Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2024-04-01-preview.
 
 
     :param str enrichment_type: Enrichment type

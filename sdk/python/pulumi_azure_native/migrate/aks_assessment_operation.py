@@ -119,6 +119,8 @@ class AksAssessmentOperation(pulumi.CustomResource):
         ARM model of AKS Assessment.
         Azure REST API version: 2023-04-01-preview.
 
+        Other available API versions: 2023-05-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assessment_name: AKS Assessment Name.
@@ -136,6 +138,8 @@ class AksAssessmentOperation(pulumi.CustomResource):
         """
         ARM model of AKS Assessment.
         Azure REST API version: 2023-04-01-preview.
+
+        Other available API versions: 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AksAssessmentOperationArgs args: The arguments to use to populate this resource's properties.
@@ -183,7 +187,7 @@ class AksAssessmentOperation(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AksAssessmentOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AksAssessmentOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AksAssessmentOperation, __self__).__init__(
             'azure-native:migrate:AksAssessmentOperation',

@@ -90,6 +90,26 @@ export type DnsResolver = import("./dnsResolver").DnsResolver;
 export const DnsResolver: typeof import("./dnsResolver").DnsResolver = null as any;
 utilities.lazyLoad(exports, ["DnsResolver"], () => require("./dnsResolver"));
 
+export { DnsResolverDomainListArgs } from "./dnsResolverDomainList";
+export type DnsResolverDomainList = import("./dnsResolverDomainList").DnsResolverDomainList;
+export const DnsResolverDomainList: typeof import("./dnsResolverDomainList").DnsResolverDomainList = null as any;
+utilities.lazyLoad(exports, ["DnsResolverDomainList"], () => require("./dnsResolverDomainList"));
+
+export { DnsResolverPolicyArgs } from "./dnsResolverPolicy";
+export type DnsResolverPolicy = import("./dnsResolverPolicy").DnsResolverPolicy;
+export const DnsResolverPolicy: typeof import("./dnsResolverPolicy").DnsResolverPolicy = null as any;
+utilities.lazyLoad(exports, ["DnsResolverPolicy"], () => require("./dnsResolverPolicy"));
+
+export { DnsResolverPolicyVirtualNetworkLinkArgs } from "./dnsResolverPolicyVirtualNetworkLink";
+export type DnsResolverPolicyVirtualNetworkLink = import("./dnsResolverPolicyVirtualNetworkLink").DnsResolverPolicyVirtualNetworkLink;
+export const DnsResolverPolicyVirtualNetworkLink: typeof import("./dnsResolverPolicyVirtualNetworkLink").DnsResolverPolicyVirtualNetworkLink = null as any;
+utilities.lazyLoad(exports, ["DnsResolverPolicyVirtualNetworkLink"], () => require("./dnsResolverPolicyVirtualNetworkLink"));
+
+export { DnsSecurityRuleArgs } from "./dnsSecurityRule";
+export type DnsSecurityRule = import("./dnsSecurityRule").DnsSecurityRule;
+export const DnsSecurityRule: typeof import("./dnsSecurityRule").DnsSecurityRule = null as any;
+utilities.lazyLoad(exports, ["DnsSecurityRule"], () => require("./dnsSecurityRule"));
+
 export { DscpConfigurationArgs } from "./dscpConfiguration";
 export type DscpConfiguration = import("./dscpConfiguration").DscpConfiguration;
 export const DscpConfiguration: typeof import("./dscpConfiguration").DscpConfiguration = null as any;
@@ -290,10 +310,30 @@ export const getDnsResolver: typeof import("./getDnsResolver").getDnsResolver = 
 export const getDnsResolverOutput: typeof import("./getDnsResolver").getDnsResolverOutput = null as any;
 utilities.lazyLoad(exports, ["getDnsResolver","getDnsResolverOutput"], () => require("./getDnsResolver"));
 
+export { GetDnsResolverDomainListArgs, GetDnsResolverDomainListResult, GetDnsResolverDomainListOutputArgs } from "./getDnsResolverDomainList";
+export const getDnsResolverDomainList: typeof import("./getDnsResolverDomainList").getDnsResolverDomainList = null as any;
+export const getDnsResolverDomainListOutput: typeof import("./getDnsResolverDomainList").getDnsResolverDomainListOutput = null as any;
+utilities.lazyLoad(exports, ["getDnsResolverDomainList","getDnsResolverDomainListOutput"], () => require("./getDnsResolverDomainList"));
+
+export { GetDnsResolverPolicyArgs, GetDnsResolverPolicyResult, GetDnsResolverPolicyOutputArgs } from "./getDnsResolverPolicy";
+export const getDnsResolverPolicy: typeof import("./getDnsResolverPolicy").getDnsResolverPolicy = null as any;
+export const getDnsResolverPolicyOutput: typeof import("./getDnsResolverPolicy").getDnsResolverPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getDnsResolverPolicy","getDnsResolverPolicyOutput"], () => require("./getDnsResolverPolicy"));
+
+export { GetDnsResolverPolicyVirtualNetworkLinkArgs, GetDnsResolverPolicyVirtualNetworkLinkResult, GetDnsResolverPolicyVirtualNetworkLinkOutputArgs } from "./getDnsResolverPolicyVirtualNetworkLink";
+export const getDnsResolverPolicyVirtualNetworkLink: typeof import("./getDnsResolverPolicyVirtualNetworkLink").getDnsResolverPolicyVirtualNetworkLink = null as any;
+export const getDnsResolverPolicyVirtualNetworkLinkOutput: typeof import("./getDnsResolverPolicyVirtualNetworkLink").getDnsResolverPolicyVirtualNetworkLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getDnsResolverPolicyVirtualNetworkLink","getDnsResolverPolicyVirtualNetworkLinkOutput"], () => require("./getDnsResolverPolicyVirtualNetworkLink"));
+
 export { GetDnsResourceReferenceByTarResourcesArgs, GetDnsResourceReferenceByTarResourcesResult, GetDnsResourceReferenceByTarResourcesOutputArgs } from "./getDnsResourceReferenceByTarResources";
 export const getDnsResourceReferenceByTarResources: typeof import("./getDnsResourceReferenceByTarResources").getDnsResourceReferenceByTarResources = null as any;
 export const getDnsResourceReferenceByTarResourcesOutput: typeof import("./getDnsResourceReferenceByTarResources").getDnsResourceReferenceByTarResourcesOutput = null as any;
 utilities.lazyLoad(exports, ["getDnsResourceReferenceByTarResources","getDnsResourceReferenceByTarResourcesOutput"], () => require("./getDnsResourceReferenceByTarResources"));
+
+export { GetDnsSecurityRuleArgs, GetDnsSecurityRuleResult, GetDnsSecurityRuleOutputArgs } from "./getDnsSecurityRule";
+export const getDnsSecurityRule: typeof import("./getDnsSecurityRule").getDnsSecurityRule = null as any;
+export const getDnsSecurityRuleOutput: typeof import("./getDnsSecurityRule").getDnsSecurityRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getDnsSecurityRule","getDnsSecurityRuleOutput"], () => require("./getDnsSecurityRule"));
 
 export { GetDscpConfigurationArgs, GetDscpConfigurationResult, GetDscpConfigurationOutputArgs } from "./getDscpConfiguration";
 export const getDscpConfiguration: typeof import("./getDscpConfiguration").getDscpConfiguration = null as any;
@@ -1000,6 +1040,11 @@ export const listDnsResolverByVirtualNetwork: typeof import("./listDnsResolverBy
 export const listDnsResolverByVirtualNetworkOutput: typeof import("./listDnsResolverByVirtualNetwork").listDnsResolverByVirtualNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["listDnsResolverByVirtualNetwork","listDnsResolverByVirtualNetworkOutput"], () => require("./listDnsResolverByVirtualNetwork"));
 
+export { ListDnsResolverPolicyByVirtualNetworkArgs, ListDnsResolverPolicyByVirtualNetworkResult, ListDnsResolverPolicyByVirtualNetworkOutputArgs } from "./listDnsResolverPolicyByVirtualNetwork";
+export const listDnsResolverPolicyByVirtualNetwork: typeof import("./listDnsResolverPolicyByVirtualNetwork").listDnsResolverPolicyByVirtualNetwork = null as any;
+export const listDnsResolverPolicyByVirtualNetworkOutput: typeof import("./listDnsResolverPolicyByVirtualNetwork").listDnsResolverPolicyByVirtualNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["listDnsResolverPolicyByVirtualNetwork","listDnsResolverPolicyByVirtualNetworkOutput"], () => require("./listDnsResolverPolicyByVirtualNetwork"));
+
 export { ListEffectiveConnectivityConfigurationArgs, ListEffectiveConnectivityConfigurationResult, ListEffectiveConnectivityConfigurationOutputArgs } from "./listEffectiveConnectivityConfiguration";
 export const listEffectiveConnectivityConfiguration: typeof import("./listEffectiveConnectivityConfiguration").listEffectiveConnectivityConfiguration = null as any;
 export const listEffectiveConnectivityConfigurationOutput: typeof import("./listEffectiveConnectivityConfiguration").listEffectiveConnectivityConfigurationOutput = null as any;
@@ -1615,6 +1660,14 @@ const _module = {
                 return new DnsForwardingRuleset(name, <any>undefined, { urn })
             case "azure-native:network:DnsResolver":
                 return new DnsResolver(name, <any>undefined, { urn })
+            case "azure-native:network:DnsResolverDomainList":
+                return new DnsResolverDomainList(name, <any>undefined, { urn })
+            case "azure-native:network:DnsResolverPolicy":
+                return new DnsResolverPolicy(name, <any>undefined, { urn })
+            case "azure-native:network:DnsResolverPolicyVirtualNetworkLink":
+                return new DnsResolverPolicyVirtualNetworkLink(name, <any>undefined, { urn })
+            case "azure-native:network:DnsSecurityRule":
+                return new DnsSecurityRule(name, <any>undefined, { urn })
             case "azure-native:network:DscpConfiguration":
                 return new DscpConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:Endpoint":

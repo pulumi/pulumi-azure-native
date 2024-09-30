@@ -26,8 +26,12 @@ __all__ = [
     'CnameRecordArgsDict',
     'DigestArgs',
     'DigestArgsDict',
+    'DnsSecurityRuleActionArgs',
+    'DnsSecurityRuleActionArgsDict',
     'DsRecordArgs',
     'DsRecordArgsDict',
+    'InboundEndpointIPConfigurationArgs',
+    'InboundEndpointIPConfigurationArgsDict',
     'MxRecordArgs',
     'MxRecordArgsDict',
     'NaptrRecordArgs',
@@ -46,6 +50,8 @@ __all__ = [
     'SubResourceArgsDict',
     'SubscriptionIdArgs',
     'SubscriptionIdArgsDict',
+    'TargetDnsServerArgs',
+    'TargetDnsServerArgsDict',
     'TlsaRecordArgs',
     'TlsaRecordArgsDict',
     'TxtRecordArgs',
@@ -295,6 +301,62 @@ class DigestArgs:
 
 
 if not MYPY:
+    class DnsSecurityRuleActionArgsDict(TypedDict):
+        """
+        The action to take on DNS requests that match the DNS security rule.
+        """
+        action_type: NotRequired[pulumi.Input[Union[str, 'ActionType']]]
+        """
+        The type of action to take.
+        """
+        block_response_code: NotRequired[pulumi.Input[Union[str, 'BlockResponseCode']]]
+        """
+        The response code for block actions.
+        """
+elif False:
+    DnsSecurityRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DnsSecurityRuleActionArgs:
+    def __init__(__self__, *,
+                 action_type: Optional[pulumi.Input[Union[str, 'ActionType']]] = None,
+                 block_response_code: Optional[pulumi.Input[Union[str, 'BlockResponseCode']]] = None):
+        """
+        The action to take on DNS requests that match the DNS security rule.
+        :param pulumi.Input[Union[str, 'ActionType']] action_type: The type of action to take.
+        :param pulumi.Input[Union[str, 'BlockResponseCode']] block_response_code: The response code for block actions.
+        """
+        if action_type is not None:
+            pulumi.set(__self__, "action_type", action_type)
+        if block_response_code is not None:
+            pulumi.set(__self__, "block_response_code", block_response_code)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> Optional[pulumi.Input[Union[str, 'ActionType']]]:
+        """
+        The type of action to take.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: Optional[pulumi.Input[Union[str, 'ActionType']]]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="blockResponseCode")
+    def block_response_code(self) -> Optional[pulumi.Input[Union[str, 'BlockResponseCode']]]:
+        """
+        The response code for block actions.
+        """
+        return pulumi.get(self, "block_response_code")
+
+    @block_response_code.setter
+    def block_response_code(self, value: Optional[pulumi.Input[Union[str, 'BlockResponseCode']]]):
+        pulumi.set(self, "block_response_code", value)
+
+
+if not MYPY:
     class DsRecordArgsDict(TypedDict):
         """
         A DS record. For more information about the DS record format, see RFC 4034: https://www.rfc-editor.org/rfc/rfc4034
@@ -368,6 +430,83 @@ class DsRecordArgs:
     @key_tag.setter
     def key_tag(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "key_tag", value)
+
+
+if not MYPY:
+    class InboundEndpointIPConfigurationArgsDict(TypedDict):
+        """
+        IP configuration.
+        """
+        subnet: pulumi.Input['SubResourceArgsDict']
+        """
+        The reference to the subnet bound to the IP configuration.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Private IP address of the IP configuration.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[str, 'IpAllocationMethod']]]
+        """
+        Private IP address allocation method.
+        """
+elif False:
+    InboundEndpointIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InboundEndpointIPConfigurationArgs:
+    def __init__(__self__, *,
+                 subnet: pulumi.Input['SubResourceArgs'],
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
+                 private_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IpAllocationMethod']]] = None):
+        """
+        IP configuration.
+        :param pulumi.Input['SubResourceArgs'] subnet: The reference to the subnet bound to the IP configuration.
+        :param pulumi.Input[str] private_ip_address: Private IP address of the IP configuration.
+        :param pulumi.Input[Union[str, 'IpAllocationMethod']] private_ip_allocation_method: Private IP address allocation method.
+        """
+        pulumi.set(__self__, "subnet", subnet)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is None:
+            private_ip_allocation_method = 'Dynamic'
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> pulumi.Input['SubResourceArgs']:
+        """
+        The reference to the subnet bound to the IP configuration.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: pulumi.Input['SubResourceArgs']):
+        pulumi.set(self, "subnet", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="privateIpAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[pulumi.Input[Union[str, 'IpAllocationMethod']]]:
+        """
+        Private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @private_ip_allocation_method.setter
+    def private_ip_allocation_method(self, value: Optional[pulumi.Input[Union[str, 'IpAllocationMethod']]]):
+        pulumi.set(self, "private_ip_allocation_method", value)
 
 
 if not MYPY:
@@ -1006,6 +1145,63 @@ class SubscriptionIdArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class TargetDnsServerArgsDict(TypedDict):
+        """
+        Describes a server to forward the DNS queries to.
+        """
+        ip_address: pulumi.Input[str]
+        """
+        DNS server IP address.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        DNS server port.
+        """
+elif False:
+    TargetDnsServerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TargetDnsServerArgs:
+    def __init__(__self__, *,
+                 ip_address: pulumi.Input[str],
+                 port: Optional[pulumi.Input[int]] = None):
+        """
+        Describes a server to forward the DNS queries to.
+        :param pulumi.Input[str] ip_address: DNS server IP address.
+        :param pulumi.Input[int] port: DNS server port.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        if port is None:
+            port = 53
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> pulumi.Input[str]:
+        """
+        DNS server IP address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        DNS server port.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
 
 if not MYPY:

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
  *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
  */
 export class Origin extends pulumi.CustomResource {
     /**
@@ -173,7 +173,7 @@ export class Origin extends pulumi.CustomResource {
             resourceInputs["weight"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20150601:Origin" }, { type: "azure-native:cdn/v20160402:Origin" }, { type: "azure-native:cdn/v20191231:Origin" }, { type: "azure-native:cdn/v20200331:Origin" }, { type: "azure-native:cdn/v20200415:Origin" }, { type: "azure-native:cdn/v20200901:Origin" }, { type: "azure-native:cdn/v20210601:Origin" }, { type: "azure-native:cdn/v20220501preview:Origin" }, { type: "azure-native:cdn/v20221101preview:Origin" }, { type: "azure-native:cdn/v20230501:Origin" }, { type: "azure-native:cdn/v20230701preview:Origin" }, { type: "azure-native:cdn/v20240201:Origin" }, { type: "azure-native:cdn/v20240501preview:Origin" }, { type: "azure-native:cdn/v20240601preview:Origin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20150601:Origin" }, { type: "azure-native:cdn/v20160402:Origin" }, { type: "azure-native:cdn/v20191231:Origin" }, { type: "azure-native:cdn/v20200331:Origin" }, { type: "azure-native:cdn/v20200415:Origin" }, { type: "azure-native:cdn/v20200901:Origin" }, { type: "azure-native:cdn/v20210601:Origin" }, { type: "azure-native:cdn/v20220501preview:Origin" }, { type: "azure-native:cdn/v20221101preview:Origin" }, { type: "azure-native:cdn/v20230501:Origin" }, { type: "azure-native:cdn/v20230701preview:Origin" }, { type: "azure-native:cdn/v20240201:Origin" }, { type: "azure-native:cdn/v20240501preview:Origin" }, { type: "azure-native:cdn/v20240601preview:Origin" }, { type: "azure-native:cdn/v20240901:Origin" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Origin.__pulumiType, name, resourceInputs, opts);
     }

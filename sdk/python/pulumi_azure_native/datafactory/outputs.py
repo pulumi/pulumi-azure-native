@@ -60875,7 +60875,9 @@ class PostgreSqlV2LinkedServiceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sslMode":
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "sslMode":
             suggest = "ssl_mode"
         elif key == "commandTimeout":
             suggest = "command_timeout"
@@ -60910,6 +60912,7 @@ class PostgreSqlV2LinkedServiceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 authentication_type: Any,
                  database: Any,
                  server: Any,
                  ssl_mode: Any,
@@ -60937,6 +60940,7 @@ class PostgreSqlV2LinkedServiceResponse(dict):
                  version: Optional[str] = None):
         """
         Linked service for PostgreSQLV2 data source.
+        :param Any authentication_type: The authentication type to use. Type: string.
         :param Any database: Database name for connection. Type: string.
         :param Any server: Server name for connection. Type: string.
         :param Any ssl_mode: SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer.
@@ -60964,6 +60968,7 @@ class PostgreSqlV2LinkedServiceResponse(dict):
         :param Any trust_server_certificate: Whether to trust the server certificate without validating it. Type: boolean.
         :param str version: Version of the linked service.
         """
+        pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "server", server)
         pulumi.set(__self__, "ssl_mode", ssl_mode)
@@ -61009,6 +61014,14 @@ class PostgreSqlV2LinkedServiceResponse(dict):
             pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Any:
+        """
+        The authentication type to use. Type: string.
+        """
+        return pulumi.get(self, "authentication_type")
 
     @property
     @pulumi.getter

@@ -23,9 +23,12 @@ if typing.TYPE_CHECKING:
     v20240401preview = __v20240401preview
     import pulumi_azure_native.videoindexer.v20240601preview as __v20240601preview
     v20240601preview = __v20240601preview
+    import pulumi_azure_native.videoindexer.v20240923preview as __v20240923preview
+    v20240923preview = __v20240923preview
 else:
     v20220801 = _utilities.lazy_import('pulumi_azure_native.videoindexer.v20220801')
     v20240101 = _utilities.lazy_import('pulumi_azure_native.videoindexer.v20240101')
     v20240401preview = _utilities.lazy_import('pulumi_azure_native.videoindexer.v20240401preview')
     v20240601preview = _utilities.lazy_import('pulumi_azure_native.videoindexer.v20240601preview')
+    v20240923preview = _utilities.lazy_import('pulumi_azure_native.videoindexer.v20240923preview')
 

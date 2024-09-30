@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a Assessment
  * Azure REST API version: 2023-04-01-preview.
  *
- * Other available API versions: 2023-03-15.
+ * Other available API versions: 2023-03-15, 2023-05-01-preview.
  */
 export function getAssessmentsOperation(args: GetAssessmentsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -247,7 +247,7 @@ export interface GetAssessmentsOperationResult {
  * Get a Assessment
  * Azure REST API version: 2023-04-01-preview.
  *
- * Other available API versions: 2023-03-15.
+ * Other available API versions: 2023-03-15, 2023-05-01-preview.
  */
 export function getAssessmentsOperationOutput(args: GetAssessmentsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

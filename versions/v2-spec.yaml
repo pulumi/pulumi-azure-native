@@ -349,6 +349,8 @@ Consumption:
     tracking: "2023-05-01"
 ContainerInstance:
     tracking: "2023-05-01"
+    additions:
+        ContainerGroupProfile: 2024-05-01-preview
 ContainerRegistry:
     tracking: "2022-12-01"
     additions:
@@ -1255,6 +1257,9 @@ Migrate:
         - provider: Migrate
           resourcename: AssessmentsOperation
           detail: version 2023-04-01-preview is greater than 2023-03-15
+        - provider: Migrate
+          resourcename: AssessmentsOperation
+          detail: version 2023-05-01-preview is greater than 2023-03-15
 MixedReality:
     tracking: "2021-01-01"
     additions:
@@ -1302,6 +1307,10 @@ Network:
         DdosProtectionPlan: "2023-02-01"
         DnsForwardingRuleset: "2022-07-01"
         DnsResolver: "2022-07-01"
+        DnsResolverDomainList: 2023-07-01-preview
+        DnsResolverPolicy: 2023-07-01-preview
+        DnsResolverPolicyVirtualNetworkLink: 2023-07-01-preview
+        DnsSecurityRule: 2023-07-01-preview
         DnssecConfig: "2018-05-01"
         DscpConfiguration: "2023-02-01"
         Endpoint: "2022-04-01"
@@ -1441,6 +1450,7 @@ Network:
         listActiveSecurityUserRules: 2022-04-01-preview
         listDnsForwardingRulesetByVirtualNetwork: "2022-07-01"
         listDnsResolverByVirtualNetwork: "2022-07-01"
+        listDnsResolverPolicyByVirtualNetwork: 2023-07-01-preview
         listEffectiveConnectivityConfiguration: 2021-02-01-preview
         listEffectiveVirtualNetworkByNetworkGroup: 2021-02-01-preview
         listEffectiveVirtualNetworkByNetworkManager: 2022-04-01-preview
@@ -1701,6 +1711,7 @@ SecurityInsights:
     tracking: "2023-02-01"
     additions:
         BookmarkRelation: 2023-06-01-preview
+        BusinessApplicationAgent: 2024-04-01-preview
         ContentPackage: 2023-06-01-preview
         ContentTemplate: 2023-06-01-preview
         DataConnectorDefinition: 2023-07-01-preview
@@ -1712,6 +1723,7 @@ SecurityInsights:
         IncidentTask: 2023-06-01-preview
         ProductSetting: 2023-06-01-preview
         SourceControl: 2023-05-01-preview
+        System: 2024-04-01-preview
         WorkspaceManagerAssignment: 2023-06-01-preview
         WorkspaceManagerConfiguration: 2023-06-01-preview
         WorkspaceManagerGroup: 2023-06-01-preview
@@ -1720,6 +1732,7 @@ SecurityInsights:
         getEntityInsights: 2023-06-01-preview
         listGeodataByIp: 2024-01-01-preview
         listSourceControlRepositories: 2023-06-01-preview
+        listSystemActions: 2024-04-01-preview
         listWhoisByDomain: 2024-01-01-preview
 SerialConsole:
     tracking: "2018-05-01"
@@ -1976,6 +1989,12 @@ Web:
         - provider: Web
           resourcename: listContainerAppSecrets
           detail: version 2023-12-01 is greater than 2022-09-01
+        - provider: Web
+          resourcename: ContainerApp
+          detail: version 2024-04-01 is greater than 2022-09-01
+        - provider: Web
+          resourcename: listContainerAppSecrets
+          detail: version 2024-04-01 is greater than 2022-09-01
 WebPubSub:
     tracking: "2023-02-01"
     additions:

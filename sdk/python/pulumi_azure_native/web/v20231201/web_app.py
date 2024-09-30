@@ -34,6 +34,7 @@ class WebAppArgs:
                  dapr_config: Optional[pulumi.Input['DaprConfigArgs']] = None,
                  dns_configuration: Optional[pulumi.Input['SiteDnsConfigArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 end_to_end_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  function_app_config: Optional[pulumi.Input['FunctionAppConfigArgs']] = None,
                  host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input['HostNameSslStateArgs']]]] = None,
@@ -80,6 +81,7 @@ class WebAppArgs:
         :param pulumi.Input['DaprConfigArgs'] dapr_config: Dapr configuration of the app.
         :param pulumi.Input['SiteDnsConfigArgs'] dns_configuration: Property to configure various DNS related settings for a site.
         :param pulumi.Input[bool] enabled: <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+        :param pulumi.Input[bool] end_to_end_encryption_enabled: Whether to use end to end encryption between the FrontEnd and the Worker
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Extended Location.
         :param pulumi.Input['FunctionAppConfigArgs'] function_app_config: Configuration specific of the Azure Function app.
         :param pulumi.Input[Sequence[pulumi.Input['HostNameSslStateArgs']]] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
@@ -136,6 +138,8 @@ class WebAppArgs:
             pulumi.set(__self__, "dns_configuration", dns_configuration)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if end_to_end_encryption_enabled is not None:
+            pulumi.set(__self__, "end_to_end_encryption_enabled", end_to_end_encryption_enabled)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if function_app_config is not None:
@@ -349,6 +353,18 @@ class WebAppArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="endToEndEncryptionEnabled")
+    def end_to_end_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use end to end encryption between the FrontEnd and the Worker
+        """
+        return pulumi.get(self, "end_to_end_encryption_enabled")
+
+    @end_to_end_encryption_enabled.setter
+    def end_to_end_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "end_to_end_encryption_enabled", value)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -718,6 +734,7 @@ class WebApp(pulumi.CustomResource):
                  dapr_config: Optional[pulumi.Input[Union['DaprConfigArgs', 'DaprConfigArgsDict']]] = None,
                  dns_configuration: Optional[pulumi.Input[Union['SiteDnsConfigArgs', 'SiteDnsConfigArgsDict']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 end_to_end_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  function_app_config: Optional[pulumi.Input[Union['FunctionAppConfigArgs', 'FunctionAppConfigArgsDict']]] = None,
                  host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostNameSslStateArgs', 'HostNameSslStateArgsDict']]]]] = None,
@@ -768,6 +785,7 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[Union['DaprConfigArgs', 'DaprConfigArgsDict']] dapr_config: Dapr configuration of the app.
         :param pulumi.Input[Union['SiteDnsConfigArgs', 'SiteDnsConfigArgsDict']] dns_configuration: Property to configure various DNS related settings for a site.
         :param pulumi.Input[bool] enabled: <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+        :param pulumi.Input[bool] end_to_end_encryption_enabled: Whether to use end to end encryption between the FrontEnd and the Worker
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Extended Location.
         :param pulumi.Input[Union['FunctionAppConfigArgs', 'FunctionAppConfigArgsDict']] function_app_config: Configuration specific of the Azure Function app.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HostNameSslStateArgs', 'HostNameSslStateArgsDict']]]] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
@@ -837,6 +855,7 @@ class WebApp(pulumi.CustomResource):
                  dapr_config: Optional[pulumi.Input[Union['DaprConfigArgs', 'DaprConfigArgsDict']]] = None,
                  dns_configuration: Optional[pulumi.Input[Union['SiteDnsConfigArgs', 'SiteDnsConfigArgsDict']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 end_to_end_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  function_app_config: Optional[pulumi.Input[Union['FunctionAppConfigArgs', 'FunctionAppConfigArgsDict']]] = None,
                  host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostNameSslStateArgs', 'HostNameSslStateArgsDict']]]]] = None,
@@ -887,6 +906,7 @@ class WebApp(pulumi.CustomResource):
             __props__.__dict__["dapr_config"] = dapr_config
             __props__.__dict__["dns_configuration"] = dns_configuration
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["end_to_end_encryption_enabled"] = end_to_end_encryption_enabled
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["function_app_config"] = function_app_config
             __props__.__dict__["host_name_ssl_states"] = host_name_ssl_states
@@ -946,7 +966,7 @@ class WebApp(pulumi.CustomResource):
             __props__.__dict__["traffic_manager_host_names"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["usage_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web:WebApp"), pulumi.Alias(type_="azure-native:web/v20150801:WebApp"), pulumi.Alias(type_="azure-native:web/v20160801:WebApp"), pulumi.Alias(type_="azure-native:web/v20180201:WebApp"), pulumi.Alias(type_="azure-native:web/v20181101:WebApp"), pulumi.Alias(type_="azure-native:web/v20190801:WebApp"), pulumi.Alias(type_="azure-native:web/v20200601:WebApp"), pulumi.Alias(type_="azure-native:web/v20200901:WebApp"), pulumi.Alias(type_="azure-native:web/v20201001:WebApp"), pulumi.Alias(type_="azure-native:web/v20201201:WebApp"), pulumi.Alias(type_="azure-native:web/v20210101:WebApp"), pulumi.Alias(type_="azure-native:web/v20210115:WebApp"), pulumi.Alias(type_="azure-native:web/v20210201:WebApp"), pulumi.Alias(type_="azure-native:web/v20210301:WebApp"), pulumi.Alias(type_="azure-native:web/v20220301:WebApp"), pulumi.Alias(type_="azure-native:web/v20220901:WebApp"), pulumi.Alias(type_="azure-native:web/v20230101:WebApp")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web:WebApp"), pulumi.Alias(type_="azure-native:web/v20150801:WebApp"), pulumi.Alias(type_="azure-native:web/v20160801:WebApp"), pulumi.Alias(type_="azure-native:web/v20180201:WebApp"), pulumi.Alias(type_="azure-native:web/v20181101:WebApp"), pulumi.Alias(type_="azure-native:web/v20190801:WebApp"), pulumi.Alias(type_="azure-native:web/v20200601:WebApp"), pulumi.Alias(type_="azure-native:web/v20200901:WebApp"), pulumi.Alias(type_="azure-native:web/v20201001:WebApp"), pulumi.Alias(type_="azure-native:web/v20201201:WebApp"), pulumi.Alias(type_="azure-native:web/v20210101:WebApp"), pulumi.Alias(type_="azure-native:web/v20210115:WebApp"), pulumi.Alias(type_="azure-native:web/v20210201:WebApp"), pulumi.Alias(type_="azure-native:web/v20210301:WebApp"), pulumi.Alias(type_="azure-native:web/v20220301:WebApp"), pulumi.Alias(type_="azure-native:web/v20220901:WebApp"), pulumi.Alias(type_="azure-native:web/v20230101:WebApp"), pulumi.Alias(type_="azure-native:web/v20240401:WebApp")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebApp, __self__).__init__(
             'azure-native:web/v20231201:WebApp',
@@ -983,6 +1003,7 @@ class WebApp(pulumi.CustomResource):
         __props__.__dict__["dns_configuration"] = None
         __props__.__dict__["enabled"] = None
         __props__.__dict__["enabled_host_names"] = None
+        __props__.__dict__["end_to_end_encryption_enabled"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["function_app_config"] = None
         __props__.__dict__["host_name_ssl_states"] = None
@@ -1137,6 +1158,14 @@ class WebApp(pulumi.CustomResource):
         the app is not served on those hostnames.
         """
         return pulumi.get(self, "enabled_host_names")
+
+    @property
+    @pulumi.getter(name="endToEndEncryptionEnabled")
+    def end_to_end_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to use end to end encryption between the FrontEnd and the Worker
+        """
+        return pulumi.get(self, "end_to_end_encryption_enabled")
 
     @property
     @pulumi.getter(name="extendedLocation")

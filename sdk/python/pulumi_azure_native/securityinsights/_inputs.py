@@ -100,6 +100,8 @@ __all__ = [
     'InstructionStepDetailsArgsDict',
     'InstructionStepArgs',
     'InstructionStepArgsDict',
+    'LogArgs',
+    'LogArgsDict',
     'MCASDataConnectorDataTypesArgs',
     'MCASDataConnectorDataTypesArgsDict',
     'MetadataAuthorArgs',
@@ -134,8 +136,16 @@ __all__ = [
     'RepositoryArgsDict',
     'ResourceProviderRequiredPermissionsArgs',
     'ResourceProviderRequiredPermissionsArgsDict',
+    'RfcConnectorArgs',
+    'RfcConnectorArgsDict',
     'SampleQueryArgs',
     'SampleQueryArgsDict',
+    'SapAgentConfigurationArgs',
+    'SapAgentConfigurationArgsDict',
+    'SapControlConnectorArgs',
+    'SapControlConnectorArgsDict',
+    'SapSystemsConfigurationArgs',
+    'SapSystemsConfigurationArgsDict',
     'SecurityMLAnalyticsSettingsDataSourceArgs',
     'SecurityMLAnalyticsSettingsDataSourceArgsDict',
     'TIDataConnectorDataTypesIndicatorsArgs',
@@ -3328,6 +3338,141 @@ class InstructionStepArgs:
 
 
 if not MYPY:
+    class LogArgsDict(TypedDict):
+        """
+        Describes a log.
+        """
+        type: pulumi.Input[Union[str, 'LogType']]
+        """
+        Types of logs and tables.
+        """
+        bulk_size: NotRequired[pulumi.Input[int]]
+        """
+        The bulk size for the log.
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The filters for the log.
+        """
+        ingestion_type: NotRequired[pulumi.Input[Union[str, 'IngestionType']]]
+        """
+        Types of ingestion.
+        """
+        schedule_interval: NotRequired[pulumi.Input[int]]
+        """
+        The schedule interval in seconds.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'LogStatusType']]]
+        """
+        Types of log status.
+        """
+elif False:
+    LogArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'LogType']],
+                 bulk_size: Optional[pulumi.Input[int]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ingestion_type: Optional[pulumi.Input[Union[str, 'IngestionType']]] = None,
+                 schedule_interval: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'LogStatusType']]] = None):
+        """
+        Describes a log.
+        :param pulumi.Input[Union[str, 'LogType']] type: Types of logs and tables.
+        :param pulumi.Input[int] bulk_size: The bulk size for the log.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filters: The filters for the log.
+        :param pulumi.Input[Union[str, 'IngestionType']] ingestion_type: Types of ingestion.
+        :param pulumi.Input[int] schedule_interval: The schedule interval in seconds.
+        :param pulumi.Input[Union[str, 'LogStatusType']] status: Types of log status.
+        """
+        pulumi.set(__self__, "type", type)
+        if bulk_size is not None:
+            pulumi.set(__self__, "bulk_size", bulk_size)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if ingestion_type is not None:
+            pulumi.set(__self__, "ingestion_type", ingestion_type)
+        if schedule_interval is not None:
+            pulumi.set(__self__, "schedule_interval", schedule_interval)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'LogType']]:
+        """
+        Types of logs and tables.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'LogType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="bulkSize")
+    def bulk_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The bulk size for the log.
+        """
+        return pulumi.get(self, "bulk_size")
+
+    @bulk_size.setter
+    def bulk_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "bulk_size", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The filters for the log.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter(name="ingestionType")
+    def ingestion_type(self) -> Optional[pulumi.Input[Union[str, 'IngestionType']]]:
+        """
+        Types of ingestion.
+        """
+        return pulumi.get(self, "ingestion_type")
+
+    @ingestion_type.setter
+    def ingestion_type(self, value: Optional[pulumi.Input[Union[str, 'IngestionType']]]):
+        pulumi.set(self, "ingestion_type", value)
+
+    @property
+    @pulumi.getter(name="scheduleInterval")
+    def schedule_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The schedule interval in seconds.
+        """
+        return pulumi.get(self, "schedule_interval")
+
+    @schedule_interval.setter
+    def schedule_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "schedule_interval", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'LogStatusType']]]:
+        """
+        Types of log status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'LogStatusType']]]):
+        pulumi.set(self, "status", value)
+
+
+if not MYPY:
     class MCASDataConnectorDataTypesArgsDict(TypedDict):
         """
         The available data types for MCAS (Microsoft Cloud App Security) data connector.
@@ -4500,6 +4645,253 @@ class ResourceProviderRequiredPermissionsArgs:
 
 
 if not MYPY:
+    class RfcConnectorArgsDict(TypedDict):
+        """
+        Describes the Rfc connector.
+        """
+        client: pulumi.Input[str]
+        """
+        Client number of the ABAP server.
+        Example - 001
+        """
+        system_id: pulumi.Input[str]
+        """
+        System ID of the ABAP server.
+        Example - A4H
+        """
+        system_number: pulumi.Input[str]
+        """
+        System number of the ABAP server.
+        """
+        type: pulumi.Input[str]
+        """
+        Represents the types of SAP systems.
+        Expected value is 'Rfc'.
+        """
+        abap_server_host: NotRequired[pulumi.Input[str]]
+        """
+        FQDN, hostname, or IP address of the ABAP server.
+        """
+        authentication_type: NotRequired[pulumi.Input[Union[str, 'SapAuthenticationType']]]
+        """
+        The authentication type to SAP.
+        """
+        code_page: NotRequired[pulumi.Input[str]]
+        """
+        The SAP code page used for character encoding.
+        Example - 1100
+        """
+        group: NotRequired[pulumi.Input[str]]
+        """
+        Logon group of the message server.
+        """
+        message_server_host: NotRequired[pulumi.Input[str]]
+        """
+        FQDN, hostname, or IP address of the Message server.
+        """
+        message_server_service: NotRequired[pulumi.Input[str]]
+        """
+        Port number, or service name (from /etc/services) of the message server.
+        """
+        snc_qop: NotRequired[pulumi.Input[str]]
+        """
+        SNC QOP.
+        Options are 1, 2, 3, 8, 9.
+        """
+elif False:
+    RfcConnectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RfcConnectorArgs:
+    def __init__(__self__, *,
+                 client: pulumi.Input[str],
+                 system_id: pulumi.Input[str],
+                 system_number: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 abap_server_host: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'SapAuthenticationType']]] = None,
+                 code_page: Optional[pulumi.Input[str]] = None,
+                 group: Optional[pulumi.Input[str]] = None,
+                 message_server_host: Optional[pulumi.Input[str]] = None,
+                 message_server_service: Optional[pulumi.Input[str]] = None,
+                 snc_qop: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the Rfc connector.
+        :param pulumi.Input[str] client: Client number of the ABAP server.
+               Example - 001
+        :param pulumi.Input[str] system_id: System ID of the ABAP server.
+               Example - A4H
+        :param pulumi.Input[str] system_number: System number of the ABAP server.
+        :param pulumi.Input[str] type: Represents the types of SAP systems.
+               Expected value is 'Rfc'.
+        :param pulumi.Input[str] abap_server_host: FQDN, hostname, or IP address of the ABAP server.
+        :param pulumi.Input[Union[str, 'SapAuthenticationType']] authentication_type: The authentication type to SAP.
+        :param pulumi.Input[str] code_page: The SAP code page used for character encoding.
+               Example - 1100
+        :param pulumi.Input[str] group: Logon group of the message server.
+        :param pulumi.Input[str] message_server_host: FQDN, hostname, or IP address of the Message server.
+        :param pulumi.Input[str] message_server_service: Port number, or service name (from /etc/services) of the message server.
+        :param pulumi.Input[str] snc_qop: SNC QOP.
+               Options are 1, 2, 3, 8, 9.
+        """
+        pulumi.set(__self__, "client", client)
+        pulumi.set(__self__, "system_id", system_id)
+        pulumi.set(__self__, "system_number", system_number)
+        pulumi.set(__self__, "type", 'Rfc')
+        if abap_server_host is not None:
+            pulumi.set(__self__, "abap_server_host", abap_server_host)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if code_page is not None:
+            pulumi.set(__self__, "code_page", code_page)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if message_server_host is not None:
+            pulumi.set(__self__, "message_server_host", message_server_host)
+        if message_server_service is not None:
+            pulumi.set(__self__, "message_server_service", message_server_service)
+        if snc_qop is not None:
+            pulumi.set(__self__, "snc_qop", snc_qop)
+
+    @property
+    @pulumi.getter
+    def client(self) -> pulumi.Input[str]:
+        """
+        Client number of the ABAP server.
+        Example - 001
+        """
+        return pulumi.get(self, "client")
+
+    @client.setter
+    def client(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client", value)
+
+    @property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> pulumi.Input[str]:
+        """
+        System ID of the ABAP server.
+        Example - A4H
+        """
+        return pulumi.get(self, "system_id")
+
+    @system_id.setter
+    def system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "system_id", value)
+
+    @property
+    @pulumi.getter(name="systemNumber")
+    def system_number(self) -> pulumi.Input[str]:
+        """
+        System number of the ABAP server.
+        """
+        return pulumi.get(self, "system_number")
+
+    @system_number.setter
+    def system_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "system_number", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Represents the types of SAP systems.
+        Expected value is 'Rfc'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="abapServerHost")
+    def abap_server_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        FQDN, hostname, or IP address of the ABAP server.
+        """
+        return pulumi.get(self, "abap_server_host")
+
+    @abap_server_host.setter
+    def abap_server_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "abap_server_host", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'SapAuthenticationType']]]:
+        """
+        The authentication type to SAP.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'SapAuthenticationType']]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="codePage")
+    def code_page(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SAP code page used for character encoding.
+        Example - 1100
+        """
+        return pulumi.get(self, "code_page")
+
+    @code_page.setter
+    def code_page(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code_page", value)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logon group of the message server.
+        """
+        return pulumi.get(self, "group")
+
+    @group.setter
+    def group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group", value)
+
+    @property
+    @pulumi.getter(name="messageServerHost")
+    def message_server_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        FQDN, hostname, or IP address of the Message server.
+        """
+        return pulumi.get(self, "message_server_host")
+
+    @message_server_host.setter
+    def message_server_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_server_host", value)
+
+    @property
+    @pulumi.getter(name="messageServerService")
+    def message_server_service(self) -> Optional[pulumi.Input[str]]:
+        """
+        Port number, or service name (from /etc/services) of the message server.
+        """
+        return pulumi.get(self, "message_server_service")
+
+    @message_server_service.setter
+    def message_server_service(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_server_service", value)
+
+    @property
+    @pulumi.getter(name="sncQop")
+    def snc_qop(self) -> Optional[pulumi.Input[str]]:
+        """
+        SNC QOP.
+        Options are 1, 2, 3, 8, 9.
+        """
+        return pulumi.get(self, "snc_qop")
+
+    @snc_qop.setter
+    def snc_qop(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snc_qop", value)
+
+
+if not MYPY:
     class SampleQueryArgsDict(TypedDict):
         """
         The sample queries for the connector.
@@ -4551,6 +4943,432 @@ class SampleQueryArgs:
     @query.setter
     def query(self, value: pulumi.Input[str]):
         pulumi.set(self, "query", value)
+
+
+if not MYPY:
+    class SapAgentConfigurationArgsDict(TypedDict):
+        """
+        Describes the configuration of a SAP Docker agent.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of the agent
+        Expected value is 'SAP'.
+        """
+        agent_container_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the docker agent.
+        only letters with numbers, underscores and hyphens are allowed
+        example: "my-agent"
+        """
+        key_vault_authentication_mode: NotRequired[pulumi.Input[Union[str, 'KeyVaultAuthenticationMode']]]
+        """
+        The key mode of the agent.
+        ManagedIdentity|ApplicationIdentity are the options
+        """
+        key_vault_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The key vault resource id to access the key vault.
+        example: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.KeyVault/vaults/myVault"
+        """
+        sdk_path: NotRequired[pulumi.Input[str]]
+        """
+        The SDK path (a file not a folder) on the agent machine.
+        example: "/path/to/nwrfc750P_8-70002755.zip"
+        """
+        secret_source: NotRequired[pulumi.Input[Union[str, 'SecretSource']]]
+        """
+        The secret source of the agent.
+        AzureKeyVault is the option
+        """
+        snc_path: NotRequired[pulumi.Input[str]]
+        """
+        The SNC path (a folder not a file) on the agent machine.
+        example: "/path/to/snc"
+        """
+elif False:
+    SapAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SapAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 agent_container_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_authentication_mode: Optional[pulumi.Input[Union[str, 'KeyVaultAuthenticationMode']]] = None,
+                 key_vault_resource_id: Optional[pulumi.Input[str]] = None,
+                 sdk_path: Optional[pulumi.Input[str]] = None,
+                 secret_source: Optional[pulumi.Input[Union[str, 'SecretSource']]] = None,
+                 snc_path: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the configuration of a SAP Docker agent.
+        :param pulumi.Input[str] type: Type of the agent
+               Expected value is 'SAP'.
+        :param pulumi.Input[str] agent_container_name: The name of the docker agent.
+               only letters with numbers, underscores and hyphens are allowed
+               example: "my-agent"
+        :param pulumi.Input[Union[str, 'KeyVaultAuthenticationMode']] key_vault_authentication_mode: The key mode of the agent.
+               ManagedIdentity|ApplicationIdentity are the options
+        :param pulumi.Input[str] key_vault_resource_id: The key vault resource id to access the key vault.
+               example: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.KeyVault/vaults/myVault"
+        :param pulumi.Input[str] sdk_path: The SDK path (a file not a folder) on the agent machine.
+               example: "/path/to/nwrfc750P_8-70002755.zip"
+        :param pulumi.Input[Union[str, 'SecretSource']] secret_source: The secret source of the agent.
+               AzureKeyVault is the option
+        :param pulumi.Input[str] snc_path: The SNC path (a folder not a file) on the agent machine.
+               example: "/path/to/snc"
+        """
+        pulumi.set(__self__, "type", 'SAP')
+        if agent_container_name is not None:
+            pulumi.set(__self__, "agent_container_name", agent_container_name)
+        if key_vault_authentication_mode is not None:
+            pulumi.set(__self__, "key_vault_authentication_mode", key_vault_authentication_mode)
+        if key_vault_resource_id is not None:
+            pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
+        if sdk_path is not None:
+            pulumi.set(__self__, "sdk_path", sdk_path)
+        if secret_source is not None:
+            pulumi.set(__self__, "secret_source", secret_source)
+        if snc_path is not None:
+            pulumi.set(__self__, "snc_path", snc_path)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the agent
+        Expected value is 'SAP'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="agentContainerName")
+    def agent_container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the docker agent.
+        only letters with numbers, underscores and hyphens are allowed
+        example: "my-agent"
+        """
+        return pulumi.get(self, "agent_container_name")
+
+    @agent_container_name.setter
+    def agent_container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_container_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultAuthenticationMode")
+    def key_vault_authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'KeyVaultAuthenticationMode']]]:
+        """
+        The key mode of the agent.
+        ManagedIdentity|ApplicationIdentity are the options
+        """
+        return pulumi.get(self, "key_vault_authentication_mode")
+
+    @key_vault_authentication_mode.setter
+    def key_vault_authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'KeyVaultAuthenticationMode']]]):
+        pulumi.set(self, "key_vault_authentication_mode", value)
+
+    @property
+    @pulumi.getter(name="keyVaultResourceId")
+    def key_vault_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key vault resource id to access the key vault.
+        example: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.KeyVault/vaults/myVault"
+        """
+        return pulumi.get(self, "key_vault_resource_id")
+
+    @key_vault_resource_id.setter
+    def key_vault_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_resource_id", value)
+
+    @property
+    @pulumi.getter(name="sdkPath")
+    def sdk_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SDK path (a file not a folder) on the agent machine.
+        example: "/path/to/nwrfc750P_8-70002755.zip"
+        """
+        return pulumi.get(self, "sdk_path")
+
+    @sdk_path.setter
+    def sdk_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sdk_path", value)
+
+    @property
+    @pulumi.getter(name="secretSource")
+    def secret_source(self) -> Optional[pulumi.Input[Union[str, 'SecretSource']]]:
+        """
+        The secret source of the agent.
+        AzureKeyVault is the option
+        """
+        return pulumi.get(self, "secret_source")
+
+    @secret_source.setter
+    def secret_source(self, value: Optional[pulumi.Input[Union[str, 'SecretSource']]]):
+        pulumi.set(self, "secret_source", value)
+
+    @property
+    @pulumi.getter(name="sncPath")
+    def snc_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SNC path (a folder not a file) on the agent machine.
+        example: "/path/to/snc"
+        """
+        return pulumi.get(self, "snc_path")
+
+    @snc_path.setter
+    def snc_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snc_path", value)
+
+
+if not MYPY:
+    class SapControlConnectorArgsDict(TypedDict):
+        """
+        Describes the SapControl connector configuration.
+        """
+        instance: pulumi.Input[str]
+        """
+        The instance number. Only 2 digits are allowed.
+        """
+        server: pulumi.Input[str]
+        """
+        The server name.
+        FQDN or IP address.
+        """
+        type: pulumi.Input[str]
+        """
+        Represents the types of SAP systems.
+        Expected value is 'SapControl'.
+        """
+        https_configuration: NotRequired[pulumi.Input[Union[str, 'HttpsConfigurationType']]]
+        """
+        Represents the types of HTTPS configuration to connect to the SapControl service.
+        """
+        port: NotRequired[pulumi.Input[str]]
+        """
+        The port of the SOAP connection to SAP Control.
+        """
+        timezone: NotRequired[pulumi.Input[str]]
+        """
+        The timezone.
+        example: "GMT+0" or "GMT-8"
+        default: "GMT+0"
+        """
+elif False:
+    SapControlConnectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SapControlConnectorArgs:
+    def __init__(__self__, *,
+                 instance: pulumi.Input[str],
+                 server: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 https_configuration: Optional[pulumi.Input[Union[str, 'HttpsConfigurationType']]] = None,
+                 port: Optional[pulumi.Input[str]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the SapControl connector configuration.
+        :param pulumi.Input[str] instance: The instance number. Only 2 digits are allowed.
+        :param pulumi.Input[str] server: The server name.
+               FQDN or IP address.
+        :param pulumi.Input[str] type: Represents the types of SAP systems.
+               Expected value is 'SapControl'.
+        :param pulumi.Input[Union[str, 'HttpsConfigurationType']] https_configuration: Represents the types of HTTPS configuration to connect to the SapControl service.
+        :param pulumi.Input[str] port: The port of the SOAP connection to SAP Control.
+        :param pulumi.Input[str] timezone: The timezone.
+               example: "GMT+0" or "GMT-8"
+               default: "GMT+0"
+        """
+        pulumi.set(__self__, "instance", instance)
+        pulumi.set(__self__, "server", server)
+        pulumi.set(__self__, "type", 'SapControl')
+        if https_configuration is not None:
+            pulumi.set(__self__, "https_configuration", https_configuration)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if timezone is None:
+            timezone = 'GMT+0'
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def instance(self) -> pulumi.Input[str]:
+        """
+        The instance number. Only 2 digits are allowed.
+        """
+        return pulumi.get(self, "instance")
+
+    @instance.setter
+    def instance(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> pulumi.Input[str]:
+        """
+        The server name.
+        FQDN or IP address.
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Represents the types of SAP systems.
+        Expected value is 'SapControl'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="httpsConfiguration")
+    def https_configuration(self) -> Optional[pulumi.Input[Union[str, 'HttpsConfigurationType']]]:
+        """
+        Represents the types of HTTPS configuration to connect to the SapControl service.
+        """
+        return pulumi.get(self, "https_configuration")
+
+    @https_configuration.setter
+    def https_configuration(self, value: Optional[pulumi.Input[Union[str, 'HttpsConfigurationType']]]):
+        pulumi.set(self, "https_configuration", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[str]]:
+        """
+        The port of the SOAP connection to SAP Control.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timezone.
+        example: "GMT+0" or "GMT-8"
+        default: "GMT+0"
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
+
+
+if not MYPY:
+    class SapSystemsConfigurationArgsDict(TypedDict):
+        """
+        Describes the SAP configuration.
+        """
+        connector: pulumi.Input[Union['RfcConnectorArgsDict', 'SapControlConnectorArgsDict']]
+        """
+        Base Model for SAP System Connector.
+        """
+        type: pulumi.Input[str]
+        """
+        Represents the types of configuration for a system.
+        Expected value is 'SAP'.
+        """
+        azure_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        azure resource id
+        example: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
+        """
+        logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogArgsDict']]]]
+        """
+        The logs configuration.
+        """
+elif False:
+    SapSystemsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SapSystemsConfigurationArgs:
+    def __init__(__self__, *,
+                 connector: pulumi.Input[Union['RfcConnectorArgs', 'SapControlConnectorArgs']],
+                 type: pulumi.Input[str],
+                 azure_resource_id: Optional[pulumi.Input[str]] = None,
+                 logs: Optional[pulumi.Input[Sequence[pulumi.Input['LogArgs']]]] = None):
+        """
+        Describes the SAP configuration.
+        :param pulumi.Input[Union['RfcConnectorArgs', 'SapControlConnectorArgs']] connector: Base Model for SAP System Connector.
+        :param pulumi.Input[str] type: Represents the types of configuration for a system.
+               Expected value is 'SAP'.
+        :param pulumi.Input[str] azure_resource_id: azure resource id
+               example: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
+        :param pulumi.Input[Sequence[pulumi.Input['LogArgs']]] logs: The logs configuration.
+        """
+        pulumi.set(__self__, "connector", connector)
+        pulumi.set(__self__, "type", 'SAP')
+        if azure_resource_id is not None:
+            pulumi.set(__self__, "azure_resource_id", azure_resource_id)
+        if logs is not None:
+            pulumi.set(__self__, "logs", logs)
+
+    @property
+    @pulumi.getter
+    def connector(self) -> pulumi.Input[Union['RfcConnectorArgs', 'SapControlConnectorArgs']]:
+        """
+        Base Model for SAP System Connector.
+        """
+        return pulumi.get(self, "connector")
+
+    @connector.setter
+    def connector(self, value: pulumi.Input[Union['RfcConnectorArgs', 'SapControlConnectorArgs']]):
+        pulumi.set(self, "connector", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Represents the types of configuration for a system.
+        Expected value is 'SAP'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="azureResourceId")
+    def azure_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        azure resource id
+        example: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
+        """
+        return pulumi.get(self, "azure_resource_id")
+
+    @azure_resource_id.setter
+    def azure_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogArgs']]]]:
+        """
+        The logs configuration.
+        """
+        return pulumi.get(self, "logs")
+
+    @logs.setter
+    def logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogArgs']]]]):
+        pulumi.set(self, "logs", value)
 
 
 if not MYPY:

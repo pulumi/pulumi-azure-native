@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     /// Describes a virtual network link.
     /// Azure REST API version: 2022-07-01.
     /// 
-    /// Other available API versions: 2020-04-01-preview.
+    /// Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateResolverVirtualNetworkLink")]
     public partial class PrivateResolverVirtualNetworkLink : global::Pulumi.CustomResource
@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.Network
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:PrivateResolverVirtualNetworkLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:PrivateResolverVirtualNetworkLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

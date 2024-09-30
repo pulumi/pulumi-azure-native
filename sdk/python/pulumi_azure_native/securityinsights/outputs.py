@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'ActivityEntityQueriesPropertiesResponseQueryDefinitions',
     'ActivityTimelineItemResponse',
+    'AgentSystemResponse',
     'AlertDetailsOverrideResponse',
     'AlertPropertyMappingResponse',
     'AlertsDataTypeOfDataConnectorResponse',
@@ -73,6 +74,8 @@ __all__ = [
     'InsightsTableResultResponseColumns',
     'InstructionStepDetailsResponse',
     'InstructionStepResponse',
+    'LockUserActionResponse',
+    'LogResponse',
     'MCASDataConnectorDataTypesResponse',
     'MetadataAuthorResponse',
     'MetadataCategoriesResponse',
@@ -91,7 +94,11 @@ __all__ = [
     'RepositoryResourceInfoResponse',
     'RepositoryResponse',
     'ResourceProviderRequiredPermissionsResponse',
+    'RfcConnectorResponse',
     'SampleQueryResponse',
+    'SapAgentConfigurationResponse',
+    'SapControlConnectorResponse',
+    'SapSystemsConfigurationResponse',
     'SecurityAlertTimelineItemResponse',
     'SecurityMLAnalyticsSettingsDataSourceResponse',
     'SystemDataResponse',
@@ -100,6 +107,7 @@ __all__ = [
     'TimelineAggregationResponse',
     'TimelineErrorResponse',
     'TimelineResultsMetadataResponse',
+    'UnlockUserActionResponse',
     'UserInfoResponse',
     'ValidationErrorResponse',
     'WatchlistUserInfoResponse',
@@ -228,6 +236,52 @@ class ActivityTimelineItemResponse(dict):
         The activity timeline title.
         """
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class AgentSystemResponse(dict):
+    """
+    Describes the configuration of a system inside the agent.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemDisplayName":
+            suggest = "system_display_name"
+        elif key == "systemResourceName":
+            suggest = "system_resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentSystemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentSystemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentSystemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 system_display_name: Optional[str] = None,
+                 system_resource_name: Optional[str] = None):
+        """
+        Describes the configuration of a system inside the agent.
+        """
+        if system_display_name is not None:
+            pulumi.set(__self__, "system_display_name", system_display_name)
+        if system_resource_name is not None:
+            pulumi.set(__self__, "system_resource_name", system_resource_name)
+
+    @property
+    @pulumi.getter(name="systemDisplayName")
+    def system_display_name(self) -> Optional[str]:
+        return pulumi.get(self, "system_display_name")
+
+    @property
+    @pulumi.getter(name="systemResourceName")
+    def system_resource_name(self) -> Optional[str]:
+        return pulumi.get(self, "system_resource_name")
 
 
 @pulumi.output_type
@@ -3803,6 +3857,157 @@ class InstructionStepResponse(dict):
 
 
 @pulumi.output_type
+class LockUserActionResponse(dict):
+    """
+    Represents lock user action.
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 failure_reason: Optional[str] = None,
+                 user: Optional[str] = None):
+        """
+        Represents lock user action.
+        :param str kind: The kind of the action
+               Expected value is 'LockUser'.
+        :param str failure_reason: The reason of the failure of the action. Empty if the action is successful.
+        :param str user: The user to lock
+        """
+        pulumi.set(__self__, "kind", 'LockUser')
+        if failure_reason is not None:
+            pulumi.set(__self__, "failure_reason", failure_reason)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind of the action
+        Expected value is 'LockUser'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> Optional[str]:
+        """
+        The reason of the failure of the action. Empty if the action is successful.
+        """
+        return pulumi.get(self, "failure_reason")
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[str]:
+        """
+        The user to lock
+        """
+        return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class LogResponse(dict):
+    """
+    Describes a log.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bulkSize":
+            suggest = "bulk_size"
+        elif key == "ingestionType":
+            suggest = "ingestion_type"
+        elif key == "scheduleInterval":
+            suggest = "schedule_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 bulk_size: Optional[int] = None,
+                 filters: Optional[Sequence[str]] = None,
+                 ingestion_type: Optional[str] = None,
+                 schedule_interval: Optional[int] = None,
+                 status: Optional[str] = None):
+        """
+        Describes a log.
+        :param str type: Types of logs and tables.
+        :param int bulk_size: The bulk size for the log.
+        :param Sequence[str] filters: The filters for the log.
+        :param str ingestion_type: Types of ingestion.
+        :param int schedule_interval: The schedule interval in seconds.
+        :param str status: Types of log status.
+        """
+        pulumi.set(__self__, "type", type)
+        if bulk_size is not None:
+            pulumi.set(__self__, "bulk_size", bulk_size)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if ingestion_type is not None:
+            pulumi.set(__self__, "ingestion_type", ingestion_type)
+        if schedule_interval is not None:
+            pulumi.set(__self__, "schedule_interval", schedule_interval)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Types of logs and tables.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="bulkSize")
+    def bulk_size(self) -> Optional[int]:
+        """
+        The bulk size for the log.
+        """
+        return pulumi.get(self, "bulk_size")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence[str]]:
+        """
+        The filters for the log.
+        """
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter(name="ingestionType")
+    def ingestion_type(self) -> Optional[str]:
+        """
+        Types of ingestion.
+        """
+        return pulumi.get(self, "ingestion_type")
+
+    @property
+    @pulumi.getter(name="scheduleInterval")
+    def schedule_interval(self) -> Optional[int]:
+        """
+        The schedule interval in seconds.
+        """
+        return pulumi.get(self, "schedule_interval")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Types of log status.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class MCASDataConnectorDataTypesResponse(dict):
     """
     The available data types for MCAS (Microsoft Cloud App Security) data connector.
@@ -4759,6 +4964,186 @@ class ResourceProviderRequiredPermissionsResponse(dict):
 
 
 @pulumi.output_type
+class RfcConnectorResponse(dict):
+    """
+    Describes the Rfc connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemId":
+            suggest = "system_id"
+        elif key == "systemNumber":
+            suggest = "system_number"
+        elif key == "abapServerHost":
+            suggest = "abap_server_host"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "codePage":
+            suggest = "code_page"
+        elif key == "messageServerHost":
+            suggest = "message_server_host"
+        elif key == "messageServerService":
+            suggest = "message_server_service"
+        elif key == "sncQop":
+            suggest = "snc_qop"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RfcConnectorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RfcConnectorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RfcConnectorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client: str,
+                 system_id: str,
+                 system_number: str,
+                 type: str,
+                 abap_server_host: Optional[str] = None,
+                 authentication_type: Optional[str] = None,
+                 code_page: Optional[str] = None,
+                 group: Optional[str] = None,
+                 message_server_host: Optional[str] = None,
+                 message_server_service: Optional[str] = None,
+                 snc_qop: Optional[str] = None):
+        """
+        Describes the Rfc connector.
+        :param str client: Client number of the ABAP server.
+               Example - 001
+        :param str system_id: System ID of the ABAP server.
+               Example - A4H
+        :param str system_number: System number of the ABAP server.
+        :param str type: Represents the types of SAP systems.
+               Expected value is 'Rfc'.
+        :param str abap_server_host: FQDN, hostname, or IP address of the ABAP server.
+        :param str authentication_type: The authentication type to SAP.
+        :param str code_page: The SAP code page used for character encoding.
+               Example - 1100
+        :param str group: Logon group of the message server.
+        :param str message_server_host: FQDN, hostname, or IP address of the Message server.
+        :param str message_server_service: Port number, or service name (from /etc/services) of the message server.
+        :param str snc_qop: SNC QOP.
+               Options are 1, 2, 3, 8, 9.
+        """
+        pulumi.set(__self__, "client", client)
+        pulumi.set(__self__, "system_id", system_id)
+        pulumi.set(__self__, "system_number", system_number)
+        pulumi.set(__self__, "type", 'Rfc')
+        if abap_server_host is not None:
+            pulumi.set(__self__, "abap_server_host", abap_server_host)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if code_page is not None:
+            pulumi.set(__self__, "code_page", code_page)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if message_server_host is not None:
+            pulumi.set(__self__, "message_server_host", message_server_host)
+        if message_server_service is not None:
+            pulumi.set(__self__, "message_server_service", message_server_service)
+        if snc_qop is not None:
+            pulumi.set(__self__, "snc_qop", snc_qop)
+
+    @property
+    @pulumi.getter
+    def client(self) -> str:
+        """
+        Client number of the ABAP server.
+        Example - 001
+        """
+        return pulumi.get(self, "client")
+
+    @property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> str:
+        """
+        System ID of the ABAP server.
+        Example - A4H
+        """
+        return pulumi.get(self, "system_id")
+
+    @property
+    @pulumi.getter(name="systemNumber")
+    def system_number(self) -> str:
+        """
+        System number of the ABAP server.
+        """
+        return pulumi.get(self, "system_number")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Represents the types of SAP systems.
+        Expected value is 'Rfc'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="abapServerHost")
+    def abap_server_host(self) -> Optional[str]:
+        """
+        FQDN, hostname, or IP address of the ABAP server.
+        """
+        return pulumi.get(self, "abap_server_host")
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[str]:
+        """
+        The authentication type to SAP.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="codePage")
+    def code_page(self) -> Optional[str]:
+        """
+        The SAP code page used for character encoding.
+        Example - 1100
+        """
+        return pulumi.get(self, "code_page")
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[str]:
+        """
+        Logon group of the message server.
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter(name="messageServerHost")
+    def message_server_host(self) -> Optional[str]:
+        """
+        FQDN, hostname, or IP address of the Message server.
+        """
+        return pulumi.get(self, "message_server_host")
+
+    @property
+    @pulumi.getter(name="messageServerService")
+    def message_server_service(self) -> Optional[str]:
+        """
+        Port number, or service name (from /etc/services) of the message server.
+        """
+        return pulumi.get(self, "message_server_service")
+
+    @property
+    @pulumi.getter(name="sncQop")
+    def snc_qop(self) -> Optional[str]:
+        """
+        SNC QOP.
+        Options are 1, 2, 3, 8, 9.
+        """
+        return pulumi.get(self, "snc_qop")
+
+
+@pulumi.output_type
 class SampleQueryResponse(dict):
     """
     The sample queries for the connector.
@@ -4789,6 +5174,328 @@ class SampleQueryResponse(dict):
         Gets or sets the KQL sample query.
         """
         return pulumi.get(self, "query")
+
+
+@pulumi.output_type
+class SapAgentConfigurationResponse(dict):
+    """
+    Describes the configuration of a SAP Docker agent.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentContainerName":
+            suggest = "agent_container_name"
+        elif key == "keyVaultAuthenticationMode":
+            suggest = "key_vault_authentication_mode"
+        elif key == "keyVaultResourceId":
+            suggest = "key_vault_resource_id"
+        elif key == "sdkPath":
+            suggest = "sdk_path"
+        elif key == "secretSource":
+            suggest = "secret_source"
+        elif key == "sncPath":
+            suggest = "snc_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapAgentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapAgentConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapAgentConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 agent_container_name: Optional[str] = None,
+                 key_vault_authentication_mode: Optional[str] = None,
+                 key_vault_resource_id: Optional[str] = None,
+                 sdk_path: Optional[str] = None,
+                 secret_source: Optional[str] = None,
+                 snc_path: Optional[str] = None):
+        """
+        Describes the configuration of a SAP Docker agent.
+        :param str type: Type of the agent
+               Expected value is 'SAP'.
+        :param str agent_container_name: The name of the docker agent.
+               only letters with numbers, underscores and hyphens are allowed
+               example: "my-agent"
+        :param str key_vault_authentication_mode: The key mode of the agent.
+               ManagedIdentity|ApplicationIdentity are the options
+        :param str key_vault_resource_id: The key vault resource id to access the key vault.
+               example: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.KeyVault/vaults/myVault"
+        :param str sdk_path: The SDK path (a file not a folder) on the agent machine.
+               example: "/path/to/nwrfc750P_8-70002755.zip"
+        :param str secret_source: The secret source of the agent.
+               AzureKeyVault is the option
+        :param str snc_path: The SNC path (a folder not a file) on the agent machine.
+               example: "/path/to/snc"
+        """
+        pulumi.set(__self__, "type", 'SAP')
+        if agent_container_name is not None:
+            pulumi.set(__self__, "agent_container_name", agent_container_name)
+        if key_vault_authentication_mode is not None:
+            pulumi.set(__self__, "key_vault_authentication_mode", key_vault_authentication_mode)
+        if key_vault_resource_id is not None:
+            pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
+        if sdk_path is not None:
+            pulumi.set(__self__, "sdk_path", sdk_path)
+        if secret_source is not None:
+            pulumi.set(__self__, "secret_source", secret_source)
+        if snc_path is not None:
+            pulumi.set(__self__, "snc_path", snc_path)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the agent
+        Expected value is 'SAP'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="agentContainerName")
+    def agent_container_name(self) -> Optional[str]:
+        """
+        The name of the docker agent.
+        only letters with numbers, underscores and hyphens are allowed
+        example: "my-agent"
+        """
+        return pulumi.get(self, "agent_container_name")
+
+    @property
+    @pulumi.getter(name="keyVaultAuthenticationMode")
+    def key_vault_authentication_mode(self) -> Optional[str]:
+        """
+        The key mode of the agent.
+        ManagedIdentity|ApplicationIdentity are the options
+        """
+        return pulumi.get(self, "key_vault_authentication_mode")
+
+    @property
+    @pulumi.getter(name="keyVaultResourceId")
+    def key_vault_resource_id(self) -> Optional[str]:
+        """
+        The key vault resource id to access the key vault.
+        example: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.KeyVault/vaults/myVault"
+        """
+        return pulumi.get(self, "key_vault_resource_id")
+
+    @property
+    @pulumi.getter(name="sdkPath")
+    def sdk_path(self) -> Optional[str]:
+        """
+        The SDK path (a file not a folder) on the agent machine.
+        example: "/path/to/nwrfc750P_8-70002755.zip"
+        """
+        return pulumi.get(self, "sdk_path")
+
+    @property
+    @pulumi.getter(name="secretSource")
+    def secret_source(self) -> Optional[str]:
+        """
+        The secret source of the agent.
+        AzureKeyVault is the option
+        """
+        return pulumi.get(self, "secret_source")
+
+    @property
+    @pulumi.getter(name="sncPath")
+    def snc_path(self) -> Optional[str]:
+        """
+        The SNC path (a folder not a file) on the agent machine.
+        example: "/path/to/snc"
+        """
+        return pulumi.get(self, "snc_path")
+
+
+@pulumi.output_type
+class SapControlConnectorResponse(dict):
+    """
+    Describes the SapControl connector configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpsConfiguration":
+            suggest = "https_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapControlConnectorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapControlConnectorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapControlConnectorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance: str,
+                 server: str,
+                 type: str,
+                 https_configuration: Optional[str] = None,
+                 port: Optional[str] = None,
+                 timezone: Optional[str] = None):
+        """
+        Describes the SapControl connector configuration.
+        :param str instance: The instance number. Only 2 digits are allowed.
+        :param str server: The server name.
+               FQDN or IP address.
+        :param str type: Represents the types of SAP systems.
+               Expected value is 'SapControl'.
+        :param str https_configuration: Represents the types of HTTPS configuration to connect to the SapControl service.
+        :param str port: The port of the SOAP connection to SAP Control.
+        :param str timezone: The timezone.
+               example: "GMT+0" or "GMT-8"
+               default: "GMT+0"
+        """
+        pulumi.set(__self__, "instance", instance)
+        pulumi.set(__self__, "server", server)
+        pulumi.set(__self__, "type", 'SapControl')
+        if https_configuration is not None:
+            pulumi.set(__self__, "https_configuration", https_configuration)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if timezone is None:
+            timezone = 'GMT+0'
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def instance(self) -> str:
+        """
+        The instance number. Only 2 digits are allowed.
+        """
+        return pulumi.get(self, "instance")
+
+    @property
+    @pulumi.getter
+    def server(self) -> str:
+        """
+        The server name.
+        FQDN or IP address.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Represents the types of SAP systems.
+        Expected value is 'SapControl'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="httpsConfiguration")
+    def https_configuration(self) -> Optional[str]:
+        """
+        Represents the types of HTTPS configuration to connect to the SapControl service.
+        """
+        return pulumi.get(self, "https_configuration")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[str]:
+        """
+        The port of the SOAP connection to SAP Control.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        """
+        The timezone.
+        example: "GMT+0" or "GMT-8"
+        default: "GMT+0"
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class SapSystemsConfigurationResponse(dict):
+    """
+    Describes the SAP configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureResourceId":
+            suggest = "azure_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapSystemsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapSystemsConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapSystemsConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector: Any,
+                 type: str,
+                 azure_resource_id: Optional[str] = None,
+                 logs: Optional[Sequence['outputs.LogResponse']] = None):
+        """
+        Describes the SAP configuration.
+        :param Union['RfcConnectorResponse', 'SapControlConnectorResponse'] connector: Base Model for SAP System Connector.
+        :param str type: Represents the types of configuration for a system.
+               Expected value is 'SAP'.
+        :param str azure_resource_id: azure resource id
+               example: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
+        :param Sequence['LogResponse'] logs: The logs configuration.
+        """
+        pulumi.set(__self__, "connector", connector)
+        pulumi.set(__self__, "type", 'SAP')
+        if azure_resource_id is not None:
+            pulumi.set(__self__, "azure_resource_id", azure_resource_id)
+        if logs is not None:
+            pulumi.set(__self__, "logs", logs)
+
+    @property
+    @pulumi.getter
+    def connector(self) -> Any:
+        """
+        Base Model for SAP System Connector.
+        """
+        return pulumi.get(self, "connector")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Represents the types of configuration for a system.
+        Expected value is 'SAP'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="azureResourceId")
+    def azure_resource_id(self) -> Optional[str]:
+        """
+        azure resource id
+        example: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
+        """
+        return pulumi.get(self, "azure_resource_id")
+
+    @property
+    @pulumi.getter
+    def logs(self) -> Optional[Sequence['outputs.LogResponse']]:
+        """
+        The logs configuration.
+        """
+        return pulumi.get(self, "logs")
 
 
 @pulumi.output_type
@@ -5270,6 +5977,54 @@ class TimelineResultsMetadataResponse(dict):
         information about the failure queries
         """
         return pulumi.get(self, "errors")
+
+
+@pulumi.output_type
+class UnlockUserActionResponse(dict):
+    """
+    Represents an unlock user action.
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 failure_reason: Optional[str] = None,
+                 user: Optional[str] = None):
+        """
+        Represents an unlock user action.
+        :param str kind: The kind of the action
+               Expected value is 'UnlockUser'.
+        :param str failure_reason: The reason of the failure of the action. Empty if the action is successful.
+        :param str user: The user to unlock
+        """
+        pulumi.set(__self__, "kind", 'UnlockUser')
+        if failure_reason is not None:
+            pulumi.set(__self__, "failure_reason", failure_reason)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind of the action
+        Expected value is 'UnlockUser'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> Optional[str]:
+        """
+        The reason of the failure of the action. Empty if the action is successful.
+        """
+        return pulumi.get(self, "failure_reason")
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[str]:
+        """
+        The user to unlock
+        """
+        return pulumi.get(self, "user")
 
 
 @pulumi.output_type

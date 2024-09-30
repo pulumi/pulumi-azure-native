@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a Hunt Comment in Azure Security Insights
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview.
  */
 export class HuntComment extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class HuntComment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:HuntComment" }, { type: "azure-native:securityinsights/v20230501preview:HuntComment" }, { type: "azure-native:securityinsights/v20230601preview:HuntComment" }, { type: "azure-native:securityinsights/v20230701preview:HuntComment" }, { type: "azure-native:securityinsights/v20230801preview:HuntComment" }, { type: "azure-native:securityinsights/v20230901preview:HuntComment" }, { type: "azure-native:securityinsights/v20231001preview:HuntComment" }, { type: "azure-native:securityinsights/v20231201preview:HuntComment" }, { type: "azure-native:securityinsights/v20240101preview:HuntComment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:HuntComment" }, { type: "azure-native:securityinsights/v20230501preview:HuntComment" }, { type: "azure-native:securityinsights/v20230601preview:HuntComment" }, { type: "azure-native:securityinsights/v20230701preview:HuntComment" }, { type: "azure-native:securityinsights/v20230801preview:HuntComment" }, { type: "azure-native:securityinsights/v20230901preview:HuntComment" }, { type: "azure-native:securityinsights/v20231001preview:HuntComment" }, { type: "azure-native:securityinsights/v20231201preview:HuntComment" }, { type: "azure-native:securityinsights/v20240101preview:HuntComment" }, { type: "azure-native:securityinsights/v20240401preview:HuntComment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HuntComment.__pulumiType, name, resourceInputs, opts);
     }

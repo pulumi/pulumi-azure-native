@@ -239,6 +239,8 @@ def get_web_app_site_container_slot(container_name: Optional[str] = None,
     Container of a site
     Azure REST API version: 2023-12-01.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str container_name: Site Container Name
     :param str name: Name of the app.
@@ -278,6 +280,8 @@ def get_web_app_site_container_slot_output(container_name: Optional[pulumi.Input
     """
     Container of a site
     Azure REST API version: 2023-12-01.
+
+    Other available API versions: 2024-04-01.
 
 
     :param str container_name: Site Container Name

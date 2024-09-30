@@ -362,7 +362,7 @@ class L3Network(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud:L3Network"), pulumi.Alias(type_="azure-native:networkcloud/v20230701:L3Network"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:L3Network")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud:L3Network"), pulumi.Alias(type_="azure-native:networkcloud/v20230701:L3Network"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:L3Network"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:L3Network")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(L3Network, __self__).__init__(
             'azure-native:networkcloud/v20240601preview:L3Network',

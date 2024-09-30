@@ -156,7 +156,7 @@ export class ElasticSan extends pulumi.CustomResource {
             resourceInputs["volumeGroupCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan:ElasticSan" }, { type: "azure-native:elasticsan/v20221201preview:ElasticSan" }, { type: "azure-native:elasticsan/v20230101:ElasticSan" }, { type: "azure-native:elasticsan/v20240501:ElasticSan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan:ElasticSan" }, { type: "azure-native:elasticsan/v20221201preview:ElasticSan" }, { type: "azure-native:elasticsan/v20230101:ElasticSan" }, { type: "azure-native:elasticsan/v20240501:ElasticSan" }, { type: "azure-native:elasticsan/v20240601preview:ElasticSan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticSan.__pulumiType, name, resourceInputs, opts);
     }

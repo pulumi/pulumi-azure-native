@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20220301:AppServiceCertificateOrderCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20230101:AppServiceCertificateOrderCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20231201:AppServiceCertificateOrderCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20240401:AppServiceCertificateOrderCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

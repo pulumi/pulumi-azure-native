@@ -170,7 +170,7 @@ class IotDpsResource(pulumi.CustomResource):
         The description of the provisioning service.
         Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01.
 
-        Other available API versions: 2020-09-01-preview, 2023-03-01-preview.
+        Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +193,7 @@ class IotDpsResource(pulumi.CustomResource):
         The description of the provisioning service.
         Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01.
 
-        Other available API versions: 2020-09-01-preview, 2023-03-01-preview.
+        Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IotDpsResourceArgs args: The arguments to use to populate this resource's properties.
@@ -245,7 +245,7 @@ class IotDpsResource(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20170821preview:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20171115:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20180122:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200101:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200301:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200901preview:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20211015:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20220205:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20221212:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20230301preview:IotDpsResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20170821preview:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20171115:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20180122:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200101:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200301:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200901preview:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20211015:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20220205:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20221212:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20230301preview:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20250201preview:IotDpsResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotDpsResource, __self__).__init__(
             'azure-native:devices:IotDpsResource',
