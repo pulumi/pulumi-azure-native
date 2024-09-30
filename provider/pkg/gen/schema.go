@@ -569,6 +569,12 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 		metadata.Types[tok] = r
 	}
 
+	// Apply custom resource modifications to the schema and metadata.
+	err := customresources.ApplySchemas(pkg, metadata)
+	if err != nil {
+		return err
+	}
+
 	// Add a note regarding WorkspaceSqlAadAdmin creation.
 	workspaceSqlAadAdmin := pkg.Resources["azure-native:synapse:WorkspaceSqlAadAdmin"]
 	workspaceSqlAadAdmin.Description += "\n\nNote: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin."
@@ -586,7 +592,7 @@ func normalizePackage(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMeta
 	visitor := func(t string, _ pschema.ComplexTypeSpec) {
 		usedTypes[t] = true
 	}
-	VisitPackageSpecTypes(pkg, visitor)
+	resources.VisitPackageSpecTypes(pkg, visitor)
 
 	// Elide unused types.
 	allTypeNames := codegen.SortedKeys(pkg.Types)

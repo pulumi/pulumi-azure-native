@@ -49,7 +49,7 @@ func keyVaultAccessPolicy(client *armkeyvault.VaultsClient) *CustomResource {
 	return &CustomResource{
 		tok:  "azure-native:keyvault:AccessPolicy",
 		path: path,
-		Schema: &schema.ResourceSpec{
+		LegacySchema: &schema.ResourceSpec{
 			ObjectTypeSpec: schema.ObjectTypeSpec{
 				Description: "Key Vault Access Policy for managing policies on existing vaults.",
 				Type:        "object",
