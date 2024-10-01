@@ -177,6 +177,7 @@ jobs:
     needs: build_sdks
     # Use big runner for dotnet and nodejs because we need more memory and more compute, respectively
     runs-on: ${{ (matrix.language == 'dotnet' || matrix.language == 'nodejs' || matrix.language == 'go') && 'pulumi-ubuntu-8core' || 'ubuntu-latest' }}
+    environment: env-ci
     strategy:
       fail-fast: false
       matrix:
