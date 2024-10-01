@@ -218,7 +218,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	azCoreTokenCredential := azCoreTokenCredential{p: k}
 
-	k.azureClient, err = k.newAzureClient(resourceManagerBearerAuth, azCoreTokenCredential, userAgent)
+	k.azureClient, err = k.newAzureClient(resourceManagerAuth, azCoreTokenCredential, userAgent)
 	if err != nil {
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
