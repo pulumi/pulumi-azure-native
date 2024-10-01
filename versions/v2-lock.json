@@ -367,8 +367,11 @@
     "SqlManagedInstance": "2023-01-15-preview",
     "SqlServerAvailabilityGroup": "2024-01-01",
     "SqlServerDatabase": "2023-01-15-preview",
+    "SqlServerEsuLicense": "2024-05-01-preview",
     "SqlServerInstance": "2023-01-15-preview",
+    "SqlServerLicense": "2024-05-01-preview",
     "getSqlServerAvailabilityGroupDetailView": "2024-01-01",
+    "getSqlServerInstanceJobsStatus": "2024-05-01-preview",
     "getSqlServerInstanceTelemetry": "2024-01-01"
   },
   "AzureData": {

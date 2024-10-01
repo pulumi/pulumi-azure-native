@@ -184,7 +184,10 @@ AzureArcData:
     tracking: 2023-01-15-preview
     additions:
         SqlServerAvailabilityGroup: "2024-01-01"
+        SqlServerEsuLicense: 2024-05-01-preview
+        SqlServerLicense: 2024-05-01-preview
         getSqlServerAvailabilityGroupDetailView: "2024-01-01"
+        getSqlServerInstanceJobsStatus: 2024-05-01-preview
         getSqlServerInstanceTelemetry: "2024-01-01"
 AzureData:
     tracking: 2019-07-24-preview

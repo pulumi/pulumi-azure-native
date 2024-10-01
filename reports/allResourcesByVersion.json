@@ -3100,6 +3100,21 @@
       "SqlServerInstance",
       "getSqlServerAvailabilityGroupDetailView",
       "getSqlServerInstanceTelemetry"
+    ],
+    "2024-05-01-preview": [
+      "ActiveDirectoryConnector",
+      "DataController",
+      "FailoverGroup",
+      "PostgresInstance",
+      "SqlManagedInstance",
+      "SqlServerAvailabilityGroup",
+      "SqlServerDatabase",
+      "SqlServerEsuLicense",
+      "SqlServerInstance",
+      "SqlServerLicense",
+      "getSqlServerAvailabilityGroupDetailView",
+      "getSqlServerInstanceJobsStatus",
+      "getSqlServerInstanceTelemetry"
     ]
   },
   "AzureData": {
@@ -4611,6 +4626,10 @@
     "2024-02-05-preview": [
       "CertificateProfile",
       "CodeSigningAccount"
+    ],
+    "2024-09-30-preview": [
+      "CertificateProfile",
+      "CodeSigningAccount"
     ]
   },
   "CognitiveServices": {
@@ -5671,6 +5690,9 @@
     "2024-05-01-preview": [
       "ContainerGroup",
       "ContainerGroupProfile"
+    ],
+    "2024-10-01-preview": [
+      "ContainerGroup"
     ]
   },
   "ContainerRegistry": {
