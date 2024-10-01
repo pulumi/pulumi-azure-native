@@ -26,6 +26,10 @@ on:
         type: boolean
         description: Whether to use autorest, not azcore
         default: true
+      use_legacy_auth:
+        type: boolean
+        description: Whether to use go-azure-helpers, not azidentity
+        default: true
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -46,6 +50,7 @@ env:
   ARM_TENANT_ID: 706143bc-e1d4-4593-aee2-c9dc60ab9be7
   PULUMI_API: https://api.pulumi-staging.io
   PULUMI_USE_AUTOREST: ${{ inputs.use_autorest }}
+  PULUMI_USE_LEGACY_AUTH: ${{ inputs.use_legacy_auth }}
 
 jobs:
   prerequisites:
