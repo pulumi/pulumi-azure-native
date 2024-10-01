@@ -35,7 +35,7 @@ func newStorageAccountStaticWebsite_azidentity(env *cloud.Configuration, creds a
 		Update: r.update,
 		Read:   r.read,
 		Delete: r.delete,
-		Schema: &schema.ResourceSpec{
+		LegacySchema: &schema.ResourceSpec{
 			ObjectTypeSpec: schema.ObjectTypeSpec{
 				Description: "Enables the static website feature of a storage account.",
 				Type:        "object",
