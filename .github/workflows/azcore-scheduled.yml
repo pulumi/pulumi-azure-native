@@ -20,3 +20,4 @@ jobs:
       short_test: false
       retention_days: 7
       use_autorest: false
+      use_legacy_auth: false
