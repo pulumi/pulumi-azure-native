@@ -372,7 +372,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
 		"moduleNameOverrides": pythonModuleNames,
 		"requires": map[string]string{
-			"pulumi": ">=3.35.0,<4.0.0",
+			"pulumi": ">=3.134.1,<4.0.0",
 		},
 		"usesIOClasses": true,
 		"inputTypes":    "classes-and-dicts",
