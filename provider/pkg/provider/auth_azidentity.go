@@ -8,29 +8,80 @@ import (
 	"crypto/x509"
 	"encoding/json"
 	"fmt"
+	"io"
+	"net/http"
+	"net/url"
 	"os"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/Azure/go-autorest/autorest"
-	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
-
-	hamiltonAuth "github.com/manicminer/hamilton-autorest/auth"
 )
 
 func newOidcCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
-	return azidentity.NewClientAssertionCredential(
-		authConf.tenantId,
-		authConf.clientId,
-		func(ctx context.Context) (string, error) {
-			return authConf.oidcToken, nil
-		},
-		nil)
+	if authConf.oidcToken != "" {
+		return azidentity.NewClientAssertionCredential(
+			authConf.tenantId,
+			authConf.clientId,
+			func(ctx context.Context) (string, error) {
+				return authConf.oidcToken, nil
+			},
+			nil)
+	}
+
+	if authConf.oidcTokenRequestUrl != "" && authConf.oidcTokenRequestToken != "" {
+		return azidentity.NewClientAssertionCredential(
+			authConf.tenantId,
+			authConf.clientId,
+			func(ctx context.Context) (string, error) {
+				req, err := http.NewRequestWithContext(ctx, http.MethodGet, authConf.oidcTokenRequestUrl, http.NoBody)
+				if err != nil {
+					return "", fmt.Errorf("GitHub OIDC: failed to build request to %s: %w", authConf.oidcTokenRequestUrl, err)
+				}
+
+				query, err := url.ParseQuery(req.URL.RawQuery)
+				if err != nil {
+					return "", fmt.Errorf("githubAssertion: cannot parse URL query")
+				}
+				query.Set("audience", "api://AzureADTokenExchange")
+				req.URL.RawQuery = query.Encode()
+
+				req.Header.Set("Accept", "application/json")
+				req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", authConf.oidcTokenRequestToken))
+				req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
+				resp, err := http.DefaultClient.Do(req)
+				if err != nil {
+					return "", fmt.Errorf("GitHub OIDC: couldn't request token: %w", err)
+				}
+
+				defer resp.Body.Close()
+				body, err := io.ReadAll(resp.Body)
+				if err != nil {
+					return "", fmt.Errorf("GitHub OIDC: cannot parse response: %w", err)
+				}
+
+				if c := resp.StatusCode; c < 200 || c > 299 {
+					return "", fmt.Errorf("GitHub OIDC: %d with response: %s", resp.StatusCode, body)
+				}
+
+				var tokenResponse struct {
+					Value string `json:"value"`
+				}
+				if err := json.Unmarshal(body, &tokenResponse); err != nil {
+					return "", fmt.Errorf("GitHub OIDC: cannot unmarshal response: %w", err)
+				}
+
+				return tokenResponse.Value, nil
+			},
+			nil)
+	}
+
+	return nil, errors.New("OIDC token or request URL and token are not provided")
 }
 
-func (k *azureNativeProvider) newPulumiAuthCredential() (*azidentity.ChainedTokenCredential, error) {
+func (k *azureNativeProvider) newChainedAuthCredential() (*azidentity.ChainedTokenCredential, error) {
 	authConf, err := k.getAuthConfig3()
 	if err != nil {
 		return nil, err
@@ -56,6 +107,8 @@ func (k *azureNativeProvider) newPulumiAuthCredential() (*azidentity.ChainedToke
 	credentials, errs = add(oidc, "OIDC", err)
 
 	// TODO,tkappler using it as-is in the chain causes a hard failure when the MSI endpoint is not available
+	// Need to wrap with a timeout handler as shown here:
+	// https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#example-NewChainedTokenCredential-ManagedIdentityTimeout
 	// managedIdentity, err := azidentity.NewManagedIdentityCredential(nil)
 	// credentials, errs = add(managedIdentity, "Managed Identity", err)
 
@@ -156,7 +209,9 @@ type authConfiguration struct {
 	tenantId   string
 	auxTenants []string
 
-	oidcToken string
+	oidcToken             string
+	oidcTokenRequestToken string
+	oidcTokenRequestUrl   string
 
 	clientSecret       string
 	clientCertPath     string
@@ -187,65 +242,9 @@ func (k *azureNativeProvider) getAuthConfig3() (*authConfiguration, error) {
 		clientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
 		clientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
 		clientCertPassword: k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),
+
+		oidcToken:             k.getConfig("oidcToken", "ARM_OIDC_TOKEN"),
+		oidcTokenRequestToken: k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
+		oidcTokenRequestUrl:   k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
 	}, nil
-}
-
-func (k *azureNativeProvider) makeAuthorizerFactories2(ctx context.Context,
-	authConfig *authConfig) (AuthorizerFactory, AuthorizerFactory, error) {
-
-	buildSender := sender.BuildSender("AzureNative")
-
-	oauthConfig, err := k.buildOAuthConfig(authConfig.Config)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	endpoint := k.environment.TokenAudience
-
-	if authConfig.useCli {
-		return k.makeADALAuthorizerFactories(ctx, authConfig.Config, oauthConfig, endpoint, buildSender)
-	}
-	return k.makeMSALAuthorizerFactories(ctx, authConfig.Config, oauthConfig, endpoint, buildSender)
-}
-
-func (k *azureNativeProvider) getOAuthToken2(ctx context.Context, auth *authConfig, endpoint string) (string, error) {
-	buildSender := sender.BuildSender("AzureNative")
-	oauthConfig, err := k.buildOAuthConfig(auth.Config)
-	if err != nil {
-		return "", err
-	}
-
-	api := k.autorestEnvToHamiltonEnv().ResourceManager
-
-	var authorizer autorest.Authorizer
-	if auth.useCli {
-		authorizer, err = auth.GetADALToken(ctx, buildSender, oauthConfig, endpoint)
-	} else {
-		authorizer, err = auth.GetMSALToken(ctx, api, buildSender, oauthConfig, endpoint)
-	}
-	if err != nil {
-		return "", fmt.Errorf("getting authorization token: %w", err)
-	}
-
-	// go-azure-helpers returns different kinds of Authorizer from different auth methods so we
-	// need to check to choose the right method to get a token.
-	var token string
-	ba, ok := authorizer.(*autorest.BearerAuthorizer)
-	if ok {
-		tokenProvider := ba.TokenProvider()
-		token = tokenProvider.OAuthToken()
-	} else {
-		if outer, ok := authorizer.(*hamiltonAuth.Authorizer); ok {
-			t, err := outer.Token()
-			if err != nil {
-				return "", err
-			}
-			token = t.AccessToken
-		}
-	}
-
-	if token == "" {
-		return "", fmt.Errorf("empty token from %T", authorizer)
-	}
-	return token, nil
 }
