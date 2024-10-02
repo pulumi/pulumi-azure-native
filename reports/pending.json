@@ -115,7 +115,8 @@
     "2023-05-17-preview"
   ],
   "AzureArcData": [
-    "2024-01-01"
+    "2024-01-01",
+    "2024-05-01-preview"
   ],
   "AzureData": [],
   "AzureDataTransfer": [
@@ -212,7 +213,9 @@
     "2024-01-19-preview",
     "2024-02-07-preview"
   ],
-  "CodeSigning": [],
+  "CodeSigning": [
+    "2024-09-30-preview"
+  ],
   "CognitiveServices": [
     "2023-10-01-preview",
     "2024-04-01-preview",
@@ -265,7 +268,9 @@
     "2024-08-01"
   ],
   "ContainerInstance": [
-    "2024-05-01-preview"
+    "2024-05-01-preview",
+    "2024-09-01-preview",
+    "2024-10-01-preview"
   ],
   "ContainerRegistry": [
     "2019-12-01-preview",
