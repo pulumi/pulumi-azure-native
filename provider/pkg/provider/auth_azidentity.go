@@ -172,7 +172,7 @@ func (k *azureNativeProvider) newSingleMethodAuthCredential() (azcore.TokenCrede
 		logging.V(9).Infof("SP with client certificate credential is not enabled, skipping")
 	}
 
-	if k.getConfig("useOidc", "ARM_USE_OIDC") == "true" {
+	if authConf.useOidc {
 		oidc, err := newOidcCredential(authConf)
 		if err == nil {
 			return oidc, nil
@@ -182,7 +182,7 @@ func (k *azureNativeProvider) newSingleMethodAuthCredential() (azcore.TokenCrede
 		logging.V(9).Infof("OIDC credential is not enabled, skipping")
 	}
 
-	if k.getConfig("useMsi", "ARM_USE_MSI") == "true" {
+	if authConf.useMsi {
 		managedIdentity, err := azidentity.NewManagedIdentityCredential(nil)
 		if err == nil {
 			return managedIdentity, nil
@@ -209,6 +209,7 @@ type authConfiguration struct {
 	tenantId   string
 	auxTenants []string
 
+	useOidc               bool
 	oidcToken             string
 	oidcTokenRequestToken string
 	oidcTokenRequestUrl   string
@@ -216,8 +217,11 @@ type authConfiguration struct {
 	clientSecret       string
 	clientCertPath     string
 	clientCertPassword string
+
+	useMsi bool
 }
 
+// getAuthConfig collects auth-related configuration from Pulumi config and environment variables
 func (k *azureNativeProvider) getAuthConfig3() (*authConfiguration, error) {
 	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
 	var auxTenants []string
@@ -242,7 +246,9 @@ func (k *azureNativeProvider) getAuthConfig3() (*authConfiguration, error) {
 		clientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
 		clientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
 		clientCertPassword: k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),
+		useMsi:             k.getConfig("useMsi", "ARM_USE_MSI") == "true",
 
+		useOidc:               k.getConfig("useOidc", "ARM_USE_OIDC") == "true",
 		oidcToken:             k.getConfig("oidcToken", "ARM_OIDC_TOKEN"),
 		oidcTokenRequestToken: k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
 		oidcTokenRequestUrl:   k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
