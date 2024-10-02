@@ -358,9 +358,6 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 		"respectSchemaVersion":           true,
 	})
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
-		"dependencies": map[string]string{
-			"@pulumi/pulumi": "^3.0.0",
-		},
 		"readme": `The native Azure provider package offers support for all Azure Resource Manager (ARM)
 resources and their properties. Resources are exposed as types from modules based on Azure Resource
 Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
@@ -371,11 +368,8 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
 		"moduleNameOverrides": pythonModuleNames,
-		"requires": map[string]string{
-			"pulumi": ">=3.134.1,<4.0.0",
-		},
-		"usesIOClasses": true,
-		"inputTypes":    "classes-and-dicts",
+		"usesIOClasses":       true,
+		"inputTypes":          "classes-and-dicts",
 		"readme": `The native Azure provider package offers support for all Azure Resource Manager (ARM)
 resources and their properties. Resources are exposed as types from modules based on Azure Resource
 Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
