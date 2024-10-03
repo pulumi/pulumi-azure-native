@@ -1586,6 +1586,14 @@
         ]
       },
       {
+        "resourceType": "containerApps/resiliencyPolicies",
+        "apiVersions": [
+          "2024-02-02-preview",
+          "2023-11-02-preview",
+          "2023-08-01-preview"
+        ]
+      },
+      {
         "resourceType": "functions",
         "apiVersions": [
           "2024-02-02-preview"
@@ -1903,6 +1911,14 @@
           "2022-10-01",
           "2022-06-01-preview",
           "2022-03-01"
+        ]
+      },
+      {
+        "resourceType": "managedEnvironments/daprComponents/resiliencyPolicies",
+        "apiVersions": [
+          "2024-02-02-preview",
+          "2023-11-02-preview",
+          "2023-08-01-preview"
         ]
       },
       {
@@ -5485,6 +5501,12 @@
         ]
       },
       {
+        "resourceType": "bareMetalInventoryBase",
+        "apiVersions": [
+          "2024-02-01"
+        ]
+      },
+      {
         "resourceType": "locations",
         "apiVersions": [
           "2023-12-01",
@@ -5513,6 +5535,12 @@
         "apiVersions": [
           "2023-12-01",
           "2018-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "sdnApplianceInventory",
+        "apiVersions": [
+          "2024-02-01"
         ]
       },
       {
@@ -19218,6 +19246,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2024-07-19-preview",
           "2023-09-01-preview"
         ]
       },
@@ -19244,12 +19273,14 @@
       {
         "resourceType": "watchers/sharedPrivateLinkResources",
         "apiVersions": [
+          "2024-07-19-preview",
           "2023-09-01-preview"
         ]
       },
       {
         "resourceType": "watchers/targets",
         "apiVersions": [
+          "2024-07-19-preview",
           "2023-09-01-preview"
         ]
       }
@@ -19308,6 +19339,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-09-01-preview",
           "2024-05-01",
           "2024-02-01-preview",
           "2023-09-15-preview",
@@ -25395,6 +25427,7 @@
       {
         "resourceType": "operationResults",
         "apiVersions": [
+          "2025-03-01-preview",
           "2024-09-01-preview",
           "2024-03-01-preview",
           "2023-09-01-preview",
@@ -25406,6 +25439,8 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2025-03-01-preview",
+          "2024-09-01-preview",
           "2024-03-01-preview",
           "2023-09-01-preview",
           "2023-06-01",
@@ -25424,6 +25459,12 @@
         "resourceType": "simplifiedSolutions",
         "apiVersions": [
           "2024-03-01-preview"
+        ]
+      },
+      {
+        "resourceType": "smartDiagnostics",
+        "apiVersions": [
+          "2025-03-01-preview"
         ]
       },
       {
@@ -33075,6 +33116,7 @@
       {
         "resourceType": "azureWebCategories",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01",
           "2023-11-01",
@@ -33930,6 +33972,7 @@
       {
         "resourceType": "expressRouteProviderPorts",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01",
           "2023-11-01",
@@ -34042,6 +34085,7 @@
       {
         "resourceType": "firewallPolicies",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01",
           "2023-11-01",
@@ -34234,6 +34278,7 @@
       {
         "resourceType": "ipGroups",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01",
           "2023-11-01",
@@ -35142,6 +35187,7 @@
       {
         "resourceType": "locations/hybridEdgeZone",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01",
           "2023-11-01",
@@ -35199,6 +35245,7 @@
       {
         "resourceType": "locations/nfvOperationResults",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01",
           "2023-11-01",
@@ -35256,6 +35303,7 @@
       {
         "resourceType": "locations/nfvOperations",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01",
           "2023-11-01",
@@ -36352,6 +36400,7 @@
       {
         "resourceType": "networkVirtualApplianceSkus",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01",
           "2023-11-01",
@@ -36386,6 +36435,7 @@
       {
         "resourceType": "networkVirtualAppliances",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01",
           "2023-11-01",
@@ -37966,6 +38016,7 @@
       {
         "resourceType": "virtualRouters",
         "apiVersions": [
+          "2024-05-01",
           "2024-03-01",
           "2024-01-01",
           "2023-11-01",
@@ -40083,37 +40134,25 @@
       {
         "resourceType": "gateways",
         "apiVersions": [
-          "2024-01-15-preview",
-          "2024-01-01-preview",
-          "2023-12-15-preview",
-          "2023-11-01-preview"
+          "2024-01-15-preview"
         ]
       },
       {
         "resourceType": "locations",
         "apiVersions": [
-          "2024-01-15-preview",
-          "2024-01-01-preview",
-          "2023-12-15-preview",
-          "2023-11-01-preview"
+          "2024-01-15-preview"
         ]
       },
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
-          "2024-01-15-preview",
-          "2024-01-01-preview",
-          "2023-12-15-preview",
-          "2023-11-01-preview"
+          "2024-01-15-preview"
         ]
       },
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2024-01-15-preview",
-          "2024-01-01-preview",
-          "2023-12-15-preview",
-          "2023-11-01-preview"
+          "2024-01-15-preview"
         ]
       },
       {
@@ -53788,8 +53827,9 @@
     "namespace": "Microsoft.ToolchainOrchestrator",
     "resourceTypes": [
       {
-        "resourceType": "Operations",
+        "resourceType": "operations",
         "apiVersions": [
+          "2024-08-01-preview",
           "2024-04-01-preview"
         ]
       }

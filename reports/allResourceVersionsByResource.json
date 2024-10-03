@@ -3331,7 +3331,8 @@
       "2022-03-01-preview",
       "2022-06-15-preview",
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ],
     "DataController": [
       "2021-06-01-preview",
@@ -3341,11 +3342,13 @@
       "2022-03-01-preview",
       "2022-06-15-preview",
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ],
     "FailoverGroup": [
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ],
     "PostgresInstance": [
       "2021-06-01-preview",
@@ -3353,7 +3356,8 @@
       "2022-03-01-preview",
       "2022-06-15-preview",
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ],
     "SqlManagedInstance": [
       "2021-06-01-preview",
@@ -3363,15 +3367,21 @@
       "2022-03-01-preview",
       "2022-06-15-preview",
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ],
     "SqlServerAvailabilityGroup": [
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ],
     "SqlServerDatabase": [
       "2022-06-15-preview",
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
+    ],
+    "SqlServerEsuLicense": [
+      "2024-05-01-preview"
     ],
     "SqlServerInstance": [
       "2021-06-01-preview",
@@ -3381,13 +3391,22 @@
       "2022-03-01-preview",
       "2022-06-15-preview",
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
+    ],
+    "SqlServerLicense": [
+      "2024-05-01-preview"
     ],
     "getSqlServerAvailabilityGroupDetailView": [
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
+    ],
+    "getSqlServerInstanceJobsStatus": [
+      "2024-05-01-preview"
     ],
     "getSqlServerInstanceTelemetry": [
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ]
   },
   "AzureData": {
@@ -4887,10 +4906,12 @@
   },
   "CodeSigning": {
     "CertificateProfile": [
-      "2024-02-05-preview"
+      "2024-02-05-preview",
+      "2024-09-30-preview"
     ],
     "CodeSigningAccount": [
-      "2024-02-05-preview"
+      "2024-02-05-preview",
+      "2024-09-30-preview"
     ]
   },
   "CognitiveServices": {
@@ -5851,10 +5872,15 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2024-09-01-preview",
+      "2024-10-01-preview"
     ],
     "ContainerGroupProfile": [
       "2024-05-01-preview"
+    ],
+    "NGroup": [
+      "2024-09-01-preview"
     ]
   },
   "ContainerRegistry": {
