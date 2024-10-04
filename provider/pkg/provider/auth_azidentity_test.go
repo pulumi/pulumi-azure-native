@@ -3,10 +3,17 @@
 package provider
 
 import (
+	_ "embed"
+	"os"
+	"path/filepath"
 	"testing"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/stretchr/testify/require"
 )
+
+//go:embed test.pfx
+var testPfxCert []byte
 
 func TestGetAuthConfig(t *testing.T) {
 	setAuthEnvVariables := func(value string, boolValue string) {
@@ -109,5 +116,126 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "env", c.tenantId)
 		require.True(t, c.useOidc)
 		require.True(t, c.useMsi)
+	})
+}
+
+func TestNewCredential(t *testing.T) {
+	t.Run("SP with client secret", func(t *testing.T) {
+		conf := &authConfiguration{
+			clientId:     "client-id",
+			clientSecret: "client-secret",
+			tenantId:     "tenant-id",
+		}
+		cred, err := newSingleMethodAuthCredential(conf)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.ClientSecretCredential{}, cred)
+	})
+
+	t.Run("Incomplete SP with client secret conf missing tenant id", func(t *testing.T) {
+		conf := &authConfiguration{
+			clientId:     "client-id",
+			clientSecret: "client-secret",
+		}
+		_, err := newSingleMethodAuthCredential(conf)
+		require.Error(t, err)
+		require.Contains(t, err.Error(), "tenant")
+	})
+
+	t.Run("SP with client cert", func(t *testing.T) {
+		certPath := filepath.Join(t.TempDir(), "cert.pfx")
+		require.NoError(t, os.WriteFile(certPath, testPfxCert, 0644))
+
+		conf := &authConfiguration{
+			clientId:           "client-id",
+			clientCertPath:     certPath,
+			clientCertPassword: "pulumi",
+			tenantId:           "tenant-id",
+		}
+		cred, err := newSingleMethodAuthCredential(conf)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.ClientCertificateCredential{}, cred)
+	})
+
+	t.Run("SP with invalid client cert", func(t *testing.T) {
+		certPath := filepath.Join(t.TempDir(), "cert.pem")
+		require.NoError(t, os.WriteFile(certPath, []byte("cert"), 0644))
+
+		conf := &authConfiguration{
+			clientId:       "client-id",
+			clientCertPath: certPath,
+			tenantId:       "tenant-id",
+		}
+		_, err := newSingleMethodAuthCredential(conf)
+		require.Error(t, err)
+		require.Contains(t, err.Error(), "failed to parse certificate")
+	})
+
+	t.Run("SP with client cert and wrong password", func(t *testing.T) {
+		certPath := filepath.Join(t.TempDir(), "cert.pfx")
+		require.NoError(t, os.WriteFile(certPath, testPfxCert, 0644))
+
+		conf := &authConfiguration{
+			clientId:           "client-id",
+			clientCertPath:     certPath,
+			clientCertPassword: "wrong",
+			tenantId:           "tenant-id",
+		}
+		_, err := newSingleMethodAuthCredential(conf)
+		require.Error(t, err)
+		require.Contains(t, err.Error(), "failed to parse certificate")
+		require.Contains(t, err.Error(), "password incorrect")
+	})
+
+	t.Run("OIDC with token", func(t *testing.T) {
+		conf := &authConfiguration{
+			useOidc:   true,
+			oidcToken: "oidc-token",
+			clientId:  "client-id",
+			tenantId:  "tenant-id",
+		}
+		cred, err := newSingleMethodAuthCredential(conf)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
+	})
+
+	t.Run("OIDC with token exchange URL", func(t *testing.T) {
+		conf := &authConfiguration{
+			useOidc:               true,
+			oidcTokenRequestToken: "oidc-token",
+			oidcTokenRequestUrl:   "oidc-token-url",
+			clientId:              "client-id",
+			tenantId:              "tenant-id",
+		}
+		cred, err := newSingleMethodAuthCredential(conf)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
+	})
+
+	t.Run("Incomplete OIDC conf", func(t *testing.T) {
+		for _, conf := range []*authConfiguration{
+			{
+				useOidc:   true,
+				oidcToken: "oidc-token",
+				clientId:  "client-id",
+			},
+			{
+				useOidc:             true,
+				oidcTokenRequestUrl: "oidc-token-url",
+				clientId:            "client-id",
+				tenantId:            "tenant-id",
+			},
+		} {
+			_, err := newSingleMethodAuthCredential(conf)
+			require.Error(t, err)
+		}
+	})
+
+	t.Run("MSI", func(t *testing.T) {
+		conf := &authConfiguration{
+			useMsi: true,
+		}
+		cred, err := newSingleMethodAuthCredential(conf)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.ManagedIdentityCredential{}, cred)
 	})
 }
