@@ -141,63 +141,66 @@ func readCertificate(certPath, certPassword string) ([]*x509.Certificate, crypto
 	return certs, key, nil
 }
 
-func (k *azureNativeProvider) newSingleMethodAuthCredential() (azcore.TokenCredential, error) {
+func (k *azureNativeProvider) newTokenCredential() (azcore.TokenCredential, error) {
 	authConf, err := k.getAuthConfig3()
 	if err != nil {
 		return nil, err
 	}
 
-	if authConf.clientSecret != "" {
-		spCert, err := azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, nil)
-		if err == nil {
-			return spCert, nil
-		}
-		logging.V(9).Infof("SP with client secret credential cannot be used: %v", err)
-	} else {
-		logging.V(9).Infof("SP with client secret credential is not enabled, skipping")
-	}
+	return newSingleMethodAuthCredential(authConf)
+}
 
+// newSingleMethodAuthCredential creates an azcore.TokenCredential. Depending on the given authConfiguration, it is
+// backed by one of several authentication methods such as Service Principal, OIDC, Managed Identity, or Azure CLI.
+//
+// Note: this function's behavior is written to match the behavior of
+// "github.com/hashicorp/go-azure-helpers/authentication".Builder.Build() in some ways, to minimize changes in provider
+// behavior when upgrading authentication dependencies from go-azure-helpers to azidentity. Namely:
+//   - The order in which the the different authentication methods are attempted is the same.
+//   - When a method is configured but instantiating the credential fails, we return an error and do not fall through to
+//     the next method.
+func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
 	if authConf.clientCertPath != "" {
+		logging.V(9).Infof("[auth] Using SP with client certificate credential")
 		certs, key, err := readCertificate(authConf.clientCertPath, authConf.clientCertPassword)
 		if err != nil {
 			return nil, err
 		}
-
-		spCert, err := azidentity.NewClientCertificateCredential(authConf.tenantId, authConf.clientId, certs, key, nil)
-		if err == nil {
-			return spCert, nil
-		}
-		logging.V(9).Infof("SP with client certificate credential cannot be used: %v", err)
+		return azidentity.NewClientCertificateCredential(authConf.tenantId, authConf.clientId, certs, key, nil)
 	} else {
 		logging.V(9).Infof("SP with client certificate credential is not enabled, skipping")
 	}
 
+	if authConf.clientSecret != "" {
+		logging.V(9).Infof("[auth] Using SP with client secret credential")
+		return azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, nil)
+	} else {
+		logging.V(9).Infof("SP with client secret credential is not enabled, skipping")
+	}
+
 	if authConf.useOidc {
-		oidc, err := newOidcCredential(authConf)
-		if err == nil {
-			return oidc, nil
-		}
-		logging.V(9).Infof("OIDC credential cannot be used: %v", err)
+		logging.V(9).Infof("[auth] Using OIDC credential")
+		return newOidcCredential(authConf)
 	} else {
 		logging.V(9).Infof("OIDC credential is not enabled, skipping")
 	}
 
 	if authConf.useMsi {
-		managedIdentity, err := azidentity.NewManagedIdentityCredential(nil)
-		if err == nil {
-			return managedIdentity, nil
+		logging.V(9).Infof("[auth] Using Managed Identity (MSI) credential")
+		var msiOpts *azidentity.ManagedIdentityCredentialOptions
+		if authConf.clientId != "" {
+			msiOpts = &azidentity.ManagedIdentityCredentialOptions{ID: azidentity.ClientID(authConf.clientId)}
 		}
-		logging.V(9).Infof("Managed Identity (MSI) credential cannot be used: %v", err)
+		return azidentity.NewManagedIdentityCredential(msiOpts)
 	} else {
 		logging.V(9).Infof("Managed Identity (MSI) credential is not enabled, skipping")
 	}
 
+	logging.V(9).Infof("[auth] Using Azure CLI credential")
 	cli, err := azidentity.NewAzureCLICredential(nil)
 	if err == nil {
 		return cli, nil
 	}
-	logging.V(9).Infof("Azure CLI credential cannot be used: %v", err)
-
 	return nil, errors.Errorf("Failed to find any valid credentials")
 }
 
@@ -218,7 +221,8 @@ type authConfiguration struct {
 	clientCertPath     string
 	clientCertPassword string
 
-	useMsi bool
+	useMsi      bool
+	msiEndpoint string
 }
 
 // getAuthConfig collects auth-related configuration from Pulumi config and environment variables
@@ -246,7 +250,9 @@ func (k *azureNativeProvider) getAuthConfig3() (*authConfiguration, error) {
 		clientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
 		clientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
 		clientCertPassword: k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),
-		useMsi:             k.getConfig("useMsi", "ARM_USE_MSI") == "true",
+
+		useMsi:      k.getConfig("useMsi", "ARM_USE_MSI") == "true",
+		msiEndpoint: k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
 
 		useOidc:               k.getConfig("useOidc", "ARM_USE_OIDC") == "true",
 		oidcToken:             k.getConfig("oidcToken", "ARM_OIDC_TOKEN"),
