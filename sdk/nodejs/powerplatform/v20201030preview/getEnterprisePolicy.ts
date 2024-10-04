@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get information about an EnterprisePolicy
  */
 export function getEnterprisePolicy(args: GetEnterprisePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterprisePolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:powerplatform/v20201030preview:getEnterprisePolicy", {
         "enterprisePolicyName": args.enterprisePolicyName,
@@ -90,11 +91,7 @@ export interface GetEnterprisePolicyResult {
  * Get information about an EnterprisePolicy
  */
 export function getEnterprisePolicyOutput(args: GetEnterprisePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterprisePolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:powerplatform/v20201030preview:getEnterprisePolicy", {
-        "enterprisePolicyName": args.enterprisePolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnterprisePolicy(a, opts))
 }
 
 export interface GetEnterprisePolicyOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List the security services for rulestack
  */
 export function listGlobalRulestackSecurityServices(args: ListGlobalRulestackSecurityServicesArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalRulestackSecurityServicesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20230901preview:listGlobalRulestackSecurityServices", {
         "globalRulestackName": args.globalRulestackName,
@@ -47,13 +48,7 @@ export interface ListGlobalRulestackSecurityServicesResult {
  * List the security services for rulestack
  */
 export function listGlobalRulestackSecurityServicesOutput(args: ListGlobalRulestackSecurityServicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalRulestackSecurityServicesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20230901preview:listGlobalRulestackSecurityServices", {
-        "globalRulestackName": args.globalRulestackName,
-        "skip": args.skip,
-        "top": args.top,
-        "type": args.type,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listGlobalRulestackSecurityServices(a, opts))
 }
 
 export interface ListGlobalRulestackSecurityServicesOutputArgs {

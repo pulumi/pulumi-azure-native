@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a description for the specified namespace.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20221001preview:getNamespace", {
         "namespaceName": args.namespaceName,
@@ -126,11 +127,7 @@ export interface GetNamespaceResult {
  * Gets a description for the specified namespace.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicebus/v20221001preview:getNamespace", {
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNamespace(a, opts))
 }
 
 export interface GetNamespaceOutputArgs {

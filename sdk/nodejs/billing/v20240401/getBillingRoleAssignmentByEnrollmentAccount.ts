@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
  */
 export function getBillingRoleAssignmentByEnrollmentAccount(args: GetBillingRoleAssignmentByEnrollmentAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingRoleAssignmentByEnrollmentAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:billing/v20240401:getBillingRoleAssignmentByEnrollmentAccount", {
         "billingAccountName": args.billingAccountName,
@@ -67,12 +68,7 @@ export interface GetBillingRoleAssignmentByEnrollmentAccountResult {
  * Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
  */
 export function getBillingRoleAssignmentByEnrollmentAccountOutput(args: GetBillingRoleAssignmentByEnrollmentAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingRoleAssignmentByEnrollmentAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:billing/v20240401:getBillingRoleAssignmentByEnrollmentAccount", {
-        "billingAccountName": args.billingAccountName,
-        "billingRoleAssignmentName": args.billingRoleAssignmentName,
-        "enrollmentAccountName": args.enrollmentAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBillingRoleAssignmentByEnrollmentAccount(a, opts))
 }
 
 export interface GetBillingRoleAssignmentByEnrollmentAccountOutputArgs {

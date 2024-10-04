@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about the specified packet core control plane.
  */
 export function getPacketCoreControlPlane(args: GetPacketCoreControlPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreControlPlaneResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20240401:getPacketCoreControlPlane", {
         "packetCoreControlPlaneName": args.packetCoreControlPlaneName,
@@ -142,11 +143,7 @@ export interface GetPacketCoreControlPlaneResult {
  * Gets information about the specified packet core control plane.
  */
 export function getPacketCoreControlPlaneOutput(args: GetPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreControlPlaneResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20240401:getPacketCoreControlPlane", {
-        "packetCoreControlPlaneName": args.packetCoreControlPlaneName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPacketCoreControlPlane(a, opts))
 }
 
 export interface GetPacketCoreControlPlaneOutputArgs {

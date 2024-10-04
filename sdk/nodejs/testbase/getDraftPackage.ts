@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-11-01-preview.
  */
 export function getDraftPackage(args: GetDraftPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetDraftPackageResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase:getDraftPackage", {
         "draftPackageName": args.draftPackageName,
@@ -169,12 +170,7 @@ export interface GetDraftPackageResult {
  * Azure REST API version: 2023-11-01-preview.
  */
 export function getDraftPackageOutput(args: GetDraftPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDraftPackageResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:testbase:getDraftPackage", {
-        "draftPackageName": args.draftPackageName,
-        "resourceGroupName": args.resourceGroupName,
-        "testBaseAccountName": args.testBaseAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDraftPackage(a, opts))
 }
 
 export interface GetDraftPackageOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List operation response containing list of Datadog Hosts.
  */
 export function listMonitorHosts(args: ListMonitorHostsArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorHostsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datadog/v20220801:listMonitorHosts", {
         "monitorName": args.monitorName,
@@ -46,11 +47,7 @@ export interface ListMonitorHostsResult {
  * List operation response containing list of Datadog Hosts.
  */
 export function listMonitorHostsOutput(args: ListMonitorHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorHostsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datadog/v20220801:listMonitorHosts", {
-        "monitorName": args.monitorName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listMonitorHosts(a, opts))
 }
 
 export interface ListMonitorHostsOutputArgs {

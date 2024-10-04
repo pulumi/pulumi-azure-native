@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get information about a configuration profile assignment
  */
 export function getConfigurationProfileAssignment(args: GetConfigurationProfileAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automanage/v20220504:getConfigurationProfileAssignment", {
         "configurationProfileAssignmentName": args.configurationProfileAssignmentName,
@@ -67,12 +68,7 @@ export interface GetConfigurationProfileAssignmentResult {
  * Get information about a configuration profile assignment
  */
 export function getConfigurationProfileAssignmentOutput(args: GetConfigurationProfileAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automanage/v20220504:getConfigurationProfileAssignment", {
-        "configurationProfileAssignmentName": args.configurationProfileAssignmentName,
-        "resourceGroupName": args.resourceGroupName,
-        "vmName": args.vmName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfigurationProfileAssignment(a, opts))
 }
 
 export interface GetConfigurationProfileAssignmentOutputArgs {

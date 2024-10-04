@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
 export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud:getConsole", {
         "consoleName": args.consoleName,
@@ -106,12 +107,7 @@ export interface GetConsoleResult {
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
 export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud:getConsole", {
-        "consoleName": args.consoleName,
-        "resourceGroupName": args.resourceGroupName,
-        "virtualMachineName": args.virtualMachineName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConsole(a, opts))
 }
 
 export interface GetConsoleOutputArgs {

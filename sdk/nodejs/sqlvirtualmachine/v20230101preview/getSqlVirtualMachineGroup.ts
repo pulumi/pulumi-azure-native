@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a SQL virtual machine group.
  */
 export function getSqlVirtualMachineGroup(args: GetSqlVirtualMachineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlVirtualMachineGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sqlvirtualmachine/v20230101preview:getSqlVirtualMachineGroup", {
         "resourceGroupName": args.resourceGroupName,
@@ -90,11 +91,7 @@ export interface GetSqlVirtualMachineGroupResult {
  * Gets a SQL virtual machine group.
  */
 export function getSqlVirtualMachineGroupOutput(args: GetSqlVirtualMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sqlvirtualmachine/v20230101preview:getSqlVirtualMachineGroup", {
-        "resourceGroupName": args.resourceGroupName,
-        "sqlVirtualMachineGroupName": args.sqlVirtualMachineGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlVirtualMachineGroup(a, opts))
 }
 
 export interface GetSqlVirtualMachineGroupOutputArgs {

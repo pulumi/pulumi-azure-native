@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
  */
 export function getApplicationGatewayBackendHealthOnDemand(args: GetApplicationGatewayBackendHealthOnDemandArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayBackendHealthOnDemandResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:getApplicationGatewayBackendHealthOnDemand", {
         "applicationGatewayName": args.applicationGatewayName,
@@ -91,20 +92,7 @@ export interface GetApplicationGatewayBackendHealthOnDemandResult {
  * Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
  */
 export function getApplicationGatewayBackendHealthOnDemandOutput(args: GetApplicationGatewayBackendHealthOnDemandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayBackendHealthOnDemandResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getApplicationGatewayBackendHealthOnDemand", {
-        "applicationGatewayName": args.applicationGatewayName,
-        "backendAddressPool": args.backendAddressPool,
-        "backendHttpSettings": args.backendHttpSettings,
-        "expand": args.expand,
-        "host": args.host,
-        "match": args.match,
-        "path": args.path,
-        "pickHostNameFromBackendHttpSettings": args.pickHostNameFromBackendHttpSettings,
-        "protocol": args.protocol,
-        "resourceGroupName": args.resourceGroupName,
-        "timeout": args.timeout,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApplicationGatewayBackendHealthOnDemand(a, opts))
 }
 
 export interface GetApplicationGatewayBackendHealthOnDemandOutputArgs {

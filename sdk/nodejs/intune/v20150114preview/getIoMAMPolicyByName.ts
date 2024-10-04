@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Returns Intune iOS policies.
  */
 export function getIoMAMPolicyByName(args: GetIoMAMPolicyByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetIoMAMPolicyByNameResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:intune/v20150114preview:getIoMAMPolicyByName", {
         "hostName": args.hostName,
@@ -80,12 +81,7 @@ export interface GetIoMAMPolicyByNameResult {
  * Returns Intune iOS policies.
  */
 export function getIoMAMPolicyByNameOutput(args: GetIoMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoMAMPolicyByNameResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:intune/v20150114preview:getIoMAMPolicyByName", {
-        "hostName": args.hostName,
-        "policyName": args.policyName,
-        "select": args.select,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIoMAMPolicyByName(a, opts))
 }
 
 export interface GetIoMAMPolicyByNameOutputArgs {

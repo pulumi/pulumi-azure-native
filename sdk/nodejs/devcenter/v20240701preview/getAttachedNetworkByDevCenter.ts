@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an attached NetworkConnection.
  */
 export function getAttachedNetworkByDevCenter(args: GetAttachedNetworkByDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedNetworkByDevCenterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20240701preview:getAttachedNetworkByDevCenter", {
         "attachedNetworkConnectionName": args.attachedNetworkConnectionName,
@@ -79,12 +80,7 @@ export interface GetAttachedNetworkByDevCenterResult {
  * Gets an attached NetworkConnection.
  */
 export function getAttachedNetworkByDevCenterOutput(args: GetAttachedNetworkByDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedNetworkByDevCenterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240701preview:getAttachedNetworkByDevCenter", {
-        "attachedNetworkConnectionName": args.attachedNetworkConnectionName,
-        "devCenterName": args.devCenterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAttachedNetworkByDevCenter(a, opts))
 }
 
 export interface GetAttachedNetworkByDevCenterOutputArgs {

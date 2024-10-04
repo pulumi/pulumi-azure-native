@@ -12,6 +12,7 @@ import * as utilities from "../../utilities";
  */
 export function getCopilotSetting(args?: GetCopilotSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetCopilotSettingResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portalservices/v20240401preview:getCopilotSetting", {
     }, opts);
@@ -53,8 +54,5 @@ export interface GetCopilotSettingResult {
  * Get a CopilotSettingsResource
  */
 export function getCopilotSettingOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCopilotSettingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:portalservices/v20240401preview:getCopilotSetting", {
-    }, opts);
+    return pulumi.output(getCopilotSetting(opts))
 }
-

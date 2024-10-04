@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Description for Gets a Swift Virtual Network connection.
  */
 export function getWebAppSwiftVirtualNetworkConnectionSlot(args: GetWebAppSwiftVirtualNetworkConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSwiftVirtualNetworkConnectionSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20231201:getWebAppSwiftVirtualNetworkConnectionSlot", {
         "name": args.name,
@@ -64,12 +65,7 @@ export interface GetWebAppSwiftVirtualNetworkConnectionSlotResult {
  * Description for Gets a Swift Virtual Network connection.
  */
 export function getWebAppSwiftVirtualNetworkConnectionSlotOutput(args: GetWebAppSwiftVirtualNetworkConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSwiftVirtualNetworkConnectionSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20231201:getWebAppSwiftVirtualNetworkConnectionSlot", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppSwiftVirtualNetworkConnectionSlot(a, opts))
 }
 
 export interface GetWebAppSwiftVirtualNetworkConnectionSlotOutputArgs {

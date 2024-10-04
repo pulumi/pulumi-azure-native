@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the specified shared private link resource
  */
 export function getWebPubSubSharedPrivateLinkResource(args: GetWebPubSubSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubSharedPrivateLinkResourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20230801preview:getWebPubSubSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,
@@ -79,12 +80,7 @@ export interface GetWebPubSubSharedPrivateLinkResourceResult {
  * Get the specified shared private link resource
  */
 export function getWebPubSubSharedPrivateLinkResourceOutput(args: GetWebPubSubSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubSharedPrivateLinkResourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20230801preview:getWebPubSubSharedPrivateLinkResource", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-        "sharedPrivateLinkResourceName": args.sharedPrivateLinkResourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebPubSubSharedPrivateLinkResource(a, opts))
 }
 
 export interface GetWebPubSubSharedPrivateLinkResourceOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The list credential result response.
  */
 export function listManagedClusterMonitoringUserCredentials(args: ListManagedClusterMonitoringUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterMonitoringUserCredentialsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20230502preview:listManagedClusterMonitoringUserCredentials", {
         "resourceGroupName": args.resourceGroupName,
@@ -47,12 +48,7 @@ export interface ListManagedClusterMonitoringUserCredentialsResult {
  * The list credential result response.
  */
 export function listManagedClusterMonitoringUserCredentialsOutput(args: ListManagedClusterMonitoringUserCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterMonitoringUserCredentialsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerservice/v20230502preview:listManagedClusterMonitoringUserCredentials", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-        "serverFqdn": args.serverFqdn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listManagedClusterMonitoringUserCredentials(a, opts))
 }
 
 export interface ListManagedClusterMonitoringUserCredentialsOutputArgs {

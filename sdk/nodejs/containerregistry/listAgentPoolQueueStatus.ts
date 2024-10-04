@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-06-01-preview.
  */
 export function listAgentPoolQueueStatus(args: ListAgentPoolQueueStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListAgentPoolQueueStatusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry:listAgentPoolQueueStatus", {
         "agentPoolName": args.agentPoolName,
@@ -46,12 +47,7 @@ export interface ListAgentPoolQueueStatusResult {
  * Azure REST API version: 2019-06-01-preview.
  */
 export function listAgentPoolQueueStatusOutput(args: ListAgentPoolQueueStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAgentPoolQueueStatusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry:listAgentPoolQueueStatus", {
-        "agentPoolName": args.agentPoolName,
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listAgentPoolQueueStatus(a, opts))
 }
 
 export interface ListAgentPoolQueueStatusOutputArgs {

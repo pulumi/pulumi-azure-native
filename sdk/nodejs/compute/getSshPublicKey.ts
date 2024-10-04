@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
 export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshPublicKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getSshPublicKey", {
         "resourceGroupName": args.resourceGroupName,
@@ -65,11 +66,7 @@ export interface GetSshPublicKeyResult {
  * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
 export function getSshPublicKeyOutput(args: GetSshPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshPublicKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute:getSshPublicKey", {
-        "resourceGroupName": args.resourceGroupName,
-        "sshPublicKeyName": args.sshPublicKeyName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSshPublicKey(a, opts))
 }
 
 export interface GetSshPublicKeyOutputArgs {

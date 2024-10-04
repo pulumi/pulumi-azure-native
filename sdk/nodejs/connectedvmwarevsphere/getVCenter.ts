@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
  */
 export function getVCenter(args: GetVCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetVCenterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere:getVCenter", {
         "resourceGroupName": args.resourceGroupName,
@@ -116,11 +117,7 @@ export interface GetVCenterResult {
  * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
  */
 export function getVCenterOutput(args: GetVCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVCenterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere:getVCenter", {
-        "resourceGroupName": args.resourceGroupName,
-        "vcenterName": args.vcenterName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVCenter(a, opts))
 }
 
 export interface GetVCenterOutputArgs {

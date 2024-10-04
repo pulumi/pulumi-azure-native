@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-07-01-preview.
  */
 export function getSecurityConnectorApplication(args: GetSecurityConnectorApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConnectorApplicationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getSecurityConnectorApplication", {
         "applicationId": args.applicationId,
@@ -66,12 +67,7 @@ export interface GetSecurityConnectorApplicationResult {
  * Azure REST API version: 2022-07-01-preview.
  */
 export function getSecurityConnectorApplicationOutput(args: GetSecurityConnectorApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorApplicationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security:getSecurityConnectorApplication", {
-        "applicationId": args.applicationId,
-        "resourceGroupName": args.resourceGroupName,
-        "securityConnectorName": args.securityConnectorName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecurityConnectorApplication(a, opts))
 }
 
 export interface GetSecurityConnectorApplicationOutputArgs {

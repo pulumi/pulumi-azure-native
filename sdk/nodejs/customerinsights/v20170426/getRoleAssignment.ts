@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the role assignment in the hub.
  */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getRoleAssignment", {
         "assignmentName": args.assignmentName,
@@ -135,12 +136,7 @@ export interface GetRoleAssignmentResult {
  * Gets the role assignment in the hub.
  */
 export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getRoleAssignment", {
-        "assignmentName": args.assignmentName,
-        "hubName": args.hubName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRoleAssignment(a, opts))
 }
 
 export interface GetRoleAssignmentOutputArgs {

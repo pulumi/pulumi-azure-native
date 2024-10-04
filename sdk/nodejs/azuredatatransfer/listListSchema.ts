@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11.
  */
 export function listListSchema(args: ListListSchemaArgs, opts?: pulumi.InvokeOptions): Promise<ListListSchemaResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer:listListSchema", {
         "connectionId": args.connectionId,
@@ -73,16 +74,7 @@ export interface ListListSchemaResult {
  * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11.
  */
 export function listListSchemaOutput(args: ListListSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListSchemaResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:listListSchema", {
-        "connectionId": args.connectionId,
-        "content": args.content,
-        "id": args.id,
-        "name": args.name,
-        "pipelineName": args.pipelineName,
-        "resourceGroupName": args.resourceGroupName,
-        "status": args.status,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listListSchema(a, opts))
 }
 
 export interface ListListSchemaOutputArgs {

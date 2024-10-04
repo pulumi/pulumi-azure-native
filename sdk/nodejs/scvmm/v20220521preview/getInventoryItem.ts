@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Shows an inventory item.
  */
 export function getInventoryItem(args: GetInventoryItemArgs, opts?: pulumi.InvokeOptions): Promise<GetInventoryItemResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm/v20220521preview:getInventoryItem", {
         "inventoryItemName": args.inventoryItemName,
@@ -83,12 +84,7 @@ export interface GetInventoryItemResult {
  * Shows an inventory item.
  */
 export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInventoryItemResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:scvmm/v20220521preview:getInventoryItem", {
-        "inventoryItemName": args.inventoryItemName,
-        "resourceGroupName": args.resourceGroupName,
-        "vmmServerName": args.vmmServerName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInventoryItem(a, opts))
 }
 
 export interface GetInventoryItemOutputArgs {

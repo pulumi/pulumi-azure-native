@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get connection info for an integration runtime
  */
 export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeConnectionInfoResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601:getIntegrationRuntimeConnectionInfo", {
         "integrationRuntimeName": args.integrationRuntimeName,
@@ -64,12 +65,7 @@ export interface GetIntegrationRuntimeConnectionInfoResult {
  * Get connection info for an integration runtime
  */
 export function getIntegrationRuntimeConnectionInfoOutput(args: GetIntegrationRuntimeConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeConnectionInfoResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601:getIntegrationRuntimeConnectionInfo", {
-        "integrationRuntimeName": args.integrationRuntimeName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIntegrationRuntimeConnectionInfo(a, opts))
 }
 
 export interface GetIntegrationRuntimeConnectionInfoOutputArgs {

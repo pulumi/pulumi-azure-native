@@ -8,6 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getOnlineDeploymentLogs(args: GetOnlineDeploymentLogsArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineDeploymentLogsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240401preview:getOnlineDeploymentLogs", {
         "containerType": args.containerType,
@@ -53,15 +54,7 @@ export interface GetOnlineDeploymentLogsResult {
     readonly content?: string;
 }
 export function getOnlineDeploymentLogsOutput(args: GetOnlineDeploymentLogsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineDeploymentLogsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401preview:getOnlineDeploymentLogs", {
-        "containerType": args.containerType,
-        "deploymentName": args.deploymentName,
-        "endpointName": args.endpointName,
-        "resourceGroupName": args.resourceGroupName,
-        "tail": args.tail,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOnlineDeploymentLogs(a, opts))
 }
 
 export interface GetOnlineDeploymentLogsOutputArgs {

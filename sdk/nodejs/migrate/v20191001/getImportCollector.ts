@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Import collector.
  */
 export function getImportCollector(args: GetImportCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetImportCollectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20191001:getImportCollector", {
         "importCollectorName": args.importCollectorName,
@@ -45,12 +46,7 @@ export interface GetImportCollectorResult {
  * Get a Import collector.
  */
 export function getImportCollectorOutput(args: GetImportCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportCollectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate/v20191001:getImportCollector", {
-        "importCollectorName": args.importCollectorName,
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getImportCollector(a, opts))
 }
 
 export interface GetImportCollectorOutputArgs {

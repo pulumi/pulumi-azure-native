@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-11-01-preview.
  */
 export function getDraftPackagePath(args: GetDraftPackagePathArgs, opts?: pulumi.InvokeOptions): Promise<GetDraftPackagePathResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase:getDraftPackagePath", {
         "draftPackageName": args.draftPackageName,
@@ -62,12 +63,7 @@ export interface GetDraftPackagePathResult {
  * Azure REST API version: 2023-11-01-preview.
  */
 export function getDraftPackagePathOutput(args: GetDraftPackagePathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDraftPackagePathResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:testbase:getDraftPackagePath", {
-        "draftPackageName": args.draftPackageName,
-        "resourceGroupName": args.resourceGroupName,
-        "testBaseAccountName": args.testBaseAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDraftPackagePath(a, opts))
 }
 
 export interface GetDraftPackagePathOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a HypervHost
  */
 export function getHypervHostController(args: GetHypervHostControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetHypervHostControllerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure/v20230606:getHypervHostController", {
         "hostName": args.hostName,
@@ -87,12 +88,7 @@ export interface GetHypervHostControllerResult {
  * Get a HypervHost
  */
 export function getHypervHostControllerOutput(args: GetHypervHostControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervHostControllerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:getHypervHostController", {
-        "hostName": args.hostName,
-        "resourceGroupName": args.resourceGroupName,
-        "siteName": args.siteName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHypervHostController(a, opts))
 }
 
 export interface GetHypervHostControllerOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-04-01-preview.
  */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:changeanalysis:getConfigurationProfile", {
         "profileName": args.profileName,
@@ -63,10 +64,7 @@ export interface GetConfigurationProfileResult {
  * Azure REST API version: 2020-04-01-preview.
  */
 export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:changeanalysis:getConfigurationProfile", {
-        "profileName": args.profileName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfigurationProfile(a, opts))
 }
 
 export interface GetConfigurationProfileOutputArgs {

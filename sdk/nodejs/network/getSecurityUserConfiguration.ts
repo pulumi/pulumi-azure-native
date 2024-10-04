@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-05-01-preview, 2024-03-01.
  */
 export function getSecurityUserConfiguration(args: GetSecurityUserConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityUserConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getSecurityUserConfiguration", {
         "configurationName": args.configurationName,
@@ -81,12 +82,7 @@ export interface GetSecurityUserConfigurationResult {
  * Other available API versions: 2021-05-01-preview, 2024-03-01.
  */
 export function getSecurityUserConfigurationOutput(args: GetSecurityUserConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityUserConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getSecurityUserConfiguration", {
-        "configurationName": args.configurationName,
-        "networkManagerName": args.networkManagerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecurityUserConfiguration(a, opts))
 }
 
 export interface GetSecurityUserConfigurationOutputArgs {

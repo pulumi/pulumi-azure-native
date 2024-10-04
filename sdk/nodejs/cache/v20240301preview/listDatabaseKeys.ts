@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Retrieves the access keys for the RedisEnterprise database.
  */
 export function listDatabaseKeys(args: ListDatabaseKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20240301preview:listDatabaseKeys", {
         "clusterName": args.clusterName,
@@ -48,12 +49,7 @@ export interface ListDatabaseKeysResult {
  * Retrieves the access keys for the RedisEnterprise database.
  */
 export function listDatabaseKeysOutput(args: ListDatabaseKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cache/v20240301preview:listDatabaseKeys", {
-        "clusterName": args.clusterName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listDatabaseKeys(a, opts))
 }
 
 export interface ListDatabaseKeysOutputArgs {

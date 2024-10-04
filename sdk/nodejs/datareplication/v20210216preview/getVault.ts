@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the vault.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datareplication/v20210216preview:getVault", {
         "resourceGroupName": args.resourceGroupName,
@@ -63,11 +64,7 @@ export interface GetVaultResult {
  * Gets the details of the vault.
  */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datareplication/v20210216preview:getVault", {
-        "resourceGroupName": args.resourceGroupName,
-        "vaultName": args.vaultName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVault(a, opts))
 }
 
 export interface GetVaultOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
 export function listLocalRulestackAdvancedSecurityObjects(args: ListLocalRulestackAdvancedSecurityObjectsArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalRulestackAdvancedSecurityObjectsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw:listLocalRulestackAdvancedSecurityObjects", {
         "localRulestackName": args.localRulestackName,
@@ -58,14 +59,7 @@ export interface ListLocalRulestackAdvancedSecurityObjectsResult {
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
 export function listLocalRulestackAdvancedSecurityObjectsOutput(args: ListLocalRulestackAdvancedSecurityObjectsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalRulestackAdvancedSecurityObjectsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cloudngfw:listLocalRulestackAdvancedSecurityObjects", {
-        "localRulestackName": args.localRulestackName,
-        "resourceGroupName": args.resourceGroupName,
-        "skip": args.skip,
-        "top": args.top,
-        "type": args.type,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listLocalRulestackAdvancedSecurityObjects(a, opts))
 }
 
 export interface ListLocalRulestackAdvancedSecurityObjectsOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a StandbyContainerGroupPoolResource
  */
 export function getStandbyContainerGroupPool(args: GetStandbyContainerGroupPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetStandbyContainerGroupPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:standbypool/v20240301:getStandbyContainerGroupPool", {
         "resourceGroupName": args.resourceGroupName,
@@ -74,11 +75,7 @@ export interface GetStandbyContainerGroupPoolResult {
  * Get a StandbyContainerGroupPoolResource
  */
 export function getStandbyContainerGroupPoolOutput(args: GetStandbyContainerGroupPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandbyContainerGroupPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:standbypool/v20240301:getStandbyContainerGroupPool", {
-        "resourceGroupName": args.resourceGroupName,
-        "standbyContainerGroupPoolName": args.standbyContainerGroupPoolName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStandbyContainerGroupPool(a, opts))
 }
 
 export interface GetStandbyContainerGroupPoolOutputArgs {

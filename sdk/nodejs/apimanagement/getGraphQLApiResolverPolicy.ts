@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getGraphQLApiResolverPolicy(args: GetGraphQLApiResolverPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLApiResolverPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getGraphQLApiResolverPolicy", {
         "apiId": args.apiId,
@@ -81,15 +82,7 @@ export interface GetGraphQLApiResolverPolicyResult {
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getGraphQLApiResolverPolicyOutput(args: GetGraphQLApiResolverPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLApiResolverPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getGraphQLApiResolverPolicy", {
-        "apiId": args.apiId,
-        "format": args.format,
-        "policyId": args.policyId,
-        "resolverId": args.resolverId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGraphQLApiResolverPolicy(a, opts))
 }
 
 export interface GetGraphQLApiResolverPolicyOutputArgs {

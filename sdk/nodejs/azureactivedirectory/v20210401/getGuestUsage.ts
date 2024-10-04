@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
  */
 export function getGuestUsage(args: GetGuestUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestUsageResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azureactivedirectory/v20210401:getGuestUsage", {
         "resourceGroupName": args.resourceGroupName,
@@ -66,11 +67,7 @@ export interface GetGuestUsageResult {
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
  */
 export function getGuestUsageOutput(args: GetGuestUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestUsageResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azureactivedirectory/v20210401:getGuestUsage", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGuestUsage(a, opts))
 }
 
 export interface GetGuestUsageOutputArgs {

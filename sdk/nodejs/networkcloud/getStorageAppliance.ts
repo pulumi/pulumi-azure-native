@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
 export function getStorageAppliance(args: GetStorageApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageApplianceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud:getStorageAppliance", {
         "resourceGroupName": args.resourceGroupName,
@@ -125,11 +126,7 @@ export interface GetStorageApplianceResult {
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
 export function getStorageApplianceOutput(args: GetStorageApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageApplianceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud:getStorageAppliance", {
-        "resourceGroupName": args.resourceGroupName,
-        "storageApplianceName": args.storageApplianceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageAppliance(a, opts))
 }
 
 export interface GetStorageApplianceOutputArgs {

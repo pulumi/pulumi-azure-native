@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a WorkloadNetworkSegment
  */
 export function getWorkloadNetworkSegment(args: GetWorkloadNetworkSegmentArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkSegmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20230901:getWorkloadNetworkSegment", {
         "privateCloudName": args.privateCloudName,
@@ -87,12 +88,7 @@ export interface GetWorkloadNetworkSegmentResult {
  * Get a WorkloadNetworkSegment
  */
 export function getWorkloadNetworkSegmentOutput(args: GetWorkloadNetworkSegmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkSegmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getWorkloadNetworkSegment", {
-        "privateCloudName": args.privateCloudName,
-        "resourceGroupName": args.resourceGroupName,
-        "segmentId": args.segmentId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkloadNetworkSegment(a, opts))
 }
 
 export interface GetWorkloadNetworkSegmentOutputArgs {

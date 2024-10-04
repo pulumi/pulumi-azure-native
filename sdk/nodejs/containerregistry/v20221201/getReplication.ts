@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified replication.
  */
 export function getReplication(args: GetReplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20221201:getReplication", {
         "registryName": args.registryName,
@@ -83,12 +84,7 @@ export interface GetReplicationResult {
  * Gets the properties of the specified replication.
  */
 export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20221201:getReplication", {
-        "registryName": args.registryName,
-        "replicationName": args.replicationName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReplication(a, opts))
 }
 
 export interface GetReplicationOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the group link for the product.
  */
 export function getProductGroupLink(args: GetProductGroupLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetProductGroupLinkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getProductGroupLink", {
         "groupLinkId": args.groupLinkId,
@@ -61,13 +62,7 @@ export interface GetProductGroupLinkResult {
  * Gets the group link for the product.
  */
 export function getProductGroupLinkOutput(args: GetProductGroupLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductGroupLinkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getProductGroupLink", {
-        "groupLinkId": args.groupLinkId,
-        "productId": args.productId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProductGroupLink(a, opts))
 }
 
 export interface GetProductGroupLinkOutputArgs {

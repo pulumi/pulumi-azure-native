@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists the applicable start/stop schedules, if any.
  */
 export function listServiceFabricApplicableSchedules(args: ListServiceFabricApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceFabricApplicableSchedulesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:listServiceFabricApplicableSchedules", {
         "labName": args.labName,
@@ -76,13 +77,7 @@ export interface ListServiceFabricApplicableSchedulesResult {
  * Lists the applicable start/stop schedules, if any.
  */
 export function listServiceFabricApplicableSchedulesOutput(args: ListServiceFabricApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceFabricApplicableSchedulesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:listServiceFabricApplicableSchedules", {
-        "labName": args.labName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "userName": args.userName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listServiceFabricApplicableSchedules(a, opts))
 }
 
 export interface ListServiceFabricApplicableSchedulesOutputArgs {

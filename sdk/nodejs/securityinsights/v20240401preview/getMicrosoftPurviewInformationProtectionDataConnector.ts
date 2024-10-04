@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getMicrosoftPurviewInformationProtectionDataConnector(args: GetMicrosoftPurviewInformationProtectionDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMicrosoftPurviewInformationProtectionDataConnectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20240401preview:getMicrosoftPurviewInformationProtectionDataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -76,12 +77,7 @@ export interface GetMicrosoftPurviewInformationProtectionDataConnectorResult {
  * Gets a data connector.
  */
 export function getMicrosoftPurviewInformationProtectionDataConnectorOutput(args: GetMicrosoftPurviewInformationProtectionDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftPurviewInformationProtectionDataConnectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:getMicrosoftPurviewInformationProtectionDataConnector", {
-        "dataConnectorId": args.dataConnectorId,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMicrosoftPurviewInformationProtectionDataConnector(a, opts))
 }
 
 export interface GetMicrosoftPurviewInformationProtectionDataConnectorOutputArgs {

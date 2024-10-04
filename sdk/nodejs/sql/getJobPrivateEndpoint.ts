@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getJobPrivateEndpoint(args: GetJobPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetJobPrivateEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql:getJobPrivateEndpoint", {
         "jobAgentName": args.jobAgentName,
@@ -71,13 +72,7 @@ export interface GetJobPrivateEndpointResult {
  * Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getJobPrivateEndpointOutput(args: GetJobPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobPrivateEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql:getJobPrivateEndpoint", {
-        "jobAgentName": args.jobAgentName,
-        "privateEndpointName": args.privateEndpointName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getJobPrivateEndpoint(a, opts))
 }
 
 export interface GetJobPrivateEndpointOutputArgs {

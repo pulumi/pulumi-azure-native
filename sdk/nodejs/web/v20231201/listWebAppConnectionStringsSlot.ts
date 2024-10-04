@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Description for Gets the connection strings of an app.
  */
 export function listWebAppConnectionStringsSlot(args: ListWebAppConnectionStringsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppConnectionStringsSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20231201:listWebAppConnectionStringsSlot", {
         "name": args.name,
@@ -63,12 +64,7 @@ export interface ListWebAppConnectionStringsSlotResult {
  * Description for Gets the connection strings of an app.
  */
 export function listWebAppConnectionStringsSlotOutput(args: ListWebAppConnectionStringsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppConnectionStringsSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20231201:listWebAppConnectionStringsSlot", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppConnectionStringsSlot(a, opts))
 }
 
 export interface ListWebAppConnectionStringsSlotOutputArgs {

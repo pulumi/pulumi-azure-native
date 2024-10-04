@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a VirtualWAN.
  */
 export function getVirtualWAN(args: GetVirtualWANArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualWANResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180701:getVirtualWAN", {
         "resourceGroupName": args.resourceGroupName,
@@ -75,11 +76,7 @@ export interface GetVirtualWANResult {
  * Retrieves the details of a VirtualWAN.
  */
 export function getVirtualWANOutput(args: GetVirtualWANOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualWANResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20180701:getVirtualWAN", {
-        "resourceGroupName": args.resourceGroupName,
-        "virtualWANName": args.virtualWANName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualWAN(a, opts))
 }
 
 export interface GetVirtualWANOutputArgs {

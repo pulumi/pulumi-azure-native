@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
  */
 export function getBillingRoleAssignmentByDepartment(args: GetBillingRoleAssignmentByDepartmentArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingRoleAssignmentByDepartmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:billing/v20191001preview:getBillingRoleAssignmentByDepartment", {
         "billingAccountName": args.billingAccountName,
@@ -92,12 +93,7 @@ export interface GetBillingRoleAssignmentByDepartmentResult {
  * Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
  */
 export function getBillingRoleAssignmentByDepartmentOutput(args: GetBillingRoleAssignmentByDepartmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingRoleAssignmentByDepartmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:billing/v20191001preview:getBillingRoleAssignmentByDepartment", {
-        "billingAccountName": args.billingAccountName,
-        "billingRoleAssignmentName": args.billingRoleAssignmentName,
-        "departmentName": args.departmentName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBillingRoleAssignmentByDepartment(a, opts))
 }
 
 export interface GetBillingRoleAssignmentByDepartmentOutputArgs {

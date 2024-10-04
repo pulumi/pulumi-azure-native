@@ -12,6 +12,7 @@ import * as utilities from "../../utilities";
  */
 export function getRequiredAmlFSSubnetsSize(args?: GetRequiredAmlFSSubnetsSizeArgs, opts?: pulumi.InvokeOptions): Promise<GetRequiredAmlFSSubnetsSizeResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagecache/v20230501:getRequiredAmlFSSubnetsSize", {
         "sku": args.sku,
@@ -43,12 +44,7 @@ export interface GetRequiredAmlFSSubnetsSizeResult {
  * Get the number of available IP addresses needed for the AML file system information provided.
  */
 export function getRequiredAmlFSSubnetsSizeOutput(args?: GetRequiredAmlFSSubnetsSizeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRequiredAmlFSSubnetsSizeResult> {
-    args = args || {};
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storagecache/v20230501:getRequiredAmlFSSubnetsSize", {
-        "sku": args.sku,
-        "storageCapacityTiB": args.storageCapacityTiB,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRequiredAmlFSSubnetsSize(a, opts))
 }
 
 export interface GetRequiredAmlFSSubnetsSizeOutputArgs {

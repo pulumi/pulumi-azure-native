@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the Spring Cloud Gateway and its properties.
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20231101preview:getGateway", {
         "gatewayName": args.gatewayName,
@@ -67,12 +68,7 @@ export interface GetGatewayResult {
  * Get the Spring Cloud Gateway and its properties.
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231101preview:getGateway", {
-        "gatewayName": args.gatewayName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGateway(a, opts))
 }
 
 export interface GetGatewayOutputArgs {

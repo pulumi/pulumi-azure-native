@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a deployment script with a given name.
  */
 export function getAzureCliScript(args: GetAzureCliScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureCliScriptResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20230801:getAzureCliScript", {
         "resourceGroupName": args.resourceGroupName,
@@ -131,11 +132,7 @@ export interface GetAzureCliScriptResult {
  * Gets a deployment script with a given name.
  */
 export function getAzureCliScriptOutput(args: GetAzureCliScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureCliScriptResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:resources/v20230801:getAzureCliScript", {
-        "resourceGroupName": args.resourceGroupName,
-        "scriptName": args.scriptName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAzureCliScript(a, opts))
 }
 
 export interface GetAzureCliScriptOutputArgs {

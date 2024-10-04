@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-08-01.
  */
 export function getBlobFolderDataSet(args: GetBlobFolderDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobFolderDataSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare:getBlobFolderDataSet", {
         "accountName": args.accountName,
@@ -95,13 +96,7 @@ export interface GetBlobFolderDataSetResult {
  * Azure REST API version: 2021-08-01.
  */
 export function getBlobFolderDataSetOutput(args: GetBlobFolderDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobFolderDataSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datashare:getBlobFolderDataSet", {
-        "accountName": args.accountName,
-        "dataSetName": args.dataSetName,
-        "resourceGroupName": args.resourceGroupName,
-        "shareName": args.shareName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBlobFolderDataSet(a, opts))
 }
 
 export interface GetBlobFolderDataSetOutputArgs {

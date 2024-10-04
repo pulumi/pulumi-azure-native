@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getVirtualNetworkGatewayVpnProfilePackageUrl(args: GetVirtualNetworkGatewayVpnProfilePackageUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnProfilePackageUrlResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getVirtualNetworkGatewayVpnProfilePackageUrl", {
         "resourceGroupName": args.resourceGroupName,
@@ -39,11 +40,7 @@ export interface GetVirtualNetworkGatewayVpnProfilePackageUrlResult {
  * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getVirtualNetworkGatewayVpnProfilePackageUrlOutput(args: GetVirtualNetworkGatewayVpnProfilePackageUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnProfilePackageUrlResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getVirtualNetworkGatewayVpnProfilePackageUrl", {
-        "resourceGroupName": args.resourceGroupName,
-        "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayVpnProfilePackageUrl(a, opts))
 }
 
 export interface GetVirtualNetworkGatewayVpnProfilePackageUrlOutputArgs {

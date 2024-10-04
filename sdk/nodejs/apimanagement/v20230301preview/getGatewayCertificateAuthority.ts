@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get assigned Gateway Certificate Authority details.
  */
 export function getGatewayCertificateAuthority(args: GetGatewayCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayCertificateAuthorityResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230301preview:getGatewayCertificateAuthority", {
         "certificateId": args.certificateId,
@@ -61,13 +62,7 @@ export interface GetGatewayCertificateAuthorityResult {
  * Get assigned Gateway Certificate Authority details.
  */
 export function getGatewayCertificateAuthorityOutput(args: GetGatewayCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayCertificateAuthorityResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getGatewayCertificateAuthority", {
-        "certificateId": args.certificateId,
-        "gatewayId": args.gatewayId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGatewayCertificateAuthority(a, opts))
 }
 
 export interface GetGatewayCertificateAuthorityOutputArgs {

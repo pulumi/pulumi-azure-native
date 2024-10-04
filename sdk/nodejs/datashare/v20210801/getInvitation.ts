@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get an invitation in a share
  */
 export function getInvitation(args: GetInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvitationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:getInvitation", {
         "accountName": args.accountName,
@@ -106,13 +107,7 @@ export interface GetInvitationResult {
  * Get an invitation in a share
  */
 export function getInvitationOutput(args: GetInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvitationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getInvitation", {
-        "accountName": args.accountName,
-        "invitationName": args.invitationName,
-        "resourceGroupName": args.resourceGroupName,
-        "shareName": args.shareName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInvitation(a, opts))
 }
 
 export interface GetInvitationOutputArgs {

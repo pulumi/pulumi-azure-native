@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve the Dsc node configurations by node configuration.
  */
 export function getDscNodeConfiguration(args: GetDscNodeConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscNodeConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20231101:getDscNodeConfiguration", {
         "automationAccountName": args.automationAccountName,
@@ -79,12 +80,7 @@ export interface GetDscNodeConfigurationResult {
  * Retrieve the Dsc node configurations by node configuration.
  */
 export function getDscNodeConfigurationOutput(args: GetDscNodeConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscNodeConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automation/v20231101:getDscNodeConfiguration", {
-        "automationAccountName": args.automationAccountName,
-        "nodeConfigurationName": args.nodeConfigurationName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDscNodeConfiguration(a, opts))
 }
 
 export interface GetDscNodeConfigurationOutputArgs {

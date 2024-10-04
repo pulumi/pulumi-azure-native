@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-10-30-preview.
  */
 export function getEnterprisePolicy(args: GetEnterprisePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterprisePolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:powerplatform:getEnterprisePolicy", {
         "enterprisePolicyName": args.enterprisePolicyName,
@@ -92,11 +93,7 @@ export interface GetEnterprisePolicyResult {
  * Azure REST API version: 2020-10-30-preview.
  */
 export function getEnterprisePolicyOutput(args: GetEnterprisePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterprisePolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:powerplatform:getEnterprisePolicy", {
-        "enterprisePolicyName": args.enterprisePolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnterprisePolicy(a, opts))
 }
 
 export interface GetEnterprisePolicyOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the Application Live  and its properties.
  */
 export function getApplicationLiveView(args: GetApplicationLiveViewArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationLiveViewResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20240101preview:getApplicationLiveView", {
         "applicationLiveViewName": args.applicationLiveViewName,
@@ -63,12 +64,7 @@ export interface GetApplicationLiveViewResult {
  * Get the Application Live  and its properties.
  */
 export function getApplicationLiveViewOutput(args: GetApplicationLiveViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationLiveViewResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240101preview:getApplicationLiveView", {
-        "applicationLiveViewName": args.applicationLiveViewName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApplicationLiveView(a, opts))
 }
 
 export interface GetApplicationLiveViewOutputArgs {

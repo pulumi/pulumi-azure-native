@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns a Storage Target from a cache.
  */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagecache/v20231101preview:getStorageTarget", {
         "cacheName": args.cacheName,
@@ -99,12 +100,7 @@ export interface GetStorageTargetResult {
  * Returns a Storage Target from a cache.
  */
 export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTargetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storagecache/v20231101preview:getStorageTarget", {
-        "cacheName": args.cacheName,
-        "resourceGroupName": args.resourceGroupName,
-        "storageTargetName": args.storageTargetName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageTarget(a, opts))
 }
 
 export interface GetStorageTargetOutputArgs {

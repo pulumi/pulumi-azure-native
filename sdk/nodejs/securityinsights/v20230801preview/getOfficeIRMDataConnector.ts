@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getOfficeIRMDataConnector(args: GetOfficeIRMDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficeIRMDataConnectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230801preview:getOfficeIRMDataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -76,12 +77,7 @@ export interface GetOfficeIRMDataConnectorResult {
  * Gets a data connector.
  */
 export function getOfficeIRMDataConnectorOutput(args: GetOfficeIRMDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeIRMDataConnectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230801preview:getOfficeIRMDataConnector", {
-        "dataConnectorId": args.dataConnectorId,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOfficeIRMDataConnector(a, opts))
 }
 
 export interface GetOfficeIRMDataConnectorOutputArgs {

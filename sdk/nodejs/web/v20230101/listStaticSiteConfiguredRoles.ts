@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Description for Lists the roles configured for the static site.
  */
 export function listStaticSiteConfiguredRoles(args: ListStaticSiteConfiguredRolesArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteConfiguredRolesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20230101:listStaticSiteConfiguredRoles", {
         "name": args.name,
@@ -55,11 +56,7 @@ export interface ListStaticSiteConfiguredRolesResult {
  * Description for Lists the roles configured for the static site.
  */
 export function listStaticSiteConfiguredRolesOutput(args: ListStaticSiteConfiguredRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteConfiguredRolesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20230101:listStaticSiteConfiguredRoles", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listStaticSiteConfiguredRoles(a, opts))
 }
 
 export interface ListStaticSiteConfiguredRolesOutputArgs {

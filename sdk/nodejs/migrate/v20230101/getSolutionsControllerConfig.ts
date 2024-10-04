@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Class representing the config for the solution in the migrate project.
  */
 export function getSolutionsControllerConfig(args: GetSolutionsControllerConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionsControllerConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20230101:getSolutionsControllerConfig", {
         "migrateProjectName": args.migrateProjectName,
@@ -44,12 +45,7 @@ export interface GetSolutionsControllerConfigResult {
  * Class representing the config for the solution in the migrate project.
  */
 export function getSolutionsControllerConfigOutput(args: GetSolutionsControllerConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionsControllerConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate/v20230101:getSolutionsControllerConfig", {
-        "migrateProjectName": args.migrateProjectName,
-        "resourceGroupName": args.resourceGroupName,
-        "solutionName": args.solutionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSolutionsControllerConfig(a, opts))
 }
 
 export interface GetSolutionsControllerConfigOutputArgs {

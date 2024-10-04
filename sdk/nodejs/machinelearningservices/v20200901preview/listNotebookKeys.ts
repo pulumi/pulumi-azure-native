@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 export function listNotebookKeys(args: ListNotebookKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNotebookKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200901preview:listNotebookKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -28,11 +29,7 @@ export interface ListNotebookKeysResult {
     readonly secondaryAccessKey: string;
 }
 export function listNotebookKeysOutput(args: ListNotebookKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotebookKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20200901preview:listNotebookKeys", {
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listNotebookKeys(a, opts))
 }
 
 export interface ListNotebookKeysOutputArgs {

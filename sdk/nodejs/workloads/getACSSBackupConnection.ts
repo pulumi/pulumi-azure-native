@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-10-01-preview.
  */
 export function getACSSBackupConnection(args: GetACSSBackupConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetACSSBackupConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads:getACSSBackupConnection", {
         "backupName": args.backupName,
@@ -81,12 +82,7 @@ export interface GetACSSBackupConnectionResult {
  * Azure REST API version: 2023-10-01-preview.
  */
 export function getACSSBackupConnectionOutput(args: GetACSSBackupConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetACSSBackupConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads:getACSSBackupConnection", {
-        "backupName": args.backupName,
-        "connectorName": args.connectorName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getACSSBackupConnection(a, opts))
 }
 
 export interface GetACSSBackupConnectionOutputArgs {

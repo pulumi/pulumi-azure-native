@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
 export function getTrunkedNetwork(args: GetTrunkedNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetTrunkedNetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud:getTrunkedNetwork", {
         "resourceGroupName": args.resourceGroupName,
@@ -113,11 +114,7 @@ export interface GetTrunkedNetworkResult {
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
 export function getTrunkedNetworkOutput(args: GetTrunkedNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrunkedNetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud:getTrunkedNetwork", {
-        "resourceGroupName": args.resourceGroupName,
-        "trunkedNetworkName": args.trunkedNetworkName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTrunkedNetwork(a, opts))
 }
 
 export interface GetTrunkedNetworkOutputArgs {

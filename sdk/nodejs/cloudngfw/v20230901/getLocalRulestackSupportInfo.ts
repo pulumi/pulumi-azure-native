@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * support info for rulestack.
  */
 export function getLocalRulestackSupportInfo(args: GetLocalRulestackSupportInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRulestackSupportInfoResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20230901:getLocalRulestackSupportInfo", {
         "email": args.email,
@@ -88,12 +89,7 @@ export interface GetLocalRulestackSupportInfoResult {
  * support info for rulestack.
  */
 export function getLocalRulestackSupportInfoOutput(args: GetLocalRulestackSupportInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRulestackSupportInfoResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20230901:getLocalRulestackSupportInfo", {
-        "email": args.email,
-        "localRulestackName": args.localRulestackName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLocalRulestackSupportInfo(a, opts))
 }
 
 export interface GetLocalRulestackSupportInfoOutputArgs {

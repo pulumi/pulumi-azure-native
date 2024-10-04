@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-08-01-preview.
  */
 export function getADOOAuthInfo(args: GetADOOAuthInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetADOOAuthInfoResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devhub:getADOOAuthInfo", {
         "location": args.location,
@@ -45,11 +46,7 @@ export interface GetADOOAuthInfoResult {
  * Azure REST API version: 2024-08-01-preview.
  */
 export function getADOOAuthInfoOutput(args: GetADOOAuthInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADOOAuthInfoResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devhub:getADOOAuthInfo", {
-        "location": args.location,
-        "redirectUrl": args.redirectUrl,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getADOOAuthInfo(a, opts))
 }
 
 export interface GetADOOAuthInfoOutputArgs {

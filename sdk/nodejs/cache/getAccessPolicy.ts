@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache:getAccessPolicy", {
         "accessPolicyName": args.accessPolicyName,
@@ -66,12 +67,7 @@ export interface GetAccessPolicyResult {
  * Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview.
  */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cache:getAccessPolicy", {
-        "accessPolicyName": args.accessPolicyName,
-        "cacheName": args.cacheName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))
 }
 
 export interface GetAccessPolicyOutputArgs {

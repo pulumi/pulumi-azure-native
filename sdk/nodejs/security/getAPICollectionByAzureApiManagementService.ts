@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-11-15.
  */
 export function getAPICollectionByAzureApiManagementService(args: GetAPICollectionByAzureApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAPICollectionByAzureApiManagementServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getAPICollectionByAzureApiManagementService", {
         "apiId": args.apiId,
@@ -94,12 +95,7 @@ export interface GetAPICollectionByAzureApiManagementServiceResult {
  * Azure REST API version: 2023-11-15.
  */
 export function getAPICollectionByAzureApiManagementServiceOutput(args: GetAPICollectionByAzureApiManagementServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAPICollectionByAzureApiManagementServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security:getAPICollectionByAzureApiManagementService", {
-        "apiId": args.apiId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAPICollectionByAzureApiManagementService(a, opts))
 }
 
 export interface GetAPICollectionByAzureApiManagementServiceOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
  */
 export function listJobCredentials(args: ListJobCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListJobCredentialsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databox:listJobCredentials", {
         "jobName": args.jobName,
@@ -52,11 +53,7 @@ export interface ListJobCredentialsResult {
  * Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
  */
 export function listJobCredentialsOutput(args: ListJobCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobCredentialsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databox:listJobCredentials", {
-        "jobName": args.jobName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listJobCredentials(a, opts))
 }
 
 export interface ListJobCredentialsOutputArgs {

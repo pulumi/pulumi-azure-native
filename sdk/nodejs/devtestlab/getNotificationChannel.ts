@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-05-15.
  */
 export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab:getNotificationChannel", {
         "expand": args.expand,
@@ -106,13 +107,7 @@ export interface GetNotificationChannelResult {
  * Other available API versions: 2016-05-15.
  */
 export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devtestlab:getNotificationChannel", {
-        "expand": args.expand,
-        "labName": args.labName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNotificationChannel(a, opts))
 }
 
 export interface GetNotificationChannelOutputArgs {

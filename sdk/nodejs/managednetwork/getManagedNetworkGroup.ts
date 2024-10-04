@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-06-01-preview.
  */
 export function getManagedNetworkGroup(args: GetManagedNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedNetworkGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetwork:getManagedNetworkGroup", {
         "managedNetworkGroupName": args.managedNetworkGroupName,
@@ -89,12 +90,7 @@ export interface GetManagedNetworkGroupResult {
  * Azure REST API version: 2019-06-01-preview.
  */
 export function getManagedNetworkGroupOutput(args: GetManagedNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managednetwork:getManagedNetworkGroup", {
-        "managedNetworkGroupName": args.managedNetworkGroupName,
-        "managedNetworkName": args.managedNetworkName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedNetworkGroup(a, opts))
 }
 
 export interface GetManagedNetworkGroupOutputArgs {

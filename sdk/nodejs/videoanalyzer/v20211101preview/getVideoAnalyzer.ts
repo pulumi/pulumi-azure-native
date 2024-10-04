@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the details of the specified Video Analyzer account
  */
 export function getVideoAnalyzer(args: GetVideoAnalyzerArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoAnalyzerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20211101preview:getVideoAnalyzer", {
         "accountName": args.accountName,
@@ -98,11 +99,7 @@ export interface GetVideoAnalyzerResult {
  * Get the details of the specified Video Analyzer account
  */
 export function getVideoAnalyzerOutput(args: GetVideoAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoAnalyzerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:videoanalyzer/v20211101preview:getVideoAnalyzer", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVideoAnalyzer(a, opts))
 }
 
 export interface GetVideoAnalyzerOutputArgs {

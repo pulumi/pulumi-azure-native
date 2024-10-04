@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-11-01-preview.
  */
 export function getPipelineTopology(args: GetPipelineTopologyArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineTopologyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer:getPipelineTopology", {
         "accountName": args.accountName,
@@ -94,12 +95,7 @@ export interface GetPipelineTopologyResult {
  * Azure REST API version: 2021-11-01-preview.
  */
 export function getPipelineTopologyOutput(args: GetPipelineTopologyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineTopologyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:videoanalyzer:getPipelineTopology", {
-        "accountName": args.accountName,
-        "pipelineTopologyName": args.pipelineTopologyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPipelineTopology(a, opts))
 }
 
 export interface GetPipelineTopologyOutputArgs {

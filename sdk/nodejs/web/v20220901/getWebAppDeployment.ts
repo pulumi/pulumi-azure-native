@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Description for Get a deployment by its ID for an app, or a deployment slot.
  */
 export function getWebAppDeployment(args: GetWebAppDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220901:getWebAppDeployment", {
         "id": args.id,
@@ -92,12 +93,7 @@ export interface GetWebAppDeploymentResult {
  * Description for Get a deployment by its ID for an app, or a deployment slot.
  */
 export function getWebAppDeploymentOutput(args: GetWebAppDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDeploymentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20220901:getWebAppDeployment", {
-        "id": args.id,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppDeployment(a, opts))
 }
 
 export interface GetWebAppDeploymentOutputArgs {

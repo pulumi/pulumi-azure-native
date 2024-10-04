@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Generate credentials for publishing SKU images.
  */
 export function listVendorSkusCredential(args: ListVendorSkusCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListVendorSkusCredentialResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20220101preview:listVendorSkusCredential", {
         "skuName": args.skuName,
@@ -55,11 +56,7 @@ export interface ListVendorSkusCredentialResult {
  * Generate credentials for publishing SKU images.
  */
 export function listVendorSkusCredentialOutput(args: ListVendorSkusCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVendorSkusCredentialResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20220101preview:listVendorSkusCredential", {
-        "skuName": args.skuName,
-        "vendorName": args.vendorName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listVendorSkusCredential(a, opts))
 }
 
 export interface ListVendorSkusCredentialOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the specified authorization from the specified express route port.
  */
 export function getExpressRoutePortAuthorization(args: GetExpressRoutePortAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRoutePortAuthorizationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230401:getExpressRoutePortAuthorization", {
         "authorizationName": args.authorizationName,
@@ -72,12 +73,7 @@ export interface GetExpressRoutePortAuthorizationResult {
  * Gets the specified authorization from the specified express route port.
  */
 export function getExpressRoutePortAuthorizationOutput(args: GetExpressRoutePortAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRoutePortAuthorizationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230401:getExpressRoutePortAuthorization", {
-        "authorizationName": args.authorizationName,
-        "expressRoutePortName": args.expressRoutePortName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getExpressRoutePortAuthorization(a, opts))
 }
 
 export interface GetExpressRoutePortAuthorizationOutputArgs {

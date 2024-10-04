@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the Azure AD B2C tenant resource.
  */
 export function getB2CTenant(args: GetB2CTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetB2CTenantResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azureactivedirectory/v20230517preview:getB2CTenant", {
         "resourceGroupName": args.resourceGroupName,
@@ -75,11 +76,7 @@ export interface GetB2CTenantResult {
  * Get the Azure AD B2C tenant resource.
  */
 export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetB2CTenantResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azureactivedirectory/v20230517preview:getB2CTenant", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getB2CTenant(a, opts))
 }
 
 export interface GetB2CTenantOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a batch configuration for an integration account.
  */
 export function getIntegrationAccountBatchConfiguration(args: GetIntegrationAccountBatchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountBatchConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20190501:getIntegrationAccountBatchConfiguration", {
         "batchConfigurationName": args.batchConfigurationName,
@@ -67,12 +68,7 @@ export interface GetIntegrationAccountBatchConfigurationResult {
  * Get a batch configuration for an integration account.
  */
 export function getIntegrationAccountBatchConfigurationOutput(args: GetIntegrationAccountBatchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountBatchConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic/v20190501:getIntegrationAccountBatchConfiguration", {
-        "batchConfigurationName": args.batchConfigurationName,
-        "integrationAccountName": args.integrationAccountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIntegrationAccountBatchConfiguration(a, opts))
 }
 
 export interface GetIntegrationAccountBatchConfigurationOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The operation to get the VMSS VM run command.
  */
 export function getVirtualMachineScaleSetVMRunCommand(args: GetVirtualMachineScaleSetVMRunCommandArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMRunCommandResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20230301:getVirtualMachineScaleSetVMRunCommand", {
         "expand": args.expand,
@@ -129,14 +130,7 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
  * The operation to get the VMSS VM run command.
  */
 export function getVirtualMachineScaleSetVMRunCommandOutput(args: GetVirtualMachineScaleSetVMRunCommandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMRunCommandResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute/v20230301:getVirtualMachineScaleSetVMRunCommand", {
-        "expand": args.expand,
-        "instanceId": args.instanceId,
-        "resourceGroupName": args.resourceGroupName,
-        "runCommandName": args.runCommandName,
-        "vmScaleSetName": args.vmScaleSetName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVMRunCommand(a, opts))
 }
 
 export interface GetVirtualMachineScaleSetVMRunCommandOutputArgs {

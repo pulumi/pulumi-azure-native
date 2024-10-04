@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get image properties under the image definition name created by test base custom image which derived from 'VHD' source.
  */
 export function getImageDefinition(args: GetImageDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetImageDefinitionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20231101preview:getImageDefinition", {
         "imageDefinitionName": args.imageDefinitionName,
@@ -72,12 +73,7 @@ export interface GetImageDefinitionResult {
  * Get image properties under the image definition name created by test base custom image which derived from 'VHD' source.
  */
 export function getImageDefinitionOutput(args: GetImageDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageDefinitionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getImageDefinition", {
-        "imageDefinitionName": args.imageDefinitionName,
-        "resourceGroupName": args.resourceGroupName,
-        "testBaseAccountName": args.testBaseAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getImageDefinition(a, opts))
 }
 
 export interface GetImageDefinitionOutputArgs {

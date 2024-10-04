@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Migration item.
  */
 export function getReplicationMigrationItem(args: GetReplicationMigrationItemArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationMigrationItemResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20230401:getReplicationMigrationItem", {
         "fabricName": args.fabricName,
@@ -73,14 +74,7 @@ export interface GetReplicationMigrationItemResult {
  * Migration item.
  */
 export function getReplicationMigrationItemOutput(args: GetReplicationMigrationItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationMigrationItemResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230401:getReplicationMigrationItem", {
-        "fabricName": args.fabricName,
-        "migrationItemName": args.migrationItemName,
-        "protectionContainerName": args.protectionContainerName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReplicationMigrationItem(a, opts))
 }
 
 export interface GetReplicationMigrationItemOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../../utilities";
  */
 export function getDnsResourceReferenceByTarResources(args?: GetDnsResourceReferenceByTarResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResourceReferenceByTarResourcesResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180501:getDnsResourceReferenceByTarResources", {
         "targetResources": args.targetResources,
@@ -38,11 +39,7 @@ export interface GetDnsResourceReferenceByTarResourcesResult {
  * Returns the DNS records specified by the referencing targetResourceIds.
  */
 export function getDnsResourceReferenceByTarResourcesOutput(args?: GetDnsResourceReferenceByTarResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResourceReferenceByTarResourcesResult> {
-    args = args || {};
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20180501:getDnsResourceReferenceByTarResources", {
-        "targetResources": args.targetResources,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDnsResourceReferenceByTarResources(a, opts))
 }
 
 export interface GetDnsResourceReferenceByTarResourcesOutputArgs {

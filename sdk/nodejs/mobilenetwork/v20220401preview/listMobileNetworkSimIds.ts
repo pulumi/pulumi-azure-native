@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists the IDs of all provisioned SIMs in a mobile network
  */
 export function listMobileNetworkSimIds(args: ListMobileNetworkSimIdsArgs, opts?: pulumi.InvokeOptions): Promise<ListMobileNetworkSimIdsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220401preview:listMobileNetworkSimIds", {
         "mobileNetworkName": args.mobileNetworkName,
@@ -46,11 +47,7 @@ export interface ListMobileNetworkSimIdsResult {
  * Lists the IDs of all provisioned SIMs in a mobile network
  */
 export function listMobileNetworkSimIdsOutput(args: ListMobileNetworkSimIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMobileNetworkSimIdsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20220401preview:listMobileNetworkSimIds", {
-        "mobileNetworkName": args.mobileNetworkName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listMobileNetworkSimIds(a, opts))
 }
 
 export interface ListMobileNetworkSimIdsOutputArgs {

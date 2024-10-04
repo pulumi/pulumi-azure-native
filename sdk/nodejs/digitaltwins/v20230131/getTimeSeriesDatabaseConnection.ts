@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the description of an existing time series database connection.
  */
 export function getTimeSeriesDatabaseConnection(args: GetTimeSeriesDatabaseConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetTimeSeriesDatabaseConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20230131:getTimeSeriesDatabaseConnection", {
         "resourceGroupName": args.resourceGroupName,
@@ -63,12 +64,7 @@ export interface GetTimeSeriesDatabaseConnectionResult {
  * Get the description of an existing time series database connection.
  */
 export function getTimeSeriesDatabaseConnectionOutput(args: GetTimeSeriesDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTimeSeriesDatabaseConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:digitaltwins/v20230131:getTimeSeriesDatabaseConnection", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-        "timeSeriesDatabaseConnectionName": args.timeSeriesDatabaseConnectionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTimeSeriesDatabaseConnection(a, opts))
 }
 
 export interface GetTimeSeriesDatabaseConnectionOutputArgs {

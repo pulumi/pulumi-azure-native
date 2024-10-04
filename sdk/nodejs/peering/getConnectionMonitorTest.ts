@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-10-01.
  */
 export function getConnectionMonitorTest(args: GetConnectionMonitorTestArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorTestResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering:getConnectionMonitorTest", {
         "connectionMonitorTestName": args.connectionMonitorTestName,
@@ -82,12 +83,7 @@ export interface GetConnectionMonitorTestResult {
  * Azure REST API version: 2022-10-01.
  */
 export function getConnectionMonitorTestOutput(args: GetConnectionMonitorTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorTestResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:peering:getConnectionMonitorTest", {
-        "connectionMonitorTestName": args.connectionMonitorTestName,
-        "peeringServiceName": args.peeringServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConnectionMonitorTest(a, opts))
 }
 
 export interface GetConnectionMonitorTestOutputArgs {

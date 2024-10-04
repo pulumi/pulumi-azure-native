@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get an App and its properties.
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20230901preview:getApp", {
         "appName": args.appName,
@@ -76,13 +77,7 @@ export interface GetAppResult {
  * Get an App and its properties.
  */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230901preview:getApp", {
-        "appName": args.appName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "syncStatus": args.syncStatus,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApp(a, opts))
 }
 
 export interface GetAppOutputArgs {

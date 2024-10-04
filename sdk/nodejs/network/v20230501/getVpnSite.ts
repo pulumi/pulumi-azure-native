@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a VPN site.
  */
 export function getVpnSite(args: GetVpnSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnSiteResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230501:getVpnSite", {
         "resourceGroupName": args.resourceGroupName,
@@ -102,11 +103,7 @@ export interface GetVpnSiteResult {
  * Retrieves the details of a VPN site.
  */
 export function getVpnSiteOutput(args: GetVpnSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnSiteResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getVpnSite", {
-        "resourceGroupName": args.resourceGroupName,
-        "vpnSiteName": args.vpnSiteName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVpnSite(a, opts))
 }
 
 export interface GetVpnSiteOutputArgs {

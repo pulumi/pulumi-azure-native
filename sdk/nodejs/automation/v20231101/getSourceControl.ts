@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Retrieve the source control identified by source control name.
  */
 export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20231101:getSourceControl", {
         "automationAccountName": args.automationAccountName,
@@ -88,12 +89,7 @@ export interface GetSourceControlResult {
  * Retrieve the source control identified by source control name.
  */
 export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automation/v20231101:getSourceControl", {
-        "automationAccountName": args.automationAccountName,
-        "resourceGroupName": args.resourceGroupName,
-        "sourceControlName": args.sourceControlName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSourceControl(a, opts))
 }
 
 export interface GetSourceControlOutputArgs {

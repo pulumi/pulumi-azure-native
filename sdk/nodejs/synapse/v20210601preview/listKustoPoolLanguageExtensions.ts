@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns a list of language extensions that can run within KQL queries.
  */
 export function listKustoPoolLanguageExtensions(args: ListKustoPoolLanguageExtensionsArgs, opts?: pulumi.InvokeOptions): Promise<ListKustoPoolLanguageExtensionsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:listKustoPoolLanguageExtensions", {
         "kustoPoolName": args.kustoPoolName,
@@ -47,12 +48,7 @@ export interface ListKustoPoolLanguageExtensionsResult {
  * Returns a list of language extensions that can run within KQL queries.
  */
 export function listKustoPoolLanguageExtensionsOutput(args: ListKustoPoolLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolLanguageExtensionsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:listKustoPoolLanguageExtensions", {
-        "kustoPoolName": args.kustoPoolName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listKustoPoolLanguageExtensions(a, opts))
 }
 
 export interface ListKustoPoolLanguageExtensionsOutputArgs {

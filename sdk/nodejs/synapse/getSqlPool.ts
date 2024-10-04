@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-05-01, 2021-06-01-preview.
  */
 export function getSqlPool(args: GetSqlPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:getSqlPool", {
         "resourceGroupName": args.resourceGroupName,
@@ -109,12 +110,7 @@ export interface GetSqlPoolResult {
  * Other available API versions: 2021-05-01, 2021-06-01-preview.
  */
 export function getSqlPoolOutput(args: GetSqlPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:synapse:getSqlPool", {
-        "resourceGroupName": args.resourceGroupName,
-        "sqlPoolName": args.sqlPoolName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlPool(a, opts))
 }
 
 export interface GetSqlPoolOutputArgs {

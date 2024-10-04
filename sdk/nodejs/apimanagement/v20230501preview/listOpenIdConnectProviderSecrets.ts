@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the client secret details of the OpenID Connect Provider.
  */
 export function listOpenIdConnectProviderSecrets(args: ListOpenIdConnectProviderSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenIdConnectProviderSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230501preview:listOpenIdConnectProviderSecrets", {
         "opid": args.opid,
@@ -44,12 +45,7 @@ export interface ListOpenIdConnectProviderSecretsResult {
  * Gets the client secret details of the OpenID Connect Provider.
  */
 export function listOpenIdConnectProviderSecretsOutput(args: ListOpenIdConnectProviderSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOpenIdConnectProviderSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:listOpenIdConnectProviderSecrets", {
-        "opid": args.opid,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listOpenIdConnectProviderSecrets(a, opts))
 }
 
 export interface ListOpenIdConnectProviderSecretsOutputArgs {

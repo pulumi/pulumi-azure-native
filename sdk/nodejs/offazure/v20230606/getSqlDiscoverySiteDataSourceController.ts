@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a SqlDiscoverySiteDataSource
  */
 export function getSqlDiscoverySiteDataSourceController(args: GetSqlDiscoverySiteDataSourceControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDiscoverySiteDataSourceControllerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure/v20230606:getSqlDiscoverySiteDataSourceController", {
         "discoverySiteDataSourceName": args.discoverySiteDataSourceName,
@@ -72,13 +73,7 @@ export interface GetSqlDiscoverySiteDataSourceControllerResult {
  * Get a SqlDiscoverySiteDataSource
  */
 export function getSqlDiscoverySiteDataSourceControllerOutput(args: GetSqlDiscoverySiteDataSourceControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDiscoverySiteDataSourceControllerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:getSqlDiscoverySiteDataSourceController", {
-        "discoverySiteDataSourceName": args.discoverySiteDataSourceName,
-        "resourceGroupName": args.resourceGroupName,
-        "siteName": args.siteName,
-        "sqlSiteName": args.sqlSiteName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlDiscoverySiteDataSourceController(a, opts))
 }
 
 export interface GetSqlDiscoverySiteDataSourceControllerOutputArgs {

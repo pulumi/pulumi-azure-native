@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified IoT Connector.
  */
 export function getIotConnector(args: GetIotConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20230906:getIotConnector", {
         "iotConnectorName": args.iotConnectorName,
@@ -87,12 +88,7 @@ export interface GetIotConnectorResult {
  * Gets the properties of the specified IoT Connector.
  */
 export function getIotConnectorOutput(args: GetIotConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:healthcareapis/v20230906:getIotConnector", {
-        "iotConnectorName": args.iotConnectorName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIotConnector(a, opts))
 }
 
 export interface GetIotConnectorOutputArgs {

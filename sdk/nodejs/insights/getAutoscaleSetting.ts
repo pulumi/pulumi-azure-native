@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-10-01.
  */
 export function getAutoscaleSetting(args: GetAutoscaleSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscaleSettingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getAutoscaleSetting", {
         "autoscaleSettingName": args.autoscaleSettingName,
@@ -88,11 +89,7 @@ export interface GetAutoscaleSettingResult {
  * Azure REST API version: 2022-10-01.
  */
 export function getAutoscaleSettingOutput(args: GetAutoscaleSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoscaleSettingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights:getAutoscaleSetting", {
-        "autoscaleSettingName": args.autoscaleSettingName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAutoscaleSetting(a, opts))
 }
 
 export interface GetAutoscaleSettingOutputArgs {

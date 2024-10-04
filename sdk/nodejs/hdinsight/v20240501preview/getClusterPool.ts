@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a cluster pool.
  */
 export function getClusterPool(args: GetClusterPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hdinsight/v20240501preview:getClusterPool", {
         "clusterPoolName": args.clusterPoolName,
@@ -102,11 +103,7 @@ export interface GetClusterPoolResult {
  * Gets a cluster pool.
  */
 export function getClusterPoolOutput(args: GetClusterPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hdinsight/v20240501preview:getClusterPool", {
-        "clusterPoolName": args.clusterPoolName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getClusterPool(a, opts))
 }
 
 export interface GetClusterPoolOutputArgs {

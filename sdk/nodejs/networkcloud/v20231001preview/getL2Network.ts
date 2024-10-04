@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of the provided layer 2 (L2) network.
  */
 export function getL2Network(args: GetL2NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL2NetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20231001preview:getL2Network", {
         "l2NetworkName": args.l2NetworkName,
@@ -103,11 +104,7 @@ export interface GetL2NetworkResult {
  * Get properties of the provided layer 2 (L2) network.
  */
 export function getL2NetworkOutput(args: GetL2NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2NetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20231001preview:getL2Network", {
-        "l2NetworkName": args.l2NetworkName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getL2Network(a, opts))
 }
 
 export interface GetL2NetworkOutputArgs {

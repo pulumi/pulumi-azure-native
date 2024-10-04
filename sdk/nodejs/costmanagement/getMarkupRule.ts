@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-10-05-preview.
  */
 export function getMarkupRule(args: GetMarkupRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMarkupRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement:getMarkupRule", {
         "billingAccountId": args.billingAccountId,
@@ -81,12 +82,7 @@ export interface GetMarkupRuleResult {
  * Azure REST API version: 2022-10-05-preview.
  */
 export function getMarkupRuleOutput(args: GetMarkupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarkupRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:costmanagement:getMarkupRule", {
-        "billingAccountId": args.billingAccountId,
-        "billingProfileId": args.billingProfileId,
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMarkupRule(a, opts))
 }
 
 export interface GetMarkupRuleOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns the description for the specified hybrid connection.
  */
 export function getHybridConnection(args: GetHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20240101:getHybridConnection", {
         "hybridConnectionName": args.hybridConnectionName,
@@ -83,12 +84,7 @@ export interface GetHybridConnectionResult {
  * Returns the description for the specified hybrid connection.
  */
 export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:relay/v20240101:getHybridConnection", {
-        "hybridConnectionName": args.hybridConnectionName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHybridConnection(a, opts))
 }
 
 export interface GetHybridConnectionOutputArgs {

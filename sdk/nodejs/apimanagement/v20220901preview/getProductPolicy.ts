@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get the policy configuration at the Product level.
  */
 export function getProductPolicy(args: GetProductPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProductPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220901preview:getProductPolicy", {
         "format": args.format,
@@ -70,14 +71,7 @@ export interface GetProductPolicyResult {
  * Get the policy configuration at the Product level.
  */
 export function getProductPolicyOutput(args: GetProductPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220901preview:getProductPolicy", {
-        "format": args.format,
-        "policyId": args.policyId,
-        "productId": args.productId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProductPolicy(a, opts))
 }
 
 export interface GetProductPolicyOutputArgs {

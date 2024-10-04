@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getAwsS3DataConnector(args: GetAwsS3DataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsS3DataConnectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230801preview:getAwsS3DataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -84,12 +85,7 @@ export interface GetAwsS3DataConnectorResult {
  * Gets a data connector.
  */
 export function getAwsS3DataConnectorOutput(args: GetAwsS3DataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsS3DataConnectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230801preview:getAwsS3DataConnector", {
-        "dataConnectorId": args.dataConnectorId,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAwsS3DataConnector(a, opts))
 }
 
 export interface GetAwsS3DataConnectorOutputArgs {

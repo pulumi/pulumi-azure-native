@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the client secret details of the Identity Provider.
  */
 export function listIdentityProviderSecrets(args: ListIdentityProviderSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListIdentityProviderSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:listIdentityProviderSecrets", {
         "identityProviderName": args.identityProviderName,
@@ -44,12 +45,7 @@ export interface ListIdentityProviderSecretsResult {
  * Gets the client secret details of the Identity Provider.
  */
 export function listIdentityProviderSecretsOutput(args: ListIdentityProviderSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIdentityProviderSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:listIdentityProviderSecrets", {
-        "identityProviderName": args.identityProviderName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listIdentityProviderSecrets(a, opts))
 }
 
 export interface ListIdentityProviderSecretsOutputArgs {

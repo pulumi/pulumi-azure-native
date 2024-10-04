@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists the user credentials of a Fleet.
  */
 export function listFleetCredentials(args: ListFleetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListFleetCredentialsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20240202preview:listFleetCredentials", {
         "fleetName": args.fleetName,
@@ -42,11 +43,7 @@ export interface ListFleetCredentialsResult {
  * Lists the user credentials of a Fleet.
  */
 export function listFleetCredentialsOutput(args: ListFleetCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFleetCredentialsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerservice/v20240202preview:listFleetCredentials", {
-        "fleetName": args.fleetName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listFleetCredentials(a, opts))
 }
 
 export interface ListFleetCredentialsOutputArgs {

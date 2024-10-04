@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-09-01-preview.
  */
 export function getSkusNestedResourceTypeThird(args: GetSkusNestedResourceTypeThirdArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusNestedResourceTypeThirdResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub:getSkusNestedResourceTypeThird", {
         "nestedResourceTypeFirst": args.nestedResourceTypeFirst,
@@ -74,15 +75,7 @@ export interface GetSkusNestedResourceTypeThirdResult {
  * Azure REST API version: 2021-09-01-preview.
  */
 export function getSkusNestedResourceTypeThirdOutput(args: GetSkusNestedResourceTypeThirdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusNestedResourceTypeThirdResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:providerhub:getSkusNestedResourceTypeThird", {
-        "nestedResourceTypeFirst": args.nestedResourceTypeFirst,
-        "nestedResourceTypeSecond": args.nestedResourceTypeSecond,
-        "nestedResourceTypeThird": args.nestedResourceTypeThird,
-        "providerNamespace": args.providerNamespace,
-        "resourceType": args.resourceType,
-        "sku": args.sku,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSkusNestedResourceTypeThird(a, opts))
 }
 
 export interface GetSkusNestedResourceTypeThirdOutputArgs {

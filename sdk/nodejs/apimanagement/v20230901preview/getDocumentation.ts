@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the Documentation specified by its identifier.
  */
 export function getDocumentation(args: GetDocumentationArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:getDocumentation", {
         "documentationId": args.documentationId,
@@ -60,12 +61,7 @@ export interface GetDocumentationResult {
  * Gets the details of the Documentation specified by its identifier.
  */
 export function getDocumentationOutput(args: GetDocumentationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getDocumentation", {
-        "documentationId": args.documentationId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDocumentation(a, opts))
 }
 
 export interface GetDocumentationOutputArgs {

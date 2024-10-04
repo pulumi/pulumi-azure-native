@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-06-01.
  */
 export function getAccessControlRecord(args: GetAccessControlRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessControlRecordResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple:getAccessControlRecord", {
         "accessControlRecordName": args.accessControlRecordName,
@@ -66,12 +67,7 @@ export interface GetAccessControlRecordResult {
  * Azure REST API version: 2017-06-01.
  */
 export function getAccessControlRecordOutput(args: GetAccessControlRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlRecordResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storsimple:getAccessControlRecord", {
-        "accessControlRecordName": args.accessControlRecordName,
-        "managerName": args.managerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessControlRecord(a, opts))
 }
 
 export interface GetAccessControlRecordOutputArgs {

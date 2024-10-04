@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-02-01-preview.
  */
 export function getPrivateAtlase(args: GetPrivateAtlaseArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateAtlaseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maps:getPrivateAtlase", {
         "accountName": args.accountName,
@@ -69,12 +70,7 @@ export interface GetPrivateAtlaseResult {
  * Azure REST API version: 2020-02-01-preview.
  */
 export function getPrivateAtlaseOutput(args: GetPrivateAtlaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateAtlaseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:maps:getPrivateAtlase", {
-        "accountName": args.accountName,
-        "privateAtlasName": args.privateAtlasName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateAtlase(a, opts))
 }
 
 export interface GetPrivateAtlaseOutputArgs {

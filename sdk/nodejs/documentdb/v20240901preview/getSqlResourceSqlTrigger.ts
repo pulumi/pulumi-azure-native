@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the SQL trigger under an existing Azure Cosmos DB database account.
  */
 export function getSqlResourceSqlTrigger(args: GetSqlResourceSqlTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlTriggerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20240901preview:getSqlResourceSqlTrigger", {
         "accountName": args.accountName,
@@ -78,14 +79,7 @@ export interface GetSqlResourceSqlTriggerResult {
  * Gets the SQL trigger under an existing Azure Cosmos DB database account.
  */
 export function getSqlResourceSqlTriggerOutput(args: GetSqlResourceSqlTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlTriggerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240901preview:getSqlResourceSqlTrigger", {
-        "accountName": args.accountName,
-        "containerName": args.containerName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-        "triggerName": args.triggerName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlResourceSqlTrigger(a, opts))
 }
 
 export interface GetSqlResourceSqlTriggerOutputArgs {

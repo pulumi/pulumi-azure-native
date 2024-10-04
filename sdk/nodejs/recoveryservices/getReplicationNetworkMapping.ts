@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01.
  */
 export function getReplicationNetworkMapping(args: GetReplicationNetworkMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationNetworkMappingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices:getReplicationNetworkMapping", {
         "fabricName": args.fabricName,
@@ -79,14 +80,7 @@ export interface GetReplicationNetworkMappingResult {
  * Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01.
  */
 export function getReplicationNetworkMappingOutput(args: GetReplicationNetworkMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationNetworkMappingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:recoveryservices:getReplicationNetworkMapping", {
-        "fabricName": args.fabricName,
-        "networkMappingName": args.networkMappingName,
-        "networkName": args.networkName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReplicationNetworkMapping(a, opts))
 }
 
 export interface GetReplicationNetworkMappingOutputArgs {

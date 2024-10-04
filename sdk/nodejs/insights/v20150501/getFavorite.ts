@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get a single favorite by its FavoriteId, defined within an Application Insights component.
  */
 export function getFavorite(args: GetFavoriteArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20150501:getFavorite", {
         "favoriteId": args.favoriteId,
@@ -84,12 +85,7 @@ export interface GetFavoriteResult {
  * Get a single favorite by its FavoriteId, defined within an Application Insights component.
  */
 export function getFavoriteOutput(args: GetFavoriteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights/v20150501:getFavorite", {
-        "favoriteId": args.favoriteId,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFavorite(a, opts))
 }
 
 export interface GetFavoriteOutputArgs {

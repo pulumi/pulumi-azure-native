@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-01-01.
  */
 export function getPrivateStoreCollectionOffer(args: GetPrivateStoreCollectionOfferArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionOfferResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:marketplace:getPrivateStoreCollectionOffer", {
         "collectionId": args.collectionId,
@@ -105,12 +106,7 @@ export interface GetPrivateStoreCollectionOfferResult {
  * Azure REST API version: 2023-01-01.
  */
 export function getPrivateStoreCollectionOfferOutput(args: GetPrivateStoreCollectionOfferOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionOfferResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:marketplace:getPrivateStoreCollectionOffer", {
-        "collectionId": args.collectionId,
-        "offerId": args.offerId,
-        "privateStoreId": args.privateStoreId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateStoreCollectionOffer(a, opts))
 }
 
 export interface GetPrivateStoreCollectionOfferOutputArgs {

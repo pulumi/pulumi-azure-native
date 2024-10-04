@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get particular Arc Extension of HCI Cluster.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20230601:getExtension", {
         "arcSettingName": args.arcSettingName,
@@ -108,13 +109,7 @@ export interface GetExtensionResult {
  * Get particular Arc Extension of HCI Cluster.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20230601:getExtension", {
-        "arcSettingName": args.arcSettingName,
-        "clusterName": args.clusterName,
-        "extensionName": args.extensionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getExtension(a, opts))
 }
 
 export interface GetExtensionOutputArgs {

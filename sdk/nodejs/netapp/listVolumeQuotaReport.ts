@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-03-01-preview.
  */
 export function listVolumeQuotaReport(args: ListVolumeQuotaReportArgs, opts?: pulumi.InvokeOptions): Promise<ListVolumeQuotaReportResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp:listVolumeQuotaReport", {
         "accountName": args.accountName,
@@ -58,13 +59,7 @@ export interface ListVolumeQuotaReportResult {
  * Azure REST API version: 2024-03-01-preview.
  */
 export function listVolumeQuotaReportOutput(args: ListVolumeQuotaReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeQuotaReportResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:netapp:listVolumeQuotaReport", {
-        "accountName": args.accountName,
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-        "volumeName": args.volumeName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listVolumeQuotaReport(a, opts))
 }
 
 export interface ListVolumeQuotaReportOutputArgs {

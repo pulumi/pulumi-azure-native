@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified saved search for a given workspace.
  */
 export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOptions): Promise<GetSavedSearchResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200801:getSavedSearch", {
         "resourceGroupName": args.resourceGroupName,
@@ -87,12 +88,7 @@ export interface GetSavedSearchResult {
  * Gets the specified saved search for a given workspace.
  */
 export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSavedSearchResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20200801:getSavedSearch", {
-        "resourceGroupName": args.resourceGroupName,
-        "savedSearchId": args.savedSearchId,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSavedSearch(a, opts))
 }
 
 export interface GetSavedSearchOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../../utilities";
  */
 export function listProviderActionInUseStorageAccounts(args?: ListProviderActionInUseStorageAccountsArgs, opts?: pulumi.InvokeOptions): Promise<ListProviderActionInUseStorageAccountsResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appcomplianceautomation/v20240627:listProviderActionInUseStorageAccounts", {
         "subscriptionIds": args.subscriptionIds,
@@ -38,11 +39,7 @@ export interface ListProviderActionInUseStorageAccountsResult {
  * List the storage accounts which are in use by related reports
  */
 export function listProviderActionInUseStorageAccountsOutput(args?: ListProviderActionInUseStorageAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProviderActionInUseStorageAccountsResult> {
-    args = args || {};
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation/v20240627:listProviderActionInUseStorageAccounts", {
-        "subscriptionIds": args.subscriptionIds,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listProviderActionInUseStorageAccounts(a, opts))
 }
 
 export interface ListProviderActionInUseStorageAccountsOutputArgs {

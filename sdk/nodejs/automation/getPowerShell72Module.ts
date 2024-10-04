@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-11-01.
  */
 export function getPowerShell72Module(args: GetPowerShell72ModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetPowerShell72ModuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation:getPowerShell72Module", {
         "automationAccountName": args.automationAccountName,
@@ -109,12 +110,7 @@ export interface GetPowerShell72ModuleResult {
  * Azure REST API version: 2023-11-01.
  */
 export function getPowerShell72ModuleOutput(args: GetPowerShell72ModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPowerShell72ModuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automation:getPowerShell72Module", {
-        "automationAccountName": args.automationAccountName,
-        "moduleName": args.moduleName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPowerShell72Module(a, opts))
 }
 
 export interface GetPowerShell72ModuleOutputArgs {

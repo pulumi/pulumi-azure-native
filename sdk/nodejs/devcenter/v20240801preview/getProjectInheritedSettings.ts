@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets applicable inherited settings for this project.
  */
 export function getProjectInheritedSettings(args: GetProjectInheritedSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectInheritedSettingsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20240801preview:getProjectInheritedSettings", {
         "projectName": args.projectName,
@@ -46,11 +47,7 @@ export interface GetProjectInheritedSettingsResult {
  * Gets applicable inherited settings for this project.
  */
 export function getProjectInheritedSettingsOutput(args: GetProjectInheritedSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectInheritedSettingsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240801preview:getProjectInheritedSettings", {
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProjectInheritedSettings(a, opts))
 }
 
 export interface GetProjectInheritedSettingsOutputArgs {

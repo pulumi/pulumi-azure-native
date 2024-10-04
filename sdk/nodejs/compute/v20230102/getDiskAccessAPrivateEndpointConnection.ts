@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about a private endpoint connection under a disk access resource.
  */
 export function getDiskAccessAPrivateEndpointConnection(args: GetDiskAccessAPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessAPrivateEndpointConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20230102:getDiskAccessAPrivateEndpointConnection", {
         "diskAccessName": args.diskAccessName,
@@ -67,12 +68,7 @@ export interface GetDiskAccessAPrivateEndpointConnectionResult {
  * Gets information about a private endpoint connection under a disk access resource.
  */
 export function getDiskAccessAPrivateEndpointConnectionOutput(args: GetDiskAccessAPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessAPrivateEndpointConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute/v20230102:getDiskAccessAPrivateEndpointConnection", {
-        "diskAccessName": args.diskAccessName,
-        "privateEndpointConnectionName": args.privateEndpointConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDiskAccessAPrivateEndpointConnection(a, opts))
 }
 
 export interface GetDiskAccessAPrivateEndpointConnectionOutputArgs {

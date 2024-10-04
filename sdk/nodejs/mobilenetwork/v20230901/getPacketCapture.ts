@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about the specified packet capture session.
  */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20230901:getPacketCapture", {
         "packetCaptureName": args.packetCaptureName,
@@ -95,12 +96,7 @@ export interface GetPacketCaptureResult {
  * Gets information about the specified packet capture session.
  */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20230901:getPacketCapture", {
-        "packetCaptureName": args.packetCaptureName,
-        "packetCoreControlPlaneName": args.packetCoreControlPlaneName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPacketCapture(a, opts))
 }
 
 export interface GetPacketCaptureOutputArgs {

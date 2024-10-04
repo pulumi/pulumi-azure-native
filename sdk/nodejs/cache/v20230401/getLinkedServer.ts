@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
  */
 export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20230401:getLinkedServer", {
         "linkedServerName": args.linkedServerName,
@@ -76,12 +77,7 @@ export interface GetLinkedServerResult {
  * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
  */
 export function getLinkedServerOutput(args: GetLinkedServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cache/v20230401:getLinkedServer", {
-        "linkedServerName": args.linkedServerName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLinkedServer(a, opts))
 }
 
 export interface GetLinkedServerOutputArgs {

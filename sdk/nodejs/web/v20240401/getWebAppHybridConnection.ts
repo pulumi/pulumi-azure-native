@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
 export function getWebAppHybridConnection(args: GetWebAppHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:getWebAppHybridConnection", {
         "name": args.name,
@@ -94,13 +95,7 @@ export interface GetWebAppHybridConnectionResult {
  * Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
 export function getWebAppHybridConnectionOutput(args: GetWebAppHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHybridConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getWebAppHybridConnection", {
-        "name": args.name,
-        "namespaceName": args.namespaceName,
-        "relayName": args.relayName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppHybridConnection(a, opts))
 }
 
 export interface GetWebAppHybridConnectionOutputArgs {

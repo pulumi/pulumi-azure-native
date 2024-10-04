@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
  */
 export function getmanagedMaintenanceWindowStatus(args: GetmanagedMaintenanceWindowStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagedMaintenanceWindowStatusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20230701preview:getmanagedMaintenanceWindowStatus", {
         "clusterName": args.clusterName,
@@ -63,11 +64,7 @@ export interface GetmanagedMaintenanceWindowStatusResult {
  * Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
  */
 export function getmanagedMaintenanceWindowStatusOutput(args: GetmanagedMaintenanceWindowStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmanagedMaintenanceWindowStatusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20230701preview:getmanagedMaintenanceWindowStatus", {
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getmanagedMaintenanceWindowStatus(a, opts))
 }
 
 export interface GetmanagedMaintenanceWindowStatusOutputArgs {

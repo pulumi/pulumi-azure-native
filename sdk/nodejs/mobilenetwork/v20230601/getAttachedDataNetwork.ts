@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about the specified attached data network.
  */
 export function getAttachedDataNetwork(args: GetAttachedDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDataNetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20230601:getAttachedDataNetwork", {
         "attachedDataNetworkName": args.attachedDataNetworkName,
@@ -101,13 +102,7 @@ export interface GetAttachedDataNetworkResult {
  * Gets information about the specified attached data network.
  */
 export function getAttachedDataNetworkOutput(args: GetAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDataNetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20230601:getAttachedDataNetwork", {
-        "attachedDataNetworkName": args.attachedDataNetworkName,
-        "packetCoreControlPlaneName": args.packetCoreControlPlaneName,
-        "packetCoreDataPlaneName": args.packetCoreDataPlaneName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAttachedDataNetwork(a, opts))
 }
 
 export interface GetAttachedDataNetworkOutputArgs {

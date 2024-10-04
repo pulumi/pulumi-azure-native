@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get a specific application for the requested scope by applicationId
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20220701preview:getApplication", {
         "applicationId": args.applicationId,
@@ -54,10 +55,7 @@ export interface GetApplicationResult {
  * Get a specific application for the requested scope by applicationId
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security/v20220701preview:getApplication", {
-        "applicationId": args.applicationId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

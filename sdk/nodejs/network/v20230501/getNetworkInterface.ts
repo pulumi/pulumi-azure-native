@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about the specified network interface.
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230501:getNetworkInterface", {
         "expand": args.expand,
@@ -159,12 +160,7 @@ export interface GetNetworkInterfaceResult {
  * Gets information about the specified network interface.
  */
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getNetworkInterface", {
-        "expand": args.expand,
-        "networkInterfaceName": args.networkInterfaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkInterface(a, opts))
 }
 
 export interface GetNetworkInterfaceOutputArgs {

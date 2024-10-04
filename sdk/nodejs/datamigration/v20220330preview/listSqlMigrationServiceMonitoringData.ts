@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
  */
 export function listSqlMigrationServiceMonitoringData(args: ListSqlMigrationServiceMonitoringDataArgs, opts?: pulumi.InvokeOptions): Promise<ListSqlMigrationServiceMonitoringDataResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20220330preview:listSqlMigrationServiceMonitoringData", {
         "resourceGroupName": args.resourceGroupName,
@@ -46,11 +47,7 @@ export interface ListSqlMigrationServiceMonitoringDataResult {
  * Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
  */
 export function listSqlMigrationServiceMonitoringDataOutput(args: ListSqlMigrationServiceMonitoringDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSqlMigrationServiceMonitoringDataResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datamigration/v20220330preview:listSqlMigrationServiceMonitoringData", {
-        "resourceGroupName": args.resourceGroupName,
-        "sqlMigrationServiceName": args.sqlMigrationServiceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listSqlMigrationServiceMonitoringData(a, opts))
 }
 
 export interface ListSqlMigrationServiceMonitoringDataOutputArgs {

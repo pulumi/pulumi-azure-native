@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getOfficeATPDataConnector(args: GetOfficeATPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficeATPDataConnectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210301preview:getOfficeATPDataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -81,13 +82,7 @@ export interface GetOfficeATPDataConnectorResult {
  * Gets a data connector.
  */
 export function getOfficeATPDataConnectorOutput(args: GetOfficeATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeATPDataConnectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210301preview:getOfficeATPDataConnector", {
-        "dataConnectorId": args.dataConnectorId,
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOfficeATPDataConnector(a, opts))
 }
 
 export interface GetOfficeATPDataConnectorOutputArgs {

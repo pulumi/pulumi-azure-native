@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a jobs credential.
  */
 export function getJobCredential(args: GetJobCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCredentialResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230201preview:getJobCredential", {
         "credentialName": args.credentialName,
@@ -61,13 +62,7 @@ export interface GetJobCredentialResult {
  * Gets a jobs credential.
  */
 export function getJobCredentialOutput(args: GetJobCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCredentialResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20230201preview:getJobCredential", {
-        "credentialName": args.credentialName,
-        "jobAgentName": args.jobAgentName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getJobCredential(a, opts))
 }
 
 export interface GetJobCredentialOutputArgs {

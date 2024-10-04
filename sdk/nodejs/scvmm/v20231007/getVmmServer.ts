@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Implements VmmServer GET method.
  */
 export function getVmmServer(args: GetVmmServerArgs, opts?: pulumi.InvokeOptions): Promise<GetVmmServerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm/v20231007:getVmmServer", {
         "resourceGroupName": args.resourceGroupName,
@@ -98,11 +99,7 @@ export interface GetVmmServerResult {
  * Implements VmmServer GET method.
  */
 export function getVmmServerOutput(args: GetVmmServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVmmServerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:scvmm/v20231007:getVmmServer", {
-        "resourceGroupName": args.resourceGroupName,
-        "vmmServerName": args.vmmServerName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVmmServer(a, opts))
 }
 
 export interface GetVmmServerOutputArgs {

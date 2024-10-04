@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the tag specified by its identifier.
  */
 export function getWorkspaceTag(args: GetWorkspaceTagArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceTagResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220901preview:getWorkspaceTag", {
         "resourceGroupName": args.resourceGroupName,
@@ -61,13 +62,7 @@ export interface GetWorkspaceTagResult {
  * Gets the details of the tag specified by its identifier.
  */
 export function getWorkspaceTagOutput(args: GetWorkspaceTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceTagResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220901preview:getWorkspaceTag", {
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "tagId": args.tagId,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceTag(a, opts))
 }
 
 export interface GetWorkspaceTagOutputArgs {

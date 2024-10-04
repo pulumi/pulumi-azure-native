@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * .NET Component.
  */
 export function getDotNetComponent(args: GetDotNetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetDotNetComponentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20231102preview:getDotNetComponent", {
         "environmentName": args.environmentName,
@@ -75,12 +76,7 @@ export interface GetDotNetComponentResult {
  * .NET Component.
  */
 export function getDotNetComponentOutput(args: GetDotNetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDotNetComponentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app/v20231102preview:getDotNetComponent", {
-        "environmentName": args.environmentName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDotNetComponent(a, opts))
 }
 
 export interface GetDotNetComponentOutputArgs {

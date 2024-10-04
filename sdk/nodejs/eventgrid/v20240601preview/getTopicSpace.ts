@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of a topic space.
  */
 export function getTopicSpace(args: GetTopicSpaceArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicSpaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20240601preview:getTopicSpace", {
         "namespaceName": args.namespaceName,
@@ -75,12 +76,7 @@ export interface GetTopicSpaceResult {
  * Get properties of a topic space.
  */
 export function getTopicSpaceOutput(args: GetTopicSpaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicSpaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getTopicSpace", {
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-        "topicSpaceName": args.topicSpaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTopicSpace(a, opts))
 }
 
 export interface GetTopicSpaceOutputArgs {

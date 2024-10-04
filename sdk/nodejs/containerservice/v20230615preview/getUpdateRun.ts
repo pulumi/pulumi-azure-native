@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a UpdateRun
  */
 export function getUpdateRun(args: GetUpdateRunArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateRunResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20230615preview:getUpdateRun", {
         "fleetName": args.fleetName,
@@ -81,12 +82,7 @@ export interface GetUpdateRunResult {
  * Get a UpdateRun
  */
 export function getUpdateRunOutput(args: GetUpdateRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateRunResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerservice/v20230615preview:getUpdateRun", {
-        "fleetName": args.fleetName,
-        "resourceGroupName": args.resourceGroupName,
-        "updateRunName": args.updateRunName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUpdateRun(a, opts))
 }
 
 export interface GetUpdateRunOutputArgs {

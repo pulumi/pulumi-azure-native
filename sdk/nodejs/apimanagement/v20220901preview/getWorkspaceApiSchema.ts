@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get the schema configuration at the API level.
  */
 export function getWorkspaceApiSchema(args: GetWorkspaceApiSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceApiSchemaResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220901preview:getWorkspaceApiSchema", {
         "apiId": args.apiId,
@@ -78,14 +79,7 @@ export interface GetWorkspaceApiSchemaResult {
  * Get the schema configuration at the API level.
  */
 export function getWorkspaceApiSchemaOutput(args: GetWorkspaceApiSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiSchemaResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220901preview:getWorkspaceApiSchema", {
-        "apiId": args.apiId,
-        "resourceGroupName": args.resourceGroupName,
-        "schemaId": args.schemaId,
-        "serviceName": args.serviceName,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceApiSchema(a, opts))
 }
 
 export interface GetWorkspaceApiSchemaOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * List the admin credentials for the private cloud
  */
 export function listPrivateCloudAdminCredentials(args: ListPrivateCloudAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateCloudAdminCredentialsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20230901:listPrivateCloudAdminCredentials", {
         "privateCloudName": args.privateCloudName,
@@ -51,11 +52,7 @@ export interface ListPrivateCloudAdminCredentialsResult {
  * List the admin credentials for the private cloud
  */
 export function listPrivateCloudAdminCredentialsOutput(args: ListPrivateCloudAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateCloudAdminCredentialsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:listPrivateCloudAdminCredentials", {
-        "privateCloudName": args.privateCloudName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listPrivateCloudAdminCredentials(a, opts))
 }
 
 export interface ListPrivateCloudAdminCredentialsOutputArgs {

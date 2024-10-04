@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about the specified sku.
  */
 export function getVendorSkus(args: GetVendorSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20220101preview:getVendorSkus", {
         "skuName": args.skuName,
@@ -86,11 +87,7 @@ export interface GetVendorSkusResult {
  * Gets information about the specified sku.
  */
 export function getVendorSkusOutput(args: GetVendorSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20220101preview:getVendorSkus", {
-        "skuName": args.skuName,
-        "vendorName": args.vendorName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVendorSkus(a, opts))
 }
 
 export interface GetVendorSkusOutputArgs {

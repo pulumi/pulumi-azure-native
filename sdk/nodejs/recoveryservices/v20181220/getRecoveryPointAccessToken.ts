@@ -8,6 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getRecoveryPointAccessToken(args: GetRecoveryPointAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetRecoveryPointAccessTokenResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20181220:getRecoveryPointAccessToken", {
         "containerName": args.containerName,
@@ -97,19 +98,7 @@ export interface GetRecoveryPointAccessTokenResult {
     readonly type: string;
 }
 export function getRecoveryPointAccessTokenOutput(args: GetRecoveryPointAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecoveryPointAccessTokenResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20181220:getRecoveryPointAccessToken", {
-        "containerName": args.containerName,
-        "eTag": args.eTag,
-        "fabricName": args.fabricName,
-        "location": args.location,
-        "properties": args.properties,
-        "protectedItemName": args.protectedItemName,
-        "recoveryPointId": args.recoveryPointId,
-        "resourceGroupName": args.resourceGroupName,
-        "tags": args.tags,
-        "vaultName": args.vaultName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRecoveryPointAccessToken(a, opts))
 }
 
 export interface GetRecoveryPointAccessTokenOutputArgs {

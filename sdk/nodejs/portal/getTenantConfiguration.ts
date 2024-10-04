@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-12-01-preview.
  */
 export function getTenantConfiguration(args: GetTenantConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal:getTenantConfiguration", {
         "configurationName": args.configurationName,
@@ -59,10 +60,7 @@ export interface GetTenantConfigurationResult {
  * Other available API versions: 2022-12-01-preview.
  */
 export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:portal:getTenantConfiguration", {
-        "configurationName": args.configurationName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTenantConfiguration(a, opts))
 }
 
 export interface GetTenantConfigurationOutputArgs {

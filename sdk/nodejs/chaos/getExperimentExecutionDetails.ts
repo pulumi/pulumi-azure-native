@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-01, 2024-03-22-preview.
  */
 export function getExperimentExecutionDetails(args: GetExperimentExecutionDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentExecutionDetailsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:chaos:getExperimentExecutionDetails", {
         "executionId": args.executionId,
@@ -85,12 +86,7 @@ export interface GetExperimentExecutionDetailsResult {
  * Other available API versions: 2024-01-01, 2024-03-22-preview.
  */
 export function getExperimentExecutionDetailsOutput(args: GetExperimentExecutionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentExecutionDetailsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:chaos:getExperimentExecutionDetails", {
-        "executionId": args.executionId,
-        "experimentName": args.experimentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getExperimentExecutionDetails(a, opts))
 }
 
 export interface GetExperimentExecutionDetailsOutputArgs {

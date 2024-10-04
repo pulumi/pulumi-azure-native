@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Represents a container on the  Data Box Edge/Gateway device.
  */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20220301:getContainer", {
         "containerName": args.containerName,
@@ -80,13 +81,7 @@ export interface GetContainerResult {
  * Represents a container on the  Data Box Edge/Gateway device.
  */
 export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20220301:getContainer", {
-        "containerName": args.containerName,
-        "deviceName": args.deviceName,
-        "resourceGroupName": args.resourceGroupName,
-        "storageAccountName": args.storageAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getContainer(a, opts))
 }
 
 export interface GetContainerOutputArgs {

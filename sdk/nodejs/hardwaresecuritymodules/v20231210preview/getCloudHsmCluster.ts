@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified Cloud HSM Cluster
  */
 export function getCloudHsmCluster(args: GetCloudHsmClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudHsmClusterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hardwaresecuritymodules/v20231210preview:getCloudHsmCluster", {
         "cloudHsmClusterName": args.cloudHsmClusterName,
@@ -106,11 +107,7 @@ export interface GetCloudHsmClusterResult {
  * Gets the specified Cloud HSM Cluster
  */
 export function getCloudHsmClusterOutput(args: GetCloudHsmClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudHsmClusterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hardwaresecuritymodules/v20231210preview:getCloudHsmCluster", {
-        "cloudHsmClusterName": args.cloudHsmClusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCloudHsmCluster(a, opts))
 }
 
 export interface GetCloudHsmClusterOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getSensitivityLabel(args: GetSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetSensitivityLabelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql:getSensitivityLabel", {
         "columnName": args.columnName,
@@ -115,16 +116,7 @@ export interface GetSensitivityLabelResult {
  * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getSensitivityLabelOutput(args: GetSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitivityLabelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql:getSensitivityLabel", {
-        "columnName": args.columnName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-        "schemaName": args.schemaName,
-        "sensitivityLabelSource": args.sensitivityLabelSource,
-        "serverName": args.serverName,
-        "tableName": args.tableName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSensitivityLabel(a, opts))
 }
 
 export interface GetSensitivityLabelOutputArgs {

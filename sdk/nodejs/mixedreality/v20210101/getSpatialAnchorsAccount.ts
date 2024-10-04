@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve a Spatial Anchors Account.
  */
 export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSpatialAnchorsAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mixedreality/v20210101:getSpatialAnchorsAccount", {
         "accountName": args.accountName,
@@ -90,11 +91,7 @@ export interface GetSpatialAnchorsAccountResult {
  * Retrieve a Spatial Anchors Account.
  */
 export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mixedreality/v20210101:getSpatialAnchorsAccount", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSpatialAnchorsAccount(a, opts))
 }
 
 export interface GetSpatialAnchorsAccountOutputArgs {

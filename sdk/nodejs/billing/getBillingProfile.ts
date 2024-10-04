@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-04-01.
  */
 export function getBillingProfile(args: GetBillingProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:billing:getBillingProfile", {
         "billingAccountName": args.billingAccountName,
@@ -64,11 +65,7 @@ export interface GetBillingProfileResult {
  * Azure REST API version: 2024-04-01.
  */
 export function getBillingProfileOutput(args: GetBillingProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:billing:getBillingProfile", {
-        "billingAccountName": args.billingAccountName,
-        "billingProfileName": args.billingProfileName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBillingProfile(a, opts))
 }
 
 export interface GetBillingProfileOutputArgs {

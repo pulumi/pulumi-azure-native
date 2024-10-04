@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get the policy configuration at the GraphQL API Resolver level.
  */
 export function getGraphQLApiResolverPolicy(args: GetGraphQLApiResolverPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLApiResolverPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230301preview:getGraphQLApiResolverPolicy", {
         "apiId": args.apiId,
@@ -75,15 +76,7 @@ export interface GetGraphQLApiResolverPolicyResult {
  * Get the policy configuration at the GraphQL API Resolver level.
  */
 export function getGraphQLApiResolverPolicyOutput(args: GetGraphQLApiResolverPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLApiResolverPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getGraphQLApiResolverPolicy", {
-        "apiId": args.apiId,
-        "format": args.format,
-        "policyId": args.policyId,
-        "resolverId": args.resolverId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGraphQLApiResolverPolicy(a, opts))
 }
 
 export interface GetGraphQLApiResolverPolicyOutputArgs {

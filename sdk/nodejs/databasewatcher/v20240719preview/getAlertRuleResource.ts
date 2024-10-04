@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a AlertRuleResource
  */
 export function getAlertRuleResource(args: GetAlertRuleResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databasewatcher/v20240719preview:getAlertRuleResource", {
         "alertRuleResourceName": args.alertRuleResourceName,
@@ -83,12 +84,7 @@ export interface GetAlertRuleResourceResult {
  * Get a AlertRuleResource
  */
 export function getAlertRuleResourceOutput(args: GetAlertRuleResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databasewatcher/v20240719preview:getAlertRuleResource", {
-        "alertRuleResourceName": args.alertRuleResourceName,
-        "resourceGroupName": args.resourceGroupName,
-        "watcherName": args.watcherName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAlertRuleResource(a, opts))
 }
 
 export interface GetAlertRuleResourceOutputArgs {

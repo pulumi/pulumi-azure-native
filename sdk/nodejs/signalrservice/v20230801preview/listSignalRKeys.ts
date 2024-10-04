@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get the access keys of the resource.
  */
 export function listSignalRKeys(args: ListSignalRKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSignalRKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice/v20230801preview:listSignalRKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -51,11 +52,7 @@ export interface ListSignalRKeysResult {
  * Get the access keys of the resource.
  */
 export function listSignalRKeysOutput(args: ListSignalRKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSignalRKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:signalrservice/v20230801preview:listSignalRKeys", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listSignalRKeys(a, opts))
 }
 
 export interface ListSignalRKeysOutputArgs {

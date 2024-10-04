@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the API specified by its identifier.
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230301preview:getApi", {
         "apiId": args.apiId,
@@ -139,12 +140,7 @@ export interface GetApiResult {
  * Gets the details of the API specified by its identifier.
  */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getApi", {
-        "apiId": args.apiId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApi(a, opts))
 }
 
 export interface GetApiOutputArgs {

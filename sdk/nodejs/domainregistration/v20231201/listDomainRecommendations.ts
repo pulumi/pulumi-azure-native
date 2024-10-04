@@ -12,6 +12,7 @@ import * as utilities from "../../utilities";
  */
 export function listDomainRecommendations(args?: ListDomainRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainRecommendationsResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:domainregistration/v20231201:listDomainRecommendations", {
         "keywords": args.keywords,
@@ -47,12 +48,7 @@ export interface ListDomainRecommendationsResult {
  * Description for Get domain name recommendations based on keywords.
  */
 export function listDomainRecommendationsOutput(args?: ListDomainRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainRecommendationsResult> {
-    args = args || {};
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:domainregistration/v20231201:listDomainRecommendations", {
-        "keywords": args.keywords,
-        "maxDomainRecommendations": args.maxDomainRecommendations,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listDomainRecommendations(a, opts))
 }
 
 export interface ListDomainRecommendationsOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a custom API by name for a specific subscription and resource group
  */
 export function getCustomApi(args: GetCustomApiArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomApiResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20160601:getCustomApi", {
         "apiName": args.apiName,
@@ -71,12 +72,7 @@ export interface GetCustomApiResult {
  * Gets a custom API by name for a specific subscription and resource group
  */
 export function getCustomApiOutput(args: GetCustomApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomApiResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20160601:getCustomApi", {
-        "apiName": args.apiName,
-        "resourceGroupName": args.resourceGroupName,
-        "subscriptionId": args.subscriptionId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCustomApi(a, opts))
 }
 
 export interface GetCustomApiOutputArgs {

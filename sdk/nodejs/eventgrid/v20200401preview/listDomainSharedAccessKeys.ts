@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * List the two keys used to publish to a domain.
  */
 export function listDomainSharedAccessKeys(args: ListDomainSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainSharedAccessKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20200401preview:listDomainSharedAccessKeys", {
         "domainName": args.domainName,
@@ -43,11 +44,7 @@ export interface ListDomainSharedAccessKeysResult {
  * List the two keys used to publish to a domain.
  */
 export function listDomainSharedAccessKeysOutput(args: ListDomainSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainSharedAccessKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20200401preview:listDomainSharedAccessKeys", {
-        "domainName": args.domainName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listDomainSharedAccessKeys(a, opts))
 }
 
 export interface ListDomainSharedAccessKeysOutputArgs {

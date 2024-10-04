@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves an Arc Sql Server availability group.
  */
 export function getSqlServerAvailabilityGroup(args: GetSqlServerAvailabilityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerAvailabilityGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20240101:getSqlServerAvailabilityGroup", {
         "availabilityGroupName": args.availabilityGroupName,
@@ -71,12 +72,7 @@ export interface GetSqlServerAvailabilityGroupResult {
  * Retrieves an Arc Sql Server availability group.
  */
 export function getSqlServerAvailabilityGroupOutput(args: GetSqlServerAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerAvailabilityGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20240101:getSqlServerAvailabilityGroup", {
-        "availabilityGroupName": args.availabilityGroupName,
-        "resourceGroupName": args.resourceGroupName,
-        "sqlServerInstanceName": args.sqlServerInstanceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlServerAvailabilityGroup(a, opts))
 }
 
 export interface GetSqlServerAvailabilityGroupOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getEnvironmentSpecificationVersion(args: GetEnvironmentSpecificationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentSpecificationVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20210301preview:getEnvironmentSpecificationVersion", {
         "name": args.name,
@@ -68,13 +69,7 @@ export interface GetEnvironmentSpecificationVersionResult {
  * Azure Resource Manager resource envelope.
  */
 export function getEnvironmentSpecificationVersionOutput(args: GetEnvironmentSpecificationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentSpecificationVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20210301preview:getEnvironmentSpecificationVersion", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "version": args.version,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnvironmentSpecificationVersion(a, opts))
 }
 
 export interface GetEnvironmentSpecificationVersionOutputArgs {

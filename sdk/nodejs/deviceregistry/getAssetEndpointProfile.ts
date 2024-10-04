@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-09-01-preview.
  */
 export function getAssetEndpointProfile(args: GetAssetEndpointProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetEndpointProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceregistry:getAssetEndpointProfile", {
         "assetEndpointProfileName": args.assetEndpointProfileName,
@@ -96,11 +97,7 @@ export interface GetAssetEndpointProfileResult {
  * Other available API versions: 2024-09-01-preview.
  */
 export function getAssetEndpointProfileOutput(args: GetAssetEndpointProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetEndpointProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:deviceregistry:getAssetEndpointProfile", {
-        "assetEndpointProfileName": args.assetEndpointProfileName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAssetEndpointProfile(a, opts))
 }
 
 export interface GetAssetEndpointProfileOutputArgs {

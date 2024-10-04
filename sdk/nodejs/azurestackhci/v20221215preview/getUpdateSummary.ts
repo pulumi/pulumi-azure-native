@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get all Update summaries under the HCI cluster
  */
 export function getUpdateSummary(args: GetUpdateSummaryArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateSummaryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20221215preview:getUpdateSummary", {
         "clusterName": args.clusterName,
@@ -94,11 +95,7 @@ export interface GetUpdateSummaryResult {
  * Get all Update summaries under the HCI cluster
  */
 export function getUpdateSummaryOutput(args: GetUpdateSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateSummaryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20221215preview:getUpdateSummary", {
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUpdateSummary(a, opts))
 }
 
 export interface GetUpdateSummaryOutputArgs {

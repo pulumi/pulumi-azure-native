@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-06-01.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple:getVolume", {
         "deviceName": args.deviceName,
@@ -104,14 +105,7 @@ export interface GetVolumeResult {
  * Azure REST API version: 2017-06-01.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storsimple:getVolume", {
-        "deviceName": args.deviceName,
-        "managerName": args.managerName,
-        "resourceGroupName": args.resourceGroupName,
-        "volumeContainerName": args.volumeContainerName,
-        "volumeName": args.volumeName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
 }
 
 export interface GetVolumeOutputArgs {

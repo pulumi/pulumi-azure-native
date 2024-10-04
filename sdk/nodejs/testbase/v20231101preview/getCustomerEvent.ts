@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a Test Base CustomerEvent.
  */
 export function getCustomerEvent(args: GetCustomerEventArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerEventResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20231101preview:getCustomerEvent", {
         "customerEventName": args.customerEventName,
@@ -67,12 +68,7 @@ export interface GetCustomerEventResult {
  * Gets a Test Base CustomerEvent.
  */
 export function getCustomerEventOutput(args: GetCustomerEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerEventResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getCustomerEvent", {
-        "customerEventName": args.customerEventName,
-        "resourceGroupName": args.resourceGroupName,
-        "testBaseAccountName": args.testBaseAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCustomerEvent(a, opts))
 }
 
 export interface GetCustomerEventOutputArgs {

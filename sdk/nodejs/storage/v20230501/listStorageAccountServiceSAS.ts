@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List service SAS credentials of a specific resource.
  */
 export function listStorageAccountServiceSAS(args: ListStorageAccountServiceSASArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountServiceSASResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20230501:listStorageAccountServiceSAS", {
         "accountName": args.accountName,
@@ -132,29 +133,7 @@ export interface ListStorageAccountServiceSASResult {
  * List service SAS credentials of a specific resource.
  */
 export function listStorageAccountServiceSASOutput(args: ListStorageAccountServiceSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountServiceSASResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage/v20230501:listStorageAccountServiceSAS", {
-        "accountName": args.accountName,
-        "cacheControl": args.cacheControl,
-        "canonicalizedResource": args.canonicalizedResource,
-        "contentDisposition": args.contentDisposition,
-        "contentEncoding": args.contentEncoding,
-        "contentLanguage": args.contentLanguage,
-        "contentType": args.contentType,
-        "iPAddressOrRange": args.iPAddressOrRange,
-        "identifier": args.identifier,
-        "keyToSign": args.keyToSign,
-        "partitionKeyEnd": args.partitionKeyEnd,
-        "partitionKeyStart": args.partitionKeyStart,
-        "permissions": args.permissions,
-        "protocols": args.protocols,
-        "resource": args.resource,
-        "resourceGroupName": args.resourceGroupName,
-        "rowKeyEnd": args.rowKeyEnd,
-        "rowKeyStart": args.rowKeyStart,
-        "sharedAccessExpiryTime": args.sharedAccessExpiryTime,
-        "sharedAccessStartTime": args.sharedAccessStartTime,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listStorageAccountServiceSAS(a, opts))
 }
 
 export interface ListStorageAccountServiceSASOutputArgs {

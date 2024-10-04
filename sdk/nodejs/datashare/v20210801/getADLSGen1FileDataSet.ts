@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a DataSet in a share
  */
 export function getADLSGen1FileDataSet(args: GetADLSGen1FileDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen1FileDataSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:getADLSGen1FileDataSet", {
         "accountName": args.accountName,
@@ -93,13 +94,7 @@ export interface GetADLSGen1FileDataSetResult {
  * Get a DataSet in a share
  */
 export function getADLSGen1FileDataSetOutput(args: GetADLSGen1FileDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen1FileDataSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getADLSGen1FileDataSet", {
-        "accountName": args.accountName,
-        "dataSetName": args.dataSetName,
-        "resourceGroupName": args.resourceGroupName,
-        "shareName": args.shareName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getADLSGen1FileDataSet(a, opts))
 }
 
 export interface GetADLSGen1FileDataSetOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
  */
 export function listComputeNodes(args: ListComputeNodesArgs, opts?: pulumi.InvokeOptions): Promise<ListComputeNodesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230401preview:listComputeNodes", {
         "computeName": args.computeName,
@@ -51,12 +52,7 @@ export interface ListComputeNodesResult {
  * Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
  */
 export function listComputeNodesOutput(args: ListComputeNodesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListComputeNodesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230401preview:listComputeNodes", {
-        "computeName": args.computeName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listComputeNodes(a, opts))
 }
 
 export interface ListComputeNodesOutputArgs {

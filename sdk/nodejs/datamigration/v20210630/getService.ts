@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20210630:getService", {
         "groupName": args.groupName,
@@ -90,11 +91,7 @@ export interface GetServiceResult {
  * The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datamigration/v20210630:getService", {
-        "groupName": args.groupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
 export interface GetServiceOutputArgs {

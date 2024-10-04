@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get service fabric.
  */
 export function getServiceFabric(args: GetServiceFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceFabricResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:getServiceFabric", {
         "expand": args.expand,
@@ -93,14 +94,7 @@ export interface GetServiceFabricResult {
  * Get service fabric.
  */
 export function getServiceFabricOutput(args: GetServiceFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceFabricResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:getServiceFabric", {
-        "expand": args.expand,
-        "labName": args.labName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "userName": args.userName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServiceFabric(a, opts))
 }
 
 export interface GetServiceFabricOutputArgs {

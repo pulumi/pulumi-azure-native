@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about the specified data network.
  */
 export function getDataNetwork(args: GetDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetDataNetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20221101:getDataNetwork", {
         "dataNetworkName": args.dataNetworkName,
@@ -75,12 +76,7 @@ export interface GetDataNetworkResult {
  * Gets information about the specified data network.
  */
 export function getDataNetworkOutput(args: GetDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataNetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20221101:getDataNetwork", {
-        "dataNetworkName": args.dataNetworkName,
-        "mobileNetworkName": args.mobileNetworkName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDataNetwork(a, opts))
 }
 
 export interface GetDataNetworkOutputArgs {

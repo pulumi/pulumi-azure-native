@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-09-01-preview.
  */
 export function getDiscoveredAssetEndpointProfile(args: GetDiscoveredAssetEndpointProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetDiscoveredAssetEndpointProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceregistry:getDiscoveredAssetEndpointProfile", {
         "discoveredAssetEndpointProfileName": args.discoveredAssetEndpointProfileName,
@@ -96,11 +97,7 @@ export interface GetDiscoveredAssetEndpointProfileResult {
  * Azure REST API version: 2024-09-01-preview.
  */
 export function getDiscoveredAssetEndpointProfileOutput(args: GetDiscoveredAssetEndpointProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiscoveredAssetEndpointProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:deviceregistry:getDiscoveredAssetEndpointProfile", {
-        "discoveredAssetEndpointProfileName": args.discoveredAssetEndpointProfileName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDiscoveredAssetEndpointProfile(a, opts))
 }
 
 export interface GetDiscoveredAssetEndpointProfileOutputArgs {

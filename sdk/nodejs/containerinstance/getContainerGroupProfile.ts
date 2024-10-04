@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-05-01-preview.
  */
 export function getContainerGroupProfile(args: GetContainerGroupProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerGroupProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerinstance:getContainerGroupProfile", {
         "containerGroupProfileName": args.containerGroupProfileName,
@@ -123,11 +124,7 @@ export interface GetContainerGroupProfileResult {
  * Azure REST API version: 2024-05-01-preview.
  */
 export function getContainerGroupProfileOutput(args: GetContainerGroupProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerinstance:getContainerGroupProfile", {
-        "containerGroupProfileName": args.containerGroupProfileName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getContainerGroupProfile(a, opts))
 }
 
 export interface GetContainerGroupProfileOutputArgs {

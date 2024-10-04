@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * This is to allow calling via powershell and ARM template.
  */
 export function listWebAppSyncFunctionTriggersSlot(args: ListWebAppSyncFunctionTriggersSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSyncFunctionTriggersSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20181101:listWebAppSyncFunctionTriggersSlot", {
         "name": args.name,
@@ -64,12 +65,7 @@ export interface ListWebAppSyncFunctionTriggersSlotResult {
  * This is to allow calling via powershell and ARM template.
  */
 export function listWebAppSyncFunctionTriggersSlotOutput(args: ListWebAppSyncFunctionTriggersSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSyncFunctionTriggersSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20181101:listWebAppSyncFunctionTriggersSlot", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppSyncFunctionTriggersSlot(a, opts))
 }
 
 export interface ListWebAppSyncFunctionTriggersSlotOutputArgs {

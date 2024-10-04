@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getApiWiki(args: GetApiWikiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiWikiResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getApiWiki", {
         "apiId": args.apiId,
@@ -65,12 +66,7 @@ export interface GetApiWikiResult {
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getApiWikiOutput(args: GetApiWikiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiWikiResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getApiWiki", {
-        "apiId": args.apiId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApiWiki(a, opts))
 }
 
 export interface GetApiWikiOutputArgs {

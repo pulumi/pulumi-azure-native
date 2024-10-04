@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:education/v20211201preview:getLab", {
         "billingAccountName": args.billingAccountName,
@@ -104,13 +105,7 @@ export interface GetLabResult {
  * Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
  */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:education/v20211201preview:getLab", {
-        "billingAccountName": args.billingAccountName,
-        "billingProfileName": args.billingProfileName,
-        "includeBudget": args.includeBudget,
-        "invoiceSectionName": args.invoiceSectionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLab(a, opts))
 }
 
 export interface GetLabOutputArgs {

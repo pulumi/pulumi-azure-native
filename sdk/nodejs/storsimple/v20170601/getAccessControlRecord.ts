@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Returns the properties of the specified access control record name.
  */
 export function getAccessControlRecord(args: GetAccessControlRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessControlRecordResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:getAccessControlRecord", {
         "accessControlRecordName": args.accessControlRecordName,
@@ -64,12 +65,7 @@ export interface GetAccessControlRecordResult {
  * Returns the properties of the specified access control record name.
  */
 export function getAccessControlRecordOutput(args: GetAccessControlRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlRecordResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:getAccessControlRecord", {
-        "accessControlRecordName": args.accessControlRecordName,
-        "managerName": args.managerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessControlRecord(a, opts))
 }
 
 export interface GetAccessControlRecordOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-09-01-preview, 2021-01-01.
  */
 export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering:getPeerAsn", {
         "peerAsnName": args.peerAsnName,
@@ -71,10 +72,7 @@ export interface GetPeerAsnResult {
  * Other available API versions: 2019-09-01-preview, 2021-01-01.
  */
 export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeerAsnResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:peering:getPeerAsn", {
-        "peerAsnName": args.peerAsnName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPeerAsn(a, opts))
 }
 
 export interface GetPeerAsnOutputArgs {

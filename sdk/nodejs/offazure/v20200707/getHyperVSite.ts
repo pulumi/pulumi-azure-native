@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Site REST Resource.
  */
 export function getHyperVSite(args: GetHyperVSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHyperVSiteResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure/v20200707:getHyperVSite", {
         "resourceGroupName": args.resourceGroupName,
@@ -67,11 +68,7 @@ export interface GetHyperVSiteResult {
  * Site REST Resource.
  */
 export function getHyperVSiteOutput(args: GetHyperVSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHyperVSiteResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:offazure/v20200707:getHyperVSite", {
-        "resourceGroupName": args.resourceGroupName,
-        "siteName": args.siteName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHyperVSite(a, opts))
 }
 
 export interface GetHyperVSiteOutputArgs {

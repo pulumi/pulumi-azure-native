@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Returns the activation key of the manager.
  */
 export function listManagerActivationKey(args: ListManagerActivationKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListManagerActivationKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:listManagerActivationKey", {
         "managerName": args.managerName,
@@ -39,11 +40,7 @@ export interface ListManagerActivationKeyResult {
  * Returns the activation key of the manager.
  */
 export function listManagerActivationKeyOutput(args: ListManagerActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagerActivationKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:listManagerActivationKey", {
-        "managerName": args.managerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listManagerActivationKey(a, opts))
 }
 
 export interface ListManagerActivationKeyOutputArgs {

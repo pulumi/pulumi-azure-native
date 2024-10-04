@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get the policy restriction of the Api Management service.
  */
 export function getPolicyRestriction(args: GetPolicyRestrictionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyRestrictionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:getPolicyRestriction", {
         "policyRestrictionId": args.policyRestrictionId,
@@ -60,12 +61,7 @@ export interface GetPolicyRestrictionResult {
  * Get the policy restriction of the Api Management service.
  */
 export function getPolicyRestrictionOutput(args: GetPolicyRestrictionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyRestrictionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getPolicyRestriction", {
-        "policyRestrictionId": args.policyRestrictionId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPolicyRestriction(a, opts))
 }
 
 export interface GetPolicyRestrictionOutputArgs {

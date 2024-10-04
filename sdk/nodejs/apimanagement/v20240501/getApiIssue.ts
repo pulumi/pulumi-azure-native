@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the Issue for an API specified by its identifier.
  */
 export function getApiIssue(args: GetApiIssueArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getApiIssue", {
         "apiId": args.apiId,
@@ -86,14 +87,7 @@ export interface GetApiIssueResult {
  * Gets the details of the Issue for an API specified by its identifier.
  */
 export function getApiIssueOutput(args: GetApiIssueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getApiIssue", {
-        "apiId": args.apiId,
-        "expandCommentsAttachments": args.expandCommentsAttachments,
-        "issueId": args.issueId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApiIssue(a, opts))
 }
 
 export interface GetApiIssueOutputArgs {

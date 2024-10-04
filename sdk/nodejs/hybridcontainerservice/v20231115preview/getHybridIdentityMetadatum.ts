@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the hybrid identity metadata proxy resource.
  */
 export function getHybridIdentityMetadatum(args: GetHybridIdentityMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridIdentityMetadatumResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20231115preview:getHybridIdentityMetadatum", {
         "connectedClusterResourceUri": args.connectedClusterResourceUri,
@@ -61,10 +62,7 @@ export interface GetHybridIdentityMetadatumResult {
  * Get the hybrid identity metadata proxy resource.
  */
 export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20231115preview:getHybridIdentityMetadatum", {
-        "connectedClusterResourceUri": args.connectedClusterResourceUri,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHybridIdentityMetadatum(a, opts))
 }
 
 export interface GetHybridIdentityMetadatumOutputArgs {

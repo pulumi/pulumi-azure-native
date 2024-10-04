@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-06-01-preview.
  */
 export function listFeaturesetVersionMaterializationJobs(args: ListFeaturesetVersionMaterializationJobsArgs, opts?: pulumi.InvokeOptions): Promise<ListFeaturesetVersionMaterializationJobsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:listFeaturesetVersionMaterializationJobs", {
         "featureWindowEnd": args.featureWindowEnd,
@@ -82,17 +83,7 @@ export interface ListFeaturesetVersionMaterializationJobsResult {
  * Other available API versions: 2023-06-01-preview.
  */
 export function listFeaturesetVersionMaterializationJobsOutput(args: ListFeaturesetVersionMaterializationJobsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeaturesetVersionMaterializationJobsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listFeaturesetVersionMaterializationJobs", {
-        "featureWindowEnd": args.featureWindowEnd,
-        "featureWindowStart": args.featureWindowStart,
-        "filters": args.filters,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "skip": args.skip,
-        "version": args.version,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listFeaturesetVersionMaterializationJobs(a, opts))
 }
 
 export interface ListFeaturesetVersionMaterializationJobsOutputArgs {

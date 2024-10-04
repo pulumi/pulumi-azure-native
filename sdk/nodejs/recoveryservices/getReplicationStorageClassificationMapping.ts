@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01.
  */
 export function getReplicationStorageClassificationMapping(args: GetReplicationStorageClassificationMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationStorageClassificationMappingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices:getReplicationStorageClassificationMapping", {
         "fabricName": args.fabricName,
@@ -79,14 +80,7 @@ export interface GetReplicationStorageClassificationMappingResult {
  * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01.
  */
 export function getReplicationStorageClassificationMappingOutput(args: GetReplicationStorageClassificationMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationStorageClassificationMappingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:recoveryservices:getReplicationStorageClassificationMapping", {
-        "fabricName": args.fabricName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-        "storageClassificationMappingName": args.storageClassificationMappingName,
-        "storageClassificationName": args.storageClassificationName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReplicationStorageClassificationMapping(a, opts))
 }
 
 export interface GetReplicationStorageClassificationMappingOutputArgs {

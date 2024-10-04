@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get GitHub Access Token.
  */
 export function getFactoryGitHubAccessToken(args: GetFactoryGitHubAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryGitHubAccessTokenResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getFactoryGitHubAccessToken", {
         "factoryName": args.factoryName,
@@ -62,15 +63,7 @@ export interface GetFactoryGitHubAccessTokenResult {
  * Get GitHub Access Token.
  */
 export function getFactoryGitHubAccessTokenOutput(args: GetFactoryGitHubAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryGitHubAccessTokenResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getFactoryGitHubAccessToken", {
-        "factoryName": args.factoryName,
-        "gitHubAccessCode": args.gitHubAccessCode,
-        "gitHubAccessTokenBaseUrl": args.gitHubAccessTokenBaseUrl,
-        "gitHubClientId": args.gitHubClientId,
-        "gitHubClientSecret": args.gitHubClientSecret,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFactoryGitHubAccessToken(a, opts))
 }
 
 export interface GetFactoryGitHubAccessTokenOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
  */
 export function getInboundEndpoint(args: GetInboundEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetInboundEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getInboundEndpoint", {
         "dnsResolverName": args.dnsResolverName,
@@ -89,12 +90,7 @@ export interface GetInboundEndpointResult {
  * Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
  */
 export function getInboundEndpointOutput(args: GetInboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInboundEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getInboundEndpoint", {
-        "dnsResolverName": args.dnsResolverName,
-        "inboundEndpointName": args.inboundEndpointName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInboundEndpoint(a, opts))
 }
 
 export interface GetInboundEndpointOutputArgs {

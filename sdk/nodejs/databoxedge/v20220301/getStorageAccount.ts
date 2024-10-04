@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
  */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20220301:getStorageAccount", {
         "deviceName": args.deviceName,
@@ -83,12 +84,7 @@ export interface GetStorageAccountResult {
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
  */
 export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20220301:getStorageAccount", {
-        "deviceName": args.deviceName,
-        "resourceGroupName": args.resourceGroupName,
-        "storageAccountName": args.storageAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageAccount(a, opts))
 }
 
 export interface GetStorageAccountOutputArgs {

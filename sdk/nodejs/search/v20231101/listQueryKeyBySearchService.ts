@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns the list of query API keys for the given search service.
  */
 export function listQueryKeyBySearchService(args: ListQueryKeyBySearchServiceArgs, opts?: pulumi.InvokeOptions): Promise<ListQueryKeyBySearchServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:search/v20231101:listQueryKeyBySearchService", {
         "resourceGroupName": args.resourceGroupName,
@@ -46,11 +47,7 @@ export interface ListQueryKeyBySearchServiceResult {
  * Returns the list of query API keys for the given search service.
  */
 export function listQueryKeyBySearchServiceOutput(args: ListQueryKeyBySearchServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQueryKeyBySearchServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:search/v20231101:listQueryKeyBySearchService", {
-        "resourceGroupName": args.resourceGroupName,
-        "searchServiceName": args.searchServiceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listQueryKeyBySearchService(a, opts))
 }
 
 export interface ListQueryKeyBySearchServiceOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List cluster success response
  */
 export function listAccessRoleBindings(args: ListAccessRoleBindingsArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessRoleBindingsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:confluent/v20230822:listAccessRoleBindings", {
         "organizationName": args.organizationName,
@@ -55,12 +56,7 @@ export interface ListAccessRoleBindingsResult {
  * List cluster success response
  */
 export function listAccessRoleBindingsOutput(args: ListAccessRoleBindingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessRoleBindingsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:confluent/v20230822:listAccessRoleBindings", {
-        "organizationName": args.organizationName,
-        "resourceGroupName": args.resourceGroupName,
-        "searchFilters": args.searchFilters,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listAccessRoleBindings(a, opts))
 }
 
 export interface ListAccessRoleBindingsOutputArgs {

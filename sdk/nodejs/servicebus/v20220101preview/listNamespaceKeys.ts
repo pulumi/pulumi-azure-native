@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the primary and secondary connection strings for the namespace.
  */
 export function listNamespaceKeys(args: ListNamespaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20220101preview:listNamespaceKeys", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -68,12 +69,7 @@ export interface ListNamespaceKeysResult {
  * Gets the primary and secondary connection strings for the namespace.
  */
 export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicebus/v20220101preview:listNamespaceKeys", {
-        "authorizationRuleName": args.authorizationRuleName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listNamespaceKeys(a, opts))
 }
 
 export interface ListNamespaceKeysOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
  */
 export function getSAPDiskConfigurations(args: GetSAPDiskConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDiskConfigurationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads:getSAPDiskConfigurations", {
         "appLocation": args.appLocation,
@@ -73,16 +74,7 @@ export interface GetSAPDiskConfigurationsResult {
  * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
  */
 export function getSAPDiskConfigurationsOutput(args: GetSAPDiskConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPDiskConfigurationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads:getSAPDiskConfigurations", {
-        "appLocation": args.appLocation,
-        "databaseType": args.databaseType,
-        "dbVmSku": args.dbVmSku,
-        "deploymentType": args.deploymentType,
-        "environment": args.environment,
-        "location": args.location,
-        "sapProduct": args.sapProduct,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSAPDiskConfigurations(a, opts))
 }
 
 export interface GetSAPDiskConfigurationsOutputArgs {

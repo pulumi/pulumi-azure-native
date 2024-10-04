@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
  */
 export function listDatabasePrincipals(args: ListDatabasePrincipalsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabasePrincipalsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto:listDatabasePrincipals", {
         "clusterName": args.clusterName,
@@ -53,12 +54,7 @@ export interface ListDatabasePrincipalsResult {
  * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
  */
 export function listDatabasePrincipalsOutput(args: ListDatabasePrincipalsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabasePrincipalsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:kusto:listDatabasePrincipals", {
-        "clusterName": args.clusterName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listDatabasePrincipals(a, opts))
 }
 
 export interface ListDatabasePrincipalsOutputArgs {

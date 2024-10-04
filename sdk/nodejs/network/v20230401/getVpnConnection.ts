@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a vpn connection.
  */
 export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230401:getVpnConnection", {
         "connectionName": args.connectionName,
@@ -131,12 +132,7 @@ export interface GetVpnConnectionResult {
  * Retrieves the details of a vpn connection.
  */
 export function getVpnConnectionOutput(args: GetVpnConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230401:getVpnConnection", {
-        "connectionName": args.connectionName,
-        "gatewayName": args.gatewayName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVpnConnection(a, opts))
 }
 
 export interface GetVpnConnectionOutputArgs {

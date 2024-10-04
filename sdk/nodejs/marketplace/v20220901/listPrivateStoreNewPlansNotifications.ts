@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List new plans notifications
  */
 export function listPrivateStoreNewPlansNotifications(args: ListPrivateStoreNewPlansNotificationsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateStoreNewPlansNotificationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:marketplace/v20220901:listPrivateStoreNewPlansNotifications", {
         "privateStoreId": args.privateStoreId,
@@ -34,10 +35,7 @@ export interface ListPrivateStoreNewPlansNotificationsResult {
  * List new plans notifications
  */
 export function listPrivateStoreNewPlansNotificationsOutput(args: ListPrivateStoreNewPlansNotificationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreNewPlansNotificationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:marketplace/v20220901:listPrivateStoreNewPlansNotifications", {
-        "privateStoreId": args.privateStoreId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listPrivateStoreNewPlansNotifications(a, opts))
 }
 
 export interface ListPrivateStoreNewPlansNotificationsOutputArgs {

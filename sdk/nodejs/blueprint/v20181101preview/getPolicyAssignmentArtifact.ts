@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a blueprint artifact.
  */
 export function getPolicyAssignmentArtifact(args: GetPolicyAssignmentArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentArtifactResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint/v20181101preview:getPolicyAssignmentArtifact", {
         "artifactName": args.artifactName,
@@ -84,12 +85,7 @@ export interface GetPolicyAssignmentArtifactResult {
  * Get a blueprint artifact.
  */
 export function getPolicyAssignmentArtifactOutput(args: GetPolicyAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentArtifactResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:blueprint/v20181101preview:getPolicyAssignmentArtifact", {
-        "artifactName": args.artifactName,
-        "blueprintName": args.blueprintName,
-        "resourceScope": args.resourceScope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPolicyAssignmentArtifact(a, opts))
 }
 
 export interface GetPolicyAssignmentArtifactOutputArgs {

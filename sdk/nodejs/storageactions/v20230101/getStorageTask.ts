@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the storage task properties
  */
 export function getStorageTask(args: GetStorageTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTaskResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storageactions/v20230101:getStorageTask", {
         "resourceGroupName": args.resourceGroupName,
@@ -90,11 +91,7 @@ export interface GetStorageTaskResult {
  * Get the storage task properties
  */
 export function getStorageTaskOutput(args: GetStorageTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTaskResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storageactions/v20230101:getStorageTask", {
-        "resourceGroupName": args.resourceGroupName,
-        "storageTaskName": args.storageTaskName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageTask(a, opts))
 }
 
 export interface GetStorageTaskOutputArgs {

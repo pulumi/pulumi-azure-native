@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the details of an Asset Filter associated with the specified Asset.
  */
 export function getAssetFilter(args: GetAssetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetFilterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20230101:getAssetFilter", {
         "accountName": args.accountName,
@@ -76,13 +77,7 @@ export interface GetAssetFilterResult {
  * Get the details of an Asset Filter associated with the specified Asset.
  */
 export function getAssetFilterOutput(args: GetAssetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetFilterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media/v20230101:getAssetFilter", {
-        "accountName": args.accountName,
-        "assetName": args.assetName,
-        "filterName": args.filterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAssetFilter(a, opts))
 }
 
 export interface GetAssetFilterOutputArgs {

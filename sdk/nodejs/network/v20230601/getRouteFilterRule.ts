@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the specified rule from a route filter.
  */
 export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230601:getRouteFilterRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -72,12 +73,7 @@ export interface GetRouteFilterRuleResult {
  * Gets the specified rule from a route filter.
  */
 export function getRouteFilterRuleOutput(args: GetRouteFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230601:getRouteFilterRule", {
-        "resourceGroupName": args.resourceGroupName,
-        "routeFilterName": args.routeFilterName,
-        "ruleName": args.ruleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRouteFilterRule(a, opts))
 }
 
 export interface GetRouteFilterRuleOutputArgs {

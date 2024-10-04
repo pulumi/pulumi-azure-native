@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-05-01-preview.
  */
 export function getWorkloadInstance(args: GetWorkloadInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadInstanceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getWorkloadInstance", {
         "modernizeProjectName": args.modernizeProjectName,
@@ -71,13 +72,7 @@ export interface GetWorkloadInstanceResult {
  * Azure REST API version: 2022-05-01-preview.
  */
 export function getWorkloadInstanceOutput(args: GetWorkloadInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadInstanceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate:getWorkloadInstance", {
-        "modernizeProjectName": args.modernizeProjectName,
-        "resourceGroupName": args.resourceGroupName,
-        "subscriptionId": args.subscriptionId,
-        "workloadInstanceName": args.workloadInstanceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkloadInstance(a, opts))
 }
 
 export interface GetWorkloadInstanceOutputArgs {

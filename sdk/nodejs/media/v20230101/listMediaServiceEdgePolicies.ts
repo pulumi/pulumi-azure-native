@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List all the media edge policies associated with the Media Services account.
  */
 export function listMediaServiceEdgePolicies(args: ListMediaServiceEdgePoliciesArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaServiceEdgePoliciesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20230101:listMediaServiceEdgePolicies", {
         "accountName": args.accountName,
@@ -41,12 +42,7 @@ export interface ListMediaServiceEdgePoliciesResult {
  * List all the media edge policies associated with the Media Services account.
  */
 export function listMediaServiceEdgePoliciesOutput(args: ListMediaServiceEdgePoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMediaServiceEdgePoliciesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media/v20230101:listMediaServiceEdgePolicies", {
-        "accountName": args.accountName,
-        "deviceId": args.deviceId,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listMediaServiceEdgePolicies(a, opts))
 }
 
 export interface ListMediaServiceEdgePoliciesOutputArgs {

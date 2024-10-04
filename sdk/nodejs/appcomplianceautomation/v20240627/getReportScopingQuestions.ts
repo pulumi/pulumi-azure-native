@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed.
  */
 export function getReportScopingQuestions(args: GetReportScopingQuestionsArgs, opts?: pulumi.InvokeOptions): Promise<GetReportScopingQuestionsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appcomplianceautomation/v20240627:getReportScopingQuestions", {
         "reportName": args.reportName,
@@ -37,10 +38,7 @@ export interface GetReportScopingQuestionsResult {
  * Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed.
  */
 export function getReportScopingQuestionsOutput(args: GetReportScopingQuestionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportScopingQuestionsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation/v20240627:getReportScopingQuestions", {
-        "reportName": args.reportName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReportScopingQuestions(a, opts))
 }
 
 export interface GetReportScopingQuestionsOutputArgs {

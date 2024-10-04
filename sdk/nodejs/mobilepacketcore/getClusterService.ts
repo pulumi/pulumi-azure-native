@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-10-15-preview.
  */
 export function getClusterService(args: GetClusterServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilepacketcore:getClusterService", {
         "clusterServiceName": args.clusterServiceName,
@@ -88,11 +89,7 @@ export interface GetClusterServiceResult {
  * Azure REST API version: 2023-10-15-preview.
  */
 export function getClusterServiceOutput(args: GetClusterServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilepacketcore:getClusterService", {
-        "clusterServiceName": args.clusterServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getClusterService(a, opts))
 }
 
 export interface GetClusterServiceOutputArgs {

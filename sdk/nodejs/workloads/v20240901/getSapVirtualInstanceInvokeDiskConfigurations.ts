@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the SAP Disk Configuration Layout prod/non-prod SAP System.
  */
 export function getSapVirtualInstanceInvokeDiskConfigurations(args: GetSapVirtualInstanceInvokeDiskConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSapVirtualInstanceInvokeDiskConfigurationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20240901:getSapVirtualInstanceInvokeDiskConfigurations", {
         "appLocation": args.appLocation,
@@ -67,16 +68,7 @@ export interface GetSapVirtualInstanceInvokeDiskConfigurationsResult {
  * Get the SAP Disk Configuration Layout prod/non-prod SAP System.
  */
 export function getSapVirtualInstanceInvokeDiskConfigurationsOutput(args: GetSapVirtualInstanceInvokeDiskConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapVirtualInstanceInvokeDiskConfigurationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads/v20240901:getSapVirtualInstanceInvokeDiskConfigurations", {
-        "appLocation": args.appLocation,
-        "databaseType": args.databaseType,
-        "dbVmSku": args.dbVmSku,
-        "deploymentType": args.deploymentType,
-        "environment": args.environment,
-        "location": args.location,
-        "sapProduct": args.sapProduct,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSapVirtualInstanceInvokeDiskConfigurations(a, opts))
 }
 
 export interface GetSapVirtualInstanceInvokeDiskConfigurationsOutputArgs {

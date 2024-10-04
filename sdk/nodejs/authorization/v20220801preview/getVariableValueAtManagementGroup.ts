@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
  */
 export function getVariableValueAtManagementGroup(args: GetVariableValueAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableValueAtManagementGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20220801preview:getVariableValueAtManagementGroup", {
         "managementGroupId": args.managementGroupId,
@@ -63,12 +64,7 @@ export interface GetVariableValueAtManagementGroupResult {
  * This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
  */
 export function getVariableValueAtManagementGroupOutput(args: GetVariableValueAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableValueAtManagementGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization/v20220801preview:getVariableValueAtManagementGroup", {
-        "managementGroupId": args.managementGroupId,
-        "variableName": args.variableName,
-        "variableValueName": args.variableValueName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVariableValueAtManagementGroup(a, opts))
 }
 
 export interface GetVariableValueAtManagementGroupOutputArgs {

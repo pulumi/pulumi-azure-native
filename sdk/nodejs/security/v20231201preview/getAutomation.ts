@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves information about the model of a security automation.
  */
 export function getAutomation(args: GetAutomationArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20231201preview:getAutomation", {
         "automationName": args.automationName,
@@ -86,11 +87,7 @@ export interface GetAutomationResult {
  * Retrieves information about the model of a security automation.
  */
 export function getAutomationOutput(args: GetAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security/v20231201preview:getAutomation", {
-        "automationName": args.automationName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAutomation(a, opts))
 }
 
 export interface GetAutomationOutputArgs {

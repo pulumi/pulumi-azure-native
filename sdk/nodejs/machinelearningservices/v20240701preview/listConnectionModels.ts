@@ -8,6 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function listConnectionModels(args: ListConnectionModelsArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionModelsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240701preview:listConnectionModels", {
         "resourceGroupName": args.resourceGroupName,
@@ -37,11 +38,7 @@ export interface ListConnectionModelsResult {
     readonly value?: outputs.machinelearningservices.v20240701preview.EndpointModelPropertiesResponse[];
 }
 export function listConnectionModelsOutput(args: ListConnectionModelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionModelsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240701preview:listConnectionModels", {
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listConnectionModels(a, opts))
 }
 
 export interface ListConnectionModelsOutputArgs {

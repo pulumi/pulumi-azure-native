@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a favorite process for a Test Base Package.
  */
 export function getFavoriteProcess(args: GetFavoriteProcessArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteProcessResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20220401preview:getFavoriteProcess", {
         "favoriteProcessResourceName": args.favoriteProcessResourceName,
@@ -68,13 +69,7 @@ export interface GetFavoriteProcessResult {
  * Gets a favorite process for a Test Base Package.
  */
 export function getFavoriteProcessOutput(args: GetFavoriteProcessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteProcessResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getFavoriteProcess", {
-        "favoriteProcessResourceName": args.favoriteProcessResourceName,
-        "packageName": args.packageName,
-        "resourceGroupName": args.resourceGroupName,
-        "testBaseAccountName": args.testBaseAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFavoriteProcess(a, opts))
 }
 
 export interface GetFavoriteProcessOutputArgs {

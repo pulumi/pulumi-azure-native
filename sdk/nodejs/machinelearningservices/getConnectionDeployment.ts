@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-07-01-preview.
  */
 export function getConnectionDeployment(args: GetConnectionDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionDeploymentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getConnectionDeployment", {
         "connectionName": args.connectionName,
@@ -67,13 +68,7 @@ export interface GetConnectionDeploymentResult {
  * Other available API versions: 2024-07-01-preview.
  */
 export function getConnectionDeploymentOutput(args: GetConnectionDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionDeploymentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getConnectionDeployment", {
-        "connectionName": args.connectionName,
-        "deploymentName": args.deploymentName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConnectionDeployment(a, opts))
 }
 
 export interface GetConnectionDeploymentOutputArgs {

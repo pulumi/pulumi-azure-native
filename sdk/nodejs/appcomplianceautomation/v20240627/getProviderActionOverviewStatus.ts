@@ -12,6 +12,7 @@ import * as utilities from "../../utilities";
  */
 export function getProviderActionOverviewStatus(args?: GetProviderActionOverviewStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderActionOverviewStatusResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appcomplianceautomation/v20240627:getProviderActionOverviewStatus", {
         "type": args.type,
@@ -38,11 +39,7 @@ export interface GetProviderActionOverviewStatusResult {
  * Get the resource overview status.
  */
 export function getProviderActionOverviewStatusOutput(args?: GetProviderActionOverviewStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderActionOverviewStatusResult> {
-    args = args || {};
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation/v20240627:getProviderActionOverviewStatus", {
-        "type": args.type,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProviderActionOverviewStatus(a, opts))
 }
 
 export interface GetProviderActionOverviewStatusOutputArgs {

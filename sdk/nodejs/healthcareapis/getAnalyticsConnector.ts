@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-10-01-preview.
  */
 export function getAnalyticsConnector(args: GetAnalyticsConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsConnectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis:getAnalyticsConnector", {
         "analyticsConnectorName": args.analyticsConnectorName,
@@ -93,12 +94,7 @@ export interface GetAnalyticsConnectorResult {
  * Azure REST API version: 2022-10-01-preview.
  */
 export function getAnalyticsConnectorOutput(args: GetAnalyticsConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsConnectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:healthcareapis:getAnalyticsConnector", {
-        "analyticsConnectorName": args.analyticsConnectorName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAnalyticsConnector(a, opts))
 }
 
 export interface GetAnalyticsConnectorOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a blueprint definition.
  */
 export function getBlueprint(args: GetBlueprintArgs, opts?: pulumi.InvokeOptions): Promise<GetBlueprintResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint/v20181101preview:getBlueprint", {
         "blueprintName": args.blueprintName,
@@ -82,11 +83,7 @@ export interface GetBlueprintResult {
  * Get a blueprint definition.
  */
 export function getBlueprintOutput(args: GetBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlueprintResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:blueprint/v20181101preview:getBlueprint", {
-        "blueprintName": args.blueprintName,
-        "resourceScope": args.resourceScope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBlueprint(a, opts))
 }
 
 export interface GetBlueprintOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationServiceEnvironment(args: GetIntegrationServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationServiceEnvironmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic:getIntegrationServiceEnvironment", {
         "integrationServiceEnvironmentName": args.integrationServiceEnvironmentName,
@@ -72,11 +73,7 @@ export interface GetIntegrationServiceEnvironmentResult {
  * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationServiceEnvironmentOutput(args: GetIntegrationServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationServiceEnvironmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic:getIntegrationServiceEnvironment", {
-        "integrationServiceEnvironmentName": args.integrationServiceEnvironmentName,
-        "resourceGroup": args.resourceGroup,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIntegrationServiceEnvironment(a, opts))
 }
 
 export interface GetIntegrationServiceEnvironmentOutputArgs {

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-11-01-preview.
  */
 export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetComputePolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakeanalytics:getComputePolicy", {
         "accountName": args.accountName,
@@ -70,12 +71,7 @@ export interface GetComputePolicyResult {
  * Azure REST API version: 2019-11-01-preview.
  */
 export function getComputePolicyOutput(args: GetComputePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputePolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datalakeanalytics:getComputePolicy", {
-        "accountName": args.accountName,
-        "computePolicyName": args.computePolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getComputePolicy(a, opts))
 }
 
 export interface GetComputePolicyOutputArgs {

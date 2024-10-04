@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-09-01.
  */
 export function getSapVirtualInstanceInvokeSizingRecommendations(args: GetSapVirtualInstanceInvokeSizingRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSapVirtualInstanceInvokeSizingRecommendationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads:getSapVirtualInstanceInvokeSizingRecommendations", {
         "appLocation": args.appLocation,
@@ -84,19 +85,7 @@ export interface GetSapVirtualInstanceInvokeSizingRecommendationsResult {
  * Azure REST API version: 2024-09-01.
  */
 export function getSapVirtualInstanceInvokeSizingRecommendationsOutput(args: GetSapVirtualInstanceInvokeSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapVirtualInstanceInvokeSizingRecommendationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads:getSapVirtualInstanceInvokeSizingRecommendations", {
-        "appLocation": args.appLocation,
-        "databaseType": args.databaseType,
-        "dbMemory": args.dbMemory,
-        "dbScaleMethod": args.dbScaleMethod,
-        "deploymentType": args.deploymentType,
-        "environment": args.environment,
-        "highAvailabilityType": args.highAvailabilityType,
-        "location": args.location,
-        "sapProduct": args.sapProduct,
-        "saps": args.saps,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSapVirtualInstanceInvokeSizingRecommendations(a, opts))
 }
 
 export interface GetSapVirtualInstanceInvokeSizingRecommendationsOutputArgs {

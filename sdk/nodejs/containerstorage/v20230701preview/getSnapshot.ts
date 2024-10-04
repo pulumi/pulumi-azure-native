@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Snapshot
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerstorage/v20230701preview:getSnapshot", {
         "poolName": args.poolName,
@@ -71,12 +72,7 @@ export interface GetSnapshotResult {
  * Get a Snapshot
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerstorage/v20230701preview:getSnapshot", {
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-        "snapshotName": args.snapshotName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
 }
 
 export interface GetSnapshotOutputArgs {

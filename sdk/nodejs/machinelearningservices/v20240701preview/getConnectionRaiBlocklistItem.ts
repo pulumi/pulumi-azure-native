@@ -8,6 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getConnectionRaiBlocklistItem(args: GetConnectionRaiBlocklistItemArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionRaiBlocklistItemResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240701preview:getConnectionRaiBlocklistItem", {
         "connectionName": args.connectionName,
@@ -64,14 +65,7 @@ export interface GetConnectionRaiBlocklistItemResult {
     readonly type: string;
 }
 export function getConnectionRaiBlocklistItemOutput(args: GetConnectionRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionRaiBlocklistItemResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240701preview:getConnectionRaiBlocklistItem", {
-        "connectionName": args.connectionName,
-        "raiBlocklistItemName": args.raiBlocklistItemName,
-        "raiBlocklistName": args.raiBlocklistName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConnectionRaiBlocklistItem(a, opts))
 }
 
 export interface GetConnectionRaiBlocklistItemOutputArgs {

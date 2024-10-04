@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List of actions for a business application system.
  */
 export function listSystemActions(args: ListSystemActionsArgs, opts?: pulumi.InvokeOptions): Promise<ListSystemActionsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20240401preview:listSystemActions", {
         "agentResourceName": args.agentResourceName,
@@ -56,13 +57,7 @@ export interface ListSystemActionsResult {
  * List of actions for a business application system.
  */
 export function listSystemActionsOutput(args: ListSystemActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSystemActionsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:listSystemActions", {
-        "agentResourceName": args.agentResourceName,
-        "resourceGroupName": args.resourceGroupName,
-        "systemResourceName": args.systemResourceName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listSystemActions(a, opts))
 }
 
 export interface ListSystemActionsOutputArgs {

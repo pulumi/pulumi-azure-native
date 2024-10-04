@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-10-01.
  */
 export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationDefinitionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedservices:getRegistrationDefinition", {
         "registrationDefinitionId": args.registrationDefinitionId,
@@ -64,11 +65,7 @@ export interface GetRegistrationDefinitionResult {
  * Azure REST API version: 2022-10-01.
  */
 export function getRegistrationDefinitionOutput(args: GetRegistrationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationDefinitionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managedservices:getRegistrationDefinition", {
-        "registrationDefinitionId": args.registrationDefinitionId,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRegistrationDefinition(a, opts))
 }
 
 export interface GetRegistrationDefinitionOutputArgs {

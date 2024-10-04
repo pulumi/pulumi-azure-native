@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2018-01-01, 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getPacketCapture", {
         "networkWatcherName": args.networkWatcherName,
@@ -97,12 +98,7 @@ export interface GetPacketCaptureResult {
  * Other available API versions: 2018-01-01, 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getPacketCapture", {
-        "networkWatcherName": args.networkWatcherName,
-        "packetCaptureName": args.packetCaptureName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPacketCapture(a, opts))
 }
 
 export interface GetPacketCaptureOutputArgs {

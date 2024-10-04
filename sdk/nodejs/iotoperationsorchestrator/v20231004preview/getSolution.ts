@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Solution
  */
 export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsorchestrator/v20231004preview:getSolution", {
         "name": args.name,
@@ -78,11 +79,7 @@ export interface GetSolutionResult {
  * Get a Solution
  */
 export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:iotoperationsorchestrator/v20231004preview:getSolution", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSolution(a, opts))
 }
 
 export interface GetSolutionOutputArgs {

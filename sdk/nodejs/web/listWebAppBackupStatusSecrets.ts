@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function listWebAppBackupStatusSecrets(args: ListWebAppBackupStatusSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupStatusSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:listWebAppBackupStatusSecrets", {
         "backupId": args.backupId,
@@ -147,18 +148,7 @@ export interface ListWebAppBackupStatusSecretsResult {
  * Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function listWebAppBackupStatusSecretsOutput(args: ListWebAppBackupStatusSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupStatusSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web:listWebAppBackupStatusSecrets", {
-        "backupId": args.backupId,
-        "backupName": args.backupName,
-        "backupSchedule": args.backupSchedule ? pulumi.output(args.backupSchedule).apply(inputs.web.backupScheduleProvideDefaults) : undefined,
-        "databases": args.databases,
-        "enabled": args.enabled,
-        "kind": args.kind,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "storageAccountUrl": args.storageAccountUrl,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppBackupStatusSecrets(a, opts))
 }
 
 export interface ListWebAppBackupStatusSecretsOutputArgs {

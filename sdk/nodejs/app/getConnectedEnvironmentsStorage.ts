@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01.
  */
 export function getConnectedEnvironmentsStorage(args: GetConnectedEnvironmentsStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentsStorageResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app:getConnectedEnvironmentsStorage", {
         "connectedEnvironmentName": args.connectedEnvironmentName,
@@ -69,12 +70,7 @@ export interface GetConnectedEnvironmentsStorageResult {
  * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01.
  */
 export function getConnectedEnvironmentsStorageOutput(args: GetConnectedEnvironmentsStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsStorageResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app:getConnectedEnvironmentsStorage", {
-        "connectedEnvironmentName": args.connectedEnvironmentName,
-        "resourceGroupName": args.resourceGroupName,
-        "storageName": args.storageName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConnectedEnvironmentsStorage(a, opts))
 }
 
 export interface GetConnectedEnvironmentsStorageOutputArgs {

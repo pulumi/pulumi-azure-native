@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the SAP Database Instance resource.
  */
 export function getSAPDatabaseInstance(args: GetSAPDatabaseInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDatabaseInstanceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20231001preview:getSAPDatabaseInstance", {
         "databaseInstanceName": args.databaseInstanceName,
@@ -103,12 +104,7 @@ export interface GetSAPDatabaseInstanceResult {
  * Gets the SAP Database Instance resource.
  */
 export function getSAPDatabaseInstanceOutput(args: GetSAPDatabaseInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPDatabaseInstanceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads/v20231001preview:getSAPDatabaseInstance", {
-        "databaseInstanceName": args.databaseInstanceName,
-        "resourceGroupName": args.resourceGroupName,
-        "sapVirtualInstanceName": args.sapVirtualInstanceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSAPDatabaseInstance(a, opts))
 }
 
 export interface GetSAPDatabaseInstanceOutputArgs {

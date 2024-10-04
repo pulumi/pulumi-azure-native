@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a custom domain.
  */
 export function getWebPubSubCustomDomain(args: GetWebPubSubCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubCustomDomainResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20230301preview:getWebPubSubCustomDomain", {
         "name": args.name,
@@ -71,12 +72,7 @@ export interface GetWebPubSubCustomDomainResult {
  * Get a custom domain.
  */
 export function getWebPubSubCustomDomainOutput(args: GetWebPubSubCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubCustomDomainResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20230301preview:getWebPubSubCustomDomain", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebPubSubCustomDomain(a, opts))
 }
 
 export interface GetWebPubSubCustomDomainOutputArgs {

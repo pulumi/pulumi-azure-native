@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the config server and its properties.
  */
 export function getConfigServer(args: GetConfigServerArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigServerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20240501preview:getConfigServer", {
         "resourceGroupName": args.resourceGroupName,
@@ -58,11 +59,7 @@ export interface GetConfigServerResult {
  * Get the config server and its properties.
  */
 export function getConfigServerOutput(args: GetConfigServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240501preview:getConfigServer", {
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfigServer(a, opts))
 }
 
 export interface GetConfigServerOutputArgs {

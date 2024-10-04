@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the resource and its properties.
  */
 export function getWebPubSub(args: GetWebPubSubArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20210401preview:getWebPubSub", {
         "resourceGroupName": args.resourceGroupName,
@@ -129,11 +130,7 @@ export interface GetWebPubSubResult {
  * Get the resource and its properties.
  */
 export function getWebPubSubOutput(args: GetWebPubSubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20210401preview:getWebPubSub", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebPubSub(a, opts))
 }
 
 export interface GetWebPubSubOutputArgs {

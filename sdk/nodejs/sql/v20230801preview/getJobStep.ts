@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a job step in a job's current version.
  */
 export function getJobStep(args: GetJobStepArgs, opts?: pulumi.InvokeOptions): Promise<GetJobStepResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230801preview:getJobStep", {
         "jobAgentName": args.jobAgentName,
@@ -89,14 +90,7 @@ export interface GetJobStepResult {
  * Gets a job step in a job's current version.
  */
 export function getJobStepOutput(args: GetJobStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobStepResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getJobStep", {
-        "jobAgentName": args.jobAgentName,
-        "jobName": args.jobName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-        "stepName": args.stepName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getJobStep(a, opts))
 }
 
 export interface GetJobStepOutputArgs {

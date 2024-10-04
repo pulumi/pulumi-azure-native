@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * list source configurations for a linker.
  */
 export function listLinkerConfigurations(args: ListLinkerConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListLinkerConfigurationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicelinker/v20211101preview:listLinkerConfigurations", {
         "linkerName": args.linkerName,
@@ -42,11 +43,7 @@ export interface ListLinkerConfigurationsResult {
  * list source configurations for a linker.
  */
 export function listLinkerConfigurationsOutput(args: ListLinkerConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLinkerConfigurationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicelinker/v20211101preview:listLinkerConfigurations", {
-        "linkerName": args.linkerName,
-        "resourceUri": args.resourceUri,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listLinkerConfigurations(a, opts))
 }
 
 export interface ListLinkerConfigurationsOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List of elastic traffic filters in the account
  */
 export function listAllTrafficFilter(args: ListAllTrafficFilterArgs, opts?: pulumi.InvokeOptions): Promise<ListAllTrafficFilterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic/v20231101preview:listAllTrafficFilter", {
         "monitorName": args.monitorName,
@@ -42,11 +43,7 @@ export interface ListAllTrafficFilterResult {
  * List of elastic traffic filters in the account
  */
 export function listAllTrafficFilterOutput(args: ListAllTrafficFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAllTrafficFilterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:elastic/v20231101preview:listAllTrafficFilter", {
-        "monitorName": args.monitorName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listAllTrafficFilter(a, opts))
 }
 
 export interface ListAllTrafficFilterOutputArgs {

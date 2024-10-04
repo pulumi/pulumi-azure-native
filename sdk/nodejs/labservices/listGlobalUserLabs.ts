@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-10-15.
  */
 export function listGlobalUserLabs(args: ListGlobalUserLabsArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalUserLabsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices:listGlobalUserLabs", {
         "userName": args.userName,
@@ -39,10 +40,7 @@ export interface ListGlobalUserLabsResult {
  * Azure REST API version: 2018-10-15.
  */
 export function listGlobalUserLabsOutput(args: ListGlobalUserLabsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalUserLabsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:labservices:listGlobalUserLabs", {
-        "userName": args.userName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listGlobalUserLabs(a, opts))
 }
 
 export interface ListGlobalUserLabsOutputArgs {

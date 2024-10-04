@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List disk images available for custom image creation.
  */
 export function listLabVhds(args: ListLabVhdsArgs, opts?: pulumi.InvokeOptions): Promise<ListLabVhdsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:listLabVhds", {
         "name": args.name,
@@ -46,11 +47,7 @@ export interface ListLabVhdsResult {
  * List disk images available for custom image creation.
  */
 export function listLabVhdsOutput(args: ListLabVhdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLabVhdsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:listLabVhds", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listLabVhds(a, opts))
 }
 
 export interface ListLabVhdsOutputArgs {

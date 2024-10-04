@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves the details of specified NVA connection.
  */
 export function getNetworkVirtualApplianceConnection(args: GetNetworkVirtualApplianceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:getNetworkVirtualApplianceConnection", {
         "connectionName": args.connectionName,
@@ -75,12 +76,7 @@ export interface GetNetworkVirtualApplianceConnectionResult {
  * Retrieves the details of specified NVA connection.
  */
 export function getNetworkVirtualApplianceConnectionOutput(args: GetNetworkVirtualApplianceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkVirtualApplianceConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getNetworkVirtualApplianceConnection", {
-        "connectionName": args.connectionName,
-        "networkVirtualApplianceName": args.networkVirtualApplianceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkVirtualApplianceConnection(a, opts))
 }
 
 export interface GetNetworkVirtualApplianceConnectionOutputArgs {

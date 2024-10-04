@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getDnsResolverDomainList(args: GetDnsResolverDomainListArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResolverDomainListResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getDnsResolverDomainList", {
         "dnsResolverDomainListName": args.dnsResolverDomainListName,
@@ -80,11 +81,7 @@ export interface GetDnsResolverDomainListResult {
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getDnsResolverDomainListOutput(args: GetDnsResolverDomainListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverDomainListResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getDnsResolverDomainList", {
-        "dnsResolverDomainListName": args.dnsResolverDomainListName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDnsResolverDomainList(a, opts))
 }
 
 export interface GetDnsResolverDomainListOutputArgs {

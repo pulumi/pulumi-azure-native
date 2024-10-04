@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified Content Filters associated with the Azure OpenAI account.
  */
 export function getRaiPolicy(args: GetRaiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRaiPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20231001preview:getRaiPolicy", {
         "accountName": args.accountName,
@@ -71,12 +72,7 @@ export interface GetRaiPolicyResult {
  * Gets the specified Content Filters associated with the Azure OpenAI account.
  */
 export function getRaiPolicyOutput(args: GetRaiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20231001preview:getRaiPolicy", {
-        "accountName": args.accountName,
-        "raiPolicyName": args.raiPolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRaiPolicy(a, opts))
 }
 
 export interface GetRaiPolicyOutputArgs {

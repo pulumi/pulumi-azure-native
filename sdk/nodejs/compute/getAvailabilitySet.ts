@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-04-30-preview, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getAvailabilitySet", {
         "availabilitySetName": args.availabilitySetName,
@@ -88,11 +89,7 @@ export interface GetAvailabilitySetResult {
  * Other available API versions: 2016-04-30-preview, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
 export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute:getAvailabilitySet", {
-        "availabilitySetName": args.availabilitySetName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAvailabilitySet(a, opts))
 }
 
 export interface GetAvailabilitySetOutputArgs {

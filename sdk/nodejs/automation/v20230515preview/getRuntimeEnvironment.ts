@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get information about the Runtime Environment
  */
 export function getRuntimeEnvironment(args: GetRuntimeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRuntimeEnvironmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20230515preview:getRuntimeEnvironment", {
         "automationAccountName": args.automationAccountName,
@@ -83,12 +84,7 @@ export interface GetRuntimeEnvironmentResult {
  * Get information about the Runtime Environment
  */
 export function getRuntimeEnvironmentOutput(args: GetRuntimeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuntimeEnvironmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getRuntimeEnvironment", {
-        "automationAccountName": args.automationAccountName,
-        "resourceGroupName": args.resourceGroupName,
-        "runtimeEnvironmentName": args.runtimeEnvironmentName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRuntimeEnvironment(a, opts))
 }
 
 export interface GetRuntimeEnvironmentOutputArgs {

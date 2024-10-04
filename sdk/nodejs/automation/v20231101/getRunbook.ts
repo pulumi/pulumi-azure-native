@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve the runbook identified by runbook name.
  */
 export function getRunbook(args: GetRunbookArgs, opts?: pulumi.InvokeOptions): Promise<GetRunbookResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20231101:getRunbook", {
         "automationAccountName": args.automationAccountName,
@@ -123,12 +124,7 @@ export interface GetRunbookResult {
  * Retrieve the runbook identified by runbook name.
  */
 export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRunbookResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automation/v20231101:getRunbook", {
-        "automationAccountName": args.automationAccountName,
-        "resourceGroupName": args.resourceGroupName,
-        "runbookName": args.runbookName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRunbook(a, opts))
 }
 
 export interface GetRunbookOutputArgs {

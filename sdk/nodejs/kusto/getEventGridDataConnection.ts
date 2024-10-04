@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-12-29.
  */
 export function getEventGridDataConnection(args: GetEventGridDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventGridDataConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto:getEventGridDataConnection", {
         "clusterName": args.clusterName,
@@ -120,13 +121,7 @@ export interface GetEventGridDataConnectionResult {
  * Azure REST API version: 2022-12-29.
  */
 export function getEventGridDataConnectionOutput(args: GetEventGridDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventGridDataConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:kusto:getEventGridDataConnection", {
-        "clusterName": args.clusterName,
-        "dataConnectionName": args.dataConnectionName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEventGridDataConnection(a, opts))
 }
 
 export interface GetEventGridDataConnectionOutputArgs {

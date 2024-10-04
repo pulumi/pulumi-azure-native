@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List SSH authorized keys and shared key of the local user.
  */
 export function listLocalUserKeys(args: ListLocalUserKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalUserKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20230401:listLocalUserKeys", {
         "accountName": args.accountName,
@@ -51,12 +52,7 @@ export interface ListLocalUserKeysResult {
  * List SSH authorized keys and shared key of the local user.
  */
 export function listLocalUserKeysOutput(args: ListLocalUserKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalUserKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage/v20230401:listLocalUserKeys", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "username": args.username,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listLocalUserKeys(a, opts))
 }
 
 export interface ListLocalUserKeysOutputArgs {

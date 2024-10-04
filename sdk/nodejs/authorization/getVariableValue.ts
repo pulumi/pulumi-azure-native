@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-08-01-preview.
  */
 export function getVariableValue(args: GetVariableValueArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableValueResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getVariableValue", {
         "variableName": args.variableName,
@@ -60,11 +61,7 @@ export interface GetVariableValueResult {
  * Azure REST API version: 2022-08-01-preview.
  */
 export function getVariableValueOutput(args: GetVariableValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableValueResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization:getVariableValue", {
-        "variableName": args.variableName,
-        "variableValueName": args.variableValueName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVariableValue(a, opts))
 }
 
 export interface GetVariableValueOutputArgs {

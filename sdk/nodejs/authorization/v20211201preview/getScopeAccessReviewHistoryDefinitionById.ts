@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get access review history definition by definition Id
  */
 export function getScopeAccessReviewHistoryDefinitionById(args: GetScopeAccessReviewHistoryDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeAccessReviewHistoryDefinitionByIdResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20211201preview:getScopeAccessReviewHistoryDefinitionById", {
         "historyDefinitionId": args.historyDefinitionId,
@@ -114,11 +115,7 @@ export interface GetScopeAccessReviewHistoryDefinitionByIdResult {
  * Get access review history definition by definition Id
  */
 export function getScopeAccessReviewHistoryDefinitionByIdOutput(args: GetScopeAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeAccessReviewHistoryDefinitionByIdResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization/v20211201preview:getScopeAccessReviewHistoryDefinitionById", {
-        "historyDefinitionId": args.historyDefinitionId,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getScopeAccessReviewHistoryDefinitionById(a, opts))
 }
 
 export interface GetScopeAccessReviewHistoryDefinitionByIdOutputArgs {

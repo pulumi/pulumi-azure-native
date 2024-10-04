@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get a blueprint artifact.
  */
 export function getRoleAssignmentArtifact(args: GetRoleAssignmentArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentArtifactResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint/v20181101preview:getRoleAssignmentArtifact", {
         "artifactName": args.artifactName,
@@ -81,12 +82,7 @@ export interface GetRoleAssignmentArtifactResult {
  * Get a blueprint artifact.
  */
 export function getRoleAssignmentArtifactOutput(args: GetRoleAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentArtifactResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:blueprint/v20181101preview:getRoleAssignmentArtifact", {
-        "artifactName": args.artifactName,
-        "blueprintName": args.blueprintName,
-        "resourceScope": args.resourceScope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRoleAssignmentArtifact(a, opts))
 }
 
 export interface GetRoleAssignmentArtifactOutputArgs {

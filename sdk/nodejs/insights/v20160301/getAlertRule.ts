@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a classic metric alert rule
  */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20160301:getAlertRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -86,11 +87,7 @@ export interface GetAlertRuleResult {
  * Gets a classic metric alert rule
  */
 export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights/v20160301:getAlertRule", {
-        "resourceGroupName": args.resourceGroupName,
-        "ruleName": args.ruleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAlertRule(a, opts))
 }
 
 export interface GetAlertRuleOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List springbootservers resource.
  */
 export function getSpringbootserver(args: GetSpringbootserverArgs, opts?: pulumi.InvokeOptions): Promise<GetSpringbootserverResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazurespringboot/v20240401preview:getSpringbootserver", {
         "resourceGroupName": args.resourceGroupName,
@@ -63,12 +64,7 @@ export interface GetSpringbootserverResult {
  * List springbootservers resource.
  */
 export function getSpringbootserverOutput(args: GetSpringbootserverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringbootserverResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:offazurespringboot/v20240401preview:getSpringbootserver", {
-        "resourceGroupName": args.resourceGroupName,
-        "siteName": args.siteName,
-        "springbootserversName": args.springbootserversName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSpringbootserver(a, opts))
 }
 
 export interface GetSpringbootserverOutputArgs {

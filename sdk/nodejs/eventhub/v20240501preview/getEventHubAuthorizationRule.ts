@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an AuthorizationRule for an Event Hub by rule name.
  */
 export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubAuthorizationRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20240501preview:getEventHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -72,13 +73,7 @@ export interface GetEventHubAuthorizationRuleResult {
  * Gets an AuthorizationRule for an Event Hub by rule name.
  */
 export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventhub/v20240501preview:getEventHubAuthorizationRule", {
-        "authorizationRuleName": args.authorizationRuleName,
-        "eventHubName": args.eventHubName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEventHubAuthorizationRule(a, opts))
 }
 
 export interface GetEventHubAuthorizationRuleOutputArgs {

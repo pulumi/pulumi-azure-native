@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2015-08-01-preview.
  */
 export function listConnectionKeys(args: ListConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:listConnectionKeys", {
         "connectionName": args.connectionName,
@@ -77,18 +78,7 @@ export interface ListConnectionKeysResult {
  * Azure REST API version: 2015-08-01-preview.
  */
 export function listConnectionKeysOutput(args: ListConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web:listConnectionKeys", {
-        "connectionName": args.connectionName,
-        "id": args.id,
-        "kind": args.kind,
-        "location": args.location,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "tags": args.tags,
-        "type": args.type,
-        "validityTimeSpan": args.validityTimeSpan,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listConnectionKeys(a, opts))
 }
 
 export interface ListConnectionKeysOutputArgs {

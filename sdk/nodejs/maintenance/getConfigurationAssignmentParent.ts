@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
  */
 export function getConfigurationAssignmentParent(args: GetConfigurationAssignmentParentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssignmentParentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maintenance:getConfigurationAssignmentParent", {
         "configurationAssignmentName": args.configurationAssignmentName,
@@ -97,16 +98,7 @@ export interface GetConfigurationAssignmentParentResult {
  * Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
  */
 export function getConfigurationAssignmentParentOutput(args: GetConfigurationAssignmentParentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentParentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:maintenance:getConfigurationAssignmentParent", {
-        "configurationAssignmentName": args.configurationAssignmentName,
-        "providerName": args.providerName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-        "resourceParentName": args.resourceParentName,
-        "resourceParentType": args.resourceParentType,
-        "resourceType": args.resourceType,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfigurationAssignmentParent(a, opts))
 }
 
 export interface GetConfigurationAssignmentParentOutputArgs {

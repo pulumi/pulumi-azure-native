@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified IpAllocation by resource group.
  */
 export function getIpAllocation(args: GetIpAllocationArgs, opts?: pulumi.InvokeOptions): Promise<GetIpAllocationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230401:getIpAllocation", {
         "expand": args.expand,
@@ -95,12 +96,7 @@ export interface GetIpAllocationResult {
  * Gets the specified IpAllocation by resource group.
  */
 export function getIpAllocationOutput(args: GetIpAllocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpAllocationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230401:getIpAllocation", {
-        "expand": args.expand,
-        "ipAllocationName": args.ipAllocationName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIpAllocation(a, opts))
 }
 
 export interface GetIpAllocationOutputArgs {

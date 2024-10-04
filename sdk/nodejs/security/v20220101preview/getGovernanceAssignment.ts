@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a specific governanceAssignment for the requested scope by AssignmentKey
  */
 export function getGovernanceAssignment(args: GetGovernanceAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGovernanceAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20220101preview:getGovernanceAssignment", {
         "assessmentName": args.assessmentName,
@@ -79,12 +80,7 @@ export interface GetGovernanceAssignmentResult {
  * Get a specific governanceAssignment for the requested scope by AssignmentKey
  */
 export function getGovernanceAssignmentOutput(args: GetGovernanceAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGovernanceAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security/v20220101preview:getGovernanceAssignment", {
-        "assessmentName": args.assessmentName,
-        "assignmentKey": args.assignmentKey,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGovernanceAssignment(a, opts))
 }
 
 export interface GetGovernanceAssignmentOutputArgs {

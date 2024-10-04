@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Fetches the managed proxy details
  */
 export function listEndpointManagedProxyDetails(args: ListEndpointManagedProxyDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointManagedProxyDetailsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridconnectivity/v20241201:listEndpointManagedProxyDetails", {
         "endpointName": args.endpointName,
@@ -61,14 +62,7 @@ export interface ListEndpointManagedProxyDetailsResult {
  * Fetches the managed proxy details
  */
 export function listEndpointManagedProxyDetailsOutput(args: ListEndpointManagedProxyDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointManagedProxyDetailsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity/v20241201:listEndpointManagedProxyDetails", {
-        "endpointName": args.endpointName,
-        "hostname": args.hostname,
-        "resourceUri": args.resourceUri,
-        "service": args.service,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listEndpointManagedProxyDetails(a, opts))
 }
 
 export interface ListEndpointManagedProxyDetailsOutputArgs {

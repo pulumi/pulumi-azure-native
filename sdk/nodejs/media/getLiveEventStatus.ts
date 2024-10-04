@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-11-01.
  */
 export function getLiveEventStatus(args: GetLiveEventStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventStatusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:getLiveEventStatus", {
         "accountName": args.accountName,
@@ -49,12 +50,7 @@ export interface GetLiveEventStatusResult {
  * Azure REST API version: 2022-11-01.
  */
 export function getLiveEventStatusOutput(args: GetLiveEventStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventStatusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media:getLiveEventStatus", {
-        "accountName": args.accountName,
-        "liveEventName": args.liveEventName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLiveEventStatus(a, opts))
 }
 
 export interface GetLiveEventStatusOutputArgs {

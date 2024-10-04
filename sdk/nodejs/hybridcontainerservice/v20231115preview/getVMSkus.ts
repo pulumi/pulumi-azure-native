@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the supported VM skus from the underlying custom location
  */
 export function getVMSkus(args: GetVMSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetVMSkusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20231115preview:getVMSkus", {
         "customLocationResourceUri": args.customLocationResourceUri,
@@ -54,10 +55,7 @@ export interface GetVMSkusResult {
  * Gets the supported VM skus from the underlying custom location
  */
 export function getVMSkusOutput(args: GetVMSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVMSkusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20231115preview:getVMSkus", {
-        "customLocationResourceUri": args.customLocationResourceUri,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVMSkus(a, opts))
 }
 
 export interface GetVMSkusOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a TestLine
  */
 export function getTestLine(args: GetTestLineArgs, opts?: pulumi.InvokeOptions): Promise<GetTestLineResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:voiceservices/v20221201preview:getTestLine", {
         "communicationsGatewayName": args.communicationsGatewayName,
@@ -79,12 +80,7 @@ export interface GetTestLineResult {
  * Get a TestLine
  */
 export function getTestLineOutput(args: GetTestLineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestLineResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:voiceservices/v20221201preview:getTestLine", {
-        "communicationsGatewayName": args.communicationsGatewayName,
-        "resourceGroupName": args.resourceGroupName,
-        "testLineName": args.testLineName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTestLine(a, opts))
 }
 
 export interface GetTestLineOutputArgs {

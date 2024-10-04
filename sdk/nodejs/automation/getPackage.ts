@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-05-15-preview.
  */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation:getPackage", {
         "automationAccountName": args.automationAccountName,
@@ -102,13 +103,7 @@ export interface GetPackageResult {
  * Azure REST API version: 2023-05-15-preview.
  */
 export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automation:getPackage", {
-        "automationAccountName": args.automationAccountName,
-        "packageName": args.packageName,
-        "resourceGroupName": args.resourceGroupName,
-        "runtimeEnvironmentName": args.runtimeEnvironmentName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPackage(a, opts))
 }
 
 export interface GetPackageOutputArgs {

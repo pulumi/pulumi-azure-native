@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a Test Base Account.
  */
 export function getTestBaseAccount(args: GetTestBaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20220401preview:getTestBaseAccount", {
         "resourceGroupName": args.resourceGroupName,
@@ -78,11 +79,7 @@ export interface GetTestBaseAccountResult {
  * Gets a Test Base Account.
  */
 export function getTestBaseAccountOutput(args: GetTestBaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getTestBaseAccount", {
-        "resourceGroupName": args.resourceGroupName,
-        "testBaseAccountName": args.testBaseAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTestBaseAccount(a, opts))
 }
 
 export interface GetTestBaseAccountOutputArgs {

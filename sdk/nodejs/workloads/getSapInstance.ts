@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-10-01-preview.
  */
 export function getSapInstance(args: GetSapInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSapInstanceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads:getSapInstance", {
         "resourceGroupName": args.resourceGroupName,
@@ -93,12 +94,7 @@ export interface GetSapInstanceResult {
  * Azure REST API version: 2023-10-01-preview.
  */
 export function getSapInstanceOutput(args: GetSapInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapInstanceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads:getSapInstance", {
-        "resourceGroupName": args.resourceGroupName,
-        "sapDiscoverySiteName": args.sapDiscoverySiteName,
-        "sapInstanceName": args.sapInstanceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSapInstance(a, opts))
 }
 
 export interface GetSapInstanceOutputArgs {

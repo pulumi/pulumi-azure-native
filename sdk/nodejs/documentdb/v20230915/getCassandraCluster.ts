@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the properties of a managed Cassandra cluster.
  */
 export function getCassandraCluster(args: GetCassandraClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraClusterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20230915:getCassandraCluster", {
         "clusterName": args.clusterName,
@@ -66,11 +67,7 @@ export interface GetCassandraClusterResult {
  * Get the properties of a managed Cassandra cluster.
  */
 export function getCassandraClusterOutput(args: GetCassandraClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraClusterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20230915:getCassandraCluster", {
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCassandraCluster(a, opts))
 }
 
 export interface GetCassandraClusterOutputArgs {

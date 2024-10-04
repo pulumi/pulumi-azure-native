@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a network manager security configuration admin rule.
  */
 export function getAdminRule(args: GetAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210501preview:getAdminRule", {
         "configurationName": args.configurationName,
@@ -122,14 +123,7 @@ export interface GetAdminRuleResult {
  * Gets a network manager security configuration admin rule.
  */
 export function getAdminRuleOutput(args: GetAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20210501preview:getAdminRule", {
-        "configurationName": args.configurationName,
-        "networkManagerName": args.networkManagerName,
-        "resourceGroupName": args.resourceGroupName,
-        "ruleCollectionName": args.ruleCollectionName,
-        "ruleName": args.ruleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAdminRule(a, opts))
 }
 
 export interface GetAdminRuleOutputArgs {

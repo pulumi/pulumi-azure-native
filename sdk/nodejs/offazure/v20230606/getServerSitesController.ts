@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a ServerSiteResource
  */
 export function getServerSitesController(args: GetServerSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerSitesControllerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure/v20230606:getServerSitesController", {
         "resourceGroupName": args.resourceGroupName,
@@ -92,11 +93,7 @@ export interface GetServerSitesControllerResult {
  * Get a ServerSiteResource
  */
 export function getServerSitesControllerOutput(args: GetServerSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerSitesControllerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:getServerSitesController", {
-        "resourceGroupName": args.resourceGroupName,
-        "siteName": args.siteName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServerSitesController(a, opts))
 }
 
 export interface GetServerSitesControllerOutputArgs {

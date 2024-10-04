@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2018-11-02-privatepreview.
  */
 export function getActionRuleByName(args: GetActionRuleByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetActionRuleByNameResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:alertsmanagement:getActionRuleByName", {
         "actionRuleName": args.actionRuleName,
@@ -68,11 +69,7 @@ export interface GetActionRuleByNameResult {
  * Other available API versions: 2018-11-02-privatepreview.
  */
 export function getActionRuleByNameOutput(args: GetActionRuleByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionRuleByNameResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:alertsmanagement:getActionRuleByName", {
-        "actionRuleName": args.actionRuleName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getActionRuleByName(a, opts))
 }
 
 export interface GetActionRuleByNameOutputArgs {

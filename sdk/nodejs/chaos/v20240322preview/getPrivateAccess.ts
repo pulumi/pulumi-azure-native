@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a private access resource
  */
 export function getPrivateAccess(args: GetPrivateAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateAccessResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:chaos/v20240322preview:getPrivateAccess", {
         "privateAccessName": args.privateAccessName,
@@ -74,11 +75,7 @@ export interface GetPrivateAccessResult {
  * Get a private access resource
  */
 export function getPrivateAccessOutput(args: GetPrivateAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateAccessResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:chaos/v20240322preview:getPrivateAccess", {
-        "privateAccessName": args.privateAccessName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateAccess(a, opts))
 }
 
 export interface GetPrivateAccessOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-01-01-preview.
  */
 export function getVendorSkuPreview(args: GetVendorSkuPreviewArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkuPreviewResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:getVendorSkuPreview", {
         "previewSubscription": args.previewSubscription,
@@ -65,12 +66,7 @@ export interface GetVendorSkuPreviewResult {
  * Azure REST API version: 2022-01-01-preview.
  */
 export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkuPreviewResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getVendorSkuPreview", {
-        "previewSubscription": args.previewSubscription,
-        "skuName": args.skuName,
-        "vendorName": args.vendorName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVendorSkuPreview(a, opts))
 }
 
 export interface GetVendorSkuPreviewOutputArgs {

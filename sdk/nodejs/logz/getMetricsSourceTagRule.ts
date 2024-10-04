@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-01-01-preview.
  */
 export function getMetricsSourceTagRule(args: GetMetricsSourceTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricsSourceTagRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz:getMetricsSourceTagRule", {
         "metricsSourceName": args.metricsSourceName,
@@ -67,13 +68,7 @@ export interface GetMetricsSourceTagRuleResult {
  * Azure REST API version: 2022-01-01-preview.
  */
 export function getMetricsSourceTagRuleOutput(args: GetMetricsSourceTagRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsSourceTagRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logz:getMetricsSourceTagRule", {
-        "metricsSourceName": args.metricsSourceName,
-        "monitorName": args.monitorName,
-        "resourceGroupName": args.resourceGroupName,
-        "ruleSetName": args.ruleSetName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMetricsSourceTagRule(a, opts))
 }
 
 export interface GetMetricsSourceTagRuleOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Container of a site
  */
 export function getWebAppSiteContainerSlot(args: GetWebAppSiteContainerSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteContainerSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20231201:getWebAppSiteContainerSlot", {
         "containerName": args.containerName,
@@ -112,13 +113,7 @@ export interface GetWebAppSiteContainerSlotResult {
  * Container of a site
  */
 export function getWebAppSiteContainerSlotOutput(args: GetWebAppSiteContainerSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteContainerSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20231201:getWebAppSiteContainerSlot", {
-        "containerName": args.containerName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppSiteContainerSlot(a, opts))
 }
 
 export interface GetWebAppSiteContainerSlotOutputArgs {

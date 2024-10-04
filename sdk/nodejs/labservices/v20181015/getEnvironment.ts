@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get environment
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices/v20181015:getEnvironment", {
         "environmentName": args.environmentName,
@@ -126,15 +127,7 @@ export interface GetEnvironmentResult {
  * Get environment
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:labservices/v20181015:getEnvironment", {
-        "environmentName": args.environmentName,
-        "environmentSettingName": args.environmentSettingName,
-        "expand": args.expand,
-        "labAccountName": args.labAccountName,
-        "labName": args.labName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
 }
 
 export interface GetEnvironmentOutputArgs {

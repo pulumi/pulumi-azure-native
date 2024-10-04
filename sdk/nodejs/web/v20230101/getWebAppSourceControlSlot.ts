@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Description for Gets the source control configuration of an app.
  */
 export function getWebAppSourceControlSlot(args: GetWebAppSourceControlSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20230101:getWebAppSourceControlSlot", {
         "name": args.name,
@@ -87,12 +88,7 @@ export interface GetWebAppSourceControlSlotResult {
  * Description for Gets the source control configuration of an app.
  */
 export function getWebAppSourceControlSlotOutput(args: GetWebAppSourceControlSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSourceControlSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20230101:getWebAppSourceControlSlot", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppSourceControlSlot(a, opts))
 }
 
 export interface GetWebAppSourceControlSlotOutputArgs {

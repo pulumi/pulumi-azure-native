@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-05-01, 2021-06-01-preview.
  */
 export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBigDataPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:getBigDataPool", {
         "bigDataPoolName": args.bigDataPoolName,
@@ -145,12 +146,7 @@ export interface GetBigDataPoolResult {
  * Other available API versions: 2021-05-01, 2021-06-01-preview.
  */
 export function getBigDataPoolOutput(args: GetBigDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBigDataPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:synapse:getBigDataPool", {
-        "bigDataPoolName": args.bigDataPoolName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBigDataPool(a, opts))
 }
 
 export interface GetBigDataPoolOutputArgs {

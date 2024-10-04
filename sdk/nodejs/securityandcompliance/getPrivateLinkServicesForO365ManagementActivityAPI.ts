@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-03-08.
  */
 export function getPrivateLinkServicesForO365ManagementActivityAPI(args: GetPrivateLinkServicesForO365ManagementActivityAPIArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForO365ManagementActivityAPIResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance:getPrivateLinkServicesForO365ManagementActivityAPI", {
         "resourceGroupName": args.resourceGroupName,
@@ -80,11 +81,7 @@ export interface GetPrivateLinkServicesForO365ManagementActivityAPIResult {
  * Azure REST API version: 2021-03-08.
  */
 export function getPrivateLinkServicesForO365ManagementActivityAPIOutput(args: GetPrivateLinkServicesForO365ManagementActivityAPIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForO365ManagementActivityAPIResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityandcompliance:getPrivateLinkServicesForO365ManagementActivityAPI", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForO365ManagementActivityAPI(a, opts))
 }
 
 export interface GetPrivateLinkServicesForO365ManagementActivityAPIOutputArgs {

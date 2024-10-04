@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an installed packages by its id.
  */
 export function getContentPackage(args: GetContentPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetContentPackageResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20231101:getContentPackage", {
         "packageId": args.packageId,
@@ -155,12 +156,7 @@ export interface GetContentPackageResult {
  * Gets an installed packages by its id.
  */
 export function getContentPackageOutput(args: GetContentPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentPackageResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231101:getContentPackage", {
-        "packageId": args.packageId,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getContentPackage(a, opts))
 }
 
 export interface GetContentPackageOutputArgs {

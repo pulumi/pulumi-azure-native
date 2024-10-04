@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get all delivery attributes for an event subscription of a namespace topic.
  */
 export function getNamespaceTopicEventSubscriptionDeliveryAttributes(args: GetNamespaceTopicEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20231215preview:getNamespaceTopicEventSubscriptionDeliveryAttributes", {
         "eventSubscriptionName": args.eventSubscriptionName,
@@ -52,13 +53,7 @@ export interface GetNamespaceTopicEventSubscriptionDeliveryAttributesResult {
  * Get all delivery attributes for an event subscription of a namespace topic.
  */
 export function getNamespaceTopicEventSubscriptionDeliveryAttributesOutput(args: GetNamespaceTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getNamespaceTopicEventSubscriptionDeliveryAttributes", {
-        "eventSubscriptionName": args.eventSubscriptionName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-        "topicName": args.topicName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNamespaceTopicEventSubscriptionDeliveryAttributes(a, opts))
 }
 
 export interface GetNamespaceTopicEventSubscriptionDeliveryAttributesOutputArgs {

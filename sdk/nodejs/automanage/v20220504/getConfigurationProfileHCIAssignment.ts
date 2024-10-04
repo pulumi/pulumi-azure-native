@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get information about a configuration profile assignment
  */
 export function getConfigurationProfileHCIAssignment(args: GetConfigurationProfileHCIAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileHCIAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automanage/v20220504:getConfigurationProfileHCIAssignment", {
         "clusterName": args.clusterName,
@@ -67,12 +68,7 @@ export interface GetConfigurationProfileHCIAssignmentResult {
  * Get information about a configuration profile assignment
  */
 export function getConfigurationProfileHCIAssignmentOutput(args: GetConfigurationProfileHCIAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileHCIAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automanage/v20220504:getConfigurationProfileHCIAssignment", {
-        "clusterName": args.clusterName,
-        "configurationProfileAssignmentName": args.configurationProfileAssignmentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfigurationProfileHCIAssignment(a, opts))
 }
 
 export interface GetConfigurationProfileHCIAssignmentOutputArgs {

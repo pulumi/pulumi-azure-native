@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-08-31, 2019-02-01, 2019-06-01.
  */
 export function listManagedClusterAccessProfile(args: ListManagedClusterAccessProfileArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterAccessProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice:listManagedClusterAccessProfile", {
         "resourceGroupName": args.resourceGroupName,
@@ -70,12 +71,7 @@ export interface ListManagedClusterAccessProfileResult {
  * Other available API versions: 2017-08-31, 2019-02-01, 2019-06-01.
  */
 export function listManagedClusterAccessProfileOutput(args: ListManagedClusterAccessProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterAccessProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerservice:listManagedClusterAccessProfile", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-        "roleName": args.roleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listManagedClusterAccessProfile(a, opts))
 }
 
 export interface ListManagedClusterAccessProfileOutputArgs {

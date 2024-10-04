@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the alert rule.
  */
 export function getNrtAlertRule(args: GetNrtAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNrtAlertRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20240101preview:getNrtAlertRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -144,12 +145,7 @@ export interface GetNrtAlertRuleResult {
  * Gets the alert rule.
  */
 export function getNrtAlertRuleOutput(args: GetNrtAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNrtAlertRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:getNrtAlertRule", {
-        "resourceGroupName": args.resourceGroupName,
-        "ruleId": args.ruleId,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNrtAlertRule(a, opts))
 }
 
 export interface GetNrtAlertRuleOutputArgs {

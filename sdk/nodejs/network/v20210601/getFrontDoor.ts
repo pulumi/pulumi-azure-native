@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
  */
 export function getFrontDoor(args: GetFrontDoorArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontDoorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210601:getFrontDoor", {
         "frontDoorName": args.frontDoorName,
@@ -114,11 +115,7 @@ export interface GetFrontDoorResult {
  * Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
  */
 export function getFrontDoorOutput(args: GetFrontDoorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontDoorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20210601:getFrontDoor", {
-        "frontDoorName": args.frontDoorName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFrontDoor(a, opts))
 }
 
 export interface GetFrontDoorOutputArgs {

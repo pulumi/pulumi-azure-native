@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the default rollout details.
  */
 export function getDefaultRollout(args: GetDefaultRolloutArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultRolloutResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub/v20210901preview:getDefaultRollout", {
         "providerNamespace": args.providerNamespace,
@@ -58,11 +59,7 @@ export interface GetDefaultRolloutResult {
  * Gets the default rollout details.
  */
 export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultRolloutResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:providerhub/v20210901preview:getDefaultRollout", {
-        "providerNamespace": args.providerNamespace,
-        "rolloutName": args.rolloutName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDefaultRollout(a, opts))
 }
 
 export interface GetDefaultRolloutOutputArgs {

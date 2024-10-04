@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-05-01.
  */
 export function getManagementLockByScope(args: GetManagementLockByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockByScopeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getManagementLockByScope", {
         "lockName": args.lockName,
@@ -68,11 +69,7 @@ export interface GetManagementLockByScopeResult {
  * Azure REST API version: 2020-05-01.
  */
 export function getManagementLockByScopeOutput(args: GetManagementLockByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockByScopeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization:getManagementLockByScope", {
-        "lockName": args.lockName,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagementLockByScope(a, opts))
 }
 
 export interface GetManagementLockByScopeOutputArgs {

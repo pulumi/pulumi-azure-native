@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-07-01-preview, 2024-08-01-preview.
  */
 export function listSkusByProject(args: ListSkusByProjectArgs, opts?: pulumi.InvokeOptions): Promise<ListSkusByProjectResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter:listSkusByProject", {
         "projectName": args.projectName,
@@ -52,11 +53,7 @@ export interface ListSkusByProjectResult {
  * Other available API versions: 2024-07-01-preview, 2024-08-01-preview.
  */
 export function listSkusByProjectOutput(args: ListSkusByProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSkusByProjectResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devcenter:listSkusByProject", {
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listSkusByProject(a, opts))
 }
 
 export interface ListSkusByProjectOutputArgs {

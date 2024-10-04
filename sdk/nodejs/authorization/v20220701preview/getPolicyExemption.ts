@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * This operation retrieves a single policy exemption, given its name and the scope it was created at.
  */
 export function getPolicyExemption(args: GetPolicyExemptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyExemptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20220701preview:getPolicyExemption", {
         "policyExemptionName": args.policyExemptionName,
@@ -90,11 +91,7 @@ export interface GetPolicyExemptionResult {
  * This operation retrieves a single policy exemption, given its name and the scope it was created at.
  */
 export function getPolicyExemptionOutput(args: GetPolicyExemptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyExemptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization/v20220701preview:getPolicyExemption", {
-        "policyExemptionName": args.policyExemptionName,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPolicyExemption(a, opts))
 }
 
 export interface GetPolicyExemptionOutputArgs {

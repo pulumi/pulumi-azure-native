@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-10-01.
  */
 export function getServerCollector(args: GetServerCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCollectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getServerCollector", {
         "projectName": args.projectName,
@@ -47,12 +48,7 @@ export interface GetServerCollectorResult {
  * Azure REST API version: 2019-10-01.
  */
 export function getServerCollectorOutput(args: GetServerCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCollectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate:getServerCollector", {
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverCollectorName": args.serverCollectorName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServerCollector(a, opts))
 }
 
 export interface GetServerCollectorOutputArgs {

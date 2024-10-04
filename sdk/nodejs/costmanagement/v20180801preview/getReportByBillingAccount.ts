@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the report for a billing account by report name.
  */
 export function getReportByBillingAccount(args: GetReportByBillingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetReportByBillingAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20180801preview:getReportByBillingAccount", {
         "billingAccountId": args.billingAccountId,
@@ -70,11 +71,7 @@ export interface GetReportByBillingAccountResult {
  * Gets the report for a billing account by report name.
  */
 export function getReportByBillingAccountOutput(args: GetReportByBillingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByBillingAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20180801preview:getReportByBillingAccount", {
-        "billingAccountId": args.billingAccountId,
-        "reportName": args.reportName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReportByBillingAccount(a, opts))
 }
 
 export interface GetReportByBillingAccountOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * [Deprecated] Get a Private Atlas resource.
  */
 export function getPrivateAtlase(args: GetPrivateAtlaseArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateAtlaseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maps/v20200201preview:getPrivateAtlase", {
         "accountName": args.accountName,
@@ -67,12 +68,7 @@ export interface GetPrivateAtlaseResult {
  * [Deprecated] Get a Private Atlas resource.
  */
 export function getPrivateAtlaseOutput(args: GetPrivateAtlaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateAtlaseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:maps/v20200201preview:getPrivateAtlase", {
-        "accountName": args.accountName,
-        "privateAtlasName": args.privateAtlasName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateAtlase(a, opts))
 }
 
 export interface GetPrivateAtlaseOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-08-01-preview.
  */
 export function getAzureBareMetalInstance(args: GetAzureBareMetalInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureBareMetalInstanceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:baremetalinfrastructure:getAzureBareMetalInstance", {
         "azureBareMetalInstanceName": args.azureBareMetalInstanceName,
@@ -104,11 +105,7 @@ export interface GetAzureBareMetalInstanceResult {
  * Azure REST API version: 2024-08-01-preview.
  */
 export function getAzureBareMetalInstanceOutput(args: GetAzureBareMetalInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureBareMetalInstanceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:baremetalinfrastructure:getAzureBareMetalInstance", {
-        "azureBareMetalInstanceName": args.azureBareMetalInstanceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAzureBareMetalInstance(a, opts))
 }
 
 export interface GetAzureBareMetalInstanceOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists the PNS Credentials associated with a notification hub .
  */
 export function getNotificationHubPnsCredentials(args: GetNotificationHubPnsCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubPnsCredentialsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20170401:getNotificationHubPnsCredentials", {
         "namespaceName": args.namespaceName,
@@ -91,12 +92,7 @@ export interface GetNotificationHubPnsCredentialsResult {
  * Lists the PNS Credentials associated with a notification hub .
  */
 export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20170401:getNotificationHubPnsCredentials", {
-        "namespaceName": args.namespaceName,
-        "notificationHubName": args.notificationHubName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNotificationHubPnsCredentials(a, opts))
 }
 
 export interface GetNotificationHubPnsCredentialsOutputArgs {

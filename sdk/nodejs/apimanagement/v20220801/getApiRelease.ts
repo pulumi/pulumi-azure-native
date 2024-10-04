@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Returns the details of an API release.
  */
 export function getApiRelease(args: GetApiReleaseArgs, opts?: pulumi.InvokeOptions): Promise<GetApiReleaseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getApiRelease", {
         "apiId": args.apiId,
@@ -73,13 +74,7 @@ export interface GetApiReleaseResult {
  * Returns the details of an API release.
  */
 export function getApiReleaseOutput(args: GetApiReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiReleaseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220801:getApiRelease", {
-        "apiId": args.apiId,
-        "releaseId": args.releaseId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApiRelease(a, opts))
 }
 
 export interface GetApiReleaseOutputArgs {

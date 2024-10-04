@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists the schemas for the specified connection in a pipeline.
  */
 export function listListSchema(args: ListListSchemaArgs, opts?: pulumi.InvokeOptions): Promise<ListListSchemaResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer/v20240507:listListSchema", {
         "connectionId": args.connectionId,
@@ -72,17 +73,7 @@ export interface ListListSchemaResult {
  * Lists the schemas for the specified connection in a pipeline.
  */
 export function listListSchemaOutput(args: ListListSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListSchemaResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20240507:listListSchema", {
-        "connectionId": args.connectionId,
-        "content": args.content,
-        "direction": args.direction,
-        "id": args.id,
-        "name": args.name,
-        "pipelineName": args.pipelineName,
-        "resourceGroupName": args.resourceGroupName,
-        "status": args.status,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listListSchema(a, opts))
 }
 
 export interface ListListSchemaOutputArgs {

@@ -8,6 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getInferenceGroup(args: GetInferenceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInferenceGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240101preview:getInferenceGroup", {
         "groupName": args.groupName,
@@ -79,13 +80,7 @@ export interface GetInferenceGroupResult {
     readonly type: string;
 }
 export function getInferenceGroupOutput(args: GetInferenceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240101preview:getInferenceGroup", {
-        "groupName": args.groupName,
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInferenceGroup(a, opts))
 }
 
 export interface GetInferenceGroupOutputArgs {

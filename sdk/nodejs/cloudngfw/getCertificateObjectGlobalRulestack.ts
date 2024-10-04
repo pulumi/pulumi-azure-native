@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
 export function getCertificateObjectGlobalRulestack(args: GetCertificateObjectGlobalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateObjectGlobalRulestackResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw:getCertificateObjectGlobalRulestack", {
         "globalRulestackName": args.globalRulestackName,
@@ -84,11 +85,7 @@ export interface GetCertificateObjectGlobalRulestackResult {
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
 export function getCertificateObjectGlobalRulestackOutput(args: GetCertificateObjectGlobalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateObjectGlobalRulestackResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cloudngfw:getCertificateObjectGlobalRulestack", {
-        "globalRulestackName": args.globalRulestackName,
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCertificateObjectGlobalRulestack(a, opts))
 }
 
 export interface GetCertificateObjectGlobalRulestackOutputArgs {

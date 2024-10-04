@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the recovery plan.
  */
 export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryPlanResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20230801:getReplicationRecoveryPlan", {
         "recoveryPlanName": args.recoveryPlanName,
@@ -63,12 +64,7 @@ export interface GetReplicationRecoveryPlanResult {
  * Gets the details of the recovery plan.
  */
 export function getReplicationRecoveryPlanOutput(args: GetReplicationRecoveryPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryPlanResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230801:getReplicationRecoveryPlan", {
-        "recoveryPlanName": args.recoveryPlanName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReplicationRecoveryPlan(a, opts))
 }
 
 export interface GetReplicationRecoveryPlanOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-05-01-preview.
  */
 export function listDiagnosticSettingsCategory(args: ListDiagnosticSettingsCategoryArgs, opts?: pulumi.InvokeOptions): Promise<ListDiagnosticSettingsCategoryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:listDiagnosticSettingsCategory", {
         "resourceUri": args.resourceUri,
@@ -43,10 +44,7 @@ export interface ListDiagnosticSettingsCategoryResult {
  * Other available API versions: 2017-05-01-preview.
  */
 export function listDiagnosticSettingsCategoryOutput(args: ListDiagnosticSettingsCategoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDiagnosticSettingsCategoryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights:listDiagnosticSettingsCategory", {
-        "resourceUri": args.resourceUri,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listDiagnosticSettingsCategory(a, opts))
 }
 
 export interface ListDiagnosticSettingsCategoryOutputArgs {

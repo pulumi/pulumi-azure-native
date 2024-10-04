@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-08-01.
  */
 export function getStorageInsightConfig(args: GetStorageInsightConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageInsightConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights:getStorageInsightConfig", {
         "resourceGroupName": args.resourceGroupName,
@@ -81,12 +82,7 @@ export interface GetStorageInsightConfigResult {
  * Azure REST API version: 2020-08-01.
  */
 export function getStorageInsightConfigOutput(args: GetStorageInsightConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageInsightConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getStorageInsightConfig", {
-        "resourceGroupName": args.resourceGroupName,
-        "storageInsightName": args.storageInsightName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageInsightConfig(a, opts))
 }
 
 export interface GetStorageInsightConfigOutputArgs {

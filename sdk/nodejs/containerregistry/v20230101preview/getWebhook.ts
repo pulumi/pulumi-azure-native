@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified webhook.
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20230101preview:getWebhook", {
         "registryName": args.registryName,
@@ -83,12 +84,7 @@ export interface GetWebhookResult {
  * Gets the properties of the specified webhook.
  */
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230101preview:getWebhook", {
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-        "webhookName": args.webhookName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebhook(a, opts))
 }
 
 export interface GetWebhookOutputArgs {

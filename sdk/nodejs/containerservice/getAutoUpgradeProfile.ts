@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-05-02-preview.
  */
 export function getAutoUpgradeProfile(args: GetAutoUpgradeProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoUpgradeProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice:getAutoUpgradeProfile", {
         "autoUpgradeProfileName": args.autoUpgradeProfileName,
@@ -88,12 +89,7 @@ export interface GetAutoUpgradeProfileResult {
  * Azure REST API version: 2024-05-02-preview.
  */
 export function getAutoUpgradeProfileOutput(args: GetAutoUpgradeProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoUpgradeProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerservice:getAutoUpgradeProfile", {
-        "autoUpgradeProfileName": args.autoUpgradeProfileName,
-        "fleetName": args.fleetName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAutoUpgradeProfile(a, opts))
 }
 
 export interface GetAutoUpgradeProfileOutputArgs {

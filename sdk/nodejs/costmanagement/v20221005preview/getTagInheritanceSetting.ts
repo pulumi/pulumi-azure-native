@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the setting from the given scope by name.
  */
 export function getTagInheritanceSetting(args: GetTagInheritanceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetTagInheritanceSettingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20221005preview:getTagInheritanceSetting", {
         "scope": args.scope,
@@ -63,11 +64,7 @@ export interface GetTagInheritanceSettingResult {
  * Get the setting from the given scope by name.
  */
 export function getTagInheritanceSettingOutput(args: GetTagInheritanceSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagInheritanceSettingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20221005preview:getTagInheritanceSetting", {
-        "scope": args.scope,
-        "type": args.type,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTagInheritanceSetting(a, opts))
 }
 
 export interface GetTagInheritanceSettingOutputArgs {

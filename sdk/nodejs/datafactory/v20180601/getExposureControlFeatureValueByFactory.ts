@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get exposure control feature for specific factory.
  */
 export function getExposureControlFeatureValueByFactory(args: GetExposureControlFeatureValueByFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetExposureControlFeatureValueByFactoryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getExposureControlFeatureValueByFactory", {
         "factoryName": args.factoryName,
@@ -53,13 +54,7 @@ export interface GetExposureControlFeatureValueByFactoryResult {
  * Get exposure control feature for specific factory.
  */
 export function getExposureControlFeatureValueByFactoryOutput(args: GetExposureControlFeatureValueByFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExposureControlFeatureValueByFactoryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getExposureControlFeatureValueByFactory", {
-        "factoryName": args.factoryName,
-        "featureName": args.featureName,
-        "featureType": args.featureType,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getExposureControlFeatureValueByFactory(a, opts))
 }
 
 export interface GetExposureControlFeatureValueByFactoryOutputArgs {

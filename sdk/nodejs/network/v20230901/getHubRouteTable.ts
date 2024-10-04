@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a RouteTable.
  */
 export function getHubRouteTable(args: GetHubRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetHubRouteTableResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230901:getHubRouteTable", {
         "resourceGroupName": args.resourceGroupName,
@@ -79,12 +80,7 @@ export interface GetHubRouteTableResult {
  * Retrieves the details of a RouteTable.
  */
 export function getHubRouteTableOutput(args: GetHubRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubRouteTableResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230901:getHubRouteTable", {
-        "resourceGroupName": args.resourceGroupName,
-        "routeTableName": args.routeTableName,
-        "virtualHubName": args.virtualHubName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHubRouteTable(a, opts))
 }
 
 export interface GetHubRouteTableOutputArgs {

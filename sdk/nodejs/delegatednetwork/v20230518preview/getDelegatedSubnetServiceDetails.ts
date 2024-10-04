@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets details about the specified dnc DelegatedSubnet Link.
  */
 export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedSubnetServiceDetailsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:delegatednetwork/v20230518preview:getDelegatedSubnetServiceDetails", {
         "resourceGroupName": args.resourceGroupName,
@@ -74,11 +75,7 @@ export interface GetDelegatedSubnetServiceDetailsResult {
  * Gets details about the specified dnc DelegatedSubnet Link.
  */
 export function getDelegatedSubnetServiceDetailsOutput(args: GetDelegatedSubnetServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedSubnetServiceDetailsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:delegatednetwork/v20230518preview:getDelegatedSubnetServiceDetails", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDelegatedSubnetServiceDetails(a, opts))
 }
 
 export interface GetDelegatedSubnetServiceDetailsOutputArgs {

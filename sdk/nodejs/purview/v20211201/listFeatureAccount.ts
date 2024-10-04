@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets details from a list of feature names.
  */
 export function listFeatureAccount(args: ListFeatureAccountArgs, opts?: pulumi.InvokeOptions): Promise<ListFeatureAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:purview/v20211201:listFeatureAccount", {
         "accountName": args.accountName,
@@ -44,12 +45,7 @@ export interface ListFeatureAccountResult {
  * Gets details from a list of feature names.
  */
 export function listFeatureAccountOutput(args: ListFeatureAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeatureAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:purview/v20211201:listFeatureAccount", {
-        "accountName": args.accountName,
-        "features": args.features,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listFeatureAccount(a, opts))
 }
 
 export interface ListFeatureAccountOutputArgs {

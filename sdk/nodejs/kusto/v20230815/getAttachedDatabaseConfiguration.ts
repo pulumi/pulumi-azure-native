@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns an attached database configuration.
  */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20230815:getAttachedDatabaseConfiguration", {
         "attachedDatabaseConfigurationName": args.attachedDatabaseConfigurationName,
@@ -91,12 +92,7 @@ export interface GetAttachedDatabaseConfigurationResult {
  * Returns an attached database configuration.
  */
 export function getAttachedDatabaseConfigurationOutput(args: GetAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDatabaseConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:kusto/v20230815:getAttachedDatabaseConfiguration", {
-        "attachedDatabaseConfigurationName": args.attachedDatabaseConfigurationName,
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAttachedDatabaseConfiguration(a, opts))
 }
 
 export interface GetAttachedDatabaseConfigurationOutputArgs {

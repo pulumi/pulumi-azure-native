@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves a specific pipeline topology by name. If a topology with that name has been previously created, the call will return the JSON representation of that topology.
  */
 export function getPipelineTopology(args: GetPipelineTopologyArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineTopologyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20211101preview:getPipelineTopology", {
         "accountName": args.accountName,
@@ -92,12 +93,7 @@ export interface GetPipelineTopologyResult {
  * Retrieves a specific pipeline topology by name. If a topology with that name has been previously created, the call will return the JSON representation of that topology.
  */
 export function getPipelineTopologyOutput(args: GetPipelineTopologyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineTopologyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:videoanalyzer/v20211101preview:getPipelineTopology", {
-        "accountName": args.accountName,
-        "pipelineTopologyName": args.pipelineTopologyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPipelineTopology(a, opts))
 }
 
 export interface GetPipelineTopologyOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Returns a Log Analytics QueryPack.
  */
 export function getQueryPack(args: GetQueryPackArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryPackResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20190901preview:getQueryPack", {
         "queryPackName": args.queryPackName,
@@ -71,11 +72,7 @@ export interface GetQueryPackResult {
  * Returns a Log Analytics QueryPack.
  */
 export function getQueryPackOutput(args: GetQueryPackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryPackResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20190901preview:getQueryPack", {
-        "queryPackName": args.queryPackName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getQueryPack(a, opts))
 }
 
 export interface GetQueryPackOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-03-01.
  */
 export function getDeploymentStackAtManagementGroup(args: GetDeploymentStackAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentStackAtManagementGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources:getDeploymentStackAtManagementGroup", {
         "deploymentStackName": args.deploymentStackName,
@@ -132,11 +133,7 @@ export interface GetDeploymentStackAtManagementGroupResult {
  * Other available API versions: 2024-03-01.
  */
 export function getDeploymentStackAtManagementGroupOutput(args: GetDeploymentStackAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentStackAtManagementGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:resources:getDeploymentStackAtManagementGroup", {
-        "deploymentStackName": args.deploymentStackName,
-        "managementGroupId": args.managementGroupId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDeploymentStackAtManagementGroup(a, opts))
 }
 
 export interface GetDeploymentStackAtManagementGroupOutputArgs {

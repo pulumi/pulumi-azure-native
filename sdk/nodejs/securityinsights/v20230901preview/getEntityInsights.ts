@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Execute Insights for an entity.
  */
 export function getEntityInsights(args: GetEntityInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityInsightsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230901preview:getEntityInsights", {
         "addDefaultExtendedTimeRange": args.addDefaultExtendedTimeRange,
@@ -71,16 +72,7 @@ export interface GetEntityInsightsResult {
  * Execute Insights for an entity.
  */
 export function getEntityInsightsOutput(args: GetEntityInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityInsightsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230901preview:getEntityInsights", {
-        "addDefaultExtendedTimeRange": args.addDefaultExtendedTimeRange,
-        "endTime": args.endTime,
-        "entityId": args.entityId,
-        "insightQueryIds": args.insightQueryIds,
-        "resourceGroupName": args.resourceGroupName,
-        "startTime": args.startTime,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEntityInsights(a, opts))
 }
 
 export interface GetEntityInsightsOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
  */
 export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20230101preview:getDisasterRecoveryConfig", {
         "alias": args.alias,
@@ -83,12 +84,7 @@ export interface GetDisasterRecoveryConfigResult {
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
  */
 export function getDisasterRecoveryConfigOutput(args: GetDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDisasterRecoveryConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventhub/v20230101preview:getDisasterRecoveryConfig", {
-        "alias": args.alias,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDisasterRecoveryConfig(a, opts))
 }
 
 export interface GetDisasterRecoveryConfigOutputArgs {

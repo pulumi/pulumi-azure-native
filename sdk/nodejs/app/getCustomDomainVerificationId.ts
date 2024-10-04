@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  */
 export function getCustomDomainVerificationId(args?: GetCustomDomainVerificationIdArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainVerificationIdResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app:getCustomDomainVerificationId", {
     }, opts);
@@ -33,8 +34,5 @@ export interface GetCustomDomainVerificationIdResult {
  * Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01.
  */
 export function getCustomDomainVerificationIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainVerificationIdResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app:getCustomDomainVerificationId", {
-    }, opts);
+    return pulumi.output(getCustomDomainVerificationId(opts))
 }
-

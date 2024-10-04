@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves a failover group resource
  */
 export function getFailoverGroup(args: GetFailoverGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFailoverGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20230115preview:getFailoverGroup", {
         "failoverGroupName": args.failoverGroupName,
@@ -63,12 +64,7 @@ export interface GetFailoverGroupResult {
  * Retrieves a failover group resource
  */
 export function getFailoverGroupOutput(args: GetFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFailoverGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20230115preview:getFailoverGroup", {
-        "failoverGroupName": args.failoverGroupName,
-        "resourceGroupName": args.resourceGroupName,
-        "sqlManagedInstanceName": args.sqlManagedInstanceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFailoverGroup(a, opts))
 }
 
 export interface GetFailoverGroupOutputArgs {

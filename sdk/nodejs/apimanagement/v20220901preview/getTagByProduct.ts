@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get tag associated with the Product.
  */
 export function getTagByProduct(args: GetTagByProductArgs, opts?: pulumi.InvokeOptions): Promise<GetTagByProductResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220901preview:getTagByProduct", {
         "productId": args.productId,
@@ -61,13 +62,7 @@ export interface GetTagByProductResult {
  * Get tag associated with the Product.
  */
 export function getTagByProductOutput(args: GetTagByProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByProductResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220901preview:getTagByProduct", {
-        "productId": args.productId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "tagId": args.tagId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTagByProduct(a, opts))
 }
 
 export interface GetTagByProductOutputArgs {

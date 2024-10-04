@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Experiment resource.
  */
 export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:chaos/v20240322preview:getExperiment", {
         "experimentName": args.experimentName,
@@ -70,11 +71,7 @@ export interface GetExperimentResult {
  * Get a Experiment resource.
  */
 export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:chaos/v20240322preview:getExperiment", {
-        "experimentName": args.experimentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getExperiment(a, opts))
 }
 
 export interface GetExperimentOutputArgs {

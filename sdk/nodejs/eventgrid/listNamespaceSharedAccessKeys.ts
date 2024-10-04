@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
 export function listNamespaceSharedAccessKeys(args: ListNamespaceSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceSharedAccessKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid:listNamespaceSharedAccessKeys", {
         "namespaceName": args.namespaceName,
@@ -49,11 +50,7 @@ export interface ListNamespaceSharedAccessKeysResult {
  * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
 export function listNamespaceSharedAccessKeysOutput(args: ListNamespaceSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceSharedAccessKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid:listNamespaceSharedAccessKeys", {
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listNamespaceSharedAccessKeys(a, opts))
 }
 
 export interface ListNamespaceSharedAccessKeysOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a database advisor.
  */
 export function getDatabaseAdvisor(args: GetDatabaseAdvisorArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAdvisorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getDatabaseAdvisor", {
         "advisorName": args.advisorName,
@@ -92,13 +93,7 @@ export interface GetDatabaseAdvisorResult {
  * Gets a database advisor.
  */
 export function getDatabaseAdvisorOutput(args: GetDatabaseAdvisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAdvisorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getDatabaseAdvisor", {
-        "advisorName": args.advisorName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDatabaseAdvisor(a, opts))
 }
 
 export interface GetDatabaseAdvisorOutputArgs {

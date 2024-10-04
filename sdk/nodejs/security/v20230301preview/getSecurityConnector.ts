@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves details of a specific security connector
  */
 export function getSecurityConnector(args: GetSecurityConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConnectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20230301preview:getSecurityConnector", {
         "resourceGroupName": args.resourceGroupName,
@@ -90,11 +91,7 @@ export interface GetSecurityConnectorResult {
  * Retrieves details of a specific security connector
  */
 export function getSecurityConnectorOutput(args: GetSecurityConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security/v20230301preview:getSecurityConnector", {
-        "resourceGroupName": args.resourceGroupName,
-        "securityConnectorName": args.securityConnectorName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecurityConnector(a, opts))
 }
 
 export interface GetSecurityConnectorOutputArgs {

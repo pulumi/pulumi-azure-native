@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
  */
 export function getNspLink(args: GetNspLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetNspLinkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getNspLink", {
         "linkName": args.linkName,
@@ -102,12 +103,7 @@ export interface GetNspLinkResult {
  * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
  */
 export function getNspLinkOutput(args: GetNspLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspLinkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getNspLink", {
-        "linkName": args.linkName,
-        "networkSecurityPerimeterName": args.networkSecurityPerimeterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNspLink(a, opts))
 }
 
 export interface GetNspLinkOutputArgs {

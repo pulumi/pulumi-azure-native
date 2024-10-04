@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets properties of a specified share.
  */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20230501:getFileShare", {
         "accountName": args.accountName,
@@ -136,13 +137,7 @@ export interface GetFileShareResult {
  * Gets properties of a specified share.
  */
 export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileShareResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage/v20230501:getFileShare", {
-        "accountName": args.accountName,
-        "expand": args.expand,
-        "resourceGroupName": args.resourceGroupName,
-        "shareName": args.shareName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFileShare(a, opts))
 }
 
 export interface GetFileShareOutputArgs {

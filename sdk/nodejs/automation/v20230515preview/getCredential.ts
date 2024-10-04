@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve the credential identified by credential name.
  */
 export function getCredential(args: GetCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20230515preview:getCredential", {
         "automationAccountName": args.automationAccountName,
@@ -75,12 +76,7 @@ export interface GetCredentialResult {
  * Retrieve the credential identified by credential name.
  */
 export function getCredentialOutput(args: GetCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getCredential", {
-        "automationAccountName": args.automationAccountName,
-        "credentialName": args.credentialName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCredential(a, opts))
 }
 
 export interface GetCredentialOutputArgs {

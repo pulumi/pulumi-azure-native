@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a specific governance rule for the requested scope by ruleId
  */
 export function getGovernanceRule(args: GetGovernanceRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetGovernanceRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20220101preview:getGovernanceRule", {
         "ruleId": args.ruleId,
@@ -106,11 +107,7 @@ export interface GetGovernanceRuleResult {
  * Get a specific governance rule for the requested scope by ruleId
  */
 export function getGovernanceRuleOutput(args: GetGovernanceRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGovernanceRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security/v20220101preview:getGovernanceRule", {
-        "ruleId": args.ruleId,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGovernanceRule(a, opts))
 }
 
 export interface GetGovernanceRuleOutputArgs {

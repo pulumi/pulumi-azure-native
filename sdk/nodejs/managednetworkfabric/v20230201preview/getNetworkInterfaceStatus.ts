@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get the running status of the Network Interface.
  */
 export function getNetworkInterfaceStatus(args: GetNetworkInterfaceStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceStatusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230201preview:getNetworkInterfaceStatus", {
         "networkDeviceName": args.networkDeviceName,
@@ -60,12 +61,7 @@ export interface GetNetworkInterfaceStatusResult {
  * Get the running status of the Network Interface.
  */
 export function getNetworkInterfaceStatusOutput(args: GetNetworkInterfaceStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceStatusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230201preview:getNetworkInterfaceStatus", {
-        "networkDeviceName": args.networkDeviceName,
-        "networkInterfaceName": args.networkInterfaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkInterfaceStatus(a, opts))
 }
 
 export interface GetNetworkInterfaceStatusOutputArgs {

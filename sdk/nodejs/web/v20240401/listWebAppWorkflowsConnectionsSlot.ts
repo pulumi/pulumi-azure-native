@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Workflow properties definition.
  */
 export function listWebAppWorkflowsConnectionsSlot(args: ListWebAppWorkflowsConnectionsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppWorkflowsConnectionsSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:listWebAppWorkflowsConnectionsSlot", {
         "name": args.name,
@@ -67,12 +68,7 @@ export interface ListWebAppWorkflowsConnectionsSlotResult {
  * Workflow properties definition.
  */
 export function listWebAppWorkflowsConnectionsSlotOutput(args: ListWebAppWorkflowsConnectionsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppWorkflowsConnectionsSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:listWebAppWorkflowsConnectionsSlot", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppWorkflowsConnectionsSlot(a, opts))
 }
 
 export interface ListWebAppWorkflowsConnectionsSlotOutputArgs {

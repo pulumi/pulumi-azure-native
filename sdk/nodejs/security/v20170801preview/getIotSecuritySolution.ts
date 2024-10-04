@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Details of a specific iot security solution
  */
 export function getIotSecuritySolution(args: GetIotSecuritySolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotSecuritySolutionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20170801preview:getIotSecuritySolution", {
         "resourceGroupName": args.resourceGroupName,
@@ -94,11 +95,7 @@ export interface GetIotSecuritySolutionResult {
  * Details of a specific iot security solution
  */
 export function getIotSecuritySolutionOutput(args: GetIotSecuritySolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotSecuritySolutionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security/v20170801preview:getIotSecuritySolution", {
-        "resourceGroupName": args.resourceGroupName,
-        "solutionName": args.solutionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIotSecuritySolution(a, opts))
 }
 
 export interface GetIotSecuritySolutionOutputArgs {

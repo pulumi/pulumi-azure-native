@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get tag associated with the API.
  */
 export function getTagByApi(args: GetTagByApiArgs, opts?: pulumi.InvokeOptions): Promise<GetTagByApiResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230301preview:getTagByApi", {
         "apiId": args.apiId,
@@ -61,13 +62,7 @@ export interface GetTagByApiResult {
  * Get tag associated with the API.
  */
 export function getTagByApiOutput(args: GetTagByApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByApiResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getTagByApi", {
-        "apiId": args.apiId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "tagId": args.tagId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTagByApi(a, opts))
 }
 
 export interface GetTagByApiOutputArgs {

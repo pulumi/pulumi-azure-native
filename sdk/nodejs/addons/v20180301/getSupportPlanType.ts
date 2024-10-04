@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
  */
 export function getSupportPlanType(args: GetSupportPlanTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportPlanTypeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:addons/v20180301:getSupportPlanType", {
         "planTypeName": args.planTypeName,
@@ -51,11 +52,7 @@ export interface GetSupportPlanTypeResult {
  * Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
  */
 export function getSupportPlanTypeOutput(args: GetSupportPlanTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSupportPlanTypeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:addons/v20180301:getSupportPlanType", {
-        "planTypeName": args.planTypeName,
-        "providerName": args.providerName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSupportPlanType(a, opts))
 }
 
 export interface GetSupportPlanTypeOutputArgs {

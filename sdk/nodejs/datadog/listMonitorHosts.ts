@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-08-01, 2023-01-01.
  */
 export function listMonitorHosts(args: ListMonitorHostsArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorHostsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datadog:listMonitorHosts", {
         "monitorName": args.monitorName,
@@ -52,11 +53,7 @@ export interface ListMonitorHostsResult {
  * Other available API versions: 2022-08-01, 2023-01-01.
  */
 export function listMonitorHostsOutput(args: ListMonitorHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorHostsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datadog:listMonitorHosts", {
-        "monitorName": args.monitorName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listMonitorHosts(a, opts))
 }
 
 export interface ListMonitorHostsOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
 export function listLocalRulestackAppIds(args: ListLocalRulestackAppIdsArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalRulestackAppIdsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw:listLocalRulestackAppIds", {
         "appIdVersion": args.appIdVersion,
@@ -54,15 +55,7 @@ export interface ListLocalRulestackAppIdsResult {
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
 export function listLocalRulestackAppIdsOutput(args: ListLocalRulestackAppIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalRulestackAppIdsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cloudngfw:listLocalRulestackAppIds", {
-        "appIdVersion": args.appIdVersion,
-        "appPrefix": args.appPrefix,
-        "localRulestackName": args.localRulestackName,
-        "resourceGroupName": args.resourceGroupName,
-        "skip": args.skip,
-        "top": args.top,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listLocalRulestackAppIds(a, opts))
 }
 
 export interface ListLocalRulestackAppIdsOutputArgs {

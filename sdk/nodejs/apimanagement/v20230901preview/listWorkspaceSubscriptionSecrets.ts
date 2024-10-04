@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the specified Subscription keys.
  */
 export function listWorkspaceSubscriptionSecrets(args: ListWorkspaceSubscriptionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceSubscriptionSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:listWorkspaceSubscriptionSecrets", {
         "resourceGroupName": args.resourceGroupName,
@@ -53,13 +54,7 @@ export interface ListWorkspaceSubscriptionSecretsResult {
  * Gets the specified Subscription keys.
  */
 export function listWorkspaceSubscriptionSecretsOutput(args: ListWorkspaceSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceSubscriptionSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:listWorkspaceSubscriptionSecrets", {
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "sid": args.sid,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWorkspaceSubscriptionSecrets(a, opts))
 }
 
 export interface ListWorkspaceSubscriptionSecretsOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns oep resource for a given name.
  */
 export function getEnergyService(args: GetEnergyServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEnergyServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:openenergyplatform/v20220404preview:getEnergyService", {
         "resourceGroupName": args.resourceGroupName,
@@ -60,11 +61,7 @@ export interface GetEnergyServiceResult {
  * Returns oep resource for a given name.
  */
 export function getEnergyServiceOutput(args: GetEnergyServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnergyServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:openenergyplatform/v20220404preview:getEnergyService", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnergyService(a, opts))
 }
 
 export interface GetEnergyServiceOutputArgs {

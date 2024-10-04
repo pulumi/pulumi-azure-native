@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Keys for endpoint authentication.
  */
 export function listServerlessEndpointKeys(args: ListServerlessEndpointKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListServerlessEndpointKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240101preview:listServerlessEndpointKeys", {
         "name": args.name,
@@ -48,12 +49,7 @@ export interface ListServerlessEndpointKeysResult {
  * Keys for endpoint authentication.
  */
 export function listServerlessEndpointKeysOutput(args: ListServerlessEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerlessEndpointKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240101preview:listServerlessEndpointKeys", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listServerlessEndpointKeys(a, opts))
 }
 
 export interface ListServerlessEndpointKeysOutputArgs {

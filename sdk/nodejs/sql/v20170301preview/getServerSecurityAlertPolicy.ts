@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get a server's security alert policy.
  */
 export function getServerSecurityAlertPolicy(args: GetServerSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerSecurityAlertPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20170301preview:getServerSecurityAlertPolicy", {
         "resourceGroupName": args.resourceGroupName,
@@ -84,12 +85,7 @@ export interface GetServerSecurityAlertPolicyResult {
  * Get a server's security alert policy.
  */
 export function getServerSecurityAlertPolicyOutput(args: GetServerSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerSecurityAlertPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20170301preview:getServerSecurityAlertPolicy", {
-        "resourceGroupName": args.resourceGroupName,
-        "securityAlertPolicyName": args.securityAlertPolicyName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServerSecurityAlertPolicy(a, opts))
 }
 
 export interface GetServerSecurityAlertPolicyOutputArgs {

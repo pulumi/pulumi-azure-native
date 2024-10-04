@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of registered recovery services provider.
  */
 export function getReplicationRecoveryServicesProvider(args: GetReplicationRecoveryServicesProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryServicesProviderResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20240201:getReplicationRecoveryServicesProvider", {
         "fabricName": args.fabricName,
@@ -68,13 +69,7 @@ export interface GetReplicationRecoveryServicesProviderResult {
  * Gets the details of registered recovery services provider.
  */
 export function getReplicationRecoveryServicesProviderOutput(args: GetReplicationRecoveryServicesProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryServicesProviderResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20240201:getReplicationRecoveryServicesProvider", {
-        "fabricName": args.fabricName,
-        "providerName": args.providerName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReplicationRecoveryServicesProvider(a, opts))
 }
 
 export interface GetReplicationRecoveryServicesProviderOutputArgs {

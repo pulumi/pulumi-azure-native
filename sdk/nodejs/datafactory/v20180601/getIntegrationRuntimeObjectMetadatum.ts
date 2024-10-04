@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
  */
 export function getIntegrationRuntimeObjectMetadatum(args: GetIntegrationRuntimeObjectMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeObjectMetadatumResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getIntegrationRuntimeObjectMetadatum", {
         "factoryName": args.factoryName,
@@ -56,13 +57,7 @@ export interface GetIntegrationRuntimeObjectMetadatumResult {
  * Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
  */
 export function getIntegrationRuntimeObjectMetadatumOutput(args: GetIntegrationRuntimeObjectMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeObjectMetadatumResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getIntegrationRuntimeObjectMetadatum", {
-        "factoryName": args.factoryName,
-        "integrationRuntimeName": args.integrationRuntimeName,
-        "metadataPath": args.metadataPath,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIntegrationRuntimeObjectMetadatum(a, opts))
 }
 
 export interface GetIntegrationRuntimeObjectMetadatumOutputArgs {

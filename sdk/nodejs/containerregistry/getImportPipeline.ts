@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
  */
 export function getImportPipeline(args: GetImportPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImportPipelineResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry:getImportPipeline", {
         "importPipelineName": args.importPipelineName,
@@ -89,12 +90,7 @@ export interface GetImportPipelineResult {
  * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
  */
 export function getImportPipelineOutput(args: GetImportPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportPipelineResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry:getImportPipeline", {
-        "importPipelineName": args.importPipelineName,
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getImportPipeline(a, opts))
 }
 
 export interface GetImportPipelineOutputArgs {

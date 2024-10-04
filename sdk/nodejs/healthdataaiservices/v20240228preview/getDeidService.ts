@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a DeidService
  */
 export function getDeidService(args: GetDeidServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeidServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthdataaiservices/v20240228preview:getDeidService", {
         "deidServiceName": args.deidServiceName,
@@ -70,11 +71,7 @@ export interface GetDeidServiceResult {
  * Get a DeidService
  */
 export function getDeidServiceOutput(args: GetDeidServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeidServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:healthdataaiservices/v20240228preview:getDeidService", {
-        "deidServiceName": args.deidServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDeidService(a, opts))
 }
 
 export interface GetDeidServiceOutputArgs {

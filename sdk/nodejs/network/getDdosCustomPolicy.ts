@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-01-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getDdosCustomPolicy(args: GetDdosCustomPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosCustomPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getDdosCustomPolicy", {
         "ddosCustomPolicyName": args.ddosCustomPolicyName,
@@ -73,11 +74,7 @@ export interface GetDdosCustomPolicyResult {
  * Other available API versions: 2022-01-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getDdosCustomPolicyOutput(args: GetDdosCustomPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosCustomPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getDdosCustomPolicy", {
-        "ddosCustomPolicyName": args.ddosCustomPolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDdosCustomPolicy(a, opts))
 }
 
 export interface GetDdosCustomPolicyOutputArgs {

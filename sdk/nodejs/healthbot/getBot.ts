@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-12-08-preview, 2024-02-01.
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthbot:getBot", {
         "botName": args.botName,
@@ -80,11 +81,7 @@ export interface GetBotResult {
  * Other available API versions: 2020-12-08-preview, 2024-02-01.
  */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:healthbot:getBot", {
-        "botName": args.botName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBot(a, opts))
 }
 
 export interface GetBotOutputArgs {

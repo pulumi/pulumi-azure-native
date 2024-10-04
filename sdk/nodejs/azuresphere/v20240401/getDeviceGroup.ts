@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
  */
 export function getDeviceGroup(args: GetDeviceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuresphere/v20240401:getDeviceGroup", {
         "catalogName": args.catalogName,
@@ -92,13 +93,7 @@ export interface GetDeviceGroupResult {
  * Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
  */
 export function getDeviceGroupOutput(args: GetDeviceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azuresphere/v20240401:getDeviceGroup", {
-        "catalogName": args.catalogName,
-        "deviceGroupName": args.deviceGroupName,
-        "productName": args.productName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDeviceGroup(a, opts))
 }
 
 export interface GetDeviceGroupOutputArgs {

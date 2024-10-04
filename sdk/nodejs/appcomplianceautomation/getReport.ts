@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-06-27.
  */
 export function getReport(args: GetReportArgs, opts?: pulumi.InvokeOptions): Promise<GetReportResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appcomplianceautomation:getReport", {
         "reportName": args.reportName,
@@ -59,10 +60,7 @@ export interface GetReportResult {
  * Other available API versions: 2024-06-27.
  */
 export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation:getReport", {
-        "reportName": args.reportName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReport(a, opts))
 }
 
 export interface GetReportOutputArgs {

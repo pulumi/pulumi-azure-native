@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about a server.
  */
 export function getAdministrator(args: GetAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAdministratorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20230301preview:getAdministrator", {
         "objectId": args.objectId,
@@ -75,12 +76,7 @@ export interface GetAdministratorResult {
  * Gets information about a server.
  */
 export function getAdministratorOutput(args: GetAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdministratorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20230301preview:getAdministrator", {
-        "objectId": args.objectId,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAdministrator(a, opts))
 }
 
 export interface GetAdministratorOutputArgs {

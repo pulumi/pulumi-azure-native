@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified contact in a specified resource group.
  */
 export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:orbital/v20221101:getContact", {
         "contactName": args.contactName,
@@ -123,12 +124,7 @@ export interface GetContactResult {
  * Gets the specified contact in a specified resource group.
  */
 export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:orbital/v20221101:getContact", {
-        "contactName": args.contactName,
-        "resourceGroupName": args.resourceGroupName,
-        "spacecraftName": args.spacecraftName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getContact(a, opts))
 }
 
 export interface GetContactOutputArgs {

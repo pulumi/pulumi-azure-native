@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of a partner namespace.
  */
 export function getPartnerNamespace(args: GetPartnerNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerNamespaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20230601preview:getPartnerNamespace", {
         "partnerNamespaceName": args.partnerNamespaceName,
@@ -98,11 +99,7 @@ export interface GetPartnerNamespaceResult {
  * Get properties of a partner namespace.
  */
 export function getPartnerNamespaceOutput(args: GetPartnerNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerNamespaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20230601preview:getPartnerNamespace", {
-        "partnerNamespaceName": args.partnerNamespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPartnerNamespace(a, opts))
 }
 
 export interface GetPartnerNamespaceOutputArgs {

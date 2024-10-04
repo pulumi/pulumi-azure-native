@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a Job Definition resource.
  */
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagemover/v20230301:getJobDefinition", {
         "jobDefinitionName": args.jobDefinitionName,
@@ -120,13 +121,7 @@ export interface GetJobDefinitionResult {
  * Gets a Job Definition resource.
  */
 export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storagemover/v20230301:getJobDefinition", {
-        "jobDefinitionName": args.jobDefinitionName,
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-        "storageMoverName": args.storageMoverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getJobDefinition(a, opts))
 }
 
 export interface GetJobDefinitionOutputArgs {

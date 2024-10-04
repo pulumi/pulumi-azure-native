@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
  */
 export function getSAPSizingRecommendations(args: GetSAPSizingRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPSizingRecommendationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads:getSAPSizingRecommendations", {
         "appLocation": args.appLocation,
@@ -88,19 +89,7 @@ export interface GetSAPSizingRecommendationsResult {
  * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
  */
 export function getSAPSizingRecommendationsOutput(args: GetSAPSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPSizingRecommendationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads:getSAPSizingRecommendations", {
-        "appLocation": args.appLocation,
-        "databaseType": args.databaseType,
-        "dbMemory": args.dbMemory,
-        "dbScaleMethod": args.dbScaleMethod,
-        "deploymentType": args.deploymentType,
-        "environment": args.environment,
-        "highAvailabilityType": args.highAvailabilityType,
-        "location": args.location,
-        "sapProduct": args.sapProduct,
-        "saps": args.saps,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSAPSizingRecommendations(a, opts))
 }
 
 export interface GetSAPSizingRecommendationsOutputArgs {

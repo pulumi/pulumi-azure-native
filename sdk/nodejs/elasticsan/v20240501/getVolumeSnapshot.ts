@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Volume Snapshot.
  */
 export function getVolumeSnapshot(args: GetVolumeSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeSnapshotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elasticsan/v20240501:getVolumeSnapshot", {
         "elasticSanName": args.elasticSanName,
@@ -80,13 +81,7 @@ export interface GetVolumeSnapshotResult {
  * Get a Volume Snapshot.
  */
 export function getVolumeSnapshotOutput(args: GetVolumeSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeSnapshotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:elasticsan/v20240501:getVolumeSnapshot", {
-        "elasticSanName": args.elasticSanName,
-        "resourceGroupName": args.resourceGroupName,
-        "snapshotName": args.snapshotName,
-        "volumeGroupName": args.volumeGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVolumeSnapshot(a, opts))
 }
 
 export interface GetVolumeSnapshotOutputArgs {

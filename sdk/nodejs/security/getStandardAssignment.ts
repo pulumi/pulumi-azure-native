@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-08-01.
  */
 export function getStandardAssignment(args: GetStandardAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getStandardAssignment", {
         "resourceId": args.resourceId,
@@ -88,11 +89,7 @@ export interface GetStandardAssignmentResult {
  * Azure REST API version: 2024-08-01.
  */
 export function getStandardAssignmentOutput(args: GetStandardAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security:getStandardAssignment", {
-        "resourceId": args.resourceId,
-        "standardAssignmentName": args.standardAssignmentName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStandardAssignment(a, opts))
 }
 
 export interface GetStandardAssignmentOutputArgs {

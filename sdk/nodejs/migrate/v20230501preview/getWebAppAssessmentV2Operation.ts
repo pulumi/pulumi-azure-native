@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a WebAppAssessmentV2
  */
 export function getWebAppAssessmentV2Operation(args: GetWebAppAssessmentV2OperationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppAssessmentV2OperationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20230501preview:getWebAppAssessmentV2Operation", {
         "assessmentName": args.assessmentName,
@@ -180,13 +181,7 @@ export interface GetWebAppAssessmentV2OperationResult {
  * Get a WebAppAssessmentV2
  */
 export function getWebAppAssessmentV2OperationOutput(args: GetWebAppAssessmentV2OperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppAssessmentV2OperationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate/v20230501preview:getWebAppAssessmentV2Operation", {
-        "assessmentName": args.assessmentName,
-        "groupName": args.groupName,
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppAssessmentV2Operation(a, opts))
 }
 
 export interface GetWebAppAssessmentV2OperationOutputArgs {

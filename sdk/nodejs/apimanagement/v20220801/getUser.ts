@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the user specified by its identifier.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getUser", {
         "resourceGroupName": args.resourceGroupName,
@@ -87,12 +88,7 @@ export interface GetUserResult {
  * Gets the details of the user specified by its identifier.
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220801:getUser", {
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "userId": args.userId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }
 
 export interface GetUserOutputArgs {

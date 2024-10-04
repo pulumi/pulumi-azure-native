@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * support info for firewall.
  */
 export function getFirewallSupportInfo(args: GetFirewallSupportInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallSupportInfoResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20240207preview:getFirewallSupportInfo", {
         "email": args.email,
@@ -88,12 +89,7 @@ export interface GetFirewallSupportInfoResult {
  * support info for firewall.
  */
 export function getFirewallSupportInfoOutput(args: GetFirewallSupportInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallSupportInfoResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240207preview:getFirewallSupportInfo", {
-        "email": args.email,
-        "firewallName": args.firewallName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFirewallSupportInfo(a, opts))
 }
 
 export interface GetFirewallSupportInfoOutputArgs {

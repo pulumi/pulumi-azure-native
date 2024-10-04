@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves the description for the specified rule.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20221001preview:getRule", {
         "namespaceName": args.namespaceName,
@@ -89,14 +90,7 @@ export interface GetRuleResult {
  * Retrieves the description for the specified rule.
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicebus/v20221001preview:getRule", {
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-        "ruleName": args.ruleName,
-        "subscriptionName": args.subscriptionName,
-        "topicName": args.topicName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRule(a, opts))
 }
 
 export interface GetRuleOutputArgs {

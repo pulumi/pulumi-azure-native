@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve the details of the monitored resource.
  */
 export function getMonitoredResource(args: GetMonitoredResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoredResourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scom/v20230707preview:getMonitoredResource", {
         "instanceName": args.instanceName,
@@ -63,12 +64,7 @@ export interface GetMonitoredResourceResult {
  * Retrieve the details of the monitored resource.
  */
 export function getMonitoredResourceOutput(args: GetMonitoredResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoredResourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:scom/v20230707preview:getMonitoredResource", {
-        "instanceName": args.instanceName,
-        "monitoredResourceName": args.monitoredResourceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMonitoredResource(a, opts))
 }
 
 export interface GetMonitoredResourceOutputArgs {

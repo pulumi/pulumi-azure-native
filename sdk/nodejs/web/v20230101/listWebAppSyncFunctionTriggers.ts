@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Description for This is to allow calling via powershell and ARM template.
  */
 export function listWebAppSyncFunctionTriggers(args: ListWebAppSyncFunctionTriggersArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSyncFunctionTriggersResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20230101:listWebAppSyncFunctionTriggers", {
         "name": args.name,
@@ -43,11 +44,7 @@ export interface ListWebAppSyncFunctionTriggersResult {
  * Description for This is to allow calling via powershell and ARM template.
  */
 export function listWebAppSyncFunctionTriggersOutput(args: ListWebAppSyncFunctionTriggersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSyncFunctionTriggersResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20230101:listWebAppSyncFunctionTriggers", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppSyncFunctionTriggers(a, opts))
 }
 
 export interface ListWebAppSyncFunctionTriggersOutputArgs {

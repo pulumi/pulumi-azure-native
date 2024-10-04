@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified credential set resource.
  */
 export function getCredentialSet(args: GetCredentialSetArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20230101preview:getCredentialSet", {
         "credentialSetName": args.credentialSetName,
@@ -80,12 +81,7 @@ export interface GetCredentialSetResult {
  * Gets the properties of the specified credential set resource.
  */
 export function getCredentialSetOutput(args: GetCredentialSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230101preview:getCredentialSet", {
-        "credentialSetName": args.credentialSetName,
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCredentialSet(a, opts))
 }
 
 export interface GetCredentialSetOutputArgs {

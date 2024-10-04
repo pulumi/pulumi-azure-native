@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the alert rule.
  */
 export function getMLBehaviorAnalyticsAlertRule(args: GetMLBehaviorAnalyticsAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMLBehaviorAnalyticsAlertRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230801preview:getMLBehaviorAnalyticsAlertRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -100,12 +101,7 @@ export interface GetMLBehaviorAnalyticsAlertRuleResult {
  * Gets the alert rule.
  */
 export function getMLBehaviorAnalyticsAlertRuleOutput(args: GetMLBehaviorAnalyticsAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMLBehaviorAnalyticsAlertRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230801preview:getMLBehaviorAnalyticsAlertRule", {
-        "resourceGroupName": args.resourceGroupName,
-        "ruleId": args.ruleId,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMLBehaviorAnalyticsAlertRule(a, opts))
 }
 
 export interface GetMLBehaviorAnalyticsAlertRuleOutputArgs {

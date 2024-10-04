@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Instance of Pool resource.
  */
 export function getIpamPool(args: GetIpamPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240101preview:getIpamPool", {
         "networkManagerName": args.networkManagerName,
@@ -71,12 +72,7 @@ export interface GetIpamPoolResult {
  * Instance of Pool resource.
  */
 export function getIpamPoolOutput(args: GetIpamPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20240101preview:getIpamPool", {
-        "networkManagerName": args.networkManagerName,
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIpamPool(a, opts))
 }
 
 export interface GetIpamPoolOutputArgs {

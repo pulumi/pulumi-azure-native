@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a Media Service.
  */
 export function getMediaService(args: GetMediaServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20151001:getMediaService", {
         "mediaServiceName": args.mediaServiceName,
@@ -66,11 +67,7 @@ export interface GetMediaServiceResult {
  * Gets a Media Service.
  */
 export function getMediaServiceOutput(args: GetMediaServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media/v20151001:getMediaService", {
-        "mediaServiceName": args.mediaServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMediaService(a, opts))
 }
 
 export interface GetMediaServiceOutputArgs {

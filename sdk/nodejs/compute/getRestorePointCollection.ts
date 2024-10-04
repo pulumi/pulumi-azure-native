@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
 export function getRestorePointCollection(args: GetRestorePointCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointCollectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getRestorePointCollection", {
         "expand": args.expand,
@@ -85,12 +86,7 @@ export interface GetRestorePointCollectionResult {
  * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
 export function getRestorePointCollectionOutput(args: GetRestorePointCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointCollectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute:getRestorePointCollection", {
-        "expand": args.expand,
-        "resourceGroupName": args.resourceGroupName,
-        "restorePointCollectionName": args.restorePointCollectionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRestorePointCollection(a, opts))
 }
 
 export interface GetRestorePointCollectionOutputArgs {

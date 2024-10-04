@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-06-01-preview.
  */
 export function getManagedNetworkPeeringPolicy(args: GetManagedNetworkPeeringPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedNetworkPeeringPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetwork:getManagedNetworkPeeringPolicy", {
         "managedNetworkName": args.managedNetworkName,
@@ -65,12 +66,7 @@ export interface GetManagedNetworkPeeringPolicyResult {
  * Azure REST API version: 2019-06-01-preview.
  */
 export function getManagedNetworkPeeringPolicyOutput(args: GetManagedNetworkPeeringPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkPeeringPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managednetwork:getManagedNetworkPeeringPolicy", {
-        "managedNetworkName": args.managedNetworkName,
-        "managedNetworkPeeringPolicyName": args.managedNetworkPeeringPolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedNetworkPeeringPolicy(a, opts))
 }
 
 export interface GetManagedNetworkPeeringPolicyOutputArgs {

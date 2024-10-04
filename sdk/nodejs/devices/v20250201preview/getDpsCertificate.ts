@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the certificate from the provisioning service.
  */
 export function getDpsCertificate(args: GetDpsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsCertificateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20250201preview:getDpsCertificate", {
         "certificateName": args.certificateName,
@@ -67,12 +68,7 @@ export interface GetDpsCertificateResult {
  * Get the certificate from the provisioning service.
  */
 export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsCertificateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devices/v20250201preview:getDpsCertificate", {
-        "certificateName": args.certificateName,
-        "provisioningServiceName": args.provisioningServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDpsCertificate(a, opts))
 }
 
 export interface GetDpsCertificateOutputArgs {

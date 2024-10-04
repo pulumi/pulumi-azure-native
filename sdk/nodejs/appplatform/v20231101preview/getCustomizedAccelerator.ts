@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the customized accelerator.
  */
 export function getCustomizedAccelerator(args: GetCustomizedAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomizedAcceleratorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20231101preview:getCustomizedAccelerator", {
         "applicationAcceleratorName": args.applicationAcceleratorName,
@@ -72,13 +73,7 @@ export interface GetCustomizedAcceleratorResult {
  * Get the customized accelerator.
  */
 export function getCustomizedAcceleratorOutput(args: GetCustomizedAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizedAcceleratorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231101preview:getCustomizedAccelerator", {
-        "applicationAcceleratorName": args.applicationAcceleratorName,
-        "customizedAcceleratorName": args.customizedAcceleratorName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCustomizedAccelerator(a, opts))
 }
 
 export interface GetCustomizedAcceleratorOutputArgs {

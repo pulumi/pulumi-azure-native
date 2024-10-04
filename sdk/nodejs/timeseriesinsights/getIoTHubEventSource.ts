@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-05-15.
  */
 export function getIoTHubEventSource(args: GetIoTHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTHubEventSourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights:getIoTHubEventSource", {
         "environmentName": args.environmentName,
@@ -106,12 +107,7 @@ export interface GetIoTHubEventSourceResult {
  * Azure REST API version: 2020-05-15.
  */
 export function getIoTHubEventSourceOutput(args: GetIoTHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTHubEventSourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights:getIoTHubEventSource", {
-        "environmentName": args.environmentName,
-        "eventSourceName": args.eventSourceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIoTHubEventSource(a, opts))
 }
 
 export interface GetIoTHubEventSourceOutputArgs {

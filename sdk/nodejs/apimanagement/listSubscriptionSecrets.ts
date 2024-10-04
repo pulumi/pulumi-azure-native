@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function listSubscriptionSecrets(args: ListSubscriptionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListSubscriptionSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:listSubscriptionSecrets", {
         "resourceGroupName": args.resourceGroupName,
@@ -54,12 +55,7 @@ export interface ListSubscriptionSecretsResult {
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function listSubscriptionSecretsOutput(args: ListSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubscriptionSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement:listSubscriptionSecrets", {
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "sid": args.sid,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listSubscriptionSecrets(a, opts))
 }
 
 export interface ListSubscriptionSecretsOutputArgs {

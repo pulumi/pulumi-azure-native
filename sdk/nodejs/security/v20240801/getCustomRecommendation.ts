@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a specific custom recommendation for the requested scope by customRecommendationName
  */
 export function getCustomRecommendation(args: GetCustomRecommendationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomRecommendationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20240801:getCustomRecommendation", {
         "customRecommendationName": args.customRecommendationName,
@@ -86,11 +87,7 @@ export interface GetCustomRecommendationResult {
  * Get a specific custom recommendation for the requested scope by customRecommendationName
  */
 export function getCustomRecommendationOutput(args: GetCustomRecommendationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomRecommendationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security/v20240801:getCustomRecommendation", {
-        "customRecommendationName": args.customRecommendationName,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCustomRecommendation(a, opts))
 }
 
 export interface GetCustomRecommendationOutputArgs {

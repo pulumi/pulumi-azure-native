@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2018-03-30-preview.
  */
 export function getStreamingLocator(args: GetStreamingLocatorArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingLocatorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:getStreamingLocator", {
         "accountName": args.accountName,
@@ -105,12 +106,7 @@ export interface GetStreamingLocatorResult {
  * Other available API versions: 2018-03-30-preview.
  */
 export function getStreamingLocatorOutput(args: GetStreamingLocatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingLocatorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media:getStreamingLocator", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "streamingLocatorName": args.streamingLocatorName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStreamingLocator(a, opts))
 }
 
 export interface GetStreamingLocatorOutputArgs {

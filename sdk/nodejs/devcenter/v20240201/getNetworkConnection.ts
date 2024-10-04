@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a network connection resource
  */
 export function getNetworkConnection(args: GetNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20240201:getNetworkConnection", {
         "networkConnectionName": args.networkConnectionName,
@@ -98,11 +99,7 @@ export interface GetNetworkConnectionResult {
  * Gets a network connection resource
  */
 export function getNetworkConnectionOutput(args: GetNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240201:getNetworkConnection", {
-        "networkConnectionName": args.networkConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkConnection(a, opts))
 }
 
 export interface GetNetworkConnectionOutputArgs {

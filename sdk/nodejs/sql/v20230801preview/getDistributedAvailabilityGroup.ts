@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a distributed availability group info.
  */
 export function getDistributedAvailabilityGroup(args: GetDistributedAvailabilityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributedAvailabilityGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230801preview:getDistributedAvailabilityGroup", {
         "distributedAvailabilityGroupName": args.distributedAvailabilityGroupName,
@@ -99,12 +100,7 @@ export interface GetDistributedAvailabilityGroupResult {
  * Gets a distributed availability group info.
  */
 export function getDistributedAvailabilityGroupOutput(args: GetDistributedAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributedAvailabilityGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getDistributedAvailabilityGroup", {
-        "distributedAvailabilityGroupName": args.distributedAvailabilityGroupName,
-        "managedInstanceName": args.managedInstanceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDistributedAvailabilityGroup(a, opts))
 }
 
 export interface GetDistributedAvailabilityGroupOutputArgs {

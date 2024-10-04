@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a SecurityPolicy
  */
 export function getSecurityPoliciesInterface(args: GetSecurityPoliciesInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPoliciesInterfaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicenetworking/v20240501preview:getSecurityPoliciesInterface", {
         "resourceGroupName": args.resourceGroupName,
@@ -79,12 +80,7 @@ export interface GetSecurityPoliciesInterfaceResult {
  * Get a SecurityPolicy
  */
 export function getSecurityPoliciesInterfaceOutput(args: GetSecurityPoliciesInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPoliciesInterfaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicenetworking/v20240501preview:getSecurityPoliciesInterface", {
-        "resourceGroupName": args.resourceGroupName,
-        "securityPolicyName": args.securityPolicyName,
-        "trafficControllerName": args.trafficControllerName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecurityPoliciesInterface(a, opts))
 }
 
 export interface GetSecurityPoliciesInterfaceOutputArgs {

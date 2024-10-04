@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
  */
 export function listIotDpsResourceKeysForKeyName(args: ListIotDpsResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotDpsResourceKeysForKeyNameResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices:listIotDpsResourceKeysForKeyName", {
         "keyName": args.keyName,
@@ -62,12 +63,7 @@ export interface ListIotDpsResourceKeysForKeyNameResult {
  * Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
  */
 export function listIotDpsResourceKeysForKeyNameOutput(args: ListIotDpsResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysForKeyNameResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devices:listIotDpsResourceKeysForKeyName", {
-        "keyName": args.keyName,
-        "provisioningServiceName": args.provisioningServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listIotDpsResourceKeysForKeyName(a, opts))
 }
 
 export interface ListIotDpsResourceKeysForKeyNameOutputArgs {

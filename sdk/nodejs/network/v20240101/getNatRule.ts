@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a nat ruleGet.
  */
 export function getNatRule(args: GetNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNatRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240101:getNatRule", {
         "gatewayName": args.gatewayName,
@@ -87,12 +88,7 @@ export interface GetNatRuleResult {
  * Retrieves the details of a nat ruleGet.
  */
 export function getNatRuleOutput(args: GetNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20240101:getNatRule", {
-        "gatewayName": args.gatewayName,
-        "natRuleName": args.natRuleName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNatRule(a, opts))
 }
 
 export interface GetNatRuleOutputArgs {

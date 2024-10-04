@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-03-01, 2024-03-01-preview.
  */
 export function getStandbyVirtualMachinePool(args: GetStandbyVirtualMachinePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetStandbyVirtualMachinePoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:standbypool:getStandbyVirtualMachinePool", {
         "resourceGroupName": args.resourceGroupName,
@@ -84,11 +85,7 @@ export interface GetStandbyVirtualMachinePoolResult {
  * Other available API versions: 2024-03-01, 2024-03-01-preview.
  */
 export function getStandbyVirtualMachinePoolOutput(args: GetStandbyVirtualMachinePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandbyVirtualMachinePoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:standbypool:getStandbyVirtualMachinePool", {
-        "resourceGroupName": args.resourceGroupName,
-        "standbyVirtualMachinePoolName": args.standbyVirtualMachinePoolName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStandbyVirtualMachinePool(a, opts))
 }
 
 export interface GetStandbyVirtualMachinePoolOutputArgs {

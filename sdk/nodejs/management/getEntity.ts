@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  */
 export function getEntity(args?: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management:getEntity", {
         "filter": args.filter,
@@ -95,18 +96,7 @@ export interface GetEntityResult {
  * Other available API versions: 2018-01-01-preview, 2018-03-01-preview, 2019-11-01, 2020-02-01, 2020-05-01, 2020-10-01, 2023-04-01.
  */
 export function getEntityOutput(args?: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
-    args = args || {};
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:management:getEntity", {
-        "filter": args.filter,
-        "groupName": args.groupName,
-        "search": args.search,
-        "select": args.select,
-        "skip": args.skip,
-        "skiptoken": args.skiptoken,
-        "top": args.top,
-        "view": args.view,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEntity(a, opts))
 }
 
 export interface GetEntityOutputArgs {

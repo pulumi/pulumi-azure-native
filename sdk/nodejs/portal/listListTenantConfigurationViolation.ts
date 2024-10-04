@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  */
 export function listListTenantConfigurationViolation(args?: ListListTenantConfigurationViolationArgs, opts?: pulumi.InvokeOptions): Promise<ListListTenantConfigurationViolationResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal:listListTenantConfigurationViolation", {
     }, opts);
@@ -43,8 +44,5 @@ export interface ListListTenantConfigurationViolationResult {
  * Other available API versions: 2022-12-01-preview.
  */
 export function listListTenantConfigurationViolationOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListListTenantConfigurationViolationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:portal:listListTenantConfigurationViolation", {
-    }, opts);
+    return pulumi.output(listListTenantConfigurationViolation(opts))
 }
-

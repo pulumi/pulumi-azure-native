@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The Get Domain Service operation retrieves a json representation of the Domain Service.
  */
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aad/v20221201:getDomainService", {
         "domainServiceName": args.domainServiceName,
@@ -138,11 +139,7 @@ export interface GetDomainServiceResult {
  * The Get Domain Service operation retrieves a json representation of the Domain Service.
  */
 export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:aad/v20221201:getDomainService", {
-        "domainServiceName": args.domainServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDomainService(a, opts))
 }
 
 export interface GetDomainServiceOutputArgs {

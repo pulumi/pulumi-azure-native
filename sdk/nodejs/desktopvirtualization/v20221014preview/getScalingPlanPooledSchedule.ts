@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a ScalingPlanPooledSchedule.
  */
 export function getScalingPlanPooledSchedule(args: GetScalingPlanPooledScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanPooledScheduleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20221014preview:getScalingPlanPooledSchedule", {
         "resourceGroupName": args.resourceGroupName,
@@ -127,12 +128,7 @@ export interface GetScalingPlanPooledScheduleResult {
  * Get a ScalingPlanPooledSchedule.
  */
 export function getScalingPlanPooledScheduleOutput(args: GetScalingPlanPooledScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanPooledScheduleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20221014preview:getScalingPlanPooledSchedule", {
-        "resourceGroupName": args.resourceGroupName,
-        "scalingPlanName": args.scalingPlanName,
-        "scalingPlanScheduleName": args.scalingPlanScheduleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getScalingPlanPooledSchedule(a, opts))
 }
 
 export interface GetScalingPlanPooledScheduleOutputArgs {

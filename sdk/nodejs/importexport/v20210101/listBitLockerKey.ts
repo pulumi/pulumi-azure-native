@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns the BitLocker Keys for all drives in the specified job.
  */
 export function listBitLockerKey(args: ListBitLockerKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListBitLockerKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:importexport/v20210101:listBitLockerKey", {
         "jobName": args.jobName,
@@ -42,11 +43,7 @@ export interface ListBitLockerKeyResult {
  * Returns the BitLocker Keys for all drives in the specified job.
  */
 export function listBitLockerKeyOutput(args: ListBitLockerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBitLockerKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:importexport/v20210101:listBitLockerKey", {
-        "jobName": args.jobName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listBitLockerKey(a, opts))
 }
 
 export interface ListBitLockerKeyOutputArgs {

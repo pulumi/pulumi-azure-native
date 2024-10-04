@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get FarmBeats resource.
  */
 export function getFarmBeatsModel(args: GetFarmBeatsModelArgs, opts?: pulumi.InvokeOptions): Promise<GetFarmBeatsModelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:agfoodplatform/v20210901preview:getFarmBeatsModel", {
         "farmBeatsResourceName": args.farmBeatsResourceName,
@@ -86,11 +87,7 @@ export interface GetFarmBeatsModelResult {
  * Get FarmBeats resource.
  */
 export function getFarmBeatsModelOutput(args: GetFarmBeatsModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFarmBeatsModelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:agfoodplatform/v20210901preview:getFarmBeatsModel", {
-        "farmBeatsResourceName": args.farmBeatsResourceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFarmBeatsModel(a, opts))
 }
 
 export interface GetFarmBeatsModelOutputArgs {

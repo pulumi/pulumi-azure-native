@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get details of the specified subvolume
  */
 export function getSubvolumeMetadata(args: GetSubvolumeMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetSubvolumeMetadataResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20230701preview:getSubvolumeMetadata", {
         "accountName": args.accountName,
@@ -102,14 +103,7 @@ export interface GetSubvolumeMetadataResult {
  * Get details of the specified subvolume
  */
 export function getSubvolumeMetadataOutput(args: GetSubvolumeMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubvolumeMetadataResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:netapp/v20230701preview:getSubvolumeMetadata", {
-        "accountName": args.accountName,
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-        "subvolumeName": args.subvolumeName,
-        "volumeName": args.volumeName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSubvolumeMetadata(a, opts))
 }
 
 export interface GetSubvolumeMetadataOutputArgs {

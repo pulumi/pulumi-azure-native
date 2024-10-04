@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Response containing ADO OAuth information
  */
 export function getADOOAuthInfo(args: GetADOOAuthInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetADOOAuthInfoResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devhub/v20240801preview:getADOOAuthInfo", {
         "location": args.location,
@@ -43,11 +44,7 @@ export interface GetADOOAuthInfoResult {
  * Response containing ADO OAuth information
  */
 export function getADOOAuthInfoOutput(args: GetADOOAuthInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADOOAuthInfoResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devhub/v20240801preview:getADOOAuthInfo", {
-        "location": args.location,
-        "redirectUrl": args.redirectUrl,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getADOOAuthInfo(a, opts))
 }
 
 export interface GetADOOAuthInfoOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
  */
 export function getWebService(args: GetWebServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearning/v20170101:getWebService", {
         "region": args.region,
@@ -67,12 +68,7 @@ export interface GetWebServiceResult {
  * Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
  */
 export function getWebServiceOutput(args: GetWebServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearning/v20170101:getWebService", {
-        "region": args.region,
-        "resourceGroupName": args.resourceGroupName,
-        "webServiceName": args.webServiceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebService(a, opts))
 }
 
 export interface GetWebServiceOutputArgs {

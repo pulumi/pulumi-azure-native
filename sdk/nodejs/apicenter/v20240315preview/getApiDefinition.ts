@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns details of the API definition.
  */
 export function getApiDefinition(args: GetApiDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiDefinitionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apicenter/v20240315preview:getApiDefinition", {
         "apiName": args.apiName,
@@ -86,15 +87,7 @@ export interface GetApiDefinitionResult {
  * Returns details of the API definition.
  */
 export function getApiDefinitionOutput(args: GetApiDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiDefinitionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apicenter/v20240315preview:getApiDefinition", {
-        "apiName": args.apiName,
-        "definitionName": args.definitionName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "versionName": args.versionName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApiDefinition(a, opts))
 }
 
 export interface GetApiDefinitionOutputArgs {

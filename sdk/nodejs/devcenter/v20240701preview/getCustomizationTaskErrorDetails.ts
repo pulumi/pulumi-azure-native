@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets Customization Task error details
  */
 export function getCustomizationTaskErrorDetails(args: GetCustomizationTaskErrorDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomizationTaskErrorDetailsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20240701preview:getCustomizationTaskErrorDetails", {
         "catalogName": args.catalogName,
@@ -52,13 +53,7 @@ export interface GetCustomizationTaskErrorDetailsResult {
  * Gets Customization Task error details
  */
 export function getCustomizationTaskErrorDetailsOutput(args: GetCustomizationTaskErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizationTaskErrorDetailsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240701preview:getCustomizationTaskErrorDetails", {
-        "catalogName": args.catalogName,
-        "devCenterName": args.devCenterName,
-        "resourceGroupName": args.resourceGroupName,
-        "taskName": args.taskName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCustomizationTaskErrorDetails(a, opts))
 }
 
 export interface GetCustomizationTaskErrorDetailsOutputArgs {

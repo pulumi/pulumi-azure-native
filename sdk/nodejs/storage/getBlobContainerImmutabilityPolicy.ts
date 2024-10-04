@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-04-01, 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutabilityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerImmutabilityPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage:getBlobContainerImmutabilityPolicy", {
         "accountName": args.accountName,
@@ -83,13 +84,7 @@ export interface GetBlobContainerImmutabilityPolicyResult {
  * Other available API versions: 2019-04-01, 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getBlobContainerImmutabilityPolicyOutput(args: GetBlobContainerImmutabilityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerImmutabilityPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage:getBlobContainerImmutabilityPolicy", {
-        "accountName": args.accountName,
-        "containerName": args.containerName,
-        "immutabilityPolicyName": args.immutabilityPolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBlobContainerImmutabilityPolicy(a, opts))
 }
 
 export interface GetBlobContainerImmutabilityPolicyOutputArgs {

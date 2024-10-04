@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the properties of the provided cluster manager.
  */
 export function getClusterManager(args: GetClusterManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterManagerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20240601preview:getClusterManager", {
         "clusterManagerName": args.clusterManagerName,
@@ -103,11 +104,7 @@ export interface GetClusterManagerResult {
  * Get the properties of the provided cluster manager.
  */
 export function getClusterManagerOutput(args: GetClusterManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterManagerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240601preview:getClusterManager", {
-        "clusterManagerName": args.clusterManagerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getClusterManager(a, opts))
 }
 
 export interface GetClusterManagerOutputArgs {

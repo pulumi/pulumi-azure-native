@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Dto object representing feature
  */
 export function getFeaturesetVersionFeature(args: GetFeaturesetVersionFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetFeaturesetVersionFeatureResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230201preview:getFeaturesetVersionFeature", {
         "featureName": args.featureName,
@@ -66,14 +67,7 @@ export interface GetFeaturesetVersionFeatureResult {
  * Dto object representing feature
  */
 export function getFeaturesetVersionFeatureOutput(args: GetFeaturesetVersionFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeaturesetVersionFeatureResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230201preview:getFeaturesetVersionFeature", {
-        "featureName": args.featureName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "version": args.version,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFeaturesetVersionFeature(a, opts))
 }
 
 export interface GetFeaturesetVersionFeatureOutputArgs {

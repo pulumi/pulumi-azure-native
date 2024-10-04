@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get available cached server name for fast provisioning
  */
 export function getGetCachedServerNameExecute(args: GetGetCachedServerNameExecuteArgs, opts?: pulumi.InvokeOptions): Promise<GetGetCachedServerNameExecuteResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute", {
         "locationName": args.locationName,
@@ -57,14 +58,7 @@ export interface GetGetCachedServerNameExecuteResult {
  * Get available cached server name for fast provisioning
  */
 export function getGetCachedServerNameExecuteOutput(args: GetGetCachedServerNameExecuteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGetCachedServerNameExecuteResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute", {
-        "locationName": args.locationName,
-        "resourceGroupName": args.resourceGroupName,
-        "sku": args.sku,
-        "storage": args.storage,
-        "version": args.version,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGetCachedServerNameExecute(a, opts))
 }
 
 export interface GetGetCachedServerNameExecuteOutputArgs {

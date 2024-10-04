@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get information about a guest configuration assignment
  */
 export function getGuestConfigurationConnectedVMwarevSphereAssignment(args: GetGuestConfigurationConnectedVMwarevSphereAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:guestconfiguration/v20240405:getGuestConfigurationConnectedVMwarevSphereAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
@@ -67,12 +68,7 @@ export interface GetGuestConfigurationConnectedVMwarevSphereAssignmentResult {
  * Get information about a guest configuration assignment
  */
 export function getGuestConfigurationConnectedVMwarevSphereAssignmentOutput(args: GetGuestConfigurationConnectedVMwarevSphereAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:guestconfiguration/v20240405:getGuestConfigurationConnectedVMwarevSphereAssignment", {
-        "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
-        "resourceGroupName": args.resourceGroupName,
-        "vmName": args.vmName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGuestConfigurationConnectedVMwarevSphereAssignment(a, opts))
 }
 
 export interface GetGuestConfigurationConnectedVMwarevSphereAssignmentOutputArgs {

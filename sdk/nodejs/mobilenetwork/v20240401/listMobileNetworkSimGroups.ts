@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets all the SIM groups assigned to a mobile network.
  */
 export function listMobileNetworkSimGroups(args: ListMobileNetworkSimGroupsArgs, opts?: pulumi.InvokeOptions): Promise<ListMobileNetworkSimGroupsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20240401:listMobileNetworkSimGroups", {
         "mobileNetworkName": args.mobileNetworkName,
@@ -46,11 +47,7 @@ export interface ListMobileNetworkSimGroupsResult {
  * Gets all the SIM groups assigned to a mobile network.
  */
 export function listMobileNetworkSimGroupsOutput(args: ListMobileNetworkSimGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMobileNetworkSimGroupsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20240401:listMobileNetworkSimGroups", {
-        "mobileNetworkName": args.mobileNetworkName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listMobileNetworkSimGroups(a, opts))
 }
 
 export interface ListMobileNetworkSimGroupsOutputArgs {

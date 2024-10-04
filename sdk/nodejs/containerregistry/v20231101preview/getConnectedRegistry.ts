@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the properties of the connected registry.
  */
 export function getConnectedRegistry(args: GetConnectedRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedRegistryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20231101preview:getConnectedRegistry", {
         "connectedRegistryName": args.connectedRegistryName,
@@ -107,12 +108,7 @@ export interface GetConnectedRegistryResult {
  * Gets the properties of the connected registry.
  */
 export function getConnectedRegistryOutput(args: GetConnectedRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedRegistryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20231101preview:getConnectedRegistry", {
-        "connectedRegistryName": args.connectedRegistryName,
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConnectedRegistry(a, opts))
 }
 
 export interface GetConnectedRegistryOutputArgs {

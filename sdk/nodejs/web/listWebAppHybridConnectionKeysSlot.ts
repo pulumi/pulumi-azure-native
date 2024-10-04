@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-11-01.
  */
 export function listWebAppHybridConnectionKeysSlot(args: ListWebAppHybridConnectionKeysSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHybridConnectionKeysSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:listWebAppHybridConnectionKeysSlot", {
         "name": args.name,
@@ -76,14 +77,7 @@ export interface ListWebAppHybridConnectionKeysSlotResult {
  * Azure REST API version: 2018-11-01.
  */
 export function listWebAppHybridConnectionKeysSlotOutput(args: ListWebAppHybridConnectionKeysSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHybridConnectionKeysSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web:listWebAppHybridConnectionKeysSlot", {
-        "name": args.name,
-        "namespaceName": args.namespaceName,
-        "relayName": args.relayName,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppHybridConnectionKeysSlot(a, opts))
 }
 
 export interface ListWebAppHybridConnectionKeysSlotOutputArgs {

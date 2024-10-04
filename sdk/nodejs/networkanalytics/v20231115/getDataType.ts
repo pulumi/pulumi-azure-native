@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve data type resource.
  */
 export function getDataType(args: GetDataTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetDataTypeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkanalytics/v20231115:getDataType", {
         "dataProductName": args.dataProductName,
@@ -87,12 +88,7 @@ export interface GetDataTypeResult {
  * Retrieve data type resource.
  */
 export function getDataTypeOutput(args: GetDataTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataTypeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkanalytics/v20231115:getDataType", {
-        "dataProductName": args.dataProductName,
-        "dataTypeName": args.dataTypeName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDataType(a, opts))
 }
 
 export interface GetDataTypeOutputArgs {

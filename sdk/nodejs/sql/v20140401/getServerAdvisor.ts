@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a server advisor.
  */
 export function getServerAdvisor(args: GetServerAdvisorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAdvisorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20140401:getServerAdvisor", {
         "advisorName": args.advisorName,
@@ -76,12 +77,7 @@ export interface GetServerAdvisorResult {
  * Gets a server advisor.
  */
 export function getServerAdvisorOutput(args: GetServerAdvisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAdvisorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20140401:getServerAdvisor", {
-        "advisorName": args.advisorName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServerAdvisor(a, opts))
 }
 
 export interface GetServerAdvisorOutputArgs {

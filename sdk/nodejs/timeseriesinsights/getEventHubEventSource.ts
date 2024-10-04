@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-05-15.
  */
 export function getEventHubEventSource(args: GetEventHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubEventSourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights:getEventHubEventSource", {
         "environmentName": args.environmentName,
@@ -110,12 +111,7 @@ export interface GetEventHubEventSourceResult {
  * Azure REST API version: 2020-05-15.
  */
 export function getEventHubEventSourceOutput(args: GetEventHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubEventSourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights:getEventHubEventSource", {
-        "environmentName": args.environmentName,
-        "eventSourceName": args.eventSourceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEventHubEventSource(a, opts))
 }
 
 export interface GetEventHubEventSourceOutputArgs {

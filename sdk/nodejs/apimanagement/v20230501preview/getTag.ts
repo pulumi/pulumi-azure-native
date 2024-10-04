@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the tag specified by its identifier.
  */
 export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<GetTagResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230501preview:getTag", {
         "resourceGroupName": args.resourceGroupName,
@@ -56,12 +57,7 @@ export interface GetTagResult {
  * Gets the details of the tag specified by its identifier.
  */
 export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getTag", {
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "tagId": args.tagId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTag(a, opts))
 }
 
 export interface GetTagOutputArgs {

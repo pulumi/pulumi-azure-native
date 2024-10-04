@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-06-01, 2018-07-01-preview.
  */
 export function listWorkflowTriggerCallbackUrl(args: ListWorkflowTriggerCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowTriggerCallbackUrlResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic:listWorkflowTriggerCallbackUrl", {
         "resourceGroupName": args.resourceGroupName,
@@ -73,12 +74,7 @@ export interface ListWorkflowTriggerCallbackUrlResult {
  * Other available API versions: 2016-06-01, 2018-07-01-preview.
  */
 export function listWorkflowTriggerCallbackUrlOutput(args: ListWorkflowTriggerCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowTriggerCallbackUrlResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic:listWorkflowTriggerCallbackUrl", {
-        "resourceGroupName": args.resourceGroupName,
-        "triggerName": args.triggerName,
-        "workflowName": args.workflowName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWorkflowTriggerCallbackUrl(a, opts))
 }
 
 export interface ListWorkflowTriggerCallbackUrlOutputArgs {

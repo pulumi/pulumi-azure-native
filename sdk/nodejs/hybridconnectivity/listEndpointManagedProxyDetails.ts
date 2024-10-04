@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-05-01-preview, 2024-12-01.
  */
 export function listEndpointManagedProxyDetails(args: ListEndpointManagedProxyDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointManagedProxyDetailsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", {
         "endpointName": args.endpointName,
@@ -67,14 +68,7 @@ export interface ListEndpointManagedProxyDetailsResult {
  * Other available API versions: 2022-05-01-preview, 2024-12-01.
  */
 export function listEndpointManagedProxyDetailsOutput(args: ListEndpointManagedProxyDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointManagedProxyDetailsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", {
-        "endpointName": args.endpointName,
-        "hostname": args.hostname,
-        "resourceUri": args.resourceUri,
-        "service": args.service,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listEndpointManagedProxyDetails(a, opts))
 }
 
 export interface ListEndpointManagedProxyDetailsOutputArgs {

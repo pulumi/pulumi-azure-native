@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a disaster recovery configuration.
  */
 export function getDisasterRecoveryConfiguration(args: GetDisasterRecoveryConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20140401:getDisasterRecoveryConfiguration", {
         "disasterRecoveryConfigurationName": args.disasterRecoveryConfigurationName,
@@ -84,12 +85,7 @@ export interface GetDisasterRecoveryConfigurationResult {
  * Gets a disaster recovery configuration.
  */
 export function getDisasterRecoveryConfigurationOutput(args: GetDisasterRecoveryConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDisasterRecoveryConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20140401:getDisasterRecoveryConfiguration", {
-        "disasterRecoveryConfigurationName": args.disasterRecoveryConfigurationName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDisasterRecoveryConfiguration(a, opts))
 }
 
 export interface GetDisasterRecoveryConfigurationOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
  */
 export function getFleetUpdateStrategy(args: GetFleetUpdateStrategyArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetUpdateStrategyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice:getFleetUpdateStrategy", {
         "fleetName": args.fleetName,
@@ -77,12 +78,7 @@ export interface GetFleetUpdateStrategyResult {
  * Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
  */
 export function getFleetUpdateStrategyOutput(args: GetFleetUpdateStrategyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetUpdateStrategyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerservice:getFleetUpdateStrategy", {
-        "fleetName": args.fleetName,
-        "resourceGroupName": args.resourceGroupName,
-        "updateStrategyName": args.updateStrategyName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFleetUpdateStrategy(a, opts))
 }
 
 export interface GetFleetUpdateStrategyOutputArgs {

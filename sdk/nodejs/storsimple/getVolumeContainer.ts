@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-06-01.
  */
 export function getVolumeContainer(args: GetVolumeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeContainerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple:getVolumeContainer", {
         "deviceName": args.deviceName,
@@ -98,13 +99,7 @@ export interface GetVolumeContainerResult {
  * Azure REST API version: 2017-06-01.
  */
 export function getVolumeContainerOutput(args: GetVolumeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeContainerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storsimple:getVolumeContainer", {
-        "deviceName": args.deviceName,
-        "managerName": args.managerName,
-        "resourceGroupName": args.resourceGroupName,
-        "volumeContainerName": args.volumeContainerName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVolumeContainer(a, opts))
 }
 
 export interface GetVolumeContainerOutputArgs {

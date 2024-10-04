@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the email template specified by its identifier.
  */
 export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailTemplateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230501preview:getEmailTemplate", {
         "resourceGroupName": args.resourceGroupName,
@@ -79,12 +80,7 @@ export interface GetEmailTemplateResult {
  * Gets the details of the email template specified by its identifier.
  */
 export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailTemplateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getEmailTemplate", {
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "templateName": args.templateName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEmailTemplate(a, opts))
 }
 
 export interface GetEmailTemplateOutputArgs {

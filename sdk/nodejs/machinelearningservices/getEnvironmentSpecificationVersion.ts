@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-03-01-preview.
  */
 export function getEnvironmentSpecificationVersion(args: GetEnvironmentSpecificationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentSpecificationVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getEnvironmentSpecificationVersion", {
         "name": args.name,
@@ -70,13 +71,7 @@ export interface GetEnvironmentSpecificationVersionResult {
  * Azure REST API version: 2021-03-01-preview.
  */
 export function getEnvironmentSpecificationVersionOutput(args: GetEnvironmentSpecificationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentSpecificationVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getEnvironmentSpecificationVersion", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "version": args.version,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnvironmentSpecificationVersion(a, opts))
 }
 
 export interface GetEnvironmentSpecificationVersionOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists all pending flows for a connection.
  */
 export function listListPendingFlow(args: ListListPendingFlowArgs, opts?: pulumi.InvokeOptions): Promise<ListListPendingFlowResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer/v20240911:listListPendingFlow", {
         "connectionName": args.connectionName,
@@ -46,11 +47,7 @@ export interface ListListPendingFlowResult {
  * Lists all pending flows for a connection.
  */
 export function listListPendingFlowOutput(args: ListListPendingFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListPendingFlowResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20240911:listListPendingFlow", {
-        "connectionName": args.connectionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listListPendingFlow(a, opts))
 }
 
 export interface ListListPendingFlowOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * The EngagementFabric channel
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:engagementfabric/v20180901preview:getChannel", {
         "accountName": args.accountName,
@@ -64,12 +65,7 @@ export interface GetChannelResult {
  * The EngagementFabric channel
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:engagementfabric/v20180901preview:getChannel", {
-        "accountName": args.accountName,
-        "channelName": args.channelName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getChannel(a, opts))
 }
 
 export interface GetChannelOutputArgs {

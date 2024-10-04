@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-06-01.
  */
 export function getFactoryDataPlaneAccess(args: GetFactoryDataPlaneAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryDataPlaneAccessResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory:getFactoryDataPlaneAccess", {
         "accessResourcePath": args.accessResourcePath,
@@ -77,16 +78,7 @@ export interface GetFactoryDataPlaneAccessResult {
  * Azure REST API version: 2018-06-01.
  */
 export function getFactoryDataPlaneAccessOutput(args: GetFactoryDataPlaneAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryDataPlaneAccessResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datafactory:getFactoryDataPlaneAccess", {
-        "accessResourcePath": args.accessResourcePath,
-        "expireTime": args.expireTime,
-        "factoryName": args.factoryName,
-        "permissions": args.permissions,
-        "profileName": args.profileName,
-        "resourceGroupName": args.resourceGroupName,
-        "startTime": args.startTime,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFactoryDataPlaneAccess(a, opts))
 }
 
 export interface GetFactoryDataPlaneAccessOutputArgs {

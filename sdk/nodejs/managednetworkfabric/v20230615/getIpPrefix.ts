@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Implements IP Prefix GET method.
  */
 export function getIpPrefix(args: GetIpPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetIpPrefixResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230615:getIpPrefix", {
         "ipPrefixName": args.ipPrefixName,
@@ -82,11 +83,7 @@ export interface GetIpPrefixResult {
  * Implements IP Prefix GET method.
  */
 export function getIpPrefixOutput(args: GetIpPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpPrefixResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getIpPrefix", {
-        "ipPrefixName": args.ipPrefixName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIpPrefix(a, opts))
 }
 
 export interface GetIpPrefixOutputArgs {

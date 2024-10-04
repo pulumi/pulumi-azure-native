@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-09-01-preview.
  */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory:getFactory", {
         "factoryName": args.factoryName,
@@ -104,11 +105,7 @@ export interface GetFactoryResult {
  * Other available API versions: 2017-09-01-preview.
  */
 export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datafactory:getFactory", {
-        "factoryName": args.factoryName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFactory(a, opts))
 }
 
 export interface GetFactoryOutputArgs {

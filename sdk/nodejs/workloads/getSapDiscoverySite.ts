@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-10-01-preview.
  */
 export function getSapDiscoverySite(args: GetSapDiscoverySiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSapDiscoverySiteResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads:getSapDiscoverySite", {
         "resourceGroupName": args.resourceGroupName,
@@ -84,11 +85,7 @@ export interface GetSapDiscoverySiteResult {
  * Azure REST API version: 2023-10-01-preview.
  */
 export function getSapDiscoverySiteOutput(args: GetSapDiscoverySiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapDiscoverySiteResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads:getSapDiscoverySite", {
-        "resourceGroupName": args.resourceGroupName,
-        "sapDiscoverySiteName": args.sapDiscoverySiteName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSapDiscoverySite(a, opts))
 }
 
 export interface GetSapDiscoverySiteOutputArgs {

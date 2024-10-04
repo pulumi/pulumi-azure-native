@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getCodeVersion(args: GetCodeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230601preview:getCodeVersion", {
         "name": args.name,
@@ -68,13 +69,7 @@ export interface GetCodeVersionResult {
  * Azure Resource Manager resource envelope.
  */
 export function getCodeVersionOutput(args: GetCodeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230601preview:getCodeVersion", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "version": args.version,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCodeVersion(a, opts))
 }
 
 export interface GetCodeVersionOutputArgs {

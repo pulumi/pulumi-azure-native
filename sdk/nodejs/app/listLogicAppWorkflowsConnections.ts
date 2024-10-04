@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-02-02-preview.
  */
 export function listLogicAppWorkflowsConnections(args: ListLogicAppWorkflowsConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<ListLogicAppWorkflowsConnectionsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app:listLogicAppWorkflowsConnections", {
         "containerAppName": args.containerAppName,
@@ -69,12 +70,7 @@ export interface ListLogicAppWorkflowsConnectionsResult {
  * Azure REST API version: 2024-02-02-preview.
  */
 export function listLogicAppWorkflowsConnectionsOutput(args: ListLogicAppWorkflowsConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLogicAppWorkflowsConnectionsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app:listLogicAppWorkflowsConnections", {
-        "containerAppName": args.containerAppName,
-        "logicAppName": args.logicAppName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listLogicAppWorkflowsConnections(a, opts))
 }
 
 export interface ListLogicAppWorkflowsConnectionsOutputArgs {

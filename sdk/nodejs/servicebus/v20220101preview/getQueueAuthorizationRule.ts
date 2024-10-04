@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an authorization rule for a queue by rule name.
  */
 export function getQueueAuthorizationRule(args: GetQueueAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueAuthorizationRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20220101preview:getQueueAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -72,13 +73,7 @@ export interface GetQueueAuthorizationRuleResult {
  * Gets an authorization rule for a queue by rule name.
  */
 export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicebus/v20220101preview:getQueueAuthorizationRule", {
-        "authorizationRuleName": args.authorizationRuleName,
-        "namespaceName": args.namespaceName,
-        "queueName": args.queueName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getQueueAuthorizationRule(a, opts))
 }
 
 export interface GetQueueAuthorizationRuleOutputArgs {

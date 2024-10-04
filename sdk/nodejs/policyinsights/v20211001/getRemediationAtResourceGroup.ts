@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an existing remediation at resource group scope.
  */
 export function getRemediationAtResourceGroup(args: GetRemediationAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtResourceGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights/v20211001:getRemediationAtResourceGroup", {
         "remediationName": args.remediationName,
@@ -106,11 +107,7 @@ export interface GetRemediationAtResourceGroupResult {
  * Gets an existing remediation at resource group scope.
  */
 export function getRemediationAtResourceGroupOutput(args: GetRemediationAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtResourceGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:policyinsights/v20211001:getRemediationAtResourceGroup", {
-        "remediationName": args.remediationName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRemediationAtResourceGroup(a, opts))
 }
 
 export interface GetRemediationAtResourceGroupOutputArgs {

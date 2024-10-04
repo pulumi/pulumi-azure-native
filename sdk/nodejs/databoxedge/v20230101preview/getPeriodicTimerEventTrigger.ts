@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a specific trigger by name.
  */
 export function getPeriodicTimerEventTrigger(args: GetPeriodicTimerEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetPeriodicTimerEventTriggerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20230101preview:getPeriodicTimerEventTrigger", {
         "deviceName": args.deviceName,
@@ -76,12 +77,7 @@ export interface GetPeriodicTimerEventTriggerResult {
  * Get a specific trigger by name.
  */
 export function getPeriodicTimerEventTriggerOutput(args: GetPeriodicTimerEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeriodicTimerEventTriggerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230101preview:getPeriodicTimerEventTrigger", {
-        "deviceName": args.deviceName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPeriodicTimerEventTrigger(a, opts))
 }
 
 export interface GetPeriodicTimerEventTriggerOutputArgs {

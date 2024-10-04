@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getLocalUser(args: GetLocalUserArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalUserResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage:getLocalUser", {
         "accountName": args.accountName,
@@ -93,12 +94,7 @@ export interface GetLocalUserResult {
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getLocalUserOutput(args: GetLocalUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalUserResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage:getLocalUser", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "username": args.username,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLocalUser(a, opts))
 }
 
 export interface GetLocalUserOutputArgs {

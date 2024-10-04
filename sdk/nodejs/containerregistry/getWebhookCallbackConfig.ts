@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
  */
 export function getWebhookCallbackConfig(args: GetWebhookCallbackConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookCallbackConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry:getWebhookCallbackConfig", {
         "registryName": args.registryName,
@@ -54,12 +55,7 @@ export interface GetWebhookCallbackConfigResult {
  * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
  */
 export function getWebhookCallbackConfigOutput(args: GetWebhookCallbackConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookCallbackConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry:getWebhookCallbackConfig", {
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-        "webhookName": args.webhookName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebhookCallbackConfig(a, opts))
 }
 
 export interface GetWebhookCallbackConfigOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-10-01.
  */
 export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering:getPrefix", {
         "expand": args.expand,
@@ -90,13 +91,7 @@ export interface GetPrefixResult {
  * Azure REST API version: 2022-10-01.
  */
 export function getPrefixOutput(args: GetPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:peering:getPrefix", {
-        "expand": args.expand,
-        "peeringServiceName": args.peeringServiceName,
-        "prefixName": args.prefixName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrefix(a, opts))
 }
 
 export interface GetPrefixOutputArgs {

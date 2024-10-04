@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function listActiveConnectivityConfigurations(args: ListActiveConnectivityConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveConnectivityConfigurationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:listActiveConnectivityConfigurations", {
         "networkManagerName": args.networkManagerName,
@@ -67,14 +68,7 @@ export interface ListActiveConnectivityConfigurationsResult {
  * Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function listActiveConnectivityConfigurationsOutput(args: ListActiveConnectivityConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveConnectivityConfigurationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:listActiveConnectivityConfigurations", {
-        "networkManagerName": args.networkManagerName,
-        "regions": args.regions,
-        "resourceGroupName": args.resourceGroupName,
-        "skipToken": args.skipToken,
-        "top": args.top,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listActiveConnectivityConfigurations(a, opts))
 }
 
 export interface ListActiveConnectivityConfigurationsOutputArgs {

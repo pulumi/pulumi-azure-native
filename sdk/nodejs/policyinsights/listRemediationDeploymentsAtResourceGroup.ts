@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2018-07-01-preview.
  */
 export function listRemediationDeploymentsAtResourceGroup(args: ListRemediationDeploymentsAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtResourceGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights:listRemediationDeploymentsAtResourceGroup", {
         "remediationName": args.remediationName,
@@ -57,12 +58,7 @@ export interface ListRemediationDeploymentsAtResourceGroupResult {
  * Other available API versions: 2018-07-01-preview.
  */
 export function listRemediationDeploymentsAtResourceGroupOutput(args: ListRemediationDeploymentsAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemediationDeploymentsAtResourceGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:policyinsights:listRemediationDeploymentsAtResourceGroup", {
-        "remediationName": args.remediationName,
-        "resourceGroupName": args.resourceGroupName,
-        "top": args.top,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listRemediationDeploymentsAtResourceGroup(a, opts))
 }
 
 export interface ListRemediationDeploymentsAtResourceGroupOutputArgs {

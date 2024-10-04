@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about a virtual endpoint.
  */
 export function getVirtualEndpoint(args: GetVirtualEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20230601preview:getVirtualEndpoint", {
         "resourceGroupName": args.resourceGroupName,
@@ -71,12 +72,7 @@ export interface GetVirtualEndpointResult {
  * Gets information about a virtual endpoint.
  */
 export function getVirtualEndpointOutput(args: GetVirtualEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20230601preview:getVirtualEndpoint", {
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-        "virtualEndpointName": args.virtualEndpointName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualEndpoint(a, opts))
 }
 
 export interface GetVirtualEndpointOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a workspace SQL active directory admin
  */
 export function getWorkspaceSqlAadAdmin(args: GetWorkspaceSqlAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSqlAadAdminResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601:getWorkspaceSqlAadAdmin", {
         "resourceGroupName": args.resourceGroupName,
@@ -63,11 +64,7 @@ export interface GetWorkspaceSqlAadAdminResult {
  * Gets a workspace SQL active directory admin
  */
 export function getWorkspaceSqlAadAdminOutput(args: GetWorkspaceSqlAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSqlAadAdminResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601:getWorkspaceSqlAadAdmin", {
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceSqlAadAdmin(a, opts))
 }
 
 export interface GetWorkspaceSqlAadAdminOutputArgs {

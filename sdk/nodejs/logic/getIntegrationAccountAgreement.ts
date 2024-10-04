@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-08-01-preview.
  */
 export function getIntegrationAccountAgreement(args: GetIntegrationAccountAgreementArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountAgreementResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic:getIntegrationAccountAgreement", {
         "agreementName": args.agreementName,
@@ -105,12 +106,7 @@ export interface GetIntegrationAccountAgreementResult {
  * Other available API versions: 2015-08-01-preview.
  */
 export function getIntegrationAccountAgreementOutput(args: GetIntegrationAccountAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountAgreementResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic:getIntegrationAccountAgreement", {
-        "agreementName": args.agreementName,
-        "integrationAccountName": args.integrationAccountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIntegrationAccountAgreement(a, opts))
 }
 
 export interface GetIntegrationAccountAgreementOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * List primary and secondary keys for a specific key name
  */
 export function listIotDpsResourceKeysForKeyName(args: ListIotDpsResourceKeysForKeyNameArgs, opts?: pulumi.InvokeOptions): Promise<ListIotDpsResourceKeysForKeyNameResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20200901preview:listIotDpsResourceKeysForKeyName", {
         "keyName": args.keyName,
@@ -56,12 +57,7 @@ export interface ListIotDpsResourceKeysForKeyNameResult {
  * List primary and secondary keys for a specific key name
  */
 export function listIotDpsResourceKeysForKeyNameOutput(args: ListIotDpsResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysForKeyNameResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devices/v20200901preview:listIotDpsResourceKeysForKeyName", {
-        "keyName": args.keyName,
-        "provisioningServiceName": args.provisioningServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listIotDpsResourceKeysForKeyName(a, opts))
 }
 
 export interface ListIotDpsResourceKeysForKeyNameOutputArgs {

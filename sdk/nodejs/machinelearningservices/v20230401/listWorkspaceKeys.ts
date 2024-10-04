@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230401:listWorkspaceKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -40,11 +41,7 @@ export interface ListWorkspaceKeysResult {
  * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
  */
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230401:listWorkspaceKeys", {
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWorkspaceKeys(a, opts))
 }
 
 export interface ListWorkspaceKeysOutputArgs {

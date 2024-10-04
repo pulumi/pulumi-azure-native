@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01.
  */
 export function getHierarchySetting(args: GetHierarchySettingArgs, opts?: pulumi.InvokeOptions): Promise<GetHierarchySettingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management:getHierarchySetting", {
         "groupId": args.groupId,
@@ -62,10 +63,7 @@ export interface GetHierarchySettingResult {
  * Other available API versions: 2023-04-01.
  */
 export function getHierarchySettingOutput(args: GetHierarchySettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHierarchySettingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:management:getHierarchySetting", {
-        "groupId": args.groupId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHierarchySetting(a, opts))
 }
 
 export interface GetHierarchySettingOutputArgs {

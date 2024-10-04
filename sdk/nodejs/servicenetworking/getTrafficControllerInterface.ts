@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview.
  */
 export function getTrafficControllerInterface(args: GetTrafficControllerInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficControllerInterfaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicenetworking:getTrafficControllerInterface", {
         "resourceGroupName": args.resourceGroupName,
@@ -84,11 +85,7 @@ export interface GetTrafficControllerInterfaceResult {
  * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview.
  */
 export function getTrafficControllerInterfaceOutput(args: GetTrafficControllerInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficControllerInterfaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicenetworking:getTrafficControllerInterface", {
-        "resourceGroupName": args.resourceGroupName,
-        "trafficControllerName": args.trafficControllerName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTrafficControllerInterface(a, opts))
 }
 
 export interface GetTrafficControllerInterfaceOutputArgs {

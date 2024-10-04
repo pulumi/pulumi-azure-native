@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */
 export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise<GetFileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration:getFile", {
         "fileName": args.fileName,
@@ -78,13 +79,7 @@ export interface GetFileResult {
  * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */
 export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datamigration:getFile", {
-        "fileName": args.fileName,
-        "groupName": args.groupName,
-        "projectName": args.projectName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFile(a, opts))
 }
 
 export interface GetFileOutputArgs {

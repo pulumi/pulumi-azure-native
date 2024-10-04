@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a Live Event.
  */
 export function getLiveEvent(args: GetLiveEventArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20190501preview:getLiveEvent", {
         "accountName": args.accountName,
@@ -111,12 +112,7 @@ export interface GetLiveEventResult {
  * Gets a Live Event.
  */
 export function getLiveEventOutput(args: GetLiveEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media/v20190501preview:getLiveEvent", {
-        "accountName": args.accountName,
-        "liveEventName": args.liveEventName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLiveEvent(a, opts))
 }
 
 export interface GetLiveEventOutputArgs {

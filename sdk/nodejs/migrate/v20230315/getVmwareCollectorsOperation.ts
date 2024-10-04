@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a VmwareCollector
  */
 export function getVmwareCollectorsOperation(args: GetVmwareCollectorsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetVmwareCollectorsOperationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20230315:getVmwareCollectorsOperation", {
         "projectName": args.projectName,
@@ -79,12 +80,7 @@ export interface GetVmwareCollectorsOperationResult {
  * Get a VmwareCollector
  */
 export function getVmwareCollectorsOperationOutput(args: GetVmwareCollectorsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVmwareCollectorsOperationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate/v20230315:getVmwareCollectorsOperation", {
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-        "vmWareCollectorName": args.vmWareCollectorName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVmwareCollectorsOperation(a, opts))
 }
 
 export interface GetVmwareCollectorsOperationOutputArgs {

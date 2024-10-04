@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists deployments for catalog.
  */
 export function listCatalogDeployments(args: ListCatalogDeploymentsArgs, opts?: pulumi.InvokeOptions): Promise<ListCatalogDeploymentsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuresphere/v20240401:listCatalogDeployments", {
         "catalogName": args.catalogName,
@@ -66,15 +67,7 @@ export interface ListCatalogDeploymentsResult {
  * Lists deployments for catalog.
  */
 export function listCatalogDeploymentsOutput(args: ListCatalogDeploymentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCatalogDeploymentsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azuresphere/v20240401:listCatalogDeployments", {
-        "catalogName": args.catalogName,
-        "filter": args.filter,
-        "maxpagesize": args.maxpagesize,
-        "resourceGroupName": args.resourceGroupName,
-        "skip": args.skip,
-        "top": args.top,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listCatalogDeployments(a, opts))
 }
 
 export interface ListCatalogDeploymentsOutputArgs {

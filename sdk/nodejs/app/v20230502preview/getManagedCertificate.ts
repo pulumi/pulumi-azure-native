@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
  */
 export function getManagedCertificate(args: GetManagedCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedCertificateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20230502preview:getManagedCertificate", {
         "environmentName": args.environmentName,
@@ -71,12 +72,7 @@ export interface GetManagedCertificateResult {
  * Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
  */
 export function getManagedCertificateOutput(args: GetManagedCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedCertificateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app/v20230502preview:getManagedCertificate", {
-        "environmentName": args.environmentName,
-        "managedCertificateName": args.managedCertificateName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedCertificate(a, opts))
 }
 
 export interface GetManagedCertificateOutputArgs {

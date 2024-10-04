@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-09-01-preview.
  */
 export function getVirtualNetworkRetrieve(args: GetVirtualNetworkRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRetrieveResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice:getVirtualNetworkRetrieve", {
         "resourceGroupName": args.resourceGroupName,
@@ -69,11 +70,7 @@ export interface GetVirtualNetworkRetrieveResult {
  * Azure REST API version: 2022-09-01-preview.
  */
 export function getVirtualNetworkRetrieveOutput(args: GetVirtualNetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRetrieveResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice:getVirtualNetworkRetrieve", {
-        "resourceGroupName": args.resourceGroupName,
-        "virtualNetworksName": args.virtualNetworksName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkRetrieve(a, opts))
 }
 
 export interface GetVirtualNetworkRetrieveOutputArgs {

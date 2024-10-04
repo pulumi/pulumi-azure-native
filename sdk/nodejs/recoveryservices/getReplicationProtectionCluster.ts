@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-01.
  */
 export function getReplicationProtectionCluster(args: GetReplicationProtectionClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectionClusterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices:getReplicationProtectionCluster", {
         "fabricName": args.fabricName,
@@ -75,14 +76,7 @@ export interface GetReplicationProtectionClusterResult {
  * Other available API versions: 2024-04-01.
  */
 export function getReplicationProtectionClusterOutput(args: GetReplicationProtectionClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectionClusterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:recoveryservices:getReplicationProtectionCluster", {
-        "fabricName": args.fabricName,
-        "protectionContainerName": args.protectionContainerName,
-        "replicationProtectionClusterName": args.replicationProtectionClusterName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReplicationProtectionCluster(a, opts))
 }
 
 export interface GetReplicationProtectionClusterOutputArgs {

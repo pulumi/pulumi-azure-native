@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
  */
 export function getContentType(args: GetContentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetContentTypeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getContentType", {
         "contentTypeId": args.contentTypeId,
@@ -64,12 +65,7 @@ export interface GetContentTypeResult {
  * Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
  */
 export function getContentTypeOutput(args: GetContentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTypeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getContentType", {
-        "contentTypeId": args.contentTypeId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getContentType(a, opts))
 }
 
 export interface GetContentTypeOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2016-05-01-preview.
  */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearning:getCommitmentPlan", {
         "commitmentPlanName": args.commitmentPlanName,
@@ -72,11 +73,7 @@ export interface GetCommitmentPlanResult {
  * Azure REST API version: 2016-05-01-preview.
  */
 export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearning:getCommitmentPlan", {
-        "commitmentPlanName": args.commitmentPlanName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCommitmentPlan(a, opts))
 }
 
 export interface GetCommitmentPlanOutputArgs {

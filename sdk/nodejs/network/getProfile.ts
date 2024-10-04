@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getProfile", {
         "profileName": args.profileName,
@@ -96,11 +97,7 @@ export interface GetProfileResult {
  * Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
  */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getProfile", {
-        "profileName": args.profileName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }
 
 export interface GetProfileOutputArgs {

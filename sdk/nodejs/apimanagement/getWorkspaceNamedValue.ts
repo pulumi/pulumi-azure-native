@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getWorkspaceNamedValue(args: GetWorkspaceNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceNamedValueResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getWorkspaceNamedValue", {
         "namedValueId": args.namedValueId,
@@ -86,13 +87,7 @@ export interface GetWorkspaceNamedValueResult {
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getWorkspaceNamedValueOutput(args: GetWorkspaceNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceNamedValueResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceNamedValue", {
-        "namedValueId": args.namedValueId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceNamedValue(a, opts))
 }
 
 export interface GetWorkspaceNamedValueOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the properties for an Azure Dev Spaces Controller.
  */
 export function getController(args: GetControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devspaces/v20190401:getController", {
         "name": args.name,
@@ -79,11 +80,7 @@ export interface GetControllerResult {
  * Gets the properties for an Azure Dev Spaces Controller.
  */
 export function getControllerOutput(args: GetControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devspaces/v20190401:getController", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getController(a, opts))
 }
 
 export interface GetControllerOutputArgs {

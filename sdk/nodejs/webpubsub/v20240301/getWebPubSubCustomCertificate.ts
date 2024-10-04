@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a custom certificate.
  */
 export function getWebPubSubCustomCertificate(args: GetWebPubSubCustomCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubCustomCertificateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20240301:getWebPubSubCustomCertificate", {
         "certificateName": args.certificateName,
@@ -75,12 +76,7 @@ export interface GetWebPubSubCustomCertificateResult {
  * Get a custom certificate.
  */
 export function getWebPubSubCustomCertificateOutput(args: GetWebPubSubCustomCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubCustomCertificateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20240301:getWebPubSubCustomCertificate", {
-        "certificateName": args.certificateName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebPubSubCustomCertificate(a, opts))
 }
 
 export interface GetWebPubSubCustomCertificateOutputArgs {

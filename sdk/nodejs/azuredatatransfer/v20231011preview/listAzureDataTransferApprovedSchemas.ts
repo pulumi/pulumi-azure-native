@@ -12,6 +12,7 @@ import * as utilities from "../../utilities";
  */
 export function listAzureDataTransferApprovedSchemas(args?: ListAzureDataTransferApprovedSchemasArgs, opts?: pulumi.InvokeOptions): Promise<ListAzureDataTransferApprovedSchemasResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer/v20231011preview:listAzureDataTransferApprovedSchemas", {
         "direction": args.direction,
@@ -43,12 +44,7 @@ export interface ListAzureDataTransferApprovedSchemasResult {
  * Lists approved schemas for Azure Data Transfer.
  */
 export function listAzureDataTransferApprovedSchemasOutput(args?: ListAzureDataTransferApprovedSchemasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAzureDataTransferApprovedSchemasResult> {
-    args = args || {};
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20231011preview:listAzureDataTransferApprovedSchemas", {
-        "direction": args.direction,
-        "pipeline": args.pipeline,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listAzureDataTransferApprovedSchemas(a, opts))
 }
 
 export interface ListAzureDataTransferApprovedSchemasOutputArgs {

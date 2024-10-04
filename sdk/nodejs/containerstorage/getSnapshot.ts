@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerstorage:getSnapshot", {
         "poolName": args.poolName,
@@ -73,12 +74,7 @@ export interface GetSnapshotResult {
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerstorage:getSnapshot", {
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-        "snapshotName": args.snapshotName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
 }
 
 export interface GetSnapshotOutputArgs {

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-04-26.
  */
 export function getImageUploadUrlForData(args: GetImageUploadUrlForDataArgs, opts?: pulumi.InvokeOptions): Promise<GetImageUploadUrlForDataResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights:getImageUploadUrlForData", {
         "entityType": args.entityType,
@@ -64,14 +65,7 @@ export interface GetImageUploadUrlForDataResult {
  * Azure REST API version: 2017-04-26.
  */
 export function getImageUploadUrlForDataOutput(args: GetImageUploadUrlForDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageUploadUrlForDataResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:customerinsights:getImageUploadUrlForData", {
-        "entityType": args.entityType,
-        "entityTypeName": args.entityTypeName,
-        "hubName": args.hubName,
-        "relativePath": args.relativePath,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getImageUploadUrlForData(a, opts))
 }
 
 export interface GetImageUploadUrlForDataOutputArgs {

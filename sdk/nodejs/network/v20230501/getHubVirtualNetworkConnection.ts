@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a HubVirtualNetworkConnection.
  */
 export function getHubVirtualNetworkConnection(args: GetHubVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHubVirtualNetworkConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230501:getHubVirtualNetworkConnection", {
         "connectionName": args.connectionName,
@@ -79,12 +80,7 @@ export interface GetHubVirtualNetworkConnectionResult {
  * Retrieves the details of a HubVirtualNetworkConnection.
  */
 export function getHubVirtualNetworkConnectionOutput(args: GetHubVirtualNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubVirtualNetworkConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getHubVirtualNetworkConnection", {
-        "connectionName": args.connectionName,
-        "resourceGroupName": args.resourceGroupName,
-        "virtualHubName": args.virtualHubName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHubVirtualNetworkConnection(a, opts))
 }
 
 export interface GetHubVirtualNetworkConnectionOutputArgs {

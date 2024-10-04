@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of the provided layer 3 (L3) network.
  */
 export function getL3Network(args: GetL3NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL3NetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20240701:getL3Network", {
         "l3NetworkName": args.l3NetworkName,
@@ -125,11 +126,7 @@ export interface GetL3NetworkResult {
  * Get properties of the provided layer 3 (L3) network.
  */
 export function getL3NetworkOutput(args: GetL3NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL3NetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240701:getL3Network", {
-        "l3NetworkName": args.l3NetworkName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getL3Network(a, opts))
 }
 
 export interface GetL3NetworkOutputArgs {

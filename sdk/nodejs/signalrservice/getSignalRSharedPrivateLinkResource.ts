@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
  */
 export function getSignalRSharedPrivateLinkResource(args: GetSignalRSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRSharedPrivateLinkResourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,
@@ -85,12 +86,7 @@ export interface GetSignalRSharedPrivateLinkResourceResult {
  * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
  */
 export function getSignalRSharedPrivateLinkResourceOutput(args: GetSignalRSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRSharedPrivateLinkResourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-        "sharedPrivateLinkResourceName": args.sharedPrivateLinkResourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSignalRSharedPrivateLinkResource(a, opts))
 }
 
 export interface GetSignalRSharedPrivateLinkResourceOutputArgs {

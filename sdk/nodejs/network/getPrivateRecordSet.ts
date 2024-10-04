@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-06-01.
  */
 export function getPrivateRecordSet(args: GetPrivateRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateRecordSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getPrivateRecordSet", {
         "privateZoneName": args.privateZoneName,
@@ -118,13 +119,7 @@ export interface GetPrivateRecordSetResult {
  * Other available API versions: 2024-06-01.
  */
 export function getPrivateRecordSetOutput(args: GetPrivateRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateRecordSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getPrivateRecordSet", {
-        "privateZoneName": args.privateZoneName,
-        "recordType": args.recordType,
-        "relativeRecordSetName": args.relativeRecordSetName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateRecordSet(a, opts))
 }
 
 export interface GetPrivateRecordSetOutputArgs {

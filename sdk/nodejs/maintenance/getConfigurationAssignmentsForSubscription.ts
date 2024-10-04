@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
  */
 export function getConfigurationAssignmentsForSubscription(args: GetConfigurationAssignmentsForSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssignmentsForSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maintenance:getConfigurationAssignmentsForSubscription", {
         "configurationAssignmentName": args.configurationAssignmentName,
@@ -71,10 +72,7 @@ export interface GetConfigurationAssignmentsForSubscriptionResult {
  * Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
  */
 export function getConfigurationAssignmentsForSubscriptionOutput(args: GetConfigurationAssignmentsForSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentsForSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:maintenance:getConfigurationAssignmentsForSubscription", {
-        "configurationAssignmentName": args.configurationAssignmentName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfigurationAssignmentsForSubscription(a, opts))
 }
 
 export interface GetConfigurationAssignmentsForSubscriptionOutputArgs {

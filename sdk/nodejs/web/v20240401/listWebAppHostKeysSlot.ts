@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Description for Get host secrets for a function app.
  */
 export function listWebAppHostKeysSlot(args: ListWebAppHostKeysSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHostKeysSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:listWebAppHostKeysSlot", {
         "name": args.name,
@@ -52,12 +53,7 @@ export interface ListWebAppHostKeysSlotResult {
  * Description for Get host secrets for a function app.
  */
 export function listWebAppHostKeysSlotOutput(args: ListWebAppHostKeysSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHostKeysSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:listWebAppHostKeysSlot", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppHostKeysSlot(a, opts))
 }
 
 export interface ListWebAppHostKeysSlotOutputArgs {

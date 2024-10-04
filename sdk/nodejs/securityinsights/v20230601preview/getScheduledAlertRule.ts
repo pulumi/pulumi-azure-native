@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the alert rule.
  */
 export function getScheduledAlertRule(args: GetScheduledAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledAlertRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230601preview:getScheduledAlertRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -156,12 +157,7 @@ export interface GetScheduledAlertRuleResult {
  * Gets the alert rule.
  */
 export function getScheduledAlertRuleOutput(args: GetScheduledAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledAlertRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230601preview:getScheduledAlertRule", {
-        "resourceGroupName": args.resourceGroupName,
-        "ruleId": args.ruleId,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getScheduledAlertRule(a, opts))
 }
 
 export interface GetScheduledAlertRuleOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves information about a gallery Application Definition.
  */
 export function getGalleryApplication(args: GetGalleryApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20230703:getGalleryApplication", {
         "galleryApplicationName": args.galleryApplicationName,
@@ -91,12 +92,7 @@ export interface GetGalleryApplicationResult {
  * Retrieves information about a gallery Application Definition.
  */
 export function getGalleryApplicationOutput(args: GetGalleryApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute/v20230703:getGalleryApplication", {
-        "galleryApplicationName": args.galleryApplicationName,
-        "galleryName": args.galleryName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGalleryApplication(a, opts))
 }
 
 export interface GetGalleryApplicationOutputArgs {

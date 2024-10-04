@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified Network Manager.
  */
 export function getNetworkManager(args: GetNetworkManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkManagerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240101:getNetworkManager", {
         "networkManagerName": args.networkManagerName,
@@ -86,11 +87,7 @@ export interface GetNetworkManagerResult {
  * Gets the specified Network Manager.
  */
 export function getNetworkManagerOutput(args: GetNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20240101:getNetworkManager", {
-        "networkManagerName": args.networkManagerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkManager(a, opts))
 }
 
 export interface GetNetworkManagerOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a streaming endpoint.
  */
 export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20221101:getStreamingEndpoint", {
         "accountName": args.accountName,
@@ -135,12 +136,7 @@ export interface GetStreamingEndpointResult {
  * Gets a streaming endpoint.
  */
 export function getStreamingEndpointOutput(args: GetStreamingEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media/v20221101:getStreamingEndpoint", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "streamingEndpointName": args.streamingEndpointName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStreamingEndpoint(a, opts))
 }
 
 export interface GetStreamingEndpointOutputArgs {

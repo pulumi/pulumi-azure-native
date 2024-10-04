@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Traffic Controller Frontend
  */
 export function getFrontendsInterface(args: GetFrontendsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontendsInterfaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicenetworking/v20221001preview:getFrontendsInterface", {
         "frontendName": args.frontendName,
@@ -83,12 +84,7 @@ export interface GetFrontendsInterfaceResult {
  * Get a Traffic Controller Frontend
  */
 export function getFrontendsInterfaceOutput(args: GetFrontendsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontendsInterfaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicenetworking/v20221001preview:getFrontendsInterface", {
-        "frontendName": args.frontendName,
-        "resourceGroupName": args.resourceGroupName,
-        "trafficControllerName": args.trafficControllerName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFrontendsInterface(a, opts))
 }
 
 export interface GetFrontendsInterfaceOutputArgs {

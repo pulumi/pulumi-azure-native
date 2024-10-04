@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns the properties of the specified manager name.
  */
 export function getManager(args: GetManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:getManager", {
         "managerName": args.managerName,
@@ -74,11 +75,7 @@ export interface GetManagerResult {
  * Returns the properties of the specified manager name.
  */
 export function getManagerOutput(args: GetManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:getManager", {
-        "managerName": args.managerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManager(a, opts))
 }
 
 export interface GetManagerOutputArgs {

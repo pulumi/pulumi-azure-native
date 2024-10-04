@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve the python 2 package identified by package name.
  */
 export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPython2PackageResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20230515preview:getPython2Package", {
         "automationAccountName": args.automationAccountName,
@@ -115,12 +116,7 @@ export interface GetPython2PackageResult {
  * Retrieve the python 2 package identified by package name.
  */
 export function getPython2PackageOutput(args: GetPython2PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython2PackageResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getPython2Package", {
-        "automationAccountName": args.automationAccountName,
-        "packageName": args.packageName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPython2Package(a, opts))
 }
 
 export interface GetPython2PackageOutputArgs {

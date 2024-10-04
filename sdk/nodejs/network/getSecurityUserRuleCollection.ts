@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-03-01.
  */
 export function getSecurityUserRuleCollection(args: GetSecurityUserRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityUserRuleCollectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getSecurityUserRuleCollection", {
         "configurationName": args.configurationName,
@@ -86,13 +87,7 @@ export interface GetSecurityUserRuleCollectionResult {
  * Azure REST API version: 2024-03-01.
  */
 export function getSecurityUserRuleCollectionOutput(args: GetSecurityUserRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityUserRuleCollectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getSecurityUserRuleCollection", {
-        "configurationName": args.configurationName,
-        "networkManagerName": args.networkManagerName,
-        "resourceGroupName": args.resourceGroupName,
-        "ruleCollectionName": args.ruleCollectionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecurityUserRuleCollection(a, opts))
 }
 
 export interface GetSecurityUserRuleCollectionOutputArgs {

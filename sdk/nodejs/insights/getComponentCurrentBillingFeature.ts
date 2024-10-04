@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2015-05-01.
  */
 export function getComponentCurrentBillingFeature(args: GetComponentCurrentBillingFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentCurrentBillingFeatureResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getComponentCurrentBillingFeature", {
         "resourceGroupName": args.resourceGroupName,
@@ -48,11 +49,7 @@ export interface GetComponentCurrentBillingFeatureResult {
  * Azure REST API version: 2015-05-01.
  */
 export function getComponentCurrentBillingFeatureOutput(args: GetComponentCurrentBillingFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentCurrentBillingFeatureResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights:getComponentCurrentBillingFeature", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getComponentCurrentBillingFeature(a, opts))
 }
 
 export interface GetComponentCurrentBillingFeatureOutputArgs {

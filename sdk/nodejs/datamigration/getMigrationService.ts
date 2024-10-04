@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-15-preview.
  */
 export function getMigrationService(args: GetMigrationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration:getMigrationService", {
         "migrationServiceName": args.migrationServiceName,
@@ -72,11 +73,7 @@ export interface GetMigrationServiceResult {
  * Azure REST API version: 2023-07-15-preview.
  */
 export function getMigrationServiceOutput(args: GetMigrationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datamigration:getMigrationService", {
-        "migrationServiceName": args.migrationServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMigrationService(a, opts))
 }
 
 export interface GetMigrationServiceOutputArgs {

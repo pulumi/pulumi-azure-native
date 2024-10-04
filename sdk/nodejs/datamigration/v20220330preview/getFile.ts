@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
  */
 export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise<GetFileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20220330preview:getFile", {
         "fileName": args.fileName,
@@ -72,13 +73,7 @@ export interface GetFileResult {
  * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
  */
 export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datamigration/v20220330preview:getFile", {
-        "fileName": args.fileName,
-        "groupName": args.groupName,
-        "projectName": args.projectName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFile(a, opts))
 }
 
 export interface GetFileOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-10.
  */
 export function getFirmware(args: GetFirmwareArgs, opts?: pulumi.InvokeOptions): Promise<GetFirmwareResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotfirmwaredefense:getFirmware", {
         "firmwareId": args.firmwareId,
@@ -101,12 +102,7 @@ export interface GetFirmwareResult {
  * Other available API versions: 2024-01-10.
  */
 export function getFirmwareOutput(args: GetFirmwareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirmwareResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:iotfirmwaredefense:getFirmware", {
-        "firmwareId": args.firmwareId,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFirmware(a, opts))
 }
 
 export interface GetFirmwareOutputArgs {

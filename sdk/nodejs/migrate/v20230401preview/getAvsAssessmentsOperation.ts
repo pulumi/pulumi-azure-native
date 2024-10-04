@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a AvsAssessment
  */
 export function getAvsAssessmentsOperation(args: GetAvsAssessmentsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetAvsAssessmentsOperationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20230401preview:getAvsAssessmentsOperation", {
         "assessmentName": args.assessmentName,
@@ -234,13 +235,7 @@ export interface GetAvsAssessmentsOperationResult {
  * Get a AvsAssessment
  */
 export function getAvsAssessmentsOperationOutput(args: GetAvsAssessmentsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvsAssessmentsOperationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate/v20230401preview:getAvsAssessmentsOperation", {
-        "assessmentName": args.assessmentName,
-        "groupName": args.groupName,
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAvsAssessmentsOperation(a, opts))
 }
 
 export interface GetAvsAssessmentsOperationOutputArgs {

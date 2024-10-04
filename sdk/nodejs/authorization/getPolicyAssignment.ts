@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-04-01, 2016-12-01, 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01, 2024-05-01.
  */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getPolicyAssignment", {
         "policyAssignmentName": args.policyAssignmentName,
@@ -112,11 +113,7 @@ export interface GetPolicyAssignmentResult {
  * Other available API versions: 2016-04-01, 2016-12-01, 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01, 2024-05-01.
  */
 export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization:getPolicyAssignment", {
-        "policyAssignmentName": args.policyAssignmentName,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPolicyAssignment(a, opts))
 }
 
 export interface GetPolicyAssignmentOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets cluster user credential of the managed cluster with a specified resource group and name.
  */
 export function listManagedClusterUserCredentials(args: ListManagedClusterUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterUserCredentialsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20190601:listManagedClusterUserCredentials", {
         "resourceGroupName": args.resourceGroupName,
@@ -42,11 +43,7 @@ export interface ListManagedClusterUserCredentialsResult {
  * Gets cluster user credential of the managed cluster with a specified resource group and name.
  */
 export function listManagedClusterUserCredentialsOutput(args: ListManagedClusterUserCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterUserCredentialsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerservice/v20190601:listManagedClusterUserCredentials", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listManagedClusterUserCredentials(a, opts))
 }
 
 export interface ListManagedClusterUserCredentialsOutputArgs {

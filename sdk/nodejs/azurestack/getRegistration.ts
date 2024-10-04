@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-06-01-preview.
  */
 export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestack:getRegistration", {
         "registrationName": args.registrationName,
@@ -77,11 +78,7 @@ export interface GetRegistrationResult {
  * Other available API versions: 2020-06-01-preview.
  */
 export function getRegistrationOutput(args: GetRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurestack:getRegistration", {
-        "registrationName": args.registrationName,
-        "resourceGroup": args.resourceGroup,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRegistration(a, opts))
 }
 
 export interface GetRegistrationOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * This method gets the unencrypted secrets related to the job.
  */
 export function listJobCredentials(args: ListJobCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListJobCredentialsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databox/v20231201:listJobCredentials", {
         "jobName": args.jobName,
@@ -46,11 +47,7 @@ export interface ListJobCredentialsResult {
  * This method gets the unencrypted secrets related to the job.
  */
 export function listJobCredentialsOutput(args: ListJobCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobCredentialsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databox/v20231201:listJobCredentials", {
-        "jobName": args.jobName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listJobCredentials(a, opts))
 }
 
 export interface ListJobCredentialsOutputArgs {

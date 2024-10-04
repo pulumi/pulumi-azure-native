@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the queue with the specified queue name, under the specified account if it exists.
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20230401:getQueue", {
         "accountName": args.accountName,
@@ -57,12 +58,7 @@ export interface GetQueueResult {
  * Gets the queue with the specified queue name, under the specified account if it exists.
  */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage/v20230401:getQueue", {
-        "accountName": args.accountName,
-        "queueName": args.queueName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getQueue(a, opts))
 }
 
 export interface GetQueueOutputArgs {

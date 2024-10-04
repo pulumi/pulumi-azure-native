@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of a static site.
  */
 export function getStaticSite(args: GetStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:getStaticSite", {
         "name": args.name,
@@ -94,11 +95,7 @@ export interface GetStaticSiteResult {
  * Gets the details of a static site.
  */
 export function getStaticSiteOutput(args: GetStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:getStaticSite", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStaticSite(a, opts))
 }
 
 export interface GetStaticSiteOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves SQL Server instance telemetry
  */
 export function getSqlServerInstanceTelemetry(args: GetSqlServerInstanceTelemetryArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerInstanceTelemetryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20240101:getSqlServerInstanceTelemetry", {
         "aggregationType": args.aggregationType,
@@ -80,17 +81,7 @@ export interface GetSqlServerInstanceTelemetryResult {
  * Retrieves SQL Server instance telemetry
  */
 export function getSqlServerInstanceTelemetryOutput(args: GetSqlServerInstanceTelemetryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerInstanceTelemetryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20240101:getSqlServerInstanceTelemetry", {
-        "aggregationType": args.aggregationType,
-        "databaseNames": args.databaseNames,
-        "datasetName": args.datasetName,
-        "endTime": args.endTime,
-        "interval": args.interval,
-        "resourceGroupName": args.resourceGroupName,
-        "sqlServerInstanceName": args.sqlServerInstanceName,
-        "startTime": args.startTime,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlServerInstanceTelemetry(a, opts))
 }
 
 export interface GetSqlServerInstanceTelemetryOutputArgs {

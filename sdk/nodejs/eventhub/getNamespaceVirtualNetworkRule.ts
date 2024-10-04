@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-01-01-preview.
  */
 export function getNamespaceVirtualNetworkRule(args: GetNamespaceVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceVirtualNetworkRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub:getNamespaceVirtualNetworkRule", {
         "namespaceName": args.namespaceName,
@@ -58,12 +59,7 @@ export interface GetNamespaceVirtualNetworkRuleResult {
  * Azure REST API version: 2018-01-01-preview.
  */
 export function getNamespaceVirtualNetworkRuleOutput(args: GetNamespaceVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceVirtualNetworkRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventhub:getNamespaceVirtualNetworkRule", {
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-        "virtualNetworkRuleName": args.virtualNetworkRuleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNamespaceVirtualNetworkRule(a, opts))
 }
 
 export interface GetNamespaceVirtualNetworkRuleOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Datastore by name.
  */
 export function getMachineLearningDatastore(args: GetMachineLearningDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningDatastoreResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200501preview:getMachineLearningDatastore", {
         "datastoreName": args.datastoreName,
@@ -75,12 +76,7 @@ export interface GetMachineLearningDatastoreResult {
  * Get a Datastore by name.
  */
 export function getMachineLearningDatastoreOutput(args: GetMachineLearningDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatastoreResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20200501preview:getMachineLearningDatastore", {
-        "datastoreName": args.datastoreName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMachineLearningDatastore(a, opts))
 }
 
 export interface GetMachineLearningDatastoreOutputArgs {

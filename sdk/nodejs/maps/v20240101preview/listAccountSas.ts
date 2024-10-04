@@ -15,6 +15,7 @@ import * as utilities from "../../utilities";
  * 2. Create or update an Azure Maps account with the same Azure region as the User Assigned Managed Identity is placed.
  */
 export function listAccountSas(args: ListAccountSasArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountSasResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maps/v20240101preview:listAccountSas", {
         "accountName": args.accountName,
@@ -80,17 +81,7 @@ export interface ListAccountSasResult {
  * 2. Create or update an Azure Maps account with the same Azure region as the User Assigned Managed Identity is placed.
  */
 export function listAccountSasOutput(args: ListAccountSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountSasResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:maps/v20240101preview:listAccountSas", {
-        "accountName": args.accountName,
-        "expiry": args.expiry,
-        "maxRatePerSecond": args.maxRatePerSecond,
-        "principalId": args.principalId,
-        "regions": args.regions,
-        "resourceGroupName": args.resourceGroupName,
-        "signingKey": args.signingKey,
-        "start": args.start,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listAccountSas(a, opts))
 }
 
 export interface ListAccountSasOutputArgs {

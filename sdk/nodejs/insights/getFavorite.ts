@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2015-05-01.
  */
 export function getFavorite(args: GetFavoriteArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getFavorite", {
         "favoriteId": args.favoriteId,
@@ -86,12 +87,7 @@ export interface GetFavoriteResult {
  * Azure REST API version: 2015-05-01.
  */
 export function getFavoriteOutput(args: GetFavoriteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights:getFavorite", {
-        "favoriteId": args.favoriteId,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFavorite(a, opts))
 }
 
 export interface GetFavoriteOutputArgs {

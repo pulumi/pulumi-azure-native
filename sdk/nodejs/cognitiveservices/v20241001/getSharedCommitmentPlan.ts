@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns a Cognitive Services commitment plan specified by the parameters.
  */
 export function getSharedCommitmentPlan(args: GetSharedCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedCommitmentPlanResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20241001:getSharedCommitmentPlan", {
         "commitmentPlanName": args.commitmentPlanName,
@@ -78,11 +79,7 @@ export interface GetSharedCommitmentPlanResult {
  * Returns a Cognitive Services commitment plan specified by the parameters.
  */
 export function getSharedCommitmentPlanOutput(args: GetSharedCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedCommitmentPlanResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20241001:getSharedCommitmentPlan", {
-        "commitmentPlanName": args.commitmentPlanName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSharedCommitmentPlan(a, opts))
 }
 
 export interface GetSharedCommitmentPlanOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
  */
 export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetTagAtScopeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources:getTagAtScope", {
         "scope": args.scope,
@@ -55,10 +56,7 @@ export interface GetTagAtScopeResult {
  * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
  */
 export function getTagAtScopeOutput(args: GetTagAtScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagAtScopeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:resources:getTagAtScope", {
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTagAtScope(a, opts))
 }
 
 export interface GetTagAtScopeOutputArgs {

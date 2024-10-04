@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the group specified by its identifier.
  */
 export function getWorkspaceGroup(args: GetWorkspaceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230501preview:getWorkspaceGroup", {
         "groupId": args.groupId,
@@ -73,13 +74,7 @@ export interface GetWorkspaceGroupResult {
  * Gets the details of the group specified by its identifier.
  */
 export function getWorkspaceGroupOutput(args: GetWorkspaceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getWorkspaceGroup", {
-        "groupId": args.groupId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceGroup(a, opts))
 }
 
 export interface GetWorkspaceGroupOutputArgs {

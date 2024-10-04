@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the metadata of a privateLinkServicesForSCCPowershell resource.
  */
 export function getPrivateLinkServicesForSCCPowershell(args: GetPrivateLinkServicesForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForSCCPowershellResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210308:getPrivateLinkServicesForSCCPowershell", {
         "resourceGroupName": args.resourceGroupName,
@@ -78,11 +79,7 @@ export interface GetPrivateLinkServicesForSCCPowershellResult {
  * Get the metadata of a privateLinkServicesForSCCPowershell resource.
  */
 export function getPrivateLinkServicesForSCCPowershellOutput(args: GetPrivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForSCCPowershellResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityandcompliance/v20210308:getPrivateLinkServicesForSCCPowershell", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForSCCPowershell(a, opts))
 }
 
 export interface GetPrivateLinkServicesForSCCPowershellOutputArgs {

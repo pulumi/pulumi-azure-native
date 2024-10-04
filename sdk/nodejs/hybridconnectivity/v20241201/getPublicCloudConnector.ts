@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a PublicCloudConnector
  */
 export function getPublicCloudConnector(args: GetPublicCloudConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicCloudConnectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridconnectivity/v20241201:getPublicCloudConnector", {
         "publicCloudConnector": args.publicCloudConnector,
@@ -66,11 +67,7 @@ export interface GetPublicCloudConnectorResult {
  * Get a PublicCloudConnector
  */
 export function getPublicCloudConnectorOutput(args: GetPublicCloudConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicCloudConnectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity/v20241201:getPublicCloudConnector", {
-        "publicCloudConnector": args.publicCloudConnector,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPublicCloudConnector(a, opts))
 }
 
 export interface GetPublicCloudConnectorOutputArgs {

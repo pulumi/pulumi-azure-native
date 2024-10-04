@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-07-01-preview.
  */
 export function getRaiPolicy(args: GetRaiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRaiPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getRaiPolicy", {
         "endpointName": args.endpointName,
@@ -74,13 +75,7 @@ export interface GetRaiPolicyResult {
  * Other available API versions: 2024-07-01-preview.
  */
 export function getRaiPolicyOutput(args: GetRaiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getRaiPolicy", {
-        "endpointName": args.endpointName,
-        "raiPolicyName": args.raiPolicyName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRaiPolicy(a, opts))
 }
 
 export interface GetRaiPolicyOutputArgs {

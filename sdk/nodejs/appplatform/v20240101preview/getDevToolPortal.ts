@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the Application Live  and its properties.
  */
 export function getDevToolPortal(args: GetDevToolPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetDevToolPortalResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20240101preview:getDevToolPortal", {
         "devToolPortalName": args.devToolPortalName,
@@ -63,12 +64,7 @@ export interface GetDevToolPortalResult {
  * Get the Application Live  and its properties.
  */
 export function getDevToolPortalOutput(args: GetDevToolPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevToolPortalResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240101preview:getDevToolPortal", {
-        "devToolPortalName": args.devToolPortalName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDevToolPortal(a, opts))
 }
 
 export interface GetDevToolPortalOutputArgs {

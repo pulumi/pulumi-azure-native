@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * This operation lists all the policy set definition versions for all policy set definitions at the management group scope.
  */
 export function listPolicySetDefinitionVersionAllAtManagementGroup(args: ListPolicySetDefinitionVersionAllAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<ListPolicySetDefinitionVersionAllAtManagementGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20240501:listPolicySetDefinitionVersionAllAtManagementGroup", {
         "managementGroupName": args.managementGroupName,
@@ -41,10 +42,7 @@ export interface ListPolicySetDefinitionVersionAllAtManagementGroupResult {
  * This operation lists all the policy set definition versions for all policy set definitions at the management group scope.
  */
 export function listPolicySetDefinitionVersionAllAtManagementGroupOutput(args: ListPolicySetDefinitionVersionAllAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPolicySetDefinitionVersionAllAtManagementGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization/v20240501:listPolicySetDefinitionVersionAllAtManagementGroup", {
-        "managementGroupName": args.managementGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listPolicySetDefinitionVersionAllAtManagementGroup(a, opts))
 }
 
 export interface ListPolicySetDefinitionVersionAllAtManagementGroupOutputArgs {

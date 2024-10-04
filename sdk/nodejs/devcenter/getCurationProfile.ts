@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-08-01-preview.
  */
 export function getCurationProfile(args: GetCurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetCurationProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter:getCurationProfile", {
         "curationProfileName": args.curationProfileName,
@@ -73,12 +74,7 @@ export interface GetCurationProfileResult {
  * Azure REST API version: 2024-08-01-preview.
  */
 export function getCurationProfileOutput(args: GetCurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCurationProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devcenter:getCurationProfile", {
-        "curationProfileName": args.curationProfileName,
-        "devCenterName": args.devCenterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCurationProfile(a, opts))
 }
 
 export interface GetCurationProfileOutputArgs {

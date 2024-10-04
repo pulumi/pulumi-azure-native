@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of the provided virtual machine console.
  */
 export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20231001preview:getConsole", {
         "consoleName": args.consoleName,
@@ -100,12 +101,7 @@ export interface GetConsoleResult {
  * Get properties of the provided virtual machine console.
  */
 export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20231001preview:getConsole", {
-        "consoleName": args.consoleName,
-        "resourceGroupName": args.resourceGroupName,
-        "virtualMachineName": args.virtualMachineName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConsole(a, opts))
 }
 
 export interface GetConsoleOutputArgs {

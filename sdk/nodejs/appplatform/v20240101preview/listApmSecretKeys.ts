@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * List keys of APM sensitive properties.
  */
 export function listApmSecretKeys(args: ListApmSecretKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListApmSecretKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20240101preview:listApmSecretKeys", {
         "apmName": args.apmName,
@@ -44,12 +45,7 @@ export interface ListApmSecretKeysResult {
  * List keys of APM sensitive properties.
  */
 export function listApmSecretKeysOutput(args: ListApmSecretKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApmSecretKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240101preview:listApmSecretKeys", {
-        "apmName": args.apmName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listApmSecretKeys(a, opts))
 }
 
 export interface ListApmSecretKeysOutputArgs {

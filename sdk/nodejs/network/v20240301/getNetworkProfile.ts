@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified network profile in a specified resource group.
  */
 export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:getNetworkProfile", {
         "expand": args.expand,
@@ -83,12 +84,7 @@ export interface GetNetworkProfileResult {
  * Gets the specified network profile in a specified resource group.
  */
 export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getNetworkProfile", {
-        "expand": args.expand,
-        "networkProfileName": args.networkProfileName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkProfile(a, opts))
 }
 
 export interface GetNetworkProfileOutputArgs {

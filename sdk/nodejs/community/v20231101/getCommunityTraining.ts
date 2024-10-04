@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a CommunityTraining
  */
 export function getCommunityTraining(args: GetCommunityTrainingArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunityTrainingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:community/v20231101:getCommunityTraining", {
         "communityTrainingName": args.communityTrainingName,
@@ -98,11 +99,7 @@ export interface GetCommunityTrainingResult {
  * Get a CommunityTraining
  */
 export function getCommunityTrainingOutput(args: GetCommunityTrainingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunityTrainingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:community/v20231101:getCommunityTraining", {
-        "communityTrainingName": args.communityTrainingName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCommunityTraining(a, opts))
 }
 
 export interface GetCommunityTrainingOutputArgs {

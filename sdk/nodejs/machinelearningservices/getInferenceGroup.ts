@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
  */
 export function getInferenceGroup(args: GetInferenceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInferenceGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getInferenceGroup", {
         "groupName": args.groupName,
@@ -89,13 +90,7 @@ export interface GetInferenceGroupResult {
  * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
  */
 export function getInferenceGroupOutput(args: GetInferenceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getInferenceGroup", {
-        "groupName": args.groupName,
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInferenceGroup(a, opts))
 }
 
 export interface GetInferenceGroupOutputArgs {

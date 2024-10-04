@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Description for Gets a Swift Virtual Network connection.
  */
 export function getWebAppSwiftVirtualNetworkConnection(args: GetWebAppSwiftVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSwiftVirtualNetworkConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220901:getWebAppSwiftVirtualNetworkConnection", {
         "name": args.name,
@@ -59,11 +60,7 @@ export interface GetWebAppSwiftVirtualNetworkConnectionResult {
  * Description for Gets a Swift Virtual Network connection.
  */
 export function getWebAppSwiftVirtualNetworkConnectionOutput(args: GetWebAppSwiftVirtualNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSwiftVirtualNetworkConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20220901:getWebAppSwiftVirtualNetworkConnection", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppSwiftVirtualNetworkConnection(a, opts))
 }
 
 export interface GetWebAppSwiftVirtualNetworkConnectionOutputArgs {

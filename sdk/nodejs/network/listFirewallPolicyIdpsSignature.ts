@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function listFirewallPolicyIdpsSignature(args: ListFirewallPolicyIdpsSignatureArgs, opts?: pulumi.InvokeOptions): Promise<ListFirewallPolicyIdpsSignatureResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:listFirewallPolicyIdpsSignature", {
         "filters": args.filters,
@@ -77,16 +78,7 @@ export interface ListFirewallPolicyIdpsSignatureResult {
  * Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function listFirewallPolicyIdpsSignatureOutput(args: ListFirewallPolicyIdpsSignatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFirewallPolicyIdpsSignatureResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:listFirewallPolicyIdpsSignature", {
-        "filters": args.filters,
-        "firewallPolicyName": args.firewallPolicyName,
-        "orderBy": args.orderBy,
-        "resourceGroupName": args.resourceGroupName,
-        "resultsPerPage": args.resultsPerPage,
-        "search": args.search,
-        "skip": args.skip,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listFirewallPolicyIdpsSignature(a, opts))
 }
 
 export interface ListFirewallPolicyIdpsSignatureOutputArgs {

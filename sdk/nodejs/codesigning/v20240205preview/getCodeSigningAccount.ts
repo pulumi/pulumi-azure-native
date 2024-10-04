@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a trusted Signing Account.
  */
 export function getCodeSigningAccount(args: GetCodeSigningAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:codesigning/v20240205preview:getCodeSigningAccount", {
         "accountName": args.accountName,
@@ -74,11 +75,7 @@ export interface GetCodeSigningAccountResult {
  * Get a trusted Signing Account.
  */
 export function getCodeSigningAccountOutput(args: GetCodeSigningAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:codesigning/v20240205preview:getCodeSigningAccount", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCodeSigningAccount(a, opts))
 }
 
 export interface GetCodeSigningAccountOutputArgs {

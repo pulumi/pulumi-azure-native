@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified public IP prefix in a specified resource group.
  */
 export function getPublicIPPrefix(args: GetPublicIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPPrefixResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190801:getPublicIPPrefix", {
         "expand": args.expand,
@@ -107,12 +108,7 @@ export interface GetPublicIPPrefixResult {
  * Gets the specified public IP prefix in a specified resource group.
  */
 export function getPublicIPPrefixOutput(args: GetPublicIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPPrefixResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20190801:getPublicIPPrefix", {
-        "expand": args.expand,
-        "publicIpPrefixName": args.publicIpPrefixName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPublicIPPrefix(a, opts))
 }
 
 export interface GetPublicIPPrefixOutputArgs {

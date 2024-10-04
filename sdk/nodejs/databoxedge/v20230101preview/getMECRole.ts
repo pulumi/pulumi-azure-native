@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a specific role by name.
  */
 export function getMECRole(args: GetMECRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetMECRoleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20230101preview:getMECRole", {
         "deviceName": args.deviceName,
@@ -80,12 +81,7 @@ export interface GetMECRoleResult {
  * Gets a specific role by name.
  */
 export function getMECRoleOutput(args: GetMECRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMECRoleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230101preview:getMECRole", {
-        "deviceName": args.deviceName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMECRole(a, opts))
 }
 
 export interface GetMECRoleOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns a task with extended information that includes all secrets.
  */
 export function listTaskDetails(args: ListTaskDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListTaskDetailsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20180901:listTaskDetails", {
         "registryName": args.registryName,
@@ -100,12 +101,7 @@ export interface ListTaskDetailsResult {
  * Returns a task with extended information that includes all secrets.
  */
 export function listTaskDetailsOutput(args: ListTaskDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTaskDetailsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20180901:listTaskDetails", {
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-        "taskName": args.taskName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listTaskDetails(a, opts))
 }
 
 export interface ListTaskDetailsOutputArgs {

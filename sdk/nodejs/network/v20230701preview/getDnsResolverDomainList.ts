@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets properties of a DNS resolver domain list.
  */
 export function getDnsResolverDomainList(args: GetDnsResolverDomainListArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResolverDomainListResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230701preview:getDnsResolverDomainList", {
         "dnsResolverDomainListName": args.dnsResolverDomainListName,
@@ -78,11 +79,7 @@ export interface GetDnsResolverDomainListResult {
  * Gets properties of a DNS resolver domain list.
  */
 export function getDnsResolverDomainListOutput(args: GetDnsResolverDomainListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverDomainListResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230701preview:getDnsResolverDomainList", {
-        "dnsResolverDomainListName": args.dnsResolverDomainListName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDnsResolverDomainList(a, opts))
 }
 
 export interface GetDnsResolverDomainListOutputArgs {

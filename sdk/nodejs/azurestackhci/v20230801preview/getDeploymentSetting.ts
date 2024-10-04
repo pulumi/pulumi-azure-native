@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a DeploymentSetting
  */
 export function getDeploymentSetting(args: GetDeploymentSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentSettingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20230801preview:getDeploymentSetting", {
         "clusterName": args.clusterName,
@@ -79,12 +80,7 @@ export interface GetDeploymentSettingResult {
  * Get a DeploymentSetting
  */
 export function getDeploymentSettingOutput(args: GetDeploymentSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentSettingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20230801preview:getDeploymentSetting", {
-        "clusterName": args.clusterName,
-        "deploymentSettingsName": args.deploymentSettingsName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDeploymentSetting(a, opts))
 }
 
 export interface GetDeploymentSettingOutputArgs {

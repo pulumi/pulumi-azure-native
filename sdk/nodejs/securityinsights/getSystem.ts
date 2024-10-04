@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-04-01-preview.
  */
 export function getSystem(args: GetSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getSystem", {
         "agentResourceName": args.agentResourceName,
@@ -80,13 +81,7 @@ export interface GetSystemResult {
  * Azure REST API version: 2024-04-01-preview.
  */
 export function getSystemOutput(args: GetSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights:getSystem", {
-        "agentResourceName": args.agentResourceName,
-        "resourceGroupName": args.resourceGroupName,
-        "systemResourceName": args.systemResourceName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSystem(a, opts))
 }
 
 export interface GetSystemOutputArgs {

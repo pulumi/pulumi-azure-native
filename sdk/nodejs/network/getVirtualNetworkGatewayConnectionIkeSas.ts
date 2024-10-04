@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getVirtualNetworkGatewayConnectionIkeSas(args: GetVirtualNetworkGatewayConnectionIkeSasArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionIkeSasResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getVirtualNetworkGatewayConnectionIkeSas", {
         "resourceGroupName": args.resourceGroupName,
@@ -39,11 +40,7 @@ export interface GetVirtualNetworkGatewayConnectionIkeSasResult {
  * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getVirtualNetworkGatewayConnectionIkeSasOutput(args: GetVirtualNetworkGatewayConnectionIkeSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayConnectionIkeSasResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getVirtualNetworkGatewayConnectionIkeSas", {
-        "resourceGroupName": args.resourceGroupName,
-        "virtualNetworkGatewayConnectionName": args.virtualNetworkGatewayConnectionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayConnectionIkeSas(a, opts))
 }
 
 export interface GetVirtualNetworkGatewayConnectionIkeSasOutputArgs {

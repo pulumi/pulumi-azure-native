@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getRegistryEnvironmentContainer(args: GetRegistryEnvironmentContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryEnvironmentContainerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240401:getRegistryEnvironmentContainer", {
         "environmentName": args.environmentName,
@@ -63,12 +64,7 @@ export interface GetRegistryEnvironmentContainerResult {
  * Azure Resource Manager resource envelope.
  */
 export function getRegistryEnvironmentContainerOutput(args: GetRegistryEnvironmentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryEnvironmentContainerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401:getRegistryEnvironmentContainer", {
-        "environmentName": args.environmentName,
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRegistryEnvironmentContainer(a, opts))
 }
 
 export interface GetRegistryEnvironmentContainerOutputArgs {

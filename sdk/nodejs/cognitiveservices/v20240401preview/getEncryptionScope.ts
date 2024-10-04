@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified EncryptionScope associated with the Cognitive Services account.
  */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20240401preview:getEncryptionScope", {
         "accountName": args.accountName,
@@ -71,12 +72,7 @@ export interface GetEncryptionScopeResult {
  * Gets the specified EncryptionScope associated with the Cognitive Services account.
  */
 export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20240401preview:getEncryptionScope", {
-        "accountName": args.accountName,
-        "encryptionScopeName": args.encryptionScopeName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEncryptionScope(a, opts))
 }
 
 export interface GetEncryptionScopeOutputArgs {

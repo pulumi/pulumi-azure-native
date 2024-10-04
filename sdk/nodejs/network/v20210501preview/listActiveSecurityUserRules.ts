@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists Active Security User Rules in a network manager.
  */
 export function listActiveSecurityUserRules(args: ListActiveSecurityUserRulesArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveSecurityUserRulesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210501preview:listActiveSecurityUserRules", {
         "networkManagerName": args.networkManagerName,
@@ -56,13 +57,7 @@ export interface ListActiveSecurityUserRulesResult {
  * Lists Active Security User Rules in a network manager.
  */
 export function listActiveSecurityUserRulesOutput(args: ListActiveSecurityUserRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveSecurityUserRulesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20210501preview:listActiveSecurityUserRules", {
-        "networkManagerName": args.networkManagerName,
-        "regions": args.regions,
-        "resourceGroupName": args.resourceGroupName,
-        "skipToken": args.skipToken,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listActiveSecurityUserRules(a, opts))
 }
 
 export interface ListActiveSecurityUserRulesOutputArgs {

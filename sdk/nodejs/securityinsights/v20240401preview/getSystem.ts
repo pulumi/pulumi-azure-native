@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the system.
  */
 export function getSystem(args: GetSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20240401preview:getSystem", {
         "agentResourceName": args.agentResourceName,
@@ -78,13 +79,7 @@ export interface GetSystemResult {
  * Gets the system.
  */
 export function getSystemOutput(args: GetSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:getSystem", {
-        "agentResourceName": args.agentResourceName,
-        "resourceGroupName": args.resourceGroupName,
-        "systemResourceName": args.systemResourceName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSystem(a, opts))
 }
 
 export interface GetSystemOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a hunt comment
  */
 export function getHuntComment(args: GetHuntCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetHuntCommentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230701preview:getHuntComment", {
         "huntCommentId": args.huntCommentId,
@@ -72,13 +73,7 @@ export interface GetHuntCommentResult {
  * Gets a hunt comment
  */
 export function getHuntCommentOutput(args: GetHuntCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHuntCommentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230701preview:getHuntComment", {
-        "huntCommentId": args.huntCommentId,
-        "huntId": args.huntId,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHuntComment(a, opts))
 }
 
 export interface GetHuntCommentOutputArgs {

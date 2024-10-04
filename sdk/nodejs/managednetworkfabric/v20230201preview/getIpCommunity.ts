@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Implements an IP Community GET method.
  */
 export function getIpCommunity(args: GetIpCommunityArgs, opts?: pulumi.InvokeOptions): Promise<GetIpCommunityResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230201preview:getIpCommunity", {
         "ipCommunityName": args.ipCommunityName,
@@ -82,11 +83,7 @@ export interface GetIpCommunityResult {
  * Implements an IP Community GET method.
  */
 export function getIpCommunityOutput(args: GetIpCommunityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpCommunityResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230201preview:getIpCommunity", {
-        "ipCommunityName": args.ipCommunityName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIpCommunity(a, opts))
 }
 
 export interface GetIpCommunityOutputArgs {

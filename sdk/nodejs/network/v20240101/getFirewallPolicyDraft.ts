@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a draft Firewall Policy.
  */
 export function getFirewallPolicyDraft(args: GetFirewallPolicyDraftArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyDraftResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240101:getFirewallPolicyDraft", {
         "firewallPolicyName": args.firewallPolicyName,
@@ -94,11 +95,7 @@ export interface GetFirewallPolicyDraftResult {
  * Get a draft Firewall Policy.
  */
 export function getFirewallPolicyDraftOutput(args: GetFirewallPolicyDraftOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyDraftResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20240101:getFirewallPolicyDraft", {
-        "firewallPolicyName": args.firewallPolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFirewallPolicyDraft(a, opts))
 }
 
 export interface GetFirewallPolicyDraftOutputArgs {

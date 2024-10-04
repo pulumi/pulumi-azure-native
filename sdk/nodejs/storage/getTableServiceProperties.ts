@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getTableServiceProperties(args: GetTableServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetTableServicePropertiesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage:getTableServiceProperties", {
         "accountName": args.accountName,
@@ -65,12 +66,7 @@ export interface GetTableServicePropertiesResult {
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getTableServicePropertiesOutput(args: GetTableServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableServicePropertiesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage:getTableServiceProperties", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "tableServiceName": args.tableServiceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTableServiceProperties(a, opts))
 }
 
 export interface GetTableServicePropertiesOutputArgs {

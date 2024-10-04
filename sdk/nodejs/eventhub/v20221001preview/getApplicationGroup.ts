@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an ApplicationGroup for a Namespace.
  */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20221001preview:getApplicationGroup", {
         "applicationGroupName": args.applicationGroupName,
@@ -75,12 +76,7 @@ export interface GetApplicationGroupResult {
  * Gets an ApplicationGroup for a Namespace.
  */
 export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventhub/v20221001preview:getApplicationGroup", {
-        "applicationGroupName": args.applicationGroupName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApplicationGroup(a, opts))
 }
 
 export interface GetApplicationGroupOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get stream events telemetry of a live event.
  */
 export function getLiveEventStreamEvents(args: GetLiveEventStreamEventsArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventStreamEventsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20221101:getLiveEventStreamEvents", {
         "accountName": args.accountName,
@@ -47,12 +48,7 @@ export interface GetLiveEventStreamEventsResult {
  * Get stream events telemetry of a live event.
  */
 export function getLiveEventStreamEventsOutput(args: GetLiveEventStreamEventsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventStreamEventsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media/v20221101:getLiveEventStreamEvents", {
-        "accountName": args.accountName,
-        "liveEventName": args.liveEventName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLiveEventStreamEvents(a, opts))
 }
 
 export interface GetLiveEventStreamEventsOutputArgs {

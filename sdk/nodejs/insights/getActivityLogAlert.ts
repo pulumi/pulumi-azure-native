@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-04-01, 2023-01-01-preview.
  */
 export function getActivityLogAlert(args: GetActivityLogAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityLogAlertResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getActivityLogAlert", {
         "activityLogAlertName": args.activityLogAlertName,
@@ -84,11 +85,7 @@ export interface GetActivityLogAlertResult {
  * Other available API versions: 2017-04-01, 2023-01-01-preview.
  */
 export function getActivityLogAlertOutput(args: GetActivityLogAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityLogAlertResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights:getActivityLogAlert", {
-        "activityLogAlertName": args.activityLogAlertName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getActivityLogAlert(a, opts))
 }
 
 export interface GetActivityLogAlertOutputArgs {

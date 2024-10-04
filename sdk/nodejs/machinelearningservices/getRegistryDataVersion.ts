@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getRegistryDataVersion(args: GetRegistryDataVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryDataVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getRegistryDataVersion", {
         "name": args.name,
@@ -74,13 +75,7 @@ export interface GetRegistryDataVersionResult {
  * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getRegistryDataVersionOutput(args: GetRegistryDataVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryDataVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getRegistryDataVersion", {
-        "name": args.name,
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-        "version": args.version,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRegistryDataVersion(a, opts))
 }
 
 export interface GetRegistryDataVersionOutputArgs {

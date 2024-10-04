@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
 export function listEventHubKeys(args: ListEventHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListEventHubKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub:listEventHubKeys", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -79,13 +80,7 @@ export interface ListEventHubKeysResult {
  * Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
 export function listEventHubKeysOutput(args: ListEventHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEventHubKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventhub:listEventHubKeys", {
-        "authorizationRuleName": args.authorizationRuleName,
-        "eventHubName": args.eventHubName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listEventHubKeys(a, opts))
 }
 
 export interface ListEventHubKeysOutputArgs {

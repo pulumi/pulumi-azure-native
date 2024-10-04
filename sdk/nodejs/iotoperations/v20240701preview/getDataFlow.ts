@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a DataFlowResource
  */
 export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetDataFlowResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperations/v20240701preview:getDataFlow", {
         "dataflowName": args.dataflowName,
@@ -72,13 +73,7 @@ export interface GetDataFlowResult {
  * Get a DataFlowResource
  */
 export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataFlowResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:iotoperations/v20240701preview:getDataFlow", {
-        "dataflowName": args.dataflowName,
-        "dataflowProfileName": args.dataflowProfileName,
-        "instanceName": args.instanceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDataFlow(a, opts))
 }
 
 export interface GetDataFlowOutputArgs {

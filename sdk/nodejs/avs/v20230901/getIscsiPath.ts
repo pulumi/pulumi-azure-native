@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a IscsiPath
  */
 export function getIscsiPath(args: GetIscsiPathArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiPathResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20230901:getIscsiPath", {
         "privateCloudName": args.privateCloudName,
@@ -62,11 +63,7 @@ export interface GetIscsiPathResult {
  * Get a IscsiPath
  */
 export function getIscsiPathOutput(args: GetIscsiPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiPathResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getIscsiPath", {
-        "privateCloudName": args.privateCloudName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIscsiPath(a, opts))
 }
 
 export interface GetIscsiPathOutputArgs {

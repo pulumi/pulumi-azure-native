@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-12-01-preview.
  */
 export function getStudent(args: GetStudentArgs, opts?: pulumi.InvokeOptions): Promise<GetStudentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:education:getStudent", {
         "billingAccountName": args.billingAccountName,
@@ -110,13 +111,7 @@ export interface GetStudentResult {
  * Azure REST API version: 2021-12-01-preview.
  */
 export function getStudentOutput(args: GetStudentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:education:getStudent", {
-        "billingAccountName": args.billingAccountName,
-        "billingProfileName": args.billingProfileName,
-        "invoiceSectionName": args.invoiceSectionName,
-        "studentAlias": args.studentAlias,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStudent(a, opts))
 }
 
 export interface GetStudentOutputArgs {

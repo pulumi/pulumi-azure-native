@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List service accounts success response
  */
 export function listAccessServiceAccounts(args: ListAccessServiceAccountsArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessServiceAccountsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:confluent/v20240213:listAccessServiceAccounts", {
         "organizationName": args.organizationName,
@@ -55,12 +56,7 @@ export interface ListAccessServiceAccountsResult {
  * List service accounts success response
  */
 export function listAccessServiceAccountsOutput(args: ListAccessServiceAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessServiceAccountsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:confluent/v20240213:listAccessServiceAccounts", {
-        "organizationName": args.organizationName,
-        "resourceGroupName": args.resourceGroupName,
-        "searchFilters": args.searchFilters,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listAccessServiceAccounts(a, opts))
 }
 
 export interface ListAccessServiceAccountsOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a DiagnosticServiceResource
  */
 export function getDiagnosticService(args: GetDiagnosticServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsmq/v20231004preview:getDiagnosticService", {
         "diagnosticServiceName": args.diagnosticServiceName,
@@ -107,12 +108,7 @@ export interface GetDiagnosticServiceResult {
  * Get a DiagnosticServiceResource
  */
 export function getDiagnosticServiceOutput(args: GetDiagnosticServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq/v20231004preview:getDiagnosticService", {
-        "diagnosticServiceName": args.diagnosticServiceName,
-        "mqName": args.mqName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDiagnosticService(a, opts))
 }
 
 export interface GetDiagnosticServiceOutputArgs {

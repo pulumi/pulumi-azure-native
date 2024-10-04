@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Method to get a Hyper-V cluster.
  */
 export function getHypervClusterControllerCluster(args: GetHypervClusterControllerClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetHypervClusterControllerClusterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure/v20230606:getHypervClusterControllerCluster", {
         "clusterName": args.clusterName,
@@ -95,12 +96,7 @@ export interface GetHypervClusterControllerClusterResult {
  * Method to get a Hyper-V cluster.
  */
 export function getHypervClusterControllerClusterOutput(args: GetHypervClusterControllerClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervClusterControllerClusterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:getHypervClusterControllerCluster", {
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-        "siteName": args.siteName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHypervClusterControllerCluster(a, opts))
 }
 
 export interface GetHypervClusterControllerClusterOutputArgs {

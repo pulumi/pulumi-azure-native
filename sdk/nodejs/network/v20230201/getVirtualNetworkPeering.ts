@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified virtual network peering.
  */
 export function getVirtualNetworkPeering(args: GetVirtualNetworkPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkPeeringResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230201:getVirtualNetworkPeering", {
         "resourceGroupName": args.resourceGroupName,
@@ -115,12 +116,7 @@ export interface GetVirtualNetworkPeeringResult {
  * Gets the specified virtual network peering.
  */
 export function getVirtualNetworkPeeringOutput(args: GetVirtualNetworkPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkPeeringResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getVirtualNetworkPeering", {
-        "resourceGroupName": args.resourceGroupName,
-        "virtualNetworkName": args.virtualNetworkName,
-        "virtualNetworkPeeringName": args.virtualNetworkPeeringName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkPeering(a, opts))
 }
 
 export interface GetVirtualNetworkPeeringOutputArgs {

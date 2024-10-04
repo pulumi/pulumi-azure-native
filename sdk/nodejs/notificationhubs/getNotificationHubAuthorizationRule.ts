@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
  */
 export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubAuthorizationRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs:getNotificationHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -82,13 +83,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
  * Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
  */
 export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:notificationhubs:getNotificationHubAuthorizationRule", {
-        "authorizationRuleName": args.authorizationRuleName,
-        "namespaceName": args.namespaceName,
-        "notificationHubName": args.notificationHubName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNotificationHubAuthorizationRule(a, opts))
 }
 
 export interface GetNotificationHubAuthorizationRuleOutputArgs {
