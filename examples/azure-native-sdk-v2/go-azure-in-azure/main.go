@@ -247,6 +247,10 @@ func main() {
 			return err
 		}
 
+		// Pass feature flags into the VM.
+		useAutorest := os.Getenv("PULUMI_USE_AUTOREST")
+		useLegacyAuth := os.Getenv("PULUMI_USE_LEGACY_AUTH")
+
 		// We pass the resource group's ID into the inner program via config so the program can
 		// create a resource in the resource group.
 		create := pulumi.Sprintf(`cd %s && \
@@ -255,6 +259,8 @@ export ARM_USE_MSI=true && \
 export ARM_SUBSCRIPTION_ID=%s && \
 export PATH=~/.pulumi/bin:$PATH && \
 export PULUMI_CONFIG_PASSPHRASE=pass && \
+export PULUMI_USE_AUTOREST=%s && \
+export PULUMI_USE_LEGACY_AUTH=%s && \
 rand=$(openssl rand -hex 4) && \
 stackname="%s-$rand" && \
 pulumi login --local && \
@@ -264,7 +270,7 @@ pulumi config -s $stackname && \
 pulumi up -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi down -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi stack rm --yes $stackname && \
-pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram, rg.ID())
+pulumi logout --local`, innerProgram, clientConf.SubscriptionId, useAutorest, useLegacyAuth, innerProgram, rg.ID())
 
 		pulumiPreview, err := remote.NewCommand(ctx, "pulumiPreview", &remote.CommandArgs{
 			Connection: sshConn,
