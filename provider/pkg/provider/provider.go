@@ -22,6 +22,7 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
@@ -217,7 +218,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	userAgent := k.getUserAgent()
 
 	var credential azcore.TokenCredential
-	if os.Getenv("PULUMI_USE_LEGACY_AUTH") != "false" {
+	if useLegacyAuth() {
 		logging.V(9).Infof("Using legacy authentication")
 		credential = azCoreTokenCredential{p: k}
 	} else {
@@ -247,9 +248,8 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
 	useAutorest := os.Getenv("PULUMI_USE_AUTOREST") != "false"
-	useLegacyAuth := os.Getenv("PULUMI_USE_LEGACY_AUTH") != "false"
 
-	if !useAutorest && useLegacyAuth {
+	if !useAutorest && useLegacyAuth() {
 		return nil, errors.New("PULUMI_USE_LEGACY_AUTH=true requires PULUMI_USE_AUTOREST=true")
 	}
 
@@ -317,9 +317,25 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		if endpointArg := args["endpoint"]; endpointArg.HasValue() && endpointArg.IsString() {
 			endpoint = endpointArg.StringValue()
 		}
-		token, err := k.getOAuthToken(ctx, auth, endpoint)
-		if err != nil {
-			return nil, err
+
+		var token string
+		if useLegacyAuth() {
+			token, err = k.getOAuthToken(ctx, auth, endpoint)
+			if err != nil {
+				return nil, err
+			}
+		} else {
+			cred, err := k.newTokenCredential()
+			if err != nil {
+				return nil, err
+			}
+			t, err := cred.GetToken(ctx, policy.TokenRequestOptions{
+				Scopes: []string{endpoint + "/.default"},
+			})
+			if err != nil {
+				return nil, err
+			}
+			token = t.Token
 		}
 		outputs = map[string]interface{}{"token": token}
 	default:
@@ -1595,4 +1611,8 @@ func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environmen
 	default:
 		return environments.Global
 	}
+}
+
+func useLegacyAuth() bool {
+	return os.Getenv("PULUMI_USE_LEGACY_AUTH") != "false"
 }
