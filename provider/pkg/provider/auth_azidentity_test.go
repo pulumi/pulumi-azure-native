@@ -48,6 +48,7 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Empty(t, c.clientSecret)
 		require.Equal(t, "public", c.cloud)
 		require.Empty(t, c.oidcToken)
+		require.Empty(t, c.oidcTokenFilePath)
 		require.Empty(t, c.oidcTokenRequestToken)
 		require.Empty(t, c.oidcTokenRequestUrl)
 		require.Empty(t, c.subscriptionId)
@@ -88,6 +89,7 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "conf", c.clientSecret)
 		require.Equal(t, "conf", c.cloud)
 		require.Equal(t, "conf", c.oidcToken)
+		require.Equal(t, "conf", c.oidcTokenFilePath)
 		require.Equal(t, "conf", c.oidcTokenRequestToken)
 		require.Equal(t, "conf", c.oidcTokenRequestUrl)
 		require.Equal(t, "conf", c.subscriptionId)
@@ -110,6 +112,7 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "env", c.clientSecret)
 		require.Equal(t, "env", c.cloud)
 		require.Equal(t, "env", c.oidcToken)
+		require.Equal(t, "env", c.oidcTokenFilePath)
 		require.Equal(t, "env", c.oidcTokenRequestToken)
 		require.Equal(t, "env", c.oidcTokenRequestUrl)
 		require.Equal(t, "env", c.subscriptionId)
@@ -196,6 +199,32 @@ func TestNewCredential(t *testing.T) {
 		cred, err := newSingleMethodAuthCredential(conf)
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
+	})
+
+	t.Run("OIDC with token file", func(t *testing.T) {
+		tokenPath := filepath.Join(t.TempDir(), "my.token")
+		require.NoError(t, os.WriteFile(tokenPath, []byte("token"), 0644))
+
+		conf := &authConfiguration{
+			useOidc:           true,
+			oidcTokenFilePath: tokenPath,
+			clientId:          "client-id",
+			tenantId:          "tenant-id",
+		}
+		cred, err := newSingleMethodAuthCredential(conf)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
+	})
+
+	t.Run("OIDC with wrong token file", func(t *testing.T) {
+		conf := &authConfiguration{
+			useOidc:           true,
+			oidcTokenFilePath: filepath.Join(t.TempDir(), "foo"),
+			clientId:          "client-id",
+			tenantId:          "tenant-id",
+		}
+		_, err := newSingleMethodAuthCredential(conf)
+		require.Error(t, err)
 	})
 
 	t.Run("OIDC with token exchange URL", func(t *testing.T) {
