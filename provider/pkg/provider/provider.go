@@ -221,7 +221,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		logging.V(9).Infof("Using legacy authentication")
 		credential = azCoreTokenCredential{p: k}
 	} else {
-		credential, err = k.newSingleMethodAuthCredential()
+		credential, err = k.newTokenCredential()
 		if err != nil {
 			return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
 		}
