@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-11-14-preview.
  */
 export function getInfrastructureResource(args: GetInfrastructureResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureResourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:integrationspaces:getInfrastructureResource", {
         "infrastructureResourceName": args.infrastructureResourceName,
@@ -73,12 +74,7 @@ export interface GetInfrastructureResourceResult {
  * Azure REST API version: 2023-11-14-preview.
  */
 export function getInfrastructureResourceOutput(args: GetInfrastructureResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfrastructureResourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:integrationspaces:getInfrastructureResource", {
-        "infrastructureResourceName": args.infrastructureResourceName,
-        "resourceGroupName": args.resourceGroupName,
-        "spaceName": args.spaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInfrastructureResource(a, opts))
 }
 
 export interface GetInfrastructureResourceOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2018-07-01-preview.
  */
 export function getRemediationAtResource(args: GetRemediationAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtResourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights:getRemediationAtResource", {
         "remediationName": args.remediationName,
@@ -112,11 +113,7 @@ export interface GetRemediationAtResourceResult {
  * Other available API versions: 2018-07-01-preview.
  */
 export function getRemediationAtResourceOutput(args: GetRemediationAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtResourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:policyinsights:getRemediationAtResource", {
-        "remediationName": args.remediationName,
-        "resourceId": args.resourceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRemediationAtResource(a, opts))
 }
 
 export interface GetRemediationAtResourceOutputArgs {

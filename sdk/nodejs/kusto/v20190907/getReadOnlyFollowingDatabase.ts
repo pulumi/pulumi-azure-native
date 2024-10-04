@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns a database.
  */
 export function getReadOnlyFollowingDatabase(args: GetReadOnlyFollowingDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadOnlyFollowingDatabaseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20190907:getReadOnlyFollowingDatabase", {
         "clusterName": args.clusterName,
@@ -92,12 +93,7 @@ export interface GetReadOnlyFollowingDatabaseResult {
  * Returns a database.
  */
 export function getReadOnlyFollowingDatabaseOutput(args: GetReadOnlyFollowingDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadOnlyFollowingDatabaseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:kusto/v20190907:getReadOnlyFollowingDatabase", {
-        "clusterName": args.clusterName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReadOnlyFollowingDatabase(a, opts))
 }
 
 export interface GetReadOnlyFollowingDatabaseOutputArgs {

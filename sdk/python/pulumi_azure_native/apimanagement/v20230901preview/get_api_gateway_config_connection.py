@@ -161,6 +161,9 @@ def get_api_gateway_config_connection(config_connection_name: Optional[str] = No
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         source_id=pulumi.get(__ret__, 'source_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_api_gateway_config_connection)
 def get_api_gateway_config_connection_output(config_connection_name: Optional[pulumi.Input[str]] = None,
                                              gateway_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -173,18 +176,4 @@ def get_api_gateway_config_connection_output(config_connection_name: Optional[pu
     :param str gateway_name: The name of the API Management gateway.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['configConnectionName'] = config_connection_name
-    __args__['gatewayName'] = gateway_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getApiGatewayConfigConnection', __args__, opts=opts, typ=GetApiGatewayConfigConnectionResult)
-    return __ret__.apply(lambda __response__: GetApiGatewayConfigConnectionResult(
-        default_hostname=pulumi.get(__response__, 'default_hostname'),
-        etag=pulumi.get(__response__, 'etag'),
-        hostnames=pulumi.get(__response__, 'hostnames'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        source_id=pulumi.get(__response__, 'source_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

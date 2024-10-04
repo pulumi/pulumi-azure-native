@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the product specified by its identifier.
  */
 export function getWorkspaceProduct(args: GetWorkspaceProductArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceProductResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220901preview:getWorkspaceProduct", {
         "productId": args.productId,
@@ -85,13 +86,7 @@ export interface GetWorkspaceProductResult {
  * Gets the details of the product specified by its identifier.
  */
 export function getWorkspaceProductOutput(args: GetWorkspaceProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceProductResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220901preview:getWorkspaceProduct", {
-        "productId": args.productId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceProduct(a, opts))
 }
 
 export interface GetWorkspaceProductOutputArgs {

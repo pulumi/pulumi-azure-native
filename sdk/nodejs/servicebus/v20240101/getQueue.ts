@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns a description for the specified queue.
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20240101:getQueue", {
         "namespaceName": args.namespaceName,
@@ -151,12 +152,7 @@ export interface GetQueueResult {
  * Returns a description for the specified queue.
  */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicebus/v20240101:getQueue", {
-        "namespaceName": args.namespaceName,
-        "queueName": args.queueName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getQueue(a, opts))
 }
 
 export interface GetQueueOutputArgs {

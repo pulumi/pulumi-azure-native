@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists the secrets for an existing static site.
  */
 export function listStaticSiteSecrets(args: ListStaticSiteSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:listStaticSiteSecrets", {
         "name": args.name,
@@ -62,11 +63,7 @@ export interface ListStaticSiteSecretsResult {
  * Lists the secrets for an existing static site.
  */
 export function listStaticSiteSecretsOutput(args: ListStaticSiteSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:listStaticSiteSecrets", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listStaticSiteSecrets(a, opts))
 }
 
 export interface ListStaticSiteSecretsOutputArgs {

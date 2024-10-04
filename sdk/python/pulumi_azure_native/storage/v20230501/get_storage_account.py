@@ -708,6 +708,9 @@ def get_storage_account(account_name: Optional[str] = None,
         storage_account_sku_conversion_status=pulumi.get(__ret__, 'storage_account_sku_conversion_status'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_storage_account)
 def get_storage_account_output(account_name: Optional[pulumi.Input[str]] = None,
                                expand: Optional[pulumi.Input[Optional[str]]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -720,60 +723,4 @@ def get_storage_account_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str expand: May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats and blobRestoreStatus.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230501:getStorageAccount', __args__, opts=opts, typ=GetStorageAccountResult)
-    return __ret__.apply(lambda __response__: GetStorageAccountResult(
-        access_tier=pulumi.get(__response__, 'access_tier'),
-        account_migration_in_progress=pulumi.get(__response__, 'account_migration_in_progress'),
-        allow_blob_public_access=pulumi.get(__response__, 'allow_blob_public_access'),
-        allow_cross_tenant_replication=pulumi.get(__response__, 'allow_cross_tenant_replication'),
-        allow_shared_key_access=pulumi.get(__response__, 'allow_shared_key_access'),
-        allowed_copy_scope=pulumi.get(__response__, 'allowed_copy_scope'),
-        azure_files_identity_based_authentication=pulumi.get(__response__, 'azure_files_identity_based_authentication'),
-        blob_restore_status=pulumi.get(__response__, 'blob_restore_status'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        custom_domain=pulumi.get(__response__, 'custom_domain'),
-        default_to_o_auth_authentication=pulumi.get(__response__, 'default_to_o_auth_authentication'),
-        dns_endpoint_type=pulumi.get(__response__, 'dns_endpoint_type'),
-        enable_extended_groups=pulumi.get(__response__, 'enable_extended_groups'),
-        enable_https_traffic_only=pulumi.get(__response__, 'enable_https_traffic_only'),
-        enable_nfs_v3=pulumi.get(__response__, 'enable_nfs_v3'),
-        encryption=pulumi.get(__response__, 'encryption'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        failover_in_progress=pulumi.get(__response__, 'failover_in_progress'),
-        geo_replication_stats=pulumi.get(__response__, 'geo_replication_stats'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        immutable_storage_with_versioning=pulumi.get(__response__, 'immutable_storage_with_versioning'),
-        is_hns_enabled=pulumi.get(__response__, 'is_hns_enabled'),
-        is_local_user_enabled=pulumi.get(__response__, 'is_local_user_enabled'),
-        is_sftp_enabled=pulumi.get(__response__, 'is_sftp_enabled'),
-        is_sku_conversion_blocked=pulumi.get(__response__, 'is_sku_conversion_blocked'),
-        key_creation_time=pulumi.get(__response__, 'key_creation_time'),
-        key_policy=pulumi.get(__response__, 'key_policy'),
-        kind=pulumi.get(__response__, 'kind'),
-        large_file_shares_state=pulumi.get(__response__, 'large_file_shares_state'),
-        last_geo_failover_time=pulumi.get(__response__, 'last_geo_failover_time'),
-        location=pulumi.get(__response__, 'location'),
-        minimum_tls_version=pulumi.get(__response__, 'minimum_tls_version'),
-        name=pulumi.get(__response__, 'name'),
-        network_rule_set=pulumi.get(__response__, 'network_rule_set'),
-        primary_endpoints=pulumi.get(__response__, 'primary_endpoints'),
-        primary_location=pulumi.get(__response__, 'primary_location'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        routing_preference=pulumi.get(__response__, 'routing_preference'),
-        sas_policy=pulumi.get(__response__, 'sas_policy'),
-        secondary_endpoints=pulumi.get(__response__, 'secondary_endpoints'),
-        secondary_location=pulumi.get(__response__, 'secondary_location'),
-        sku=pulumi.get(__response__, 'sku'),
-        status_of_primary=pulumi.get(__response__, 'status_of_primary'),
-        status_of_secondary=pulumi.get(__response__, 'status_of_secondary'),
-        storage_account_sku_conversion_status=pulumi.get(__response__, 'storage_account_sku_conversion_status'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

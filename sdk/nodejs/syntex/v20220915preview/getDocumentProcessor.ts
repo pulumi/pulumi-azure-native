@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns a document processor for a given name.
  */
 export function getDocumentProcessor(args: GetDocumentProcessorArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentProcessorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:syntex/v20220915preview:getDocumentProcessor", {
         "processorName": args.processorName,
@@ -66,11 +67,7 @@ export interface GetDocumentProcessorResult {
  * Returns a document processor for a given name.
  */
 export function getDocumentProcessorOutput(args: GetDocumentProcessorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentProcessorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:syntex/v20220915preview:getDocumentProcessor", {
-        "processorName": args.processorName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDocumentProcessor(a, opts))
 }
 
 export interface GetDocumentProcessorOutputArgs {

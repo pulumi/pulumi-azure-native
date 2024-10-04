@@ -185,6 +185,9 @@ def get_availability_set(availability_set_resource_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
+
+
+@_utilities.lift_output_func(get_availability_set)
 def get_availability_set_output(availability_set_resource_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilitySetResult]:
@@ -195,19 +198,4 @@ def get_availability_set_output(availability_set_resource_name: Optional[pulumi.
     :param str availability_set_resource_name: Name of the AvailabilitySet.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['availabilitySetResourceName'] = availability_set_resource_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm/v20240601:getAvailabilitySet', __args__, opts=opts, typ=GetAvailabilitySetResult)
-    return __ret__.apply(lambda __response__: GetAvailabilitySetResult(
-        availability_set_name=pulumi.get(__response__, 'availability_set_name'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        vmm_server_id=pulumi.get(__response__, 'vmm_server_id')))
+    ...

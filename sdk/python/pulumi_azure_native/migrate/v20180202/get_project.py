@@ -288,6 +288,9 @@ def get_project(project_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
+
+
+@_utilities.lift_output_func(get_project)
 def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
@@ -298,27 +301,4 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
-    __args__ = dict()
-    __args__['projectName'] = project_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20180202:getProject', __args__, opts=opts, typ=GetProjectResult)
-    return __ret__.apply(lambda __response__: GetProjectResult(
-        created_timestamp=pulumi.get(__response__, 'created_timestamp'),
-        customer_workspace_id=pulumi.get(__response__, 'customer_workspace_id'),
-        customer_workspace_location=pulumi.get(__response__, 'customer_workspace_location'),
-        discovery_status=pulumi.get(__response__, 'discovery_status'),
-        e_tag=pulumi.get(__response__, 'e_tag'),
-        id=pulumi.get(__response__, 'id'),
-        last_assessment_timestamp=pulumi.get(__response__, 'last_assessment_timestamp'),
-        last_discovery_session_id=pulumi.get(__response__, 'last_discovery_session_id'),
-        last_discovery_timestamp=pulumi.get(__response__, 'last_discovery_timestamp'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        number_of_assessments=pulumi.get(__response__, 'number_of_assessments'),
-        number_of_groups=pulumi.get(__response__, 'number_of_groups'),
-        number_of_machines=pulumi.get(__response__, 'number_of_machines'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        updated_timestamp=pulumi.get(__response__, 'updated_timestamp')))
+    ...

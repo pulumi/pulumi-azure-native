@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-01-01-preview.
  */
 export function listMonitorMonitoredResources(args: ListMonitorMonitoredResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorMonitoredResourcesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz:listMonitorMonitoredResources", {
         "monitorName": args.monitorName,
@@ -48,11 +49,7 @@ export interface ListMonitorMonitoredResourcesResult {
  * Azure REST API version: 2022-01-01-preview.
  */
 export function listMonitorMonitoredResourcesOutput(args: ListMonitorMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorMonitoredResourcesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logz:listMonitorMonitoredResources", {
-        "monitorName": args.monitorName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listMonitorMonitoredResources(a, opts))
 }
 
 export interface ListMonitorMonitoredResourcesOutputArgs {

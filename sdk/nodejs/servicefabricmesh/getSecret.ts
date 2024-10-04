@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-09-01-preview.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh:getSecret", {
         "resourceGroupName": args.resourceGroupName,
@@ -64,11 +65,7 @@ export interface GetSecretResult {
  * Azure REST API version: 2018-09-01-preview.
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh:getSecret", {
-        "resourceGroupName": args.resourceGroupName,
-        "secretResourceName": args.secretResourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecret(a, opts))
 }
 
 export interface GetSecretOutputArgs {

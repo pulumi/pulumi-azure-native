@@ -240,6 +240,9 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_arc_setting)
 def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                            cluster_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -252,24 +255,4 @@ def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['arcSettingName'] = arc_setting_name
-    __args__['clusterName'] = cluster_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20230301:getArcSetting', __args__, opts=opts, typ=GetArcSettingResult)
-    return __ret__.apply(lambda __response__: GetArcSettingResult(
-        aggregate_state=pulumi.get(__response__, 'aggregate_state'),
-        arc_application_client_id=pulumi.get(__response__, 'arc_application_client_id'),
-        arc_application_object_id=pulumi.get(__response__, 'arc_application_object_id'),
-        arc_application_tenant_id=pulumi.get(__response__, 'arc_application_tenant_id'),
-        arc_instance_resource_group=pulumi.get(__response__, 'arc_instance_resource_group'),
-        arc_service_principal_object_id=pulumi.get(__response__, 'arc_service_principal_object_id'),
-        connectivity_properties=pulumi.get(__response__, 'connectivity_properties'),
-        default_extensions=pulumi.get(__response__, 'default_extensions'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        per_node_details=pulumi.get(__response__, 'per_node_details'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-01.
  */
 export function getDeviceGroup(args: GetDeviceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuresphere:getDeviceGroup", {
         "catalogName": args.catalogName,
@@ -98,13 +99,7 @@ export interface GetDeviceGroupResult {
  * Other available API versions: 2024-04-01.
  */
 export function getDeviceGroupOutput(args: GetDeviceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azuresphere:getDeviceGroup", {
-        "catalogName": args.catalogName,
-        "deviceGroupName": args.deviceGroupName,
-        "productName": args.productName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDeviceGroup(a, opts))
 }
 
 export interface GetDeviceGroupOutputArgs {

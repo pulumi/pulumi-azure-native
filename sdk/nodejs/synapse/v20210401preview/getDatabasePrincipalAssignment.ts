@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a Kusto pool database principalAssignment.
  */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210401preview:getDatabasePrincipalAssignment", {
         "databaseName": args.databaseName,
@@ -97,14 +98,7 @@ export interface GetDatabasePrincipalAssignmentResult {
  * Gets a Kusto pool database principalAssignment.
  */
 export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210401preview:getDatabasePrincipalAssignment", {
-        "databaseName": args.databaseName,
-        "kustoPoolName": args.kustoPoolName,
-        "principalAssignmentName": args.principalAssignmentName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDatabasePrincipalAssignment(a, opts))
 }
 
 export interface GetDatabasePrincipalAssignmentOutputArgs {

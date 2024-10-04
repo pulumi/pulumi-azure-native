@@ -93,6 +93,9 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
 
     return AwaitableGetLogAnalyticExportRequestRateByIntervalResult(
         properties=pulumi.get(__ret__, 'properties'))
+
+
+@_utilities.lift_output_func(get_log_analytic_export_request_rate_by_interval)
 def get_log_analytic_export_request_rate_by_interval_output(blob_container_sas_uri: Optional[pulumi.Input[str]] = None,
                                                             from_time: Optional[pulumi.Input[str]] = None,
                                                             group_by_client_application_id: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -119,18 +122,4 @@ def get_log_analytic_export_request_rate_by_interval_output(blob_container_sas_u
     :param str location: The location upon which virtual-machine-sizes is queried.
     :param str to_time: To time of the query
     """
-    __args__ = dict()
-    __args__['blobContainerSasUri'] = blob_container_sas_uri
-    __args__['fromTime'] = from_time
-    __args__['groupByClientApplicationId'] = group_by_client_application_id
-    __args__['groupByOperationName'] = group_by_operation_name
-    __args__['groupByResourceName'] = group_by_resource_name
-    __args__['groupByThrottlePolicy'] = group_by_throttle_policy
-    __args__['groupByUserAgent'] = group_by_user_agent
-    __args__['intervalLength'] = interval_length
-    __args__['location'] = location
-    __args__['toTime'] = to_time
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20210401:getLogAnalyticExportRequestRateByInterval', __args__, opts=opts, typ=GetLogAnalyticExportRequestRateByIntervalResult)
-    return __ret__.apply(lambda __response__: GetLogAnalyticExportRequestRateByIntervalResult(
-        properties=pulumi.get(__response__, 'properties')))
+    ...

@@ -458,6 +458,9 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
         vm_image=pulumi.get(__ret__, 'vm_image'),
         vm_image_repository_credentials=pulumi.get(__ret__, 'vm_image_repository_credentials'),
         volumes=pulumi.get(__ret__, 'volumes'))
+
+
+@_utilities.lift_output_func(get_virtual_machine)
 def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                virtual_machine_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
@@ -471,40 +474,4 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_machine_name: The name of the virtual machine.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualMachineName'] = virtual_machine_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
-    return __ret__.apply(lambda __response__: GetVirtualMachineResult(
-        admin_username=pulumi.get(__response__, 'admin_username'),
-        availability_zone=pulumi.get(__response__, 'availability_zone'),
-        bare_metal_machine_id=pulumi.get(__response__, 'bare_metal_machine_id'),
-        boot_method=pulumi.get(__response__, 'boot_method'),
-        cloud_services_network_attachment=pulumi.get(__response__, 'cloud_services_network_attachment'),
-        cluster_id=pulumi.get(__response__, 'cluster_id'),
-        cpu_cores=pulumi.get(__response__, 'cpu_cores'),
-        detailed_status=pulumi.get(__response__, 'detailed_status'),
-        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        isolate_emulator_thread=pulumi.get(__response__, 'isolate_emulator_thread'),
-        location=pulumi.get(__response__, 'location'),
-        memory_size_gb=pulumi.get(__response__, 'memory_size_gb'),
-        name=pulumi.get(__response__, 'name'),
-        network_attachments=pulumi.get(__response__, 'network_attachments'),
-        network_data=pulumi.get(__response__, 'network_data'),
-        placement_hints=pulumi.get(__response__, 'placement_hints'),
-        power_state=pulumi.get(__response__, 'power_state'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        ssh_public_keys=pulumi.get(__response__, 'ssh_public_keys'),
-        storage_profile=pulumi.get(__response__, 'storage_profile'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        user_data=pulumi.get(__response__, 'user_data'),
-        virtio_interface=pulumi.get(__response__, 'virtio_interface'),
-        vm_device_model=pulumi.get(__response__, 'vm_device_model'),
-        vm_image=pulumi.get(__response__, 'vm_image'),
-        vm_image_repository_credentials=pulumi.get(__response__, 'vm_image_repository_credentials'),
-        volumes=pulumi.get(__response__, 'volumes')))
+    ...

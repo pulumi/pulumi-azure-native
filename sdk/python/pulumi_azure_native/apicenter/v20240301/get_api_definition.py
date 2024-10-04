@@ -158,6 +158,9 @@ def get_api_definition(api_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_api_definition)
 def get_api_definition_output(api_name: Optional[pulumi.Input[str]] = None,
                               definition_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -176,20 +179,4 @@ def get_api_definition_output(api_name: Optional[pulumi.Input[str]] = None,
     :param str version_name: The name of the API version.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['apiName'] = api_name
-    __args__['definitionName'] = definition_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    __args__['versionName'] = version_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter/v20240301:getApiDefinition', __args__, opts=opts, typ=GetApiDefinitionResult)
-    return __ret__.apply(lambda __response__: GetApiDefinitionResult(
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        specification=pulumi.get(__response__, 'specification'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        title=pulumi.get(__response__, 'title'),
-        type=pulumi.get(__response__, 'type')))
+    ...

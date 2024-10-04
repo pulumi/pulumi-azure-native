@@ -175,6 +175,9 @@ def get_governance_assignment(assessment_name: Optional[str] = None,
         remediation_due_date=pulumi.get(__ret__, 'remediation_due_date'),
         remediation_eta=pulumi.get(__ret__, 'remediation_eta'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_governance_assignment)
 def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[str]] = None,
                                      assignment_key: Optional[pulumi.Input[str]] = None,
                                      scope: Optional[pulumi.Input[str]] = None,
@@ -187,19 +190,4 @@ def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[str]
     :param str assignment_key: The governance assignment key - the assessment key of the required governance assignment
     :param str scope: The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
     """
-    __args__ = dict()
-    __args__['assessmentName'] = assessment_name
-    __args__['assignmentKey'] = assignment_key
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20220101preview:getGovernanceAssignment', __args__, opts=opts, typ=GetGovernanceAssignmentResult)
-    return __ret__.apply(lambda __response__: GetGovernanceAssignmentResult(
-        additional_data=pulumi.get(__response__, 'additional_data'),
-        governance_email_notification=pulumi.get(__response__, 'governance_email_notification'),
-        id=pulumi.get(__response__, 'id'),
-        is_grace_period=pulumi.get(__response__, 'is_grace_period'),
-        name=pulumi.get(__response__, 'name'),
-        owner=pulumi.get(__response__, 'owner'),
-        remediation_due_date=pulumi.get(__response__, 'remediation_due_date'),
-        remediation_eta=pulumi.get(__response__, 'remediation_eta'),
-        type=pulumi.get(__response__, 'type')))
+    ...

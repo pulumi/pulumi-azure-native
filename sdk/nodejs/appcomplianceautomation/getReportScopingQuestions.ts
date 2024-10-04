@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-06-27.
  */
 export function getReportScopingQuestions(args: GetReportScopingQuestionsArgs, opts?: pulumi.InvokeOptions): Promise<GetReportScopingQuestionsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appcomplianceautomation:getReportScopingQuestions", {
         "reportName": args.reportName,
@@ -39,10 +40,7 @@ export interface GetReportScopingQuestionsResult {
  * Azure REST API version: 2024-06-27.
  */
 export function getReportScopingQuestionsOutput(args: GetReportScopingQuestionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportScopingQuestionsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation:getReportScopingQuestions", {
-        "reportName": args.reportName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReportScopingQuestions(a, opts))
 }
 
 export interface GetReportScopingQuestionsOutputArgs {

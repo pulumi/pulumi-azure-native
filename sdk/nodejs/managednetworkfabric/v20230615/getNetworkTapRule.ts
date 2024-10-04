@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get Network Tap Rule resource details.
  */
 export function getNetworkTapRule(args: GetNetworkTapRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkTapRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230615:getNetworkTapRule", {
         "networkTapRuleName": args.networkTapRuleName,
@@ -106,11 +107,7 @@ export interface GetNetworkTapRuleResult {
  * Get Network Tap Rule resource details.
  */
 export function getNetworkTapRuleOutput(args: GetNetworkTapRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkTapRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getNetworkTapRule", {
-        "networkTapRuleName": args.networkTapRuleName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkTapRule(a, opts))
 }
 
 export interface GetNetworkTapRuleOutputArgs {

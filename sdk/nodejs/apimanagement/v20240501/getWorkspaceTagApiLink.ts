@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the API link for the tag.
  */
 export function getWorkspaceTagApiLink(args: GetWorkspaceTagApiLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceTagApiLinkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getWorkspaceTagApiLink", {
         "apiLinkId": args.apiLinkId,
@@ -66,14 +67,7 @@ export interface GetWorkspaceTagApiLinkResult {
  * Gets the API link for the tag.
  */
 export function getWorkspaceTagApiLinkOutput(args: GetWorkspaceTagApiLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceTagApiLinkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getWorkspaceTagApiLink", {
-        "apiLinkId": args.apiLinkId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "tagId": args.tagId,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceTagApiLink(a, opts))
 }
 
 export interface GetWorkspaceTagApiLinkOutputArgs {

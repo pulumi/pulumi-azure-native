@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
  */
 export function getThroughputPool(args: GetThroughputPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetThroughputPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20240215preview:getThroughputPool", {
         "resourceGroupName": args.resourceGroupName,
@@ -70,11 +71,7 @@ export interface GetThroughputPoolResult {
  * Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
  */
 export function getThroughputPoolOutput(args: GetThroughputPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThroughputPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240215preview:getThroughputPool", {
-        "resourceGroupName": args.resourceGroupName,
-        "throughputPoolName": args.throughputPoolName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getThroughputPool(a, opts))
 }
 
 export interface GetThroughputPoolOutputArgs {

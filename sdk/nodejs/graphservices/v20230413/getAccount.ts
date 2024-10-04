@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns account resource for a given name.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:graphservices/v20230413:getAccount", {
         "resourceGroupName": args.resourceGroupName,
@@ -66,11 +67,7 @@ export interface GetAccountResult {
  * Returns account resource for a given name.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:graphservices/v20230413:getAccount", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }
 
 export interface GetAccountOutputArgs {

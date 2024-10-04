@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about a database in a RedisEnterprise cluster.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20240601preview:getDatabase", {
         "clusterName": args.clusterName,
@@ -99,12 +100,7 @@ export interface GetDatabaseResult {
  * Gets information about a database in a RedisEnterprise cluster.
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cache/v20240601preview:getDatabase", {
-        "clusterName": args.clusterName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
 }
 
 export interface GetDatabaseOutputArgs {

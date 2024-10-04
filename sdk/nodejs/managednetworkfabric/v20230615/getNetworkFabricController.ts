@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Shows the provisioning status of Network Fabric Controller.
  */
 export function getNetworkFabricController(args: GetNetworkFabricControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFabricControllerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230615:getNetworkFabricController", {
         "networkFabricControllerName": args.networkFabricControllerName,
@@ -118,11 +119,7 @@ export interface GetNetworkFabricControllerResult {
  * Shows the provisioning status of Network Fabric Controller.
  */
 export function getNetworkFabricControllerOutput(args: GetNetworkFabricControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFabricControllerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getNetworkFabricController", {
-        "networkFabricControllerName": args.networkFabricControllerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkFabricController(a, opts))
 }
 
 export interface GetNetworkFabricControllerOutputArgs {

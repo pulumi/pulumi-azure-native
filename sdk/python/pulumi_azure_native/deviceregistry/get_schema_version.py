@@ -179,6 +179,9 @@ def get_schema_version(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
+
+
+@_utilities.lift_output_func(get_schema_version)
 def get_schema_version_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               schema_name: Optional[pulumi.Input[str]] = None,
                               schema_registry_name: Optional[pulumi.Input[str]] = None,
@@ -194,20 +197,4 @@ def get_schema_version_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str schema_registry_name: Schema registry name parameter.
     :param str schema_version_name: Schema version name parameter.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['schemaName'] = schema_name
-    __args__['schemaRegistryName'] = schema_registry_name
-    __args__['schemaVersionName'] = schema_version_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry:getSchemaVersion', __args__, opts=opts, typ=GetSchemaVersionResult)
-    return __ret__.apply(lambda __response__: GetSchemaVersionResult(
-        description=pulumi.get(__response__, 'description'),
-        hash=pulumi.get(__response__, 'hash'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        schema_content=pulumi.get(__response__, 'schema_content'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        uuid=pulumi.get(__response__, 'uuid')))
+    ...

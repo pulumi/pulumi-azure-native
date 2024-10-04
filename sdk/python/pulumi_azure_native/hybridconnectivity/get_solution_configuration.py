@@ -121,6 +121,9 @@ def get_solution_configuration(resource_uri: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_solution_configuration)
 def get_solution_configuration_output(resource_uri: Optional[pulumi.Input[str]] = None,
                                       solution_configuration: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionConfigurationResult]:
@@ -132,14 +135,4 @@ def get_solution_configuration_output(resource_uri: Optional[pulumi.Input[str]] 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param str solution_configuration: Represent Solution Configuration Resource.
     """
-    __args__ = dict()
-    __args__['resourceUri'] = resource_uri
-    __args__['solutionConfiguration'] = solution_configuration
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity:getSolutionConfiguration', __args__, opts=opts, typ=GetSolutionConfigurationResult)
-    return __ret__.apply(lambda __response__: GetSolutionConfigurationResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

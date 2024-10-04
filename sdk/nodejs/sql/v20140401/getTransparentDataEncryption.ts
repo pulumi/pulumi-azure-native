@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a database's transparent data encryption configuration.
  */
 export function getTransparentDataEncryption(args: GetTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTransparentDataEncryptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20140401:getTransparentDataEncryption", {
         "databaseName": args.databaseName,
@@ -65,13 +66,7 @@ export interface GetTransparentDataEncryptionResult {
  * Gets a database's transparent data encryption configuration.
  */
 export function getTransparentDataEncryptionOutput(args: GetTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransparentDataEncryptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20140401:getTransparentDataEncryption", {
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-        "transparentDataEncryptionName": args.transparentDataEncryptionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTransparentDataEncryption(a, opts))
 }
 
 export interface GetTransparentDataEncryptionOutputArgs {

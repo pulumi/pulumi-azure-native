@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified Virtual Router.
  */
 export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230201:getVirtualRouter", {
         "expand": args.expand,
@@ -91,12 +92,7 @@ export interface GetVirtualRouterResult {
  * Gets the specified Virtual Router.
  */
 export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getVirtualRouter", {
-        "expand": args.expand,
-        "resourceGroupName": args.resourceGroupName,
-        "virtualRouterName": args.virtualRouterName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualRouter(a, opts))
 }
 
 export interface GetVirtualRouterOutputArgs {

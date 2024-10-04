@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-11-01-preview.
  */
 export function getPackageDownloadURL(args: GetPackageDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageDownloadURLResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase:getPackageDownloadURL", {
         "packageName": args.packageName,
@@ -54,12 +55,7 @@ export interface GetPackageDownloadURLResult {
  * Other available API versions: 2023-11-01-preview.
  */
 export function getPackageDownloadURLOutput(args: GetPackageDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageDownloadURLResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:testbase:getPackageDownloadURL", {
-        "packageName": args.packageName,
-        "resourceGroupName": args.resourceGroupName,
-        "testBaseAccountName": args.testBaseAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPackageDownloadURL(a, opts))
 }
 
 export interface GetPackageDownloadURLOutputArgs {

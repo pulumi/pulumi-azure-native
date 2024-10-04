@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get information about a configuration profile preference
  */
 export function getConfigurationProfilePreference(args: GetConfigurationProfilePreferenceArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfilePreferenceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automanage/v20200630preview:getConfigurationProfilePreference", {
         "configurationProfilePreferenceName": args.configurationProfilePreferenceName,
@@ -62,11 +63,7 @@ export interface GetConfigurationProfilePreferenceResult {
  * Get information about a configuration profile preference
  */
 export function getConfigurationProfilePreferenceOutput(args: GetConfigurationProfilePreferenceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilePreferenceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automanage/v20200630preview:getConfigurationProfilePreference", {
-        "configurationProfilePreferenceName": args.configurationProfilePreferenceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfigurationProfilePreference(a, opts))
 }
 
 export interface GetConfigurationProfilePreferenceOutputArgs {

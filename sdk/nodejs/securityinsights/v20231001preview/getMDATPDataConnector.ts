@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getMDATPDataConnector(args: GetMDATPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMDATPDataConnectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20231001preview:getMDATPDataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -76,12 +77,7 @@ export interface GetMDATPDataConnectorResult {
  * Gets a data connector.
  */
 export function getMDATPDataConnectorOutput(args: GetMDATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMDATPDataConnectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231001preview:getMDATPDataConnector", {
-        "dataConnectorId": args.dataConnectorId,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMDATPDataConnector(a, opts))
 }
 
 export interface GetMDATPDataConnectorOutputArgs {

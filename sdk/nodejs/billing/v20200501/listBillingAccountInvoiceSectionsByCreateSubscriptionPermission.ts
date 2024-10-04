@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
  */
 export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(args: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs, opts?: pulumi.InvokeOptions): Promise<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:billing/v20200501:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", {
         "billingAccountName": args.billingAccountName,
@@ -41,10 +42,7 @@ export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission
  * Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
  */
 export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutput(args: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:billing/v20200501:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", {
-        "billingAccountName": args.billingAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(a, opts))
 }
 
 export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs {

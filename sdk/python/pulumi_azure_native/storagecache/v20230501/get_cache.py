@@ -341,6 +341,9 @@ def get_cache(cache_name: Optional[str] = None,
         upgrade_settings=pulumi.get(__ret__, 'upgrade_settings'),
         upgrade_status=pulumi.get(__ret__, 'upgrade_status'),
         zones=pulumi.get(__ret__, 'zones'))
+
+
+@_utilities.lift_output_func(get_cache)
 def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
@@ -351,31 +354,4 @@ def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
     :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['cacheName'] = cache_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storagecache/v20230501:getCache', __args__, opts=opts, typ=GetCacheResult)
-    return __ret__.apply(lambda __response__: GetCacheResult(
-        cache_size_gb=pulumi.get(__response__, 'cache_size_gb'),
-        directory_services_settings=pulumi.get(__response__, 'directory_services_settings'),
-        encryption_settings=pulumi.get(__response__, 'encryption_settings'),
-        health=pulumi.get(__response__, 'health'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        mount_addresses=pulumi.get(__response__, 'mount_addresses'),
-        name=pulumi.get(__response__, 'name'),
-        network_settings=pulumi.get(__response__, 'network_settings'),
-        priming_jobs=pulumi.get(__response__, 'priming_jobs'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        security_settings=pulumi.get(__response__, 'security_settings'),
-        sku=pulumi.get(__response__, 'sku'),
-        space_allocation=pulumi.get(__response__, 'space_allocation'),
-        subnet=pulumi.get(__response__, 'subnet'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        upgrade_settings=pulumi.get(__response__, 'upgrade_settings'),
-        upgrade_status=pulumi.get(__response__, 'upgrade_status'),
-        zones=pulumi.get(__response__, 'zones')))
+    ...

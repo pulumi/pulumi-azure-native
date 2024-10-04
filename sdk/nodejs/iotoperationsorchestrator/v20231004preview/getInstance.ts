@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Instance
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsorchestrator/v20231004preview:getInstance", {
         "name": args.name,
@@ -90,11 +91,7 @@ export interface GetInstanceResult {
  * Get a Instance
  */
 export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:iotoperationsorchestrator/v20231004preview:getInstance", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInstance(a, opts))
 }
 
 export interface GetInstanceOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about a server.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformysql/v20231201preview:getServer", {
         "resourceGroupName": args.resourceGroupName,
@@ -134,11 +135,7 @@ export interface GetServerResult {
  * Gets information about a server.
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dbformysql/v20231201preview:getServer", {
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServer(a, opts))
 }
 
 export interface GetServerOutputArgs {

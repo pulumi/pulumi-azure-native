@@ -181,6 +181,9 @@ def get_gallery_application_version(expand: Optional[str] = None,
         safety_profile=pulumi.get(__ret__, 'safety_profile'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_gallery_application_version)
 def get_gallery_application_version_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                            gallery_application_name: Optional[pulumi.Input[str]] = None,
                                            gallery_application_version_name: Optional[pulumi.Input[str]] = None,
@@ -197,21 +200,4 @@ def get_gallery_application_version_output(expand: Optional[pulumi.Input[Optiona
     :param str gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['galleryApplicationName'] = gallery_application_name
-    __args__['galleryApplicationVersionName'] = gallery_application_version_name
-    __args__['galleryName'] = gallery_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20220303:getGalleryApplicationVersion', __args__, opts=opts, typ=GetGalleryApplicationVersionResult)
-    return __ret__.apply(lambda __response__: GetGalleryApplicationVersionResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        publishing_profile=pulumi.get(__response__, 'publishing_profile'),
-        replication_status=pulumi.get(__response__, 'replication_status'),
-        safety_profile=pulumi.get(__response__, 'safety_profile'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

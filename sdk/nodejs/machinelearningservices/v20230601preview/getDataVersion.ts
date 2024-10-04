@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getDataVersion(args: GetDataVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetDataVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230601preview:getDataVersion", {
         "name": args.name,
@@ -68,13 +69,7 @@ export interface GetDataVersionResult {
  * Azure Resource Manager resource envelope.
  */
 export function getDataVersionOutput(args: GetDataVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230601preview:getDataVersion", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "version": args.version,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDataVersion(a, opts))
 }
 
 export interface GetDataVersionOutputArgs {

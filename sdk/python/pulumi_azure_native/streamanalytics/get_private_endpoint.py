@@ -139,6 +139,9 @@ def get_private_endpoint(cluster_name: Optional[str] = None,
         manual_private_link_service_connections=pulumi.get(__ret__, 'manual_private_link_service_connections'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_private_endpoint)
 def get_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                 private_endpoint_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -154,16 +157,4 @@ def get_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]] = None
     :param str private_endpoint_name: The name of the private endpoint.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['privateEndpointName'] = private_endpoint_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:streamanalytics:getPrivateEndpoint', __args__, opts=opts, typ=GetPrivateEndpointResult)
-    return __ret__.apply(lambda __response__: GetPrivateEndpointResult(
-        created_date=pulumi.get(__response__, 'created_date'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        manual_private_link_service_connections=pulumi.get(__response__, 'manual_private_link_service_connections'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -159,6 +159,9 @@ def get_sql_resource_sql_container(account_name: Optional[str] = None,
         resource=pulumi.get(__ret__, 'resource'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_sql_resource_sql_container)
 def get_sql_resource_sql_container_output(account_name: Optional[pulumi.Input[str]] = None,
                                           container_name: Optional[pulumi.Input[str]] = None,
                                           database_name: Optional[pulumi.Input[str]] = None,
@@ -173,19 +176,4 @@ def get_sql_resource_sql_container_output(account_name: Optional[pulumi.Input[st
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['containerName'] = container_name
-    __args__['databaseName'] = database_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20240901preview:getSqlResourceSqlContainer', __args__, opts=opts, typ=GetSqlResourceSqlContainerResult)
-    return __ret__.apply(lambda __response__: GetSqlResourceSqlContainerResult(
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        options=pulumi.get(__response__, 'options'),
-        resource=pulumi.get(__response__, 'resource'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

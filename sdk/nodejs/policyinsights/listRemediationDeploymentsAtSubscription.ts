@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2018-07-01-preview.
  */
 export function listRemediationDeploymentsAtSubscription(args: ListRemediationDeploymentsAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights:listRemediationDeploymentsAtSubscription", {
         "remediationName": args.remediationName,
@@ -52,11 +53,7 @@ export interface ListRemediationDeploymentsAtSubscriptionResult {
  * Other available API versions: 2018-07-01-preview.
  */
 export function listRemediationDeploymentsAtSubscriptionOutput(args: ListRemediationDeploymentsAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemediationDeploymentsAtSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:policyinsights:listRemediationDeploymentsAtSubscription", {
-        "remediationName": args.remediationName,
-        "top": args.top,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listRemediationDeploymentsAtSubscription(a, opts))
 }
 
 export interface ListRemediationDeploymentsAtSubscriptionOutputArgs {

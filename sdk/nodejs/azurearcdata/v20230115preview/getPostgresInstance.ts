@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves a postgres Instance resource
  */
 export function getPostgresInstance(args: GetPostgresInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetPostgresInstanceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20230115preview:getPostgresInstance", {
         "postgresInstanceName": args.postgresInstanceName,
@@ -74,11 +75,7 @@ export interface GetPostgresInstanceResult {
  * Retrieves a postgres Instance resource
  */
 export function getPostgresInstanceOutput(args: GetPostgresInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostgresInstanceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20230115preview:getPostgresInstance", {
-        "postgresInstanceName": args.postgresInstanceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPostgresInstance(a, opts))
 }
 
 export interface GetPostgresInstanceOutputArgs {

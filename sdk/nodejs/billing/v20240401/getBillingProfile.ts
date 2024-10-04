@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
  */
 export function getBillingProfile(args: GetBillingProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:billing/v20240401:getBillingProfile", {
         "billingAccountName": args.billingAccountName,
@@ -62,11 +63,7 @@ export interface GetBillingProfileResult {
  * Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
  */
 export function getBillingProfileOutput(args: GetBillingProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:billing/v20240401:getBillingProfile", {
-        "billingAccountName": args.billingAccountName,
-        "billingProfileName": args.billingProfileName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBillingProfile(a, opts))
 }
 
 export interface GetBillingProfileOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Container App Job
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20230502preview:getJob", {
         "jobName": args.jobName,
@@ -94,11 +95,7 @@ export interface GetJobResult {
  * Container App Job
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app/v20230502preview:getJob", {
-        "jobName": args.jobName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }
 
 export interface GetJobOutputArgs {

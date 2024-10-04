@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a PrefixListGlobalRulestackResource
  */
 export function getPrefixListGlobalRulestack(args: GetPrefixListGlobalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListGlobalRulestackResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20220829:getPrefixListGlobalRulestack", {
         "globalRulestackName": args.globalRulestackName,
@@ -74,11 +75,7 @@ export interface GetPrefixListGlobalRulestackResult {
  * Get a PrefixListGlobalRulestackResource
  */
 export function getPrefixListGlobalRulestackOutput(args: GetPrefixListGlobalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixListGlobalRulestackResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829:getPrefixListGlobalRulestack", {
-        "globalRulestackName": args.globalRulestackName,
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrefixListGlobalRulestack(a, opts))
 }
 
 export interface GetPrefixListGlobalRulestackOutputArgs {

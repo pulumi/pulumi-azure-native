@@ -159,6 +159,9 @@ def get_export(export_name: Optional[str] = None,
         schedule=pulumi.get(__ret__, 'schedule'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_export)
 def get_export_output(export_name: Optional[pulumi.Input[str]] = None,
                       scope: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
@@ -169,17 +172,4 @@ def get_export_output(export_name: Optional[pulumi.Input[str]] = None,
     :param str export_name: Export Name.
     :param str scope: The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners, 'providers/Microsoft.CostManagement/ExternalSubscriptions/{externalSubscriptionId}' for linked account and 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountId}' for consolidated account
     """
-    __args__ = dict()
-    __args__['exportName'] = export_name
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20191001:getExport', __args__, opts=opts, typ=GetExportResult)
-    return __ret__.apply(lambda __response__: GetExportResult(
-        definition=pulumi.get(__response__, 'definition'),
-        delivery_info=pulumi.get(__response__, 'delivery_info'),
-        format=pulumi.get(__response__, 'format'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        schedule=pulumi.get(__response__, 'schedule'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

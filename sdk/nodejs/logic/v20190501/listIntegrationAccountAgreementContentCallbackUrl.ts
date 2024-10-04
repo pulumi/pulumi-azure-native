@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the content callback url.
  */
 export function listIntegrationAccountAgreementContentCallbackUrl(args: ListIntegrationAccountAgreementContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountAgreementContentCallbackUrlResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20190501:listIntegrationAccountAgreementContentCallbackUrl", {
         "agreementName": args.agreementName,
@@ -77,14 +78,7 @@ export interface ListIntegrationAccountAgreementContentCallbackUrlResult {
  * Get the content callback url.
  */
 export function listIntegrationAccountAgreementContentCallbackUrlOutput(args: ListIntegrationAccountAgreementContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountAgreementContentCallbackUrlResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic/v20190501:listIntegrationAccountAgreementContentCallbackUrl", {
-        "agreementName": args.agreementName,
-        "integrationAccountName": args.integrationAccountName,
-        "keyType": args.keyType,
-        "notAfter": args.notAfter,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listIntegrationAccountAgreementContentCallbackUrl(a, opts))
 }
 
 export interface ListIntegrationAccountAgreementContentCallbackUrlOutputArgs {

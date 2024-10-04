@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the detailed information for a given task run.
  */
 export function getTaskRun(args: GetTaskRunArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskRunResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20190601preview:getTaskRun", {
         "registryName": args.registryName,
@@ -84,12 +85,7 @@ export interface GetTaskRunResult {
  * Gets the detailed information for a given task run.
  */
 export function getTaskRunOutput(args: GetTaskRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskRunResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20190601preview:getTaskRun", {
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-        "taskRunName": args.taskRunName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTaskRun(a, opts))
 }
 
 export interface GetTaskRunOutputArgs {

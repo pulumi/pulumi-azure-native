@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets draft package path and temp working path with SAS.
  */
 export function getDraftPackagePath(args: GetDraftPackagePathArgs, opts?: pulumi.InvokeOptions): Promise<GetDraftPackagePathResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20231101preview:getDraftPackagePath", {
         "draftPackageName": args.draftPackageName,
@@ -60,12 +61,7 @@ export interface GetDraftPackagePathResult {
  * Gets draft package path and temp working path with SAS.
  */
 export function getDraftPackagePathOutput(args: GetDraftPackagePathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDraftPackagePathResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getDraftPackagePath", {
-        "draftPackageName": args.draftPackageName,
-        "resourceGroupName": args.resourceGroupName,
-        "testBaseAccountName": args.testBaseAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDraftPackagePath(a, opts))
 }
 
 export interface GetDraftPackagePathOutputArgs {

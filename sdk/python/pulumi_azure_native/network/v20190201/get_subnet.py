@@ -295,6 +295,9 @@ def get_subnet(expand: Optional[str] = None,
         service_association_links=pulumi.get(__ret__, 'service_association_links'),
         service_endpoint_policies=pulumi.get(__ret__, 'service_endpoint_policies'),
         service_endpoints=pulumi.get(__ret__, 'service_endpoints'))
+
+
+@_utilities.lift_output_func(get_subnet)
 def get_subnet_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       subnet_name: Optional[pulumi.Input[str]] = None,
@@ -309,29 +312,4 @@ def get_subnet_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str subnet_name: The name of the subnet.
     :param str virtual_network_name: The name of the virtual network.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['subnetName'] = subnet_name
-    __args__['virtualNetworkName'] = virtual_network_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20190201:getSubnet', __args__, opts=opts, typ=GetSubnetResult)
-    return __ret__.apply(lambda __response__: GetSubnetResult(
-        address_prefix=pulumi.get(__response__, 'address_prefix'),
-        address_prefixes=pulumi.get(__response__, 'address_prefixes'),
-        delegations=pulumi.get(__response__, 'delegations'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        interface_endpoints=pulumi.get(__response__, 'interface_endpoints'),
-        ip_configuration_profiles=pulumi.get(__response__, 'ip_configuration_profiles'),
-        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
-        name=pulumi.get(__response__, 'name'),
-        nat_gateway=pulumi.get(__response__, 'nat_gateway'),
-        network_security_group=pulumi.get(__response__, 'network_security_group'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        purpose=pulumi.get(__response__, 'purpose'),
-        resource_navigation_links=pulumi.get(__response__, 'resource_navigation_links'),
-        route_table=pulumi.get(__response__, 'route_table'),
-        service_association_links=pulumi.get(__response__, 'service_association_links'),
-        service_endpoint_policies=pulumi.get(__response__, 'service_endpoint_policies'),
-        service_endpoints=pulumi.get(__response__, 'service_endpoints')))
+    ...

@@ -125,6 +125,9 @@ def get_backup_short_term_retention_policy(database_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         retention_days=pulumi.get(__ret__, 'retention_days'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_backup_short_term_retention_policy)
 def get_backup_short_term_retention_policy_output(database_name: Optional[pulumi.Input[str]] = None,
                                                   policy_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -139,16 +142,4 @@ def get_backup_short_term_retention_policy_output(database_name: Optional[pulumi
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    __args__ = dict()
-    __args__['databaseName'] = database_name
-    __args__['policyName'] = policy_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230501preview:getBackupShortTermRetentionPolicy', __args__, opts=opts, typ=GetBackupShortTermRetentionPolicyResult)
-    return __ret__.apply(lambda __response__: GetBackupShortTermRetentionPolicyResult(
-        diff_backup_interval_in_hours=pulumi.get(__response__, 'diff_backup_interval_in_hours'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        retention_days=pulumi.get(__response__, 'retention_days'),
-        type=pulumi.get(__response__, 'type')))
+    ...

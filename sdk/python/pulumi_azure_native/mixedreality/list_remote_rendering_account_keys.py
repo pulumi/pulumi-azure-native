@@ -83,6 +83,9 @@ def list_remote_rendering_account_keys(account_name: Optional[str] = None,
     return AwaitableListRemoteRenderingAccountKeysResult(
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
+
+
+@_utilities.lift_output_func(list_remote_rendering_account_keys)
 def list_remote_rendering_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemoteRenderingAccountKeysResult]:
@@ -96,11 +99,4 @@ def list_remote_rendering_account_keys_output(account_name: Optional[pulumi.Inpu
     :param str account_name: Name of an Mixed Reality Account.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:mixedreality:listRemoteRenderingAccountKeys', __args__, opts=opts, typ=ListRemoteRenderingAccountKeysResult)
-    return __ret__.apply(lambda __response__: ListRemoteRenderingAccountKeysResult(
-        primary_key=pulumi.get(__response__, 'primary_key'),
-        secondary_key=pulumi.get(__response__, 'secondary_key')))
+    ...

@@ -237,6 +237,9 @@ def get_registry(registry_name: Optional[str] = None,
         storage_account=pulumi.get(__ret__, 'storage_account'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_registry)
 def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
@@ -247,23 +250,4 @@ def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    __args__ = dict()
-    __args__['registryName'] = registry_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20190501:getRegistry', __args__, opts=opts, typ=GetRegistryResult)
-    return __ret__.apply(lambda __response__: GetRegistryResult(
-        admin_user_enabled=pulumi.get(__response__, 'admin_user_enabled'),
-        creation_date=pulumi.get(__response__, 'creation_date'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        login_server=pulumi.get(__response__, 'login_server'),
-        name=pulumi.get(__response__, 'name'),
-        network_rule_set=pulumi.get(__response__, 'network_rule_set'),
-        policies=pulumi.get(__response__, 'policies'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sku=pulumi.get(__response__, 'sku'),
-        status=pulumi.get(__response__, 'status'),
-        storage_account=pulumi.get(__response__, 'storage_account'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

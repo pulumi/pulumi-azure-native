@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-02-01.
  */
 export function getAddress(args: GetAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetAddressResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edgeorder:getAddress", {
         "addressName": args.addressName,
@@ -80,11 +81,7 @@ export interface GetAddressResult {
  * Other available API versions: 2024-02-01.
  */
 export function getAddressOutput(args: GetAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddressResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:edgeorder:getAddress", {
-        "addressName": args.addressName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAddress(a, opts))
 }
 
 export interface GetAddressOutputArgs {

@@ -147,6 +147,9 @@ def get_afd_target_group(profile_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         target_endpoints=pulumi.get(__ret__, 'target_endpoints'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_afd_target_group)
 def get_afd_target_group_output(profile_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 target_group_name: Optional[pulumi.Input[str]] = None,
@@ -160,17 +163,4 @@ def get_afd_target_group_output(profile_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str target_group_name: Name of the Target Group under the profile.
     """
-    __args__ = dict()
-    __args__['profileName'] = profile_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['targetGroupName'] = target_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getAFDTargetGroup', __args__, opts=opts, typ=GetAFDTargetGroupResult)
-    return __ret__.apply(lambda __response__: GetAFDTargetGroupResult(
-        deployment_status=pulumi.get(__response__, 'deployment_status'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        target_endpoints=pulumi.get(__response__, 'target_endpoints'),
-        type=pulumi.get(__response__, 'type')))
+    ...

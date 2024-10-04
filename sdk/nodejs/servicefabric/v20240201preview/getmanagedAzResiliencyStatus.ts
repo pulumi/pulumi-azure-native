@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
  */
 export function getmanagedAzResiliencyStatus(args: GetmanagedAzResiliencyStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagedAzResiliencyStatusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20240201preview:getmanagedAzResiliencyStatus", {
         "clusterName": args.clusterName,
@@ -46,11 +47,7 @@ export interface GetmanagedAzResiliencyStatusResult {
  * Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
  */
 export function getmanagedAzResiliencyStatusOutput(args: GetmanagedAzResiliencyStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmanagedAzResiliencyStatusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20240201preview:getmanagedAzResiliencyStatus", {
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getmanagedAzResiliencyStatus(a, opts))
 }
 
 export interface GetmanagedAzResiliencyStatusOutputArgs {

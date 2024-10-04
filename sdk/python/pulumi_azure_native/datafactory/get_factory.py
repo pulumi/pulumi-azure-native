@@ -253,6 +253,9 @@ def get_factory(factory_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_factory)
 def get_factory_output(factory_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryResult]:
@@ -266,24 +269,4 @@ def get_factory_output(factory_name: Optional[pulumi.Input[str]] = None,
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['factoryName'] = factory_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory:getFactory', __args__, opts=opts, typ=GetFactoryResult)
-    return __ret__.apply(lambda __response__: GetFactoryResult(
-        create_time=pulumi.get(__response__, 'create_time'),
-        e_tag=pulumi.get(__response__, 'e_tag'),
-        encryption=pulumi.get(__response__, 'encryption'),
-        global_parameters=pulumi.get(__response__, 'global_parameters'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        purview_configuration=pulumi.get(__response__, 'purview_configuration'),
-        repo_configuration=pulumi.get(__response__, 'repo_configuration'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

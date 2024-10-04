@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns a database.
  */
 export function getReadWriteDatabase(args: GetReadWriteDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadWriteDatabaseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20230502:getReadWriteDatabase", {
         "clusterName": args.clusterName,
@@ -92,12 +93,7 @@ export interface GetReadWriteDatabaseResult {
  * Returns a database.
  */
 export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadWriteDatabaseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:kusto/v20230502:getReadWriteDatabase", {
-        "clusterName": args.clusterName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReadWriteDatabase(a, opts))
 }
 
 export interface GetReadWriteDatabaseOutputArgs {

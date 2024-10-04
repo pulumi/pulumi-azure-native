@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview.
  */
 export function getGremlinResourceGremlinDatabase(args: GetGremlinResourceGremlinDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetGremlinResourceGremlinDatabaseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb:getGremlinResourceGremlinDatabase", {
         "accountName": args.accountName,
@@ -71,12 +72,7 @@ export interface GetGremlinResourceGremlinDatabaseResult {
  * Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview.
  */
 export function getGremlinResourceGremlinDatabaseOutput(args: GetGremlinResourceGremlinDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGremlinResourceGremlinDatabaseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:documentdb:getGremlinResourceGremlinDatabase", {
-        "accountName": args.accountName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGremlinResourceGremlinDatabase(a, opts))
 }
 
 export interface GetGremlinResourceGremlinDatabaseOutputArgs {

@@ -254,6 +254,9 @@ def get_kafka_connector(kafka_connector_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_kafka_connector)
 def get_kafka_connector_output(kafka_connector_name: Optional[pulumi.Input[str]] = None,
                                mq_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -267,25 +270,4 @@ def get_kafka_connector_output(kafka_connector_name: Optional[pulumi.Input[str]]
     :param str mq_name: Name of MQ resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['kafkaConnectorName'] = kafka_connector_name
-    __args__['mqName'] = mq_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq:getKafkaConnector', __args__, opts=opts, typ=GetKafkaConnectorResult)
-    return __ret__.apply(lambda __response__: GetKafkaConnectorResult(
-        client_id_prefix=pulumi.get(__response__, 'client_id_prefix'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        image=pulumi.get(__response__, 'image'),
-        instances=pulumi.get(__response__, 'instances'),
-        kafka_connection=pulumi.get(__response__, 'kafka_connection'),
-        local_broker_connection=pulumi.get(__response__, 'local_broker_connection'),
-        location=pulumi.get(__response__, 'location'),
-        log_level=pulumi.get(__response__, 'log_level'),
-        name=pulumi.get(__response__, 'name'),
-        node_tolerations=pulumi.get(__response__, 'node_tolerations'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

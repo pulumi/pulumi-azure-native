@@ -232,6 +232,9 @@ def get_read_only_following_database(database_name: Optional[str] = None,
         statistics=pulumi.get(__ret__, 'statistics'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_read_only_following_database)
 def get_read_only_following_database_output(database_name: Optional[pulumi.Input[str]] = None,
                                             kusto_pool_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -247,24 +250,4 @@ def get_read_only_following_database_output(database_name: Optional[pulumi.Input
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['databaseName'] = database_name
-    __args__['kustoPoolName'] = kusto_pool_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getReadOnlyFollowingDatabase', __args__, opts=opts, typ=GetReadOnlyFollowingDatabaseResult)
-    return __ret__.apply(lambda __response__: GetReadOnlyFollowingDatabaseResult(
-        attached_database_configuration_name=pulumi.get(__response__, 'attached_database_configuration_name'),
-        hot_cache_period=pulumi.get(__response__, 'hot_cache_period'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        leader_cluster_resource_id=pulumi.get(__response__, 'leader_cluster_resource_id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        principals_modification_kind=pulumi.get(__response__, 'principals_modification_kind'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        soft_delete_period=pulumi.get(__response__, 'soft_delete_period'),
-        statistics=pulumi.get(__response__, 'statistics'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

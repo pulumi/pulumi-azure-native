@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the specified Subscription entity.
  */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getSubscription", {
         "resourceGroupName": args.resourceGroupName,
@@ -104,12 +105,7 @@ export interface GetSubscriptionResult {
  * Gets the specified Subscription entity.
  */
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220801:getSubscription", {
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "sid": args.sid,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSubscription(a, opts))
 }
 
 export interface GetSubscriptionOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Description for Gets an existing custom domain for a particular static site.
  */
 export function getStaticSiteCustomDomain(args: GetStaticSiteCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteCustomDomainResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:getStaticSiteCustomDomain", {
         "domainName": args.domainName,
@@ -73,12 +74,7 @@ export interface GetStaticSiteCustomDomainResult {
  * Description for Gets an existing custom domain for a particular static site.
  */
 export function getStaticSiteCustomDomainOutput(args: GetStaticSiteCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteCustomDomainResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getStaticSiteCustomDomain", {
-        "domainName": args.domainName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStaticSiteCustomDomain(a, opts))
 }
 
 export interface GetStaticSiteCustomDomainOutputArgs {

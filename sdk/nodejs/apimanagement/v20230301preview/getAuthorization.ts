@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the authorization specified by its identifier.
  */
 export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230301preview:getAuthorization", {
         "authorizationId": args.authorizationId,
@@ -80,13 +81,7 @@ export interface GetAuthorizationResult {
  * Gets the details of the authorization specified by its identifier.
  */
 export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getAuthorization", {
-        "authorizationId": args.authorizationId,
-        "authorizationProviderId": args.authorizationProviderId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAuthorization(a, opts))
 }
 
 export interface GetAuthorizationOutputArgs {

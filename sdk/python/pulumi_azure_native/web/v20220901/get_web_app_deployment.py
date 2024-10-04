@@ -226,6 +226,9 @@ def get_web_app_deployment(id: Optional[str] = None,
         start_time=pulumi.get(__ret__, 'start_time'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_web_app_deployment)
 def get_web_app_deployment_output(id: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -238,23 +241,4 @@ def get_web_app_deployment_output(id: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:getWebAppDeployment', __args__, opts=opts, typ=GetWebAppDeploymentResult)
-    return __ret__.apply(lambda __response__: GetWebAppDeploymentResult(
-        active=pulumi.get(__response__, 'active'),
-        author=pulumi.get(__response__, 'author'),
-        author_email=pulumi.get(__response__, 'author_email'),
-        deployer=pulumi.get(__response__, 'deployer'),
-        details=pulumi.get(__response__, 'details'),
-        end_time=pulumi.get(__response__, 'end_time'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        message=pulumi.get(__response__, 'message'),
-        name=pulumi.get(__response__, 'name'),
-        start_time=pulumi.get(__response__, 'start_time'),
-        status=pulumi.get(__response__, 'status'),
-        type=pulumi.get(__response__, 'type')))
+    ...

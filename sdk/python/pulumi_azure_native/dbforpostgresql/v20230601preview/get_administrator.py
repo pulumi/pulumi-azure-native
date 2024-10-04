@@ -162,6 +162,9 @@ def get_administrator(object_id: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_administrator)
 def get_administrator_output(object_id: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              server_name: Optional[pulumi.Input[str]] = None,
@@ -174,18 +177,4 @@ def get_administrator_output(object_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
-    __args__ = dict()
-    __args__['objectId'] = object_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20230601preview:getAdministrator', __args__, opts=opts, typ=GetAdministratorResult)
-    return __ret__.apply(lambda __response__: GetAdministratorResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        object_id=pulumi.get(__response__, 'object_id'),
-        principal_name=pulumi.get(__response__, 'principal_name'),
-        principal_type=pulumi.get(__response__, 'principal_type'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

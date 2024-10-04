@@ -344,6 +344,9 @@ def get_product(product_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         type=pulumi.get(__ret__, 'type'),
         vm_extension_type=pulumi.get(__ret__, 'vm_extension_type'))
+
+
+@_utilities.lift_output_func(get_product)
 def get_product_output(product_name: Optional[pulumi.Input[str]] = None,
                        registration_name: Optional[pulumi.Input[str]] = None,
                        resource_group: Optional[pulumi.Input[str]] = None,
@@ -356,32 +359,4 @@ def get_product_output(product_name: Optional[pulumi.Input[str]] = None,
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
-    __args__ = dict()
-    __args__['productName'] = product_name
-    __args__['registrationName'] = registration_name
-    __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack/v20220601:getProduct', __args__, opts=opts, typ=GetProductResult)
-    return __ret__.apply(lambda __response__: GetProductResult(
-        billing_part_number=pulumi.get(__response__, 'billing_part_number'),
-        compatibility=pulumi.get(__response__, 'compatibility'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        etag=pulumi.get(__response__, 'etag'),
-        gallery_item_identity=pulumi.get(__response__, 'gallery_item_identity'),
-        icon_uris=pulumi.get(__response__, 'icon_uris'),
-        id=pulumi.get(__response__, 'id'),
-        legal_terms=pulumi.get(__response__, 'legal_terms'),
-        links=pulumi.get(__response__, 'links'),
-        name=pulumi.get(__response__, 'name'),
-        offer=pulumi.get(__response__, 'offer'),
-        offer_version=pulumi.get(__response__, 'offer_version'),
-        payload_length=pulumi.get(__response__, 'payload_length'),
-        privacy_policy=pulumi.get(__response__, 'privacy_policy'),
-        product_kind=pulumi.get(__response__, 'product_kind'),
-        product_properties=pulumi.get(__response__, 'product_properties'),
-        publisher_display_name=pulumi.get(__response__, 'publisher_display_name'),
-        publisher_identifier=pulumi.get(__response__, 'publisher_identifier'),
-        sku=pulumi.get(__response__, 'sku'),
-        type=pulumi.get(__response__, 'type'),
-        vm_extension_type=pulumi.get(__response__, 'vm_extension_type')))
+    ...

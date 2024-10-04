@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified Iot Connector FHIR destination.
  */
 export function getIotConnectorFhirDestination(args: GetIotConnectorFhirDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorFhirDestinationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20240301:getIotConnectorFhirDestination", {
         "fhirDestinationName": args.fhirDestinationName,
@@ -84,13 +85,7 @@ export interface GetIotConnectorFhirDestinationResult {
  * Gets the properties of the specified Iot Connector FHIR destination.
  */
 export function getIotConnectorFhirDestinationOutput(args: GetIotConnectorFhirDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorFhirDestinationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:healthcareapis/v20240301:getIotConnectorFhirDestination", {
-        "fhirDestinationName": args.fhirDestinationName,
-        "iotConnectorName": args.iotConnectorName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIotConnectorFhirDestination(a, opts))
 }
 
 export interface GetIotConnectorFhirDestinationOutputArgs {

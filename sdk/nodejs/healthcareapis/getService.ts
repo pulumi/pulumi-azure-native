@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-03-15, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis:getService", {
         "resourceGroupName": args.resourceGroupName,
@@ -84,11 +85,7 @@ export interface GetServiceResult {
  * Other available API versions: 2020-03-15, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:healthcareapis:getService", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
 export interface GetServiceOutputArgs {

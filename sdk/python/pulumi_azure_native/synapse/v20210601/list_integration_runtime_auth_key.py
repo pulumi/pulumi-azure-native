@@ -83,6 +83,9 @@ def list_integration_runtime_auth_key(integration_runtime_name: Optional[str] = 
     return AwaitableListIntegrationRuntimeAuthKeyResult(
         auth_key1=pulumi.get(__ret__, 'auth_key1'),
         auth_key2=pulumi.get(__ret__, 'auth_key2'))
+
+
+@_utilities.lift_output_func(list_integration_runtime_auth_key)
 def list_integration_runtime_auth_key_output(integration_runtime_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              workspace_name: Optional[pulumi.Input[str]] = None,
@@ -95,12 +98,4 @@ def list_integration_runtime_auth_key_output(integration_runtime_name: Optional[
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['integrationRuntimeName'] = integration_runtime_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601:listIntegrationRuntimeAuthKey', __args__, opts=opts, typ=ListIntegrationRuntimeAuthKeyResult)
-    return __ret__.apply(lambda __response__: ListIntegrationRuntimeAuthKeyResult(
-        auth_key1=pulumi.get(__response__, 'auth_key1'),
-        auth_key2=pulumi.get(__response__, 'auth_key2')))
+    ...

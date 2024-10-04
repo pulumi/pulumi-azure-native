@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview.
  */
 export function getSqlResourceSqlRoleAssignment(args: GetSqlResourceSqlRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb:getSqlResourceSqlRoleAssignment", {
         "accountName": args.accountName,
@@ -70,12 +71,7 @@ export interface GetSqlResourceSqlRoleAssignmentResult {
  * Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview.
  */
 export function getSqlResourceSqlRoleAssignmentOutput(args: GetSqlResourceSqlRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlRoleAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:documentdb:getSqlResourceSqlRoleAssignment", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "roleAssignmentId": args.roleAssignmentId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlResourceSqlRoleAssignment(a, opts))
 }
 
 export interface GetSqlResourceSqlRoleAssignmentOutputArgs {

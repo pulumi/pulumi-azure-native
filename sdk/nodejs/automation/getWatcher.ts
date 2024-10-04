@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-05-15-preview.
  */
 export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetWatcherResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation:getWatcher", {
         "automationAccountName": args.automationAccountName,
@@ -106,12 +107,7 @@ export interface GetWatcherResult {
  * Other available API versions: 2023-05-15-preview.
  */
 export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatcherResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automation:getWatcher", {
-        "automationAccountName": args.automationAccountName,
-        "resourceGroupName": args.resourceGroupName,
-        "watcherName": args.watcherName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWatcher(a, opts))
 }
 
 export interface GetWatcherOutputArgs {

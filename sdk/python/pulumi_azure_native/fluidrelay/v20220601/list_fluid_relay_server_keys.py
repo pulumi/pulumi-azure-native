@@ -80,6 +80,9 @@ def list_fluid_relay_server_keys(fluid_relay_server_name: Optional[str] = None,
     return AwaitableListFluidRelayServerKeysResult(
         key1=pulumi.get(__ret__, 'key1'),
         key2=pulumi.get(__ret__, 'key2'))
+
+
+@_utilities.lift_output_func(list_fluid_relay_server_keys)
 def list_fluid_relay_server_keys_output(fluid_relay_server_name: Optional[pulumi.Input[str]] = None,
                                         resource_group: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFluidRelayServerKeysResult]:
@@ -90,11 +93,4 @@ def list_fluid_relay_server_keys_output(fluid_relay_server_name: Optional[pulumi
     :param str fluid_relay_server_name: The Fluid Relay server resource name.
     :param str resource_group: The resource group containing the resource.
     """
-    __args__ = dict()
-    __args__['fluidRelayServerName'] = fluid_relay_server_name
-    __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:fluidrelay/v20220601:listFluidRelayServerKeys', __args__, opts=opts, typ=ListFluidRelayServerKeysResult)
-    return __ret__.apply(lambda __response__: ListFluidRelayServerKeysResult(
-        key1=pulumi.get(__response__, 'key1'),
-        key2=pulumi.get(__response__, 'key2')))
+    ...

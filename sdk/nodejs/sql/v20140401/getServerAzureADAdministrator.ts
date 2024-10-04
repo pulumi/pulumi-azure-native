@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Returns an server Administrator.
  */
 export function getServerAzureADAdministrator(args: GetServerAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADAdministratorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20140401:getServerAzureADAdministrator", {
         "administratorName": args.administratorName,
@@ -68,12 +69,7 @@ export interface GetServerAzureADAdministratorResult {
  * Returns an server Administrator.
  */
 export function getServerAzureADAdministratorOutput(args: GetServerAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAzureADAdministratorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20140401:getServerAzureADAdministrator", {
-        "administratorName": args.administratorName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServerAzureADAdministrator(a, opts))
 }
 
 export interface GetServerAzureADAdministratorOutputArgs {

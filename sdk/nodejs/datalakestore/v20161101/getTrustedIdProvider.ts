@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the specified Data Lake Store trusted identity provider.
  */
 export function getTrustedIdProvider(args: GetTrustedIdProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedIdProviderResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakestore/v20161101:getTrustedIdProvider", {
         "accountName": args.accountName,
@@ -56,12 +57,7 @@ export interface GetTrustedIdProviderResult {
  * Gets the specified Data Lake Store trusted identity provider.
  */
 export function getTrustedIdProviderOutput(args: GetTrustedIdProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedIdProviderResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datalakestore/v20161101:getTrustedIdProvider", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "trustedIdProviderName": args.trustedIdProviderName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTrustedIdProvider(a, opts))
 }
 
 export interface GetTrustedIdProviderOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Description for Get function secrets for a function in a web site, or a deployment slot.
  */
 export function listWebAppFunctionSecretsSlot(args: ListWebAppFunctionSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionSecretsSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220901:listWebAppFunctionSecretsSlot", {
         "functionName": args.functionName,
@@ -53,13 +54,7 @@ export interface ListWebAppFunctionSecretsSlotResult {
  * Description for Get function secrets for a function in a web site, or a deployment slot.
  */
 export function listWebAppFunctionSecretsSlotOutput(args: ListWebAppFunctionSecretsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionSecretsSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20220901:listWebAppFunctionSecretsSlot", {
-        "functionName": args.functionName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppFunctionSecretsSlot(a, opts))
 }
 
 export interface ListWebAppFunctionSecretsSlotOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the backend specified by its identifier.
  */
 export function getBackend(args: GetBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230501preview:getBackend", {
         "backendId": args.backendId,
@@ -96,12 +97,7 @@ export interface GetBackendResult {
  * Gets the details of the backend specified by its identifier.
  */
 export function getBackendOutput(args: GetBackendOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getBackend", {
-        "backendId": args.backendId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBackend(a, opts))
 }
 
 export interface GetBackendOutputArgs {

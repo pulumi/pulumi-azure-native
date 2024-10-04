@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-10-15.
  */
 export function getLabAccountRegionalAvailability(args: GetLabAccountRegionalAvailabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetLabAccountRegionalAvailabilityResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices:getLabAccountRegionalAvailability", {
         "labAccountName": args.labAccountName,
@@ -44,11 +45,7 @@ export interface GetLabAccountRegionalAvailabilityResult {
  * Azure REST API version: 2018-10-15.
  */
 export function getLabAccountRegionalAvailabilityOutput(args: GetLabAccountRegionalAvailabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabAccountRegionalAvailabilityResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:labservices:getLabAccountRegionalAvailability", {
-        "labAccountName": args.labAccountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLabAccountRegionalAvailability(a, opts))
 }
 
 export interface GetLabAccountRegionalAvailabilityOutputArgs {

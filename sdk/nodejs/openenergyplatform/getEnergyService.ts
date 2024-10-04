@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-04-04-preview.
  */
 export function getEnergyService(args: GetEnergyServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEnergyServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:openenergyplatform:getEnergyService", {
         "resourceGroupName": args.resourceGroupName,
@@ -62,11 +63,7 @@ export interface GetEnergyServiceResult {
  * Azure REST API version: 2022-04-04-preview.
  */
 export function getEnergyServiceOutput(args: GetEnergyServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnergyServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:openenergyplatform:getEnergyService", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnergyService(a, opts))
 }
 
 export interface GetEnergyServiceOutputArgs {

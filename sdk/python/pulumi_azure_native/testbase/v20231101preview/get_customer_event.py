@@ -136,6 +136,9 @@ def get_customer_event(customer_event_name: Optional[str] = None,
         receivers=pulumi.get(__ret__, 'receivers'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_customer_event)
 def get_customer_event_output(customer_event_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               test_base_account_name: Optional[pulumi.Input[str]] = None,
@@ -148,16 +151,4 @@ def get_customer_event_output(customer_event_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
-    __args__ = dict()
-    __args__['customerEventName'] = customer_event_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:testbase/v20231101preview:getCustomerEvent', __args__, opts=opts, typ=GetCustomerEventResult)
-    return __ret__.apply(lambda __response__: GetCustomerEventResult(
-        event_name=pulumi.get(__response__, 'event_name'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        receivers=pulumi.get(__response__, 'receivers'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

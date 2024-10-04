@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List mongo cluster connection strings. This includes the default connection string using SCRAM-SHA-256, as well as other connection strings supported by the cluster.
  */
 export function listMongoClusterConnectionStrings(args: ListMongoClusterConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListMongoClusterConnectionStringsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20240601preview:listMongoClusterConnectionStrings", {
         "mongoClusterName": args.mongoClusterName,
@@ -42,11 +43,7 @@ export interface ListMongoClusterConnectionStringsResult {
  * List mongo cluster connection strings. This includes the default connection string using SCRAM-SHA-256, as well as other connection strings supported by the cluster.
  */
 export function listMongoClusterConnectionStringsOutput(args: ListMongoClusterConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMongoClusterConnectionStringsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240601preview:listMongoClusterConnectionStrings", {
-        "mongoClusterName": args.mongoClusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listMongoClusterConnectionStrings(a, opts))
 }
 
 export interface ListMongoClusterConnectionStringsOutputArgs {

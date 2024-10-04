@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get the access keys of the CommunicationService resource.
  */
 export function listCommunicationServiceKeys(args: ListCommunicationServiceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListCommunicationServiceKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication/v20230401:listCommunicationServiceKeys", {
         "communicationServiceName": args.communicationServiceName,
@@ -51,11 +52,7 @@ export interface ListCommunicationServiceKeysResult {
  * Get the access keys of the CommunicationService resource.
  */
 export function listCommunicationServiceKeysOutput(args: ListCommunicationServiceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCommunicationServiceKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:communication/v20230401:listCommunicationServiceKeys", {
-        "communicationServiceName": args.communicationServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listCommunicationServiceKeys(a, opts))
 }
 
 export interface ListCommunicationServiceKeysOutputArgs {

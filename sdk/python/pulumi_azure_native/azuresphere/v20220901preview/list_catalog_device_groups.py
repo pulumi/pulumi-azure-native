@@ -96,6 +96,9 @@ def list_catalog_device_groups(catalog_name: Optional[str] = None,
     return AwaitableListCatalogDeviceGroupsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_catalog_device_groups)
 def list_catalog_device_groups_output(catalog_name: Optional[pulumi.Input[str]] = None,
                                       device_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                                       filter: Optional[pulumi.Input[Optional[str]]] = None,
@@ -116,16 +119,4 @@ def list_catalog_device_groups_output(catalog_name: Optional[pulumi.Input[str]] 
     :param int skip: The number of result items to skip.
     :param int top: The number of result items to return.
     """
-    __args__ = dict()
-    __args__['catalogName'] = catalog_name
-    __args__['deviceGroupName'] = device_group_name
-    __args__['filter'] = filter
-    __args__['maxpagesize'] = maxpagesize
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['skip'] = skip
-    __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azuresphere/v20220901preview:listCatalogDeviceGroups', __args__, opts=opts, typ=ListCatalogDeviceGroupsResult)
-    return __ret__.apply(lambda __response__: ListCatalogDeviceGroupsResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

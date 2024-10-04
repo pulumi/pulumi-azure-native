@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2018-09-01, 2019-04-01.
  */
 export function listTaskDetails(args: ListTaskDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListTaskDetailsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry:listTaskDetails", {
         "registryName": args.registryName,
@@ -126,12 +127,7 @@ export interface ListTaskDetailsResult {
  * Other available API versions: 2018-09-01, 2019-04-01.
  */
 export function listTaskDetailsOutput(args: ListTaskDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTaskDetailsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry:listTaskDetails", {
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-        "taskName": args.taskName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listTaskDetails(a, opts))
 }
 
 export interface ListTaskDetailsOutputArgs {

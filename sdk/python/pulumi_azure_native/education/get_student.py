@@ -257,6 +257,9 @@ def get_student(billing_account_name: Optional[str] = None,
         subscription_invite_last_sent_date=pulumi.get(__ret__, 'subscription_invite_last_sent_date'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_student)
 def get_student_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                        billing_profile_name: Optional[pulumi.Input[str]] = None,
                        invoice_section_name: Optional[pulumi.Input[str]] = None,
@@ -272,26 +275,4 @@ def get_student_output(billing_account_name: Optional[pulumi.Input[str]] = None,
     :param str invoice_section_name: The ID that uniquely identifies an invoice section.
     :param str student_alias: Student alias.
     """
-    __args__ = dict()
-    __args__['billingAccountName'] = billing_account_name
-    __args__['billingProfileName'] = billing_profile_name
-    __args__['invoiceSectionName'] = invoice_section_name
-    __args__['studentAlias'] = student_alias
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:education:getStudent', __args__, opts=opts, typ=GetStudentResult)
-    return __ret__.apply(lambda __response__: GetStudentResult(
-        budget=pulumi.get(__response__, 'budget'),
-        effective_date=pulumi.get(__response__, 'effective_date'),
-        email=pulumi.get(__response__, 'email'),
-        expiration_date=pulumi.get(__response__, 'expiration_date'),
-        first_name=pulumi.get(__response__, 'first_name'),
-        id=pulumi.get(__response__, 'id'),
-        last_name=pulumi.get(__response__, 'last_name'),
-        name=pulumi.get(__response__, 'name'),
-        role=pulumi.get(__response__, 'role'),
-        status=pulumi.get(__response__, 'status'),
-        subscription_alias=pulumi.get(__response__, 'subscription_alias'),
-        subscription_id=pulumi.get(__response__, 'subscription_id'),
-        subscription_invite_last_sent_date=pulumi.get(__response__, 'subscription_invite_last_sent_date'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

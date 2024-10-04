@@ -96,6 +96,9 @@ def list_authorization_server_secrets(authsid: Optional[str] = None,
         client_secret=pulumi.get(__ret__, 'client_secret'),
         resource_owner_password=pulumi.get(__ret__, 'resource_owner_password'),
         resource_owner_username=pulumi.get(__ret__, 'resource_owner_username'))
+
+
+@_utilities.lift_output_func(list_authorization_server_secrets)
 def list_authorization_server_secrets_output(authsid: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              service_name: Optional[pulumi.Input[str]] = None,
@@ -108,13 +111,4 @@ def list_authorization_server_secrets_output(authsid: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['authsid'] = authsid
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230301preview:listAuthorizationServerSecrets', __args__, opts=opts, typ=ListAuthorizationServerSecretsResult)
-    return __ret__.apply(lambda __response__: ListAuthorizationServerSecretsResult(
-        client_secret=pulumi.get(__response__, 'client_secret'),
-        resource_owner_password=pulumi.get(__response__, 'resource_owner_password'),
-        resource_owner_username=pulumi.get(__response__, 'resource_owner_username')))
+    ...

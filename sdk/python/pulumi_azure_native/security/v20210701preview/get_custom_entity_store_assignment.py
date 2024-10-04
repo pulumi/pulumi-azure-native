@@ -133,6 +133,9 @@ def get_custom_entity_store_assignment(custom_entity_store_assignment_name: Opti
         principal=pulumi.get(__ret__, 'principal'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_custom_entity_store_assignment)
 def get_custom_entity_store_assignment_output(custom_entity_store_assignment_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomEntityStoreAssignmentResult]:
@@ -143,15 +146,4 @@ def get_custom_entity_store_assignment_output(custom_entity_store_assignment_nam
     :param str custom_entity_store_assignment_name: Name of the custom entity store assignment. Generated name is GUID.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['customEntityStoreAssignmentName'] = custom_entity_store_assignment_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20210701preview:getCustomEntityStoreAssignment', __args__, opts=opts, typ=GetCustomEntityStoreAssignmentResult)
-    return __ret__.apply(lambda __response__: GetCustomEntityStoreAssignmentResult(
-        entity_store_database_link=pulumi.get(__response__, 'entity_store_database_link'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        principal=pulumi.get(__response__, 'principal'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

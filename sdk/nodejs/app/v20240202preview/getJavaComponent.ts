@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Java Component.
  */
 export function getJavaComponent(args: GetJavaComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetJavaComponentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20240202preview:getJavaComponent", {
         "environmentName": args.environmentName,
@@ -63,12 +64,7 @@ export interface GetJavaComponentResult {
  * Java Component.
  */
 export function getJavaComponentOutput(args: GetJavaComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJavaComponentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app/v20240202preview:getJavaComponent", {
-        "environmentName": args.environmentName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getJavaComponent(a, opts))
 }
 
 export interface GetJavaComponentOutputArgs {

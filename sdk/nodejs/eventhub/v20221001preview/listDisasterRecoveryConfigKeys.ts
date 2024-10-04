@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the primary and secondary connection strings for the Namespace.
  */
 export function listDisasterRecoveryConfigKeys(args: ListDisasterRecoveryConfigKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDisasterRecoveryConfigKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20221001preview:listDisasterRecoveryConfigKeys", {
         "alias": args.alias,
@@ -73,13 +74,7 @@ export interface ListDisasterRecoveryConfigKeysResult {
  * Gets the primary and secondary connection strings for the Namespace.
  */
 export function listDisasterRecoveryConfigKeysOutput(args: ListDisasterRecoveryConfigKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDisasterRecoveryConfigKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventhub/v20221001preview:listDisasterRecoveryConfigKeys", {
-        "alias": args.alias,
-        "authorizationRuleName": args.authorizationRuleName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listDisasterRecoveryConfigKeys(a, opts))
 }
 
 export interface ListDisasterRecoveryConfigKeysOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuresphere/v20220901preview:getProduct", {
         "catalogName": args.catalogName,
@@ -67,12 +68,7 @@ export interface GetProductResult {
  * Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
  */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azuresphere/v20220901preview:getProduct", {
-        "catalogName": args.catalogName,
-        "productName": args.productName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProduct(a, opts))
 }
 
 export interface GetProductOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-01-15-preview.
  */
 export function getOperatorApiConnection(args: GetOperatorApiConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetOperatorApiConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:programmableconnectivity:getOperatorApiConnection", {
         "operatorApiConnectionName": args.operatorApiConnectionName,
@@ -104,11 +105,7 @@ export interface GetOperatorApiConnectionResult {
  * Azure REST API version: 2024-01-15-preview.
  */
 export function getOperatorApiConnectionOutput(args: GetOperatorApiConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOperatorApiConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:programmableconnectivity:getOperatorApiConnection", {
-        "operatorApiConnectionName": args.operatorApiConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOperatorApiConnection(a, opts))
 }
 
 export interface GetOperatorApiConnectionOutputArgs {

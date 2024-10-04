@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Return the gateway status of the specified Analysis Services server instance.
  */
 export function listServerGatewayStatus(args: ListServerGatewayStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListServerGatewayStatusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:analysisservices/v20170801beta:listServerGatewayStatus", {
         "resourceGroupName": args.resourceGroupName,
@@ -39,11 +40,7 @@ export interface ListServerGatewayStatusResult {
  * Return the gateway status of the specified Analysis Services server instance.
  */
 export function listServerGatewayStatusOutput(args: ListServerGatewayStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerGatewayStatusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:analysisservices/v20170801beta:listServerGatewayStatus", {
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listServerGatewayStatus(a, opts))
 }
 
 export interface ListServerGatewayStatusOutputArgs {

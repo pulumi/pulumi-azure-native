@@ -166,6 +166,9 @@ def get_namespace_topic(namespace_name: Optional[str] = None,
         publisher_type=pulumi.get(__ret__, 'publisher_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_namespace_topic)
 def get_namespace_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                topic_name: Optional[pulumi.Input[str]] = None,
@@ -181,18 +184,4 @@ def get_namespace_topic_output(namespace_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the namespace topic.
     """
-    __args__ = dict()
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['topicName'] = topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getNamespaceTopic', __args__, opts=opts, typ=GetNamespaceTopicResult)
-    return __ret__.apply(lambda __response__: GetNamespaceTopicResult(
-        event_retention_in_days=pulumi.get(__response__, 'event_retention_in_days'),
-        id=pulumi.get(__response__, 'id'),
-        input_schema=pulumi.get(__response__, 'input_schema'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        publisher_type=pulumi.get(__response__, 'publisher_type'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the current version of the specified key from the specified key vault.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:keyvault/v20230201:getKey", {
         "keyName": args.keyName,
@@ -96,12 +97,7 @@ export interface GetKeyResult {
  * Gets the current version of the specified key from the specified key vault.
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:keyvault/v20230201:getKey", {
-        "keyName": args.keyName,
-        "resourceGroupName": args.resourceGroupName,
-        "vaultName": args.vaultName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getKey(a, opts))
 }
 
 export interface GetKeyOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-01-01.
  */
 export function getPricing(args: GetPricingArgs, opts?: pulumi.InvokeOptions): Promise<GetPricingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getPricing", {
         "pricingName": args.pricingName,
@@ -96,11 +97,7 @@ export interface GetPricingResult {
  * Azure REST API version: 2024-01-01.
  */
 export function getPricingOutput(args: GetPricingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPricingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security:getPricing", {
-        "pricingName": args.pricingName,
-        "scopeId": args.scopeId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPricing(a, opts))
 }
 
 export interface GetPricingOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the specified route from a route table.
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190601:getRoute", {
         "resourceGroupName": args.resourceGroupName,
@@ -68,12 +69,7 @@ export interface GetRouteResult {
  * Gets the specified route from a route table.
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20190601:getRoute", {
-        "resourceGroupName": args.resourceGroupName,
-        "routeName": args.routeName,
-        "routeTableName": args.routeTableName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRoute(a, opts))
 }
 
 export interface GetRouteOutputArgs {

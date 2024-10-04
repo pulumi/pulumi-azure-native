@@ -256,6 +256,9 @@ def get_sync_group(database_name: Optional[str] = None,
         sync_state=pulumi.get(__ret__, 'sync_state'),
         type=pulumi.get(__ret__, 'type'),
         use_private_link_connection=pulumi.get(__ret__, 'use_private_link_connection'))
+
+
+@_utilities.lift_output_func(get_sync_group)
 def get_sync_group_output(database_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           server_name: Optional[pulumi.Input[str]] = None,
@@ -270,26 +273,4 @@ def get_sync_group_output(database_name: Optional[pulumi.Input[str]] = None,
     :param str server_name: The name of the server.
     :param str sync_group_name: The name of the sync group.
     """
-    __args__ = dict()
-    __args__['databaseName'] = database_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    __args__['syncGroupName'] = sync_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230801preview:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult)
-    return __ret__.apply(lambda __response__: GetSyncGroupResult(
-        conflict_logging_retention_in_days=pulumi.get(__response__, 'conflict_logging_retention_in_days'),
-        conflict_resolution_policy=pulumi.get(__response__, 'conflict_resolution_policy'),
-        enable_conflict_logging=pulumi.get(__response__, 'enable_conflict_logging'),
-        hub_database_user_name=pulumi.get(__response__, 'hub_database_user_name'),
-        id=pulumi.get(__response__, 'id'),
-        interval=pulumi.get(__response__, 'interval'),
-        last_sync_time=pulumi.get(__response__, 'last_sync_time'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_name=pulumi.get(__response__, 'private_endpoint_name'),
-        schema=pulumi.get(__response__, 'schema'),
-        sku=pulumi.get(__response__, 'sku'),
-        sync_database_id=pulumi.get(__response__, 'sync_database_id'),
-        sync_state=pulumi.get(__response__, 'sync_state'),
-        type=pulumi.get(__response__, 'type'),
-        use_private_link_connection=pulumi.get(__response__, 'use_private_link_connection')))
+    ...

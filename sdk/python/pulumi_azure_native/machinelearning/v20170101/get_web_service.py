@@ -136,6 +136,9 @@ def get_web_service(region: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_web_service)
 def get_web_service_output(region: Optional[pulumi.Input[Optional[str]]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            web_service_name: Optional[pulumi.Input[str]] = None,
@@ -148,16 +151,4 @@ def get_web_service_output(region: Optional[pulumi.Input[Optional[str]]] = None,
     :param str resource_group_name: Name of the resource group in which the web service is located.
     :param str web_service_name: The name of the web service.
     """
-    __args__ = dict()
-    __args__['region'] = region
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['webServiceName'] = web_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearning/v20170101:getWebService', __args__, opts=opts, typ=GetWebServiceResult)
-    return __ret__.apply(lambda __response__: GetWebServiceResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

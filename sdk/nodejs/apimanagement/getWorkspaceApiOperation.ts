@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getWorkspaceApiOperation(args: GetWorkspaceApiOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceApiOperationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getWorkspaceApiOperation", {
         "apiId": args.apiId,
@@ -103,14 +104,7 @@ export interface GetWorkspaceApiOperationResult {
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getWorkspaceApiOperationOutput(args: GetWorkspaceApiOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiOperationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceApiOperation", {
-        "apiId": args.apiId,
-        "operationId": args.operationId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceApiOperation(a, opts))
 }
 
 export interface GetWorkspaceApiOperationOutputArgs {

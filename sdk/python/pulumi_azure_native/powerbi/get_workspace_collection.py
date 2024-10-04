@@ -138,6 +138,9 @@ def get_workspace_collection(resource_group_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workspace_collection)
 def get_workspace_collection_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     workspace_collection_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceCollectionResult]:
@@ -149,16 +152,4 @@ def get_workspace_collection_output(resource_group_name: Optional[pulumi.Input[s
     :param str resource_group_name: Azure resource group
     :param str workspace_collection_name: Power BI Embedded Workspace Collection name
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceCollectionName'] = workspace_collection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:powerbi:getWorkspaceCollection', __args__, opts=opts, typ=GetWorkspaceCollectionResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceCollectionResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

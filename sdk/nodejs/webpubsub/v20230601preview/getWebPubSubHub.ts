@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a hub setting.
  */
 export function getWebPubSubHub(args: GetWebPubSubHubArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubHubResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20230601preview:getWebPubSubHub", {
         "hubName": args.hubName,
@@ -63,12 +64,7 @@ export interface GetWebPubSubHubResult {
  * Get a hub setting.
  */
 export function getWebPubSubHubOutput(args: GetWebPubSubHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubHubResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20230601preview:getWebPubSubHub", {
-        "hubName": args.hubName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebPubSubHub(a, opts))
 }
 
 export interface GetWebPubSubHubOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get deployment log file URL
  */
 export function getDeploymentLogFileUrl(args: GetDeploymentLogFileUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentLogFileUrlResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20231201:getDeploymentLogFileUrl", {
         "appName": args.appName,
@@ -49,13 +50,7 @@ export interface GetDeploymentLogFileUrlResult {
  * Get deployment log file URL
  */
 export function getDeploymentLogFileUrlOutput(args: GetDeploymentLogFileUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentLogFileUrlResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231201:getDeploymentLogFileUrl", {
-        "appName": args.appName,
-        "deploymentName": args.deploymentName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDeploymentLogFileUrl(a, opts))
 }
 
 export interface GetDeploymentLogFileUrlOutputArgs {

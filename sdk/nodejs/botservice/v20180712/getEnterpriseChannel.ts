@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns an Enterprise Channel specified by the parameters.
  */
 export function getEnterpriseChannel(args: GetEnterpriseChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseChannelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice/v20180712:getEnterpriseChannel", {
         "resourceGroupName": args.resourceGroupName,
@@ -74,11 +75,7 @@ export interface GetEnterpriseChannelResult {
  * Returns an Enterprise Channel specified by the parameters.
  */
 export function getEnterpriseChannelOutput(args: GetEnterpriseChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseChannelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:botservice/v20180712:getEnterpriseChannel", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnterpriseChannel(a, opts))
 }
 
 export interface GetEnterpriseChannelOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
  */
 export function getPricing(args: GetPricingArgs, opts?: pulumi.InvokeOptions): Promise<GetPricingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20240101:getPricing", {
         "pricingName": args.pricingName,
@@ -94,11 +95,7 @@ export interface GetPricingResult {
  * Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
  */
 export function getPricingOutput(args: GetPricingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPricingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security/v20240101:getPricing", {
-        "pricingName": args.pricingName,
-        "scopeId": args.scopeId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPricing(a, opts))
 }
 
 export interface GetPricingOutputArgs {

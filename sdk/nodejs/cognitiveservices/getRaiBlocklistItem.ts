@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
  */
 export function getRaiBlocklistItem(args: GetRaiBlocklistItemArgs, opts?: pulumi.InvokeOptions): Promise<GetRaiBlocklistItemResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices:getRaiBlocklistItem", {
         "accountName": args.accountName,
@@ -82,13 +83,7 @@ export interface GetRaiBlocklistItemResult {
  * Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
  */
 export function getRaiBlocklistItemOutput(args: GetRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiBlocklistItemResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cognitiveservices:getRaiBlocklistItem", {
-        "accountName": args.accountName,
-        "raiBlocklistItemName": args.raiBlocklistItemName,
-        "raiBlocklistName": args.raiBlocklistName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRaiBlocklistItem(a, opts))
 }
 
 export interface GetRaiBlocklistItemOutputArgs {

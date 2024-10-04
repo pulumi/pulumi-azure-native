@@ -141,6 +141,9 @@ def get_sql_migration_service(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_sql_migration_service)
 def get_sql_migration_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                      sql_migration_service_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlMigrationServiceResult]:
@@ -151,17 +154,4 @@ def get_sql_migration_service_output(resource_group_name: Optional[pulumi.Input[
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str sql_migration_service_name: Name of the SQL Migration Service.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sqlMigrationServiceName'] = sql_migration_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration/v20220330preview:getSqlMigrationService', __args__, opts=opts, typ=GetSqlMigrationServiceResult)
-    return __ret__.apply(lambda __response__: GetSqlMigrationServiceResult(
-        id=pulumi.get(__response__, 'id'),
-        integration_runtime_state=pulumi.get(__response__, 'integration_runtime_state'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

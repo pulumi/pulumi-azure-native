@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-02-01.
  */
 export function getDefaultAdminRule(args: GetDefaultAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultAdminRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getDefaultAdminRule", {
         "configurationName": args.configurationName,
@@ -128,14 +129,7 @@ export interface GetDefaultAdminRuleResult {
  * Azure REST API version: 2023-02-01.
  */
 export function getDefaultAdminRuleOutput(args: GetDefaultAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultAdminRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getDefaultAdminRule", {
-        "configurationName": args.configurationName,
-        "networkManagerName": args.networkManagerName,
-        "resourceGroupName": args.resourceGroupName,
-        "ruleCollectionName": args.ruleCollectionName,
-        "ruleName": args.ruleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDefaultAdminRule(a, opts))
 }
 
 export interface GetDefaultAdminRuleOutputArgs {

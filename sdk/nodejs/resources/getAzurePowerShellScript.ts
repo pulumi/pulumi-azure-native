@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-10-01.
  */
 export function getAzurePowerShellScript(args: GetAzurePowerShellScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetAzurePowerShellScriptResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources:getAzurePowerShellScript", {
         "resourceGroupName": args.resourceGroupName,
@@ -133,11 +134,7 @@ export interface GetAzurePowerShellScriptResult {
  * Azure REST API version: 2020-10-01.
  */
 export function getAzurePowerShellScriptOutput(args: GetAzurePowerShellScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzurePowerShellScriptResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:resources:getAzurePowerShellScript", {
-        "resourceGroupName": args.resourceGroupName,
-        "scriptName": args.scriptName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAzurePowerShellScript(a, opts))
 }
 
 export interface GetAzurePowerShellScriptOutputArgs {

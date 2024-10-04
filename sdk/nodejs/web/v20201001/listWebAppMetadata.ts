@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the metadata of an app.
  */
 export function listWebAppMetadata(args: ListWebAppMetadataArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppMetadataResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:listWebAppMetadata", {
         "name": args.name,
@@ -62,11 +63,7 @@ export interface ListWebAppMetadataResult {
  * Gets the metadata of an app.
  */
 export function listWebAppMetadataOutput(args: ListWebAppMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppMetadataResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:listWebAppMetadata", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppMetadata(a, opts))
 }
 
 export interface ListWebAppMetadataOutputArgs {

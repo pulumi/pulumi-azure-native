@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-06-01-preview.
  */
 export function getActivityCustomEntityQuery(args: GetActivityCustomEntityQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityCustomEntityQueryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getActivityCustomEntityQuery", {
         "entityQueryId": args.entityQueryId,
@@ -114,12 +115,7 @@ export interface GetActivityCustomEntityQueryResult {
  * Azure REST API version: 2023-06-01-preview.
  */
 export function getActivityCustomEntityQueryOutput(args: GetActivityCustomEntityQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityCustomEntityQueryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights:getActivityCustomEntityQuery", {
-        "entityQueryId": args.entityQueryId,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getActivityCustomEntityQuery(a, opts))
 }
 
 export interface GetActivityCustomEntityQueryOutputArgs {

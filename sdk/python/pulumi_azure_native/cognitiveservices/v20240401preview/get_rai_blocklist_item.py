@@ -152,6 +152,9 @@ def get_rai_blocklist_item(account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_rai_blocklist_item)
 def get_rai_blocklist_item_output(account_name: Optional[pulumi.Input[str]] = None,
                                   rai_blocklist_item_name: Optional[pulumi.Input[str]] = None,
                                   rai_blocklist_name: Optional[pulumi.Input[str]] = None,
@@ -166,18 +169,4 @@ def get_rai_blocklist_item_output(account_name: Optional[pulumi.Input[str]] = No
     :param str rai_blocklist_name: The name of the RaiBlocklist associated with the Cognitive Services Account
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['raiBlocklistItemName'] = rai_blocklist_item_name
-    __args__['raiBlocklistName'] = rai_blocklist_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cognitiveservices/v20240401preview:getRaiBlocklistItem', __args__, opts=opts, typ=GetRaiBlocklistItemResult)
-    return __ret__.apply(lambda __response__: GetRaiBlocklistItemResult(
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

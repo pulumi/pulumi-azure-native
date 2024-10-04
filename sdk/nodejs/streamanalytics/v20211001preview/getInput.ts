@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets details about the specified input.
  */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:streamanalytics/v20211001preview:getInput", {
         "inputName": args.inputName,
@@ -59,12 +60,7 @@ export interface GetInputResult {
  * Gets details about the specified input.
  */
 export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:streamanalytics/v20211001preview:getInput", {
-        "inputName": args.inputName,
-        "jobName": args.jobName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInput(a, opts))
 }
 
 export interface GetInputOutputArgs {

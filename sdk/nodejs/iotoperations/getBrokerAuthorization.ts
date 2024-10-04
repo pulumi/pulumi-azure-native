@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-08-15-preview.
  */
 export function getBrokerAuthorization(args: GetBrokerAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerAuthorizationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperations:getBrokerAuthorization", {
         "authorizationName": args.authorizationName,
@@ -78,13 +79,7 @@ export interface GetBrokerAuthorizationResult {
  * Other available API versions: 2024-08-15-preview.
  */
 export function getBrokerAuthorizationOutput(args: GetBrokerAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerAuthorizationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:iotoperations:getBrokerAuthorization", {
-        "authorizationName": args.authorizationName,
-        "brokerName": args.brokerName,
-        "instanceName": args.instanceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBrokerAuthorization(a, opts))
 }
 
 export interface GetBrokerAuthorizationOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get information about an Automation Account.
  */
 export function getAutomationAccount(args: GetAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20230515preview:getAutomationAccount", {
         "automationAccountName": args.automationAccountName,
@@ -114,11 +115,7 @@ export interface GetAutomationAccountResult {
  * Get information about an Automation Account.
  */
 export function getAutomationAccountOutput(args: GetAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getAutomationAccount", {
-        "automationAccountName": args.automationAccountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAutomationAccount(a, opts))
 }
 
 export interface GetAutomationAccountOutputArgs {

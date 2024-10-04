@@ -266,6 +266,9 @@ def get_table(resource_group_name: Optional[str] = None,
         total_retention_in_days=pulumi.get(__ret__, 'total_retention_in_days'),
         total_retention_in_days_as_default=pulumi.get(__ret__, 'total_retention_in_days_as_default'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_table)
 def get_table_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      table_name: Optional[pulumi.Input[str]] = None,
                      workspace_name: Optional[pulumi.Input[str]] = None,
@@ -278,26 +281,4 @@ def get_table_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str table_name: The name of the table.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['tableName'] = table_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights/v20221001:getTable', __args__, opts=opts, typ=GetTableResult)
-    return __ret__.apply(lambda __response__: GetTableResult(
-        archive_retention_in_days=pulumi.get(__response__, 'archive_retention_in_days'),
-        id=pulumi.get(__response__, 'id'),
-        last_plan_modified_date=pulumi.get(__response__, 'last_plan_modified_date'),
-        name=pulumi.get(__response__, 'name'),
-        plan=pulumi.get(__response__, 'plan'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        restored_logs=pulumi.get(__response__, 'restored_logs'),
-        result_statistics=pulumi.get(__response__, 'result_statistics'),
-        retention_in_days=pulumi.get(__response__, 'retention_in_days'),
-        retention_in_days_as_default=pulumi.get(__response__, 'retention_in_days_as_default'),
-        schema=pulumi.get(__response__, 'schema'),
-        search_results=pulumi.get(__response__, 'search_results'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        total_retention_in_days=pulumi.get(__response__, 'total_retention_in_days'),
-        total_retention_in_days_as_default=pulumi.get(__response__, 'total_retention_in_days_as_default'),
-        type=pulumi.get(__response__, 'type')))
+    ...

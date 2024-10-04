@@ -113,6 +113,9 @@ def get_placement_policy(cluster_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_placement_policy)
 def get_placement_policy_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                 placement_policy_name: Optional[pulumi.Input[str]] = None,
                                 private_cloud_name: Optional[pulumi.Input[str]] = None,
@@ -127,15 +130,4 @@ def get_placement_policy_output(cluster_name: Optional[pulumi.Input[str]] = None
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['placementPolicyName'] = placement_policy_name
-    __args__['privateCloudName'] = private_cloud_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20220501:getPlacementPolicy', __args__, opts=opts, typ=GetPlacementPolicyResult)
-    return __ret__.apply(lambda __response__: GetPlacementPolicyResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -8,6 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240401preview:listWorkspaceKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -43,11 +44,7 @@ export interface ListWorkspaceKeysResult {
     readonly userStorageKey: string;
 }
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401preview:listWorkspaceKeys", {
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWorkspaceKeys(a, opts))
 }
 
 export interface ListWorkspaceKeysOutputArgs {

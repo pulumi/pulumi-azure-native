@@ -188,6 +188,9 @@ def get_replication(registry_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zone_redundancy=pulumi.get(__ret__, 'zone_redundancy'))
+
+
+@_utilities.lift_output_func(get_replication)
 def get_replication_output(registry_name: Optional[pulumi.Input[str]] = None,
                            replication_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -200,20 +203,4 @@ def get_replication_output(registry_name: Optional[pulumi.Input[str]] = None,
     :param str replication_name: The name of the replication.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['registryName'] = registry_name
-    __args__['replicationName'] = replication_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20231101preview:getReplication', __args__, opts=opts, typ=GetReplicationResult)
-    return __ret__.apply(lambda __response__: GetReplicationResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        region_endpoint_enabled=pulumi.get(__response__, 'region_endpoint_enabled'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        zone_redundancy=pulumi.get(__response__, 'zone_redundancy')))
+    ...

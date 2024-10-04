@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01.
  */
 export function getManagementGroupSubscription(args: GetManagementGroupSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management:getManagementGroupSubscription", {
         "groupId": args.groupId,
@@ -74,11 +75,7 @@ export interface GetManagementGroupSubscriptionResult {
  * Other available API versions: 2023-04-01.
  */
 export function getManagementGroupSubscriptionOutput(args: GetManagementGroupSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:management:getManagementGroupSubscription", {
-        "groupId": args.groupId,
-        "subscriptionId": args.subscriptionId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagementGroupSubscription(a, opts))
 }
 
 export interface GetManagementGroupSubscriptionOutputArgs {

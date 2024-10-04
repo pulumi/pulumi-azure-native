@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-01-01-preview, 2022-12-01-preview.
  */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal:getDashboard", {
         "dashboardName": args.dashboardName,
@@ -72,11 +73,7 @@ export interface GetDashboardResult {
  * Other available API versions: 2019-01-01-preview, 2022-12-01-preview.
  */
 export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:portal:getDashboard", {
-        "dashboardName": args.dashboardName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDashboard(a, opts))
 }
 
 export interface GetDashboardOutputArgs {

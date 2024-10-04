@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-05-15.
  */
 export function listVirtualMachineApplicableSchedules(args: ListVirtualMachineApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListVirtualMachineApplicableSchedulesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab:listVirtualMachineApplicableSchedules", {
         "labName": args.labName,
@@ -77,12 +78,7 @@ export interface ListVirtualMachineApplicableSchedulesResult {
  * Other available API versions: 2016-05-15.
  */
 export function listVirtualMachineApplicableSchedulesOutput(args: ListVirtualMachineApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVirtualMachineApplicableSchedulesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devtestlab:listVirtualMachineApplicableSchedules", {
-        "labName": args.labName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listVirtualMachineApplicableSchedules(a, opts))
 }
 
 export interface ListVirtualMachineApplicableSchedulesOutputArgs {

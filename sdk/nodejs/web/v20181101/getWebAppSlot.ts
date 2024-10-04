@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of a web, mobile, or API app.
  */
 export function getWebAppSlot(args: GetWebAppSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20181101:getWebAppSlot", {
         "name": args.name,
@@ -219,12 +220,7 @@ export interface GetWebAppSlotResult {
  * Gets the details of a web, mobile, or API app.
  */
 export function getWebAppSlotOutput(args: GetWebAppSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20181101:getWebAppSlot", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppSlot(a, opts))
 }
 
 export interface GetWebAppSlotOutputArgs {

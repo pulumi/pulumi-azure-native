@@ -276,6 +276,9 @@ def get_monitor(monitor_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zone_redundancy_preference=pulumi.get(__ret__, 'zone_redundancy_preference'))
+
+
+@_utilities.lift_output_func(get_monitor)
 def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
@@ -286,26 +289,4 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
     :param str monitor_name: Name of the SAP monitor resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['monitorName'] = monitor_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20230401:getMonitor', __args__, opts=opts, typ=GetMonitorResult)
-    return __ret__.apply(lambda __response__: GetMonitorResult(
-        app_location=pulumi.get(__response__, 'app_location'),
-        errors=pulumi.get(__response__, 'errors'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        log_analytics_workspace_arm_id=pulumi.get(__response__, 'log_analytics_workspace_arm_id'),
-        managed_resource_group_configuration=pulumi.get(__response__, 'managed_resource_group_configuration'),
-        monitor_subnet=pulumi.get(__response__, 'monitor_subnet'),
-        msi_arm_id=pulumi.get(__response__, 'msi_arm_id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        routing_preference=pulumi.get(__response__, 'routing_preference'),
-        storage_account_arm_id=pulumi.get(__response__, 'storage_account_arm_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        zone_redundancy_preference=pulumi.get(__response__, 'zone_redundancy_preference')))
+    ...

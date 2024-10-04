@@ -148,6 +148,9 @@ def get_workspace_aad_admin(resource_group_name: Optional[str] = None,
         sid=pulumi.get(__ret__, 'sid'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workspace_aad_admin)
 def get_workspace_aad_admin_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                    workspace_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceAadAdminResult]:
@@ -161,16 +164,4 @@ def get_workspace_aad_admin_output(resource_group_name: Optional[pulumi.Input[st
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getWorkspaceAadAdmin', __args__, opts=opts, typ=GetWorkspaceAadAdminResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceAadAdminResult(
-        administrator_type=pulumi.get(__response__, 'administrator_type'),
-        id=pulumi.get(__response__, 'id'),
-        login=pulumi.get(__response__, 'login'),
-        name=pulumi.get(__response__, 'name'),
-        sid=pulumi.get(__response__, 'sid'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

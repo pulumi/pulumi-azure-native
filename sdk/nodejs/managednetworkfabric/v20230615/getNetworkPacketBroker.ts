@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves details of this Network Packet Broker.
  */
 export function getNetworkPacketBroker(args: GetNetworkPacketBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkPacketBrokerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230615:getNetworkPacketBroker", {
         "networkPacketBrokerName": args.networkPacketBrokerName,
@@ -86,11 +87,7 @@ export interface GetNetworkPacketBrokerResult {
  * Retrieves details of this Network Packet Broker.
  */
 export function getNetworkPacketBrokerOutput(args: GetNetworkPacketBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPacketBrokerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getNetworkPacketBroker", {
-        "networkPacketBrokerName": args.networkPacketBrokerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkPacketBroker(a, opts))
 }
 
 export interface GetNetworkPacketBrokerOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export function listDomainSharedAccessKeys(args: ListDomainSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainSharedAccessKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid:listDomainSharedAccessKeys", {
         "domainName": args.domainName,
@@ -49,11 +50,7 @@ export interface ListDomainSharedAccessKeysResult {
  * Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export function listDomainSharedAccessKeysOutput(args: ListDomainSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainSharedAccessKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid:listDomainSharedAccessKeys", {
-        "domainName": args.domainName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listDomainSharedAccessKeys(a, opts))
 }
 
 export interface ListDomainSharedAccessKeysOutputArgs {

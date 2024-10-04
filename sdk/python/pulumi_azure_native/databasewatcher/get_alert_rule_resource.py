@@ -189,6 +189,9 @@ def get_alert_rule_resource(alert_rule_resource_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_alert_rule_resource)
 def get_alert_rule_resource_output(alert_rule_resource_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    watcher_name: Optional[pulumi.Input[str]] = None,
@@ -202,20 +205,4 @@ def get_alert_rule_resource_output(alert_rule_resource_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str watcher_name: The database watcher name.
     """
-    __args__ = dict()
-    __args__['alertRuleResourceName'] = alert_rule_resource_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['watcherName'] = watcher_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:databasewatcher:getAlertRuleResource', __args__, opts=opts, typ=GetAlertRuleResourceResult)
-    return __ret__.apply(lambda __response__: GetAlertRuleResourceResult(
-        alert_rule_resource_id=pulumi.get(__response__, 'alert_rule_resource_id'),
-        alert_rule_template_id=pulumi.get(__response__, 'alert_rule_template_id'),
-        alert_rule_template_version=pulumi.get(__response__, 'alert_rule_template_version'),
-        created_with_properties=pulumi.get(__response__, 'created_with_properties'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

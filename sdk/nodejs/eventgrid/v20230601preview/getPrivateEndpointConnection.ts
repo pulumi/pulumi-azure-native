@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a specific private endpoint connection under a topic, domain, or partner namespace or namespace.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20230601preview:getPrivateEndpointConnection", {
         "parentName": args.parentName,
@@ -73,13 +74,7 @@ export interface GetPrivateEndpointConnectionResult {
  * Get a specific private endpoint connection under a topic, domain, or partner namespace or namespace.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20230601preview:getPrivateEndpointConnection", {
-        "parentName": args.parentName,
-        "parentType": args.parentType,
-        "privateEndpointConnectionName": args.privateEndpointConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionOutputArgs {

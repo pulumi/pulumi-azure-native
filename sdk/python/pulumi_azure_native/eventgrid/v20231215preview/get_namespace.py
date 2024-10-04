@@ -265,6 +265,9 @@ def get_namespace(namespace_name: Optional[str] = None,
         topic_spaces_configuration=pulumi.get(__ret__, 'topic_spaces_configuration'),
         topics_configuration=pulumi.get(__ret__, 'topics_configuration'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_namespace)
 def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
@@ -275,25 +278,4 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: Name of the namespace.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    __args__ = dict()
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20231215preview:getNamespace', __args__, opts=opts, typ=GetNamespaceResult)
-    return __ret__.apply(lambda __response__: GetNamespaceResult(
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        inbound_ip_rules=pulumi.get(__response__, 'inbound_ip_rules'),
-        is_zone_redundant=pulumi.get(__response__, 'is_zone_redundant'),
-        location=pulumi.get(__response__, 'location'),
-        minimum_tls_version_allowed=pulumi.get(__response__, 'minimum_tls_version_allowed'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        topic_spaces_configuration=pulumi.get(__response__, 'topic_spaces_configuration'),
-        topics_configuration=pulumi.get(__response__, 'topics_configuration'),
-        type=pulumi.get(__response__, 'type')))
+    ...

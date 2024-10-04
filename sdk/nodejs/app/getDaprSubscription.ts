@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-11-02-preview, 2024-02-02-preview.
  */
 export function getDaprSubscription(args: GetDaprSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDaprSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app:getDaprSubscription", {
         "environmentName": args.environmentName,
@@ -93,12 +94,7 @@ export interface GetDaprSubscriptionResult {
  * Other available API versions: 2023-11-02-preview, 2024-02-02-preview.
  */
 export function getDaprSubscriptionOutput(args: GetDaprSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaprSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app:getDaprSubscription", {
-        "environmentName": args.environmentName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDaprSubscription(a, opts))
 }
 
 export interface GetDaprSubscriptionOutputArgs {

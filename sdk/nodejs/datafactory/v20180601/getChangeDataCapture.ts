@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a change data capture.
  */
 export function getChangeDataCapture(args: GetChangeDataCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetChangeDataCaptureResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getChangeDataCapture", {
         "changeDataCaptureName": args.changeDataCaptureName,
@@ -87,12 +88,7 @@ export interface GetChangeDataCaptureResult {
  * Gets a change data capture.
  */
 export function getChangeDataCaptureOutput(args: GetChangeDataCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChangeDataCaptureResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getChangeDataCapture", {
-        "changeDataCaptureName": args.changeDataCaptureName,
-        "factoryName": args.factoryName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getChangeDataCapture(a, opts))
 }
 
 export interface GetChangeDataCaptureOutputArgs {

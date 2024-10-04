@@ -71,6 +71,9 @@ def list_linker_configurations(linker_name: Optional[str] = None,
 
     return AwaitableListLinkerConfigurationsResult(
         configurations=pulumi.get(__ret__, 'configurations'))
+
+
+@_utilities.lift_output_func(list_linker_configurations)
 def list_linker_configurations_output(linker_name: Optional[pulumi.Input[str]] = None,
                                       resource_uri: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLinkerConfigurationsResult]:
@@ -84,10 +87,4 @@ def list_linker_configurations_output(linker_name: Optional[pulumi.Input[str]] =
     :param str linker_name: The name Linker resource.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
-    __args__ = dict()
-    __args__['linkerName'] = linker_name
-    __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicelinker:listLinkerConfigurations', __args__, opts=opts, typ=ListLinkerConfigurationsResult)
-    return __ret__.apply(lambda __response__: ListLinkerConfigurationsResult(
-        configurations=pulumi.get(__response__, 'configurations')))
+    ...

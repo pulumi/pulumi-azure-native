@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an integration account schema.
  */
 export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20160601:getSchema", {
         "integrationAccountName": args.integrationAccountName,
@@ -103,12 +104,7 @@ export interface GetSchemaResult {
  * Gets an integration account schema.
  */
 export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic/v20160601:getSchema", {
-        "integrationAccountName": args.integrationAccountName,
-        "resourceGroupName": args.resourceGroupName,
-        "schemaName": args.schemaName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSchema(a, opts))
 }
 
 export interface GetSchemaOutputArgs {

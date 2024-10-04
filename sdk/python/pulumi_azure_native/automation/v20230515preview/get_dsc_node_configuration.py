@@ -188,6 +188,9 @@ def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
         source=pulumi.get(__ret__, 'source'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_dsc_node_configuration)
 def get_dsc_node_configuration_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                       node_configuration_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -200,20 +203,4 @@ def get_dsc_node_configuration_output(automation_account_name: Optional[pulumi.I
     :param str node_configuration_name: The Dsc node configuration name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    __args__ = dict()
-    __args__['automationAccountName'] = automation_account_name
-    __args__['nodeConfigurationName'] = node_configuration_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:getDscNodeConfiguration', __args__, opts=opts, typ=GetDscNodeConfigurationResult)
-    return __ret__.apply(lambda __response__: GetDscNodeConfigurationResult(
-        configuration=pulumi.get(__response__, 'configuration'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        id=pulumi.get(__response__, 'id'),
-        increment_node_configuration_build=pulumi.get(__response__, 'increment_node_configuration_build'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        name=pulumi.get(__response__, 'name'),
-        node_count=pulumi.get(__response__, 'node_count'),
-        source=pulumi.get(__response__, 'source'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

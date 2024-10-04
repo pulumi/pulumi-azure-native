@@ -695,6 +695,9 @@ def get_volume(account_name: Optional[str] = None,
         volume_group_name=pulumi.get(__ret__, 'volume_group_name'),
         volume_spec_name=pulumi.get(__ret__, 'volume_spec_name'),
         volume_type=pulumi.get(__ret__, 'volume_type'))
+
+
+@_utilities.lift_output_func(get_volume)
 def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
                       pool_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -709,60 +712,4 @@ def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str volume_name: The name of the volume
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['poolName'] = pool_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['volumeName'] = volume_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20211001:getVolume', __args__, opts=opts, typ=GetVolumeResult)
-    return __ret__.apply(lambda __response__: GetVolumeResult(
-        avs_data_store=pulumi.get(__response__, 'avs_data_store'),
-        backup_id=pulumi.get(__response__, 'backup_id'),
-        baremetal_tenant_id=pulumi.get(__response__, 'baremetal_tenant_id'),
-        capacity_pool_resource_id=pulumi.get(__response__, 'capacity_pool_resource_id'),
-        clone_progress=pulumi.get(__response__, 'clone_progress'),
-        cool_access=pulumi.get(__response__, 'cool_access'),
-        coolness_period=pulumi.get(__response__, 'coolness_period'),
-        creation_token=pulumi.get(__response__, 'creation_token'),
-        data_protection=pulumi.get(__response__, 'data_protection'),
-        default_group_quota_in_ki_bs=pulumi.get(__response__, 'default_group_quota_in_ki_bs'),
-        default_user_quota_in_ki_bs=pulumi.get(__response__, 'default_user_quota_in_ki_bs'),
-        enable_subvolumes=pulumi.get(__response__, 'enable_subvolumes'),
-        encryption_key_source=pulumi.get(__response__, 'encryption_key_source'),
-        etag=pulumi.get(__response__, 'etag'),
-        export_policy=pulumi.get(__response__, 'export_policy'),
-        file_system_id=pulumi.get(__response__, 'file_system_id'),
-        id=pulumi.get(__response__, 'id'),
-        is_default_quota_enabled=pulumi.get(__response__, 'is_default_quota_enabled'),
-        is_restoring=pulumi.get(__response__, 'is_restoring'),
-        kerberos_enabled=pulumi.get(__response__, 'kerberos_enabled'),
-        ldap_enabled=pulumi.get(__response__, 'ldap_enabled'),
-        location=pulumi.get(__response__, 'location'),
-        maximum_number_of_files=pulumi.get(__response__, 'maximum_number_of_files'),
-        mount_targets=pulumi.get(__response__, 'mount_targets'),
-        name=pulumi.get(__response__, 'name'),
-        network_features=pulumi.get(__response__, 'network_features'),
-        network_sibling_set_id=pulumi.get(__response__, 'network_sibling_set_id'),
-        placement_rules=pulumi.get(__response__, 'placement_rules'),
-        protocol_types=pulumi.get(__response__, 'protocol_types'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        proximity_placement_group=pulumi.get(__response__, 'proximity_placement_group'),
-        security_style=pulumi.get(__response__, 'security_style'),
-        service_level=pulumi.get(__response__, 'service_level'),
-        smb_continuously_available=pulumi.get(__response__, 'smb_continuously_available'),
-        smb_encryption=pulumi.get(__response__, 'smb_encryption'),
-        snapshot_directory_visible=pulumi.get(__response__, 'snapshot_directory_visible'),
-        snapshot_id=pulumi.get(__response__, 'snapshot_id'),
-        storage_to_network_proximity=pulumi.get(__response__, 'storage_to_network_proximity'),
-        subnet_id=pulumi.get(__response__, 'subnet_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        t2_network=pulumi.get(__response__, 't2_network'),
-        tags=pulumi.get(__response__, 'tags'),
-        throughput_mibps=pulumi.get(__response__, 'throughput_mibps'),
-        type=pulumi.get(__response__, 'type'),
-        unix_permissions=pulumi.get(__response__, 'unix_permissions'),
-        usage_threshold=pulumi.get(__response__, 'usage_threshold'),
-        volume_group_name=pulumi.get(__response__, 'volume_group_name'),
-        volume_spec_name=pulumi.get(__response__, 'volume_spec_name'),
-        volume_type=pulumi.get(__response__, 'volume_type')))
+    ...

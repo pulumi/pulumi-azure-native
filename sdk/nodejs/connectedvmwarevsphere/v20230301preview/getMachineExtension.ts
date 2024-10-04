@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The operation to get the extension.
  */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20230301preview:getMachineExtension", {
         "extensionName": args.extensionName,
@@ -103,12 +104,7 @@ export interface GetMachineExtensionResult {
  * The operation to get the extension.
  */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere/v20230301preview:getMachineExtension", {
-        "extensionName": args.extensionName,
-        "resourceGroupName": args.resourceGroupName,
-        "virtualMachineName": args.virtualMachineName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMachineExtension(a, opts))
 }
 
 export interface GetMachineExtensionOutputArgs {

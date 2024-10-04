@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the application settings of a static site.
  */
 export function listStaticSiteAppSettings(args: ListStaticSiteAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteAppSettingsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210201:listStaticSiteAppSettings", {
         "name": args.name,
@@ -55,11 +56,7 @@ export interface ListStaticSiteAppSettingsResult {
  * Gets the application settings of a static site.
  */
 export function listStaticSiteAppSettingsOutput(args: ListStaticSiteAppSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteAppSettingsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20210201:listStaticSiteAppSettings", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listStaticSiteAppSettings(a, opts))
 }
 
 export interface ListStaticSiteAppSettingsOutputArgs {

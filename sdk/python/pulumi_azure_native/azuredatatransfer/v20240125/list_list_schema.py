@@ -84,6 +84,9 @@ def list_list_schema(connection_id: Optional[str] = None,
 
     return AwaitableListListSchemaResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_list_schema)
 def list_list_schema_output(connection_id: Optional[pulumi.Input[Optional[str]]] = None,
                             content: Optional[pulumi.Input[Optional[str]]] = None,
                             id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -104,15 +107,4 @@ def list_list_schema_output(connection_id: Optional[pulumi.Input[Optional[str]]]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param Union[str, 'SchemaStatus'] status: Status of the schema
     """
-    __args__ = dict()
-    __args__['connectionId'] = connection_id
-    __args__['content'] = content
-    __args__['id'] = id
-    __args__['name'] = name
-    __args__['pipelineName'] = pipeline_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['status'] = status
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azuredatatransfer/v20240125:listListSchema', __args__, opts=opts, typ=ListListSchemaResult)
-    return __ret__.apply(lambda __response__: ListListSchemaResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

@@ -165,6 +165,9 @@ def get_route_map(resource_group_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         rules=pulumi.get(__ret__, 'rules'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_route_map)
 def get_route_map_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          route_map_name: Optional[pulumi.Input[str]] = None,
                          virtual_hub_name: Optional[pulumi.Input[str]] = None,
@@ -180,18 +183,4 @@ def get_route_map_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str route_map_name: The name of the RouteMap.
     :param str virtual_hub_name: The name of the VirtualHub containing the RouteMap.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['routeMapName'] = route_map_name
-    __args__['virtualHubName'] = virtual_hub_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getRouteMap', __args__, opts=opts, typ=GetRouteMapResult)
-    return __ret__.apply(lambda __response__: GetRouteMapResult(
-        associated_inbound_connections=pulumi.get(__response__, 'associated_inbound_connections'),
-        associated_outbound_connections=pulumi.get(__response__, 'associated_outbound_connections'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        rules=pulumi.get(__response__, 'rules'),
-        type=pulumi.get(__response__, 'type')))
+    ...

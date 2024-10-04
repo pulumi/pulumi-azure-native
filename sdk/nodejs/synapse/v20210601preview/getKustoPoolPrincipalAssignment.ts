@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a Kusto pool principalAssignment.
  */
 export function getKustoPoolPrincipalAssignment(args: GetKustoPoolPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolPrincipalAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getKustoPoolPrincipalAssignment", {
         "kustoPoolName": args.kustoPoolName,
@@ -96,13 +97,7 @@ export interface GetKustoPoolPrincipalAssignmentResult {
  * Gets a Kusto pool principalAssignment.
  */
 export function getKustoPoolPrincipalAssignmentOutput(args: GetKustoPoolPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolPrincipalAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:getKustoPoolPrincipalAssignment", {
-        "kustoPoolName": args.kustoPoolName,
-        "principalAssignmentName": args.principalAssignmentName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getKustoPoolPrincipalAssignment(a, opts))
 }
 
 export interface GetKustoPoolPrincipalAssignmentOutputArgs {

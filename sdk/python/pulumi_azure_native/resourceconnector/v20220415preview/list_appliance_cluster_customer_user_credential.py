@@ -81,6 +81,9 @@ def list_appliance_cluster_customer_user_credential(resource_group_name: Optiona
     return AwaitableListApplianceClusterCustomerUserCredentialResult(
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'),
         ssh_keys=pulumi.get(__ret__, 'ssh_keys'))
+
+
+@_utilities.lift_output_func(list_appliance_cluster_customer_user_credential)
 def list_appliance_cluster_customer_user_credential_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                            resource_name: Optional[pulumi.Input[str]] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplianceClusterCustomerUserCredentialResult]:
@@ -91,11 +94,4 @@ def list_appliance_cluster_customer_user_credential_output(resource_group_name: 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Appliances name.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:resourceconnector/v20220415preview:listApplianceClusterCustomerUserCredential', __args__, opts=opts, typ=ListApplianceClusterCustomerUserCredentialResult)
-    return __ret__.apply(lambda __response__: ListApplianceClusterCustomerUserCredentialResult(
-        kubeconfigs=pulumi.get(__response__, 'kubeconfigs'),
-        ssh_keys=pulumi.get(__response__, 'ssh_keys')))
+    ...

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-03-08.
  */
 export function getPrivateEndpointConnectionsForSCCPowershell(args: GetPrivateEndpointConnectionsForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsForSCCPowershellResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance:getPrivateEndpointConnectionsForSCCPowershell", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
@@ -73,12 +74,7 @@ export interface GetPrivateEndpointConnectionsForSCCPowershellResult {
  * Azure REST API version: 2021-03-08.
  */
 export function getPrivateEndpointConnectionsForSCCPowershellOutput(args: GetPrivateEndpointConnectionsForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsForSCCPowershellResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityandcompliance:getPrivateEndpointConnectionsForSCCPowershell", {
-        "privateEndpointConnectionName": args.privateEndpointConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsForSCCPowershell(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionsForSCCPowershellOutputArgs {

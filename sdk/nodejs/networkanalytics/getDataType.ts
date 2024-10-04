@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-11-15.
  */
 export function getDataType(args: GetDataTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetDataTypeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkanalytics:getDataType", {
         "dataProductName": args.dataProductName,
@@ -89,12 +90,7 @@ export interface GetDataTypeResult {
  * Azure REST API version: 2023-11-15.
  */
 export function getDataTypeOutput(args: GetDataTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataTypeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkanalytics:getDataType", {
-        "dataProductName": args.dataProductName,
-        "dataTypeName": args.dataTypeName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDataType(a, opts))
 }
 
 export interface GetDataTypeOutputArgs {

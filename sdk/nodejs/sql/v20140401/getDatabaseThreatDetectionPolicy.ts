@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a database's threat detection policy.
  */
 export function getDatabaseThreatDetectionPolicy(args: GetDatabaseThreatDetectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseThreatDetectionPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", {
         "databaseName": args.databaseName,
@@ -93,13 +94,7 @@ export interface GetDatabaseThreatDetectionPolicyResult {
  * Gets a database's threat detection policy.
  */
 export function getDatabaseThreatDetectionPolicyOutput(args: GetDatabaseThreatDetectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseThreatDetectionPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", {
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-        "securityAlertPolicyName": args.securityAlertPolicyName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDatabaseThreatDetectionPolicy(a, opts))
 }
 
 export interface GetDatabaseThreatDetectionPolicyOutputArgs {

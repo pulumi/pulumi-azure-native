@@ -174,6 +174,9 @@ def get_route(resource_group_name: Optional[str] = None,
         next_hop_type=pulumi.get(__ret__, 'next_hop_type'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_route)
 def get_route_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      route_name: Optional[pulumi.Input[str]] = None,
                      route_table_name: Optional[pulumi.Input[str]] = None,
@@ -186,19 +189,4 @@ def get_route_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str route_name: The name of the route.
     :param str route_table_name: The name of the route table.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['routeName'] = route_name
-    __args__['routeTableName'] = route_table_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230901:getRoute', __args__, opts=opts, typ=GetRouteResult)
-    return __ret__.apply(lambda __response__: GetRouteResult(
-        address_prefix=pulumi.get(__response__, 'address_prefix'),
-        etag=pulumi.get(__response__, 'etag'),
-        has_bgp_override=pulumi.get(__response__, 'has_bgp_override'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        next_hop_ip_address=pulumi.get(__response__, 'next_hop_ip_address'),
-        next_hop_type=pulumi.get(__response__, 'next_hop_type'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        type=pulumi.get(__response__, 'type')))
+    ...

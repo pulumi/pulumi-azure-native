@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-11-01-preview.
  */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase:getPackage", {
         "packageName": args.packageName,
@@ -125,12 +126,7 @@ export interface GetPackageResult {
  * Other available API versions: 2023-11-01-preview.
  */
 export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:testbase:getPackage", {
-        "packageName": args.packageName,
-        "resourceGroupName": args.resourceGroupName,
-        "testBaseAccountName": args.testBaseAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPackage(a, opts))
 }
 
 export interface GetPackageOutputArgs {

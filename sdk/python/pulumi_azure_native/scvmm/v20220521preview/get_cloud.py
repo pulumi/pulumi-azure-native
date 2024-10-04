@@ -237,6 +237,9 @@ def get_cloud(cloud_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
+
+
+@_utilities.lift_output_func(get_cloud)
 def get_cloud_output(cloud_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudResult]:
@@ -247,23 +250,4 @@ def get_cloud_output(cloud_name: Optional[pulumi.Input[str]] = None,
     :param str cloud_name: Name of the Cloud.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['cloudName'] = cloud_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm/v20220521preview:getCloud', __args__, opts=opts, typ=GetCloudResult)
-    return __ret__.apply(lambda __response__: GetCloudResult(
-        cloud_capacity=pulumi.get(__response__, 'cloud_capacity'),
-        cloud_name=pulumi.get(__response__, 'cloud_name'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        inventory_item_id=pulumi.get(__response__, 'inventory_item_id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        storage_qo_s_policies=pulumi.get(__response__, 'storage_qo_s_policies'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        uuid=pulumi.get(__response__, 'uuid'),
-        vmm_server_id=pulumi.get(__response__, 'vmm_server_id')))
+    ...

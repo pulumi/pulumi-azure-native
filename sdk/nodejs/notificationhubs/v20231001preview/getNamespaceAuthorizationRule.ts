@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20231001preview:getNamespaceAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -105,12 +106,7 @@ export interface GetNamespaceAuthorizationRuleResult {
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20231001preview:getNamespaceAuthorizationRule", {
-        "authorizationRuleName": args.authorizationRuleName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))
 }
 
 export interface GetNamespaceAuthorizationRuleOutputArgs {

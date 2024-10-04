@@ -227,6 +227,9 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_storage_sync_service)
 def get_storage_sync_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageSyncServiceResult]:
@@ -240,22 +243,4 @@ def get_storage_sync_service_output(resource_group_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['storageSyncServiceName'] = storage_sync_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storagesync:getStorageSyncService', __args__, opts=opts, typ=GetStorageSyncServiceResult)
-    return __ret__.apply(lambda __response__: GetStorageSyncServiceResult(
-        id=pulumi.get(__response__, 'id'),
-        incoming_traffic_policy=pulumi.get(__response__, 'incoming_traffic_policy'),
-        last_operation_name=pulumi.get(__response__, 'last_operation_name'),
-        last_workflow_id=pulumi.get(__response__, 'last_workflow_id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        storage_sync_service_status=pulumi.get(__response__, 'storage_sync_service_status'),
-        storage_sync_service_uid=pulumi.get(__response__, 'storage_sync_service_uid'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

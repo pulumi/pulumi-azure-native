@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-03-01.
  */
 export function getEdgeSite(args: GetEdgeSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetEdgeSiteResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:orbital:getEdgeSite", {
         "edgeSiteName": args.edgeSiteName,
@@ -72,11 +73,7 @@ export interface GetEdgeSiteResult {
  * Other available API versions: 2024-03-01.
  */
 export function getEdgeSiteOutput(args: GetEdgeSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeSiteResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:orbital:getEdgeSite", {
-        "edgeSiteName": args.edgeSiteName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEdgeSite(a, opts))
 }
 
 export interface GetEdgeSiteOutputArgs {

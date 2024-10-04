@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getWebAppHybridConnection(args: GetWebAppHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getWebAppHybridConnection", {
         "name": args.name,
@@ -100,13 +101,7 @@ export interface GetWebAppHybridConnectionResult {
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getWebAppHybridConnectionOutput(args: GetWebAppHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHybridConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web:getWebAppHybridConnection", {
-        "name": args.name,
-        "namespaceName": args.namespaceName,
-        "relayName": args.relayName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppHybridConnection(a, opts))
 }
 
 export interface GetWebAppHybridConnectionOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-12-01-preview.
  */
 export function getScopeAccessReviewScheduleDefinitionById(args: GetScopeAccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeAccessReviewScheduleDefinitionByIdResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getScopeAccessReviewScheduleDefinitionById", {
         "scheduleDefinitionId": args.scheduleDefinitionId,
@@ -188,11 +189,7 @@ export interface GetScopeAccessReviewScheduleDefinitionByIdResult {
  * Azure REST API version: 2021-12-01-preview.
  */
 export function getScopeAccessReviewScheduleDefinitionByIdOutput(args: GetScopeAccessReviewScheduleDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeAccessReviewScheduleDefinitionByIdResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization:getScopeAccessReviewScheduleDefinitionById", {
-        "scheduleDefinitionId": args.scheduleDefinitionId,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getScopeAccessReviewScheduleDefinitionById(a, opts))
 }
 
 export interface GetScopeAccessReviewScheduleDefinitionByIdOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns the specific pipeline group instance.
  */
 export function getPipelineGroup(args: GetPipelineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:monitor/v20241001preview:getPipelineGroup", {
         "pipelineGroupName": args.pipelineGroupName,
@@ -70,11 +71,7 @@ export interface GetPipelineGroupResult {
  * Returns the specific pipeline group instance.
  */
 export function getPipelineGroupOutput(args: GetPipelineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:monitor/v20241001preview:getPipelineGroup", {
-        "pipelineGroupName": args.pipelineGroupName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPipelineGroup(a, opts))
 }
 
 export interface GetPipelineGroupOutputArgs {

@@ -149,6 +149,9 @@ def get_user(device_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         user_type=pulumi.get(__ret__, 'user_type'))
+
+
+@_utilities.lift_output_func(get_user)
 def get_user_output(device_name: Optional[pulumi.Input[str]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -161,17 +164,4 @@ def get_user_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str name: The user name.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['deviceName'] = device_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20230701:getUser', __args__, opts=opts, typ=GetUserResult)
-    return __ret__.apply(lambda __response__: GetUserResult(
-        encrypted_password=pulumi.get(__response__, 'encrypted_password'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        share_access_rights=pulumi.get(__response__, 'share_access_rights'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        user_type=pulumi.get(__response__, 'user_type')))
+    ...

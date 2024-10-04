@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a PlacementPolicy
  */
 export function getPlacementPolicy(args: GetPlacementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20230901:getPlacementPolicy", {
         "clusterName": args.clusterName,
@@ -76,13 +77,7 @@ export interface GetPlacementPolicyResult {
  * Get a PlacementPolicy
  */
 export function getPlacementPolicyOutput(args: GetPlacementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getPlacementPolicy", {
-        "clusterName": args.clusterName,
-        "placementPolicyName": args.placementPolicyName,
-        "privateCloudName": args.privateCloudName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPlacementPolicy(a, opts))
 }
 
 export interface GetPlacementPolicyOutputArgs {

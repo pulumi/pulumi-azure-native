@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a single firewall rule in a specified redis cache.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20230801:getFirewallRule", {
         "cacheName": args.cacheName,
@@ -60,12 +61,7 @@ export interface GetFirewallRuleResult {
  * Gets a single firewall rule in a specified redis cache.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cache/v20230801:getFirewallRule", {
-        "cacheName": args.cacheName,
-        "resourceGroupName": args.resourceGroupName,
-        "ruleName": args.ruleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))
 }
 
 export interface GetFirewallRuleOutputArgs {

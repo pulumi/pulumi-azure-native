@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-03-01-preview.
  */
 export function getServiceEndpoint(args: GetServiceEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recommendationsservice:getServiceEndpoint", {
         "accountName": args.accountName,
@@ -77,12 +78,7 @@ export interface GetServiceEndpointResult {
  * Other available API versions: 2022-03-01-preview.
  */
 export function getServiceEndpointOutput(args: GetServiceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:recommendationsservice:getServiceEndpoint", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceEndpointName": args.serviceEndpointName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServiceEndpoint(a, opts))
 }
 
 export interface GetServiceEndpointOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2018-06-01-preview.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformariadb:getFirewallRule", {
         "firewallRuleName": args.firewallRuleName,
@@ -66,12 +67,7 @@ export interface GetFirewallRuleResult {
  * Other available API versions: 2018-06-01-preview.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dbformariadb:getFirewallRule", {
-        "firewallRuleName": args.firewallRuleName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))
 }
 
 export interface GetFirewallRuleOutputArgs {

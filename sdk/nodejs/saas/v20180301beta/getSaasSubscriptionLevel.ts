@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about the specified Subscription Level SaaS.
  */
 export function getSaasSubscriptionLevel(args: GetSaasSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetSaasSubscriptionLevelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:saas/v20180301beta:getSaasSubscriptionLevel", {
         "resourceGroupName": args.resourceGroupName,
@@ -58,11 +59,7 @@ export interface GetSaasSubscriptionLevelResult {
  * Gets information about the specified Subscription Level SaaS.
  */
 export function getSaasSubscriptionLevelOutput(args: GetSaasSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSaasSubscriptionLevelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:saas/v20180301beta:getSaasSubscriptionLevel", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSaasSubscriptionLevel(a, opts))
 }
 
 export interface GetSaasSubscriptionLevelOutputArgs {

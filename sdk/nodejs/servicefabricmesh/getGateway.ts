@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-09-01-preview.
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh:getGateway", {
         "gatewayResourceName": args.gatewayResourceName,
@@ -96,11 +97,7 @@ export interface GetGatewayResult {
  * Azure REST API version: 2018-09-01-preview.
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh:getGateway", {
-        "gatewayResourceName": args.gatewayResourceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGateway(a, opts))
 }
 
 export interface GetGatewayOutputArgs {

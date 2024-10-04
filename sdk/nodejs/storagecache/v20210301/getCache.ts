@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns a Cache.
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagecache/v20210301:getCache", {
         "cacheName": args.cacheName,
@@ -110,11 +111,7 @@ export interface GetCacheResult {
  * Returns a Cache.
  */
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storagecache/v20210301:getCache", {
-        "cacheName": args.cacheName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCache(a, opts))
 }
 
 export interface GetCacheOutputArgs {

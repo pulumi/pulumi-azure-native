@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified agent pool in the provisioned cluster
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20240101:getAgentPool", {
         "agentPoolName": args.agentPoolName,
@@ -114,11 +115,7 @@ export interface GetAgentPoolResult {
  * Gets the specified agent pool in the provisioned cluster
  */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20240101:getAgentPool", {
-        "agentPoolName": args.agentPoolName,
-        "connectedClusterResourceUri": args.connectedClusterResourceUri,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAgentPool(a, opts))
 }
 
 export interface GetAgentPoolOutputArgs {

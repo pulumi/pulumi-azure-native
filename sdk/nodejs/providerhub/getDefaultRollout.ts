@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-09-01-preview.
  */
 export function getDefaultRollout(args: GetDefaultRolloutArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultRolloutResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub:getDefaultRollout", {
         "providerNamespace": args.providerNamespace,
@@ -60,11 +61,7 @@ export interface GetDefaultRolloutResult {
  * Azure REST API version: 2021-09-01-preview.
  */
 export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultRolloutResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:providerhub:getDefaultRollout", {
-        "providerNamespace": args.providerNamespace,
-        "rolloutName": args.rolloutName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDefaultRollout(a, opts))
 }
 
 export interface GetDefaultRolloutOutputArgs {

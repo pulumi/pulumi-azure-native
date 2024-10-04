@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get a KPack build result log download URL.
  */
 export function getBuildServiceBuildResultLog(args: GetBuildServiceBuildResultLogArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceBuildResultLogResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20230701preview:getBuildServiceBuildResultLog", {
         "buildName": args.buildName,
@@ -54,14 +55,7 @@ export interface GetBuildServiceBuildResultLogResult {
  * Get a KPack build result log download URL.
  */
 export function getBuildServiceBuildResultLogOutput(args: GetBuildServiceBuildResultLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceBuildResultLogResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230701preview:getBuildServiceBuildResultLog", {
-        "buildName": args.buildName,
-        "buildResultName": args.buildResultName,
-        "buildServiceName": args.buildServiceName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBuildServiceBuildResultLog(a, opts))
 }
 
 export interface GetBuildServiceBuildResultLogOutputArgs {

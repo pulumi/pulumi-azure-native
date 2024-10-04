@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a catalog
  */
 export function getCatalog(args: GetCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20231001preview:getCatalog", {
         "catalogName": args.catalogName,
@@ -95,12 +96,7 @@ export interface GetCatalogResult {
  * Gets a catalog
  */
 export function getCatalogOutput(args: GetCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCatalogResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20231001preview:getCatalog", {
-        "catalogName": args.catalogName,
-        "devCenterName": args.devCenterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCatalog(a, opts))
 }
 
 export interface GetCatalogOutputArgs {

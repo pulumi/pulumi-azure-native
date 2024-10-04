@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-04-26.
  */
 export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<GetKpiResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights:getKpi", {
         "hubName": args.hubName,
@@ -133,12 +134,7 @@ export interface GetKpiResult {
  * Azure REST API version: 2017-04-26.
  */
 export function getKpiOutput(args: GetKpiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKpiResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:customerinsights:getKpi", {
-        "hubName": args.hubName,
-        "kpiName": args.kpiName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getKpi(a, opts))
 }
 
 export interface GetKpiOutputArgs {

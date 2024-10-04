@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview.
  */
 export function getLabelingJob(args: GetLabelingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelingJobResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getLabelingJob", {
         "id": args.id,
@@ -79,14 +80,7 @@ export interface GetLabelingJobResult {
  * Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview.
  */
 export function getLabelingJobOutput(args: GetLabelingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelingJobResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getLabelingJob", {
-        "id": args.id,
-        "includeJobInstructions": args.includeJobInstructions,
-        "includeLabelCategories": args.includeLabelCategories,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLabelingJob(a, opts))
 }
 
 export interface GetLabelingJobOutputArgs {

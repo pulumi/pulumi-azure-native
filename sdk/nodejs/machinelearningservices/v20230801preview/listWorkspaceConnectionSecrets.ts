@@ -8,6 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function listWorkspaceConnectionSecrets(args: ListWorkspaceConnectionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceConnectionSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230801preview:listWorkspaceConnectionSecrets", {
         "aoaiModelsToDeploy": args.aoaiModelsToDeploy,
@@ -56,13 +57,7 @@ export interface ListWorkspaceConnectionSecretsResult {
     readonly type: string;
 }
 export function listWorkspaceConnectionSecretsOutput(args: ListWorkspaceConnectionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceConnectionSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230801preview:listWorkspaceConnectionSecrets", {
-        "aoaiModelsToDeploy": args.aoaiModelsToDeploy,
-        "connectionName": args.connectionName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWorkspaceConnectionSecrets(a, opts))
 }
 
 export interface ListWorkspaceConnectionSecretsOutputArgs {

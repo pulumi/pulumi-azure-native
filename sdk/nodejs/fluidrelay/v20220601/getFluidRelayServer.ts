@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * A FluidRelay Server.
  */
 export function getFluidRelayServer(args: GetFluidRelayServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFluidRelayServerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:fluidrelay/v20220601:getFluidRelayServer", {
         "fluidRelayServerName": args.fluidRelayServerName,
@@ -86,11 +87,7 @@ export interface GetFluidRelayServerResult {
  * A FluidRelay Server.
  */
 export function getFluidRelayServerOutput(args: GetFluidRelayServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluidRelayServerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:fluidrelay/v20220601:getFluidRelayServer", {
-        "fluidRelayServerName": args.fluidRelayServerName,
-        "resourceGroup": args.resourceGroup,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFluidRelayServer(a, opts))
 }
 
 export interface GetFluidRelayServerOutputArgs {

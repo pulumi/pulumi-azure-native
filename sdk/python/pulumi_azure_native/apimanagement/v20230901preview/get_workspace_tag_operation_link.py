@@ -115,6 +115,9 @@ def get_workspace_tag_operation_link(operation_link_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         operation_id=pulumi.get(__ret__, 'operation_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workspace_tag_operation_link)
 def get_workspace_tag_operation_link_output(operation_link_id: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             service_name: Optional[pulumi.Input[str]] = None,
@@ -131,16 +134,4 @@ def get_workspace_tag_operation_link_output(operation_link_id: Optional[pulumi.I
     :param str tag_id: Tag identifier. Must be unique in the current API Management service instance.
     :param str workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
     """
-    __args__ = dict()
-    __args__['operationLinkId'] = operation_link_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    __args__['tagId'] = tag_id
-    __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getWorkspaceTagOperationLink', __args__, opts=opts, typ=GetWorkspaceTagOperationLinkResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceTagOperationLinkResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        operation_id=pulumi.get(__response__, 'operation_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -232,6 +232,9 @@ def get_subvolume_metadata(account_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         size=pulumi.get(__ret__, 'size'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_subvolume_metadata)
 def get_subvolume_metadata_output(account_name: Optional[pulumi.Input[str]] = None,
                                   pool_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -248,25 +251,4 @@ def get_subvolume_metadata_output(account_name: Optional[pulumi.Input[str]] = No
     :param str subvolume_name: The name of the subvolume.
     :param str volume_name: The name of the volume
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['poolName'] = pool_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['subvolumeName'] = subvolume_name
-    __args__['volumeName'] = volume_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20240301:getSubvolumeMetadata', __args__, opts=opts, typ=GetSubvolumeMetadataResult)
-    return __ret__.apply(lambda __response__: GetSubvolumeMetadataResult(
-        accessed_time_stamp=pulumi.get(__response__, 'accessed_time_stamp'),
-        bytes_used=pulumi.get(__response__, 'bytes_used'),
-        changed_time_stamp=pulumi.get(__response__, 'changed_time_stamp'),
-        creation_time_stamp=pulumi.get(__response__, 'creation_time_stamp'),
-        id=pulumi.get(__response__, 'id'),
-        modified_time_stamp=pulumi.get(__response__, 'modified_time_stamp'),
-        name=pulumi.get(__response__, 'name'),
-        parent_path=pulumi.get(__response__, 'parent_path'),
-        path=pulumi.get(__response__, 'path'),
-        permissions=pulumi.get(__response__, 'permissions'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        size=pulumi.get(__response__, 'size'),
-        type=pulumi.get(__response__, 'type')))
+    ...

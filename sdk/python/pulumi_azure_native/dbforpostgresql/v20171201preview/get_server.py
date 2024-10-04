@@ -341,6 +341,9 @@ def get_server(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_visible_state=pulumi.get(__ret__, 'user_visible_state'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_server)
 def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       server_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
@@ -351,31 +354,4 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20171201preview:getServer', __args__, opts=opts, typ=GetServerResult)
-    return __ret__.apply(lambda __response__: GetServerResult(
-        administrator_login=pulumi.get(__response__, 'administrator_login'),
-        byok_enforcement=pulumi.get(__response__, 'byok_enforcement'),
-        earliest_restore_date=pulumi.get(__response__, 'earliest_restore_date'),
-        fully_qualified_domain_name=pulumi.get(__response__, 'fully_qualified_domain_name'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        infrastructure_encryption=pulumi.get(__response__, 'infrastructure_encryption'),
-        location=pulumi.get(__response__, 'location'),
-        master_server_id=pulumi.get(__response__, 'master_server_id'),
-        minimal_tls_version=pulumi.get(__response__, 'minimal_tls_version'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        replica_capacity=pulumi.get(__response__, 'replica_capacity'),
-        replication_role=pulumi.get(__response__, 'replication_role'),
-        sku=pulumi.get(__response__, 'sku'),
-        ssl_enforcement=pulumi.get(__response__, 'ssl_enforcement'),
-        storage_profile=pulumi.get(__response__, 'storage_profile'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        user_visible_state=pulumi.get(__response__, 'user_visible_state'),
-        version=pulumi.get(__response__, 'version')))
+    ...

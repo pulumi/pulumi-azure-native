@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified cache rule resource.
  */
 export function getCacheRule(args: GetCacheRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20230701:getCacheRule", {
         "cacheRuleName": args.cacheRuleName,
@@ -80,12 +81,7 @@ export interface GetCacheRuleResult {
  * Gets the properties of the specified cache rule resource.
  */
 export function getCacheRuleOutput(args: GetCacheRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230701:getCacheRule", {
-        "cacheRuleName": args.cacheRuleName,
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCacheRule(a, opts))
 }
 
 export interface GetCacheRuleOutputArgs {

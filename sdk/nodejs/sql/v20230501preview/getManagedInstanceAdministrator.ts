@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a managed instance administrator.
  */
 export function getManagedInstanceAdministrator(args: GetManagedInstanceAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceAdministratorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230501preview:getManagedInstanceAdministrator", {
         "administratorName": args.administratorName,
@@ -65,12 +66,7 @@ export interface GetManagedInstanceAdministratorResult {
  * Gets a managed instance administrator.
  */
 export function getManagedInstanceAdministratorOutput(args: GetManagedInstanceAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceAdministratorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20230501preview:getManagedInstanceAdministrator", {
-        "administratorName": args.administratorName,
-        "managedInstanceName": args.managedInstanceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedInstanceAdministrator(a, opts))
 }
 
 export interface GetManagedInstanceAdministratorOutputArgs {

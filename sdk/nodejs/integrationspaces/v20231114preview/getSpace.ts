@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Space
  */
 export function getSpace(args: GetSpaceArgs, opts?: pulumi.InvokeOptions): Promise<GetSpaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:integrationspaces/v20231114preview:getSpace", {
         "resourceGroupName": args.resourceGroupName,
@@ -70,11 +71,7 @@ export interface GetSpaceResult {
  * Get a Space
  */
 export function getSpaceOutput(args: GetSpaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:integrationspaces/v20231114preview:getSpace", {
-        "resourceGroupName": args.resourceGroupName,
-        "spaceName": args.spaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSpace(a, opts))
 }
 
 export interface GetSpaceOutputArgs {

@@ -282,6 +282,9 @@ def get_endpoint(endpoint_name: Optional[str] = None,
         target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
         type=pulumi.get(__ret__, 'type'),
         weight=pulumi.get(__ret__, 'weight'))
+
+
+@_utilities.lift_output_func(get_endpoint)
 def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         endpoint_type: Optional[pulumi.Input[str]] = None,
                         profile_name: Optional[pulumi.Input[str]] = None,
@@ -296,28 +299,4 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['endpointName'] = endpoint_name
-    __args__['endpointType'] = endpoint_type
-    __args__['profileName'] = profile_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20220401preview:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
-    return __ret__.apply(lambda __response__: GetEndpointResult(
-        always_serve=pulumi.get(__response__, 'always_serve'),
-        custom_headers=pulumi.get(__response__, 'custom_headers'),
-        endpoint_location=pulumi.get(__response__, 'endpoint_location'),
-        endpoint_monitor_status=pulumi.get(__response__, 'endpoint_monitor_status'),
-        endpoint_status=pulumi.get(__response__, 'endpoint_status'),
-        geo_mapping=pulumi.get(__response__, 'geo_mapping'),
-        id=pulumi.get(__response__, 'id'),
-        min_child_endpoints=pulumi.get(__response__, 'min_child_endpoints'),
-        min_child_endpoints_i_pv4=pulumi.get(__response__, 'min_child_endpoints_i_pv4'),
-        min_child_endpoints_i_pv6=pulumi.get(__response__, 'min_child_endpoints_i_pv6'),
-        name=pulumi.get(__response__, 'name'),
-        priority=pulumi.get(__response__, 'priority'),
-        subnets=pulumi.get(__response__, 'subnets'),
-        target=pulumi.get(__response__, 'target'),
-        target_resource_id=pulumi.get(__response__, 'target_resource_id'),
-        type=pulumi.get(__response__, 'type'),
-        weight=pulumi.get(__response__, 'weight')))
+    ...

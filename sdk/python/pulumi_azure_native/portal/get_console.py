@@ -66,6 +66,9 @@ def get_console(console_name: Optional[str] = None,
 
     return AwaitableGetConsoleResult(
         properties=pulumi.get(__ret__, 'properties'))
+
+
+@_utilities.lift_output_func(get_console)
 def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsoleResult]:
     """
@@ -75,9 +78,4 @@ def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
 
     :param str console_name: The name of the console
     """
-    __args__ = dict()
-    __args__['consoleName'] = console_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:portal:getConsole', __args__, opts=opts, typ=GetConsoleResult)
-    return __ret__.apply(lambda __response__: GetConsoleResult(
-        properties=pulumi.get(__response__, 'properties')))
+    ...

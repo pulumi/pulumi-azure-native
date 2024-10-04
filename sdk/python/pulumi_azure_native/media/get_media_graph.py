@@ -176,6 +176,9 @@ def get_media_graph(account_name: Optional[str] = None,
         sources=pulumi.get(__ret__, 'sources'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_media_graph)
 def get_media_graph_output(account_name: Optional[pulumi.Input[str]] = None,
                            media_graph_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -189,19 +192,4 @@ def get_media_graph_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str media_graph_name: The Media Graph name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['mediaGraphName'] = media_graph_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:media:getMediaGraph', __args__, opts=opts, typ=GetMediaGraphResult)
-    return __ret__.apply(lambda __response__: GetMediaGraphResult(
-        created=pulumi.get(__response__, 'created'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        last_modified=pulumi.get(__response__, 'last_modified'),
-        name=pulumi.get(__response__, 'name'),
-        sinks=pulumi.get(__response__, 'sinks'),
-        sources=pulumi.get(__response__, 'sources'),
-        state=pulumi.get(__response__, 'state'),
-        type=pulumi.get(__response__, 'type')))
+    ...

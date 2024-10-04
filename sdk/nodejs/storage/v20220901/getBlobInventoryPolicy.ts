@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the blob inventory policy associated with the specified storage account.
  */
 export function getBlobInventoryPolicy(args: GetBlobInventoryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobInventoryPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20220901:getBlobInventoryPolicy", {
         "accountName": args.accountName,
@@ -67,12 +68,7 @@ export interface GetBlobInventoryPolicyResult {
  * Gets the blob inventory policy associated with the specified storage account.
  */
 export function getBlobInventoryPolicyOutput(args: GetBlobInventoryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobInventoryPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage/v20220901:getBlobInventoryPolicy", {
-        "accountName": args.accountName,
-        "blobInventoryPolicyName": args.blobInventoryPolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBlobInventoryPolicy(a, opts))
 }
 
 export interface GetBlobInventoryPolicyOutputArgs {

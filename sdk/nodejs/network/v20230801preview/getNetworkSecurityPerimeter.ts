@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the specified network security perimeter by the name.
  */
 export function getNetworkSecurityPerimeter(args: GetNetworkSecurityPerimeterArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityPerimeterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230801preview:getNetworkSecurityPerimeter", {
         "networkSecurityPerimeterName": args.networkSecurityPerimeterName,
@@ -63,11 +64,7 @@ export interface GetNetworkSecurityPerimeterResult {
  * Gets the specified network security perimeter by the name.
  */
 export function getNetworkSecurityPerimeterOutput(args: GetNetworkSecurityPerimeterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityPerimeterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230801preview:getNetworkSecurityPerimeter", {
-        "networkSecurityPerimeterName": args.networkSecurityPerimeterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkSecurityPerimeter(a, opts))
 }
 
 export interface GetNetworkSecurityPerimeterOutputArgs {

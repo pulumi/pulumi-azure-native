@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Details of the clusters returned on successful response
  */
 export function listAccessClusters(args: ListAccessClustersArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessClustersResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:confluent/v20240213:listAccessClusters", {
         "organizationName": args.organizationName,
@@ -55,12 +56,7 @@ export interface ListAccessClustersResult {
  * Details of the clusters returned on successful response
  */
 export function listAccessClustersOutput(args: ListAccessClustersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessClustersResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:confluent/v20240213:listAccessClusters", {
-        "organizationName": args.organizationName,
-        "resourceGroupName": args.resourceGroupName,
-        "searchFilters": args.searchFilters,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listAccessClusters(a, opts))
 }
 
 export interface ListAccessClustersOutputArgs {

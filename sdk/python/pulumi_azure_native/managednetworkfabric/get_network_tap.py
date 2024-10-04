@@ -238,6 +238,9 @@ def get_network_tap(network_tap_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_network_tap)
 def get_network_tap_output(network_tap_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkTapResult]:
@@ -249,23 +252,4 @@ def get_network_tap_output(network_tap_name: Optional[pulumi.Input[str]] = None,
     :param str network_tap_name: Name of the Network Tap.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['networkTapName'] = network_tap_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getNetworkTap', __args__, opts=opts, typ=GetNetworkTapResult)
-    return __ret__.apply(lambda __response__: GetNetworkTapResult(
-        administrative_state=pulumi.get(__response__, 'administrative_state'),
-        annotation=pulumi.get(__response__, 'annotation'),
-        configuration_state=pulumi.get(__response__, 'configuration_state'),
-        destinations=pulumi.get(__response__, 'destinations'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_packet_broker_id=pulumi.get(__response__, 'network_packet_broker_id'),
-        polling_type=pulumi.get(__response__, 'polling_type'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        source_tap_rule_id=pulumi.get(__response__, 'source_tap_rule_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

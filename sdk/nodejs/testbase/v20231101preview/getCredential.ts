@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a test base credential Resource
  */
 export function getCredential(args: GetCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20231101preview:getCredential", {
         "credentialName": args.credentialName,
@@ -67,12 +68,7 @@ export interface GetCredentialResult {
  * Gets a test base credential Resource
  */
 export function getCredentialOutput(args: GetCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getCredential", {
-        "credentialName": args.credentialName,
-        "resourceGroupName": args.resourceGroupName,
-        "testBaseAccountName": args.testBaseAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCredential(a, opts))
 }
 
 export interface GetCredentialOutputArgs {

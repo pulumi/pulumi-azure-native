@@ -172,6 +172,9 @@ def get_code_signing_account(account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_code_signing_account)
 def get_code_signing_account_output(account_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodeSigningAccountResult]:
@@ -182,18 +185,4 @@ def get_code_signing_account_output(account_name: Optional[pulumi.Input[str]] = 
     :param str account_name: Trusted Signing account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:codesigning/v20240205preview:getCodeSigningAccount', __args__, opts=opts, typ=GetCodeSigningAccountResult)
-    return __ret__.apply(lambda __response__: GetCodeSigningAccountResult(
-        account_uri=pulumi.get(__response__, 'account_uri'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -191,6 +191,9 @@ def get_volume(elastic_san_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         volume_id=pulumi.get(__ret__, 'volume_id'))
+
+
+@_utilities.lift_output_func(get_volume)
 def get_volume_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       volume_group_name: Optional[pulumi.Input[str]] = None,
@@ -205,21 +208,4 @@ def get_volume_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
     :param str volume_group_name: The name of the VolumeGroup.
     :param str volume_name: The name of the Volume.
     """
-    __args__ = dict()
-    __args__['elasticSanName'] = elastic_san_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['volumeGroupName'] = volume_group_name
-    __args__['volumeName'] = volume_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:elasticsan/v20240601preview:getVolume', __args__, opts=opts, typ=GetVolumeResult)
-    return __ret__.apply(lambda __response__: GetVolumeResult(
-        creation_data=pulumi.get(__response__, 'creation_data'),
-        id=pulumi.get(__response__, 'id'),
-        managed_by=pulumi.get(__response__, 'managed_by'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        size_gi_b=pulumi.get(__response__, 'size_gi_b'),
-        storage_target=pulumi.get(__response__, 'storage_target'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        volume_id=pulumi.get(__response__, 'volume_id')))
+    ...

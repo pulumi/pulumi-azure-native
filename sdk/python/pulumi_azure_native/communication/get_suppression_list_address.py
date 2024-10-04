@@ -195,6 +195,9 @@ def get_suppression_list_address(address_id: Optional[str] = None,
         notes=pulumi.get(__ret__, 'notes'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_suppression_list_address)
 def get_suppression_list_address_output(address_id: Optional[pulumi.Input[str]] = None,
                                         domain_name: Optional[pulumi.Input[str]] = None,
                                         email_service_name: Optional[pulumi.Input[str]] = None,
@@ -212,22 +215,4 @@ def get_suppression_list_address_output(address_id: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str suppression_list_name: The name of the suppression list.
     """
-    __args__ = dict()
-    __args__['addressId'] = address_id
-    __args__['domainName'] = domain_name
-    __args__['emailServiceName'] = email_service_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['suppressionListName'] = suppression_list_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:communication:getSuppressionListAddress', __args__, opts=opts, typ=GetSuppressionListAddressResult)
-    return __ret__.apply(lambda __response__: GetSuppressionListAddressResult(
-        data_location=pulumi.get(__response__, 'data_location'),
-        email=pulumi.get(__response__, 'email'),
-        first_name=pulumi.get(__response__, 'first_name'),
-        id=pulumi.get(__response__, 'id'),
-        last_modified=pulumi.get(__response__, 'last_modified'),
-        last_name=pulumi.get(__response__, 'last_name'),
-        name=pulumi.get(__response__, 'name'),
-        notes=pulumi.get(__response__, 'notes'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

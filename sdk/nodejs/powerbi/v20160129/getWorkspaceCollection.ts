@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves an existing Power BI Workspace Collection.
  */
 export function getWorkspaceCollection(args: GetWorkspaceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceCollectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:powerbi/v20160129:getWorkspaceCollection", {
         "resourceGroupName": args.resourceGroupName,
@@ -57,11 +58,7 @@ export interface GetWorkspaceCollectionResult {
  * Retrieves an existing Power BI Workspace Collection.
  */
 export function getWorkspaceCollectionOutput(args: GetWorkspaceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceCollectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:powerbi/v20160129:getWorkspaceCollection", {
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceCollectionName": args.workspaceCollectionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceCollection(a, opts))
 }
 
 export interface GetWorkspaceCollectionOutputArgs {

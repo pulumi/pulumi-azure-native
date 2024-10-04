@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about the specified relationship.
  */
 export function getRelationship(args: GetRelationshipArgs, opts?: pulumi.InvokeOptions): Promise<GetRelationshipResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getRelationship", {
         "hubName": args.hubName,
@@ -103,12 +104,7 @@ export interface GetRelationshipResult {
  * Gets information about the specified relationship.
  */
 export function getRelationshipOutput(args: GetRelationshipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRelationshipResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getRelationship", {
-        "hubName": args.hubName,
-        "relationshipName": args.relationshipName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRelationship(a, opts))
 }
 
 export interface GetRelationshipOutputArgs {

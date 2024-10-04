@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01.
  */
 export function getDaprComponent(args: GetDaprComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetDaprComponentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app:getDaprComponent", {
         "componentName": args.componentName,
@@ -97,12 +98,7 @@ export interface GetDaprComponentResult {
  * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01.
  */
 export function getDaprComponentOutput(args: GetDaprComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaprComponentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app:getDaprComponent", {
-        "componentName": args.componentName,
-        "environmentName": args.environmentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDaprComponent(a, opts))
 }
 
 export interface GetDaprComponentOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
  */
 export function getResourceSyncRule(args: GetResourceSyncRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceSyncRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:extendedlocation/v20210831preview:getResourceSyncRule", {
         "childResourceName": args.childResourceName,
@@ -83,12 +84,7 @@ export interface GetResourceSyncRuleResult {
  * Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
  */
 export function getResourceSyncRuleOutput(args: GetResourceSyncRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSyncRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:extendedlocation/v20210831preview:getResourceSyncRule", {
-        "childResourceName": args.childResourceName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getResourceSyncRule(a, opts))
 }
 
 export interface GetResourceSyncRuleOutputArgs {

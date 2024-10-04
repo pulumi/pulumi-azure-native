@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the Schema specified by its identifier.
  */
 export function getWorkspaceGlobalSchema(args: GetWorkspaceGlobalSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceGlobalSchemaResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getWorkspaceGlobalSchema", {
         "resourceGroupName": args.resourceGroupName,
@@ -73,13 +74,7 @@ export interface GetWorkspaceGlobalSchemaResult {
  * Gets the details of the Schema specified by its identifier.
  */
 export function getWorkspaceGlobalSchemaOutput(args: GetWorkspaceGlobalSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceGlobalSchemaResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getWorkspaceGlobalSchema", {
-        "resourceGroupName": args.resourceGroupName,
-        "schemaId": args.schemaId,
-        "serviceName": args.serviceName,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceGlobalSchema(a, opts))
 }
 
 export interface GetWorkspaceGlobalSchemaOutputArgs {

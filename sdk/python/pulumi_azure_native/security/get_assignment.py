@@ -277,6 +277,9 @@ def get_assignment(assignment_id: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_assignment)
 def get_assignment_output(assignment_id: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssignmentResult]:
@@ -288,26 +291,4 @@ def get_assignment_output(assignment_id: Optional[pulumi.Input[str]] = None,
     :param str assignment_id: The security assignment key - unique key for the standard assignment
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['assignmentId'] = assignment_id
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAssignment', __args__, opts=opts, typ=GetAssignmentResult)
-    return __ret__.apply(lambda __response__: GetAssignmentResult(
-        additional_data=pulumi.get(__response__, 'additional_data'),
-        assigned_component=pulumi.get(__response__, 'assigned_component'),
-        assigned_standard=pulumi.get(__response__, 'assigned_standard'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        effect=pulumi.get(__response__, 'effect'),
-        etag=pulumi.get(__response__, 'etag'),
-        expires_on=pulumi.get(__response__, 'expires_on'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        name=pulumi.get(__response__, 'name'),
-        scope=pulumi.get(__response__, 'scope'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

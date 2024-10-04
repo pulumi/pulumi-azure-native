@@ -126,6 +126,9 @@ def get_patch_schedule(default: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         schedule_entries=pulumi.get(__ret__, 'schedule_entries'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_patch_schedule)
 def get_patch_schedule_output(default: Optional[pulumi.Input[str]] = None,
                               name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -141,15 +144,4 @@ def get_patch_schedule_output(default: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['default'] = default
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cache:getPatchSchedule', __args__, opts=opts, typ=GetPatchScheduleResult)
-    return __ret__.apply(lambda __response__: GetPatchScheduleResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        schedule_entries=pulumi.get(__response__, 'schedule_entries'),
-        type=pulumi.get(__response__, 'type')))
+    ...

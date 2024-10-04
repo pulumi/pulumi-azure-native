@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a connection monitor by name.
  */
 export function getConnectionMonitor(args: GetConnectionMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230201:getConnectionMonitor", {
         "connectionMonitorName": args.connectionMonitorName,
@@ -119,12 +120,7 @@ export interface GetConnectionMonitorResult {
  * Gets a connection monitor by name.
  */
 export function getConnectionMonitorOutput(args: GetConnectionMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getConnectionMonitor", {
-        "connectionMonitorName": args.connectionMonitorName,
-        "networkWatcherName": args.networkWatcherName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConnectionMonitor(a, opts))
 }
 
 export interface GetConnectionMonitorOutputArgs {

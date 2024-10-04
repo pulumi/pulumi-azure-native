@@ -302,6 +302,9 @@ def get_server(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_server)
 def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       server_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
@@ -312,28 +315,4 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20210615privatepreview:getServer', __args__, opts=opts, typ=GetServerResult)
-    return __ret__.apply(lambda __response__: GetServerResult(
-        administrator_login=pulumi.get(__response__, 'administrator_login'),
-        availability_zone=pulumi.get(__response__, 'availability_zone'),
-        backup=pulumi.get(__response__, 'backup'),
-        fully_qualified_domain_name=pulumi.get(__response__, 'fully_qualified_domain_name'),
-        high_availability=pulumi.get(__response__, 'high_availability'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
-        minor_version=pulumi.get(__response__, 'minor_version'),
-        name=pulumi.get(__response__, 'name'),
-        network=pulumi.get(__response__, 'network'),
-        sku=pulumi.get(__response__, 'sku'),
-        state=pulumi.get(__response__, 'state'),
-        storage=pulumi.get(__response__, 'storage'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

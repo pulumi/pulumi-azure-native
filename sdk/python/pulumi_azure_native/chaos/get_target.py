@@ -145,6 +145,9 @@ def get_target(parent_provider_namespace: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_target)
 def get_target_output(parent_provider_namespace: Optional[pulumi.Input[str]] = None,
                       parent_resource_name: Optional[pulumi.Input[str]] = None,
                       parent_resource_type: Optional[pulumi.Input[str]] = None,
@@ -164,18 +167,4 @@ def get_target_output(parent_provider_namespace: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: String that represents an Azure resource group.
     :param str target_name: String that represents a Target resource name.
     """
-    __args__ = dict()
-    __args__['parentProviderNamespace'] = parent_provider_namespace
-    __args__['parentResourceName'] = parent_resource_name
-    __args__['parentResourceType'] = parent_resource_type
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['targetName'] = target_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:chaos:getTarget', __args__, opts=opts, typ=GetTargetResult)
-    return __ret__.apply(lambda __response__: GetTargetResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

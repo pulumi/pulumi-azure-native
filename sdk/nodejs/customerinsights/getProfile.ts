@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-04-26.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights:getProfile", {
         "hubName": args.hubName,
@@ -134,13 +135,7 @@ export interface GetProfileResult {
  * Azure REST API version: 2017-04-26.
  */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:customerinsights:getProfile", {
-        "hubName": args.hubName,
-        "localeCode": args.localeCode,
-        "profileName": args.profileName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }
 
 export interface GetProfileOutputArgs {

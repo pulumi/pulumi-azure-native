@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Implements cluster GET method.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20230301preview:getCluster", {
         "clusterName": args.clusterName,
@@ -126,11 +127,7 @@ export interface GetClusterResult {
  * Implements cluster GET method.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere/v20230301preview:getCluster", {
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

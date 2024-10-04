@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
  */
 export function getEnterprisePrivateEndpointConnection(args: GetEnterprisePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterprisePrivateEndpointConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20240201:getEnterprisePrivateEndpointConnection", {
         "clusterName": args.clusterName,
@@ -67,12 +68,7 @@ export interface GetEnterprisePrivateEndpointConnectionResult {
  * Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
  */
 export function getEnterprisePrivateEndpointConnectionOutput(args: GetEnterprisePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterprisePrivateEndpointConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cache/v20240201:getEnterprisePrivateEndpointConnection", {
-        "clusterName": args.clusterName,
-        "privateEndpointConnectionName": args.privateEndpointConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnterprisePrivateEndpointConnection(a, opts))
 }
 
 export interface GetEnterprisePrivateEndpointConnectionOutputArgs {

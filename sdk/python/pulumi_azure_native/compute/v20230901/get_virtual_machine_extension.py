@@ -282,6 +282,9 @@ def get_virtual_machine_extension(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
+
+
+@_utilities.lift_output_func(get_virtual_machine_extension)
 def get_virtual_machine_extension_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          vm_extension_name: Optional[pulumi.Input[str]] = None,
@@ -296,28 +299,4 @@ def get_virtual_machine_extension_output(expand: Optional[pulumi.Input[Optional[
     :param str vm_extension_name: The name of the virtual machine extension.
     :param str vm_name: The name of the virtual machine containing the extension.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['vmExtensionName'] = vm_extension_name
-    __args__['vmName'] = vm_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230901:getVirtualMachineExtension', __args__, opts=opts, typ=GetVirtualMachineExtensionResult)
-    return __ret__.apply(lambda __response__: GetVirtualMachineExtensionResult(
-        auto_upgrade_minor_version=pulumi.get(__response__, 'auto_upgrade_minor_version'),
-        enable_automatic_upgrade=pulumi.get(__response__, 'enable_automatic_upgrade'),
-        force_update_tag=pulumi.get(__response__, 'force_update_tag'),
-        id=pulumi.get(__response__, 'id'),
-        instance_view=pulumi.get(__response__, 'instance_view'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        protected_settings=pulumi.get(__response__, 'protected_settings'),
-        protected_settings_from_key_vault=pulumi.get(__response__, 'protected_settings_from_key_vault'),
-        provision_after_extensions=pulumi.get(__response__, 'provision_after_extensions'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        publisher=pulumi.get(__response__, 'publisher'),
-        settings=pulumi.get(__response__, 'settings'),
-        suppress_failures=pulumi.get(__response__, 'suppress_failures'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        type_handler_version=pulumi.get(__response__, 'type_handler_version')))
+    ...

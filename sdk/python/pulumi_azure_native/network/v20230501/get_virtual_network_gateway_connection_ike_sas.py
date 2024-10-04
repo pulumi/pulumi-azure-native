@@ -61,6 +61,9 @@ def get_virtual_network_gateway_connection_ike_sas(resource_group_name: Optional
 
     return AwaitableGetVirtualNetworkGatewayConnectionIkeSasResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(get_virtual_network_gateway_connection_ike_sas)
 def get_virtual_network_gateway_connection_ike_sas_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                           virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayConnectionIkeSasResult]:
@@ -71,10 +74,4 @@ def get_virtual_network_gateway_connection_ike_sas_output(resource_group_name: O
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_connection_name: The name of the virtual network gateway Connection.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualNetworkGatewayConnectionName'] = virtual_network_gateway_connection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230501:getVirtualNetworkGatewayConnectionIkeSas', __args__, opts=opts, typ=GetVirtualNetworkGatewayConnectionIkeSasResult)
-    return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayConnectionIkeSasResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

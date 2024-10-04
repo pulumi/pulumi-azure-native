@@ -117,6 +117,9 @@ def get_tenant_configuration(configuration_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_tenant_configuration)
 def get_tenant_configuration_output(configuration_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTenantConfigurationResult]:
     """
@@ -125,13 +128,4 @@ def get_tenant_configuration_output(configuration_name: Optional[pulumi.Input[st
 
     :param str configuration_name: The name of the Configuration
     """
-    __args__ = dict()
-    __args__['configurationName'] = configuration_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:portal/v20200901preview:getTenantConfiguration', __args__, opts=opts, typ=GetTenantConfigurationResult)
-    return __ret__.apply(lambda __response__: GetTenantConfigurationResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

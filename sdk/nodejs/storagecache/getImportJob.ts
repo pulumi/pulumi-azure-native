@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-03-01.
  */
 export function getImportJob(args: GetImportJobArgs, opts?: pulumi.InvokeOptions): Promise<GetImportJobResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagecache:getImportJob", {
         "amlFilesystemName": args.amlFilesystemName,
@@ -125,12 +126,7 @@ export interface GetImportJobResult {
  * Azure REST API version: 2024-03-01.
  */
 export function getImportJobOutput(args: GetImportJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportJobResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storagecache:getImportJob", {
-        "amlFilesystemName": args.amlFilesystemName,
-        "importJobName": args.importJobName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getImportJob(a, opts))
 }
 
 export interface GetImportJobOutputArgs {

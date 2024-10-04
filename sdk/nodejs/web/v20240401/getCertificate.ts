@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Description for Get a certificate.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:getCertificate", {
         "name": args.name,
@@ -142,11 +143,7 @@ export interface GetCertificateResult {
  * Description for Get a certificate.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getCertificate", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
 
 export interface GetCertificateOutputArgs {

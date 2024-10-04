@@ -8,6 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getSubAccount(args: GetSubAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSubAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz/v20220101preview:getSubAccount", {
         "monitorName": args.monitorName,
@@ -57,12 +58,7 @@ export interface GetSubAccountResult {
     readonly type: string;
 }
 export function getSubAccountOutput(args: GetSubAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logz/v20220101preview:getSubAccount", {
-        "monitorName": args.monitorName,
-        "resourceGroupName": args.resourceGroupName,
-        "subAccountName": args.subAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSubAccount(a, opts))
 }
 
 export interface GetSubAccountOutputArgs {

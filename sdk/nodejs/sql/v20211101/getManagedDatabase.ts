@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a managed database.
  */
 export function getManagedDatabase(args: GetManagedDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getManagedDatabase", {
         "databaseName": args.databaseName,
@@ -88,12 +89,7 @@ export interface GetManagedDatabaseResult {
  * Gets a managed database.
  */
 export function getManagedDatabaseOutput(args: GetManagedDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getManagedDatabase", {
-        "databaseName": args.databaseName,
-        "managedInstanceName": args.managedInstanceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedDatabase(a, opts))
 }
 
 export interface GetManagedDatabaseOutputArgs {

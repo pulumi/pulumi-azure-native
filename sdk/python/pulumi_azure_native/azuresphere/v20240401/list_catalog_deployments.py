@@ -93,6 +93,9 @@ def list_catalog_deployments(catalog_name: Optional[str] = None,
     return AwaitableListCatalogDeploymentsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_catalog_deployments)
 def list_catalog_deployments_output(catalog_name: Optional[pulumi.Input[str]] = None,
                                     filter: Optional[pulumi.Input[Optional[str]]] = None,
                                     maxpagesize: Optional[pulumi.Input[Optional[int]]] = None,
@@ -111,15 +114,4 @@ def list_catalog_deployments_output(catalog_name: Optional[pulumi.Input[str]] = 
     :param int skip: The number of result items to skip.
     :param int top: The number of result items to return.
     """
-    __args__ = dict()
-    __args__['catalogName'] = catalog_name
-    __args__['filter'] = filter
-    __args__['maxpagesize'] = maxpagesize
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['skip'] = skip
-    __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azuresphere/v20240401:listCatalogDeployments', __args__, opts=opts, typ=ListCatalogDeploymentsResult)
-    return __ret__.apply(lambda __response__: ListCatalogDeploymentsResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

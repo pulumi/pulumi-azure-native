@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-09-01-preview.
  */
 export function getSchemaVersion(args: GetSchemaVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceregistry:getSchemaVersion", {
         "resourceGroupName": args.resourceGroupName,
@@ -86,13 +87,7 @@ export interface GetSchemaVersionResult {
  * Azure REST API version: 2024-09-01-preview.
  */
 export function getSchemaVersionOutput(args: GetSchemaVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:deviceregistry:getSchemaVersion", {
-        "resourceGroupName": args.resourceGroupName,
-        "schemaName": args.schemaName,
-        "schemaRegistryName": args.schemaRegistryName,
-        "schemaVersionName": args.schemaVersionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSchemaVersion(a, opts))
 }
 
 export interface GetSchemaVersionOutputArgs {

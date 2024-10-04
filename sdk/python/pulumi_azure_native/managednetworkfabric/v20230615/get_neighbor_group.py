@@ -198,6 +198,9 @@ def get_neighbor_group(neighbor_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_neighbor_group)
 def get_neighbor_group_output(neighbor_group_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNeighborGroupResult]:
@@ -208,20 +211,4 @@ def get_neighbor_group_output(neighbor_group_name: Optional[pulumi.Input[str]] =
     :param str neighbor_group_name: Name of the Neighbor Group.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['neighborGroupName'] = neighbor_group_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getNeighborGroup', __args__, opts=opts, typ=GetNeighborGroupResult)
-    return __ret__.apply(lambda __response__: GetNeighborGroupResult(
-        annotation=pulumi.get(__response__, 'annotation'),
-        destination=pulumi.get(__response__, 'destination'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_tap_ids=pulumi.get(__response__, 'network_tap_ids'),
-        network_tap_rule_ids=pulumi.get(__response__, 'network_tap_rule_ids'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

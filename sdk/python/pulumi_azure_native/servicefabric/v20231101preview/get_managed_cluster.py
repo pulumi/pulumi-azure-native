@@ -640,6 +640,9 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
         use_custom_vnet=pulumi.get(__ret__, 'use_custom_vnet'),
         zonal_resiliency=pulumi.get(__ret__, 'zonal_resiliency'),
         zonal_update_mode=pulumi.get(__ret__, 'zonal_update_mode'))
+
+
+@_utilities.lift_output_func(get_managed_cluster)
 def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterResult]:
@@ -650,54 +653,4 @@ def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20231101preview:getManagedCluster', __args__, opts=opts, typ=GetManagedClusterResult)
-    return __ret__.apply(lambda __response__: GetManagedClusterResult(
-        addon_features=pulumi.get(__response__, 'addon_features'),
-        admin_password=pulumi.get(__response__, 'admin_password'),
-        admin_user_name=pulumi.get(__response__, 'admin_user_name'),
-        allow_rdp_access=pulumi.get(__response__, 'allow_rdp_access'),
-        application_type_versions_cleanup_policy=pulumi.get(__response__, 'application_type_versions_cleanup_policy'),
-        auxiliary_subnets=pulumi.get(__response__, 'auxiliary_subnets'),
-        azure_active_directory=pulumi.get(__response__, 'azure_active_directory'),
-        client_connection_port=pulumi.get(__response__, 'client_connection_port'),
-        clients=pulumi.get(__response__, 'clients'),
-        cluster_certificate_thumbprints=pulumi.get(__response__, 'cluster_certificate_thumbprints'),
-        cluster_code_version=pulumi.get(__response__, 'cluster_code_version'),
-        cluster_id=pulumi.get(__response__, 'cluster_id'),
-        cluster_state=pulumi.get(__response__, 'cluster_state'),
-        cluster_upgrade_cadence=pulumi.get(__response__, 'cluster_upgrade_cadence'),
-        cluster_upgrade_mode=pulumi.get(__response__, 'cluster_upgrade_mode'),
-        ddos_protection_plan_id=pulumi.get(__response__, 'ddos_protection_plan_id'),
-        dns_name=pulumi.get(__response__, 'dns_name'),
-        enable_auto_os_upgrade=pulumi.get(__response__, 'enable_auto_os_upgrade'),
-        enable_ipv6=pulumi.get(__response__, 'enable_ipv6'),
-        enable_service_public_ip=pulumi.get(__response__, 'enable_service_public_ip'),
-        etag=pulumi.get(__response__, 'etag'),
-        fabric_settings=pulumi.get(__response__, 'fabric_settings'),
-        fqdn=pulumi.get(__response__, 'fqdn'),
-        http_gateway_connection_port=pulumi.get(__response__, 'http_gateway_connection_port'),
-        id=pulumi.get(__response__, 'id'),
-        ip_tags=pulumi.get(__response__, 'ip_tags'),
-        ipv4_address=pulumi.get(__response__, 'ipv4_address'),
-        ipv6_address=pulumi.get(__response__, 'ipv6_address'),
-        load_balancing_rules=pulumi.get(__response__, 'load_balancing_rules'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_security_rules=pulumi.get(__response__, 'network_security_rules'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_ip_prefix_id=pulumi.get(__response__, 'public_ip_prefix_id'),
-        public_i_pv6_prefix_id=pulumi.get(__response__, 'public_i_pv6_prefix_id'),
-        service_endpoints=pulumi.get(__response__, 'service_endpoints'),
-        sku=pulumi.get(__response__, 'sku'),
-        subnet_id=pulumi.get(__response__, 'subnet_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        upgrade_description=pulumi.get(__response__, 'upgrade_description'),
-        use_custom_vnet=pulumi.get(__response__, 'use_custom_vnet'),
-        zonal_resiliency=pulumi.get(__response__, 'zonal_resiliency'),
-        zonal_update_mode=pulumi.get(__response__, 'zonal_update_mode')))
+    ...

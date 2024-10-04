@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
  */
 export function listSecretValue(args: ListSecretValueArgs, opts?: pulumi.InvokeOptions): Promise<ListSecretValueResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:listSecretValue", {
         "resourceGroupName": args.resourceGroupName,
@@ -44,12 +45,7 @@ export interface ListSecretValueResult {
  * Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
  */
 export function listSecretValueOutput(args: ListSecretValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecretValueResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh/v20180901preview:listSecretValue", {
-        "resourceGroupName": args.resourceGroupName,
-        "secretResourceName": args.secretResourceName,
-        "secretValueResourceName": args.secretValueResourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listSecretValue(a, opts))
 }
 
 export interface ListSecretValueOutputArgs {

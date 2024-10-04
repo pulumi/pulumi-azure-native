@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-05-01-preview.
  */
 export function getMigrateAgent(args: GetMigrateAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrateAgentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getMigrateAgent", {
         "agentName": args.agentName,
@@ -71,13 +72,7 @@ export interface GetMigrateAgentResult {
  * Azure REST API version: 2022-05-01-preview.
  */
 export function getMigrateAgentOutput(args: GetMigrateAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateAgentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate:getMigrateAgent", {
-        "agentName": args.agentName,
-        "modernizeProjectName": args.modernizeProjectName,
-        "resourceGroupName": args.resourceGroupName,
-        "subscriptionId": args.subscriptionId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMigrateAgent(a, opts))
 }
 
 export interface GetMigrateAgentOutputArgs {

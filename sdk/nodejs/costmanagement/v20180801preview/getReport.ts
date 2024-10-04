@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the report for a subscription by report name.
  */
 export function getReport(args: GetReportArgs, opts?: pulumi.InvokeOptions): Promise<GetReportResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20180801preview:getReport", {
         "reportName": args.reportName,
@@ -65,10 +66,7 @@ export interface GetReportResult {
  * Gets the report for a subscription by report name.
  */
 export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20180801preview:getReport", {
-        "reportName": args.reportName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReport(a, opts))
 }
 
 export interface GetReportOutputArgs {

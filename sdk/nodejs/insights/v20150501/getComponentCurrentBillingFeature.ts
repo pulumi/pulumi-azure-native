@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns current billing features for an Application Insights component.
  */
 export function getComponentCurrentBillingFeature(args: GetComponentCurrentBillingFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentCurrentBillingFeatureResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20150501:getComponentCurrentBillingFeature", {
         "resourceGroupName": args.resourceGroupName,
@@ -46,11 +47,7 @@ export interface GetComponentCurrentBillingFeatureResult {
  * Returns current billing features for an Application Insights component.
  */
 export function getComponentCurrentBillingFeatureOutput(args: GetComponentCurrentBillingFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentCurrentBillingFeatureResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights/v20150501:getComponentCurrentBillingFeature", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getComponentCurrentBillingFeature(a, opts))
 }
 
 export interface GetComponentCurrentBillingFeatureOutputArgs {

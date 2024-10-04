@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified deployments associated with the Cognitive Services account.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20231001preview:getDeployment", {
         "accountName": args.accountName,
@@ -75,12 +76,7 @@ export interface GetDeploymentResult {
  * Gets the specified deployments associated with the Cognitive Services account.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20231001preview:getDeployment", {
-        "accountName": args.accountName,
-        "deploymentName": args.deploymentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
 }
 
 export interface GetDeploymentOutputArgs {

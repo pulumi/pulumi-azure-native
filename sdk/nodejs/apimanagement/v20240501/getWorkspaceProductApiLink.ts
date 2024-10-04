@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the API link for the product.
  */
 export function getWorkspaceProductApiLink(args: GetWorkspaceProductApiLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceProductApiLinkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getWorkspaceProductApiLink", {
         "apiLinkId": args.apiLinkId,
@@ -66,14 +67,7 @@ export interface GetWorkspaceProductApiLinkResult {
  * Gets the API link for the product.
  */
 export function getWorkspaceProductApiLinkOutput(args: GetWorkspaceProductApiLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceProductApiLinkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getWorkspaceProductApiLink", {
-        "apiLinkId": args.apiLinkId,
-        "productId": args.productId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceProductApiLink(a, opts))
 }
 
 export interface GetWorkspaceProductApiLinkOutputArgs {

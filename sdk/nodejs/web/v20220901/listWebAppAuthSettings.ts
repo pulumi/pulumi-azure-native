@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Description for Gets the Authentication/Authorization settings of an app.
  */
 export function listWebAppAuthSettings(args: ListWebAppAuthSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAuthSettingsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220901:listWebAppAuthSettings", {
         "name": args.name,
@@ -255,11 +256,7 @@ export interface ListWebAppAuthSettingsResult {
  * Description for Gets the Authentication/Authorization settings of an app.
  */
 export function listWebAppAuthSettingsOutput(args: ListWebAppAuthSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAuthSettingsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20220901:listWebAppAuthSettings", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppAuthSettings(a, opts))
 }
 
 export interface ListWebAppAuthSettingsOutputArgs {

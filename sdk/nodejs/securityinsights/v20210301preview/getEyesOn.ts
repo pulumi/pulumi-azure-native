@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a setting.
  */
 export function getEyesOn(args: GetEyesOnArgs, opts?: pulumi.InvokeOptions): Promise<GetEyesOnResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210301preview:getEyesOn", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
@@ -77,13 +78,7 @@ export interface GetEyesOnResult {
  * Gets a setting.
  */
 export function getEyesOnOutput(args: GetEyesOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEyesOnResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210301preview:getEyesOn", {
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
-        "resourceGroupName": args.resourceGroupName,
-        "settingsName": args.settingsName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEyesOn(a, opts))
 }
 
 export interface GetEyesOnOutputArgs {

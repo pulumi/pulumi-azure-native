@@ -83,6 +83,9 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
 
     return AwaitableListCustomApiWsdlInterfacesResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_custom_api_wsdl_interfaces)
 def list_custom_api_wsdl_interfaces_output(content: Optional[pulumi.Input[Optional[str]]] = None,
                                            import_method: Optional[pulumi.Input[Optional[Union[str, 'WsdlImportMethod']]]] = None,
                                            location: Optional[pulumi.Input[str]] = None,
@@ -102,14 +105,4 @@ def list_custom_api_wsdl_interfaces_output(content: Optional[pulumi.Input[Option
     :param str subscription_id: Subscription Id
     :param str url: The WSDL URL
     """
-    __args__ = dict()
-    __args__['content'] = content
-    __args__['importMethod'] = import_method
-    __args__['location'] = location
-    __args__['service'] = service
-    __args__['subscriptionId'] = subscription_id
-    __args__['url'] = url
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web:listCustomApiWsdlInterfaces', __args__, opts=opts, typ=ListCustomApiWsdlInterfacesResult)
-    return __ret__.apply(lambda __response__: ListCustomApiWsdlInterfacesResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

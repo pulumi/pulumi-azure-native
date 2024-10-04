@@ -211,6 +211,9 @@ def get_network_interface(network_interface_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_network_interface)
 def get_network_interface_output(network_interface_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
@@ -221,21 +224,4 @@ def get_network_interface_output(network_interface_name: Optional[pulumi.Input[s
     :param str network_interface_name: Name of the network interface
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['networkInterfaceName'] = network_interface_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20221215preview:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult)
-    return __ret__.apply(lambda __response__: GetNetworkInterfaceResult(
-        dns_settings=pulumi.get(__response__, 'dns_settings'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
-        location=pulumi.get(__response__, 'location'),
-        mac_address=pulumi.get(__response__, 'mac_address'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

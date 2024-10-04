@@ -136,6 +136,9 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         volume_count=pulumi.get(__ret__, 'volume_count'))
+
+
+@_utilities.lift_output_func(get_access_control_record)
 def get_access_control_record_output(access_control_record_name: Optional[pulumi.Input[str]] = None,
                                      manager_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -149,16 +152,4 @@ def get_access_control_record_output(access_control_record_name: Optional[pulumi
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    __args__ = dict()
-    __args__['accessControlRecordName'] = access_control_record_name
-    __args__['managerName'] = manager_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getAccessControlRecord', __args__, opts=opts, typ=GetAccessControlRecordResult)
-    return __ret__.apply(lambda __response__: GetAccessControlRecordResult(
-        id=pulumi.get(__response__, 'id'),
-        initiator_name=pulumi.get(__response__, 'initiator_name'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type'),
-        volume_count=pulumi.get(__response__, 'volume_count')))
+    ...

@@ -125,6 +125,9 @@ def get_web_app_domain_ownership_identifier(domain_ownership_identifier_name: Op
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(get_web_app_domain_ownership_identifier)
 def get_web_app_domain_ownership_identifier_output(domain_ownership_identifier_name: Optional[pulumi.Input[str]] = None,
                                                    name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -140,15 +143,4 @@ def get_web_app_domain_ownership_identifier_output(domain_ownership_identifier_n
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['domainOwnershipIdentifierName'] = domain_ownership_identifier_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppDomainOwnershipIdentifier', __args__, opts=opts, typ=GetWebAppDomainOwnershipIdentifierResult)
-    return __ret__.apply(lambda __response__: GetWebAppDomainOwnershipIdentifierResult(
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type'),
-        value=pulumi.get(__response__, 'value')))
+    ...

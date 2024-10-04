@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves a specific live pipeline by name. If a live pipeline with that name has been previously created, the call will return the JSON representation of that instance.
  */
 export function getLivePipeline(args: GetLivePipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetLivePipelineResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20211101preview:getLivePipeline", {
         "accountName": args.accountName,
@@ -79,12 +80,7 @@ export interface GetLivePipelineResult {
  * Retrieves a specific live pipeline by name. If a live pipeline with that name has been previously created, the call will return the JSON representation of that instance.
  */
 export function getLivePipelineOutput(args: GetLivePipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLivePipelineResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:videoanalyzer/v20211101preview:getLivePipeline", {
-        "accountName": args.accountName,
-        "livePipelineName": args.livePipelineName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLivePipeline(a, opts))
 }
 
 export interface GetLivePipelineOutputArgs {

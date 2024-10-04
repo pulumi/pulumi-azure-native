@@ -227,6 +227,9 @@ def get_source_control(automation_account_name: Optional[str] = None,
         source_type=pulumi.get(__ret__, 'source_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_source_control)
 def get_source_control_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               source_control_name: Optional[pulumi.Input[str]] = None,
@@ -239,23 +242,4 @@ def get_source_control_output(automation_account_name: Optional[pulumi.Input[str
     :param str resource_group_name: Name of an Azure Resource group.
     :param str source_control_name: The name of source control.
     """
-    __args__ = dict()
-    __args__['automationAccountName'] = automation_account_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sourceControlName'] = source_control_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:getSourceControl', __args__, opts=opts, typ=GetSourceControlResult)
-    return __ret__.apply(lambda __response__: GetSourceControlResult(
-        auto_sync=pulumi.get(__response__, 'auto_sync'),
-        branch=pulumi.get(__response__, 'branch'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        folder_path=pulumi.get(__response__, 'folder_path'),
-        id=pulumi.get(__response__, 'id'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        name=pulumi.get(__response__, 'name'),
-        publish_runbook=pulumi.get(__response__, 'publish_runbook'),
-        repo_url=pulumi.get(__response__, 'repo_url'),
-        source_type=pulumi.get(__response__, 'source_type'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

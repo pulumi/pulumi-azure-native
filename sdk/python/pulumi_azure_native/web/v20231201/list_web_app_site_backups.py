@@ -81,6 +81,9 @@ def list_web_app_site_backups(name: Optional[str] = None,
     return AwaitableListWebAppSiteBackupsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_web_app_site_backups)
 def list_web_app_site_backups_output(name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSiteBackupsResult]:
@@ -91,11 +94,4 @@ def list_web_app_site_backups_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:listWebAppSiteBackups', __args__, opts=opts, typ=ListWebAppSiteBackupsResult)
-    return __ret__.apply(lambda __response__: ListWebAppSiteBackupsResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

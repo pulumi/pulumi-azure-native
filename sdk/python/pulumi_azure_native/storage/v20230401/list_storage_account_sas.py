@@ -92,6 +92,9 @@ def list_storage_account_sas(account_name: Optional[str] = None,
 
     return AwaitableListStorageAccountSASResult(
         account_sas_token=pulumi.get(__ret__, 'account_sas_token'))
+
+
+@_utilities.lift_output_func(list_storage_account_sas)
 def list_storage_account_sas_output(account_name: Optional[pulumi.Input[str]] = None,
                                     i_p_address_or_range: Optional[pulumi.Input[Optional[str]]] = None,
                                     key_to_sign: Optional[pulumi.Input[Optional[str]]] = None,
@@ -118,18 +121,4 @@ def list_storage_account_sas_output(account_name: Optional[pulumi.Input[str]] = 
     :param str shared_access_expiry_time: The time at which the shared access signature becomes invalid.
     :param str shared_access_start_time: The time at which the SAS becomes valid.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['iPAddressOrRange'] = i_p_address_or_range
-    __args__['keyToSign'] = key_to_sign
-    __args__['permissions'] = permissions
-    __args__['protocols'] = protocols
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceTypes'] = resource_types
-    __args__['services'] = services
-    __args__['sharedAccessExpiryTime'] = shared_access_expiry_time
-    __args__['sharedAccessStartTime'] = shared_access_start_time
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230401:listStorageAccountSAS', __args__, opts=opts, typ=ListStorageAccountSASResult)
-    return __ret__.apply(lambda __response__: ListStorageAccountSASResult(
-        account_sas_token=pulumi.get(__response__, 'account_sas_token')))
+    ...

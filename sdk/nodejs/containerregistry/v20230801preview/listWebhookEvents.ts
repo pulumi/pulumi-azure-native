@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists recent events for the specified webhook.
  */
 export function listWebhookEvents(args: ListWebhookEventsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebhookEventsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20230801preview:listWebhookEvents", {
         "registryName": args.registryName,
@@ -51,12 +52,7 @@ export interface ListWebhookEventsResult {
  * Lists recent events for the specified webhook.
  */
 export function listWebhookEventsOutput(args: ListWebhookEventsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebhookEventsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230801preview:listWebhookEvents", {
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-        "webhookName": args.webhookName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebhookEvents(a, opts))
 }
 
 export interface ListWebhookEventsOutputArgs {

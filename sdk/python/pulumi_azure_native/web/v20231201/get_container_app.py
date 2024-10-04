@@ -211,6 +211,9 @@ def get_container_app(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template=pulumi.get(__ret__, 'template'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_container_app)
 def get_container_app_output(name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppResult]:
@@ -221,21 +224,4 @@ def get_container_app_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the Container App.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:getContainerApp', __args__, opts=opts, typ=GetContainerAppResult)
-    return __ret__.apply(lambda __response__: GetContainerAppResult(
-        configuration=pulumi.get(__response__, 'configuration'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        kube_environment_id=pulumi.get(__response__, 'kube_environment_id'),
-        latest_revision_fqdn=pulumi.get(__response__, 'latest_revision_fqdn'),
-        latest_revision_name=pulumi.get(__response__, 'latest_revision_name'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        template=pulumi.get(__response__, 'template'),
-        type=pulumi.get(__response__, 'type')))
+    ...

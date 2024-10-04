@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a virtual machine instance
  */
 export function getVirtualMachineInstance(args: GetVirtualMachineInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineInstanceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20240101:getVirtualMachineInstance", {
         "resourceUri": args.resourceUri,
@@ -105,10 +106,7 @@ export interface GetVirtualMachineInstanceResult {
  * Gets a virtual machine instance
  */
 export function getVirtualMachineInstanceOutput(args: GetVirtualMachineInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineInstanceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240101:getVirtualMachineInstance", {
-        "resourceUri": args.resourceUri,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualMachineInstance(a, opts))
 }
 
 export interface GetVirtualMachineInstanceOutputArgs {

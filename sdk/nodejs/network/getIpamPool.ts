@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-01-01-preview.
  */
 export function getIpamPool(args: GetIpamPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getIpamPool", {
         "networkManagerName": args.networkManagerName,
@@ -73,12 +74,7 @@ export interface GetIpamPoolResult {
  * Azure REST API version: 2024-01-01-preview.
  */
 export function getIpamPoolOutput(args: GetIpamPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getIpamPool", {
-        "networkManagerName": args.networkManagerName,
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIpamPool(a, opts))
 }
 
 export interface GetIpamPoolOutputArgs {

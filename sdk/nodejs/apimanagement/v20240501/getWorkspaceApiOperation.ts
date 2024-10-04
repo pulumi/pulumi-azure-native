@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the API Operation specified by its identifier.
  */
 export function getWorkspaceApiOperation(args: GetWorkspaceApiOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceApiOperationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getWorkspaceApiOperation", {
         "apiId": args.apiId,
@@ -97,14 +98,7 @@ export interface GetWorkspaceApiOperationResult {
  * Gets the details of the API Operation specified by its identifier.
  */
 export function getWorkspaceApiOperationOutput(args: GetWorkspaceApiOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiOperationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getWorkspaceApiOperation", {
-        "apiId": args.apiId,
-        "operationId": args.operationId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceApiOperation(a, opts))
 }
 
 export interface GetWorkspaceApiOperationOutputArgs {

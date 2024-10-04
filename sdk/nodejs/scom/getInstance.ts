@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-07-preview.
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scom:getInstance", {
         "instanceName": args.instanceName,
@@ -72,11 +73,7 @@ export interface GetInstanceResult {
  * Azure REST API version: 2023-07-07-preview.
  */
 export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:scom:getInstance", {
-        "instanceName": args.instanceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInstance(a, opts))
 }
 
 export interface GetInstanceOutputArgs {

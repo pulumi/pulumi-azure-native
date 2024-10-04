@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-03-01.
  */
 export function listVpnLinkConnectionDefaultSharedKey(args: ListVpnLinkConnectionDefaultSharedKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListVpnLinkConnectionDefaultSharedKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:listVpnLinkConnectionDefaultSharedKey", {
         "connectionName": args.connectionName,
@@ -66,13 +67,7 @@ export interface ListVpnLinkConnectionDefaultSharedKeyResult {
  * Azure REST API version: 2024-03-01.
  */
 export function listVpnLinkConnectionDefaultSharedKeyOutput(args: ListVpnLinkConnectionDefaultSharedKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVpnLinkConnectionDefaultSharedKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:listVpnLinkConnectionDefaultSharedKey", {
-        "connectionName": args.connectionName,
-        "gatewayName": args.gatewayName,
-        "linkConnectionName": args.linkConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listVpnLinkConnectionDefaultSharedKey(a, opts))
 }
 
 export interface ListVpnLinkConnectionDefaultSharedKeyOutputArgs {

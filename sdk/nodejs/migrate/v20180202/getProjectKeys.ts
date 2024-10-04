@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the Log Analytics Workspace ID and Primary Key for the specified project.
  */
 export function getProjectKeys(args: GetProjectKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20180202:getProjectKeys", {
         "projectName": args.projectName,
@@ -43,11 +44,7 @@ export interface GetProjectKeysResult {
  * Gets the Log Analytics Workspace ID and Primary Key for the specified project.
  */
 export function getProjectKeysOutput(args: GetProjectKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate/v20180202:getProjectKeys", {
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProjectKeys(a, opts))
 }
 
 export interface GetProjectKeysOutputArgs {

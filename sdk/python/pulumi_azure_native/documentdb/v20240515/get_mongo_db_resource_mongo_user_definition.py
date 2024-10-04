@@ -175,6 +175,9 @@ def get_mongo_db_resource_mongo_user_definition(account_name: Optional[str] = No
         roles=pulumi.get(__ret__, 'roles'),
         type=pulumi.get(__ret__, 'type'),
         user_name=pulumi.get(__ret__, 'user_name'))
+
+
+@_utilities.lift_output_func(get_mongo_db_resource_mongo_user_definition)
 def get_mongo_db_resource_mongo_user_definition_output(account_name: Optional[pulumi.Input[str]] = None,
                                                        mongo_user_definition_id: Optional[pulumi.Input[str]] = None,
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -187,19 +190,4 @@ def get_mongo_db_resource_mongo_user_definition_output(account_name: Optional[pu
     :param str mongo_user_definition_id: The ID for the User Definition {dbName.userName}.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['mongoUserDefinitionId'] = mongo_user_definition_id
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20240515:getMongoDBResourceMongoUserDefinition', __args__, opts=opts, typ=GetMongoDBResourceMongoUserDefinitionResult)
-    return __ret__.apply(lambda __response__: GetMongoDBResourceMongoUserDefinitionResult(
-        custom_data=pulumi.get(__response__, 'custom_data'),
-        database_name=pulumi.get(__response__, 'database_name'),
-        id=pulumi.get(__response__, 'id'),
-        mechanisms=pulumi.get(__response__, 'mechanisms'),
-        name=pulumi.get(__response__, 'name'),
-        password=pulumi.get(__response__, 'password'),
-        roles=pulumi.get(__response__, 'roles'),
-        type=pulumi.get(__response__, 'type'),
-        user_name=pulumi.get(__response__, 'user_name')))
+    ...

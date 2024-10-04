@@ -305,6 +305,9 @@ def get_automation_account(automation_account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_automation_account)
 def get_automation_account_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationAccountResult]:
@@ -318,28 +321,4 @@ def get_automation_account_output(automation_account_name: Optional[pulumi.Input
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    __args__ = dict()
-    __args__['automationAccountName'] = automation_account_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getAutomationAccount', __args__, opts=opts, typ=GetAutomationAccountResult)
-    return __ret__.apply(lambda __response__: GetAutomationAccountResult(
-        automation_hybrid_service_url=pulumi.get(__response__, 'automation_hybrid_service_url'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
-        encryption=pulumi.get(__response__, 'encryption'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        sku=pulumi.get(__response__, 'sku'),
-        state=pulumi.get(__response__, 'state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

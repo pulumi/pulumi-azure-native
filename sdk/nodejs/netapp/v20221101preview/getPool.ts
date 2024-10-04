@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get details of the specified capacity pool
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20221101preview:getPool", {
         "accountName": args.accountName,
@@ -107,12 +108,7 @@ export interface GetPoolResult {
  * Get details of the specified capacity pool
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:netapp/v20221101preview:getPool", {
-        "accountName": args.accountName,
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPool(a, opts))
 }
 
 export interface GetPoolOutputArgs {

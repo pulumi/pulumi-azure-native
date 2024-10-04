@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a hybrid connection configuration by its name.
  */
 export function getWebAppRelayServiceConnectionSlot(args: GetWebAppRelayServiceConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:getWebAppRelayServiceConnectionSlot", {
         "entityName": args.entityName,
@@ -75,13 +76,7 @@ export interface GetWebAppRelayServiceConnectionSlotResult {
  * Gets a hybrid connection configuration by its name.
  */
 export function getWebAppRelayServiceConnectionSlotOutput(args: GetWebAppRelayServiceConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppRelayServiceConnectionSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:getWebAppRelayServiceConnectionSlot", {
-        "entityName": args.entityName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppRelayServiceConnectionSlot(a, opts))
 }
 
 export interface GetWebAppRelayServiceConnectionSlotOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the active diagnostic settings for the specified resource.
  */
 export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticSettingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20210501preview:getDiagnosticSetting", {
         "name": args.name,
@@ -90,11 +91,7 @@ export interface GetDiagnosticSettingResult {
  * Gets the active diagnostic settings for the specified resource.
  */
 export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticSettingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights/v20210501preview:getDiagnosticSetting", {
-        "name": args.name,
-        "resourceUri": args.resourceUri,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDiagnosticSetting(a, opts))
 }
 
 export interface GetDiagnosticSettingOutputArgs {

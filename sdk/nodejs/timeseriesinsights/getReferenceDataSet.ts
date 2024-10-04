@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-11-15, 2021-06-30-preview.
  */
 export function getReferenceDataSet(args: GetReferenceDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReferenceDataSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights:getReferenceDataSet", {
         "environmentName": args.environmentName,
@@ -85,12 +86,7 @@ export interface GetReferenceDataSetResult {
  * Other available API versions: 2017-11-15, 2021-06-30-preview.
  */
 export function getReferenceDataSetOutput(args: GetReferenceDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReferenceDataSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights:getReferenceDataSet", {
-        "environmentName": args.environmentName,
-        "referenceDataSetName": args.referenceDataSetName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReferenceDataSet(a, opts))
 }
 
 export interface GetReferenceDataSetOutputArgs {

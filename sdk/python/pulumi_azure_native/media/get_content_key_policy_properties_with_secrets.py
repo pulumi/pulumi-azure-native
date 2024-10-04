@@ -124,6 +124,9 @@ def get_content_key_policy_properties_with_secrets(account_name: Optional[str] =
         last_modified=pulumi.get(__ret__, 'last_modified'),
         options=pulumi.get(__ret__, 'options'),
         policy_id=pulumi.get(__ret__, 'policy_id'))
+
+
+@_utilities.lift_output_func(get_content_key_policy_properties_with_secrets)
 def get_content_key_policy_properties_with_secrets_output(account_name: Optional[pulumi.Input[str]] = None,
                                                           content_key_policy_name: Optional[pulumi.Input[str]] = None,
                                                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -137,15 +140,4 @@ def get_content_key_policy_properties_with_secrets_output(account_name: Optional
     :param str content_key_policy_name: The Content Key Policy name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['contentKeyPolicyName'] = content_key_policy_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:media:getContentKeyPolicyPropertiesWithSecrets', __args__, opts=opts, typ=GetContentKeyPolicyPropertiesWithSecretsResult)
-    return __ret__.apply(lambda __response__: GetContentKeyPolicyPropertiesWithSecretsResult(
-        created=pulumi.get(__response__, 'created'),
-        description=pulumi.get(__response__, 'description'),
-        last_modified=pulumi.get(__response__, 'last_modified'),
-        options=pulumi.get(__response__, 'options'),
-        policy_id=pulumi.get(__response__, 'policy_id')))
+    ...

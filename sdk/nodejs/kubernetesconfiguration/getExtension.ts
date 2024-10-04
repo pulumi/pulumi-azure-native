@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetesconfiguration:getExtension", {
         "clusterName": args.clusterName,
@@ -143,14 +144,7 @@ export interface GetExtensionResult {
  * Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:kubernetesconfiguration:getExtension", {
-        "clusterName": args.clusterName,
-        "clusterResourceName": args.clusterResourceName,
-        "clusterRp": args.clusterRp,
-        "extensionName": args.extensionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getExtension(a, opts))
 }
 
 export interface GetExtensionOutputArgs {

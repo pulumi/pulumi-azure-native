@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the view by view name.
  */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20230301:getView", {
         "viewName": args.viewName,
@@ -109,10 +110,7 @@ export interface GetViewResult {
  * Gets the view by view name.
  */
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20230301:getView", {
-        "viewName": args.viewName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getView(a, opts))
 }
 
 export interface GetViewOutputArgs {

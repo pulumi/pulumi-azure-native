@@ -162,6 +162,9 @@ def get_credential(automation_account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         user_name=pulumi.get(__ret__, 'user_name'))
+
+
+@_utilities.lift_output_func(get_credential)
 def get_credential_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                           credential_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -174,18 +177,4 @@ def get_credential_output(automation_account_name: Optional[pulumi.Input[str]] =
     :param str credential_name: The name of credential.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    __args__ = dict()
-    __args__['automationAccountName'] = automation_account_name
-    __args__['credentialName'] = credential_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:getCredential', __args__, opts=opts, typ=GetCredentialResult)
-    return __ret__.apply(lambda __response__: GetCredentialResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        user_name=pulumi.get(__response__, 'user_name')))
+    ...

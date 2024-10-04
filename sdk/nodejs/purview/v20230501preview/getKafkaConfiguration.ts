@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the kafka configuration for the account
  */
 export function getKafkaConfiguration(args: GetKafkaConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:purview/v20230501preview:getKafkaConfiguration", {
         "accountName": args.accountName,
@@ -84,12 +85,7 @@ export interface GetKafkaConfigurationResult {
  * Gets the kafka configuration for the account
  */
 export function getKafkaConfigurationOutput(args: GetKafkaConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:purview/v20230501preview:getKafkaConfiguration", {
-        "accountName": args.accountName,
-        "kafkaConfigurationName": args.kafkaConfigurationName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getKafkaConfiguration(a, opts))
 }
 
 export interface GetKafkaConfigurationOutputArgs {

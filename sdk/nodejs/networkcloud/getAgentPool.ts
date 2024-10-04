@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud:getAgentPool", {
         "agentPoolName": args.agentPoolName,
@@ -130,12 +131,7 @@ export interface GetAgentPoolResult {
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud:getAgentPool", {
-        "agentPoolName": args.agentPoolName,
-        "kubernetesClusterName": args.kubernetesClusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAgentPool(a, opts))
 }
 
 export interface GetAgentPoolOutputArgs {

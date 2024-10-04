@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview.
  */
 export function getLicenseProfile(args: GetLicenseProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute:getLicenseProfile", {
         "licenseProfileName": args.licenseProfileName,
@@ -101,12 +102,7 @@ export interface GetLicenseProfileResult {
  * Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview.
  */
 export function getLicenseProfileOutput(args: GetLicenseProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridcompute:getLicenseProfile", {
-        "licenseProfileName": args.licenseProfileName,
-        "machineName": args.machineName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLicenseProfile(a, opts))
 }
 
 export interface GetLicenseProfileOutputArgs {

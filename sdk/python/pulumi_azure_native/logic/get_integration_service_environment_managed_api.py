@@ -293,6 +293,9 @@ def get_integration_service_environment_managed_api(api_name: Optional[str] = No
         runtime_urls=pulumi.get(__ret__, 'runtime_urls'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_integration_service_environment_managed_api)
 def get_integration_service_environment_managed_api_output(api_name: Optional[pulumi.Input[str]] = None,
                                                            integration_service_environment_name: Optional[pulumi.Input[str]] = None,
                                                            resource_group: Optional[pulumi.Input[str]] = None,
@@ -306,28 +309,4 @@ def get_integration_service_environment_managed_api_output(api_name: Optional[pu
     :param str integration_service_environment_name: The integration service environment name.
     :param str resource_group: The resource group name.
     """
-    __args__ = dict()
-    __args__['apiName'] = api_name
-    __args__['integrationServiceEnvironmentName'] = integration_service_environment_name
-    __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getIntegrationServiceEnvironmentManagedApi', __args__, opts=opts, typ=GetIntegrationServiceEnvironmentManagedApiResult)
-    return __ret__.apply(lambda __response__: GetIntegrationServiceEnvironmentManagedApiResult(
-        api_definition_url=pulumi.get(__response__, 'api_definition_url'),
-        api_definitions=pulumi.get(__response__, 'api_definitions'),
-        backend_service=pulumi.get(__response__, 'backend_service'),
-        capabilities=pulumi.get(__response__, 'capabilities'),
-        category=pulumi.get(__response__, 'category'),
-        connection_parameters=pulumi.get(__response__, 'connection_parameters'),
-        deployment_parameters=pulumi.get(__response__, 'deployment_parameters'),
-        general_information=pulumi.get(__response__, 'general_information'),
-        id=pulumi.get(__response__, 'id'),
-        integration_service_environment=pulumi.get(__response__, 'integration_service_environment'),
-        location=pulumi.get(__response__, 'location'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        name=pulumi.get(__response__, 'name'),
-        policies=pulumi.get(__response__, 'policies'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        runtime_urls=pulumi.get(__response__, 'runtime_urls'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

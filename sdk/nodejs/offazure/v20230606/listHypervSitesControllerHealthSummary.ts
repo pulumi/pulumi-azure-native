@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Method to get site health summary.
  */
 export function listHypervSitesControllerHealthSummary(args: ListHypervSitesControllerHealthSummaryArgs, opts?: pulumi.InvokeOptions): Promise<ListHypervSitesControllerHealthSummaryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure/v20230606:listHypervSitesControllerHealthSummary", {
         "resourceGroupName": args.resourceGroupName,
@@ -46,11 +47,7 @@ export interface ListHypervSitesControllerHealthSummaryResult {
  * Method to get site health summary.
  */
 export function listHypervSitesControllerHealthSummaryOutput(args: ListHypervSitesControllerHealthSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHypervSitesControllerHealthSummaryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:listHypervSitesControllerHealthSummary", {
-        "resourceGroupName": args.resourceGroupName,
-        "siteName": args.siteName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listHypervSitesControllerHealthSummary(a, opts))
 }
 
 export interface ListHypervSitesControllerHealthSummaryOutputArgs {

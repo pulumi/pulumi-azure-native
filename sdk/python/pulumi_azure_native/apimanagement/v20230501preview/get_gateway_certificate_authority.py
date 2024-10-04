@@ -112,6 +112,9 @@ def get_gateway_certificate_authority(certificate_id: Optional[str] = None,
         is_trusted=pulumi.get(__ret__, 'is_trusted'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_gateway_certificate_authority)
 def get_gateway_certificate_authority_output(certificate_id: Optional[pulumi.Input[str]] = None,
                                              gateway_id: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -126,15 +129,4 @@ def get_gateway_certificate_authority_output(certificate_id: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['certificateId'] = certificate_id
-    __args__['gatewayId'] = gateway_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:getGatewayCertificateAuthority', __args__, opts=opts, typ=GetGatewayCertificateAuthorityResult)
-    return __ret__.apply(lambda __response__: GetGatewayCertificateAuthorityResult(
-        id=pulumi.get(__response__, 'id'),
-        is_trusted=pulumi.get(__response__, 'is_trusted'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

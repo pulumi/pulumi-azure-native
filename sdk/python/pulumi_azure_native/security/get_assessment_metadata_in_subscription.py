@@ -282,6 +282,9 @@ def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[s
         threats=pulumi.get(__ret__, 'threats'),
         type=pulumi.get(__ret__, 'type'),
         user_impact=pulumi.get(__ret__, 'user_impact'))
+
+
+@_utilities.lift_output_func(get_assessment_metadata_in_subscription)
 def get_assessment_metadata_in_subscription_output(assessment_metadata_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentMetadataInSubscriptionResult]:
     """
@@ -291,27 +294,4 @@ def get_assessment_metadata_in_subscription_output(assessment_metadata_name: Opt
 
     :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
     """
-    __args__ = dict()
-    __args__['assessmentMetadataName'] = assessment_metadata_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAssessmentMetadataInSubscription', __args__, opts=opts, typ=GetAssessmentMetadataInSubscriptionResult)
-    return __ret__.apply(lambda __response__: GetAssessmentMetadataInSubscriptionResult(
-        assessment_type=pulumi.get(__response__, 'assessment_type'),
-        categories=pulumi.get(__response__, 'categories'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        implementation_effort=pulumi.get(__response__, 'implementation_effort'),
-        name=pulumi.get(__response__, 'name'),
-        partner_data=pulumi.get(__response__, 'partner_data'),
-        planned_deprecation_date=pulumi.get(__response__, 'planned_deprecation_date'),
-        policy_definition_id=pulumi.get(__response__, 'policy_definition_id'),
-        preview=pulumi.get(__response__, 'preview'),
-        publish_dates=pulumi.get(__response__, 'publish_dates'),
-        remediation_description=pulumi.get(__response__, 'remediation_description'),
-        severity=pulumi.get(__response__, 'severity'),
-        tactics=pulumi.get(__response__, 'tactics'),
-        techniques=pulumi.get(__response__, 'techniques'),
-        threats=pulumi.get(__response__, 'threats'),
-        type=pulumi.get(__response__, 'type'),
-        user_impact=pulumi.get(__response__, 'user_impact')))
+    ...

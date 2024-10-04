@@ -84,6 +84,9 @@ def list_global_rulestack_security_services(global_rulestack_name: Optional[str]
     return AwaitableListGlobalRulestackSecurityServicesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_global_rulestack_security_services)
 def list_global_rulestack_security_services_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
                                                    skip: Optional[pulumi.Input[Optional[str]]] = None,
                                                    top: Optional[pulumi.Input[Optional[int]]] = None,
@@ -95,13 +98,4 @@ def list_global_rulestack_security_services_output(global_rulestack_name: Option
 
     :param str global_rulestack_name: GlobalRulestack resource name
     """
-    __args__ = dict()
-    __args__['globalRulestackName'] = global_rulestack_name
-    __args__['skip'] = skip
-    __args__['top'] = top
-    __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20220829preview:listGlobalRulestackSecurityServices', __args__, opts=opts, typ=ListGlobalRulestackSecurityServicesResult)
-    return __ret__.apply(lambda __response__: ListGlobalRulestackSecurityServicesResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

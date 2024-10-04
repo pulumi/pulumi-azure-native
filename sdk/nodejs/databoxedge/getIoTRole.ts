@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-03-01.
  */
 export function getIoTRole(args: GetIoTRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTRoleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge:getIoTRole", {
         "deviceName": args.deviceName,
@@ -98,12 +99,7 @@ export interface GetIoTRoleResult {
  * Azure REST API version: 2022-03-01.
  */
 export function getIoTRoleOutput(args: GetIoTRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTRoleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databoxedge:getIoTRole", {
-        "deviceName": args.deviceName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIoTRole(a, opts))
 }
 
 export interface GetIoTRoleOutputArgs {

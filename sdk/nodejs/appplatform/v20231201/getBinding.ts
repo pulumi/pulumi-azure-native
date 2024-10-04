@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Binding and its properties.
  */
 export function getBinding(args: GetBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBindingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20231201:getBinding", {
         "appName": args.appName,
@@ -68,13 +69,7 @@ export interface GetBindingResult {
  * Get a Binding and its properties.
  */
 export function getBindingOutput(args: GetBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBindingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231201:getBinding", {
-        "appName": args.appName,
-        "bindingName": args.bindingName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBinding(a, opts))
 }
 
 export interface GetBindingOutputArgs {

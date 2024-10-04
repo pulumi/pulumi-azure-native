@@ -150,6 +150,9 @@ def get_account_filter(account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tracks=pulumi.get(__ret__, 'tracks'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_account_filter)
 def get_account_filter_output(account_name: Optional[pulumi.Input[str]] = None,
                               filter_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -163,17 +166,4 @@ def get_account_filter_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str filter_name: The Account Filter name
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['filterName'] = filter_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:media:getAccountFilter', __args__, opts=opts, typ=GetAccountFilterResult)
-    return __ret__.apply(lambda __response__: GetAccountFilterResult(
-        first_quality=pulumi.get(__response__, 'first_quality'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        presentation_time_range=pulumi.get(__response__, 'presentation_time_range'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tracks=pulumi.get(__response__, 'tracks'),
-        type=pulumi.get(__response__, 'type')))
+    ...

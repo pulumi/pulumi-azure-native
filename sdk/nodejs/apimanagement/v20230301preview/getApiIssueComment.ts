@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the issue Comment for an API specified by its identifier.
  */
 export function getApiIssueComment(args: GetApiIssueCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueCommentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230301preview:getApiIssueComment", {
         "apiId": args.apiId,
@@ -74,14 +75,7 @@ export interface GetApiIssueCommentResult {
  * Gets the details of the issue Comment for an API specified by its identifier.
  */
 export function getApiIssueCommentOutput(args: GetApiIssueCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueCommentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getApiIssueComment", {
-        "apiId": args.apiId,
-        "commentId": args.commentId,
-        "issueId": args.issueId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApiIssueComment(a, opts))
 }
 
 export interface GetApiIssueCommentOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-05-02, 2023-08-15.
  */
 export function getClusterPrincipalAssignment(args: GetClusterPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPrincipalAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto:getClusterPrincipalAssignment", {
         "clusterName": args.clusterName,
@@ -90,12 +91,7 @@ export interface GetClusterPrincipalAssignmentResult {
  * Other available API versions: 2023-05-02, 2023-08-15.
  */
 export function getClusterPrincipalAssignmentOutput(args: GetClusterPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPrincipalAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:kusto:getClusterPrincipalAssignment", {
-        "clusterName": args.clusterName,
-        "principalAssignmentName": args.principalAssignmentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getClusterPrincipalAssignment(a, opts))
 }
 
 export interface GetClusterPrincipalAssignmentOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getWebAppRelayServiceConnectionSlot(args: GetWebAppRelayServiceConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getWebAppRelayServiceConnectionSlot", {
         "entityName": args.entityName,
@@ -74,13 +75,7 @@ export interface GetWebAppRelayServiceConnectionSlotResult {
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getWebAppRelayServiceConnectionSlotOutput(args: GetWebAppRelayServiceConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppRelayServiceConnectionSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web:getWebAppRelayServiceConnectionSlot", {
-        "entityName": args.entityName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppRelayServiceConnectionSlot(a, opts))
 }
 
 export interface GetWebAppRelayServiceConnectionSlotOutputArgs {

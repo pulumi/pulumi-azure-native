@@ -76,6 +76,9 @@ def list_datastore_secrets(expirable_secret: Optional[bool] = None,
 
     return AwaitableListDatastoreSecretsResult(
         secrets_type=pulumi.get(__ret__, 'secrets_type'))
+
+
+@_utilities.lift_output_func(list_datastore_secrets)
 def list_datastore_secrets_output(expirable_secret: Optional[pulumi.Input[Optional[bool]]] = None,
                                   expire_after_hours: Optional[pulumi.Input[Optional[int]]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
@@ -92,13 +95,4 @@ def list_datastore_secrets_output(expirable_secret: Optional[pulumi.Input[Option
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    __args__ = dict()
-    __args__['expirableSecret'] = expirable_secret
-    __args__['expireAfterHours'] = expire_after_hours
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20240701preview:listDatastoreSecrets', __args__, opts=opts, typ=ListDatastoreSecretsResult)
-    return __ret__.apply(lambda __response__: ListDatastoreSecretsResult(
-        secrets_type=pulumi.get(__response__, 'secrets_type')))
+    ...

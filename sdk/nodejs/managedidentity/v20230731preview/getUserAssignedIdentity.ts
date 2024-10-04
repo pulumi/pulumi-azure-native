@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the identity.
  */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedidentity/v20230731preview:getUserAssignedIdentity", {
         "resourceGroupName": args.resourceGroupName,
@@ -74,11 +75,7 @@ export interface GetUserAssignedIdentityResult {
  * Gets the identity.
  */
 export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managedidentity/v20230731preview:getUserAssignedIdentity", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUserAssignedIdentity(a, opts))
 }
 
 export interface GetUserAssignedIdentityOutputArgs {

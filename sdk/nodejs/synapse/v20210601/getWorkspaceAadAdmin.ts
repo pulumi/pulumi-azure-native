@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a workspace active directory admin
  */
 export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceAadAdminResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601:getWorkspaceAadAdmin", {
         "resourceGroupName": args.resourceGroupName,
@@ -63,11 +64,7 @@ export interface GetWorkspaceAadAdminResult {
  * Gets a workspace active directory admin
  */
 export function getWorkspaceAadAdminOutput(args: GetWorkspaceAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceAadAdminResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601:getWorkspaceAadAdmin", {
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceAadAdmin(a, opts))
 }
 
 export interface GetWorkspaceAadAdminOutputArgs {

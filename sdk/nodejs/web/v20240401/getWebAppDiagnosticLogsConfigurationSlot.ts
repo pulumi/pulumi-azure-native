@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Description for Gets the logging configuration of an app.
  */
 export function getWebAppDiagnosticLogsConfigurationSlot(args: GetWebAppDiagnosticLogsConfigurationSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDiagnosticLogsConfigurationSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:getWebAppDiagnosticLogsConfigurationSlot", {
         "name": args.name,
@@ -75,12 +76,7 @@ export interface GetWebAppDiagnosticLogsConfigurationSlotResult {
  * Description for Gets the logging configuration of an app.
  */
 export function getWebAppDiagnosticLogsConfigurationSlotOutput(args: GetWebAppDiagnosticLogsConfigurationSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDiagnosticLogsConfigurationSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getWebAppDiagnosticLogsConfigurationSlot", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppDiagnosticLogsConfigurationSlot(a, opts))
 }
 
 export interface GetWebAppDiagnosticLogsConfigurationSlotOutputArgs {

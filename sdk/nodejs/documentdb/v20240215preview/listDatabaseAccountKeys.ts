@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Lists the access keys for the specified Azure Cosmos DB database account.
  */
 export function listDatabaseAccountKeys(args: ListDatabaseAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseAccountKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20240215preview:listDatabaseAccountKeys", {
         "accountName": args.accountName,
@@ -51,11 +52,7 @@ export interface ListDatabaseAccountKeysResult {
  * Lists the access keys for the specified Azure Cosmos DB database account.
  */
 export function listDatabaseAccountKeysOutput(args: ListDatabaseAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseAccountKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240215preview:listDatabaseAccountKeys", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listDatabaseAccountKeys(a, opts))
 }
 
 export interface ListDatabaseAccountKeysOutputArgs {

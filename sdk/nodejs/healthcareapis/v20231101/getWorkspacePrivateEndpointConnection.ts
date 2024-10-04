@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified private endpoint connection associated with the workspace.
  */
 export function getWorkspacePrivateEndpointConnection(args: GetWorkspacePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspacePrivateEndpointConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20231101:getWorkspacePrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
@@ -71,12 +72,7 @@ export interface GetWorkspacePrivateEndpointConnectionResult {
  * Gets the specified private endpoint connection associated with the workspace.
  */
 export function getWorkspacePrivateEndpointConnectionOutput(args: GetWorkspacePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspacePrivateEndpointConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:healthcareapis/v20231101:getWorkspacePrivateEndpointConnection", {
-        "privateEndpointConnectionName": args.privateEndpointConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspacePrivateEndpointConnection(a, opts))
 }
 
 export interface GetWorkspacePrivateEndpointConnectionOutputArgs {

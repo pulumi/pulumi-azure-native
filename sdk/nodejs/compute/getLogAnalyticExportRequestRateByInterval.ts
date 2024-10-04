@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-12-01, 2018-04-01, 2018-06-01, 2018-10-01, 2019-03-01, 2019-07-01, 2019-12-01, 2020-06-01, 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
 export function getLogAnalyticExportRequestRateByInterval(args: GetLogAnalyticExportRequestRateByIntervalArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportRequestRateByIntervalResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getLogAnalyticExportRequestRateByInterval", {
         "blobContainerSasUri": args.blobContainerSasUri,
@@ -88,19 +89,7 @@ export interface GetLogAnalyticExportRequestRateByIntervalResult {
  * Other available API versions: 2017-12-01, 2018-04-01, 2018-06-01, 2018-10-01, 2019-03-01, 2019-07-01, 2019-12-01, 2020-06-01, 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
 export function getLogAnalyticExportRequestRateByIntervalOutput(args: GetLogAnalyticExportRequestRateByIntervalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnalyticExportRequestRateByIntervalResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute:getLogAnalyticExportRequestRateByInterval", {
-        "blobContainerSasUri": args.blobContainerSasUri,
-        "fromTime": args.fromTime,
-        "groupByClientApplicationId": args.groupByClientApplicationId,
-        "groupByOperationName": args.groupByOperationName,
-        "groupByResourceName": args.groupByResourceName,
-        "groupByThrottlePolicy": args.groupByThrottlePolicy,
-        "groupByUserAgent": args.groupByUserAgent,
-        "intervalLength": args.intervalLength,
-        "location": args.location,
-        "toTime": args.toTime,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLogAnalyticExportRequestRateByInterval(a, opts))
 }
 
 export interface GetLogAnalyticExportRequestRateByIntervalOutputArgs {

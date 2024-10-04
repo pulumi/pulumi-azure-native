@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a managed private endpoint.
  */
 export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrivateEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getManagedPrivateEndpoint", {
         "factoryName": args.factoryName,
@@ -68,13 +69,7 @@ export interface GetManagedPrivateEndpointResult {
  * Gets a managed private endpoint.
  */
 export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getManagedPrivateEndpoint", {
-        "factoryName": args.factoryName,
-        "managedPrivateEndpointName": args.managedPrivateEndpointName,
-        "managedVirtualNetworkName": args.managedVirtualNetworkName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedPrivateEndpoint(a, opts))
 }
 
 export interface GetManagedPrivateEndpointOutputArgs {

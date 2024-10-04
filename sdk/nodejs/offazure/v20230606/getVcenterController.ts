@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Vcenter
  */
 export function getVcenterController(args: GetVcenterControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetVcenterControllerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure/v20230606:getVcenterController", {
         "resourceGroupName": args.resourceGroupName,
@@ -103,12 +104,7 @@ export interface GetVcenterControllerResult {
  * Get a Vcenter
  */
 export function getVcenterControllerOutput(args: GetVcenterControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVcenterControllerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:getVcenterController", {
-        "resourceGroupName": args.resourceGroupName,
-        "siteName": args.siteName,
-        "vcenterName": args.vcenterName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVcenterController(a, opts))
 }
 
 export interface GetVcenterControllerOutputArgs {

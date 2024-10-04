@@ -251,6 +251,9 @@ def get_domain(domain_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_domain)
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
@@ -261,24 +264,4 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str domain_name: Name of the domain.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    __args__ = dict()
-    __args__['domainName'] = domain_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20200401preview:getDomain', __args__, opts=opts, typ=GetDomainResult)
-    return __ret__.apply(lambda __response__: GetDomainResult(
-        endpoint=pulumi.get(__response__, 'endpoint'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        inbound_ip_rules=pulumi.get(__response__, 'inbound_ip_rules'),
-        input_schema=pulumi.get(__response__, 'input_schema'),
-        input_schema_mapping=pulumi.get(__response__, 'input_schema_mapping'),
-        location=pulumi.get(__response__, 'location'),
-        metric_resource_id=pulumi.get(__response__, 'metric_resource_id'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

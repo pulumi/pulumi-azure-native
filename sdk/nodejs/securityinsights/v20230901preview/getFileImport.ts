@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a file import.
  */
 export function getFileImport(args: GetFileImportArgs, opts?: pulumi.InvokeOptions): Promise<GetFileImportResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230901preview:getFileImport", {
         "fileImportId": args.fileImportId,
@@ -111,12 +112,7 @@ export interface GetFileImportResult {
  * Gets a file import.
  */
 export function getFileImportOutput(args: GetFileImportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileImportResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230901preview:getFileImport", {
-        "fileImportId": args.fileImportId,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFileImport(a, opts))
 }
 
 export interface GetFileImportOutputArgs {

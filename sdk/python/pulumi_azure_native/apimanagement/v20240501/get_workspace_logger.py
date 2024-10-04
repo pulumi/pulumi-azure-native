@@ -165,6 +165,9 @@ def get_workspace_logger(logger_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workspace_logger)
 def get_workspace_logger_output(logger_id: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 service_name: Optional[pulumi.Input[str]] = None,
@@ -179,19 +182,4 @@ def get_workspace_logger_output(logger_id: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of the API Management service.
     :param str workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
     """
-    __args__ = dict()
-    __args__['loggerId'] = logger_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240501:getWorkspaceLogger', __args__, opts=opts, typ=GetWorkspaceLoggerResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceLoggerResult(
-        credentials=pulumi.get(__response__, 'credentials'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        is_buffered=pulumi.get(__response__, 'is_buffered'),
-        logger_type=pulumi.get(__response__, 'logger_type'),
-        name=pulumi.get(__response__, 'name'),
-        resource_id=pulumi.get(__response__, 'resource_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

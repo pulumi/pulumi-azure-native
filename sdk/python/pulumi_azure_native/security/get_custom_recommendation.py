@@ -212,6 +212,9 @@ def get_custom_recommendation(custom_recommendation_name: Optional[str] = None,
         severity=pulumi.get(__ret__, 'severity'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_custom_recommendation)
 def get_custom_recommendation_output(custom_recommendation_name: Optional[pulumi.Input[str]] = None,
                                      scope: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomRecommendationResult]:
@@ -223,21 +226,4 @@ def get_custom_recommendation_output(custom_recommendation_name: Optional[pulumi
     :param str custom_recommendation_name: Name of the Custom Recommendation.
     :param str scope: The scope of the custom recommendation. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
     """
-    __args__ = dict()
-    __args__['customRecommendationName'] = custom_recommendation_name
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security:getCustomRecommendation', __args__, opts=opts, typ=GetCustomRecommendationResult)
-    return __ret__.apply(lambda __response__: GetCustomRecommendationResult(
-        assessment_key=pulumi.get(__response__, 'assessment_key'),
-        cloud_providers=pulumi.get(__response__, 'cloud_providers'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        query=pulumi.get(__response__, 'query'),
-        remediation_description=pulumi.get(__response__, 'remediation_description'),
-        security_issue=pulumi.get(__response__, 'security_issue'),
-        severity=pulumi.get(__response__, 'severity'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

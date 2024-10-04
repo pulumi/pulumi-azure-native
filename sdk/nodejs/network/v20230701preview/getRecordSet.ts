@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a record set.
  */
 export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230701preview:getRecordSet", {
         "recordType": args.recordType,
@@ -140,13 +141,7 @@ export interface GetRecordSetResult {
  * Gets a record set.
  */
 export function getRecordSetOutput(args: GetRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230701preview:getRecordSet", {
-        "recordType": args.recordType,
-        "relativeRecordSetName": args.relativeRecordSetName,
-        "resourceGroupName": args.resourceGroupName,
-        "zoneName": args.zoneName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRecordSet(a, opts))
 }
 
 export interface GetRecordSetOutputArgs {

@@ -174,6 +174,9 @@ def get_linked_server(linked_server_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         server_role=pulumi.get(__ret__, 'server_role'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_linked_server)
 def get_linked_server_output(linked_server_name: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -186,19 +189,4 @@ def get_linked_server_output(linked_server_name: Optional[pulumi.Input[str]] = N
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['linkedServerName'] = linked_server_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cache/v20240401preview:getLinkedServer', __args__, opts=opts, typ=GetLinkedServerResult)
-    return __ret__.apply(lambda __response__: GetLinkedServerResult(
-        geo_replicated_primary_host_name=pulumi.get(__response__, 'geo_replicated_primary_host_name'),
-        id=pulumi.get(__response__, 'id'),
-        linked_redis_cache_id=pulumi.get(__response__, 'linked_redis_cache_id'),
-        linked_redis_cache_location=pulumi.get(__response__, 'linked_redis_cache_location'),
-        name=pulumi.get(__response__, 'name'),
-        primary_host_name=pulumi.get(__response__, 'primary_host_name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        server_role=pulumi.get(__response__, 'server_role'),
-        type=pulumi.get(__response__, 'type')))
+    ...

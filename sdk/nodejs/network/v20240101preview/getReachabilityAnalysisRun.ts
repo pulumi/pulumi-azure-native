@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Configuration information for analysis run.
  */
 export function getReachabilityAnalysisRun(args: GetReachabilityAnalysisRunArgs, opts?: pulumi.InvokeOptions): Promise<GetReachabilityAnalysisRunResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240101preview:getReachabilityAnalysisRun", {
         "networkManagerName": args.networkManagerName,
@@ -68,13 +69,7 @@ export interface GetReachabilityAnalysisRunResult {
  * Configuration information for analysis run.
  */
 export function getReachabilityAnalysisRunOutput(args: GetReachabilityAnalysisRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReachabilityAnalysisRunResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20240101preview:getReachabilityAnalysisRun", {
-        "networkManagerName": args.networkManagerName,
-        "reachabilityAnalysisRunName": args.reachabilityAnalysisRunName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReachabilityAnalysisRun(a, opts))
 }
 
 export interface GetReachabilityAnalysisRunOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the download URL of the test execution screen recording.
  */
 export function getTestResultVideoDownloadURL(args: GetTestResultVideoDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultVideoDownloadURLResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20220401preview:getTestResultVideoDownloadURL", {
         "packageName": args.packageName,
@@ -53,13 +54,7 @@ export interface GetTestResultVideoDownloadURLResult {
  * Gets the download URL of the test execution screen recording.
  */
 export function getTestResultVideoDownloadURLOutput(args: GetTestResultVideoDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultVideoDownloadURLResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getTestResultVideoDownloadURL", {
-        "packageName": args.packageName,
-        "resourceGroupName": args.resourceGroupName,
-        "testBaseAccountName": args.testBaseAccountName,
-        "testResultName": args.testResultName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTestResultVideoDownloadURL(a, opts))
 }
 
 export interface GetTestResultVideoDownloadURLOutputArgs {

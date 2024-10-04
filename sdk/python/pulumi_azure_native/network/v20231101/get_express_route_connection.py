@@ -188,6 +188,9 @@ def get_express_route_connection(connection_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
         routing_weight=pulumi.get(__ret__, 'routing_weight'))
+
+
+@_utilities.lift_output_func(get_express_route_connection)
 def get_express_route_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                                         express_route_gateway_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -200,20 +203,4 @@ def get_express_route_connection_output(connection_name: Optional[pulumi.Input[s
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['connectionName'] = connection_name
-    __args__['expressRouteGatewayName'] = express_route_gateway_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20231101:getExpressRouteConnection', __args__, opts=opts, typ=GetExpressRouteConnectionResult)
-    return __ret__.apply(lambda __response__: GetExpressRouteConnectionResult(
-        authorization_key=pulumi.get(__response__, 'authorization_key'),
-        enable_internet_security=pulumi.get(__response__, 'enable_internet_security'),
-        enable_private_link_fast_path=pulumi.get(__response__, 'enable_private_link_fast_path'),
-        express_route_circuit_peering=pulumi.get(__response__, 'express_route_circuit_peering'),
-        express_route_gateway_bypass=pulumi.get(__response__, 'express_route_gateway_bypass'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        routing_configuration=pulumi.get(__response__, 'routing_configuration'),
-        routing_weight=pulumi.get(__response__, 'routing_weight')))
+    ...

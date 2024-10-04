@@ -116,6 +116,9 @@ def get_serial_port(parent_resource: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_serial_port)
 def get_serial_port_output(parent_resource: Optional[pulumi.Input[str]] = None,
                            parent_resource_type: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -133,16 +136,4 @@ def get_serial_port_output(parent_resource: Optional[pulumi.Input[str]] = None,
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str serial_port: The name of the serial port to connect to.
     """
-    __args__ = dict()
-    __args__['parentResource'] = parent_resource
-    __args__['parentResourceType'] = parent_resource_type
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceProviderNamespace'] = resource_provider_namespace
-    __args__['serialPort'] = serial_port
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:serialconsole:getSerialPort', __args__, opts=opts, typ=GetSerialPortResult)
-    return __ret__.apply(lambda __response__: GetSerialPortResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        state=pulumi.get(__response__, 'state'),
-        type=pulumi.get(__response__, 'type')))
+    ...

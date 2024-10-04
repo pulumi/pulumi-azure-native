@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-02-16-preview.
  */
 export function getDra(args: GetDraArgs, opts?: pulumi.InvokeOptions): Promise<GetDraResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datareplication:getDra", {
         "fabricAgentName": args.fabricAgentName,
@@ -62,12 +63,7 @@ export interface GetDraResult {
  * Azure REST API version: 2021-02-16-preview.
  */
 export function getDraOutput(args: GetDraOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDraResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datareplication:getDra", {
-        "fabricAgentName": args.fabricAgentName,
-        "fabricName": args.fabricName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDra(a, opts))
 }
 
 export interface GetDraOutputArgs {

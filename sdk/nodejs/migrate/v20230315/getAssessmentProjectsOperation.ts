@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a AssessmentProject
  */
 export function getAssessmentProjectsOperation(args: GetAssessmentProjectsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentProjectsOperationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20230315:getAssessmentProjectsOperation", {
         "projectName": args.projectName,
@@ -111,11 +112,7 @@ export interface GetAssessmentProjectsOperationResult {
  * Get a AssessmentProject
  */
 export function getAssessmentProjectsOperationOutput(args: GetAssessmentProjectsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentProjectsOperationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate/v20230315:getAssessmentProjectsOperation", {
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAssessmentProjectsOperation(a, opts))
 }
 
 export interface GetAssessmentProjectsOperationOutputArgs {

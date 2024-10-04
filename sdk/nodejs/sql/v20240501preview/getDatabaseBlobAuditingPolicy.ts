@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a database's blob auditing policy.
  */
 export function getDatabaseBlobAuditingPolicy(args: GetDatabaseBlobAuditingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseBlobAuditingPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20240501preview:getDatabaseBlobAuditingPolicy", {
         "blobAuditingPolicyName": args.blobAuditingPolicyName,
@@ -168,13 +169,7 @@ export interface GetDatabaseBlobAuditingPolicyResult {
  * Gets a database's blob auditing policy.
  */
 export function getDatabaseBlobAuditingPolicyOutput(args: GetDatabaseBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseBlobAuditingPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20240501preview:getDatabaseBlobAuditingPolicy", {
-        "blobAuditingPolicyName": args.blobAuditingPolicyName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDatabaseBlobAuditingPolicy(a, opts))
 }
 
 export interface GetDatabaseBlobAuditingPolicyOutputArgs {

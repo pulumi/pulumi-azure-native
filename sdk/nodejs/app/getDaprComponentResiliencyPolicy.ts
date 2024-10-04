@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-11-02-preview, 2024-02-02-preview.
  */
 export function getDaprComponentResiliencyPolicy(args: GetDaprComponentResiliencyPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDaprComponentResiliencyPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app:getDaprComponentResiliencyPolicy", {
         "componentName": args.componentName,
@@ -78,13 +79,7 @@ export interface GetDaprComponentResiliencyPolicyResult {
  * Other available API versions: 2023-11-02-preview, 2024-02-02-preview.
  */
 export function getDaprComponentResiliencyPolicyOutput(args: GetDaprComponentResiliencyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaprComponentResiliencyPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app:getDaprComponentResiliencyPolicy", {
-        "componentName": args.componentName,
-        "environmentName": args.environmentName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDaprComponentResiliencyPolicy(a, opts))
 }
 
 export interface GetDaprComponentResiliencyPolicyOutputArgs {

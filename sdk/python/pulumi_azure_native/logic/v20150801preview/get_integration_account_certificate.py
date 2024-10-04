@@ -185,6 +185,9 @@ def get_integration_account_certificate(certificate_name: Optional[str] = None,
         public_certificate=pulumi.get(__ret__, 'public_certificate'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_integration_account_certificate)
 def get_integration_account_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                                                integration_account_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -197,20 +200,4 @@ def get_integration_account_certificate_output(certificate_name: Optional[pulumi
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['certificateName'] = certificate_name
-    __args__['integrationAccountName'] = integration_account_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20150801preview:getIntegrationAccountCertificate', __args__, opts=opts, typ=GetIntegrationAccountCertificateResult)
-    return __ret__.apply(lambda __response__: GetIntegrationAccountCertificateResult(
-        changed_time=pulumi.get(__response__, 'changed_time'),
-        created_time=pulumi.get(__response__, 'created_time'),
-        id=pulumi.get(__response__, 'id'),
-        key=pulumi.get(__response__, 'key'),
-        location=pulumi.get(__response__, 'location'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        name=pulumi.get(__response__, 'name'),
-        public_certificate=pulumi.get(__response__, 'public_certificate'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

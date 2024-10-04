@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The Private Endpoint Connection resource.
  */
 export function getManagedEnvironmentPrivateEndpointConnection(args: GetManagedEnvironmentPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentPrivateEndpointConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20240202preview:getManagedEnvironmentPrivateEndpointConnection", {
         "environmentName": args.environmentName,
@@ -75,12 +76,7 @@ export interface GetManagedEnvironmentPrivateEndpointConnectionResult {
  * The Private Endpoint Connection resource.
  */
 export function getManagedEnvironmentPrivateEndpointConnectionOutput(args: GetManagedEnvironmentPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentPrivateEndpointConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app/v20240202preview:getManagedEnvironmentPrivateEndpointConnection", {
-        "environmentName": args.environmentName,
-        "privateEndpointConnectionName": args.privateEndpointConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedEnvironmentPrivateEndpointConnection(a, opts))
 }
 
 export interface GetManagedEnvironmentPrivateEndpointConnectionOutputArgs {

@@ -149,6 +149,9 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
         target_iqn=pulumi.get(__ret__, 'target_iqn'),
         tpgs=pulumi.get(__ret__, 'tpgs'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_iscsi_target)
 def get_iscsi_target_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
                             iscsi_target_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -161,17 +164,4 @@ def get_iscsi_target_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
     :param str iscsi_target_name: The name of the iSCSI target.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['diskPoolName'] = disk_pool_name
-    __args__['iscsiTargetName'] = iscsi_target_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storagepool/v20200315preview:getIscsiTarget', __args__, opts=opts, typ=GetIscsiTargetResult)
-    return __ret__.apply(lambda __response__: GetIscsiTargetResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        status=pulumi.get(__response__, 'status'),
-        target_iqn=pulumi.get(__response__, 'target_iqn'),
-        tpgs=pulumi.get(__response__, 'tpgs'),
-        type=pulumi.get(__response__, 'type')))
+    ...

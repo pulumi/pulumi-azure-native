@@ -195,6 +195,9 @@ def get_vm_instance_guest_agent(resource_uri: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
+
+
+@_utilities.lift_output_func(get_vm_instance_guest_agent)
 def get_vm_instance_guest_agent_output(resource_uri: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVMInstanceGuestAgentResult]:
     """
@@ -203,19 +206,4 @@ def get_vm_instance_guest_agent_output(resource_uri: Optional[pulumi.Input[str]]
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
     """
-    __args__ = dict()
-    __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm/v20230401preview:getVMInstanceGuestAgent', __args__, opts=opts, typ=GetVMInstanceGuestAgentResult)
-    return __ret__.apply(lambda __response__: GetVMInstanceGuestAgentResult(
-        credentials=pulumi.get(__response__, 'credentials'),
-        custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),
-        http_proxy_config=pulumi.get(__response__, 'http_proxy_config'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_action=pulumi.get(__response__, 'provisioning_action'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        uuid=pulumi.get(__response__, 'uuid')))
+    ...

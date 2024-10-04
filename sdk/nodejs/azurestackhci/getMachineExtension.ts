@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-12-15-preview.
  */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci:getMachineExtension", {
         "extensionName": args.extensionName,
@@ -101,12 +102,7 @@ export interface GetMachineExtensionResult {
  * Azure REST API version: 2022-12-15-preview.
  */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getMachineExtension", {
-        "extensionName": args.extensionName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMachineExtension(a, opts))
 }
 
 export interface GetMachineExtensionOutputArgs {

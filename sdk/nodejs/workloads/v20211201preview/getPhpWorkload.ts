@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the PHP workload resource.
  */
 export function getPhpWorkload(args: GetPhpWorkloadArgs, opts?: pulumi.InvokeOptions): Promise<GetPhpWorkloadResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20211201preview:getPhpWorkload", {
         "phpWorkloadName": args.phpWorkloadName,
@@ -130,11 +131,7 @@ export interface GetPhpWorkloadResult {
  * Gets the PHP workload resource.
  */
 export function getPhpWorkloadOutput(args: GetPhpWorkloadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPhpWorkloadResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads/v20211201preview:getPhpWorkload", {
-        "phpWorkloadName": args.phpWorkloadName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPhpWorkload(a, opts))
 }
 
 export interface GetPhpWorkloadOutputArgs {

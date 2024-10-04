@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getSubscriptionNetworkManagerConnection(args: GetSubscriptionNetworkManagerConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionNetworkManagerConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getSubscriptionNetworkManagerConnection", {
         "networkManagerConnectionName": args.networkManagerConnectionName,
@@ -67,10 +68,7 @@ export interface GetSubscriptionNetworkManagerConnectionResult {
  * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getSubscriptionNetworkManagerConnectionOutput(args: GetSubscriptionNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionNetworkManagerConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getSubscriptionNetworkManagerConnection", {
-        "networkManagerConnectionName": args.networkManagerConnectionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSubscriptionNetworkManagerConnection(a, opts))
 }
 
 export interface GetSubscriptionNetworkManagerConnectionOutputArgs {

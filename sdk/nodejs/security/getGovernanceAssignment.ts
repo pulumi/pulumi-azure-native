@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-01-01-preview.
  */
 export function getGovernanceAssignment(args: GetGovernanceAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGovernanceAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getGovernanceAssignment", {
         "assessmentName": args.assessmentName,
@@ -81,12 +82,7 @@ export interface GetGovernanceAssignmentResult {
  * Azure REST API version: 2022-01-01-preview.
  */
 export function getGovernanceAssignmentOutput(args: GetGovernanceAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGovernanceAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security:getGovernanceAssignment", {
-        "assessmentName": args.assessmentName,
-        "assignmentKey": args.assignmentKey,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGovernanceAssignment(a, opts))
 }
 
 export interface GetGovernanceAssignmentOutputArgs {

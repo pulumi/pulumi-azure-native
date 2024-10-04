@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
  */
 export function getSqlAssessmentV2Operation(args: GetSqlAssessmentV2OperationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlAssessmentV2OperationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getSqlAssessmentV2Operation", {
         "assessmentName": args.assessmentName,
@@ -227,13 +228,7 @@ export interface GetSqlAssessmentV2OperationResult {
  * Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
  */
 export function getSqlAssessmentV2OperationOutput(args: GetSqlAssessmentV2OperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlAssessmentV2OperationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate:getSqlAssessmentV2Operation", {
-        "assessmentName": args.assessmentName,
-        "groupName": args.groupName,
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlAssessmentV2Operation(a, opts))
 }
 
 export interface GetSqlAssessmentV2OperationOutputArgs {

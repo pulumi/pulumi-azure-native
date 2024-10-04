@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
  */
 export function getProjectCatalogEnvironmentDefinitionErrorDetails(args: GetProjectCatalogEnvironmentDefinitionErrorDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectCatalogEnvironmentDefinitionErrorDetailsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter:getProjectCatalogEnvironmentDefinitionErrorDetails", {
         "catalogName": args.catalogName,
@@ -58,13 +59,7 @@ export interface GetProjectCatalogEnvironmentDefinitionErrorDetailsResult {
  * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
  */
 export function getProjectCatalogEnvironmentDefinitionErrorDetailsOutput(args: GetProjectCatalogEnvironmentDefinitionErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectCatalogEnvironmentDefinitionErrorDetailsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devcenter:getProjectCatalogEnvironmentDefinitionErrorDetails", {
-        "catalogName": args.catalogName,
-        "environmentDefinitionName": args.environmentDefinitionName,
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProjectCatalogEnvironmentDefinitionErrorDetails(a, opts))
 }
 
 export interface GetProjectCatalogEnvironmentDefinitionErrorDetailsOutputArgs {

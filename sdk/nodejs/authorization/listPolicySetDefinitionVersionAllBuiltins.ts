@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  */
 export function listPolicySetDefinitionVersionAllBuiltins(args?: ListPolicySetDefinitionVersionAllBuiltinsArgs, opts?: pulumi.InvokeOptions): Promise<ListPolicySetDefinitionVersionAllBuiltinsResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:listPolicySetDefinitionVersionAllBuiltins", {
     }, opts);
@@ -43,8 +44,5 @@ export interface ListPolicySetDefinitionVersionAllBuiltinsResult {
  * Other available API versions: 2024-05-01.
  */
 export function listPolicySetDefinitionVersionAllBuiltinsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListPolicySetDefinitionVersionAllBuiltinsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization:listPolicySetDefinitionVersionAllBuiltins", {
-    }, opts);
+    return pulumi.output(listPolicySetDefinitionVersionAllBuiltins(opts))
 }
-

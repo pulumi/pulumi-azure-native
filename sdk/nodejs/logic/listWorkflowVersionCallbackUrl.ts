@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2016-06-01.
  */
 export function listWorkflowVersionCallbackUrl(args: ListWorkflowVersionCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowVersionCallbackUrlResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic:listWorkflowVersionCallbackUrl", {
         "keyType": args.keyType,
@@ -84,15 +85,7 @@ export interface ListWorkflowVersionCallbackUrlResult {
  * Azure REST API version: 2016-06-01.
  */
 export function listWorkflowVersionCallbackUrlOutput(args: ListWorkflowVersionCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowVersionCallbackUrlResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic:listWorkflowVersionCallbackUrl", {
-        "keyType": args.keyType,
-        "notAfter": args.notAfter,
-        "resourceGroupName": args.resourceGroupName,
-        "triggerName": args.triggerName,
-        "versionId": args.versionId,
-        "workflowName": args.workflowName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWorkflowVersionCallbackUrl(a, opts))
 }
 
 export interface ListWorkflowVersionCallbackUrlOutputArgs {

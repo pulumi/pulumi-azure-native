@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getServerlessEndpoint(args: GetServerlessEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getServerlessEndpoint", {
         "name": args.name,
@@ -84,12 +85,7 @@ export interface GetServerlessEndpointResult {
  * Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getServerlessEndpointOutput(args: GetServerlessEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getServerlessEndpoint", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServerlessEndpoint(a, opts))
 }
 
 export interface GetServerlessEndpointOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-01.
  */
 export function listHybridConnectionKeys(args: ListHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListHybridConnectionKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay:listHybridConnectionKeys", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -71,13 +72,7 @@ export interface ListHybridConnectionKeysResult {
  * Other available API versions: 2024-01-01.
  */
 export function listHybridConnectionKeysOutput(args: ListHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHybridConnectionKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:relay:listHybridConnectionKeys", {
-        "authorizationRuleName": args.authorizationRuleName,
-        "hybridConnectionName": args.hybridConnectionName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listHybridConnectionKeys(a, opts))
 }
 
 export interface ListHybridConnectionKeysOutputArgs {

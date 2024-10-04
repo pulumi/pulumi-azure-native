@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about the specified profile.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getProfile", {
         "hubName": args.hubName,
@@ -132,13 +133,7 @@ export interface GetProfileResult {
  * Gets information about the specified profile.
  */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getProfile", {
-        "hubName": args.hubName,
-        "localeCode": args.localeCode,
-        "profileName": args.profileName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }
 
 export interface GetProfileOutputArgs {

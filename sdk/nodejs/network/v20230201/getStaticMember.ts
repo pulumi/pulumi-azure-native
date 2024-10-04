@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified static member.
  */
 export function getStaticMember(args: GetStaticMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticMemberResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230201:getStaticMember", {
         "networkGroupName": args.networkGroupName,
@@ -80,13 +81,7 @@ export interface GetStaticMemberResult {
  * Gets the specified static member.
  */
 export function getStaticMemberOutput(args: GetStaticMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticMemberResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getStaticMember", {
-        "networkGroupName": args.networkGroupName,
-        "networkManagerName": args.networkManagerName,
-        "resourceGroupName": args.resourceGroupName,
-        "staticMemberName": args.staticMemberName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStaticMember(a, opts))
 }
 
 export interface GetStaticMemberOutputArgs {

@@ -108,6 +108,9 @@ def get_job(job_collection_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_job)
 def get_job_output(job_collection_name: Optional[pulumi.Input[str]] = None,
                    job_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -121,14 +124,4 @@ def get_job_output(job_collection_name: Optional[pulumi.Input[str]] = None,
     :param str job_name: The job name.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['jobCollectionName'] = job_collection_name
-    __args__['jobName'] = job_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:scheduler:getJob', __args__, opts=opts, typ=GetJobResult)
-    return __ret__.apply(lambda __response__: GetJobResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        type=pulumi.get(__response__, 'type')))
+    ...

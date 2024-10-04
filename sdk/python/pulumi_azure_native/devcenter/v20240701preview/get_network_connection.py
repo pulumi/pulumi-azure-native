@@ -250,6 +250,9 @@ def get_network_connection(network_connection_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_network_connection)
 def get_network_connection_output(network_connection_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkConnectionResult]:
@@ -260,24 +263,4 @@ def get_network_connection_output(network_connection_name: Optional[pulumi.Input
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['networkConnectionName'] = network_connection_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20240701preview:getNetworkConnection', __args__, opts=opts, typ=GetNetworkConnectionResult)
-    return __ret__.apply(lambda __response__: GetNetworkConnectionResult(
-        domain_join_type=pulumi.get(__response__, 'domain_join_type'),
-        domain_name=pulumi.get(__response__, 'domain_name'),
-        domain_password=pulumi.get(__response__, 'domain_password'),
-        domain_username=pulumi.get(__response__, 'domain_username'),
-        health_check_status=pulumi.get(__response__, 'health_check_status'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        networking_resource_group_name=pulumi.get(__response__, 'networking_resource_group_name'),
-        organization_unit=pulumi.get(__response__, 'organization_unit'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        subnet_id=pulumi.get(__response__, 'subnet_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

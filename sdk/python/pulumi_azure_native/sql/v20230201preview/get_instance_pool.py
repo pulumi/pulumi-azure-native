@@ -172,6 +172,9 @@ def get_instance_pool(instance_pool_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         v_cores=pulumi.get(__ret__, 'v_cores'))
+
+
+@_utilities.lift_output_func(get_instance_pool)
 def get_instance_pool_output(instance_pool_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancePoolResult]:
@@ -182,18 +185,4 @@ def get_instance_pool_output(instance_pool_name: Optional[pulumi.Input[str]] = N
     :param str instance_pool_name: The name of the instance pool to be retrieved.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
-    __args__ = dict()
-    __args__['instancePoolName'] = instance_pool_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230201preview:getInstancePool', __args__, opts=opts, typ=GetInstancePoolResult)
-    return __ret__.apply(lambda __response__: GetInstancePoolResult(
-        id=pulumi.get(__response__, 'id'),
-        license_type=pulumi.get(__response__, 'license_type'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        sku=pulumi.get(__response__, 'sku'),
-        subnet_id=pulumi.get(__response__, 'subnet_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        v_cores=pulumi.get(__response__, 'v_cores')))
+    ...

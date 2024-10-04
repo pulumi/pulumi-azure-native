@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
  */
 export function getDataNetwork(args: GetDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetDataNetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork:getDataNetwork", {
         "dataNetworkName": args.dataNetworkName,
@@ -81,12 +82,7 @@ export interface GetDataNetworkResult {
  * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
  */
 export function getDataNetworkOutput(args: GetDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataNetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork:getDataNetwork", {
-        "dataNetworkName": args.dataNetworkName,
-        "mobileNetworkName": args.mobileNetworkName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDataNetwork(a, opts))
 }
 
 export interface GetDataNetworkOutputArgs {

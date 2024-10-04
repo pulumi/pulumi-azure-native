@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * List the two keys used to publish to a namespace topic.
  */
 export function listNamespaceTopicSharedAccessKeys(args: ListNamespaceTopicSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceTopicSharedAccessKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20231215preview:listNamespaceTopicSharedAccessKeys", {
         "namespaceName": args.namespaceName,
@@ -48,12 +49,7 @@ export interface ListNamespaceTopicSharedAccessKeysResult {
  * List the two keys used to publish to a namespace topic.
  */
 export function listNamespaceTopicSharedAccessKeysOutput(args: ListNamespaceTopicSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceTopicSharedAccessKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:listNamespaceTopicSharedAccessKeys", {
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-        "topicName": args.topicName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listNamespaceTopicSharedAccessKeys(a, opts))
 }
 
 export interface ListNamespaceTopicSharedAccessKeysOutputArgs {

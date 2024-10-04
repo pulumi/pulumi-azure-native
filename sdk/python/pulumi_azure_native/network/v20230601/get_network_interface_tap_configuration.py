@@ -136,6 +136,9 @@ def get_network_interface_tap_configuration(network_interface_name: Optional[str
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_tap=pulumi.get(__ret__, 'virtual_network_tap'))
+
+
+@_utilities.lift_output_func(get_network_interface_tap_configuration)
 def get_network_interface_tap_configuration_output(network_interface_name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    tap_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -148,16 +151,4 @@ def get_network_interface_tap_configuration_output(network_interface_name: Optio
     :param str resource_group_name: The name of the resource group.
     :param str tap_configuration_name: The name of the tap configuration.
     """
-    __args__ = dict()
-    __args__['networkInterfaceName'] = network_interface_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['tapConfigurationName'] = tap_configuration_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getNetworkInterfaceTapConfiguration', __args__, opts=opts, typ=GetNetworkInterfaceTapConfigurationResult)
-    return __ret__.apply(lambda __response__: GetNetworkInterfaceTapConfigurationResult(
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_network_tap=pulumi.get(__response__, 'virtual_network_tap')))
+    ...

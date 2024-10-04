@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-06-01-preview.
  */
 export function getSqlPoolWorkloadClassifier(args: GetSqlPoolWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadClassifierResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:getSqlPoolWorkloadClassifier", {
         "resourceGroupName": args.resourceGroupName,
@@ -92,14 +93,7 @@ export interface GetSqlPoolWorkloadClassifierResult {
  * Other available API versions: 2021-06-01-preview.
  */
 export function getSqlPoolWorkloadClassifierOutput(args: GetSqlPoolWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadClassifierResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:synapse:getSqlPoolWorkloadClassifier", {
-        "resourceGroupName": args.resourceGroupName,
-        "sqlPoolName": args.sqlPoolName,
-        "workloadClassifierName": args.workloadClassifierName,
-        "workloadGroupName": args.workloadGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlPoolWorkloadClassifier(a, opts))
 }
 
 export interface GetSqlPoolWorkloadClassifierOutputArgs {

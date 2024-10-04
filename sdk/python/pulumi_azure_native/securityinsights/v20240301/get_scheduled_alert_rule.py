@@ -410,6 +410,9 @@ def get_scheduled_alert_rule(resource_group_name: Optional[str] = None,
         trigger_operator=pulumi.get(__ret__, 'trigger_operator'),
         trigger_threshold=pulumi.get(__ret__, 'trigger_threshold'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_scheduled_alert_rule)
 def get_scheduled_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     rule_id: Optional[pulumi.Input[str]] = None,
                                     workspace_name: Optional[pulumi.Input[str]] = None,
@@ -422,37 +425,4 @@ def get_scheduled_alert_rule_output(resource_group_name: Optional[pulumi.Input[s
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['ruleId'] = rule_id
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240301:getScheduledAlertRule', __args__, opts=opts, typ=GetScheduledAlertRuleResult)
-    return __ret__.apply(lambda __response__: GetScheduledAlertRuleResult(
-        alert_details_override=pulumi.get(__response__, 'alert_details_override'),
-        alert_rule_template_name=pulumi.get(__response__, 'alert_rule_template_name'),
-        custom_details=pulumi.get(__response__, 'custom_details'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        enabled=pulumi.get(__response__, 'enabled'),
-        entity_mappings=pulumi.get(__response__, 'entity_mappings'),
-        etag=pulumi.get(__response__, 'etag'),
-        event_grouping_settings=pulumi.get(__response__, 'event_grouping_settings'),
-        id=pulumi.get(__response__, 'id'),
-        incident_configuration=pulumi.get(__response__, 'incident_configuration'),
-        kind=pulumi.get(__response__, 'kind'),
-        last_modified_utc=pulumi.get(__response__, 'last_modified_utc'),
-        name=pulumi.get(__response__, 'name'),
-        query=pulumi.get(__response__, 'query'),
-        query_frequency=pulumi.get(__response__, 'query_frequency'),
-        query_period=pulumi.get(__response__, 'query_period'),
-        severity=pulumi.get(__response__, 'severity'),
-        suppression_duration=pulumi.get(__response__, 'suppression_duration'),
-        suppression_enabled=pulumi.get(__response__, 'suppression_enabled'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tactics=pulumi.get(__response__, 'tactics'),
-        techniques=pulumi.get(__response__, 'techniques'),
-        template_version=pulumi.get(__response__, 'template_version'),
-        trigger_operator=pulumi.get(__response__, 'trigger_operator'),
-        trigger_threshold=pulumi.get(__response__, 'trigger_threshold'),
-        type=pulumi.get(__response__, 'type')))
+    ...

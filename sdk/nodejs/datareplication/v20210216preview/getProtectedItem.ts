@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the protected item.
  */
 export function getProtectedItem(args: GetProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectedItemResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datareplication/v20210216preview:getProtectedItem", {
         "protectedItemName": args.protectedItemName,
@@ -60,12 +61,7 @@ export interface GetProtectedItemResult {
  * Gets the details of the protected item.
  */
 export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectedItemResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datareplication/v20210216preview:getProtectedItem", {
-        "protectedItemName": args.protectedItemName,
-        "resourceGroupName": args.resourceGroupName,
-        "vaultName": args.vaultName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProtectedItem(a, opts))
 }
 
 export interface GetProtectedItemOutputArgs {

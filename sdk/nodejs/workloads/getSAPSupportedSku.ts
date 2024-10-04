@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
  */
 export function getSAPSupportedSku(args: GetSAPSupportedSkuArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPSupportedSkuResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads:getSAPSupportedSku", {
         "appLocation": args.appLocation,
@@ -73,16 +74,7 @@ export interface GetSAPSupportedSkuResult {
  * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
  */
 export function getSAPSupportedSkuOutput(args: GetSAPSupportedSkuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPSupportedSkuResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads:getSAPSupportedSku", {
-        "appLocation": args.appLocation,
-        "databaseType": args.databaseType,
-        "deploymentType": args.deploymentType,
-        "environment": args.environment,
-        "highAvailabilityType": args.highAvailabilityType,
-        "location": args.location,
-        "sapProduct": args.sapProduct,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSAPSupportedSku(a, opts))
 }
 
 export interface GetSAPSupportedSkuOutputArgs {

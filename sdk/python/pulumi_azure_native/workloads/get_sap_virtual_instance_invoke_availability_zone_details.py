@@ -76,6 +76,9 @@ def get_sap_virtual_instance_invoke_availability_zone_details(app_location: Opti
 
     return AwaitableGetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult(
         availability_zone_pairs=pulumi.get(__ret__, 'availability_zone_pairs'))
+
+
+@_utilities.lift_output_func(get_sap_virtual_instance_invoke_availability_zone_details)
 def get_sap_virtual_instance_invoke_availability_zone_details_output(app_location: Optional[pulumi.Input[str]] = None,
                                                                      database_type: Optional[pulumi.Input[Union[str, 'SAPDatabaseType']]] = None,
                                                                      location: Optional[pulumi.Input[str]] = None,
@@ -91,12 +94,4 @@ def get_sap_virtual_instance_invoke_availability_zone_details_output(app_locatio
     :param str location: The name of the Azure region.
     :param Union[str, 'SAPProductType'] sap_product: Defines the SAP Product type.
     """
-    __args__ = dict()
-    __args__['appLocation'] = app_location
-    __args__['databaseType'] = database_type
-    __args__['location'] = location
-    __args__['sapProduct'] = sap_product
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getSapVirtualInstanceInvokeAvailabilityZoneDetails', __args__, opts=opts, typ=GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult)
-    return __ret__.apply(lambda __response__: GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult(
-        availability_zone_pairs=pulumi.get(__response__, 'availability_zone_pairs')))
+    ...

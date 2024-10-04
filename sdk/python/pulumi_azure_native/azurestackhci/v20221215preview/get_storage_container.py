@@ -185,6 +185,9 @@ def get_storage_container(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_storage_container)
 def get_storage_container_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  storage_container_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageContainerResult]:
@@ -195,19 +198,4 @@ def get_storage_container_output(resource_group_name: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_container_name: Name of the storage container
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['storageContainerName'] = storage_container_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20221215preview:getStorageContainer', __args__, opts=opts, typ=GetStorageContainerResult)
-    return __ret__.apply(lambda __response__: GetStorageContainerResult(
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        path=pulumi.get(__response__, 'path'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

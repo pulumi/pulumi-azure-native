@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Authority
  */
 export function getAuthority(args: GetAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorityResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:verifiedid/v20240126preview:getAuthority", {
         "authorityName": args.authorityName,
@@ -66,11 +67,7 @@ export interface GetAuthorityResult {
  * Get a Authority
  */
 export function getAuthorityOutput(args: GetAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorityResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:verifiedid/v20240126preview:getAuthority", {
-        "authorityName": args.authorityName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAuthority(a, opts))
 }
 
 export interface GetAuthorityOutputArgs {

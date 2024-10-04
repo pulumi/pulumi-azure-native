@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
  */
 export function getStreamingJob(args: GetStreamingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingJobResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:streamanalytics:getStreamingJob", {
         "expand": args.expand,
@@ -165,12 +166,7 @@ export interface GetStreamingJobResult {
  * Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
  */
 export function getStreamingJobOutput(args: GetStreamingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingJobResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:streamanalytics:getStreamingJob", {
-        "expand": args.expand,
-        "jobName": args.jobName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStreamingJob(a, opts))
 }
 
 export interface GetStreamingJobOutputArgs {

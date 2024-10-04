@@ -227,6 +227,9 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         wsfc_domain_profile=pulumi.get(__ret__, 'wsfc_domain_profile'))
+
+
+@_utilities.lift_output_func(get_sql_virtual_machine_group)
 def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                          sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlVirtualMachineGroupResult]:
@@ -240,22 +243,4 @@ def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.In
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str sql_virtual_machine_group_name: Name of the SQL virtual machine group.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sqlVirtualMachineGroupName'] = sql_virtual_machine_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup', __args__, opts=opts, typ=GetSqlVirtualMachineGroupResult)
-    return __ret__.apply(lambda __response__: GetSqlVirtualMachineGroupResult(
-        cluster_configuration=pulumi.get(__response__, 'cluster_configuration'),
-        cluster_manager_type=pulumi.get(__response__, 'cluster_manager_type'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        scale_type=pulumi.get(__response__, 'scale_type'),
-        sql_image_offer=pulumi.get(__response__, 'sql_image_offer'),
-        sql_image_sku=pulumi.get(__response__, 'sql_image_sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        wsfc_domain_profile=pulumi.get(__response__, 'wsfc_domain_profile')))
+    ...

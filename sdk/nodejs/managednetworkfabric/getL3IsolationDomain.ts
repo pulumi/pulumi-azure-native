@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-06-15.
  */
 export function getL3IsolationDomain(args: GetL3IsolationDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetL3IsolationDomainResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric:getL3IsolationDomain", {
         "l3IsolationDomainName": args.l3IsolationDomainName,
@@ -112,11 +113,7 @@ export interface GetL3IsolationDomainResult {
  * Other available API versions: 2023-06-15.
  */
 export function getL3IsolationDomainOutput(args: GetL3IsolationDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL3IsolationDomainResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getL3IsolationDomain", {
-        "l3IsolationDomainName": args.l3IsolationDomainName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getL3IsolationDomain(a, opts))
 }
 
 export interface GetL3IsolationDomainOutputArgs {

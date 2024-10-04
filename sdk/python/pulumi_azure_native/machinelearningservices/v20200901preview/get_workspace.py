@@ -380,6 +380,9 @@ def get_workspace(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
+
+
+@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
@@ -390,34 +393,4 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20200901preview:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceResult(
-        allow_public_access_when_behind_vnet=pulumi.get(__response__, 'allow_public_access_when_behind_vnet'),
-        application_insights=pulumi.get(__response__, 'application_insights'),
-        container_registry=pulumi.get(__response__, 'container_registry'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        discovery_url=pulumi.get(__response__, 'discovery_url'),
-        encryption=pulumi.get(__response__, 'encryption'),
-        friendly_name=pulumi.get(__response__, 'friendly_name'),
-        hbi_workspace=pulumi.get(__response__, 'hbi_workspace'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        image_build_compute=pulumi.get(__response__, 'image_build_compute'),
-        key_vault=pulumi.get(__response__, 'key_vault'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        private_link_count=pulumi.get(__response__, 'private_link_count'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        service_provisioned_resource_group=pulumi.get(__response__, 'service_provisioned_resource_group'),
-        shared_private_link_resources=pulumi.get(__response__, 'shared_private_link_resources'),
-        sku=pulumi.get(__response__, 'sku'),
-        storage_account=pulumi.get(__response__, 'storage_account'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        workspace_id=pulumi.get(__response__, 'workspace_id')))
+    ...

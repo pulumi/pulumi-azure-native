@@ -188,6 +188,9 @@ def get_frontends_interface(frontend_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_frontends_interface)
 def get_frontends_interface_output(frontend_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    traffic_controller_name: Optional[pulumi.Input[str]] = None,
@@ -200,20 +203,4 @@ def get_frontends_interface_output(frontend_name: Optional[pulumi.Input[str]] = 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str traffic_controller_name: traffic controller name for path
     """
-    __args__ = dict()
-    __args__['frontendName'] = frontend_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['trafficControllerName'] = traffic_controller_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicenetworking/v20221001preview:getFrontendsInterface', __args__, opts=opts, typ=GetFrontendsInterfaceResult)
-    return __ret__.apply(lambda __response__: GetFrontendsInterfaceResult(
-        id=pulumi.get(__response__, 'id'),
-        ip_address_version=pulumi.get(__response__, 'ip_address_version'),
-        location=pulumi.get(__response__, 'location'),
-        mode=pulumi.get(__response__, 'mode'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_ip_address=pulumi.get(__response__, 'public_ip_address'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

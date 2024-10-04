@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a Transform.
  */
 export function getTransform(args: GetTransformArgs, opts?: pulumi.InvokeOptions): Promise<GetTransformResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20220701:getTransform", {
         "accountName": args.accountName,
@@ -75,12 +76,7 @@ export interface GetTransformResult {
  * Gets a Transform.
  */
 export function getTransformOutput(args: GetTransformOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransformResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media/v20220701:getTransform", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "transformName": args.transformName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTransform(a, opts))
 }
 
 export interface GetTransformOutputArgs {

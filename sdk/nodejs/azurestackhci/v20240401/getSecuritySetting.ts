@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a SecuritySetting
  */
 export function getSecuritySetting(args: GetSecuritySettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSecuritySettingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20240401:getSecuritySetting", {
         "clusterName": args.clusterName,
@@ -79,12 +80,7 @@ export interface GetSecuritySettingResult {
  * Get a SecuritySetting
  */
 export function getSecuritySettingOutput(args: GetSecuritySettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecuritySettingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240401:getSecuritySetting", {
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-        "securitySettingsName": args.securitySettingsName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecuritySetting(a, opts))
 }
 
 export interface GetSecuritySettingOutputArgs {

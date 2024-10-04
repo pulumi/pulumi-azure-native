@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-05-15.
  */
 export function getGlobalSchedule(args: GetGlobalScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalScheduleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab:getGlobalSchedule", {
         "expand": args.expand,
@@ -113,12 +114,7 @@ export interface GetGlobalScheduleResult {
  * Other available API versions: 2016-05-15.
  */
 export function getGlobalScheduleOutput(args: GetGlobalScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalScheduleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devtestlab:getGlobalSchedule", {
-        "expand": args.expand,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGlobalSchedule(a, opts))
 }
 
 export interface GetGlobalScheduleOutputArgs {

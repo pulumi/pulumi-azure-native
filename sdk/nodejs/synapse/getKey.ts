@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-06-01-preview.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:getKey", {
         "keyName": args.keyName,
@@ -66,12 +67,7 @@ export interface GetKeyResult {
  * Other available API versions: 2021-06-01-preview.
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:synapse:getKey", {
-        "keyName": args.keyName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getKey(a, opts))
 }
 
 export interface GetKeyOutputArgs {

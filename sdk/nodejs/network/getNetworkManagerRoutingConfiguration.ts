@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-03-01.
  */
 export function getNetworkManagerRoutingConfiguration(args: GetNetworkManagerRoutingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkManagerRoutingConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getNetworkManagerRoutingConfiguration", {
         "configurationName": args.configurationName,
@@ -77,12 +78,7 @@ export interface GetNetworkManagerRoutingConfigurationResult {
  * Azure REST API version: 2024-03-01.
  */
 export function getNetworkManagerRoutingConfigurationOutput(args: GetNetworkManagerRoutingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerRoutingConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getNetworkManagerRoutingConfiguration", {
-        "configurationName": args.configurationName,
-        "networkManagerName": args.networkManagerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkManagerRoutingConfiguration(a, opts))
 }
 
 export interface GetNetworkManagerRoutingConfigurationOutputArgs {

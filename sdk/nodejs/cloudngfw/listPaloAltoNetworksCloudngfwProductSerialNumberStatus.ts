@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  */
 export function listPaloAltoNetworksCloudngfwProductSerialNumberStatus(args?: ListPaloAltoNetworksCloudngfwProductSerialNumberStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwProductSerialNumberStatus", {
     }, opts);
@@ -36,8 +37,5 @@ export interface ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult {
  * Azure REST API version: 2024-02-07-preview.
  */
 export function listPaloAltoNetworksCloudngfwProductSerialNumberStatusOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwProductSerialNumberStatus", {
-    }, opts);
+    return pulumi.output(listPaloAltoNetworksCloudngfwProductSerialNumberStatus(opts))
 }
-

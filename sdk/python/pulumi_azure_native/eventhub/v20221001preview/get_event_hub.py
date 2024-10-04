@@ -227,6 +227,9 @@ def get_event_hub(event_hub_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
+
+
+@_utilities.lift_output_func(get_event_hub)
 def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
                          namespace_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -239,23 +242,4 @@ def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    __args__ = dict()
-    __args__['eventHubName'] = event_hub_name
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub/v20221001preview:getEventHub', __args__, opts=opts, typ=GetEventHubResult)
-    return __ret__.apply(lambda __response__: GetEventHubResult(
-        capture_description=pulumi.get(__response__, 'capture_description'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        message_retention_in_days=pulumi.get(__response__, 'message_retention_in_days'),
-        name=pulumi.get(__response__, 'name'),
-        partition_count=pulumi.get(__response__, 'partition_count'),
-        partition_ids=pulumi.get(__response__, 'partition_ids'),
-        retention_description=pulumi.get(__response__, 'retention_description'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        updated_at=pulumi.get(__response__, 'updated_at')))
+    ...

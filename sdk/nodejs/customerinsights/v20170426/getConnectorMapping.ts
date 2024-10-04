@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a connector mapping in the connector.
  */
 export function getConnectorMapping(args: GetConnectorMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorMappingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getConnectorMapping", {
         "connectorName": args.connectorName,
@@ -120,13 +121,7 @@ export interface GetConnectorMappingResult {
  * Gets a connector mapping in the connector.
  */
 export function getConnectorMappingOutput(args: GetConnectorMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorMappingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getConnectorMapping", {
-        "connectorName": args.connectorName,
-        "hubName": args.hubName,
-        "mappingName": args.mappingName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConnectorMapping(a, opts))
 }
 
 export interface GetConnectorMappingOutputArgs {

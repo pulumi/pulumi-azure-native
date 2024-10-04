@@ -279,6 +279,9 @@ def get_module(automation_account_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_module)
 def get_module_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                       module_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -291,27 +294,4 @@ def get_module_output(automation_account_name: Optional[pulumi.Input[str]] = Non
     :param str module_name: The module name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    __args__ = dict()
-    __args__['automationAccountName'] = automation_account_name
-    __args__['moduleName'] = module_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20220808:getModule', __args__, opts=opts, typ=GetModuleResult)
-    return __ret__.apply(lambda __response__: GetModuleResult(
-        activity_count=pulumi.get(__response__, 'activity_count'),
-        content_link=pulumi.get(__response__, 'content_link'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        error=pulumi.get(__response__, 'error'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        is_composite=pulumi.get(__response__, 'is_composite'),
-        is_global=pulumi.get(__response__, 'is_global'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        size_in_bytes=pulumi.get(__response__, 'size_in_bytes'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

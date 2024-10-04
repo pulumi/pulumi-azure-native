@@ -142,6 +142,9 @@ def get_archive_version(archive_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_archive_version)
 def get_archive_version_output(archive_name: Optional[pulumi.Input[str]] = None,
                                archive_version_name: Optional[pulumi.Input[str]] = None,
                                package_type: Optional[pulumi.Input[str]] = None,
@@ -158,18 +161,4 @@ def get_archive_version_output(archive_name: Optional[pulumi.Input[str]] = None,
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['archiveName'] = archive_name
-    __args__['archiveVersionName'] = archive_version_name
-    __args__['packageType'] = package_type
-    __args__['registryName'] = registry_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20230801preview:getArchiveVersion', __args__, opts=opts, typ=GetArchiveVersionResult)
-    return __ret__.apply(lambda __response__: GetArchiveVersionResult(
-        archive_version_error_message=pulumi.get(__response__, 'archive_version_error_message'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

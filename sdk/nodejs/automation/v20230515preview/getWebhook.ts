@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve the webhook identified by webhook name.
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20230515preview:getWebhook", {
         "automationAccountName": args.automationAccountName,
@@ -103,12 +104,7 @@ export interface GetWebhookResult {
  * Retrieve the webhook identified by webhook name.
  */
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getWebhook", {
-        "automationAccountName": args.automationAccountName,
-        "resourceGroupName": args.resourceGroupName,
-        "webhookName": args.webhookName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebhook(a, opts))
 }
 
 export interface GetWebhookOutputArgs {

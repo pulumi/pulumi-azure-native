@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified NSP association by name.
  */
 export function getNspAssociation(args: GetNspAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetNspAssociationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201preview:getNspAssociation", {
         "associationName": args.associationName,
@@ -83,12 +84,7 @@ export interface GetNspAssociationResult {
  * Gets the specified NSP association by name.
  */
 export function getNspAssociationOutput(args: GetNspAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspAssociationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20210201preview:getNspAssociation", {
-        "associationName": args.associationName,
-        "networkSecurityPerimeterName": args.networkSecurityPerimeterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNspAssociation(a, opts))
 }
 
 export interface GetNspAssociationOutputArgs {

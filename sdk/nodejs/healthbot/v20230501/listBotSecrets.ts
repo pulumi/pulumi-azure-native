@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List all secrets of a HealthBot.
  */
 export function listBotSecrets(args: ListBotSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthbot/v20230501:listBotSecrets", {
         "botName": args.botName,
@@ -42,11 +43,7 @@ export interface ListBotSecretsResult {
  * List all secrets of a HealthBot.
  */
 export function listBotSecretsOutput(args: ListBotSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:healthbot/v20230501:listBotSecrets", {
-        "botName": args.botName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listBotSecrets(a, opts))
 }
 
 export interface ListBotSecretsOutputArgs {

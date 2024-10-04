@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an authorization rule for a namespace by name.
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20170401:getNamespaceAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -103,12 +104,7 @@ export interface GetNamespaceAuthorizationRuleResult {
  * Gets an authorization rule for a namespace by name.
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20170401:getNamespaceAuthorizationRule", {
-        "authorizationRuleName": args.authorizationRuleName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))
 }
 
 export interface GetNamespaceAuthorizationRuleOutputArgs {

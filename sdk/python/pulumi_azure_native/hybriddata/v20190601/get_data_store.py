@@ -162,6 +162,9 @@ def get_data_store(data_manager_name: Optional[str] = None,
         repository_id=pulumi.get(__ret__, 'repository_id'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_data_store)
 def get_data_store_output(data_manager_name: Optional[pulumi.Input[str]] = None,
                           data_store_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -174,18 +177,4 @@ def get_data_store_output(data_manager_name: Optional[pulumi.Input[str]] = None,
     :param str data_store_name: The data store/repository name queried.
     :param str resource_group_name: The Resource Group Name
     """
-    __args__ = dict()
-    __args__['dataManagerName'] = data_manager_name
-    __args__['dataStoreName'] = data_store_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybriddata/v20190601:getDataStore', __args__, opts=opts, typ=GetDataStoreResult)
-    return __ret__.apply(lambda __response__: GetDataStoreResult(
-        customer_secrets=pulumi.get(__response__, 'customer_secrets'),
-        data_store_type_id=pulumi.get(__response__, 'data_store_type_id'),
-        extended_properties=pulumi.get(__response__, 'extended_properties'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        repository_id=pulumi.get(__response__, 'repository_id'),
-        state=pulumi.get(__response__, 'state'),
-        type=pulumi.get(__response__, 'type')))
+    ...

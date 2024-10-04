@@ -305,6 +305,9 @@ def get_data_collection_endpoint(data_collection_endpoint_name: Optional[str] = 
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_data_collection_endpoint)
 def get_data_collection_endpoint_output(data_collection_endpoint_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionEndpointResult]:
@@ -318,28 +321,4 @@ def get_data_collection_endpoint_output(data_collection_endpoint_name: Optional[
     :param str data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['dataCollectionEndpointName'] = data_collection_endpoint_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getDataCollectionEndpoint', __args__, opts=opts, typ=GetDataCollectionEndpointResult)
-    return __ret__.apply(lambda __response__: GetDataCollectionEndpointResult(
-        configuration_access=pulumi.get(__response__, 'configuration_access'),
-        description=pulumi.get(__response__, 'description'),
-        etag=pulumi.get(__response__, 'etag'),
-        failover_configuration=pulumi.get(__response__, 'failover_configuration'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        immutable_id=pulumi.get(__response__, 'immutable_id'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        logs_ingestion=pulumi.get(__response__, 'logs_ingestion'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        metrics_ingestion=pulumi.get(__response__, 'metrics_ingestion'),
-        name=pulumi.get(__response__, 'name'),
-        network_acls=pulumi.get(__response__, 'network_acls'),
-        private_link_scoped_resources=pulumi.get(__response__, 'private_link_scoped_resources'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

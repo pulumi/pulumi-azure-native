@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-11-01-preview.
  */
 export function getTestResultVideoDownloadURL(args: GetTestResultVideoDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultVideoDownloadURLResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase:getTestResultVideoDownloadURL", {
         "packageName": args.packageName,
@@ -59,13 +60,7 @@ export interface GetTestResultVideoDownloadURLResult {
  * Other available API versions: 2023-11-01-preview.
  */
 export function getTestResultVideoDownloadURLOutput(args: GetTestResultVideoDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultVideoDownloadURLResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:testbase:getTestResultVideoDownloadURL", {
-        "packageName": args.packageName,
-        "resourceGroupName": args.resourceGroupName,
-        "testBaseAccountName": args.testBaseAccountName,
-        "testResultName": args.testResultName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTestResultVideoDownloadURL(a, opts))
 }
 
 export interface GetTestResultVideoDownloadURLOutputArgs {

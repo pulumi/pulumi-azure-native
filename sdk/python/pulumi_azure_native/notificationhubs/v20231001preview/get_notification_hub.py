@@ -302,6 +302,9 @@ def get_notification_hub(namespace_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         wns_credential=pulumi.get(__ret__, 'wns_credential'),
         xiaomi_credential=pulumi.get(__ret__, 'xiaomi_credential'))
+
+
+@_utilities.lift_output_func(get_notification_hub)
 def get_notification_hub_output(namespace_name: Optional[pulumi.Input[str]] = None,
                                 notification_hub_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -314,29 +317,4 @@ def get_notification_hub_output(namespace_name: Optional[pulumi.Input[str]] = No
     :param str notification_hub_name: Notification Hub name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['namespaceName'] = namespace_name
-    __args__['notificationHubName'] = notification_hub_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:notificationhubs/v20231001preview:getNotificationHub', __args__, opts=opts, typ=GetNotificationHubResult)
-    return __ret__.apply(lambda __response__: GetNotificationHubResult(
-        adm_credential=pulumi.get(__response__, 'adm_credential'),
-        apns_credential=pulumi.get(__response__, 'apns_credential'),
-        authorization_rules=pulumi.get(__response__, 'authorization_rules'),
-        baidu_credential=pulumi.get(__response__, 'baidu_credential'),
-        browser_credential=pulumi.get(__response__, 'browser_credential'),
-        daily_max_active_devices=pulumi.get(__response__, 'daily_max_active_devices'),
-        fcm_v1_credential=pulumi.get(__response__, 'fcm_v1_credential'),
-        gcm_credential=pulumi.get(__response__, 'gcm_credential'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        mpns_credential=pulumi.get(__response__, 'mpns_credential'),
-        name=pulumi.get(__response__, 'name'),
-        registration_ttl=pulumi.get(__response__, 'registration_ttl'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        wns_credential=pulumi.get(__response__, 'wns_credential'),
-        xiaomi_credential=pulumi.get(__response__, 'xiaomi_credential')))
+    ...

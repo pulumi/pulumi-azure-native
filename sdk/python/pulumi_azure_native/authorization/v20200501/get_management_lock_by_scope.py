@@ -146,6 +146,9 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
         owners=pulumi.get(__ret__, 'owners'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_management_lock_by_scope)
 def get_management_lock_by_scope_output(lock_name: Optional[pulumi.Input[str]] = None,
                                         scope: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockByScopeResult]:
@@ -156,16 +159,4 @@ def get_management_lock_by_scope_output(lock_name: Optional[pulumi.Input[str]] =
     :param str lock_name: The name of lock.
     :param str scope: The scope for the lock. 
     """
-    __args__ = dict()
-    __args__['lockName'] = lock_name
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20200501:getManagementLockByScope', __args__, opts=opts, typ=GetManagementLockByScopeResult)
-    return __ret__.apply(lambda __response__: GetManagementLockByScopeResult(
-        id=pulumi.get(__response__, 'id'),
-        level=pulumi.get(__response__, 'level'),
-        name=pulumi.get(__response__, 'name'),
-        notes=pulumi.get(__response__, 'notes'),
-        owners=pulumi.get(__response__, 'owners'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview.
  */
 export function getTagRule(args: GetTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTagRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic:getTagRule", {
         "monitorName": args.monitorName,
@@ -69,12 +70,7 @@ export interface GetTagRuleResult {
  * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview.
  */
 export function getTagRuleOutput(args: GetTagRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:elastic:getTagRule", {
-        "monitorName": args.monitorName,
-        "resourceGroupName": args.resourceGroupName,
-        "ruleSetName": args.ruleSetName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTagRule(a, opts))
 }
 
 export interface GetTagRuleOutputArgs {

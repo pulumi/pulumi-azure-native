@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a partner registration with the specified parameters.
  */
 export function getPartnerRegistration(args: GetPartnerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerRegistrationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20231215preview:getPartnerRegistration", {
         "partnerRegistrationName": args.partnerRegistrationName,
@@ -71,11 +72,7 @@ export interface GetPartnerRegistrationResult {
  * Gets a partner registration with the specified parameters.
  */
 export function getPartnerRegistrationOutput(args: GetPartnerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerRegistrationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getPartnerRegistration", {
-        "partnerRegistrationName": args.partnerRegistrationName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPartnerRegistration(a, opts))
 }
 
 export interface GetPartnerRegistrationOutputArgs {

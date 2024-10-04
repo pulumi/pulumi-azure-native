@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get synchronization settings set on a share
  */
 export function listShareSubscriptionSourceShareSynchronizationSettings(args: ListShareSubscriptionSourceShareSynchronizationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSubscriptionSourceShareSynchronizationSettingsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:listShareSubscriptionSourceShareSynchronizationSettings", {
         "accountName": args.accountName,
@@ -56,13 +57,7 @@ export interface ListShareSubscriptionSourceShareSynchronizationSettingsResult {
  * Get synchronization settings set on a share
  */
 export function listShareSubscriptionSourceShareSynchronizationSettingsOutput(args: ListShareSubscriptionSourceShareSynchronizationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSubscriptionSourceShareSynchronizationSettingsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:listShareSubscriptionSourceShareSynchronizationSettings", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "shareSubscriptionName": args.shareSubscriptionName,
-        "skipToken": args.skipToken,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listShareSubscriptionSourceShareSynchronizationSettings(a, opts))
 }
 
 export interface ListShareSubscriptionSourceShareSynchronizationSettingsOutputArgs {

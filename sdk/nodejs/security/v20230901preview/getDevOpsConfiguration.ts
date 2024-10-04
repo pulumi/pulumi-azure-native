@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * DevOps Configuration resource.
  */
 export function getDevOpsConfiguration(args: GetDevOpsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDevOpsConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20230901preview:getDevOpsConfiguration", {
         "resourceGroupName": args.resourceGroupName,
@@ -58,11 +59,7 @@ export interface GetDevOpsConfigurationResult {
  * DevOps Configuration resource.
  */
 export function getDevOpsConfigurationOutput(args: GetDevOpsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevOpsConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security/v20230901preview:getDevOpsConfiguration", {
-        "resourceGroupName": args.resourceGroupName,
-        "securityConnectorName": args.securityConnectorName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDevOpsConfiguration(a, opts))
 }
 
 export interface GetDevOpsConfigurationOutputArgs {

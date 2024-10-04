@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
  */
 export function getConnectorDryrun(args: GetConnectorDryrunArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorDryrunResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicelinker:getConnectorDryrun", {
         "dryrunName": args.dryrunName,
@@ -86,13 +87,7 @@ export interface GetConnectorDryrunResult {
  * Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
  */
 export function getConnectorDryrunOutput(args: GetConnectorDryrunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorDryrunResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicelinker:getConnectorDryrun", {
-        "dryrunName": args.dryrunName,
-        "location": args.location,
-        "resourceGroupName": args.resourceGroupName,
-        "subscriptionId": args.subscriptionId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConnectorDryrun(a, opts))
 }
 
 export interface GetConnectorDryrunOutputArgs {

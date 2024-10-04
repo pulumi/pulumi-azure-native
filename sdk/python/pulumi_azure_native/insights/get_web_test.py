@@ -305,6 +305,9 @@ def get_web_test(resource_group_name: Optional[str] = None,
         validation_rules=pulumi.get(__ret__, 'validation_rules'),
         web_test_kind=pulumi.get(__ret__, 'web_test_kind'),
         web_test_name=pulumi.get(__ret__, 'web_test_name'))
+
+
+@_utilities.lift_output_func(get_web_test)
 def get_web_test_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         web_test_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebTestResult]:
@@ -318,28 +321,4 @@ def get_web_test_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str web_test_name: The name of the Application Insights WebTest resource.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['webTestName'] = web_test_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getWebTest', __args__, opts=opts, typ=GetWebTestResult)
-    return __ret__.apply(lambda __response__: GetWebTestResult(
-        configuration=pulumi.get(__response__, 'configuration'),
-        description=pulumi.get(__response__, 'description'),
-        enabled=pulumi.get(__response__, 'enabled'),
-        frequency=pulumi.get(__response__, 'frequency'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        locations=pulumi.get(__response__, 'locations'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        request=pulumi.get(__response__, 'request'),
-        retry_enabled=pulumi.get(__response__, 'retry_enabled'),
-        synthetic_monitor_id=pulumi.get(__response__, 'synthetic_monitor_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        timeout=pulumi.get(__response__, 'timeout'),
-        type=pulumi.get(__response__, 'type'),
-        validation_rules=pulumi.get(__response__, 'validation_rules'),
-        web_test_kind=pulumi.get(__response__, 'web_test_kind'),
-        web_test_name=pulumi.get(__response__, 'web_test_name')))
+    ...

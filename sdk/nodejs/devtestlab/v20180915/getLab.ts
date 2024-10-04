@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get lab.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:getLab", {
         "expand": args.expand,
@@ -145,12 +146,7 @@ export interface GetLabResult {
  * Get lab.
  */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:getLab", {
-        "expand": args.expand,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLab(a, opts))
 }
 
 export interface GetLabOutputArgs {

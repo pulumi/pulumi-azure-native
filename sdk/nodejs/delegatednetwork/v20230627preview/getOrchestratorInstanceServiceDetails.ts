@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets details about the orchestrator instance.
  */
 export function getOrchestratorInstanceServiceDetails(args: GetOrchestratorInstanceServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrchestratorInstanceServiceDetailsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:delegatednetwork/v20230627preview:getOrchestratorInstanceServiceDetails", {
         "resourceGroupName": args.resourceGroupName,
@@ -98,11 +99,7 @@ export interface GetOrchestratorInstanceServiceDetailsResult {
  * Gets details about the orchestrator instance.
  */
 export function getOrchestratorInstanceServiceDetailsOutput(args: GetOrchestratorInstanceServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrchestratorInstanceServiceDetailsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:delegatednetwork/v20230627preview:getOrchestratorInstanceServiceDetails", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOrchestratorInstanceServiceDetails(a, opts))
 }
 
 export interface GetOrchestratorInstanceServiceDetailsOutputArgs {

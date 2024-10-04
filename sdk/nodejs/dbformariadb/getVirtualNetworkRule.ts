@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2018-06-01-preview.
  */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformariadb:getVirtualNetworkRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -70,12 +71,7 @@ export interface GetVirtualNetworkRuleResult {
  * Other available API versions: 2018-06-01-preview.
  */
 export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dbformariadb:getVirtualNetworkRule", {
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-        "virtualNetworkRuleName": args.virtualNetworkRuleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkRule(a, opts))
 }
 
 export interface GetVirtualNetworkRuleOutputArgs {

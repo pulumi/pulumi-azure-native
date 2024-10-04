@@ -481,6 +481,9 @@ def get_workflow(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workflow)
 def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         workflow_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowResult]:
@@ -494,42 +497,4 @@ def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workflow_name: The name of the workflow resource.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workflowName'] = workflow_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devhub:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult)
-    return __ret__.apply(lambda __response__: GetWorkflowResult(
-        acr=pulumi.get(__response__, 'acr'),
-        aks_resource_id=pulumi.get(__response__, 'aks_resource_id'),
-        app_name=pulumi.get(__response__, 'app_name'),
-        auth_status=pulumi.get(__response__, 'auth_status'),
-        branch_name=pulumi.get(__response__, 'branch_name'),
-        builder_version=pulumi.get(__response__, 'builder_version'),
-        deployment_properties=pulumi.get(__response__, 'deployment_properties'),
-        docker_build_context=pulumi.get(__response__, 'docker_build_context'),
-        dockerfile=pulumi.get(__response__, 'dockerfile'),
-        dockerfile_generation_mode=pulumi.get(__response__, 'dockerfile_generation_mode'),
-        dockerfile_output_directory=pulumi.get(__response__, 'dockerfile_output_directory'),
-        generation_language=pulumi.get(__response__, 'generation_language'),
-        id=pulumi.get(__response__, 'id'),
-        image_name=pulumi.get(__response__, 'image_name'),
-        image_tag=pulumi.get(__response__, 'image_tag'),
-        language_version=pulumi.get(__response__, 'language_version'),
-        last_workflow_run=pulumi.get(__response__, 'last_workflow_run'),
-        location=pulumi.get(__response__, 'location'),
-        manifest_generation_mode=pulumi.get(__response__, 'manifest_generation_mode'),
-        manifest_output_directory=pulumi.get(__response__, 'manifest_output_directory'),
-        manifest_type=pulumi.get(__response__, 'manifest_type'),
-        name=pulumi.get(__response__, 'name'),
-        namespace=pulumi.get(__response__, 'namespace'),
-        oidc_credentials=pulumi.get(__response__, 'oidc_credentials'),
-        port=pulumi.get(__response__, 'port'),
-        pr_status=pulumi.get(__response__, 'pr_status'),
-        pr_url=pulumi.get(__response__, 'pr_url'),
-        pull_number=pulumi.get(__response__, 'pull_number'),
-        repository_name=pulumi.get(__response__, 'repository_name'),
-        repository_owner=pulumi.get(__response__, 'repository_owner'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

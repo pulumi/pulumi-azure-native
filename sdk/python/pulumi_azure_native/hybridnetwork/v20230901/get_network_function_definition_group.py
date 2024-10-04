@@ -149,6 +149,9 @@ def get_network_function_definition_group(network_function_definition_group_name
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_network_function_definition_group)
 def get_network_function_definition_group_output(network_function_definition_group_name: Optional[pulumi.Input[str]] = None,
                                                  publisher_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -161,17 +164,4 @@ def get_network_function_definition_group_output(network_function_definition_gro
     :param str publisher_name: The name of the publisher.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['networkFunctionDefinitionGroupName'] = network_function_definition_group_name
-    __args__['publisherName'] = publisher_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork/v20230901:getNetworkFunctionDefinitionGroup', __args__, opts=opts, typ=GetNetworkFunctionDefinitionGroupResult)
-    return __ret__.apply(lambda __response__: GetNetworkFunctionDefinitionGroupResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

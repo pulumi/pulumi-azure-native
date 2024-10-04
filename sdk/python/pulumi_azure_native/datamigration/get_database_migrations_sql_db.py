@@ -122,6 +122,9 @@ def get_database_migrations_sql_db(expand: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_database_migrations_sql_db)
 def get_database_migrations_sql_db_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                           migration_operation_id: Optional[pulumi.Input[Optional[str]]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -140,17 +143,4 @@ def get_database_migrations_sql_db_output(expand: Optional[pulumi.Input[Optional
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str target_db_name: The name of the target database.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['migrationOperationId'] = migration_operation_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sqlDbInstanceName'] = sql_db_instance_name
-    __args__['targetDbName'] = target_db_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration:getDatabaseMigrationsSqlDb', __args__, opts=opts, typ=GetDatabaseMigrationsSqlDbResult)
-    return __ret__.apply(lambda __response__: GetDatabaseMigrationsSqlDbResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

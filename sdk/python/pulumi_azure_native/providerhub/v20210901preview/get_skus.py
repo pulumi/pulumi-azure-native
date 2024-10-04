@@ -117,6 +117,9 @@ def get_skus(provider_namespace: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_skus)
 def get_skus_output(provider_namespace: Optional[pulumi.Input[str]] = None,
                     resource_type: Optional[pulumi.Input[str]] = None,
                     sku: Optional[pulumi.Input[str]] = None,
@@ -129,15 +132,4 @@ def get_skus_output(provider_namespace: Optional[pulumi.Input[str]] = None,
     :param str resource_type: The resource type.
     :param str sku: The SKU.
     """
-    __args__ = dict()
-    __args__['providerNamespace'] = provider_namespace
-    __args__['resourceType'] = resource_type
-    __args__['sku'] = sku
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:providerhub/v20210901preview:getSkus', __args__, opts=opts, typ=GetSkusResult)
-    return __ret__.apply(lambda __response__: GetSkusResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

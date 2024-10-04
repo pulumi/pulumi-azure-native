@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformysql:getDatabase", {
         "databaseName": args.databaseName,
@@ -73,12 +74,7 @@ export interface GetDatabaseResult {
  * Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dbformysql:getDatabase", {
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
 }
 
 export interface GetDatabaseOutputArgs {

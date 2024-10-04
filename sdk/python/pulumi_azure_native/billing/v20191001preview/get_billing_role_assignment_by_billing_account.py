@@ -223,6 +223,9 @@ def get_billing_role_assignment_by_billing_account(billing_account_name: Optiona
         type=pulumi.get(__ret__, 'type'),
         user_authentication_type=pulumi.get(__ret__, 'user_authentication_type'),
         user_email_address=pulumi.get(__ret__, 'user_email_address'))
+
+
+@_utilities.lift_output_func(get_billing_role_assignment_by_billing_account)
 def get_billing_role_assignment_by_billing_account_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                                           billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingRoleAssignmentByBillingAccountResult]:
@@ -233,22 +236,4 @@ def get_billing_role_assignment_by_billing_account_output(billing_account_name: 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
     :param str billing_role_assignment_name: The ID that uniquely identifies a role assignment.
     """
-    __args__ = dict()
-    __args__['billingAccountName'] = billing_account_name
-    __args__['billingRoleAssignmentName'] = billing_role_assignment_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:billing/v20191001preview:getBillingRoleAssignmentByBillingAccount', __args__, opts=opts, typ=GetBillingRoleAssignmentByBillingAccountResult)
-    return __ret__.apply(lambda __response__: GetBillingRoleAssignmentByBillingAccountResult(
-        created_by_principal_id=pulumi.get(__response__, 'created_by_principal_id'),
-        created_by_principal_tenant_id=pulumi.get(__response__, 'created_by_principal_tenant_id'),
-        created_by_user_email_address=pulumi.get(__response__, 'created_by_user_email_address'),
-        created_on=pulumi.get(__response__, 'created_on'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        principal_id=pulumi.get(__response__, 'principal_id'),
-        principal_tenant_id=pulumi.get(__response__, 'principal_tenant_id'),
-        role_definition_id=pulumi.get(__response__, 'role_definition_id'),
-        scope=pulumi.get(__response__, 'scope'),
-        type=pulumi.get(__response__, 'type'),
-        user_authentication_type=pulumi.get(__response__, 'user_authentication_type'),
-        user_email_address=pulumi.get(__response__, 'user_email_address')))
+    ...

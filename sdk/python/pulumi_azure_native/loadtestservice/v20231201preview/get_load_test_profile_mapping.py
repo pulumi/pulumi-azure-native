@@ -146,6 +146,9 @@ def get_load_test_profile_mapping(load_test_profile_mapping_name: Optional[str] 
         system_data=pulumi.get(__ret__, 'system_data'),
         test_profile_id=pulumi.get(__ret__, 'test_profile_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_load_test_profile_mapping)
 def get_load_test_profile_mapping_output(load_test_profile_mapping_name: Optional[pulumi.Input[str]] = None,
                                          resource_uri: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadTestProfileMappingResult]:
@@ -156,16 +159,4 @@ def get_load_test_profile_mapping_output(load_test_profile_mapping_name: Optiona
     :param str load_test_profile_mapping_name: Load Test Profile Mapping name
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
-    __args__ = dict()
-    __args__['loadTestProfileMappingName'] = load_test_profile_mapping_name
-    __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:loadtestservice/v20231201preview:getLoadTestProfileMapping', __args__, opts=opts, typ=GetLoadTestProfileMappingResult)
-    return __ret__.apply(lambda __response__: GetLoadTestProfileMappingResult(
-        azure_load_testing_resource_id=pulumi.get(__response__, 'azure_load_testing_resource_id'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        source_resource_id=pulumi.get(__response__, 'source_resource_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        test_profile_id=pulumi.get(__response__, 'test_profile_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

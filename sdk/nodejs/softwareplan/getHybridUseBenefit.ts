@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-12-01.
  */
 export function getHybridUseBenefit(args: GetHybridUseBenefitArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridUseBenefitResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:softwareplan:getHybridUseBenefit", {
         "planId": args.planId,
@@ -72,11 +73,7 @@ export interface GetHybridUseBenefitResult {
  * Azure REST API version: 2019-12-01.
  */
 export function getHybridUseBenefitOutput(args: GetHybridUseBenefitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridUseBenefitResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:softwareplan:getHybridUseBenefit", {
-        "planId": args.planId,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHybridUseBenefit(a, opts))
 }
 
 export interface GetHybridUseBenefitOutputArgs {

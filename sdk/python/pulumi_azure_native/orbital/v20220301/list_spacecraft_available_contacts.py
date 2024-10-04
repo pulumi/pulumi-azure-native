@@ -94,6 +94,9 @@ def list_spacecraft_available_contacts(contact_profile: Optional[Union['ContactP
     return AwaitableListSpacecraftAvailableContactsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_spacecraft_available_contacts)
 def list_spacecraft_available_contacts_output(contact_profile: Optional[pulumi.Input[Union['ContactParametersContactProfile', 'ContactParametersContactProfileDict']]] = None,
                                               end_time: Optional[pulumi.Input[str]] = None,
                                               ground_station_name: Optional[pulumi.Input[str]] = None,
@@ -112,15 +115,4 @@ def list_spacecraft_available_contacts_output(contact_profile: Optional[pulumi.I
     :param str spacecraft_name: Spacecraft ID.
     :param str start_time: Start time of a contact (ISO 8601 UTC standard).
     """
-    __args__ = dict()
-    __args__['contactProfile'] = contact_profile
-    __args__['endTime'] = end_time
-    __args__['groundStationName'] = ground_station_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['spacecraftName'] = spacecraft_name
-    __args__['startTime'] = start_time
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:orbital/v20220301:listSpacecraftAvailableContacts', __args__, opts=opts, typ=ListSpacecraftAvailableContactsResult)
-    return __ret__.apply(lambda __response__: ListSpacecraftAvailableContactsResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

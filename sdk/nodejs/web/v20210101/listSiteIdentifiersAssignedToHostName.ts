@@ -12,6 +12,7 @@ import * as utilities from "../../utilities";
  */
 export function listSiteIdentifiersAssignedToHostName(args?: ListSiteIdentifiersAssignedToHostNameArgs, opts?: pulumi.InvokeOptions): Promise<ListSiteIdentifiersAssignedToHostNameResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210101:listSiteIdentifiersAssignedToHostName", {
         "name": args.name,
@@ -42,11 +43,7 @@ export interface ListSiteIdentifiersAssignedToHostNameResult {
  * List all apps that are assigned to a hostname.
  */
 export function listSiteIdentifiersAssignedToHostNameOutput(args?: ListSiteIdentifiersAssignedToHostNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteIdentifiersAssignedToHostNameResult> {
-    args = args || {};
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20210101:listSiteIdentifiersAssignedToHostName", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listSiteIdentifiersAssignedToHostName(a, opts))
 }
 
 export interface ListSiteIdentifiersAssignedToHostNameOutputArgs {

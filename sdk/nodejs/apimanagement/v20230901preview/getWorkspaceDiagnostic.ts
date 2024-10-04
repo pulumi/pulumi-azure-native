@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the Diagnostic specified by its identifier.
  */
 export function getWorkspaceDiagnostic(args: GetWorkspaceDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceDiagnosticResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:getWorkspaceDiagnostic", {
         "diagnosticId": args.diagnosticId,
@@ -100,13 +101,7 @@ export interface GetWorkspaceDiagnosticResult {
  * Gets the details of the Diagnostic specified by its identifier.
  */
 export function getWorkspaceDiagnosticOutput(args: GetWorkspaceDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceDiagnosticResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getWorkspaceDiagnostic", {
-        "diagnosticId": args.diagnosticId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceDiagnostic(a, opts))
 }
 
 export interface GetWorkspaceDiagnosticOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a InfrastructureResource
  */
 export function getInfrastructureResource(args: GetInfrastructureResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureResourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:integrationspaces/v20231114preview:getInfrastructureResource", {
         "infrastructureResourceName": args.infrastructureResourceName,
@@ -71,12 +72,7 @@ export interface GetInfrastructureResourceResult {
  * Get a InfrastructureResource
  */
 export function getInfrastructureResourceOutput(args: GetInfrastructureResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfrastructureResourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:integrationspaces/v20231114preview:getInfrastructureResource", {
-        "infrastructureResourceName": args.infrastructureResourceName,
-        "resourceGroupName": args.resourceGroupName,
-        "spaceName": args.spaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInfrastructureResource(a, opts))
 }
 
 export interface GetInfrastructureResourceOutputArgs {

@@ -269,6 +269,9 @@ def get_link(hub_name: Optional[str] = None,
         target_entity_type_name=pulumi.get(__ret__, 'target_entity_type_name'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_link)
 def get_link_output(hub_name: Optional[pulumi.Input[str]] = None,
                     link_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -284,26 +287,4 @@ def get_link_output(hub_name: Optional[pulumi.Input[str]] = None,
     :param str link_name: The name of the link.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['hubName'] = hub_name
-    __args__['linkName'] = link_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getLink', __args__, opts=opts, typ=GetLinkResult)
-    return __ret__.apply(lambda __response__: GetLinkResult(
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        link_name=pulumi.get(__response__, 'link_name'),
-        mappings=pulumi.get(__response__, 'mappings'),
-        name=pulumi.get(__response__, 'name'),
-        operation_type=pulumi.get(__response__, 'operation_type'),
-        participant_property_references=pulumi.get(__response__, 'participant_property_references'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        reference_only=pulumi.get(__response__, 'reference_only'),
-        source_entity_type=pulumi.get(__response__, 'source_entity_type'),
-        source_entity_type_name=pulumi.get(__response__, 'source_entity_type_name'),
-        target_entity_type=pulumi.get(__response__, 'target_entity_type'),
-        target_entity_type_name=pulumi.get(__response__, 'target_entity_type_name'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

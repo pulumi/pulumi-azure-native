@@ -197,6 +197,9 @@ def get_project_catalog_image_definition_build_details(build_name: Optional[str]
         system_data=pulumi.get(__ret__, 'system_data'),
         task_groups=pulumi.get(__ret__, 'task_groups'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_project_catalog_image_definition_build_details)
 def get_project_catalog_image_definition_build_details_output(build_name: Optional[pulumi.Input[str]] = None,
                                                               catalog_name: Optional[pulumi.Input[str]] = None,
                                                               image_definition_name: Optional[pulumi.Input[str]] = None,
@@ -216,22 +219,4 @@ def get_project_catalog_image_definition_build_details_output(build_name: Option
     :param str project_name: The name of the project.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['buildName'] = build_name
-    __args__['catalogName'] = catalog_name
-    __args__['imageDefinitionName'] = image_definition_name
-    __args__['projectName'] = project_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getProjectCatalogImageDefinitionBuildDetails', __args__, opts=opts, typ=GetProjectCatalogImageDefinitionBuildDetailsResult)
-    return __ret__.apply(lambda __response__: GetProjectCatalogImageDefinitionBuildDetailsResult(
-        end_time=pulumi.get(__response__, 'end_time'),
-        error_details=pulumi.get(__response__, 'error_details'),
-        id=pulumi.get(__response__, 'id'),
-        image_reference=pulumi.get(__response__, 'image_reference'),
-        name=pulumi.get(__response__, 'name'),
-        start_time=pulumi.get(__response__, 'start_time'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        task_groups=pulumi.get(__response__, 'task_groups'),
-        type=pulumi.get(__response__, 'type')))
+    ...

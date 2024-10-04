@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-10-01-preview.
  */
 export function listServerSitesControllerHealthSummary(args: ListServerSitesControllerHealthSummaryArgs, opts?: pulumi.InvokeOptions): Promise<ListServerSitesControllerHealthSummaryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure:listServerSitesControllerHealthSummary", {
         "resourceGroupName": args.resourceGroupName,
@@ -52,11 +53,7 @@ export interface ListServerSitesControllerHealthSummaryResult {
  * Other available API versions: 2023-10-01-preview.
  */
 export function listServerSitesControllerHealthSummaryOutput(args: ListServerSitesControllerHealthSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerSitesControllerHealthSummaryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:offazure:listServerSitesControllerHealthSummary", {
-        "resourceGroupName": args.resourceGroupName,
-        "siteName": args.siteName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listServerSitesControllerHealthSummary(a, opts))
 }
 
 export interface ListServerSitesControllerHealthSummaryOutputArgs {

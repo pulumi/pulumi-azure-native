@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage:getPrivateEndpointConnection", {
         "accountName": args.accountName,
@@ -73,12 +74,7 @@ export interface GetPrivateEndpointConnectionResult {
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage:getPrivateEndpointConnection", {
-        "accountName": args.accountName,
-        "privateEndpointConnectionName": args.privateEndpointConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionOutputArgs {

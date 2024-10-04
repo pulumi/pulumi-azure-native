@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-01-preview.
  */
 export function listGeodataByIp(args: ListGeodataByIpArgs, opts?: pulumi.InvokeOptions): Promise<ListGeodataByIpResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:listGeodataByIp", {
         "enrichmentType": args.enrichmentType,
@@ -119,13 +120,7 @@ export interface ListGeodataByIpResult {
  * Other available API versions: 2024-04-01-preview.
  */
 export function listGeodataByIpOutput(args: ListGeodataByIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGeodataByIpResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights:listGeodataByIp", {
-        "enrichmentType": args.enrichmentType,
-        "ipAddress": args.ipAddress,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listGeodataByIp(a, opts))
 }
 
 export interface ListGeodataByIpOutputArgs {

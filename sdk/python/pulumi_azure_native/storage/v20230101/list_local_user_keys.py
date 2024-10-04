@@ -84,6 +84,9 @@ def list_local_user_keys(account_name: Optional[str] = None,
     return AwaitableListLocalUserKeysResult(
         shared_key=pulumi.get(__ret__, 'shared_key'),
         ssh_authorized_keys=pulumi.get(__ret__, 'ssh_authorized_keys'))
+
+
+@_utilities.lift_output_func(list_local_user_keys)
 def list_local_user_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 username: Optional[pulumi.Input[str]] = None,
@@ -96,12 +99,4 @@ def list_local_user_keys_output(account_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str username: The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['username'] = username
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230101:listLocalUserKeys', __args__, opts=opts, typ=ListLocalUserKeysResult)
-    return __ret__.apply(lambda __response__: ListLocalUserKeysResult(
-        shared_key=pulumi.get(__response__, 'shared_key'),
-        ssh_authorized_keys=pulumi.get(__response__, 'ssh_authorized_keys')))
+    ...

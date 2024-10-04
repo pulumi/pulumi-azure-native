@@ -9,6 +9,7 @@ import * as utilities from "../../utilities";
  */
 export function getCustomDomainVerificationId(args?: GetCustomDomainVerificationIdArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainVerificationIdResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20240301:getCustomDomainVerificationId", {
     }, opts);
@@ -27,8 +28,5 @@ export interface GetCustomDomainVerificationIdResult {
  * Get the verification id of a subscription used for verifying custom domains
  */
 export function getCustomDomainVerificationIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainVerificationIdResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app/v20240301:getCustomDomainVerificationId", {
-    }, opts);
+    return pulumi.output(getCustomDomainVerificationId(opts))
 }
-

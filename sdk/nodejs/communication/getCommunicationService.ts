@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
  */
 export function getCommunicationService(args: GetCommunicationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication:getCommunicationService", {
         "communicationServiceName": args.communicationServiceName,
@@ -96,11 +97,7 @@ export interface GetCommunicationServiceResult {
  * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
  */
 export function getCommunicationServiceOutput(args: GetCommunicationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:communication:getCommunicationService", {
-        "communicationServiceName": args.communicationServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCommunicationService(a, opts))
 }
 
 export interface GetCommunicationServiceOutputArgs {

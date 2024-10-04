@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about a cluster firewall rule.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20221108:getFirewallRule", {
         "clusterName": args.clusterName,
@@ -71,12 +72,7 @@ export interface GetFirewallRuleResult {
  * Gets information about a cluster firewall rule.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20221108:getFirewallRule", {
-        "clusterName": args.clusterName,
-        "firewallRuleName": args.firewallRuleName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))
 }
 
 export interface GetFirewallRuleOutputArgs {

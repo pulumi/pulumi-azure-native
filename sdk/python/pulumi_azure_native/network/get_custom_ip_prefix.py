@@ -360,6 +360,9 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
+
+
+@_utilities.lift_output_func(get_custom_ip_prefix)
 def get_custom_ip_prefix_output(custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
                                 expand: Optional[pulumi.Input[Optional[str]]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -375,33 +378,4 @@ def get_custom_ip_prefix_output(custom_ip_prefix_name: Optional[pulumi.Input[str
     :param str expand: Expands referenced resources.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['customIpPrefixName'] = custom_ip_prefix_name
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getCustomIPPrefix', __args__, opts=opts, typ=GetCustomIPPrefixResult)
-    return __ret__.apply(lambda __response__: GetCustomIPPrefixResult(
-        asn=pulumi.get(__response__, 'asn'),
-        authorization_message=pulumi.get(__response__, 'authorization_message'),
-        child_custom_ip_prefixes=pulumi.get(__response__, 'child_custom_ip_prefixes'),
-        cidr=pulumi.get(__response__, 'cidr'),
-        commissioned_state=pulumi.get(__response__, 'commissioned_state'),
-        custom_ip_prefix_parent=pulumi.get(__response__, 'custom_ip_prefix_parent'),
-        etag=pulumi.get(__response__, 'etag'),
-        express_route_advertise=pulumi.get(__response__, 'express_route_advertise'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        failed_reason=pulumi.get(__response__, 'failed_reason'),
-        geo=pulumi.get(__response__, 'geo'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        no_internet_advertise=pulumi.get(__response__, 'no_internet_advertise'),
-        prefix_type=pulumi.get(__response__, 'prefix_type'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_ip_prefixes=pulumi.get(__response__, 'public_ip_prefixes'),
-        resource_guid=pulumi.get(__response__, 'resource_guid'),
-        signed_message=pulumi.get(__response__, 'signed_message'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        zones=pulumi.get(__response__, 'zones')))
+    ...

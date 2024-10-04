@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets Topology of the underlying resources in the given Network Fabric instance.
  */
 export function getNetworkFabricTopology(args: GetNetworkFabricTopologyArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFabricTopologyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230615:getNetworkFabricTopology", {
         "networkFabricName": args.networkFabricName,
@@ -50,11 +51,7 @@ export interface GetNetworkFabricTopologyResult {
  * Gets Topology of the underlying resources in the given Network Fabric instance.
  */
 export function getNetworkFabricTopologyOutput(args: GetNetworkFabricTopologyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFabricTopologyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getNetworkFabricTopology", {
-        "networkFabricName": args.networkFabricName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkFabricTopology(a, opts))
 }
 
 export interface GetNetworkFabricTopologyOutputArgs {

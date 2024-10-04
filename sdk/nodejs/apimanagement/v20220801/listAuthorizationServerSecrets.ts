@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the client secret details of the authorization server.
  */
 export function listAuthorizationServerSecrets(args: ListAuthorizationServerSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListAuthorizationServerSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:listAuthorizationServerSecrets", {
         "authsid": args.authsid,
@@ -52,12 +53,7 @@ export interface ListAuthorizationServerSecretsResult {
  * Gets the client secret details of the authorization server.
  */
 export function listAuthorizationServerSecretsOutput(args: ListAuthorizationServerSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAuthorizationServerSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220801:listAuthorizationServerSecrets", {
-        "authsid": args.authsid,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listAuthorizationServerSecrets(a, opts))
 }
 
 export interface ListAuthorizationServerSecretsOutputArgs {

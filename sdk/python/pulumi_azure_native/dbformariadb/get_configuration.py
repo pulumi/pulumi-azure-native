@@ -177,6 +177,9 @@ def get_configuration(configuration_name: Optional[str] = None,
         source=pulumi.get(__ret__, 'source'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(get_configuration)
 def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              server_name: Optional[pulumi.Input[str]] = None,
@@ -192,19 +195,4 @@ def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
-    __args__ = dict()
-    __args__['configurationName'] = configuration_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:dbformariadb:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult)
-    return __ret__.apply(lambda __response__: GetConfigurationResult(
-        allowed_values=pulumi.get(__response__, 'allowed_values'),
-        data_type=pulumi.get(__response__, 'data_type'),
-        default_value=pulumi.get(__response__, 'default_value'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        source=pulumi.get(__response__, 'source'),
-        type=pulumi.get(__response__, 'type'),
-        value=pulumi.get(__response__, 'value')))
+    ...

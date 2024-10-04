@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
  */
 export function getVirtualNetworkGatewayLearnedRoutes(args: GetVirtualNetworkGatewayLearnedRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayLearnedRoutesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190801:getVirtualNetworkGatewayLearnedRoutes", {
         "resourceGroupName": args.resourceGroupName,
@@ -42,11 +43,7 @@ export interface GetVirtualNetworkGatewayLearnedRoutesResult {
  * This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
  */
 export function getVirtualNetworkGatewayLearnedRoutesOutput(args: GetVirtualNetworkGatewayLearnedRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayLearnedRoutesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20190801:getVirtualNetworkGatewayLearnedRoutes", {
-        "resourceGroupName": args.resourceGroupName,
-        "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayLearnedRoutes(a, opts))
 }
 
 export interface GetVirtualNetworkGatewayLearnedRoutesOutputArgs {

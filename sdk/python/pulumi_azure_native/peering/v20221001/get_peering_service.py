@@ -211,6 +211,9 @@ def get_peering_service(peering_service_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_peering_service)
 def get_peering_service_output(peering_service_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringServiceResult]:
@@ -221,21 +224,4 @@ def get_peering_service_output(peering_service_name: Optional[pulumi.Input[str]]
     :param str peering_service_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['peeringServiceName'] = peering_service_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:peering/v20221001:getPeeringService', __args__, opts=opts, typ=GetPeeringServiceResult)
-    return __ret__.apply(lambda __response__: GetPeeringServiceResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        log_analytics_workspace_properties=pulumi.get(__response__, 'log_analytics_workspace_properties'),
-        name=pulumi.get(__response__, 'name'),
-        peering_service_location=pulumi.get(__response__, 'peering_service_location'),
-        peering_service_provider=pulumi.get(__response__, 'peering_service_provider'),
-        provider_backup_peering_location=pulumi.get(__response__, 'provider_backup_peering_location'),
-        provider_primary_peering_location=pulumi.get(__response__, 'provider_primary_peering_location'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -62,6 +62,9 @@ def get_organization_api_key(email_id: Optional[str] = None,
 
     return AwaitableGetOrganizationApiKeyResult(
         properties=pulumi.get(__ret__, 'properties'))
+
+
+@_utilities.lift_output_func(get_organization_api_key)
 def get_organization_api_key_output(email_id: Optional[pulumi.Input[Optional[str]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationApiKeyResult]:
     """
@@ -70,9 +73,4 @@ def get_organization_api_key_output(email_id: Optional[pulumi.Input[Optional[str
 
     :param str email_id: The User email Id
     """
-    __args__ = dict()
-    __args__['emailId'] = email_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:elastic/v20231101preview:getOrganizationApiKey', __args__, opts=opts, typ=GetOrganizationApiKeyResult)
-    return __ret__.apply(lambda __response__: GetOrganizationApiKeyResult(
-        properties=pulumi.get(__response__, 'properties')))
+    ...

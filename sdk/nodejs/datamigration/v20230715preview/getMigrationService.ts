@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve the Database Migration Service
  */
 export function getMigrationService(args: GetMigrationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20230715preview:getMigrationService", {
         "migrationServiceName": args.migrationServiceName,
@@ -70,11 +71,7 @@ export interface GetMigrationServiceResult {
  * Retrieve the Database Migration Service
  */
 export function getMigrationServiceOutput(args: GetMigrationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datamigration/v20230715preview:getMigrationService", {
-        "migrationServiceName": args.migrationServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMigrationService(a, opts))
 }
 
 export interface GetMigrationServiceOutputArgs {

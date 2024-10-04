@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a ServerCollector
  */
 export function getServerCollectorsOperation(args: GetServerCollectorsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCollectorsOperationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20230401preview:getServerCollectorsOperation", {
         "projectName": args.projectName,
@@ -79,12 +80,7 @@ export interface GetServerCollectorsOperationResult {
  * Get a ServerCollector
  */
 export function getServerCollectorsOperationOutput(args: GetServerCollectorsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCollectorsOperationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate/v20230401preview:getServerCollectorsOperation", {
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverCollectorName": args.serverCollectorName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServerCollectorsOperation(a, opts))
 }
 
 export interface GetServerCollectorsOperationOutputArgs {

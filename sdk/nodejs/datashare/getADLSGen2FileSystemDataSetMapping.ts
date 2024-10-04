@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-08-01.
  */
 export function getADLSGen2FileSystemDataSetMapping(args: GetADLSGen2FileSystemDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2FileSystemDataSetMappingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare:getADLSGen2FileSystemDataSetMapping", {
         "accountName": args.accountName,
@@ -99,13 +100,7 @@ export interface GetADLSGen2FileSystemDataSetMappingResult {
  * Azure REST API version: 2021-08-01.
  */
 export function getADLSGen2FileSystemDataSetMappingOutput(args: GetADLSGen2FileSystemDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FileSystemDataSetMappingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datashare:getADLSGen2FileSystemDataSetMapping", {
-        "accountName": args.accountName,
-        "dataSetMappingName": args.dataSetMappingName,
-        "resourceGroupName": args.resourceGroupName,
-        "shareSubscriptionName": args.shareSubscriptionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getADLSGen2FileSystemDataSetMapping(a, opts))
 }
 
 export interface GetADLSGen2FileSystemDataSetMappingOutputArgs {

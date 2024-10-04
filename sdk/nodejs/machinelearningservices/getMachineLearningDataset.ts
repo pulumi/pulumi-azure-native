@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-05-01-preview.
  */
 export function getMachineLearningDataset(args: GetMachineLearningDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningDatasetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getMachineLearningDataset", {
         "datasetName": args.datasetName,
@@ -77,12 +78,7 @@ export interface GetMachineLearningDatasetResult {
  * Azure REST API version: 2020-05-01-preview.
  */
 export function getMachineLearningDatasetOutput(args: GetMachineLearningDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatasetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getMachineLearningDataset", {
-        "datasetName": args.datasetName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMachineLearningDataset(a, opts))
 }
 
 export interface GetMachineLearningDatasetOutputArgs {

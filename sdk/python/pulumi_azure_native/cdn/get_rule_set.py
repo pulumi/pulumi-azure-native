@@ -149,6 +149,9 @@ def get_rule_set(profile_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_rule_set)
 def get_rule_set_output(profile_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         rule_set_name: Optional[pulumi.Input[str]] = None,
@@ -164,17 +167,4 @@ def get_rule_set_output(profile_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rule_set_name: Name of the rule set under the profile which is unique globally.
     """
-    __args__ = dict()
-    __args__['profileName'] = profile_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['ruleSetName'] = rule_set_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getRuleSet', __args__, opts=opts, typ=GetRuleSetResult)
-    return __ret__.apply(lambda __response__: GetRuleSetResult(
-        deployment_status=pulumi.get(__response__, 'deployment_status'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        profile_name=pulumi.get(__response__, 'profile_name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

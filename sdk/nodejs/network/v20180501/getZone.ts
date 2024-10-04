@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180501:getZone", {
         "resourceGroupName": args.resourceGroupName,
@@ -90,11 +91,7 @@ export interface GetZoneResult {
  * Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
  */
 export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20180501:getZone", {
-        "resourceGroupName": args.resourceGroupName,
-        "zoneName": args.zoneName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getZone(a, opts))
 }
 
 export interface GetZoneOutputArgs {

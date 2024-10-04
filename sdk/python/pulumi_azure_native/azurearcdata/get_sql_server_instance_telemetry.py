@@ -114,6 +114,9 @@ def get_sql_server_instance_telemetry(aggregation_type: Optional[Union[str, 'Agg
         columns=pulumi.get(__ret__, 'columns'),
         next_link=pulumi.get(__ret__, 'next_link'),
         rows=pulumi.get(__ret__, 'rows'))
+
+
+@_utilities.lift_output_func(get_sql_server_instance_telemetry)
 def get_sql_server_instance_telemetry_output(aggregation_type: Optional[pulumi.Input[Optional[Union[str, 'AggregationType']]]] = None,
                                              database_names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                              dataset_name: Optional[pulumi.Input[str]] = None,
@@ -137,18 +140,4 @@ def get_sql_server_instance_telemetry_output(aggregation_type: Optional[pulumi.I
     :param str sql_server_instance_name: Name of SQL Server Instance
     :param str start_time: The start time for the time range to fetch telemetry for. If not specified, the current time minus 1 hour is used.
     """
-    __args__ = dict()
-    __args__['aggregationType'] = aggregation_type
-    __args__['databaseNames'] = database_names
-    __args__['datasetName'] = dataset_name
-    __args__['endTime'] = end_time
-    __args__['interval'] = interval
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sqlServerInstanceName'] = sql_server_instance_name
-    __args__['startTime'] = start_time
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata:getSqlServerInstanceTelemetry', __args__, opts=opts, typ=GetSqlServerInstanceTelemetryResult)
-    return __ret__.apply(lambda __response__: GetSqlServerInstanceTelemetryResult(
-        columns=pulumi.get(__response__, 'columns'),
-        next_link=pulumi.get(__response__, 'next_link'),
-        rows=pulumi.get(__response__, 'rows')))
+    ...

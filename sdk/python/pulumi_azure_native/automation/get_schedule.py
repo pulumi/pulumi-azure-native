@@ -282,6 +282,9 @@ def get_schedule(automation_account_name: Optional[str] = None,
         start_time_offset_minutes=pulumi.get(__ret__, 'start_time_offset_minutes'),
         time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_schedule)
 def get_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         schedule_name: Optional[pulumi.Input[str]] = None,
@@ -297,27 +300,4 @@ def get_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: Name of an Azure Resource group.
     :param str schedule_name: The schedule name.
     """
-    __args__ = dict()
-    __args__['automationAccountName'] = automation_account_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['scheduleName'] = schedule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getSchedule', __args__, opts=opts, typ=GetScheduleResult)
-    return __ret__.apply(lambda __response__: GetScheduleResult(
-        advanced_schedule=pulumi.get(__response__, 'advanced_schedule'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        expiry_time=pulumi.get(__response__, 'expiry_time'),
-        expiry_time_offset_minutes=pulumi.get(__response__, 'expiry_time_offset_minutes'),
-        frequency=pulumi.get(__response__, 'frequency'),
-        id=pulumi.get(__response__, 'id'),
-        interval=pulumi.get(__response__, 'interval'),
-        is_enabled=pulumi.get(__response__, 'is_enabled'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        name=pulumi.get(__response__, 'name'),
-        next_run=pulumi.get(__response__, 'next_run'),
-        next_run_offset_minutes=pulumi.get(__response__, 'next_run_offset_minutes'),
-        start_time=pulumi.get(__response__, 'start_time'),
-        start_time_offset_minutes=pulumi.get(__response__, 'start_time_offset_minutes'),
-        time_zone=pulumi.get(__response__, 'time_zone'),
-        type=pulumi.get(__response__, 'type')))
+    ...

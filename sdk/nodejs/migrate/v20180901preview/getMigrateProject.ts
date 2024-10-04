@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Migrate Project REST Resource.
  */
 export function getMigrateProject(args: GetMigrateProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrateProjectResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20180901preview:getMigrateProject", {
         "migrateProjectName": args.migrateProjectName,
@@ -66,11 +67,7 @@ export interface GetMigrateProjectResult {
  * Migrate Project REST Resource.
  */
 export function getMigrateProjectOutput(args: GetMigrateProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateProjectResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate/v20180901preview:getMigrateProject", {
-        "migrateProjectName": args.migrateProjectName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMigrateProject(a, opts))
 }
 
 export interface GetMigrateProjectOutputArgs {

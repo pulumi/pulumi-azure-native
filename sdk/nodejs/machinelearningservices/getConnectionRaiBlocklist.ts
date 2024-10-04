@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-07-01-preview.
  */
 export function getConnectionRaiBlocklist(args: GetConnectionRaiBlocklistArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionRaiBlocklistResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getConnectionRaiBlocklist", {
         "connectionName": args.connectionName,
@@ -74,14 +75,7 @@ export interface GetConnectionRaiBlocklistResult {
  * Other available API versions: 2024-07-01-preview.
  */
 export function getConnectionRaiBlocklistOutput(args: GetConnectionRaiBlocklistOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionRaiBlocklistResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getConnectionRaiBlocklist", {
-        "connectionName": args.connectionName,
-        "raiBlocklistItemName": args.raiBlocklistItemName,
-        "raiBlocklistName": args.raiBlocklistName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConnectionRaiBlocklist(a, opts))
 }
 
 export interface GetConnectionRaiBlocklistOutputArgs {

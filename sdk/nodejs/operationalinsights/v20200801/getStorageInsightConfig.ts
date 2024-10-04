@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a storage insight instance.
  */
 export function getStorageInsightConfig(args: GetStorageInsightConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageInsightConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200801:getStorageInsightConfig", {
         "resourceGroupName": args.resourceGroupName,
@@ -79,12 +80,7 @@ export interface GetStorageInsightConfigResult {
  * Gets a storage insight instance.
  */
 export function getStorageInsightConfigOutput(args: GetStorageInsightConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageInsightConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20200801:getStorageInsightConfig", {
-        "resourceGroupName": args.resourceGroupName,
-        "storageInsightName": args.storageInsightName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageInsightConfig(a, opts))
 }
 
 export interface GetStorageInsightConfigOutputArgs {

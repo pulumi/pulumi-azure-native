@@ -266,6 +266,9 @@ def get_pool(account_name: Optional[str] = None,
         total_throughput_mibps=pulumi.get(__ret__, 'total_throughput_mibps'),
         type=pulumi.get(__ret__, 'type'),
         utilized_throughput_mibps=pulumi.get(__ret__, 'utilized_throughput_mibps'))
+
+
+@_utilities.lift_output_func(get_pool)
 def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     pool_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -278,26 +281,4 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str pool_name: The name of the capacity pool
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['poolName'] = pool_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20230701preview:getPool', __args__, opts=opts, typ=GetPoolResult)
-    return __ret__.apply(lambda __response__: GetPoolResult(
-        cool_access=pulumi.get(__response__, 'cool_access'),
-        encryption_type=pulumi.get(__response__, 'encryption_type'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        pool_id=pulumi.get(__response__, 'pool_id'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        qos_type=pulumi.get(__response__, 'qos_type'),
-        service_level=pulumi.get(__response__, 'service_level'),
-        size=pulumi.get(__response__, 'size'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        total_throughput_mibps=pulumi.get(__response__, 'total_throughput_mibps'),
-        type=pulumi.get(__response__, 'type'),
-        utilized_throughput_mibps=pulumi.get(__response__, 'utilized_throughput_mibps')))
+    ...

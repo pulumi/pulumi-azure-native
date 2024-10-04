@@ -230,6 +230,9 @@ def get_notification_channel(expand: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
         web_hook_url=pulumi.get(__ret__, 'web_hook_url'))
+
+
+@_utilities.lift_output_func(get_notification_channel)
 def get_notification_channel_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                     lab_name: Optional[pulumi.Input[str]] = None,
                                     name: Optional[pulumi.Input[str]] = None,
@@ -244,24 +247,4 @@ def get_notification_channel_output(expand: Optional[pulumi.Input[Optional[str]]
     :param str name: The name of the notification channel.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['labName'] = lab_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult)
-    return __ret__.apply(lambda __response__: GetNotificationChannelResult(
-        created_date=pulumi.get(__response__, 'created_date'),
-        description=pulumi.get(__response__, 'description'),
-        email_recipient=pulumi.get(__response__, 'email_recipient'),
-        events=pulumi.get(__response__, 'events'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        notification_locale=pulumi.get(__response__, 'notification_locale'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        unique_identifier=pulumi.get(__response__, 'unique_identifier'),
-        web_hook_url=pulumi.get(__response__, 'web_hook_url')))
+    ...

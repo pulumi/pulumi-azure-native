@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of the provided virtual machine.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20240701:getVirtualMachine", {
         "resourceGroupName": args.resourceGroupName,
@@ -159,11 +160,7 @@ export interface GetVirtualMachineResult {
  * Get properties of the provided virtual machine.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240701:getVirtualMachine", {
-        "resourceGroupName": args.resourceGroupName,
-        "virtualMachineName": args.virtualMachineName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
 }
 
 export interface GetVirtualMachineOutputArgs {

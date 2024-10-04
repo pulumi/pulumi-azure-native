@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a sync member.
  */
 export function getSyncMember(args: GetSyncMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncMemberResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230201preview:getSyncMember", {
         "databaseName": args.databaseName,
@@ -106,14 +107,7 @@ export interface GetSyncMemberResult {
  * Gets a sync member.
  */
 export function getSyncMemberOutput(args: GetSyncMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncMemberResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20230201preview:getSyncMember", {
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-        "syncGroupName": args.syncGroupName,
-        "syncMemberName": args.syncMemberName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSyncMember(a, opts))
 }
 
 export interface GetSyncMemberOutputArgs {

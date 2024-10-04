@@ -81,6 +81,9 @@ def get_factory_git_hub_access_token(factory_name: Optional[str] = None,
 
     return AwaitableGetFactoryGitHubAccessTokenResult(
         git_hub_access_token=pulumi.get(__ret__, 'git_hub_access_token'))
+
+
+@_utilities.lift_output_func(get_factory_git_hub_access_token)
 def get_factory_git_hub_access_token_output(factory_name: Optional[pulumi.Input[str]] = None,
                                             git_hub_access_code: Optional[pulumi.Input[str]] = None,
                                             git_hub_access_token_base_url: Optional[pulumi.Input[str]] = None,
@@ -100,14 +103,4 @@ def get_factory_git_hub_access_token_output(factory_name: Optional[pulumi.Input[
     :param Union['GitHubClientSecret', 'GitHubClientSecretDict'] git_hub_client_secret: GitHub bring your own app client secret information.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['factoryName'] = factory_name
-    __args__['gitHubAccessCode'] = git_hub_access_code
-    __args__['gitHubAccessTokenBaseUrl'] = git_hub_access_token_base_url
-    __args__['gitHubClientId'] = git_hub_client_id
-    __args__['gitHubClientSecret'] = git_hub_client_secret
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory:getFactoryGitHubAccessToken', __args__, opts=opts, typ=GetFactoryGitHubAccessTokenResult)
-    return __ret__.apply(lambda __response__: GetFactoryGitHubAccessTokenResult(
-        git_hub_access_token=pulumi.get(__response__, 'git_hub_access_token')))
+    ...

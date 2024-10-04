@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an instance pool.
  */
 export function getInstancePool(args: GetInstancePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancePoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230501preview:getInstancePool", {
         "instancePoolName": args.instancePoolName,
@@ -82,11 +83,7 @@ export interface GetInstancePoolResult {
  * Gets an instance pool.
  */
 export function getInstancePoolOutput(args: GetInstancePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancePoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20230501preview:getInstancePool", {
-        "instancePoolName": args.instancePoolName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInstancePool(a, opts))
 }
 
 export interface GetInstancePoolOutputArgs {

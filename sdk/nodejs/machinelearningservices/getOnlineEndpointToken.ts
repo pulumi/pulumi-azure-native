@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getOnlineEndpointToken(args: GetOnlineEndpointTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineEndpointTokenResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getOnlineEndpointToken", {
         "endpointName": args.endpointName,
@@ -62,12 +63,7 @@ export interface GetOnlineEndpointTokenResult {
  * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getOnlineEndpointTokenOutput(args: GetOnlineEndpointTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineEndpointTokenResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getOnlineEndpointToken", {
-        "endpointName": args.endpointName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOnlineEndpointToken(a, opts))
 }
 
 export interface GetOnlineEndpointTokenOutputArgs {

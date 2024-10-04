@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a CertificateObjectLocalRulestackResource
  */
 export function getCertificateObjectLocalRulestack(args: GetCertificateObjectLocalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateObjectLocalRulestackResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20220829preview:getCertificateObjectLocalRulestack", {
         "localRulestackName": args.localRulestackName,
@@ -83,12 +84,7 @@ export interface GetCertificateObjectLocalRulestackResult {
  * Get a CertificateObjectLocalRulestackResource
  */
 export function getCertificateObjectLocalRulestackOutput(args: GetCertificateObjectLocalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateObjectLocalRulestackResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829preview:getCertificateObjectLocalRulestack", {
-        "localRulestackName": args.localRulestackName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCertificateObjectLocalRulestack(a, opts))
 }
 
 export interface GetCertificateObjectLocalRulestackOutputArgs {

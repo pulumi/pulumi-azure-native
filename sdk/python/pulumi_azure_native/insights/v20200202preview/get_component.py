@@ -458,6 +458,9 @@ def get_component(resource_group_name: Optional[str] = None,
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'),
         workspace_resource_id=pulumi.get(__ret__, 'workspace_resource_id'))
+
+
+@_utilities.lift_output_func(get_component)
 def get_component_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          resource_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
@@ -468,40 +471,4 @@ def get_component_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20200202preview:getComponent', __args__, opts=opts, typ=GetComponentResult)
-    return __ret__.apply(lambda __response__: GetComponentResult(
-        app_id=pulumi.get(__response__, 'app_id'),
-        application_id=pulumi.get(__response__, 'application_id'),
-        application_type=pulumi.get(__response__, 'application_type'),
-        connection_string=pulumi.get(__response__, 'connection_string'),
-        creation_date=pulumi.get(__response__, 'creation_date'),
-        disable_ip_masking=pulumi.get(__response__, 'disable_ip_masking'),
-        disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
-        etag=pulumi.get(__response__, 'etag'),
-        flow_type=pulumi.get(__response__, 'flow_type'),
-        force_customer_storage_for_profiler=pulumi.get(__response__, 'force_customer_storage_for_profiler'),
-        hockey_app_id=pulumi.get(__response__, 'hockey_app_id'),
-        hockey_app_token=pulumi.get(__response__, 'hockey_app_token'),
-        id=pulumi.get(__response__, 'id'),
-        immediate_purge_data_on30_days=pulumi.get(__response__, 'immediate_purge_data_on30_days'),
-        ingestion_mode=pulumi.get(__response__, 'ingestion_mode'),
-        instrumentation_key=pulumi.get(__response__, 'instrumentation_key'),
-        kind=pulumi.get(__response__, 'kind'),
-        la_migration_date=pulumi.get(__response__, 'la_migration_date'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        private_link_scoped_resources=pulumi.get(__response__, 'private_link_scoped_resources'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access_for_ingestion=pulumi.get(__response__, 'public_network_access_for_ingestion'),
-        public_network_access_for_query=pulumi.get(__response__, 'public_network_access_for_query'),
-        request_source=pulumi.get(__response__, 'request_source'),
-        retention_in_days=pulumi.get(__response__, 'retention_in_days'),
-        sampling_percentage=pulumi.get(__response__, 'sampling_percentage'),
-        tags=pulumi.get(__response__, 'tags'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        type=pulumi.get(__response__, 'type'),
-        workspace_resource_id=pulumi.get(__response__, 'workspace_resource_id')))
+    ...

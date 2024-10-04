@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-15.
  */
 export function listArtifactManifestCredential(args: ListArtifactManifestCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListArtifactManifestCredentialResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:listArtifactManifestCredential", {
         "artifactManifestName": args.artifactManifestName,
@@ -55,13 +56,7 @@ export interface ListArtifactManifestCredentialResult {
  * Other available API versions: 2024-04-15.
  */
 export function listArtifactManifestCredentialOutput(args: ListArtifactManifestCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListArtifactManifestCredentialResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:listArtifactManifestCredential", {
-        "artifactManifestName": args.artifactManifestName,
-        "artifactStoreName": args.artifactStoreName,
-        "publisherName": args.publisherName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listArtifactManifestCredential(a, opts))
 }
 
 export interface ListArtifactManifestCredentialOutputArgs {

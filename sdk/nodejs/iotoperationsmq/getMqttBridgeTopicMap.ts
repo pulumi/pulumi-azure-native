@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-10-04-preview.
  */
 export function getMqttBridgeTopicMap(args: GetMqttBridgeTopicMapArgs, opts?: pulumi.InvokeOptions): Promise<GetMqttBridgeTopicMapResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsmq:getMqttBridgeTopicMap", {
         "mqName": args.mqName,
@@ -90,13 +91,7 @@ export interface GetMqttBridgeTopicMapResult {
  * Azure REST API version: 2023-10-04-preview.
  */
 export function getMqttBridgeTopicMapOutput(args: GetMqttBridgeTopicMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMqttBridgeTopicMapResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq:getMqttBridgeTopicMap", {
-        "mqName": args.mqName,
-        "mqttBridgeConnectorName": args.mqttBridgeConnectorName,
-        "resourceGroupName": args.resourceGroupName,
-        "topicMapName": args.topicMapName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMqttBridgeTopicMap(a, opts))
 }
 
 export interface GetMqttBridgeTopicMapOutputArgs {

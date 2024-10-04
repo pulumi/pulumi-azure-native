@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
  */
 export function listNotificationHubKeys(args: ListNotificationHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNotificationHubKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20230101preview:listNotificationHubKeys", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -66,13 +67,7 @@ export interface ListNotificationHubKeysResult {
  * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
  */
 export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotificationHubKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20230101preview:listNotificationHubKeys", {
-        "authorizationRuleName": args.authorizationRuleName,
-        "namespaceName": args.namespaceName,
-        "notificationHubName": args.notificationHubName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listNotificationHubKeys(a, opts))
 }
 
 export interface ListNotificationHubKeysOutputArgs {

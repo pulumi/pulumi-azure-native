@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export function getMonitoringSetting(args: GetMonitoringSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringSettingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform:getMonitoringSetting", {
         "resourceGroupName": args.resourceGroupName,
@@ -64,11 +65,7 @@ export interface GetMonitoringSettingResult {
  * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export function getMonitoringSettingOutput(args: GetMonitoringSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringSettingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform:getMonitoringSetting", {
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMonitoringSetting(a, opts))
 }
 
 export interface GetMonitoringSettingOutputArgs {

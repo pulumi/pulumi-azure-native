@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the APM by name.
  */
 export function getApm(args: GetApmArgs, opts?: pulumi.InvokeOptions): Promise<GetApmResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20231101preview:getApm", {
         "apmName": args.apmName,
@@ -63,12 +64,7 @@ export interface GetApmResult {
  * Get the APM by name.
  */
 export function getApmOutput(args: GetApmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApmResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231101preview:getApm", {
-        "apmName": args.apmName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApm(a, opts))
 }
 
 export interface GetApmOutputArgs {

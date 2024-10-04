@@ -276,6 +276,9 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
         status_message=pulumi.get(__ret__, 'status_message'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_remediation_at_resource_group)
 def get_remediation_at_resource_group_output(remediation_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtResourceGroupResult]:
@@ -286,26 +289,4 @@ def get_remediation_at_resource_group_output(remediation_name: Optional[pulumi.I
     :param str remediation_name: The name of the remediation.
     :param str resource_group_name: Resource group name.
     """
-    __args__ = dict()
-    __args__['remediationName'] = remediation_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights/v20211001:getRemediationAtResourceGroup', __args__, opts=opts, typ=GetRemediationAtResourceGroupResult)
-    return __ret__.apply(lambda __response__: GetRemediationAtResourceGroupResult(
-        correlation_id=pulumi.get(__response__, 'correlation_id'),
-        created_on=pulumi.get(__response__, 'created_on'),
-        deployment_status=pulumi.get(__response__, 'deployment_status'),
-        failure_threshold=pulumi.get(__response__, 'failure_threshold'),
-        filters=pulumi.get(__response__, 'filters'),
-        id=pulumi.get(__response__, 'id'),
-        last_updated_on=pulumi.get(__response__, 'last_updated_on'),
-        name=pulumi.get(__response__, 'name'),
-        parallel_deployments=pulumi.get(__response__, 'parallel_deployments'),
-        policy_assignment_id=pulumi.get(__response__, 'policy_assignment_id'),
-        policy_definition_reference_id=pulumi.get(__response__, 'policy_definition_reference_id'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_count=pulumi.get(__response__, 'resource_count'),
-        resource_discovery_mode=pulumi.get(__response__, 'resource_discovery_mode'),
-        status_message=pulumi.get(__response__, 'status_message'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

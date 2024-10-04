@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified Express Route Circuit Connection from the specified express route circuit.
  */
 export function getExpressRouteCircuitConnection(args: GetExpressRouteCircuitConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230201:getExpressRouteCircuitConnection", {
         "circuitName": args.circuitName,
@@ -92,13 +93,7 @@ export interface GetExpressRouteCircuitConnectionResult {
  * Gets the specified Express Route Circuit Connection from the specified express route circuit.
  */
 export function getExpressRouteCircuitConnectionOutput(args: GetExpressRouteCircuitConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getExpressRouteCircuitConnection", {
-        "circuitName": args.circuitName,
-        "connectionName": args.connectionName,
-        "peeringName": args.peeringName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getExpressRouteCircuitConnection(a, opts))
 }
 
 export interface GetExpressRouteCircuitConnectionOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
  */
 export function getSAPSizingRecommendations(args: GetSAPSizingRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPSizingRecommendationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20221101preview:getSAPSizingRecommendations", {
         "appLocation": args.appLocation,
@@ -82,19 +83,7 @@ export interface GetSAPSizingRecommendationsResult {
  * Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
  */
 export function getSAPSizingRecommendationsOutput(args: GetSAPSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPSizingRecommendationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads/v20221101preview:getSAPSizingRecommendations", {
-        "appLocation": args.appLocation,
-        "databaseType": args.databaseType,
-        "dbMemory": args.dbMemory,
-        "dbScaleMethod": args.dbScaleMethod,
-        "deploymentType": args.deploymentType,
-        "environment": args.environment,
-        "highAvailabilityType": args.highAvailabilityType,
-        "location": args.location,
-        "sapProduct": args.sapProduct,
-        "saps": args.saps,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSAPSizingRecommendations(a, opts))
 }
 
 export interface GetSAPSizingRecommendationsOutputArgs {

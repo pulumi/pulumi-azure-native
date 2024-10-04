@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about a disk.
  */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20240302:getDisk", {
         "diskName": args.diskName,
@@ -206,11 +207,7 @@ export interface GetDiskResult {
  * Gets information about a disk.
  */
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute/v20240302:getDisk", {
-        "diskName": args.diskName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDisk(a, opts))
 }
 
 export interface GetDiskOutputArgs {

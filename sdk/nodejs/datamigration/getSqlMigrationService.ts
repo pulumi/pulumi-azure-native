@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-15-preview.
  */
 export function getSqlMigrationService(args: GetSqlMigrationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlMigrationServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration:getSqlMigrationService", {
         "resourceGroupName": args.resourceGroupName,
@@ -58,11 +59,7 @@ export interface GetSqlMigrationServiceResult {
  * Other available API versions: 2023-07-15-preview.
  */
 export function getSqlMigrationServiceOutput(args: GetSqlMigrationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlMigrationServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datamigration:getSqlMigrationService", {
-        "resourceGroupName": args.resourceGroupName,
-        "sqlMigrationServiceName": args.sqlMigrationServiceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlMigrationService(a, opts))
 }
 
 export interface GetSqlMigrationServiceOutputArgs {

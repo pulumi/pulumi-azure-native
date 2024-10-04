@@ -123,6 +123,9 @@ def get_management_policy(account_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         policy=pulumi.get(__ret__, 'policy'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_management_policy)
 def get_management_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                  management_policy_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -135,15 +138,4 @@ def get_management_policy_output(account_name: Optional[pulumi.Input[str]] = Non
     :param str management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['managementPolicyName'] = management_policy_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20220901:getManagementPolicy', __args__, opts=opts, typ=GetManagementPolicyResult)
-    return __ret__.apply(lambda __response__: GetManagementPolicyResult(
-        id=pulumi.get(__response__, 'id'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        name=pulumi.get(__response__, 'name'),
-        policy=pulumi.get(__response__, 'policy'),
-        type=pulumi.get(__response__, 'type')))
+    ...

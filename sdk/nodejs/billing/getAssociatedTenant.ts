@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-04-01.
  */
 export function getAssociatedTenant(args: GetAssociatedTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociatedTenantResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:billing:getAssociatedTenant", {
         "associatedTenantName": args.associatedTenantName,
@@ -64,11 +65,7 @@ export interface GetAssociatedTenantResult {
  * Azure REST API version: 2024-04-01.
  */
 export function getAssociatedTenantOutput(args: GetAssociatedTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociatedTenantResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:billing:getAssociatedTenant", {
-        "associatedTenantName": args.associatedTenantName,
-        "billingAccountName": args.billingAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAssociatedTenant(a, opts))
 }
 
 export interface GetAssociatedTenantOutputArgs {

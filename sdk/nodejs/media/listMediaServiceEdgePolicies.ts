@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-01-01.
  */
 export function listMediaServiceEdgePolicies(args: ListMediaServiceEdgePoliciesArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaServiceEdgePoliciesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:listMediaServiceEdgePolicies", {
         "accountName": args.accountName,
@@ -43,12 +44,7 @@ export interface ListMediaServiceEdgePoliciesResult {
  * Azure REST API version: 2023-01-01.
  */
 export function listMediaServiceEdgePoliciesOutput(args: ListMediaServiceEdgePoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMediaServiceEdgePoliciesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media:listMediaServiceEdgePolicies", {
-        "accountName": args.accountName,
-        "deviceId": args.deviceId,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listMediaServiceEdgePolicies(a, opts))
 }
 
 export interface ListMediaServiceEdgePoliciesOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a single private link association
  */
 export function getPrivateLinkAssociation(args: GetPrivateLinkAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkAssociationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20200501:getPrivateLinkAssociation", {
         "groupId": args.groupId,
@@ -51,11 +52,7 @@ export interface GetPrivateLinkAssociationResult {
  * Get a single private link association
  */
 export function getPrivateLinkAssociationOutput(args: GetPrivateLinkAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAssociationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization/v20200501:getPrivateLinkAssociation", {
-        "groupId": args.groupId,
-        "plaId": args.plaId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateLinkAssociation(a, opts))
 }
 
 export interface GetPrivateLinkAssociationOutputArgs {

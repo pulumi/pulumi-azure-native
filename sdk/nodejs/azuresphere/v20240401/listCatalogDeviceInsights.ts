@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists device insights for catalog.
  */
 export function listCatalogDeviceInsights(args: ListCatalogDeviceInsightsArgs, opts?: pulumi.InvokeOptions): Promise<ListCatalogDeviceInsightsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuresphere/v20240401:listCatalogDeviceInsights", {
         "catalogName": args.catalogName,
@@ -66,15 +67,7 @@ export interface ListCatalogDeviceInsightsResult {
  * Lists device insights for catalog.
  */
 export function listCatalogDeviceInsightsOutput(args: ListCatalogDeviceInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCatalogDeviceInsightsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azuresphere/v20240401:listCatalogDeviceInsights", {
-        "catalogName": args.catalogName,
-        "filter": args.filter,
-        "maxpagesize": args.maxpagesize,
-        "resourceGroupName": args.resourceGroupName,
-        "skip": args.skip,
-        "top": args.top,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listCatalogDeviceInsights(a, opts))
 }
 
 export interface ListCatalogDeviceInsightsOutputArgs {

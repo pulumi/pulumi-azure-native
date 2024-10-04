@@ -253,6 +253,9 @@ def get_msix_package(host_pool_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_msix_package)
 def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                             msix_package_full_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -265,25 +268,4 @@ def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
     :param str msix_package_full_name: The version specific package full name of the MSIX package within specified hostpool
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['hostPoolName'] = host_pool_name
-    __args__['msixPackageFullName'] = msix_package_full_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization/v20240306preview:getMSIXPackage', __args__, opts=opts, typ=GetMSIXPackageResult)
-    return __ret__.apply(lambda __response__: GetMSIXPackageResult(
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        image_path=pulumi.get(__response__, 'image_path'),
-        is_active=pulumi.get(__response__, 'is_active'),
-        is_regular_registration=pulumi.get(__response__, 'is_regular_registration'),
-        last_updated=pulumi.get(__response__, 'last_updated'),
-        name=pulumi.get(__response__, 'name'),
-        package_applications=pulumi.get(__response__, 'package_applications'),
-        package_dependencies=pulumi.get(__response__, 'package_dependencies'),
-        package_family_name=pulumi.get(__response__, 'package_family_name'),
-        package_name=pulumi.get(__response__, 'package_name'),
-        package_relative_path=pulumi.get(__response__, 'package_relative_path'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

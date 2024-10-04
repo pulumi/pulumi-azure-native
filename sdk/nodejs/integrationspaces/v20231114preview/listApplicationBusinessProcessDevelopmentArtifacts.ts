@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The list business process development artifacts action.
  */
 export function listApplicationBusinessProcessDevelopmentArtifacts(args: ListApplicationBusinessProcessDevelopmentArtifactsArgs, opts?: pulumi.InvokeOptions): Promise<ListApplicationBusinessProcessDevelopmentArtifactsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:integrationspaces/v20231114preview:listApplicationBusinessProcessDevelopmentArtifacts", {
         "applicationName": args.applicationName,
@@ -47,12 +48,7 @@ export interface ListApplicationBusinessProcessDevelopmentArtifactsResult {
  * The list business process development artifacts action.
  */
 export function listApplicationBusinessProcessDevelopmentArtifactsOutput(args: ListApplicationBusinessProcessDevelopmentArtifactsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationBusinessProcessDevelopmentArtifactsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:integrationspaces/v20231114preview:listApplicationBusinessProcessDevelopmentArtifacts", {
-        "applicationName": args.applicationName,
-        "resourceGroupName": args.resourceGroupName,
-        "spaceName": args.spaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listApplicationBusinessProcessDevelopmentArtifacts(a, opts))
 }
 
 export interface ListApplicationBusinessProcessDevelopmentArtifactsOutputArgs {

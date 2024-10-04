@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an existing security policy within a profile.
  */
 export function getSecurityPolicy(args: GetSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20240901:getSecurityPolicy", {
         "profileName": args.profileName,
@@ -72,12 +73,7 @@ export interface GetSecurityPolicyResult {
  * Gets an existing security policy within a profile.
  */
 export function getSecurityPolicyOutput(args: GetSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cdn/v20240901:getSecurityPolicy", {
-        "profileName": args.profileName,
-        "resourceGroupName": args.resourceGroupName,
-        "securityPolicyName": args.securityPolicyName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecurityPolicy(a, opts))
 }
 
 export interface GetSecurityPolicyOutputArgs {

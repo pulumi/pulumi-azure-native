@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-09-01.
  */
 export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrivateEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dashboard:getManagedPrivateEndpoint", {
         "managedPrivateEndpointName": args.managedPrivateEndpointName,
@@ -105,12 +106,7 @@ export interface GetManagedPrivateEndpointResult {
  * Other available API versions: 2023-09-01.
  */
 export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dashboard:getManagedPrivateEndpoint", {
-        "managedPrivateEndpointName": args.managedPrivateEndpointName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedPrivateEndpoint(a, opts))
 }
 
 export interface GetManagedPrivateEndpointOutputArgs {

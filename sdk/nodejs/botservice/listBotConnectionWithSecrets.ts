@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-09-15-preview.
  */
 export function listBotConnectionWithSecrets(args: ListBotConnectionWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotConnectionWithSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice:listBotConnectionWithSecrets", {
         "connectionName": args.connectionName,
@@ -89,12 +90,7 @@ export interface ListBotConnectionWithSecretsResult {
  * Other available API versions: 2023-09-15-preview.
  */
 export function listBotConnectionWithSecretsOutput(args: ListBotConnectionWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotConnectionWithSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:botservice:listBotConnectionWithSecrets", {
-        "connectionName": args.connectionName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listBotConnectionWithSecrets(a, opts))
 }
 
 export interface ListBotConnectionWithSecretsOutputArgs {

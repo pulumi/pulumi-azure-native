@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-05-01.
  */
 export function getAmlFilesystem(args: GetAmlFilesystemArgs, opts?: pulumi.InvokeOptions): Promise<GetAmlFilesystemResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagecache:getAmlFilesystem", {
         "amlFilesystemName": args.amlFilesystemName,
@@ -112,11 +113,7 @@ export interface GetAmlFilesystemResult {
  * Azure REST API version: 2023-05-01.
  */
 export function getAmlFilesystemOutput(args: GetAmlFilesystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmlFilesystemResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storagecache:getAmlFilesystem", {
-        "amlFilesystemName": args.amlFilesystemName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAmlFilesystem(a, opts))
 }
 
 export interface GetAmlFilesystemOutputArgs {

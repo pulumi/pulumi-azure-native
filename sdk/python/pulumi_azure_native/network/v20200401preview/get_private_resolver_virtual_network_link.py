@@ -162,6 +162,9 @@ def get_private_resolver_virtual_network_link(dns_forwarding_ruleset_name: Optio
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'))
+
+
+@_utilities.lift_output_func(get_private_resolver_virtual_network_link)
 def get_private_resolver_virtual_network_link_output(dns_forwarding_ruleset_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      virtual_network_link_name: Optional[pulumi.Input[str]] = None,
@@ -174,18 +177,4 @@ def get_private_resolver_virtual_network_link_output(dns_forwarding_ruleset_name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_network_link_name: The name of the virtual network link.
     """
-    __args__ = dict()
-    __args__['dnsForwardingRulesetName'] = dns_forwarding_ruleset_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualNetworkLinkName'] = virtual_network_link_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20200401preview:getPrivateResolverVirtualNetworkLink', __args__, opts=opts, typ=GetPrivateResolverVirtualNetworkLinkResult)
-    return __ret__.apply(lambda __response__: GetPrivateResolverVirtualNetworkLinkResult(
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_network=pulumi.get(__response__, 'virtual_network')))
+    ...

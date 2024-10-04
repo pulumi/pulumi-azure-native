@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-05-01.
  */
 export function listIntegrationAccountPartnerContentCallbackUrl(args: ListIntegrationAccountPartnerContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountPartnerContentCallbackUrlResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic:listIntegrationAccountPartnerContentCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,
@@ -79,14 +80,7 @@ export interface ListIntegrationAccountPartnerContentCallbackUrlResult {
  * Azure REST API version: 2019-05-01.
  */
 export function listIntegrationAccountPartnerContentCallbackUrlOutput(args: ListIntegrationAccountPartnerContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountPartnerContentCallbackUrlResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic:listIntegrationAccountPartnerContentCallbackUrl", {
-        "integrationAccountName": args.integrationAccountName,
-        "keyType": args.keyType,
-        "notAfter": args.notAfter,
-        "partnerName": args.partnerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listIntegrationAccountPartnerContentCallbackUrl(a, opts))
 }
 
 export interface ListIntegrationAccountPartnerContentCallbackUrlOutputArgs {

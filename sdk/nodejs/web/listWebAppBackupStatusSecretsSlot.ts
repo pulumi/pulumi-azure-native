@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function listWebAppBackupStatusSecretsSlot(args: ListWebAppBackupStatusSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupStatusSecretsSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:listWebAppBackupStatusSecretsSlot", {
         "backupId": args.backupId,
@@ -152,19 +153,7 @@ export interface ListWebAppBackupStatusSecretsSlotResult {
  * Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function listWebAppBackupStatusSecretsSlotOutput(args: ListWebAppBackupStatusSecretsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupStatusSecretsSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web:listWebAppBackupStatusSecretsSlot", {
-        "backupId": args.backupId,
-        "backupName": args.backupName,
-        "backupSchedule": args.backupSchedule ? pulumi.output(args.backupSchedule).apply(inputs.web.backupScheduleProvideDefaults) : undefined,
-        "databases": args.databases,
-        "enabled": args.enabled,
-        "kind": args.kind,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-        "storageAccountUrl": args.storageAccountUrl,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppBackupStatusSecretsSlot(a, opts))
 }
 
 export interface ListWebAppBackupStatusSecretsSlotOutputArgs {

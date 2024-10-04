@@ -198,6 +198,9 @@ def get_management_group_diagnostic_setting(management_group_id: Optional[str] =
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
+
+
+@_utilities.lift_output_func(get_management_group_diagnostic_setting)
 def get_management_group_diagnostic_setting_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                                    name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupDiagnosticSettingResult]:
@@ -208,20 +211,4 @@ def get_management_group_diagnostic_setting_output(management_group_id: Optional
     :param str management_group_id: The management group id.
     :param str name: The name of the diagnostic setting.
     """
-    __args__ = dict()
-    __args__['managementGroupId'] = management_group_id
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20210501preview:getManagementGroupDiagnosticSetting', __args__, opts=opts, typ=GetManagementGroupDiagnosticSettingResult)
-    return __ret__.apply(lambda __response__: GetManagementGroupDiagnosticSettingResult(
-        event_hub_authorization_rule_id=pulumi.get(__response__, 'event_hub_authorization_rule_id'),
-        event_hub_name=pulumi.get(__response__, 'event_hub_name'),
-        id=pulumi.get(__response__, 'id'),
-        logs=pulumi.get(__response__, 'logs'),
-        marketplace_partner_id=pulumi.get(__response__, 'marketplace_partner_id'),
-        name=pulumi.get(__response__, 'name'),
-        service_bus_rule_id=pulumi.get(__response__, 'service_bus_rule_id'),
-        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        workspace_id=pulumi.get(__response__, 'workspace_id')))
+    ...

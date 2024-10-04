@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of a permission binding.
  */
 export function getPermissionBinding(args: GetPermissionBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionBindingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20231215preview:getPermissionBinding", {
         "namespaceName": args.namespaceName,
@@ -81,12 +82,7 @@ export interface GetPermissionBindingResult {
  * Get properties of a permission binding.
  */
 export function getPermissionBindingOutput(args: GetPermissionBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionBindingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getPermissionBinding", {
-        "namespaceName": args.namespaceName,
-        "permissionBindingName": args.permissionBindingName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPermissionBinding(a, opts))
 }
 
 export interface GetPermissionBindingOutputArgs {

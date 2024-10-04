@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists all of the streaming jobs in the given cluster.
  */
 export function listClusterStreamingJobs(args: ListClusterStreamingJobsArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterStreamingJobsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:streamanalytics/v20200301:listClusterStreamingJobs", {
         "clusterName": args.clusterName,
@@ -46,11 +47,7 @@ export interface ListClusterStreamingJobsResult {
  * Lists all of the streaming jobs in the given cluster.
  */
 export function listClusterStreamingJobsOutput(args: ListClusterStreamingJobsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterStreamingJobsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:streamanalytics/v20200301:listClusterStreamingJobs", {
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listClusterStreamingJobs(a, opts))
 }
 
 export interface ListClusterStreamingJobsOutputArgs {

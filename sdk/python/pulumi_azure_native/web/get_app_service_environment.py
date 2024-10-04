@@ -397,6 +397,9 @@ def get_app_service_environment(name: Optional[str] = None,
         user_whitelisted_ip_ranges=pulumi.get(__ret__, 'user_whitelisted_ip_ranges'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
+
+
+@_utilities.lift_output_func(get_app_service_environment)
 def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentResult]:
@@ -410,35 +413,4 @@ def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the App Service Environment.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web:getAppServiceEnvironment', __args__, opts=opts, typ=GetAppServiceEnvironmentResult)
-    return __ret__.apply(lambda __response__: GetAppServiceEnvironmentResult(
-        cluster_settings=pulumi.get(__response__, 'cluster_settings'),
-        custom_dns_suffix_configuration=pulumi.get(__response__, 'custom_dns_suffix_configuration'),
-        dedicated_host_count=pulumi.get(__response__, 'dedicated_host_count'),
-        dns_suffix=pulumi.get(__response__, 'dns_suffix'),
-        front_end_scale_factor=pulumi.get(__response__, 'front_end_scale_factor'),
-        has_linux_workers=pulumi.get(__response__, 'has_linux_workers'),
-        id=pulumi.get(__response__, 'id'),
-        internal_load_balancing_mode=pulumi.get(__response__, 'internal_load_balancing_mode'),
-        ipssl_address_count=pulumi.get(__response__, 'ipssl_address_count'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        maximum_number_of_machines=pulumi.get(__response__, 'maximum_number_of_machines'),
-        multi_role_count=pulumi.get(__response__, 'multi_role_count'),
-        multi_size=pulumi.get(__response__, 'multi_size'),
-        name=pulumi.get(__response__, 'name'),
-        networking_configuration=pulumi.get(__response__, 'networking_configuration'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        status=pulumi.get(__response__, 'status'),
-        suspended=pulumi.get(__response__, 'suspended'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        upgrade_availability=pulumi.get(__response__, 'upgrade_availability'),
-        upgrade_preference=pulumi.get(__response__, 'upgrade_preference'),
-        user_whitelisted_ip_ranges=pulumi.get(__response__, 'user_whitelisted_ip_ranges'),
-        virtual_network=pulumi.get(__response__, 'virtual_network'),
-        zone_redundant=pulumi.get(__response__, 'zone_redundant')))
+    ...

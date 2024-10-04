@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the information about the network resource with the given name. The information include the description and other properties of the network.
  */
 export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getNetwork", {
         "networkResourceName": args.networkResourceName,
@@ -62,11 +63,7 @@ export interface GetNetworkResult {
  * Gets the information about the network resource with the given name. The information include the description and other properties of the network.
  */
 export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh/v20180901preview:getNetwork", {
-        "networkResourceName": args.networkResourceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetwork(a, opts))
 }
 
 export interface GetNetworkOutputArgs {

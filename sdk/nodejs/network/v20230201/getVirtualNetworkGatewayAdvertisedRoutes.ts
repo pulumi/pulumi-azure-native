@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
  */
 export function getVirtualNetworkGatewayAdvertisedRoutes(args: GetVirtualNetworkGatewayAdvertisedRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayAdvertisedRoutesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230201:getVirtualNetworkGatewayAdvertisedRoutes", {
         "peer": args.peer,
@@ -47,12 +48,7 @@ export interface GetVirtualNetworkGatewayAdvertisedRoutesResult {
  * This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
  */
 export function getVirtualNetworkGatewayAdvertisedRoutesOutput(args: GetVirtualNetworkGatewayAdvertisedRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayAdvertisedRoutesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getVirtualNetworkGatewayAdvertisedRoutes", {
-        "peer": args.peer,
-        "resourceGroupName": args.resourceGroupName,
-        "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayAdvertisedRoutes(a, opts))
 }
 
 export interface GetVirtualNetworkGatewayAdvertisedRoutesOutputArgs {

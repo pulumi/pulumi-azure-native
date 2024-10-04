@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
  */
 export function getVirtualNetworkGatewayVpnclientConnectionHealth(args: GetVirtualNetworkGatewayVpnclientConnectionHealthArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20231101:getVirtualNetworkGatewayVpnclientConnectionHealth", {
         "resourceGroupName": args.resourceGroupName,
@@ -42,11 +43,7 @@ export interface GetVirtualNetworkGatewayVpnclientConnectionHealthResult {
  * Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
  */
 export function getVirtualNetworkGatewayVpnclientConnectionHealthOutput(args: GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getVirtualNetworkGatewayVpnclientConnectionHealth", {
-        "resourceGroupName": args.resourceGroupName,
-        "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayVpnclientConnectionHealth(a, opts))
 }
 
 export interface GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs {

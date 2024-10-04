@@ -357,6 +357,9 @@ def get_job(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transfer_type=pulumi.get(__ret__, 'transfer_type'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_job)
 def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    job_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -369,33 +372,4 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['jobName'] = job_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:databox/v20221201:getJob', __args__, opts=opts, typ=GetJobResult)
-    return __ret__.apply(lambda __response__: GetJobResult(
-        cancellation_reason=pulumi.get(__response__, 'cancellation_reason'),
-        delivery_info=pulumi.get(__response__, 'delivery_info'),
-        delivery_type=pulumi.get(__response__, 'delivery_type'),
-        details=pulumi.get(__response__, 'details'),
-        error=pulumi.get(__response__, 'error'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        is_cancellable=pulumi.get(__response__, 'is_cancellable'),
-        is_cancellable_without_fee=pulumi.get(__response__, 'is_cancellable_without_fee'),
-        is_deletable=pulumi.get(__response__, 'is_deletable'),
-        is_prepare_to_ship_enabled=pulumi.get(__response__, 'is_prepare_to_ship_enabled'),
-        is_shipping_address_editable=pulumi.get(__response__, 'is_shipping_address_editable'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        reverse_shipping_details_update=pulumi.get(__response__, 'reverse_shipping_details_update'),
-        reverse_transport_preference_update=pulumi.get(__response__, 'reverse_transport_preference_update'),
-        sku=pulumi.get(__response__, 'sku'),
-        start_time=pulumi.get(__response__, 'start_time'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        transfer_type=pulumi.get(__response__, 'transfer_type'),
-        type=pulumi.get(__response__, 'type')))
+    ...

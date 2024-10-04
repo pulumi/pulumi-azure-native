@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified application gateway.
  */
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230601:getApplicationGateway", {
         "applicationGatewayName": args.applicationGatewayName,
@@ -214,11 +215,7 @@ export interface GetApplicationGatewayResult {
  * Gets the specified application gateway.
  */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230601:getApplicationGateway", {
-        "applicationGatewayName": args.applicationGatewayName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))
 }
 
 export interface GetApplicationGatewayOutputArgs {

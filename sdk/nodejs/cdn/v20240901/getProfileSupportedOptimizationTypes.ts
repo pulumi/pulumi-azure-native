@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
  */
 export function getProfileSupportedOptimizationTypes(args: GetProfileSupportedOptimizationTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileSupportedOptimizationTypesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20240901:getProfileSupportedOptimizationTypes", {
         "profileName": args.profileName,
@@ -39,11 +40,7 @@ export interface GetProfileSupportedOptimizationTypesResult {
  * Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
  */
 export function getProfileSupportedOptimizationTypesOutput(args: GetProfileSupportedOptimizationTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileSupportedOptimizationTypesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cdn/v20240901:getProfileSupportedOptimizationTypes", {
-        "profileName": args.profileName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProfileSupportedOptimizationTypes(a, opts))
 }
 
 export interface GetProfileSupportedOptimizationTypesOutputArgs {

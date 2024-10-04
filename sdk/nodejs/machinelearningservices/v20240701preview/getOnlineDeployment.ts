@@ -8,6 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getOnlineDeployment(args: GetOnlineDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineDeploymentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240701preview:getOnlineDeployment", {
         "deploymentName": args.deploymentName,
@@ -79,13 +80,7 @@ export interface GetOnlineDeploymentResult {
     readonly type: string;
 }
 export function getOnlineDeploymentOutput(args: GetOnlineDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineDeploymentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240701preview:getOnlineDeployment", {
-        "deploymentName": args.deploymentName,
-        "endpointName": args.endpointName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOnlineDeployment(a, opts))
 }
 
 export interface GetOnlineDeploymentOutputArgs {

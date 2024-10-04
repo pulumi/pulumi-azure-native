@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get Sentinel onboarding state
  */
 export function getSentinelOnboardingState(args: GetSentinelOnboardingStateArgs, opts?: pulumi.InvokeOptions): Promise<GetSentinelOnboardingStateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210301preview:getSentinelOnboardingState", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
@@ -72,13 +73,7 @@ export interface GetSentinelOnboardingStateResult {
  * Get Sentinel onboarding state
  */
 export function getSentinelOnboardingStateOutput(args: GetSentinelOnboardingStateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSentinelOnboardingStateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210301preview:getSentinelOnboardingState", {
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
-        "resourceGroupName": args.resourceGroupName,
-        "sentinelOnboardingStateName": args.sentinelOnboardingStateName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSentinelOnboardingState(a, opts))
 }
 
 export interface GetSentinelOnboardingStateOutputArgs {

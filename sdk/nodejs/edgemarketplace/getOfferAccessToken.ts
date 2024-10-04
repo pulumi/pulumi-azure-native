@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-08-01.
  */
 export function getOfferAccessToken(args: GetOfferAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetOfferAccessTokenResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edgemarketplace:getOfferAccessToken", {
         "offerId": args.offerId,
@@ -58,12 +59,7 @@ export interface GetOfferAccessTokenResult {
  * Other available API versions: 2023-08-01.
  */
 export function getOfferAccessTokenOutput(args: GetOfferAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfferAccessTokenResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:edgemarketplace:getOfferAccessToken", {
-        "offerId": args.offerId,
-        "requestId": args.requestId,
-        "resourceUri": args.resourceUri,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOfferAccessToken(a, opts))
 }
 
 export interface GetOfferAccessTokenOutputArgs {

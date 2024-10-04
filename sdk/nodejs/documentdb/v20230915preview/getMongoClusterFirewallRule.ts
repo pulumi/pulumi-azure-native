@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about a mongo cluster firewall rule.
  */
 export function getMongoClusterFirewallRule(args: GetMongoClusterFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoClusterFirewallRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20230915preview:getMongoClusterFirewallRule", {
         "firewallRuleName": args.firewallRuleName,
@@ -71,12 +72,7 @@ export interface GetMongoClusterFirewallRuleResult {
  * Gets information about a mongo cluster firewall rule.
  */
 export function getMongoClusterFirewallRuleOutput(args: GetMongoClusterFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoClusterFirewallRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20230915preview:getMongoClusterFirewallRule", {
-        "firewallRuleName": args.firewallRuleName,
-        "mongoClusterName": args.mongoClusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMongoClusterFirewallRule(a, opts))
 }
 
 export interface GetMongoClusterFirewallRuleOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a PostRulesResource
  */
 export function getPostRule(args: GetPostRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetPostRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20220829:getPostRule", {
         "globalRulestackName": args.globalRulestackName,
@@ -131,11 +132,7 @@ export interface GetPostRuleResult {
  * Get a PostRulesResource
  */
 export function getPostRuleOutput(args: GetPostRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829:getPostRule", {
-        "globalRulestackName": args.globalRulestackName,
-        "priority": args.priority,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPostRule(a, opts))
 }
 
 export interface GetPostRuleOutputArgs {

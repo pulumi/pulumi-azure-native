@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-05-04.
  */
 export function getConfigurationProfileHCIAssignment(args: GetConfigurationProfileHCIAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileHCIAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automanage:getConfigurationProfileHCIAssignment", {
         "clusterName": args.clusterName,
@@ -69,12 +70,7 @@ export interface GetConfigurationProfileHCIAssignmentResult {
  * Azure REST API version: 2022-05-04.
  */
 export function getConfigurationProfileHCIAssignmentOutput(args: GetConfigurationProfileHCIAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileHCIAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automanage:getConfigurationProfileHCIAssignment", {
-        "clusterName": args.clusterName,
-        "configurationProfileAssignmentName": args.configurationProfileAssignmentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfigurationProfileHCIAssignment(a, opts))
 }
 
 export interface GetConfigurationProfileHCIAssignmentOutputArgs {

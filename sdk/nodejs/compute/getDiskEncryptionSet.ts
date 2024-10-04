@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-06-30, 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
  */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getDiskEncryptionSet", {
         "diskEncryptionSetName": args.diskEncryptionSetName,
@@ -100,11 +101,7 @@ export interface GetDiskEncryptionSetResult {
  * Other available API versions: 2020-06-30, 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
  */
 export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskEncryptionSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute:getDiskEncryptionSet", {
-        "diskEncryptionSetName": args.diskEncryptionSetName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDiskEncryptionSet(a, opts))
 }
 
 export interface GetDiskEncryptionSetOutputArgs {

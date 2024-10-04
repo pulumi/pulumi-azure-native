@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists a workflow run expression trace.
  */
 export function listWorkflowRunActionRepetitionExpressionTraces(args: ListWorkflowRunActionRepetitionExpressionTracesArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowRunActionRepetitionExpressionTracesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20180701preview:listWorkflowRunActionRepetitionExpressionTraces", {
         "actionName": args.actionName,
@@ -51,14 +52,7 @@ export interface ListWorkflowRunActionRepetitionExpressionTracesResult {
  * Lists a workflow run expression trace.
  */
 export function listWorkflowRunActionRepetitionExpressionTracesOutput(args: ListWorkflowRunActionRepetitionExpressionTracesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowRunActionRepetitionExpressionTracesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic/v20180701preview:listWorkflowRunActionRepetitionExpressionTraces", {
-        "actionName": args.actionName,
-        "repetitionName": args.repetitionName,
-        "resourceGroupName": args.resourceGroupName,
-        "runName": args.runName,
-        "workflowName": args.workflowName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWorkflowRunActionRepetitionExpressionTraces(a, opts))
 }
 
 export interface ListWorkflowRunActionRepetitionExpressionTracesOutputArgs {

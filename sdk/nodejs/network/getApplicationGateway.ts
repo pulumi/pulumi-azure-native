@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-05-01-preview, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getApplicationGateway", {
         "applicationGatewayName": args.applicationGatewayName,
@@ -220,11 +221,7 @@ export interface GetApplicationGatewayResult {
  * Other available API versions: 2015-05-01-preview, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getApplicationGateway", {
-        "applicationGatewayName": args.applicationGatewayName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))
 }
 
 export interface GetApplicationGatewayOutputArgs {

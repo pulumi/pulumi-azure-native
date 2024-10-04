@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-09-01-preview.
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceregistry:getAsset", {
         "assetName": args.assetName,
@@ -164,11 +165,7 @@ export interface GetAssetResult {
  * Other available API versions: 2024-09-01-preview.
  */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:deviceregistry:getAsset", {
-        "assetName": args.assetName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAsset(a, opts))
 }
 
 export interface GetAssetOutputArgs {

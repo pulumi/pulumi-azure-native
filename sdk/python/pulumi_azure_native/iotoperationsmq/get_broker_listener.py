@@ -270,6 +270,9 @@ def get_broker_listener(broker_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tls=pulumi.get(__ret__, 'tls'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_broker_listener)
 def get_broker_listener_output(broker_name: Optional[pulumi.Input[str]] = None,
                                listener_name: Optional[pulumi.Input[str]] = None,
                                mq_name: Optional[pulumi.Input[str]] = None,
@@ -285,27 +288,4 @@ def get_broker_listener_output(broker_name: Optional[pulumi.Input[str]] = None,
     :param str mq_name: Name of MQ resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['brokerName'] = broker_name
-    __args__['listenerName'] = listener_name
-    __args__['mqName'] = mq_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq:getBrokerListener', __args__, opts=opts, typ=GetBrokerListenerResult)
-    return __ret__.apply(lambda __response__: GetBrokerListenerResult(
-        authentication_enabled=pulumi.get(__response__, 'authentication_enabled'),
-        authorization_enabled=pulumi.get(__response__, 'authorization_enabled'),
-        broker_ref=pulumi.get(__response__, 'broker_ref'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        node_port=pulumi.get(__response__, 'node_port'),
-        port=pulumi.get(__response__, 'port'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        service_name=pulumi.get(__response__, 'service_name'),
-        service_type=pulumi.get(__response__, 'service_type'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        tls=pulumi.get(__response__, 'tls'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-01.
  */
 export function listWCFRelayKeys(args: ListWCFRelayKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWCFRelayKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay:listWCFRelayKeys", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -71,13 +72,7 @@ export interface ListWCFRelayKeysResult {
  * Other available API versions: 2024-01-01.
  */
 export function listWCFRelayKeysOutput(args: ListWCFRelayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWCFRelayKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:relay:listWCFRelayKeys", {
-        "authorizationRuleName": args.authorizationRuleName,
-        "namespaceName": args.namespaceName,
-        "relayName": args.relayName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWCFRelayKeys(a, opts))
 }
 
 export interface ListWCFRelayKeysOutputArgs {

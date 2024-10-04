@@ -229,6 +229,9 @@ def get_web_app_host_name_binding_slot(host_name: Optional[str] = None,
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'),
         virtual_ip=pulumi.get(__ret__, 'virtual_ip'))
+
+
+@_utilities.lift_output_func(get_web_app_host_name_binding_slot)
 def get_web_app_host_name_binding_slot_output(host_name: Optional[pulumi.Input[str]] = None,
                                               name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -243,24 +246,4 @@ def get_web_app_host_name_binding_slot_output(host_name: Optional[pulumi.Input[s
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
     """
-    __args__ = dict()
-    __args__['hostName'] = host_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:getWebAppHostNameBindingSlot', __args__, opts=opts, typ=GetWebAppHostNameBindingSlotResult)
-    return __ret__.apply(lambda __response__: GetWebAppHostNameBindingSlotResult(
-        azure_resource_name=pulumi.get(__response__, 'azure_resource_name'),
-        azure_resource_type=pulumi.get(__response__, 'azure_resource_type'),
-        custom_host_name_dns_record_type=pulumi.get(__response__, 'custom_host_name_dns_record_type'),
-        domain_id=pulumi.get(__response__, 'domain_id'),
-        host_name_type=pulumi.get(__response__, 'host_name_type'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        site_name=pulumi.get(__response__, 'site_name'),
-        ssl_state=pulumi.get(__response__, 'ssl_state'),
-        thumbprint=pulumi.get(__response__, 'thumbprint'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_ip=pulumi.get(__response__, 'virtual_ip')))
+    ...

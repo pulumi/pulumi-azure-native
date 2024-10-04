@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
 export function getConnectionType(args: GetConnectionTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionTypeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation:getConnectionType", {
         "automationAccountName": args.automationAccountName,
@@ -81,12 +82,7 @@ export interface GetConnectionTypeResult {
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
 export function getConnectionTypeOutput(args: GetConnectionTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionTypeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:automation:getConnectionType", {
-        "automationAccountName": args.automationAccountName,
-        "connectionTypeName": args.connectionTypeName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConnectionType(a, opts))
 }
 
 export interface GetConnectionTypeOutputArgs {

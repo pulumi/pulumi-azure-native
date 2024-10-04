@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The operation returns properties of a OpenShift cluster.
  */
 export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftClusterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20220904:getOpenShiftCluster", {
         "resourceGroupName": args.resourceGroupName,
@@ -98,11 +99,7 @@ export interface GetOpenShiftClusterResult {
  * The operation returns properties of a OpenShift cluster.
  */
 export function getOpenShiftClusterOutput(args: GetOpenShiftClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftClusterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:redhatopenshift/v20220904:getOpenShiftCluster", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOpenShiftCluster(a, opts))
 }
 
 export interface GetOpenShiftClusterOutputArgs {

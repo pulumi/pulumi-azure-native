@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get Database Migration resource.
  */
 export function getDatabaseMigrationsMongoToCosmosDbvCoreMongo(args: GetDatabaseMigrationsMongoToCosmosDbvCoreMongoArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20230715preview:getDatabaseMigrationsMongoToCosmosDbvCoreMongo", {
         "migrationName": args.migrationName,
@@ -112,12 +113,7 @@ export interface GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult {
  * Get Database Migration resource.
  */
 export function getDatabaseMigrationsMongoToCosmosDbvCoreMongoOutput(args: GetDatabaseMigrationsMongoToCosmosDbvCoreMongoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datamigration/v20230715preview:getDatabaseMigrationsMongoToCosmosDbvCoreMongo", {
-        "migrationName": args.migrationName,
-        "resourceGroupName": args.resourceGroupName,
-        "targetResourceName": args.targetResourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDatabaseMigrationsMongoToCosmosDbvCoreMongo(a, opts))
 }
 
 export interface GetDatabaseMigrationsMongoToCosmosDbvCoreMongoOutputArgs {

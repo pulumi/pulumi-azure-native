@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a ObservabilityServiceResource
  */
 export function getObservabilityService(args: GetObservabilityServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetObservabilityServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilepacketcore/v20231015preview:getObservabilityService", {
         "observabilityServiceName": args.observabilityServiceName,
@@ -82,11 +83,7 @@ export interface GetObservabilityServiceResult {
  * Get a ObservabilityServiceResource
  */
 export function getObservabilityServiceOutput(args: GetObservabilityServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObservabilityServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilepacketcore/v20231015preview:getObservabilityService", {
-        "observabilityServiceName": args.observabilityServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getObservabilityService(a, opts))
 }
 
 export interface GetObservabilityServiceOutputArgs {

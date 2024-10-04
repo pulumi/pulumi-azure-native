@@ -277,6 +277,9 @@ def get_webhook(report_name: Optional[str] = None,
         webhook_id=pulumi.get(__ret__, 'webhook_id'),
         webhook_key=pulumi.get(__ret__, 'webhook_key'),
         webhook_key_enabled=pulumi.get(__ret__, 'webhook_key_enabled'))
+
+
+@_utilities.lift_output_func(get_webhook)
 def get_webhook_output(report_name: Optional[pulumi.Input[str]] = None,
                        webhook_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookResult]:
@@ -288,26 +291,4 @@ def get_webhook_output(report_name: Optional[pulumi.Input[str]] = None,
     :param str report_name: Report Name.
     :param str webhook_name: Webhook Name.
     """
-    __args__ = dict()
-    __args__['reportName'] = report_name
-    __args__['webhookName'] = webhook_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation:getWebhook', __args__, opts=opts, typ=GetWebhookResult)
-    return __ret__.apply(lambda __response__: GetWebhookResult(
-        content_type=pulumi.get(__response__, 'content_type'),
-        delivery_status=pulumi.get(__response__, 'delivery_status'),
-        enable_ssl_verification=pulumi.get(__response__, 'enable_ssl_verification'),
-        events=pulumi.get(__response__, 'events'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        payload_url=pulumi.get(__response__, 'payload_url'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        send_all_events=pulumi.get(__response__, 'send_all_events'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        type=pulumi.get(__response__, 'type'),
-        update_webhook_key=pulumi.get(__response__, 'update_webhook_key'),
-        webhook_id=pulumi.get(__response__, 'webhook_id'),
-        webhook_key=pulumi.get(__response__, 'webhook_key'),
-        webhook_key_enabled=pulumi.get(__response__, 'webhook_key_enabled')))
+    ...

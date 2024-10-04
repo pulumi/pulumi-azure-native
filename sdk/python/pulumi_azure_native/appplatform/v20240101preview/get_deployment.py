@@ -139,6 +139,9 @@ def get_deployment(app_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_deployment)
 def get_deployment_output(app_name: Optional[pulumi.Input[str]] = None,
                           deployment_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -153,17 +156,4 @@ def get_deployment_output(app_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
-    __args__ = dict()
-    __args__['appName'] = app_name
-    __args__['deploymentName'] = deployment_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20240101preview:getDeployment', __args__, opts=opts, typ=GetDeploymentResult)
-    return __ret__.apply(lambda __response__: GetDeploymentResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

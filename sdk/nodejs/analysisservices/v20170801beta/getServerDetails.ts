@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets details about the specified Analysis Services server.
  */
 export function getServerDetails(args: GetServerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDetailsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:analysisservices/v20170801beta:getServerDetails", {
         "resourceGroupName": args.resourceGroupName,
@@ -102,11 +103,7 @@ export interface GetServerDetailsResult {
  * Gets details about the specified Analysis Services server.
  */
 export function getServerDetailsOutput(args: GetServerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerDetailsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:analysisservices/v20170801beta:getServerDetails", {
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServerDetails(a, opts))
 }
 
 export interface GetServerDetailsOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
  */
 export function getSAPApplicationServerInstance(args: GetSAPApplicationServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPApplicationServerInstanceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20211201preview:getSAPApplicationServerInstance", {
         "applicationInstanceName": args.applicationInstanceName,
@@ -127,12 +128,7 @@ export interface GetSAPApplicationServerInstanceResult {
  * Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
  */
 export function getSAPApplicationServerInstanceOutput(args: GetSAPApplicationServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPApplicationServerInstanceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads/v20211201preview:getSAPApplicationServerInstance", {
-        "applicationInstanceName": args.applicationInstanceName,
-        "resourceGroupName": args.resourceGroupName,
-        "sapVirtualInstanceName": args.sapVirtualInstanceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSAPApplicationServerInstance(a, opts))
 }
 
 export interface GetSAPApplicationServerInstanceOutputArgs {

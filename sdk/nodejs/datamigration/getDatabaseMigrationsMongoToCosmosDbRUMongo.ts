@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-15-preview.
  */
 export function getDatabaseMigrationsMongoToCosmosDbRUMongo(args: GetDatabaseMigrationsMongoToCosmosDbRUMongoArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration:getDatabaseMigrationsMongoToCosmosDbRUMongo", {
         "migrationName": args.migrationName,
@@ -114,12 +115,7 @@ export interface GetDatabaseMigrationsMongoToCosmosDbRUMongoResult {
  * Azure REST API version: 2023-07-15-preview.
  */
 export function getDatabaseMigrationsMongoToCosmosDbRUMongoOutput(args: GetDatabaseMigrationsMongoToCosmosDbRUMongoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datamigration:getDatabaseMigrationsMongoToCosmosDbRUMongo", {
-        "migrationName": args.migrationName,
-        "resourceGroupName": args.resourceGroupName,
-        "targetResourceName": args.targetResourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDatabaseMigrationsMongoToCosmosDbRUMongo(a, opts))
 }
 
 export interface GetDatabaseMigrationsMongoToCosmosDbRUMongoOutputArgs {

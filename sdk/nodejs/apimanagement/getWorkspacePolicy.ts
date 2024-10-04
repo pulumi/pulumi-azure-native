@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getWorkspacePolicy(args: GetWorkspacePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspacePolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getWorkspacePolicy", {
         "format": args.format,
@@ -76,14 +77,7 @@ export interface GetWorkspacePolicyResult {
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getWorkspacePolicyOutput(args: GetWorkspacePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspacePolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspacePolicy", {
-        "format": args.format,
-        "policyId": args.policyId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspacePolicy(a, opts))
 }
 
 export interface GetWorkspacePolicyOutputArgs {

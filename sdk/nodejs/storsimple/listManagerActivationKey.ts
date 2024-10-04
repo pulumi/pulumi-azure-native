@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-06-01.
  */
 export function listManagerActivationKey(args: ListManagerActivationKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListManagerActivationKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple:listManagerActivationKey", {
         "managerName": args.managerName,
@@ -41,11 +42,7 @@ export interface ListManagerActivationKeyResult {
  * Azure REST API version: 2017-06-01.
  */
 export function listManagerActivationKeyOutput(args: ListManagerActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagerActivationKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storsimple:listManagerActivationKey", {
-        "managerName": args.managerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listManagerActivationKey(a, opts))
 }
 
 export interface ListManagerActivationKeyOutputArgs {

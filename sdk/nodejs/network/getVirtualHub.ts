@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2018-07-01, 2020-04-01, 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getVirtualHub", {
         "resourceGroupName": args.resourceGroupName,
@@ -160,11 +161,7 @@ export interface GetVirtualHubResult {
  * Other available API versions: 2018-07-01, 2020-04-01, 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getVirtualHub", {
-        "resourceGroupName": args.resourceGroupName,
-        "virtualHubName": args.virtualHubName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualHub(a, opts))
 }
 
 export interface GetVirtualHubOutputArgs {

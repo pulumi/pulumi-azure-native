@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
  */
 export function getFluxConfiguration(args: GetFluxConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFluxConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetesconfiguration:getFluxConfiguration", {
         "clusterName": args.clusterName,
@@ -151,14 +152,7 @@ export interface GetFluxConfigurationResult {
  * Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
  */
 export function getFluxConfigurationOutput(args: GetFluxConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluxConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:kubernetesconfiguration:getFluxConfiguration", {
-        "clusterName": args.clusterName,
-        "clusterResourceName": args.clusterResourceName,
-        "clusterRp": args.clusterRp,
-        "fluxConfigurationName": args.fluxConfigurationName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFluxConfiguration(a, opts))
 }
 
 export interface GetFluxConfigurationOutputArgs {

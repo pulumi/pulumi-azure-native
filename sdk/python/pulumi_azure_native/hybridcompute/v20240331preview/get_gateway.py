@@ -198,6 +198,9 @@ def get_gateway(gateway_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_gateway)
 def get_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
@@ -208,20 +211,4 @@ def get_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     :param str gateway_name: The name of the Gateway.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['gatewayName'] = gateway_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcompute/v20240331preview:getGateway', __args__, opts=opts, typ=GetGatewayResult)
-    return __ret__.apply(lambda __response__: GetGatewayResult(
-        allowed_features=pulumi.get(__response__, 'allowed_features'),
-        gateway_endpoint=pulumi.get(__response__, 'gateway_endpoint'),
-        gateway_id=pulumi.get(__response__, 'gateway_id'),
-        gateway_type=pulumi.get(__response__, 'gateway_type'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

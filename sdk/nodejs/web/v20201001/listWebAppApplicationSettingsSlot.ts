@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the application settings of an app.
  */
 export function listWebAppApplicationSettingsSlot(args: ListWebAppApplicationSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppApplicationSettingsSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:listWebAppApplicationSettingsSlot", {
         "name": args.name,
@@ -67,12 +68,7 @@ export interface ListWebAppApplicationSettingsSlotResult {
  * Gets the application settings of an app.
  */
 export function listWebAppApplicationSettingsSlotOutput(args: ListWebAppApplicationSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppApplicationSettingsSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:listWebAppApplicationSettingsSlot", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppApplicationSettingsSlot(a, opts))
 }
 
 export interface ListWebAppApplicationSettingsSlotOutputArgs {

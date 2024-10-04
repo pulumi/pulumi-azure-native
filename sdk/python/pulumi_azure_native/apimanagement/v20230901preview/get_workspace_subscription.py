@@ -268,6 +268,9 @@ def get_workspace_subscription(resource_group_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         state_comment=pulumi.get(__ret__, 'state_comment'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workspace_subscription)
 def get_workspace_subscription_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                       service_name: Optional[pulumi.Input[str]] = None,
                                       sid: Optional[pulumi.Input[str]] = None,
@@ -282,27 +285,4 @@ def get_workspace_subscription_output(resource_group_name: Optional[pulumi.Input
     :param str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
     :param str workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    __args__['sid'] = sid
-    __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getWorkspaceSubscription', __args__, opts=opts, typ=GetWorkspaceSubscriptionResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceSubscriptionResult(
-        allow_tracing=pulumi.get(__response__, 'allow_tracing'),
-        created_date=pulumi.get(__response__, 'created_date'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        end_date=pulumi.get(__response__, 'end_date'),
-        expiration_date=pulumi.get(__response__, 'expiration_date'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        notification_date=pulumi.get(__response__, 'notification_date'),
-        owner_id=pulumi.get(__response__, 'owner_id'),
-        primary_key=pulumi.get(__response__, 'primary_key'),
-        scope=pulumi.get(__response__, 'scope'),
-        secondary_key=pulumi.get(__response__, 'secondary_key'),
-        start_date=pulumi.get(__response__, 'start_date'),
-        state=pulumi.get(__response__, 'state'),
-        state_comment=pulumi.get(__response__, 'state_comment'),
-        type=pulumi.get(__response__, 'type')))
+    ...

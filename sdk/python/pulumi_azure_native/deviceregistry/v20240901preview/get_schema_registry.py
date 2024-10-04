@@ -224,6 +224,9 @@ def get_schema_registry(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
+
+
+@_utilities.lift_output_func(get_schema_registry)
 def get_schema_registry_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                schema_registry_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryResult]:
@@ -234,22 +237,4 @@ def get_schema_registry_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str schema_registry_name: Schema registry name parameter.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['schemaRegistryName'] = schema_registry_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry/v20240901preview:getSchemaRegistry', __args__, opts=opts, typ=GetSchemaRegistryResult)
-    return __ret__.apply(lambda __response__: GetSchemaRegistryResult(
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        namespace=pulumi.get(__response__, 'namespace'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        storage_account_container_url=pulumi.get(__response__, 'storage_account_container_url'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        uuid=pulumi.get(__response__, 'uuid')))
+    ...

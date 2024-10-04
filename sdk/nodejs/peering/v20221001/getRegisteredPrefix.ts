@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
  */
 export function getRegisteredPrefix(args: GetRegisteredPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredPrefixResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20221001:getRegisteredPrefix", {
         "peeringName": args.peeringName,
@@ -72,12 +73,7 @@ export interface GetRegisteredPrefixResult {
  * Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
  */
 export function getRegisteredPrefixOutput(args: GetRegisteredPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredPrefixResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:peering/v20221001:getRegisteredPrefix", {
-        "peeringName": args.peeringName,
-        "registeredPrefixName": args.registeredPrefixName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRegisteredPrefix(a, opts))
 }
 
 export interface GetRegisteredPrefixOutputArgs {

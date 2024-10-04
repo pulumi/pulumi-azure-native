@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of an event subscription of a namespace topic.
  */
 export function getNamespaceTopicEventSubscription(args: GetNamespaceTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicEventSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20230601preview:getNamespaceTopicEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,
@@ -80,13 +81,7 @@ export interface GetNamespaceTopicEventSubscriptionResult {
  * Get properties of an event subscription of a namespace topic.
  */
 export function getNamespaceTopicEventSubscriptionOutput(args: GetNamespaceTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceTopicEventSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20230601preview:getNamespaceTopicEventSubscription", {
-        "eventSubscriptionName": args.eventSubscriptionName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-        "topicName": args.topicName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNamespaceTopicEventSubscription(a, opts))
 }
 
 export interface GetNamespaceTopicEventSubscriptionOutputArgs {

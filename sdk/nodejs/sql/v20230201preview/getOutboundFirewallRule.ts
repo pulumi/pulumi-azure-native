@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets an outbound firewall rule.
  */
 export function getOutboundFirewallRule(args: GetOutboundFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetOutboundFirewallRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230201preview:getOutboundFirewallRule", {
         "outboundRuleFqdn": args.outboundRuleFqdn,
@@ -53,12 +54,7 @@ export interface GetOutboundFirewallRuleResult {
  * Gets an outbound firewall rule.
  */
 export function getOutboundFirewallRuleOutput(args: GetOutboundFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutboundFirewallRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20230201preview:getOutboundFirewallRule", {
-        "outboundRuleFqdn": args.outboundRuleFqdn,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOutboundFirewallRule(a, opts))
 }
 
 export interface GetOutboundFirewallRuleOutputArgs {

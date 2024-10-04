@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2022-09-01.
  */
 export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagesync:getCloudEndpoint", {
         "cloudEndpointName": args.cloudEndpointName,
@@ -110,13 +111,7 @@ export interface GetCloudEndpointResult {
  * Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2022-09-01.
  */
 export function getCloudEndpointOutput(args: GetCloudEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storagesync:getCloudEndpoint", {
-        "cloudEndpointName": args.cloudEndpointName,
-        "resourceGroupName": args.resourceGroupName,
-        "storageSyncServiceName": args.storageSyncServiceName,
-        "syncGroupName": args.syncGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCloudEndpoint(a, opts))
 }
 
 export interface GetCloudEndpointOutputArgs {

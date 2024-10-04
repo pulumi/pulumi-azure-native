@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a ServiceResource
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetesruntime/v20231001preview:getService", {
         "resourceUri": args.resourceUri,
@@ -62,11 +63,7 @@ export interface GetServiceResult {
  * Get a ServiceResource
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:kubernetesruntime/v20231001preview:getService", {
-        "resourceUri": args.resourceUri,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
 export interface GetServiceOutputArgs {

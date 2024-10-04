@@ -298,6 +298,9 @@ def get_extension(cluster_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_extension)
 def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          cluster_resource_name: Optional[pulumi.Input[str]] = None,
                          cluster_rp: Optional[pulumi.Input[str]] = None,
@@ -314,30 +317,4 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str extension_instance_name: Name of an instance of the Extension.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['clusterResourceName'] = cluster_resource_name
-    __args__['clusterRp'] = cluster_rp
-    __args__['extensionInstanceName'] = extension_instance_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesconfiguration/v20200701preview:getExtension', __args__, opts=opts, typ=GetExtensionResult)
-    return __ret__.apply(lambda __response__: GetExtensionResult(
-        auto_upgrade_minor_version=pulumi.get(__response__, 'auto_upgrade_minor_version'),
-        configuration_protected_settings=pulumi.get(__response__, 'configuration_protected_settings'),
-        configuration_settings=pulumi.get(__response__, 'configuration_settings'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        error_info=pulumi.get(__response__, 'error_info'),
-        extension_type=pulumi.get(__response__, 'extension_type'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        install_state=pulumi.get(__response__, 'install_state'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        last_status_time=pulumi.get(__response__, 'last_status_time'),
-        name=pulumi.get(__response__, 'name'),
-        release_train=pulumi.get(__response__, 'release_train'),
-        scope=pulumi.get(__response__, 'scope'),
-        statuses=pulumi.get(__response__, 'statuses'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

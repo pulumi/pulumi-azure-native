@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-11-14-preview.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:integrationspaces:getApplication", {
         "applicationName": args.applicationName,
@@ -81,12 +82,7 @@ export interface GetApplicationResult {
  * Azure REST API version: 2023-11-14-preview.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:integrationspaces:getApplication", {
-        "applicationName": args.applicationName,
-        "resourceGroupName": args.resourceGroupName,
-        "spaceName": args.spaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

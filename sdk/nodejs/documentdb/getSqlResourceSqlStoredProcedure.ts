@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview.
  */
 export function getSqlResourceSqlStoredProcedure(args: GetSqlResourceSqlStoredProcedureArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlStoredProcedureResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb:getSqlResourceSqlStoredProcedure", {
         "accountName": args.accountName,
@@ -80,14 +81,7 @@ export interface GetSqlResourceSqlStoredProcedureResult {
  * Other available API versions: 2019-08-01, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview.
  */
 export function getSqlResourceSqlStoredProcedureOutput(args: GetSqlResourceSqlStoredProcedureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlStoredProcedureResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:documentdb:getSqlResourceSqlStoredProcedure", {
-        "accountName": args.accountName,
-        "containerName": args.containerName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-        "storedProcedureName": args.storedProcedureName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlResourceSqlStoredProcedure(a, opts))
 }
 
 export interface GetSqlResourceSqlStoredProcedureOutputArgs {

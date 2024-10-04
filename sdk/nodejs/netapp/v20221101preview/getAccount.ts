@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the NetApp account
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20221101preview:getAccount", {
         "accountName": args.accountName,
@@ -86,11 +87,7 @@ export interface GetAccountResult {
  * Get the NetApp account
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:netapp/v20221101preview:getAccount", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }
 
 export interface GetAccountOutputArgs {

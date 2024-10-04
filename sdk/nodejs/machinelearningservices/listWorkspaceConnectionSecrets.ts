@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function listWorkspaceConnectionSecrets(args: ListWorkspaceConnectionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceConnectionSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:listWorkspaceConnectionSecrets", {
         "connectionName": args.connectionName,
@@ -61,12 +62,7 @@ export interface ListWorkspaceConnectionSecretsResult {
  * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function listWorkspaceConnectionSecretsOutput(args: ListWorkspaceConnectionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceConnectionSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listWorkspaceConnectionSecrets", {
-        "connectionName": args.connectionName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWorkspaceConnectionSecrets(a, opts))
 }
 
 export interface ListWorkspaceConnectionSecretsOutputArgs {

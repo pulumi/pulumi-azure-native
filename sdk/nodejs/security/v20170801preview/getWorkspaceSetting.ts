@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
  */
 export function getWorkspaceSetting(args: GetWorkspaceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSettingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20170801preview:getWorkspaceSetting", {
         "workspaceSettingName": args.workspaceSettingName,
@@ -50,10 +51,7 @@ export interface GetWorkspaceSettingResult {
  * Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
  */
 export function getWorkspaceSettingOutput(args: GetWorkspaceSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSettingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security/v20170801preview:getWorkspaceSetting", {
-        "workspaceSettingName": args.workspaceSettingName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceSetting(a, opts))
 }
 
 export interface GetWorkspaceSettingOutputArgs {

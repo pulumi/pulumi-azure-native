@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns the extended properties of a product.
  */
 export function listProductDetails(args: ListProductDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductDetailsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestack/v20200601preview:listProductDetails", {
         "productName": args.productName,
@@ -87,12 +88,7 @@ export interface ListProductDetailsResult {
  * Returns the extended properties of a product.
  */
 export function listProductDetailsOutput(args: ListProductDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductDetailsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurestack/v20200601preview:listProductDetails", {
-        "productName": args.productName,
-        "registrationName": args.registrationName,
-        "resourceGroup": args.resourceGroup,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listProductDetails(a, opts))
 }
 
 export interface ListProductDetailsOutputArgs {

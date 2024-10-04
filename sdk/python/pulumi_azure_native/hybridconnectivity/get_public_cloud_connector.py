@@ -147,6 +147,9 @@ def get_public_cloud_connector(public_cloud_connector: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_public_cloud_connector)
 def get_public_cloud_connector_output(public_cloud_connector: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicCloudConnectorResult]:
@@ -158,16 +161,4 @@ def get_public_cloud_connector_output(public_cloud_connector: Optional[pulumi.In
     :param str public_cloud_connector: Represent public cloud connectors resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['publicCloudConnector'] = public_cloud_connector
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity:getPublicCloudConnector', __args__, opts=opts, typ=GetPublicCloudConnectorResult)
-    return __ret__.apply(lambda __response__: GetPublicCloudConnectorResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

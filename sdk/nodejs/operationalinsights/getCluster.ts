@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights:getCluster", {
         "clusterName": args.clusterName,
@@ -112,11 +113,7 @@ export interface GetClusterResult {
  * Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getCluster", {
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

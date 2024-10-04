@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about the specified configuration group schema.
  */
 export function getConfigurationGroupSchema(args: GetConfigurationGroupSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationGroupSchemaResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20240415:getConfigurationGroupSchema", {
         "configurationGroupSchemaName": args.configurationGroupSchemaName,
@@ -71,12 +72,7 @@ export interface GetConfigurationGroupSchemaResult {
  * Gets information about the specified configuration group schema.
  */
 export function getConfigurationGroupSchemaOutput(args: GetConfigurationGroupSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationGroupSchemaResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20240415:getConfigurationGroupSchema", {
-        "configurationGroupSchemaName": args.configurationGroupSchemaName,
-        "publisherName": args.publisherName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfigurationGroupSchema(a, opts))
 }
 
 export interface GetConfigurationGroupSchemaOutputArgs {

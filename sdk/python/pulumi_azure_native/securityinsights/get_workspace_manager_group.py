@@ -165,6 +165,9 @@ def get_workspace_manager_group(resource_group_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workspace_manager_group)
 def get_workspace_manager_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        workspace_manager_group_name: Optional[pulumi.Input[str]] = None,
                                        workspace_name: Optional[pulumi.Input[str]] = None,
@@ -180,18 +183,4 @@ def get_workspace_manager_group_output(resource_group_name: Optional[pulumi.Inpu
     :param str workspace_manager_group_name: The name of the workspace manager group
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceManagerGroupName'] = workspace_manager_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getWorkspaceManagerGroup', __args__, opts=opts, typ=GetWorkspaceManagerGroupResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceManagerGroupResult(
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        member_resource_names=pulumi.get(__response__, 'member_resource_names'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

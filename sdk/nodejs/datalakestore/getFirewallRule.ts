@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2016-11-01.
  */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakestore:getFirewallRule", {
         "accountName": args.accountName,
@@ -62,12 +63,7 @@ export interface GetFirewallRuleResult {
  * Azure REST API version: 2016-11-01.
  */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datalakestore:getFirewallRule", {
-        "accountName": args.accountName,
-        "firewallRuleName": args.firewallRuleName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))
 }
 
 export interface GetFirewallRuleOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the logger specified by its identifier.
  */
 export function getWorkspaceLogger(args: GetWorkspaceLoggerArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceLoggerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getWorkspaceLogger", {
         "loggerId": args.loggerId,
@@ -78,13 +79,7 @@ export interface GetWorkspaceLoggerResult {
  * Gets the details of the logger specified by its identifier.
  */
 export function getWorkspaceLoggerOutput(args: GetWorkspaceLoggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceLoggerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getWorkspaceLogger", {
-        "loggerId": args.loggerId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceLogger(a, opts))
 }
 
 export interface GetWorkspaceLoggerOutputArgs {

@@ -201,6 +201,9 @@ def get_schedule(lab_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         time_zone_id=pulumi.get(__ret__, 'time_zone_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_schedule)
 def get_schedule_output(lab_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         schedule_name: Optional[pulumi.Input[str]] = None,
@@ -213,21 +216,4 @@ def get_schedule_output(lab_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str schedule_name: The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
     """
-    __args__ = dict()
-    __args__['labName'] = lab_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['scheduleName'] = schedule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices/v20230607:getSchedule', __args__, opts=opts, typ=GetScheduleResult)
-    return __ret__.apply(lambda __response__: GetScheduleResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        notes=pulumi.get(__response__, 'notes'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        recurrence_pattern=pulumi.get(__response__, 'recurrence_pattern'),
-        resource_operation_error=pulumi.get(__response__, 'resource_operation_error'),
-        start_at=pulumi.get(__response__, 'start_at'),
-        stop_at=pulumi.get(__response__, 'stop_at'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        time_zone_id=pulumi.get(__response__, 'time_zone_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

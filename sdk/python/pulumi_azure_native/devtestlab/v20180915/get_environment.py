@@ -207,6 +207,9 @@ def get_environment(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
+
+
+@_utilities.lift_output_func(get_environment)
 def get_environment_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                            lab_name: Optional[pulumi.Input[str]] = None,
                            name: Optional[pulumi.Input[str]] = None,
@@ -223,23 +226,4 @@ def get_environment_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str user_name: The name of the user profile.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['labName'] = lab_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
-    return __ret__.apply(lambda __response__: GetEnvironmentResult(
-        arm_template_display_name=pulumi.get(__response__, 'arm_template_display_name'),
-        created_by_user=pulumi.get(__response__, 'created_by_user'),
-        deployment_properties=pulumi.get(__response__, 'deployment_properties'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_group_id=pulumi.get(__response__, 'resource_group_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        unique_identifier=pulumi.get(__response__, 'unique_identifier')))
+    ...

@@ -178,6 +178,9 @@ def get_aks_assessment_operation(assessment_name: Optional[str] = None,
         settings=pulumi.get(__ret__, 'settings'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_aks_assessment_operation)
 def get_aks_assessment_operation_output(assessment_name: Optional[pulumi.Input[str]] = None,
                                         project_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -193,19 +196,4 @@ def get_aks_assessment_operation_output(assessment_name: Optional[pulumi.Input[s
     :param str project_name: Assessment Project Name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['assessmentName'] = assessment_name
-    __args__['projectName'] = project_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getAksAssessmentOperation', __args__, opts=opts, typ=GetAksAssessmentOperationResult)
-    return __ret__.apply(lambda __response__: GetAksAssessmentOperationResult(
-        details=pulumi.get(__response__, 'details'),
-        e_tag=pulumi.get(__response__, 'e_tag'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        scope=pulumi.get(__response__, 'scope'),
-        settings=pulumi.get(__response__, 'settings'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

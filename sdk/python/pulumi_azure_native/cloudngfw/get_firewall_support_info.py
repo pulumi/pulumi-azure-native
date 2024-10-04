@@ -216,6 +216,9 @@ def get_firewall_support_info(email: Optional[str] = None,
         support_url=pulumi.get(__ret__, 'support_url'),
         user_domain_supported=pulumi.get(__ret__, 'user_domain_supported'),
         user_registered=pulumi.get(__ret__, 'user_registered'))
+
+
+@_utilities.lift_output_func(get_firewall_support_info)
 def get_firewall_support_info_output(email: Optional[pulumi.Input[Optional[str]]] = None,
                                      firewall_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -231,22 +234,4 @@ def get_firewall_support_info_output(email: Optional[pulumi.Input[Optional[str]]
     :param str firewall_name: Firewall resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['email'] = email
-    __args__['firewallName'] = firewall_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw:getFirewallSupportInfo', __args__, opts=opts, typ=GetFirewallSupportInfoResult)
-    return __ret__.apply(lambda __response__: GetFirewallSupportInfoResult(
-        account_id=pulumi.get(__response__, 'account_id'),
-        account_registered=pulumi.get(__response__, 'account_registered'),
-        free_trial=pulumi.get(__response__, 'free_trial'),
-        free_trial_credit_left=pulumi.get(__response__, 'free_trial_credit_left'),
-        free_trial_days_left=pulumi.get(__response__, 'free_trial_days_left'),
-        help_url=pulumi.get(__response__, 'help_url'),
-        product_serial=pulumi.get(__response__, 'product_serial'),
-        product_sku=pulumi.get(__response__, 'product_sku'),
-        register_url=pulumi.get(__response__, 'register_url'),
-        support_url=pulumi.get(__response__, 'support_url'),
-        user_domain_supported=pulumi.get(__response__, 'user_domain_supported'),
-        user_registered=pulumi.get(__response__, 'user_registered')))
+    ...

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-06-15-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid:getEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,
@@ -108,11 +109,7 @@ export interface GetEventSubscriptionResult {
  * Other available API versions: 2017-06-15-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid:getEventSubscription", {
-        "eventSubscriptionName": args.eventSubscriptionName,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEventSubscription(a, opts))
 }
 
 export interface GetEventSubscriptionOutputArgs {

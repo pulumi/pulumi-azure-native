@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the sku details for the given resource type and sku name.
  */
 export function getSkus(args: GetSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub/v20210901preview:getSkus", {
         "providerNamespace": args.providerNamespace,
@@ -57,12 +58,7 @@ export interface GetSkusResult {
  * Gets the sku details for the given resource type and sku name.
  */
 export function getSkusOutput(args: GetSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:providerhub/v20210901preview:getSkus", {
-        "providerNamespace": args.providerNamespace,
-        "resourceType": args.resourceType,
-        "sku": args.sku,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSkus(a, opts))
 }
 
 export interface GetSkusOutputArgs {

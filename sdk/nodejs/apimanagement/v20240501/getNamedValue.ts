@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the named value specified by its identifier.
  */
 export function getNamedValue(args: GetNamedValueArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedValueResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getNamedValue", {
         "namedValueId": args.namedValueId,
@@ -79,12 +80,7 @@ export interface GetNamedValueResult {
  * Gets the details of the named value specified by its identifier.
  */
 export function getNamedValueOutput(args: GetNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedValueResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getNamedValue", {
-        "namedValueId": args.namedValueId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNamedValue(a, opts))
 }
 
 export interface GetNamedValueOutputArgs {

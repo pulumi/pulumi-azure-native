@@ -12,6 +12,7 @@ import * as utilities from "../../utilities";
  * PNS credentials.
  */
 export function getNotificationHubPnsCredentials(args: GetNotificationHubPnsCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubPnsCredentialsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20230101preview:getNotificationHubPnsCredentials", {
         "namespaceName": args.namespaceName,
@@ -74,12 +75,7 @@ export interface GetNotificationHubPnsCredentialsResult {
  * PNS credentials.
  */
 export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20230101preview:getNotificationHubPnsCredentials", {
-        "namespaceName": args.namespaceName,
-        "notificationHubName": args.notificationHubName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNotificationHubPnsCredentials(a, opts))
 }
 
 export interface GetNotificationHubPnsCredentialsOutputArgs {

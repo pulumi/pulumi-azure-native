@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-07-01.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:getJob", {
         "accountName": args.accountName,
@@ -106,13 +107,7 @@ export interface GetJobResult {
  * Azure REST API version: 2022-07-01.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media:getJob", {
-        "accountName": args.accountName,
-        "jobName": args.jobName,
-        "resourceGroupName": args.resourceGroupName,
-        "transformName": args.transformName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }
 
 export interface GetJobOutputArgs {

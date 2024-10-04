@@ -250,6 +250,9 @@ def get_console(console_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machine_access_id=pulumi.get(__ret__, 'virtual_machine_access_id'))
+
+
+@_utilities.lift_output_func(get_console)
 def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        virtual_machine_name: Optional[pulumi.Input[str]] = None,
@@ -262,25 +265,4 @@ def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_machine_name: The name of the virtual machine.
     """
-    __args__ = dict()
-    __args__['consoleName'] = console_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualMachineName'] = virtual_machine_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20230701:getConsole', __args__, opts=opts, typ=GetConsoleResult)
-    return __ret__.apply(lambda __response__: GetConsoleResult(
-        detailed_status=pulumi.get(__response__, 'detailed_status'),
-        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
-        enabled=pulumi.get(__response__, 'enabled'),
-        expiration=pulumi.get(__response__, 'expiration'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        private_link_service_id=pulumi.get(__response__, 'private_link_service_id'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        ssh_public_key=pulumi.get(__response__, 'ssh_public_key'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_machine_access_id=pulumi.get(__response__, 'virtual_machine_access_id')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Dapr Component.
  */
 export function getConnectedEnvironmentsDaprComponent(args: GetConnectedEnvironmentsDaprComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentsDaprComponentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20231102preview:getConnectedEnvironmentsDaprComponent", {
         "componentName": args.componentName,
@@ -95,12 +96,7 @@ export interface GetConnectedEnvironmentsDaprComponentResult {
  * Dapr Component.
  */
 export function getConnectedEnvironmentsDaprComponentOutput(args: GetConnectedEnvironmentsDaprComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsDaprComponentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app/v20231102preview:getConnectedEnvironmentsDaprComponent", {
-        "componentName": args.componentName,
-        "connectedEnvironmentName": args.connectedEnvironmentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConnectedEnvironmentsDaprComponent(a, opts))
 }
 
 export interface GetConnectedEnvironmentsDaprComponentOutputArgs {

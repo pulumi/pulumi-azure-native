@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get whois information for a single domain name
  */
 export function listWhoisByDomain(args: ListWhoisByDomainArgs, opts?: pulumi.InvokeOptions): Promise<ListWhoisByDomainResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20240401preview:listWhoisByDomain", {
         "domain": args.domain,
@@ -72,13 +73,7 @@ export interface ListWhoisByDomainResult {
  * Get whois information for a single domain name
  */
 export function listWhoisByDomainOutput(args: ListWhoisByDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWhoisByDomainResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:listWhoisByDomain", {
-        "domain": args.domain,
-        "enrichmentType": args.enrichmentType,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWhoisByDomain(a, opts))
 }
 
 export interface ListWhoisByDomainOutputArgs {

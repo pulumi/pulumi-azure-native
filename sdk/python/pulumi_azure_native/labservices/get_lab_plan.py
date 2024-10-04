@@ -253,6 +253,9 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_lab_plan)
 def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabPlanResult]:
@@ -266,24 +269,4 @@ def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
     :param str lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['labPlanName'] = lab_plan_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getLabPlan', __args__, opts=opts, typ=GetLabPlanResult)
-    return __ret__.apply(lambda __response__: GetLabPlanResult(
-        allowed_regions=pulumi.get(__response__, 'allowed_regions'),
-        default_auto_shutdown_profile=pulumi.get(__response__, 'default_auto_shutdown_profile'),
-        default_connection_profile=pulumi.get(__response__, 'default_connection_profile'),
-        default_network_profile=pulumi.get(__response__, 'default_network_profile'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        linked_lms_instance=pulumi.get(__response__, 'linked_lms_instance'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        shared_gallery_id=pulumi.get(__response__, 'shared_gallery_id'),
-        support_info=pulumi.get(__response__, 'support_info'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
  */
 export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredAsnResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20221001:getRegisteredAsn", {
         "peeringName": args.peeringName,
@@ -64,12 +65,7 @@ export interface GetRegisteredAsnResult {
  * Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
  */
 export function getRegisteredAsnOutput(args: GetRegisteredAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredAsnResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:peering/v20221001:getRegisteredAsn", {
-        "peeringName": args.peeringName,
-        "registeredAsnName": args.registeredAsnName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRegisteredAsn(a, opts))
 }
 
 export interface GetRegisteredAsnOutputArgs {

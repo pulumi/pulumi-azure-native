@@ -243,6 +243,9 @@ def get_server_instance(resource_group_name: Optional[str] = None,
         server_name=pulumi.get(__ret__, 'server_name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_server_instance)
 def get_server_instance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                sap_discovery_site_name: Optional[pulumi.Input[str]] = None,
                                sap_instance_name: Optional[pulumi.Input[str]] = None,
@@ -257,25 +260,4 @@ def get_server_instance_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str sap_instance_name: The name of SAP Instance resource for SAP Migration.
     :param str server_instance_name: The name of the Server instance resource for SAP Migration.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sapDiscoverySiteName'] = sap_discovery_site_name
-    __args__['sapInstanceName'] = sap_instance_name
-    __args__['serverInstanceName'] = server_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20231001preview:getServerInstance', __args__, opts=opts, typ=GetServerInstanceResult)
-    return __ret__.apply(lambda __response__: GetServerInstanceResult(
-        configuration_data=pulumi.get(__response__, 'configuration_data'),
-        errors=pulumi.get(__response__, 'errors'),
-        id=pulumi.get(__response__, 'id'),
-        instance_sid=pulumi.get(__response__, 'instance_sid'),
-        name=pulumi.get(__response__, 'name'),
-        operating_system=pulumi.get(__response__, 'operating_system'),
-        performance_data=pulumi.get(__response__, 'performance_data'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sap_instance_type=pulumi.get(__response__, 'sap_instance_type'),
-        sap_product=pulumi.get(__response__, 'sap_product'),
-        sap_product_version=pulumi.get(__response__, 'sap_product_version'),
-        server_name=pulumi.get(__response__, 'server_name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

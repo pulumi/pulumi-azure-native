@@ -175,6 +175,9 @@ def get_restore_point_collection(expand: Optional[str] = None,
         source=pulumi.get(__ret__, 'source'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_restore_point_collection)
 def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         restore_point_collection_name: Optional[pulumi.Input[str]] = None,
@@ -187,19 +190,4 @@ def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[s
     :param str resource_group_name: The name of the resource group.
     :param str restore_point_collection_name: The name of the restore point collection.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['restorePointCollectionName'] = restore_point_collection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20240701:getRestorePointCollection', __args__, opts=opts, typ=GetRestorePointCollectionResult)
-    return __ret__.apply(lambda __response__: GetRestorePointCollectionResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        restore_point_collection_id=pulumi.get(__response__, 'restore_point_collection_id'),
-        restore_points=pulumi.get(__response__, 'restore_points'),
-        source=pulumi.get(__response__, 'source'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

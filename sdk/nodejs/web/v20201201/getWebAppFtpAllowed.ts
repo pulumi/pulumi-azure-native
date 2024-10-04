@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Returns whether FTP is allowed on the site or not.
  */
 export function getWebAppFtpAllowed(args: GetWebAppFtpAllowedArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFtpAllowedResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201201:getWebAppFtpAllowed", {
         "name": args.name,
@@ -55,11 +56,7 @@ export interface GetWebAppFtpAllowedResult {
  * Returns whether FTP is allowed on the site or not.
  */
 export function getWebAppFtpAllowedOutput(args: GetWebAppFtpAllowedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFtpAllowedResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20201201:getWebAppFtpAllowed", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppFtpAllowed(a, opts))
 }
 
 export interface GetWebAppFtpAllowedOutputArgs {

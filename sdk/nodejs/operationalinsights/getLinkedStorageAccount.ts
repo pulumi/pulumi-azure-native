@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-08-01.
  */
 export function getLinkedStorageAccount(args: GetLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedStorageAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights:getLinkedStorageAccount", {
         "dataSourceType": args.dataSourceType,
@@ -62,12 +63,7 @@ export interface GetLinkedStorageAccountResult {
  * Azure REST API version: 2020-08-01.
  */
 export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedStorageAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getLinkedStorageAccount", {
-        "dataSourceType": args.dataSourceType,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLinkedStorageAccount(a, opts))
 }
 
 export interface GetLinkedStorageAccountOutputArgs {

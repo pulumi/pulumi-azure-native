@@ -652,6 +652,9 @@ def get_avs_assessments_operation(assessment_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'),
         vcpu_oversubscription=pulumi.get(__ret__, 'vcpu_oversubscription'))
+
+
+@_utilities.lift_output_func(get_avs_assessments_operation)
 def get_avs_assessments_operation_output(assessment_name: Optional[pulumi.Input[str]] = None,
                                          group_name: Optional[pulumi.Input[str]] = None,
                                          project_name: Optional[pulumi.Input[str]] = None,
@@ -666,56 +669,4 @@ def get_avs_assessments_operation_output(assessment_name: Optional[pulumi.Input[
     :param str project_name: Assessment Project Name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['assessmentName'] = assessment_name
-    __args__['groupName'] = group_name
-    __args__['projectName'] = project_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230315:getAvsAssessmentsOperation', __args__, opts=opts, typ=GetAvsAssessmentsOperationResult)
-    return __ret__.apply(lambda __response__: GetAvsAssessmentsOperationResult(
-        assessment_error_summary=pulumi.get(__response__, 'assessment_error_summary'),
-        assessment_type=pulumi.get(__response__, 'assessment_type'),
-        azure_location=pulumi.get(__response__, 'azure_location'),
-        azure_offer_code=pulumi.get(__response__, 'azure_offer_code'),
-        confidence_rating_in_percentage=pulumi.get(__response__, 'confidence_rating_in_percentage'),
-        cpu_utilization=pulumi.get(__response__, 'cpu_utilization'),
-        created_timestamp=pulumi.get(__response__, 'created_timestamp'),
-        currency=pulumi.get(__response__, 'currency'),
-        dedupe_compression=pulumi.get(__response__, 'dedupe_compression'),
-        discount_percentage=pulumi.get(__response__, 'discount_percentage'),
-        failures_to_tolerate_and_raid_level=pulumi.get(__response__, 'failures_to_tolerate_and_raid_level'),
-        group_type=pulumi.get(__response__, 'group_type'),
-        id=pulumi.get(__response__, 'id'),
-        is_stretch_cluster_enabled=pulumi.get(__response__, 'is_stretch_cluster_enabled'),
-        limiting_factor=pulumi.get(__response__, 'limiting_factor'),
-        mem_overcommit=pulumi.get(__response__, 'mem_overcommit'),
-        name=pulumi.get(__response__, 'name'),
-        node_type=pulumi.get(__response__, 'node_type'),
-        number_of_machines=pulumi.get(__response__, 'number_of_machines'),
-        number_of_nodes=pulumi.get(__response__, 'number_of_nodes'),
-        percentile=pulumi.get(__response__, 'percentile'),
-        perf_data_end_time=pulumi.get(__response__, 'perf_data_end_time'),
-        perf_data_start_time=pulumi.get(__response__, 'perf_data_start_time'),
-        prices_timestamp=pulumi.get(__response__, 'prices_timestamp'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        ram_utilization=pulumi.get(__response__, 'ram_utilization'),
-        reserved_instance=pulumi.get(__response__, 'reserved_instance'),
-        scaling_factor=pulumi.get(__response__, 'scaling_factor'),
-        schema_version=pulumi.get(__response__, 'schema_version'),
-        sizing_criterion=pulumi.get(__response__, 'sizing_criterion'),
-        stage=pulumi.get(__response__, 'stage'),
-        status=pulumi.get(__response__, 'status'),
-        storage_utilization=pulumi.get(__response__, 'storage_utilization'),
-        suitability=pulumi.get(__response__, 'suitability'),
-        suitability_explanation=pulumi.get(__response__, 'suitability_explanation'),
-        suitability_summary=pulumi.get(__response__, 'suitability_summary'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        time_range=pulumi.get(__response__, 'time_range'),
-        total_cpu_cores=pulumi.get(__response__, 'total_cpu_cores'),
-        total_monthly_cost=pulumi.get(__response__, 'total_monthly_cost'),
-        total_ram_in_gb=pulumi.get(__response__, 'total_ram_in_gb'),
-        total_storage_in_gb=pulumi.get(__response__, 'total_storage_in_gb'),
-        type=pulumi.get(__response__, 'type'),
-        updated_timestamp=pulumi.get(__response__, 'updated_timestamp'),
-        vcpu_oversubscription=pulumi.get(__response__, 'vcpu_oversubscription')))
+    ...

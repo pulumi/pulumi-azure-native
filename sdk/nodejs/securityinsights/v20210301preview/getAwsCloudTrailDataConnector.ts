@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getAwsCloudTrailDataConnector(args: GetAwsCloudTrailDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsCloudTrailDataConnectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210301preview:getAwsCloudTrailDataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -81,13 +82,7 @@ export interface GetAwsCloudTrailDataConnectorResult {
  * Gets a data connector.
  */
 export function getAwsCloudTrailDataConnectorOutput(args: GetAwsCloudTrailDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsCloudTrailDataConnectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210301preview:getAwsCloudTrailDataConnector", {
-        "dataConnectorId": args.dataConnectorId,
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAwsCloudTrailDataConnector(a, opts))
 }
 
 export interface GetAwsCloudTrailDataConnectorOutputArgs {

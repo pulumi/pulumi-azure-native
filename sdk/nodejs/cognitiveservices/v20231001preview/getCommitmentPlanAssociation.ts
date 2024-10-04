@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the association of the Cognitive Services commitment plan.
  */
 export function getCommitmentPlanAssociation(args: GetCommitmentPlanAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanAssociationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20231001preview:getCommitmentPlanAssociation", {
         "commitmentPlanAssociationName": args.commitmentPlanAssociationName,
@@ -71,12 +72,7 @@ export interface GetCommitmentPlanAssociationResult {
  * Gets the association of the Cognitive Services commitment plan.
  */
 export function getCommitmentPlanAssociationOutput(args: GetCommitmentPlanAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanAssociationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20231001preview:getCommitmentPlanAssociation", {
-        "commitmentPlanAssociationName": args.commitmentPlanAssociationName,
-        "commitmentPlanName": args.commitmentPlanName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCommitmentPlanAssociation(a, opts))
 }
 
 export interface GetCommitmentPlanAssociationOutputArgs {

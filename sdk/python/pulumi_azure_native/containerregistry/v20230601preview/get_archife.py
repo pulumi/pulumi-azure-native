@@ -172,6 +172,9 @@ def get_archife(archive_name: Optional[str] = None,
         repository_endpoint_prefix=pulumi.get(__ret__, 'repository_endpoint_prefix'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_archife)
 def get_archife_output(archive_name: Optional[pulumi.Input[str]] = None,
                        package_type: Optional[pulumi.Input[str]] = None,
                        registry_name: Optional[pulumi.Input[str]] = None,
@@ -186,20 +189,4 @@ def get_archife_output(archive_name: Optional[pulumi.Input[str]] = None,
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['archiveName'] = archive_name
-    __args__['packageType'] = package_type
-    __args__['registryName'] = registry_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20230601preview:getArchife', __args__, opts=opts, typ=GetArchifeResult)
-    return __ret__.apply(lambda __response__: GetArchifeResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        package_source=pulumi.get(__response__, 'package_source'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        published_version=pulumi.get(__response__, 'published_version'),
-        repository_endpoint=pulumi.get(__response__, 'repository_endpoint'),
-        repository_endpoint_prefix=pulumi.get(__response__, 'repository_endpoint_prefix'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

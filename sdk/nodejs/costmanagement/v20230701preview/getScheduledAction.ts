@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the private scheduled action by name.
  */
 export function getScheduledAction(args: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20230701preview:getScheduledAction", {
         "name": args.name,
@@ -89,10 +90,7 @@ export interface GetScheduledActionResult {
  * Get the private scheduled action by name.
  */
 export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20230701preview:getScheduledAction", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getScheduledAction(a, opts))
 }
 
 export interface GetScheduledActionOutputArgs {

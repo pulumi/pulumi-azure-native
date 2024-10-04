@@ -175,6 +175,9 @@ def get_prefix_list_local_rulestack(local_rulestack_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_prefix_list_local_rulestack)
 def get_prefix_list_local_rulestack_output(local_rulestack_name: Optional[pulumi.Input[str]] = None,
                                            name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -187,19 +190,4 @@ def get_prefix_list_local_rulestack_output(local_rulestack_name: Optional[pulumi
     :param str name: Local Rule priority
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['localRulestackName'] = local_rulestack_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20220829preview:getPrefixListLocalRulestack', __args__, opts=opts, typ=GetPrefixListLocalRulestackResult)
-    return __ret__.apply(lambda __response__: GetPrefixListLocalRulestackResult(
-        audit_comment=pulumi.get(__response__, 'audit_comment'),
-        description=pulumi.get(__response__, 'description'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        prefix_list=pulumi.get(__response__, 'prefix_list'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

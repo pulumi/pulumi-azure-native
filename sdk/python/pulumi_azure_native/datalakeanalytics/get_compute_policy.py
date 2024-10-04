@@ -149,6 +149,9 @@ def get_compute_policy(account_name: Optional[str] = None,
         object_id=pulumi.get(__ret__, 'object_id'),
         object_type=pulumi.get(__ret__, 'object_type'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_compute_policy)
 def get_compute_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                               compute_policy_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -162,17 +165,4 @@ def get_compute_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str compute_policy_name: The name of the compute policy to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['computePolicyName'] = compute_policy_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datalakeanalytics:getComputePolicy', __args__, opts=opts, typ=GetComputePolicyResult)
-    return __ret__.apply(lambda __response__: GetComputePolicyResult(
-        id=pulumi.get(__response__, 'id'),
-        max_degree_of_parallelism_per_job=pulumi.get(__response__, 'max_degree_of_parallelism_per_job'),
-        min_priority_per_job=pulumi.get(__response__, 'min_priority_per_job'),
-        name=pulumi.get(__response__, 'name'),
-        object_id=pulumi.get(__response__, 'object_id'),
-        object_type=pulumi.get(__response__, 'object_type'),
-        type=pulumi.get(__response__, 'type')))
+    ...

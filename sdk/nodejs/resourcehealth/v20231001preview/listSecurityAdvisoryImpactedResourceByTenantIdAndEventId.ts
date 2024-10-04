@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists impacted resources in the tenant by an event (Security Advisory).
  */
 export function listSecurityAdvisoryImpactedResourceByTenantIdAndEventId(args: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdArgs, opts?: pulumi.InvokeOptions): Promise<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resourcehealth/v20231001preview:listSecurityAdvisoryImpactedResourceByTenantIdAndEventId", {
         "eventTrackingId": args.eventTrackingId,
@@ -46,11 +47,7 @@ export interface ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult 
  * Lists impacted resources in the tenant by an event (Security Advisory).
  */
 export function listSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutput(args: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:resourcehealth/v20231001preview:listSecurityAdvisoryImpactedResourceByTenantIdAndEventId", {
-        "eventTrackingId": args.eventTrackingId,
-        "filter": args.filter,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listSecurityAdvisoryImpactedResourceByTenantIdAndEventId(a, opts))
 }
 
 export interface ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutputArgs {

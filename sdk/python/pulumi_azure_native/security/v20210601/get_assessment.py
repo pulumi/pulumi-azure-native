@@ -188,6 +188,9 @@ def get_assessment(assessment_name: Optional[str] = None,
         resource_details=pulumi.get(__ret__, 'resource_details'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_assessment)
 def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
                           expand: Optional[pulumi.Input[Optional[str]]] = None,
                           resource_id: Optional[pulumi.Input[str]] = None,
@@ -200,20 +203,4 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
     :param str expand: OData expand. Optional.
     :param str resource_id: The identifier of the resource.
     """
-    __args__ = dict()
-    __args__['assessmentName'] = assessment_name
-    __args__['expand'] = expand
-    __args__['resourceId'] = resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20210601:getAssessment', __args__, opts=opts, typ=GetAssessmentResult)
-    return __ret__.apply(lambda __response__: GetAssessmentResult(
-        additional_data=pulumi.get(__response__, 'additional_data'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        links=pulumi.get(__response__, 'links'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        name=pulumi.get(__response__, 'name'),
-        partners_data=pulumi.get(__response__, 'partners_data'),
-        resource_details=pulumi.get(__response__, 'resource_details'),
-        status=pulumi.get(__response__, 'status'),
-        type=pulumi.get(__response__, 'type')))
+    ...

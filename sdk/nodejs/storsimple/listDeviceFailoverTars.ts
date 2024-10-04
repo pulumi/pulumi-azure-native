@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-06-01.
  */
 export function listDeviceFailoverTars(args: ListDeviceFailoverTarsArgs, opts?: pulumi.InvokeOptions): Promise<ListDeviceFailoverTarsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple:listDeviceFailoverTars", {
         "managerName": args.managerName,
@@ -54,13 +55,7 @@ export interface ListDeviceFailoverTarsResult {
  * Azure REST API version: 2017-06-01.
  */
 export function listDeviceFailoverTarsOutput(args: ListDeviceFailoverTarsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceFailoverTarsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storsimple:listDeviceFailoverTars", {
-        "managerName": args.managerName,
-        "resourceGroupName": args.resourceGroupName,
-        "sourceDeviceName": args.sourceDeviceName,
-        "volumeContainers": args.volumeContainers,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listDeviceFailoverTars(a, opts))
 }
 
 export interface ListDeviceFailoverTarsOutputArgs {

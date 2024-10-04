@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of the provided bare metal machine.
  */
 export function getBareMetalMachine(args: GetBareMetalMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20240601preview:getBareMetalMachine", {
         "bareMetalMachineName": args.bareMetalMachineName,
@@ -191,11 +192,7 @@ export interface GetBareMetalMachineResult {
  * Get properties of the provided bare metal machine.
  */
 export function getBareMetalMachineOutput(args: GetBareMetalMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240601preview:getBareMetalMachine", {
-        "bareMetalMachineName": args.bareMetalMachineName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBareMetalMachine(a, opts))
 }
 
 export interface GetBareMetalMachineOutputArgs {

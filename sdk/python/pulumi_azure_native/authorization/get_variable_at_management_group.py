@@ -121,6 +121,9 @@ def get_variable_at_management_group(management_group_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_variable_at_management_group)
 def get_variable_at_management_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                             variable_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableAtManagementGroupResult]:
@@ -132,14 +135,4 @@ def get_variable_at_management_group_output(management_group_id: Optional[pulumi
     :param str management_group_id: The ID of the management group.
     :param str variable_name: The name of the variable to operate on.
     """
-    __args__ = dict()
-    __args__['managementGroupId'] = management_group_id
-    __args__['variableName'] = variable_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getVariableAtManagementGroup', __args__, opts=opts, typ=GetVariableAtManagementGroupResult)
-    return __ret__.apply(lambda __response__: GetVariableAtManagementGroupResult(
-        columns=pulumi.get(__response__, 'columns'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

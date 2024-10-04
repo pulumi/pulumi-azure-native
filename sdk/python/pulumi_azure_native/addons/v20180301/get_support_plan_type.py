@@ -106,6 +106,9 @@ def get_support_plan_type(plan_type_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_support_plan_type)
 def get_support_plan_type_output(plan_type_name: Optional[pulumi.Input[str]] = None,
                                  provider_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSupportPlanTypeResult]:
@@ -116,13 +119,4 @@ def get_support_plan_type_output(plan_type_name: Optional[pulumi.Input[str]] = N
     :param str plan_type_name: The Canonical support plan type.
     :param str provider_name: The support plan type. For now the only valid type is "canonical".
     """
-    __args__ = dict()
-    __args__['planTypeName'] = plan_type_name
-    __args__['providerName'] = provider_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:addons/v20180301:getSupportPlanType', __args__, opts=opts, typ=GetSupportPlanTypeResult)
-    return __ret__.apply(lambda __response__: GetSupportPlanTypeResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        type=pulumi.get(__response__, 'type')))
+    ...

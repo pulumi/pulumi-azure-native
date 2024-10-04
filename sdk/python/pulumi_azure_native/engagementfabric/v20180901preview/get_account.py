@@ -133,6 +133,9 @@ def get_account(account_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_account)
 def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
@@ -143,15 +146,4 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: Account Name
     :param str resource_group_name: Resource Group Name
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:engagementfabric/v20180901preview:getAccount', __args__, opts=opts, typ=GetAccountResult)
-    return __ret__.apply(lambda __response__: GetAccountResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

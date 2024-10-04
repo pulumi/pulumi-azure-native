@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-01, 2024-03-01.
  */
 export function getFirewallPolicyRuleCollectionGroupDraft(args: GetFirewallPolicyRuleCollectionGroupDraftArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyRuleCollectionGroupDraftResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getFirewallPolicyRuleCollectionGroupDraft", {
         "firewallPolicyName": args.firewallPolicyName,
@@ -73,12 +74,7 @@ export interface GetFirewallPolicyRuleCollectionGroupDraftResult {
  * Other available API versions: 2024-01-01, 2024-03-01.
  */
 export function getFirewallPolicyRuleCollectionGroupDraftOutput(args: GetFirewallPolicyRuleCollectionGroupDraftOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyRuleCollectionGroupDraftResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getFirewallPolicyRuleCollectionGroupDraft", {
-        "firewallPolicyName": args.firewallPolicyName,
-        "resourceGroupName": args.resourceGroupName,
-        "ruleCollectionGroupName": args.ruleCollectionGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFirewallPolicyRuleCollectionGroupDraft(a, opts))
 }
 
 export interface GetFirewallPolicyRuleCollectionGroupDraftOutputArgs {

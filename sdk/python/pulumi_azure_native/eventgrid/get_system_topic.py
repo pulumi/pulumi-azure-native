@@ -201,6 +201,9 @@ def get_system_topic(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         topic_type=pulumi.get(__ret__, 'topic_type'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_system_topic)
 def get_system_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             system_topic_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicResult]:
@@ -214,20 +217,4 @@ def get_system_topic_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str system_topic_name: Name of the system topic.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['systemTopicName'] = system_topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getSystemTopic', __args__, opts=opts, typ=GetSystemTopicResult)
-    return __ret__.apply(lambda __response__: GetSystemTopicResult(
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        metric_resource_id=pulumi.get(__response__, 'metric_resource_id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        source=pulumi.get(__response__, 'source'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        topic_type=pulumi.get(__response__, 'topic_type'),
-        type=pulumi.get(__response__, 'type')))
+    ...

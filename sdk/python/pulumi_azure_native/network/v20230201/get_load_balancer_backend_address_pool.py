@@ -253,6 +253,9 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
         tunnel_interfaces=pulumi.get(__ret__, 'tunnel_interfaces'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'))
+
+
+@_utilities.lift_output_func(get_load_balancer_backend_address_pool)
 def get_load_balancer_backend_address_pool_output(backend_address_pool_name: Optional[pulumi.Input[str]] = None,
                                                   load_balancer_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -265,25 +268,4 @@ def get_load_balancer_backend_address_pool_output(backend_address_pool_name: Opt
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['backendAddressPoolName'] = backend_address_pool_name
-    __args__['loadBalancerName'] = load_balancer_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getLoadBalancerBackendAddressPool', __args__, opts=opts, typ=GetLoadBalancerBackendAddressPoolResult)
-    return __ret__.apply(lambda __response__: GetLoadBalancerBackendAddressPoolResult(
-        backend_ip_configurations=pulumi.get(__response__, 'backend_ip_configurations'),
-        drain_period_in_seconds=pulumi.get(__response__, 'drain_period_in_seconds'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        inbound_nat_rules=pulumi.get(__response__, 'inbound_nat_rules'),
-        load_balancer_backend_addresses=pulumi.get(__response__, 'load_balancer_backend_addresses'),
-        load_balancing_rules=pulumi.get(__response__, 'load_balancing_rules'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        outbound_rule=pulumi.get(__response__, 'outbound_rule'),
-        outbound_rules=pulumi.get(__response__, 'outbound_rules'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tunnel_interfaces=pulumi.get(__response__, 'tunnel_interfaces'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_network=pulumi.get(__response__, 'virtual_network')))
+    ...

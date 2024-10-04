@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-15.
  */
 export function getSiteNetworkService(args: GetSiteNetworkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteNetworkServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:getSiteNetworkService", {
         "resourceGroupName": args.resourceGroupName,
@@ -80,11 +81,7 @@ export interface GetSiteNetworkServiceResult {
  * Other available API versions: 2024-04-15.
  */
 export function getSiteNetworkServiceOutput(args: GetSiteNetworkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteNetworkServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getSiteNetworkService", {
-        "resourceGroupName": args.resourceGroupName,
-        "siteNetworkServiceName": args.siteNetworkServiceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSiteNetworkService(a, opts))
 }
 
 export interface GetSiteNetworkServiceOutputArgs {

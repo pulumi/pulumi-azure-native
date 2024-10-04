@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Response for list of user's role for Logz.io account.
  */
 export function listMonitorUserRoles(args: ListMonitorUserRolesArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorUserRolesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz/v20220101preview:listMonitorUserRoles", {
         "emailAddress": args.emailAddress,
@@ -51,12 +52,7 @@ export interface ListMonitorUserRolesResult {
  * Response for list of user's role for Logz.io account.
  */
 export function listMonitorUserRolesOutput(args: ListMonitorUserRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorUserRolesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logz/v20220101preview:listMonitorUserRoles", {
-        "emailAddress": args.emailAddress,
-        "monitorName": args.monitorName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listMonitorUserRoles(a, opts))
 }
 
 export interface ListMonitorUserRolesOutputArgs {

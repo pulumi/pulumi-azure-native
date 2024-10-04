@@ -82,6 +82,9 @@ def list_global_rulestack_app_ids(app_id_version: Optional[str] = None,
     return AwaitableListGlobalRulestackAppIdsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_global_rulestack_app_ids)
 def list_global_rulestack_app_ids_output(app_id_version: Optional[pulumi.Input[Optional[str]]] = None,
                                          app_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                                          global_rulestack_name: Optional[pulumi.Input[str]] = None,
@@ -94,14 +97,4 @@ def list_global_rulestack_app_ids_output(app_id_version: Optional[pulumi.Input[O
 
     :param str global_rulestack_name: GlobalRulestack resource name
     """
-    __args__ = dict()
-    __args__['appIdVersion'] = app_id_version
-    __args__['appPrefix'] = app_prefix
-    __args__['globalRulestackName'] = global_rulestack_name
-    __args__['skip'] = skip
-    __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20230901preview:listGlobalRulestackAppIds', __args__, opts=opts, typ=ListGlobalRulestackAppIdsResult)
-    return __ret__.apply(lambda __response__: ListGlobalRulestackAppIdsResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

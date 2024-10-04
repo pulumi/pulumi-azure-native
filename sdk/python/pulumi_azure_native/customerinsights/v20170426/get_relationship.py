@@ -253,6 +253,9 @@ def get_relationship(hub_name: Optional[str] = None,
         relationship_name=pulumi.get(__ret__, 'relationship_name'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_relationship)
 def get_relationship_output(hub_name: Optional[pulumi.Input[str]] = None,
                             relationship_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -265,25 +268,4 @@ def get_relationship_output(hub_name: Optional[pulumi.Input[str]] = None,
     :param str relationship_name: The name of the relationship.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['hubName'] = hub_name
-    __args__['relationshipName'] = relationship_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights/v20170426:getRelationship', __args__, opts=opts, typ=GetRelationshipResult)
-    return __ret__.apply(lambda __response__: GetRelationshipResult(
-        cardinality=pulumi.get(__response__, 'cardinality'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        expiry_date_time_utc=pulumi.get(__response__, 'expiry_date_time_utc'),
-        fields=pulumi.get(__response__, 'fields'),
-        id=pulumi.get(__response__, 'id'),
-        lookup_mappings=pulumi.get(__response__, 'lookup_mappings'),
-        name=pulumi.get(__response__, 'name'),
-        profile_type=pulumi.get(__response__, 'profile_type'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        related_profile_type=pulumi.get(__response__, 'related_profile_type'),
-        relationship_guid_id=pulumi.get(__response__, 'relationship_guid_id'),
-        relationship_name=pulumi.get(__response__, 'relationship_name'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
  */
 export function getInventoryItem(args: GetInventoryItemArgs, opts?: pulumi.InvokeOptions): Promise<GetInventoryItemResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm:getInventoryItem", {
         "inventoryItemName": args.inventoryItemName,
@@ -89,12 +90,7 @@ export interface GetInventoryItemResult {
  * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
  */
 export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInventoryItemResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:scvmm:getInventoryItem", {
-        "inventoryItemName": args.inventoryItemName,
-        "resourceGroupName": args.resourceGroupName,
-        "vmmServerName": args.vmmServerName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInventoryItem(a, opts))
 }
 
 export interface GetInventoryItemOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * URL used to authorize the Developer Hub GitHub App
  */
 export function getGitHubOAuth(args: GetGitHubOAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetGitHubOAuthResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devhub/v20220401preview:getGitHubOAuth", {
         "location": args.location,
@@ -43,11 +44,7 @@ export interface GetGitHubOAuthResult {
  * URL used to authorize the Developer Hub GitHub App
  */
 export function getGitHubOAuthOutput(args: GetGitHubOAuthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitHubOAuthResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devhub/v20220401preview:getGitHubOAuth", {
-        "location": args.location,
-        "redirectUrl": args.redirectUrl,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGitHubOAuth(a, opts))
 }
 
 export interface GetGitHubOAuthOutputArgs {

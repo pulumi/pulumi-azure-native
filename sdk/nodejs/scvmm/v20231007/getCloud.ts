@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Implements Cloud GET method.
  */
 export function getCloud(args: GetCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm/v20231007:getCloud", {
         "cloudResourceName": args.cloudResourceName,
@@ -94,11 +95,7 @@ export interface GetCloudResult {
  * Implements Cloud GET method.
  */
 export function getCloudOutput(args: GetCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:scvmm/v20231007:getCloud", {
-        "cloudResourceName": args.cloudResourceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCloud(a, opts))
 }
 
 export interface GetCloudOutputArgs {

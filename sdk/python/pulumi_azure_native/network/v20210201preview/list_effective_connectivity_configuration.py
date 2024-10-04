@@ -84,6 +84,9 @@ def list_effective_connectivity_configuration(resource_group_name: Optional[str]
     return AwaitableListEffectiveConnectivityConfigurationResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_effective_connectivity_configuration)
 def list_effective_connectivity_configuration_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                      virtual_network_name: Optional[pulumi.Input[str]] = None,
@@ -96,12 +99,4 @@ def list_effective_connectivity_configuration_output(resource_group_name: Option
     :param str skip_token: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
     :param str virtual_network_name: The name of the virtual network.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['skipToken'] = skip_token
-    __args__['virtualNetworkName'] = virtual_network_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20210201preview:listEffectiveConnectivityConfiguration', __args__, opts=opts, typ=ListEffectiveConnectivityConfigurationResult)
-    return __ret__.apply(lambda __response__: ListEffectiveConnectivityConfigurationResult(
-        skip_token=pulumi.get(__response__, 'skip_token'),
-        value=pulumi.get(__response__, 'value')))
+    ...

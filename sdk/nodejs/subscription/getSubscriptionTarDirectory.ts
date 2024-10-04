@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  */
 export function getSubscriptionTarDirectory(args?: GetSubscriptionTarDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionTarDirectoryResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:subscription:getSubscriptionTarDirectory", {
         "subscriptionId": args.subscriptionId,
@@ -52,11 +53,7 @@ export interface GetSubscriptionTarDirectoryResult {
  * Azure REST API version: 2024-08-01-preview.
  */
 export function getSubscriptionTarDirectoryOutput(args?: GetSubscriptionTarDirectoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionTarDirectoryResult> {
-    args = args || {};
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:subscription:getSubscriptionTarDirectory", {
-        "subscriptionId": args.subscriptionId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSubscriptionTarDirectory(a, opts))
 }
 
 export interface GetSubscriptionTarDirectoryOutputArgs {

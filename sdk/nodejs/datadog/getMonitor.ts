@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-08-01, 2023-01-01.
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datadog:getMonitor", {
         "monitorName": args.monitorName,
@@ -63,11 +64,7 @@ export interface GetMonitorResult {
  * Other available API versions: 2022-08-01, 2023-01-01.
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datadog:getMonitor", {
-        "monitorName": args.monitorName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
 }
 
 export interface GetMonitorOutputArgs {

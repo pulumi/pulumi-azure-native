@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a LoadTestMappingResource
  */
 export function getLoadTestMapping(args: GetLoadTestMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadTestMappingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:loadtestservice/v20231201preview:getLoadTestMapping", {
         "loadTestMappingName": args.loadTestMappingName,
@@ -66,11 +67,7 @@ export interface GetLoadTestMappingResult {
  * Get a LoadTestMappingResource
  */
 export function getLoadTestMappingOutput(args: GetLoadTestMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadTestMappingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:loadtestservice/v20231201preview:getLoadTestMapping", {
-        "loadTestMappingName": args.loadTestMappingName,
-        "resourceUri": args.resourceUri,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLoadTestMapping(a, opts))
 }
 
 export interface GetLoadTestMappingOutputArgs {

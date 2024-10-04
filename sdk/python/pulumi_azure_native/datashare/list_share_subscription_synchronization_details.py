@@ -97,6 +97,9 @@ def list_share_subscription_synchronization_details(account_name: Optional[str] 
     return AwaitableListShareSubscriptionSynchronizationDetailsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_share_subscription_synchronization_details)
 def list_share_subscription_synchronization_details_output(account_name: Optional[pulumi.Input[str]] = None,
                                                            filter: Optional[pulumi.Input[Optional[str]]] = None,
                                                            orderby: Optional[pulumi.Input[Optional[str]]] = None,
@@ -118,16 +121,4 @@ def list_share_subscription_synchronization_details_output(account_name: Optiona
     :param str skip_token: Continuation token
     :param str synchronization_id: Synchronization id
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['filter'] = filter
-    __args__['orderby'] = orderby
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['shareSubscriptionName'] = share_subscription_name
-    __args__['skipToken'] = skip_token
-    __args__['synchronizationId'] = synchronization_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:listShareSubscriptionSynchronizationDetails', __args__, opts=opts, typ=ListShareSubscriptionSynchronizationDetailsResult)
-    return __ret__.apply(lambda __response__: ListShareSubscriptionSynchronizationDetailsResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

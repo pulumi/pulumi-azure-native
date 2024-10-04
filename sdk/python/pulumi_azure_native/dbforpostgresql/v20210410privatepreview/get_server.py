@@ -387,6 +387,9 @@ def get_server(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_server)
 def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       server_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
@@ -397,35 +400,4 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20210410privatepreview:getServer', __args__, opts=opts, typ=GetServerResult)
-    return __ret__.apply(lambda __response__: GetServerResult(
-        administrator_login=pulumi.get(__response__, 'administrator_login'),
-        availability_zone=pulumi.get(__response__, 'availability_zone'),
-        byok_enforcement=pulumi.get(__response__, 'byok_enforcement'),
-        delegated_subnet_arguments=pulumi.get(__response__, 'delegated_subnet_arguments'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        fully_qualified_domain_name=pulumi.get(__response__, 'fully_qualified_domain_name'),
-        ha_enabled=pulumi.get(__response__, 'ha_enabled'),
-        ha_state=pulumi.get(__response__, 'ha_state'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
-        name=pulumi.get(__response__, 'name'),
-        point_in_time_utc=pulumi.get(__response__, 'point_in_time_utc'),
-        private_dns_zone_arguments=pulumi.get(__response__, 'private_dns_zone_arguments'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        sku=pulumi.get(__response__, 'sku'),
-        source_resource_group_name=pulumi.get(__response__, 'source_resource_group_name'),
-        source_server_name=pulumi.get(__response__, 'source_server_name'),
-        source_subscription_id=pulumi.get(__response__, 'source_subscription_id'),
-        standby_availability_zone=pulumi.get(__response__, 'standby_availability_zone'),
-        state=pulumi.get(__response__, 'state'),
-        storage_profile=pulumi.get(__response__, 'storage_profile'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

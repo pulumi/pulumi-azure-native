@@ -111,6 +111,9 @@ def get_storage_task_assignment(account_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_storage_task_assignment)
 def get_storage_task_assignment_output(account_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        storage_task_assignment_name: Optional[pulumi.Input[str]] = None,
@@ -124,14 +127,4 @@ def get_storage_task_assignment_output(account_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_task_assignment_name: The name of the storage task assignment within the specified resource group. Storage task assignment names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['storageTaskAssignmentName'] = storage_task_assignment_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getStorageTaskAssignment', __args__, opts=opts, typ=GetStorageTaskAssignmentResult)
-    return __ret__.apply(lambda __response__: GetStorageTaskAssignmentResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        type=pulumi.get(__response__, 'type')))
+    ...

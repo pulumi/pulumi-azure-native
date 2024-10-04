@@ -230,6 +230,9 @@ def get_virtual_network(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
+
+
+@_utilities.lift_output_func(get_virtual_network)
 def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                lab_name: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
@@ -244,24 +247,4 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str name: The name of the virtual network.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['labName'] = lab_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult)
-    return __ret__.apply(lambda __response__: GetVirtualNetworkResult(
-        allowed_subnets=pulumi.get(__response__, 'allowed_subnets'),
-        created_date=pulumi.get(__response__, 'created_date'),
-        description=pulumi.get(__response__, 'description'),
-        external_provider_resource_id=pulumi.get(__response__, 'external_provider_resource_id'),
-        external_subnets=pulumi.get(__response__, 'external_subnets'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        subnet_overrides=pulumi.get(__response__, 'subnet_overrides'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        unique_identifier=pulumi.get(__response__, 'unique_identifier')))
+    ...

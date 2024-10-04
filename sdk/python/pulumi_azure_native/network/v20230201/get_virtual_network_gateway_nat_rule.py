@@ -175,6 +175,9 @@ def get_virtual_network_gateway_nat_rule(nat_rule_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_virtual_network_gateway_nat_rule)
 def get_virtual_network_gateway_nat_rule_output(nat_rule_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
@@ -187,19 +190,4 @@ def get_virtual_network_gateway_nat_rule_output(nat_rule_name: Optional[pulumi.I
     :param str resource_group_name: The resource group name of the Virtual Network Gateway.
     :param str virtual_network_gateway_name: The name of the gateway.
     """
-    __args__ = dict()
-    __args__['natRuleName'] = nat_rule_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getVirtualNetworkGatewayNatRule', __args__, opts=opts, typ=GetVirtualNetworkGatewayNatRuleResult)
-    return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayNatRuleResult(
-        etag=pulumi.get(__response__, 'etag'),
-        external_mappings=pulumi.get(__response__, 'external_mappings'),
-        id=pulumi.get(__response__, 'id'),
-        internal_mappings=pulumi.get(__response__, 'internal_mappings'),
-        ip_configuration_id=pulumi.get(__response__, 'ip_configuration_id'),
-        mode=pulumi.get(__response__, 'mode'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Description for Gets the details of a web, mobile, or API app.
  */
 export function getWebApp(args: GetWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:getWebApp", {
         "name": args.name,
@@ -298,11 +299,7 @@ export interface GetWebAppResult {
  * Description for Gets the details of a web, mobile, or API app.
  */
 export function getWebAppOutput(args: GetWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getWebApp", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebApp(a, opts))
 }
 
 export interface GetWebAppOutputArgs {

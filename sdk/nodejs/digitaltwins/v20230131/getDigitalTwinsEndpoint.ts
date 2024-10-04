@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get DigitalTwinsInstances Endpoint.
  */
 export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinsEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20230131:getDigitalTwinsEndpoint", {
         "endpointName": args.endpointName,
@@ -63,12 +64,7 @@ export interface GetDigitalTwinsEndpointResult {
  * Get DigitalTwinsInstances Endpoint.
  */
 export function getDigitalTwinsEndpointOutput(args: GetDigitalTwinsEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinsEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:digitaltwins/v20230131:getDigitalTwinsEndpoint", {
-        "endpointName": args.endpointName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDigitalTwinsEndpoint(a, opts))
 }
 
 export interface GetDigitalTwinsEndpointOutputArgs {

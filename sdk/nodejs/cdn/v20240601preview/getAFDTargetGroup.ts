@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an existing target group within a profile.
  */
 export function getAFDTargetGroup(args: GetAFDTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDTargetGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20240601preview:getAFDTargetGroup", {
         "profileName": args.profileName,
@@ -68,12 +69,7 @@ export interface GetAFDTargetGroupResult {
  * Gets an existing target group within a profile.
  */
 export function getAFDTargetGroupOutput(args: GetAFDTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDTargetGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cdn/v20240601preview:getAFDTargetGroup", {
-        "profileName": args.profileName,
-        "resourceGroupName": args.resourceGroupName,
-        "targetGroupName": args.targetGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAFDTargetGroup(a, opts))
 }
 
 export interface GetAFDTargetGroupOutputArgs {

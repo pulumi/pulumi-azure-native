@@ -514,6 +514,9 @@ def get_host_pool(host_pool_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         validation_environment=pulumi.get(__ret__, 'validation_environment'),
         vm_template=pulumi.get(__ret__, 'vm_template'))
+
+
+@_utilities.lift_output_func(get_host_pool)
 def get_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostPoolResult]:
@@ -524,45 +527,4 @@ def get_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
     :param str host_pool_name: The name of the host pool within the specified resource group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['hostPoolName'] = host_pool_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization/v20231004preview:getHostPool', __args__, opts=opts, typ=GetHostPoolResult)
-    return __ret__.apply(lambda __response__: GetHostPoolResult(
-        agent_update=pulumi.get(__response__, 'agent_update'),
-        app_attach_package_references=pulumi.get(__response__, 'app_attach_package_references'),
-        application_group_references=pulumi.get(__response__, 'application_group_references'),
-        cloud_pc_resource=pulumi.get(__response__, 'cloud_pc_resource'),
-        custom_rdp_property=pulumi.get(__response__, 'custom_rdp_property'),
-        description=pulumi.get(__response__, 'description'),
-        etag=pulumi.get(__response__, 'etag'),
-        friendly_name=pulumi.get(__response__, 'friendly_name'),
-        host_pool_type=pulumi.get(__response__, 'host_pool_type'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        kind=pulumi.get(__response__, 'kind'),
-        load_balancer_type=pulumi.get(__response__, 'load_balancer_type'),
-        location=pulumi.get(__response__, 'location'),
-        managed_by=pulumi.get(__response__, 'managed_by'),
-        max_session_limit=pulumi.get(__response__, 'max_session_limit'),
-        name=pulumi.get(__response__, 'name'),
-        object_id=pulumi.get(__response__, 'object_id'),
-        personal_desktop_assignment_type=pulumi.get(__response__, 'personal_desktop_assignment_type'),
-        plan=pulumi.get(__response__, 'plan'),
-        preferred_app_group_type=pulumi.get(__response__, 'preferred_app_group_type'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        registration_info=pulumi.get(__response__, 'registration_info'),
-        ring=pulumi.get(__response__, 'ring'),
-        sku=pulumi.get(__response__, 'sku'),
-        sso_client_id=pulumi.get(__response__, 'sso_client_id'),
-        sso_client_secret_key_vault_path=pulumi.get(__response__, 'sso_client_secret_key_vault_path'),
-        sso_secret_type=pulumi.get(__response__, 'sso_secret_type'),
-        ssoadfs_authority=pulumi.get(__response__, 'ssoadfs_authority'),
-        start_vm_on_connect=pulumi.get(__response__, 'start_vm_on_connect'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        validation_environment=pulumi.get(__response__, 'validation_environment'),
-        vm_template=pulumi.get(__response__, 'vm_template')))
+    ...

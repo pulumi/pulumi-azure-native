@@ -83,6 +83,9 @@ def list_gateway_keys(gateway_id: Optional[str] = None,
     return AwaitableListGatewayKeysResult(
         primary=pulumi.get(__ret__, 'primary'),
         secondary=pulumi.get(__ret__, 'secondary'))
+
+
+@_utilities.lift_output_func(list_gateway_keys)
 def list_gateway_keys_output(gateway_id: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              service_name: Optional[pulumi.Input[str]] = None,
@@ -95,12 +98,4 @@ def list_gateway_keys_output(gateway_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['gatewayId'] = gateway_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230301preview:listGatewayKeys', __args__, opts=opts, typ=ListGatewayKeysResult)
-    return __ret__.apply(lambda __response__: ListGatewayKeysResult(
-        primary=pulumi.get(__response__, 'primary'),
-        secondary=pulumi.get(__response__, 'secondary')))
+    ...

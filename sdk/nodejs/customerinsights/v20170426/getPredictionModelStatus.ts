@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets model status of the prediction.
  */
 export function getPredictionModelStatus(args: GetPredictionModelStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionModelStatusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getPredictionModelStatus", {
         "hubName": args.hubName,
@@ -84,12 +85,7 @@ export interface GetPredictionModelStatusResult {
  * Gets model status of the prediction.
  */
 export function getPredictionModelStatusOutput(args: GetPredictionModelStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionModelStatusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getPredictionModelStatus", {
-        "hubName": args.hubName,
-        "predictionName": args.predictionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPredictionModelStatus(a, opts))
 }
 
 export interface GetPredictionModelStatusOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateEndpointConnectionsAdtAPI(args: GetPrivateEndpointConnectionsAdtAPIArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsAdtAPIResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsAdtAPI", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
@@ -73,12 +74,7 @@ export interface GetPrivateEndpointConnectionsAdtAPIResult {
  * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateEndpointConnectionsAdtAPIOutput(args: GetPrivateEndpointConnectionsAdtAPIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsAdtAPIResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsAdtAPI", {
-        "privateEndpointConnectionName": args.privateEndpointConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsAdtAPI(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionsAdtAPIOutputArgs {

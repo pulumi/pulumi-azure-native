@@ -110,6 +110,9 @@ def get_input(input_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_input)
 def get_input_output(input_name: Optional[pulumi.Input[str]] = None,
                      job_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -122,14 +125,4 @@ def get_input_output(input_name: Optional[pulumi.Input[str]] = None,
     :param str job_name: The name of the streaming job.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['inputName'] = input_name
-    __args__['jobName'] = job_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:streamanalytics/v20211001preview:getInput', __args__, opts=opts, typ=GetInputResult)
-    return __ret__.apply(lambda __response__: GetInputResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        type=pulumi.get(__response__, 'type')))
+    ...

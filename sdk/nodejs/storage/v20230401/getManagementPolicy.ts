@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the managementpolicy associated with the specified storage account.
  */
 export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20230401:getManagementPolicy", {
         "accountName": args.accountName,
@@ -63,12 +64,7 @@ export interface GetManagementPolicyResult {
  * Gets the managementpolicy associated with the specified storage account.
  */
 export function getManagementPolicyOutput(args: GetManagementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage/v20230401:getManagementPolicy", {
-        "accountName": args.accountName,
-        "managementPolicyName": args.managementPolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagementPolicy(a, opts))
 }
 
 export interface GetManagementPolicyOutputArgs {

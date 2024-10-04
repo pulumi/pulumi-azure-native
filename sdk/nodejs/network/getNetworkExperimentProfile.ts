@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-11-01.
  */
 export function getNetworkExperimentProfile(args: GetNetworkExperimentProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkExperimentProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getNetworkExperimentProfile", {
         "profileName": args.profileName,
@@ -69,11 +70,7 @@ export interface GetNetworkExperimentProfileResult {
  * Azure REST API version: 2019-11-01.
  */
 export function getNetworkExperimentProfileOutput(args: GetNetworkExperimentProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkExperimentProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getNetworkExperimentProfile", {
-        "profileName": args.profileName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkExperimentProfile(a, opts))
 }
 
 export interface GetNetworkExperimentProfileOutputArgs {

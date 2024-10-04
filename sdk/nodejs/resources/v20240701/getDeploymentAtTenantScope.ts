@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a deployment.
  */
 export function getDeploymentAtTenantScope(args: GetDeploymentAtTenantScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtTenantScopeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20240701:getDeploymentAtTenantScope", {
         "deploymentName": args.deploymentName,
@@ -57,10 +58,7 @@ export interface GetDeploymentAtTenantScopeResult {
  * Gets a deployment.
  */
 export function getDeploymentAtTenantScopeOutput(args: GetDeploymentAtTenantScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtTenantScopeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:resources/v20240701:getDeploymentAtTenantScope", {
-        "deploymentName": args.deploymentName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDeploymentAtTenantScope(a, opts))
 }
 
 export interface GetDeploymentAtTenantScopeOutputArgs {

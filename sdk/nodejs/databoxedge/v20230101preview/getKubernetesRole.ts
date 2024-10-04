@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a specific role by name.
  */
 export function getKubernetesRole(args: GetKubernetesRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesRoleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20230101preview:getKubernetesRole", {
         "deviceName": args.deviceName,
@@ -95,12 +96,7 @@ export interface GetKubernetesRoleResult {
  * Gets a specific role by name.
  */
 export function getKubernetesRoleOutput(args: GetKubernetesRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesRoleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230101preview:getKubernetesRole", {
-        "deviceName": args.deviceName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getKubernetesRole(a, opts))
 }
 
 export interface GetKubernetesRoleOutputArgs {

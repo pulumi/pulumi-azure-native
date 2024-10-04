@@ -87,6 +87,9 @@ def get_integration_runtime_object_metadatum(integration_runtime_name: Optional[
     return AwaitableGetIntegrationRuntimeObjectMetadatumResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(get_integration_runtime_object_metadatum)
 def get_integration_runtime_object_metadatum_output(integration_runtime_name: Optional[pulumi.Input[str]] = None,
                                                     metadata_path: Optional[pulumi.Input[Optional[str]]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -101,13 +104,4 @@ def get_integration_runtime_object_metadatum_output(integration_runtime_name: Op
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['integrationRuntimeName'] = integration_runtime_name
-    __args__['metadataPath'] = metadata_path
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601:getIntegrationRuntimeObjectMetadatum', __args__, opts=opts, typ=GetIntegrationRuntimeObjectMetadatumResult)
-    return __ret__.apply(lambda __response__: GetIntegrationRuntimeObjectMetadatumResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

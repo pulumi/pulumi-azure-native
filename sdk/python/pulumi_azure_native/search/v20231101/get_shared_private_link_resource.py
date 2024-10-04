@@ -110,6 +110,9 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_shared_private_link_resource)
 def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             search_service_name: Optional[pulumi.Input[str]] = None,
                                             shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
@@ -122,14 +125,4 @@ def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi
     :param str search_service_name: The name of the search service associated with the specified resource group.
     :param str shared_private_link_resource_name: The name of the shared private link resource managed by the search service within the specified resource group.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['searchServiceName'] = search_service_name
-    __args__['sharedPrivateLinkResourceName'] = shared_private_link_resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:search/v20231101:getSharedPrivateLinkResource', __args__, opts=opts, typ=GetSharedPrivateLinkResourceResult)
-    return __ret__.apply(lambda __response__: GetSharedPrivateLinkResourceResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        type=pulumi.get(__response__, 'type')))
+    ...

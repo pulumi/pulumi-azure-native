@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified edge site in a specified resource group.
  */
 export function getEdgeSite(args: GetEdgeSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetEdgeSiteResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:orbital/v20240301:getEdgeSite", {
         "edgeSiteName": args.edgeSiteName,
@@ -66,11 +67,7 @@ export interface GetEdgeSiteResult {
  * Gets the specified edge site in a specified resource group.
  */
 export function getEdgeSiteOutput(args: GetEdgeSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeSiteResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:orbital/v20240301:getEdgeSite", {
-        "edgeSiteName": args.edgeSiteName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEdgeSite(a, opts))
 }
 
 export interface GetEdgeSiteOutputArgs {

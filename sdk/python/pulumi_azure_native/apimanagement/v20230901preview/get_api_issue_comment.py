@@ -141,6 +141,9 @@ def get_api_issue_comment(api_id: Optional[str] = None,
         text=pulumi.get(__ret__, 'text'),
         type=pulumi.get(__ret__, 'type'),
         user_id=pulumi.get(__ret__, 'user_id'))
+
+
+@_utilities.lift_output_func(get_api_issue_comment)
 def get_api_issue_comment_output(api_id: Optional[pulumi.Input[str]] = None,
                                  comment_id: Optional[pulumi.Input[str]] = None,
                                  issue_id: Optional[pulumi.Input[str]] = None,
@@ -157,18 +160,4 @@ def get_api_issue_comment_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['apiId'] = api_id
-    __args__['commentId'] = comment_id
-    __args__['issueId'] = issue_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getApiIssueComment', __args__, opts=opts, typ=GetApiIssueCommentResult)
-    return __ret__.apply(lambda __response__: GetApiIssueCommentResult(
-        created_date=pulumi.get(__response__, 'created_date'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        text=pulumi.get(__response__, 'text'),
-        type=pulumi.get(__response__, 'type'),
-        user_id=pulumi.get(__response__, 'user_id')))
+    ...

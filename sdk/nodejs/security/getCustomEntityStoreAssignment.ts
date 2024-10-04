@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-07-01-preview.
  */
 export function getCustomEntityStoreAssignment(args: GetCustomEntityStoreAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomEntityStoreAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getCustomEntityStoreAssignment", {
         "customEntityStoreAssignmentName": args.customEntityStoreAssignmentName,
@@ -64,11 +65,7 @@ export interface GetCustomEntityStoreAssignmentResult {
  * Azure REST API version: 2021-07-01-preview.
  */
 export function getCustomEntityStoreAssignmentOutput(args: GetCustomEntityStoreAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomEntityStoreAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security:getCustomEntityStoreAssignment", {
-        "customEntityStoreAssignmentName": args.customEntityStoreAssignmentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCustomEntityStoreAssignment(a, opts))
 }
 
 export interface GetCustomEntityStoreAssignmentOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
  */
 export function getDppResourceGuardProxy(args: GetDppResourceGuardProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetDppResourceGuardProxyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dataprotection/v20240301:getDppResourceGuardProxy", {
         "resourceGroupName": args.resourceGroupName,
@@ -63,12 +64,7 @@ export interface GetDppResourceGuardProxyResult {
  * ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
  */
 export function getDppResourceGuardProxyOutput(args: GetDppResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDppResourceGuardProxyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dataprotection/v20240301:getDppResourceGuardProxy", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceGuardProxyName": args.resourceGuardProxyName,
-        "vaultName": args.vaultName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDppResourceGuardProxy(a, opts))
 }
 
 export interface GetDppResourceGuardProxyOutputArgs {

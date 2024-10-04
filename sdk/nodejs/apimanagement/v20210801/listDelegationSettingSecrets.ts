@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the secret validation key of the DelegationSettings.
  */
 export function listDelegationSettingSecrets(args: ListDelegationSettingSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDelegationSettingSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210801:listDelegationSettingSecrets", {
         "resourceGroupName": args.resourceGroupName,
@@ -39,11 +40,7 @@ export interface ListDelegationSettingSecretsResult {
  * Gets the secret validation key of the DelegationSettings.
  */
 export function listDelegationSettingSecretsOutput(args: ListDelegationSettingSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDelegationSettingSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20210801:listDelegationSettingSecrets", {
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listDelegationSettingSecrets(a, opts))
 }
 
 export interface ListDelegationSettingSecretsOutputArgs {

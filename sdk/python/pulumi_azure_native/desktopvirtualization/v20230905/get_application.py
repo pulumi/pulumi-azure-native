@@ -292,6 +292,9 @@ def get_application(application_group_name: Optional[str] = None,
         show_in_portal=pulumi.get(__ret__, 'show_in_portal'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_application)
 def get_application_output(application_group_name: Optional[pulumi.Input[str]] = None,
                            application_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -304,28 +307,4 @@ def get_application_output(application_group_name: Optional[pulumi.Input[str]] =
     :param str application_name: The name of the application within the specified application group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['applicationGroupName'] = application_group_name
-    __args__['applicationName'] = application_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization/v20230905:getApplication', __args__, opts=opts, typ=GetApplicationResult)
-    return __ret__.apply(lambda __response__: GetApplicationResult(
-        application_type=pulumi.get(__response__, 'application_type'),
-        command_line_arguments=pulumi.get(__response__, 'command_line_arguments'),
-        command_line_setting=pulumi.get(__response__, 'command_line_setting'),
-        description=pulumi.get(__response__, 'description'),
-        file_path=pulumi.get(__response__, 'file_path'),
-        friendly_name=pulumi.get(__response__, 'friendly_name'),
-        icon_content=pulumi.get(__response__, 'icon_content'),
-        icon_hash=pulumi.get(__response__, 'icon_hash'),
-        icon_index=pulumi.get(__response__, 'icon_index'),
-        icon_path=pulumi.get(__response__, 'icon_path'),
-        id=pulumi.get(__response__, 'id'),
-        msix_package_application_id=pulumi.get(__response__, 'msix_package_application_id'),
-        msix_package_family_name=pulumi.get(__response__, 'msix_package_family_name'),
-        name=pulumi.get(__response__, 'name'),
-        object_id=pulumi.get(__response__, 'object_id'),
-        show_in_portal=pulumi.get(__response__, 'show_in_portal'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

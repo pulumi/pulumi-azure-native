@@ -364,6 +364,9 @@ def get_post_rule(global_rulestack_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_post_rule)
 def get_post_rule_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
                          priority: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPostRuleResult]:
@@ -374,33 +377,4 @@ def get_post_rule_output(global_rulestack_name: Optional[pulumi.Input[str]] = No
     :param str global_rulestack_name: GlobalRulestack resource name
     :param str priority: Post Rule priority
     """
-    __args__ = dict()
-    __args__['globalRulestackName'] = global_rulestack_name
-    __args__['priority'] = priority
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20220829:getPostRule', __args__, opts=opts, typ=GetPostRuleResult)
-    return __ret__.apply(lambda __response__: GetPostRuleResult(
-        action_type=pulumi.get(__response__, 'action_type'),
-        applications=pulumi.get(__response__, 'applications'),
-        audit_comment=pulumi.get(__response__, 'audit_comment'),
-        category=pulumi.get(__response__, 'category'),
-        decryption_rule_type=pulumi.get(__response__, 'decryption_rule_type'),
-        description=pulumi.get(__response__, 'description'),
-        destination=pulumi.get(__response__, 'destination'),
-        enable_logging=pulumi.get(__response__, 'enable_logging'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        inbound_inspection_certificate=pulumi.get(__response__, 'inbound_inspection_certificate'),
-        name=pulumi.get(__response__, 'name'),
-        negate_destination=pulumi.get(__response__, 'negate_destination'),
-        negate_source=pulumi.get(__response__, 'negate_source'),
-        priority=pulumi.get(__response__, 'priority'),
-        protocol=pulumi.get(__response__, 'protocol'),
-        protocol_port_list=pulumi.get(__response__, 'protocol_port_list'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        rule_name=pulumi.get(__response__, 'rule_name'),
-        rule_state=pulumi.get(__response__, 'rule_state'),
-        source=pulumi.get(__response__, 'source'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

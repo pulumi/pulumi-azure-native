@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function listStorageAccountKeys(args: ListStorageAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage:listStorageAccountKeys", {
         "accountName": args.accountName,
@@ -53,12 +54,7 @@ export interface ListStorageAccountKeysResult {
  * Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage:listStorageAccountKeys", {
-        "accountName": args.accountName,
-        "expand": args.expand,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listStorageAccountKeys(a, opts))
 }
 
 export interface ListStorageAccountKeysOutputArgs {

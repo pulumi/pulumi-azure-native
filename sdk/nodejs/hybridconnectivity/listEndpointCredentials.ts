@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-05-01-preview, 2024-12-01.
  */
 export function listEndpointCredentials(args: ListEndpointCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointCredentialsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridconnectivity:listEndpointCredentials", {
         "endpointName": args.endpointName,
@@ -78,13 +79,7 @@ export interface ListEndpointCredentialsResult {
  * Other available API versions: 2022-05-01-preview, 2024-12-01.
  */
 export function listEndpointCredentialsOutput(args: ListEndpointCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointCredentialsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity:listEndpointCredentials", {
-        "endpointName": args.endpointName,
-        "expiresin": args.expiresin,
-        "resourceUri": args.resourceUri,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listEndpointCredentials(a, opts))
 }
 
 export interface ListEndpointCredentialsOutputArgs {

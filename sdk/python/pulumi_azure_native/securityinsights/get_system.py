@@ -173,6 +173,9 @@ def get_system(agent_resource_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_system)
 def get_system_output(agent_resource_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       system_resource_name: Optional[pulumi.Input[str]] = None,
@@ -188,20 +191,4 @@ def get_system_output(agent_resource_name: Optional[pulumi.Input[str]] = None,
     :param str system_resource_name: The name of the system.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['agentResourceName'] = agent_resource_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['systemResourceName'] = system_resource_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getSystem', __args__, opts=opts, typ=GetSystemResult)
-    return __ret__.apply(lambda __response__: GetSystemResult(
-        configuration=pulumi.get(__response__, 'configuration'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        last_modified_time_utc=pulumi.get(__response__, 'last_modified_time_utc'),
-        name=pulumi.get(__response__, 'name'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves a specific pipeline job by name. If a pipeline job with that name has been previously created, the call will return the JSON representation of that instance.
  */
 export function getPipelineJob(args: GetPipelineJobArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineJobResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20211101preview:getPipelineJob", {
         "accountName": args.accountName,
@@ -83,12 +84,7 @@ export interface GetPipelineJobResult {
  * Retrieves a specific pipeline job by name. If a pipeline job with that name has been previously created, the call will return the JSON representation of that instance.
  */
 export function getPipelineJobOutput(args: GetPipelineJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineJobResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:videoanalyzer/v20211101preview:getPipelineJob", {
-        "accountName": args.accountName,
-        "pipelineJobName": args.pipelineJobName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPipelineJob(a, opts))
 }
 
 export interface GetPipelineJobOutputArgs {

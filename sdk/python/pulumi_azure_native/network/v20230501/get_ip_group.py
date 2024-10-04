@@ -188,6 +188,9 @@ def get_ip_group(expand: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_ip_group)
 def get_ip_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                         ip_groups_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -200,20 +203,4 @@ def get_ip_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str ip_groups_name: The name of the ipGroups.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['ipGroupsName'] = ip_groups_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230501:getIpGroup', __args__, opts=opts, typ=GetIpGroupResult)
-    return __ret__.apply(lambda __response__: GetIpGroupResult(
-        etag=pulumi.get(__response__, 'etag'),
-        firewall_policies=pulumi.get(__response__, 'firewall_policies'),
-        firewalls=pulumi.get(__response__, 'firewalls'),
-        id=pulumi.get(__response__, 'id'),
-        ip_addresses=pulumi.get(__response__, 'ip_addresses'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

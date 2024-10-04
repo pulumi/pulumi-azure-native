@@ -187,6 +187,9 @@ def get_workload_network_port_mirroring(port_mirroring_id: Optional[str] = None,
         source=pulumi.get(__ret__, 'source'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workload_network_port_mirroring)
 def get_workload_network_port_mirroring_output(port_mirroring_id: Optional[pulumi.Input[str]] = None,
                                                private_cloud_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -199,20 +202,4 @@ def get_workload_network_port_mirroring_output(port_mirroring_id: Optional[pulum
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['portMirroringId'] = port_mirroring_id
-    __args__['privateCloudName'] = private_cloud_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20220501:getWorkloadNetworkPortMirroring', __args__, opts=opts, typ=GetWorkloadNetworkPortMirroringResult)
-    return __ret__.apply(lambda __response__: GetWorkloadNetworkPortMirroringResult(
-        destination=pulumi.get(__response__, 'destination'),
-        direction=pulumi.get(__response__, 'direction'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        revision=pulumi.get(__response__, 'revision'),
-        source=pulumi.get(__response__, 'source'),
-        status=pulumi.get(__response__, 'status'),
-        type=pulumi.get(__response__, 'type')))
+    ...

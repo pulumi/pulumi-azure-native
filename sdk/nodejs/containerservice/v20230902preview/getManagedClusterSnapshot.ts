@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * A managed cluster snapshot resource.
  */
 export function getManagedClusterSnapshot(args: GetManagedClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterSnapshotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20230902preview:getManagedClusterSnapshot", {
         "resourceGroupName": args.resourceGroupName,
@@ -74,11 +75,7 @@ export interface GetManagedClusterSnapshotResult {
  * A managed cluster snapshot resource.
  */
 export function getManagedClusterSnapshotOutput(args: GetManagedClusterSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterSnapshotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerservice/v20230902preview:getManagedClusterSnapshot", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedClusterSnapshot(a, opts))
 }
 
 export interface GetManagedClusterSnapshotOutputArgs {

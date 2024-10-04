@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified managed HSM Pool.
  */
 export function getManagedHsm(args: GetManagedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHsmResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:keyvault/v20230701:getManagedHsm", {
         "name": args.name,
@@ -74,11 +75,7 @@ export interface GetManagedHsmResult {
  * Gets the specified managed HSM Pool.
  */
 export function getManagedHsmOutput(args: GetManagedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHsmResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:keyvault/v20230701:getManagedHsm", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedHsm(a, opts))
 }
 
 export interface GetManagedHsmOutputArgs {

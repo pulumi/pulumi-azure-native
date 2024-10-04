@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * If a target is not provided, it will get the minimum and maximum versions available from the current cluster version. If a target is given, it will provide the required path to get from the current cluster version to the target version.
  */
 export function listClusterUpgradableVersions(args: ListClusterUpgradableVersionsArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterUpgradableVersionsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20210601:listClusterUpgradableVersions", {
         "clusterName": args.clusterName,
@@ -41,12 +42,7 @@ export interface ListClusterUpgradableVersionsResult {
  * If a target is not provided, it will get the minimum and maximum versions available from the current cluster version. If a target is given, it will provide the required path to get from the current cluster version to the target version.
  */
 export function listClusterUpgradableVersionsOutput(args: ListClusterUpgradableVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterUpgradableVersionsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20210601:listClusterUpgradableVersions", {
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-        "targetVersion": args.targetVersion,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listClusterUpgradableVersions(a, opts))
 }
 
 export interface ListClusterUpgradableVersionsOutputArgs {

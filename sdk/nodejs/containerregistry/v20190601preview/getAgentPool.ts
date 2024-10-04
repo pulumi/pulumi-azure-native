@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the detailed information for a given agent pool.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20190601preview:getAgentPool", {
         "agentPoolName": args.agentPoolName,
@@ -88,12 +89,7 @@ export interface GetAgentPoolResult {
  * Gets the detailed information for a given agent pool.
  */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20190601preview:getAgentPool", {
-        "agentPoolName": args.agentPoolName,
-        "registryName": args.registryName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAgentPool(a, opts))
 }
 
 export interface GetAgentPoolOutputArgs {

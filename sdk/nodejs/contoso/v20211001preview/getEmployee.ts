@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Employee
  */
 export function getEmployee(args: GetEmployeeArgs, opts?: pulumi.InvokeOptions): Promise<GetEmployeeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:contoso/v20211001preview:getEmployee", {
         "employeeName": args.employeeName,
@@ -66,11 +67,7 @@ export interface GetEmployeeResult {
  * Get a Employee
  */
 export function getEmployeeOutput(args: GetEmployeeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmployeeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:contoso/v20211001preview:getEmployee", {
-        "employeeName": args.employeeName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEmployee(a, opts))
 }
 
 export interface GetEmployeeOutputArgs {

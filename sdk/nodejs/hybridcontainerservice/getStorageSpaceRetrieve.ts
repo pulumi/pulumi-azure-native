@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-09-01-preview.
  */
 export function getStorageSpaceRetrieve(args: GetStorageSpaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSpaceRetrieveResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice:getStorageSpaceRetrieve", {
         "resourceGroupName": args.resourceGroupName,
@@ -69,11 +70,7 @@ export interface GetStorageSpaceRetrieveResult {
  * Azure REST API version: 2022-09-01-preview.
  */
 export function getStorageSpaceRetrieveOutput(args: GetStorageSpaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSpaceRetrieveResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice:getStorageSpaceRetrieve", {
-        "resourceGroupName": args.resourceGroupName,
-        "storageSpacesName": args.storageSpacesName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageSpaceRetrieve(a, opts))
 }
 
 export interface GetStorageSpaceRetrieveOutputArgs {

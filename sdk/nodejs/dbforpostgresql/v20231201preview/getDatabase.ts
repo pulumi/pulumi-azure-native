@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about a database.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20231201preview:getDatabase", {
         "databaseName": args.databaseName,
@@ -67,12 +68,7 @@ export interface GetDatabaseResult {
  * Gets information about a database.
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20231201preview:getDatabase", {
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
 }
 
 export interface GetDatabaseOutputArgs {

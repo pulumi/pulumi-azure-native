@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getCertificate", {
         "name": args.name,
@@ -148,11 +149,7 @@ export interface GetCertificateResult {
  * Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web:getCertificate", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
 
 export interface GetCertificateOutputArgs {

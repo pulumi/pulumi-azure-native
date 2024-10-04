@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-05-01.
  */
 export function getPolicyDefinitionVersionAtManagementGroup(args: GetPolicyDefinitionVersionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionVersionAtManagementGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getPolicyDefinitionVersionAtManagementGroup", {
         "managementGroupName": args.managementGroupName,
@@ -97,12 +98,7 @@ export interface GetPolicyDefinitionVersionAtManagementGroupResult {
  * Other available API versions: 2024-05-01.
  */
 export function getPolicyDefinitionVersionAtManagementGroupOutput(args: GetPolicyDefinitionVersionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionVersionAtManagementGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization:getPolicyDefinitionVersionAtManagementGroup", {
-        "managementGroupName": args.managementGroupName,
-        "policyDefinitionName": args.policyDefinitionName,
-        "policyDefinitionVersion": args.policyDefinitionVersion,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPolicyDefinitionVersionAtManagementGroup(a, opts))
 }
 
 export interface GetPolicyDefinitionVersionAtManagementGroupOutputArgs {

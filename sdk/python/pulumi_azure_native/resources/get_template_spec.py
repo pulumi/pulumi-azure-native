@@ -189,6 +189,9 @@ def get_template_spec(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         versions=pulumi.get(__ret__, 'versions'))
+
+
+@_utilities.lift_output_func(get_template_spec)
 def get_template_spec_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              template_spec_name: Optional[pulumi.Input[str]] = None,
@@ -202,20 +205,4 @@ def get_template_spec_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str template_spec_name: Name of the Template Spec.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['templateSpecName'] = template_spec_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:resources:getTemplateSpec', __args__, opts=opts, typ=GetTemplateSpecResult)
-    return __ret__.apply(lambda __response__: GetTemplateSpecResult(
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        versions=pulumi.get(__response__, 'versions')))
+    ...

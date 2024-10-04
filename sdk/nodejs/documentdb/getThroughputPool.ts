@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
  */
 export function getThroughputPool(args: GetThroughputPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetThroughputPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb:getThroughputPool", {
         "resourceGroupName": args.resourceGroupName,
@@ -76,11 +77,7 @@ export interface GetThroughputPoolResult {
  * Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
  */
 export function getThroughputPoolOutput(args: GetThroughputPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThroughputPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:documentdb:getThroughputPool", {
-        "resourceGroupName": args.resourceGroupName,
-        "throughputPoolName": args.throughputPoolName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getThroughputPool(a, opts))
 }
 
 export interface GetThroughputPoolOutputArgs {

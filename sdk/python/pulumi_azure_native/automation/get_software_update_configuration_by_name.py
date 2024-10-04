@@ -217,6 +217,9 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
         tasks=pulumi.get(__ret__, 'tasks'),
         type=pulumi.get(__ret__, 'type'),
         update_configuration=pulumi.get(__ret__, 'update_configuration'))
+
+
+@_utilities.lift_output_func(get_software_update_configuration_by_name)
 def get_software_update_configuration_by_name_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      software_update_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -232,22 +235,4 @@ def get_software_update_configuration_by_name_output(automation_account_name: Op
     :param str resource_group_name: Name of an Azure Resource group.
     :param str software_update_configuration_name: The name of the software update configuration to be created.
     """
-    __args__ = dict()
-    __args__['automationAccountName'] = automation_account_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['softwareUpdateConfigurationName'] = software_update_configuration_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getSoftwareUpdateConfigurationByName', __args__, opts=opts, typ=GetSoftwareUpdateConfigurationByNameResult)
-    return __ret__.apply(lambda __response__: GetSoftwareUpdateConfigurationByNameResult(
-        created_by=pulumi.get(__response__, 'created_by'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        error=pulumi.get(__response__, 'error'),
-        id=pulumi.get(__response__, 'id'),
-        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        schedule_info=pulumi.get(__response__, 'schedule_info'),
-        tasks=pulumi.get(__response__, 'tasks'),
-        type=pulumi.get(__response__, 'type'),
-        update_configuration=pulumi.get(__response__, 'update_configuration')))
+    ...

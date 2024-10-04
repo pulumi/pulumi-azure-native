@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getBastionShareableLink(args: GetBastionShareableLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionShareableLinkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getBastionShareableLink", {
         "bastionHostName": args.bastionHostName,
@@ -57,12 +58,7 @@ export interface GetBastionShareableLinkResult {
  * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getBastionShareableLinkOutput(args: GetBastionShareableLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionShareableLinkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getBastionShareableLink", {
-        "bastionHostName": args.bastionHostName,
-        "resourceGroupName": args.resourceGroupName,
-        "vms": args.vms,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBastionShareableLink(a, opts))
 }
 
 export interface GetBastionShareableLinkOutputArgs {

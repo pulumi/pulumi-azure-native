@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function listWebAppWorkflowsConnections(args: ListWebAppWorkflowsConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppWorkflowsConnectionsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:listWebAppWorkflowsConnections", {
         "name": args.name,
@@ -68,11 +69,7 @@ export interface ListWebAppWorkflowsConnectionsResult {
  * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function listWebAppWorkflowsConnectionsOutput(args: ListWebAppWorkflowsConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppWorkflowsConnectionsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web:listWebAppWorkflowsConnections", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppWorkflowsConnections(a, opts))
 }
 
 export interface ListWebAppWorkflowsConnectionsOutputArgs {

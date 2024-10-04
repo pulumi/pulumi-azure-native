@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get domain ownership identifier for web app.
  */
 export function getWebAppDomainOwnershipIdentifier(args: GetWebAppDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20181101:getWebAppDomainOwnershipIdentifier", {
         "domainOwnershipIdentifierName": args.domainOwnershipIdentifierName,
@@ -56,12 +57,7 @@ export interface GetWebAppDomainOwnershipIdentifierResult {
  * Get domain ownership identifier for web app.
  */
 export function getWebAppDomainOwnershipIdentifierOutput(args: GetWebAppDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20181101:getWebAppDomainOwnershipIdentifier", {
-        "domainOwnershipIdentifierName": args.domainOwnershipIdentifierName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppDomainOwnershipIdentifier(a, opts))
 }
 
 export interface GetWebAppDomainOwnershipIdentifierOutputArgs {

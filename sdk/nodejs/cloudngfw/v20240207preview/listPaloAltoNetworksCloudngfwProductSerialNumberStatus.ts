@@ -9,6 +9,7 @@ import * as utilities from "../../utilities";
  */
 export function listPaloAltoNetworksCloudngfwProductSerialNumberStatus(args?: ListPaloAltoNetworksCloudngfwProductSerialNumberStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20240207preview:listPaloAltoNetworksCloudngfwProductSerialNumberStatus", {
     }, opts);
@@ -34,8 +35,5 @@ export interface ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult {
  * Product serial and status for the service
  */
 export function listPaloAltoNetworksCloudngfwProductSerialNumberStatusOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240207preview:listPaloAltoNetworksCloudngfwProductSerialNumberStatus", {
-    }, opts);
+    return pulumi.output(listPaloAltoNetworksCloudngfwProductSerialNumberStatus(opts))
 }
-

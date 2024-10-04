@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getGateway", {
         "gatewayResourceName": args.gatewayResourceName,
@@ -94,11 +95,7 @@ export interface GetGatewayResult {
  * Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh/v20180901preview:getGateway", {
-        "gatewayResourceName": args.gatewayResourceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGateway(a, opts))
 }
 
 export interface GetGatewayOutputArgs {

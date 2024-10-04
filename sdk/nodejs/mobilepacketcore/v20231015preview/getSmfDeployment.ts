@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a SmfDeploymentResource
  */
 export function getSmfDeployment(args: GetSmfDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetSmfDeploymentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilepacketcore/v20231015preview:getSmfDeployment", {
         "resourceGroupName": args.resourceGroupName,
@@ -86,11 +87,7 @@ export interface GetSmfDeploymentResult {
  * Get a SmfDeploymentResource
  */
 export function getSmfDeploymentOutput(args: GetSmfDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmfDeploymentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilepacketcore/v20231015preview:getSmfDeployment", {
-        "resourceGroupName": args.resourceGroupName,
-        "smfDeploymentName": args.smfDeploymentName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSmfDeployment(a, opts))
 }
 
 export interface GetSmfDeploymentOutputArgs {

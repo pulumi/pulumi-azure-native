@@ -276,6 +276,9 @@ def get_container_apps_session_pool(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_container_apps_session_pool)
 def get_container_apps_session_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                            session_pool_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppsSessionPoolResult]:
@@ -286,26 +289,4 @@ def get_container_apps_session_pool_output(resource_group_name: Optional[pulumi.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str session_pool_name: Name of the session pool.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sessionPoolName'] = session_pool_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20240202preview:getContainerAppsSessionPool', __args__, opts=opts, typ=GetContainerAppsSessionPoolResult)
-    return __ret__.apply(lambda __response__: GetContainerAppsSessionPoolResult(
-        container_type=pulumi.get(__response__, 'container_type'),
-        custom_container_template=pulumi.get(__response__, 'custom_container_template'),
-        dynamic_pool_configuration=pulumi.get(__response__, 'dynamic_pool_configuration'),
-        environment_id=pulumi.get(__response__, 'environment_id'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        node_count=pulumi.get(__response__, 'node_count'),
-        pool_management_endpoint=pulumi.get(__response__, 'pool_management_endpoint'),
-        pool_management_type=pulumi.get(__response__, 'pool_management_type'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        scale_configuration=pulumi.get(__response__, 'scale_configuration'),
-        secrets=pulumi.get(__response__, 'secrets'),
-        session_network_configuration=pulumi.get(__response__, 'session_network_configuration'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

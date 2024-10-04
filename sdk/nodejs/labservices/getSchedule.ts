@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-06-07.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices:getSchedule", {
         "labName": args.labName,
@@ -89,12 +90,7 @@ export interface GetScheduleResult {
  * Other available API versions: 2023-06-07.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:labservices:getSchedule", {
-        "labName": args.labName,
-        "resourceGroupName": args.resourceGroupName,
-        "scheduleName": args.scheduleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
 }
 
 export interface GetScheduleOutputArgs {

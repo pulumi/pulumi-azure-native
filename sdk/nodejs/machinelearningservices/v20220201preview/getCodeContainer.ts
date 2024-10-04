@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getCodeContainer(args: GetCodeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeContainerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20220201preview:getCodeContainer", {
         "name": args.name,
@@ -63,12 +64,7 @@ export interface GetCodeContainerResult {
  * Azure Resource Manager resource envelope.
  */
 export function getCodeContainerOutput(args: GetCodeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeContainerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20220201preview:getCodeContainer", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCodeContainer(a, opts))
 }
 
 export interface GetCodeContainerOutputArgs {

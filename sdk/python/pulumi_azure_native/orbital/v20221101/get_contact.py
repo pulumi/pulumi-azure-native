@@ -318,6 +318,9 @@ def get_contact(contact_name: Optional[str] = None,
         tx_end_time=pulumi.get(__ret__, 'tx_end_time'),
         tx_start_time=pulumi.get(__ret__, 'tx_start_time'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_contact)
 def get_contact_output(contact_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        spacecraft_name: Optional[pulumi.Input[str]] = None,
@@ -330,30 +333,4 @@ def get_contact_output(contact_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str spacecraft_name: Spacecraft ID.
     """
-    __args__ = dict()
-    __args__['contactName'] = contact_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['spacecraftName'] = spacecraft_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:orbital/v20221101:getContact', __args__, opts=opts, typ=GetContactResult)
-    return __ret__.apply(lambda __response__: GetContactResult(
-        antenna_configuration=pulumi.get(__response__, 'antenna_configuration'),
-        contact_profile=pulumi.get(__response__, 'contact_profile'),
-        end_azimuth_degrees=pulumi.get(__response__, 'end_azimuth_degrees'),
-        end_elevation_degrees=pulumi.get(__response__, 'end_elevation_degrees'),
-        error_message=pulumi.get(__response__, 'error_message'),
-        ground_station_name=pulumi.get(__response__, 'ground_station_name'),
-        id=pulumi.get(__response__, 'id'),
-        maximum_elevation_degrees=pulumi.get(__response__, 'maximum_elevation_degrees'),
-        name=pulumi.get(__response__, 'name'),
-        reservation_end_time=pulumi.get(__response__, 'reservation_end_time'),
-        reservation_start_time=pulumi.get(__response__, 'reservation_start_time'),
-        rx_end_time=pulumi.get(__response__, 'rx_end_time'),
-        rx_start_time=pulumi.get(__response__, 'rx_start_time'),
-        start_azimuth_degrees=pulumi.get(__response__, 'start_azimuth_degrees'),
-        start_elevation_degrees=pulumi.get(__response__, 'start_elevation_degrees'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tx_end_time=pulumi.get(__response__, 'tx_end_time'),
-        tx_start_time=pulumi.get(__response__, 'tx_start_time'),
-        type=pulumi.get(__response__, 'type')))
+    ...

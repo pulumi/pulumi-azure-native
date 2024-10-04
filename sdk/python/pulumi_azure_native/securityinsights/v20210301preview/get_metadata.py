@@ -282,6 +282,9 @@ def get_metadata(metadata_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_metadata)
 def get_metadata_output(metadata_name: Optional[pulumi.Input[str]] = None,
                         operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -296,28 +299,4 @@ def get_metadata_output(metadata_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['metadataName'] = metadata_name
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20210301preview:getMetadata', __args__, opts=opts, typ=GetMetadataResult)
-    return __ret__.apply(lambda __response__: GetMetadataResult(
-        author=pulumi.get(__response__, 'author'),
-        categories=pulumi.get(__response__, 'categories'),
-        content_id=pulumi.get(__response__, 'content_id'),
-        dependencies=pulumi.get(__response__, 'dependencies'),
-        etag=pulumi.get(__response__, 'etag'),
-        first_publish_date=pulumi.get(__response__, 'first_publish_date'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        last_publish_date=pulumi.get(__response__, 'last_publish_date'),
-        name=pulumi.get(__response__, 'name'),
-        parent_id=pulumi.get(__response__, 'parent_id'),
-        providers=pulumi.get(__response__, 'providers'),
-        source=pulumi.get(__response__, 'source'),
-        support=pulumi.get(__response__, 'support'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

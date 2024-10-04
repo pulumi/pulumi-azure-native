@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the Cache specified by its identifier.
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20191201preview:getCache", {
         "cacheId": args.cacheId,
@@ -64,12 +65,7 @@ export interface GetCacheResult {
  * Gets the details of the Cache specified by its identifier.
  */
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20191201preview:getCache", {
-        "cacheId": args.cacheId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCache(a, opts))
 }
 
 export interface GetCacheOutputArgs {

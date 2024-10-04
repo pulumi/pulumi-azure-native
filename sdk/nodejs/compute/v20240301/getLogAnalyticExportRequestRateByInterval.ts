@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
  */
 export function getLogAnalyticExportRequestRateByInterval(args: GetLogAnalyticExportRequestRateByIntervalArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportRequestRateByIntervalResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20240301:getLogAnalyticExportRequestRateByInterval", {
         "blobContainerSasUri": args.blobContainerSasUri,
@@ -82,19 +83,7 @@ export interface GetLogAnalyticExportRequestRateByIntervalResult {
  * Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
  */
 export function getLogAnalyticExportRequestRateByIntervalOutput(args: GetLogAnalyticExportRequestRateByIntervalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnalyticExportRequestRateByIntervalResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute/v20240301:getLogAnalyticExportRequestRateByInterval", {
-        "blobContainerSasUri": args.blobContainerSasUri,
-        "fromTime": args.fromTime,
-        "groupByClientApplicationId": args.groupByClientApplicationId,
-        "groupByOperationName": args.groupByOperationName,
-        "groupByResourceName": args.groupByResourceName,
-        "groupByThrottlePolicy": args.groupByThrottlePolicy,
-        "groupByUserAgent": args.groupByUserAgent,
-        "intervalLength": args.intervalLength,
-        "location": args.location,
-        "toTime": args.toTime,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLogAnalyticExportRequestRateByInterval(a, opts))
 }
 
 export interface GetLogAnalyticExportRequestRateByIntervalOutputArgs {

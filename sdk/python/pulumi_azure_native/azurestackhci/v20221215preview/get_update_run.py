@@ -295,6 +295,9 @@ def get_update_run(cluster_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         time_started=pulumi.get(__ret__, 'time_started'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_update_run)
 def get_update_run_output(cluster_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           update_name: Optional[pulumi.Input[str]] = None,
@@ -309,29 +312,4 @@ def get_update_run_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str update_name: The name of the Update
     :param str update_run_name: The name of the Update Run
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['updateName'] = update_name
-    __args__['updateRunName'] = update_run_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20221215preview:getUpdateRun', __args__, opts=opts, typ=GetUpdateRunResult)
-    return __ret__.apply(lambda __response__: GetUpdateRunResult(
-        description=pulumi.get(__response__, 'description'),
-        duration=pulumi.get(__response__, 'duration'),
-        end_time_utc=pulumi.get(__response__, 'end_time_utc'),
-        error_message=pulumi.get(__response__, 'error_message'),
-        expected_execution_time=pulumi.get(__response__, 'expected_execution_time'),
-        id=pulumi.get(__response__, 'id'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        last_updated_time_utc=pulumi.get(__response__, 'last_updated_time_utc'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        start_time_utc=pulumi.get(__response__, 'start_time_utc'),
-        state=pulumi.get(__response__, 'state'),
-        status=pulumi.get(__response__, 'status'),
-        steps=pulumi.get(__response__, 'steps'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        time_started=pulumi.get(__response__, 'time_started'),
-        type=pulumi.get(__response__, 'type')))
+    ...

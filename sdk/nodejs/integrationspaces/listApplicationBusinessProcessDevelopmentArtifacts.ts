@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-11-14-preview.
  */
 export function listApplicationBusinessProcessDevelopmentArtifacts(args: ListApplicationBusinessProcessDevelopmentArtifactsArgs, opts?: pulumi.InvokeOptions): Promise<ListApplicationBusinessProcessDevelopmentArtifactsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:integrationspaces:listApplicationBusinessProcessDevelopmentArtifacts", {
         "applicationName": args.applicationName,
@@ -49,12 +50,7 @@ export interface ListApplicationBusinessProcessDevelopmentArtifactsResult {
  * Azure REST API version: 2023-11-14-preview.
  */
 export function listApplicationBusinessProcessDevelopmentArtifactsOutput(args: ListApplicationBusinessProcessDevelopmentArtifactsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationBusinessProcessDevelopmentArtifactsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:integrationspaces:listApplicationBusinessProcessDevelopmentArtifacts", {
-        "applicationName": args.applicationName,
-        "resourceGroupName": args.resourceGroupName,
-        "spaceName": args.spaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listApplicationBusinessProcessDevelopmentArtifacts(a, opts))
 }
 
 export interface ListApplicationBusinessProcessDevelopmentArtifactsOutputArgs {

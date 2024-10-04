@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified private endpoint connection on application gateway.
  */
 export function getApplicationGatewayPrivateEndpointConnection(args: GetApplicationGatewayPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayPrivateEndpointConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230501:getApplicationGatewayPrivateEndpointConnection", {
         "applicationGatewayName": args.applicationGatewayName,
@@ -75,12 +76,7 @@ export interface GetApplicationGatewayPrivateEndpointConnectionResult {
  * Gets the specified private endpoint connection on application gateway.
  */
 export function getApplicationGatewayPrivateEndpointConnectionOutput(args: GetApplicationGatewayPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayPrivateEndpointConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getApplicationGatewayPrivateEndpointConnection", {
-        "applicationGatewayName": args.applicationGatewayName,
-        "connectionName": args.connectionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApplicationGatewayPrivateEndpointConnection(a, opts))
 }
 
 export interface GetApplicationGatewayPrivateEndpointConnectionOutputArgs {

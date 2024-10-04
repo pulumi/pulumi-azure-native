@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a NssfDeploymentResource
  */
 export function getNssfDeployment(args: GetNssfDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetNssfDeploymentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilepacketcore/v20231015preview:getNssfDeployment", {
         "nssfDeploymentName": args.nssfDeploymentName,
@@ -86,11 +87,7 @@ export interface GetNssfDeploymentResult {
  * Get a NssfDeploymentResource
  */
 export function getNssfDeploymentOutput(args: GetNssfDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNssfDeploymentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilepacketcore/v20231015preview:getNssfDeployment", {
-        "nssfDeploymentName": args.nssfDeploymentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNssfDeployment(a, opts))
 }
 
 export interface GetNssfDeploymentOutputArgs {

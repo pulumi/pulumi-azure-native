@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a host pool.
  */
 export function getHostPool(args: GetHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20231004preview:getHostPool", {
         "hostPoolName": args.hostPoolName,
@@ -173,11 +174,7 @@ export interface GetHostPoolResult {
  * Get a host pool.
  */
 export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20231004preview:getHostPool", {
-        "hostPoolName": args.hostPoolName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHostPool(a, opts))
 }
 
 export interface GetHostPoolOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function listOpenIdConnectProviderSecrets(args: ListOpenIdConnectProviderSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenIdConnectProviderSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:listOpenIdConnectProviderSecrets", {
         "opid": args.opid,
@@ -50,12 +51,7 @@ export interface ListOpenIdConnectProviderSecretsResult {
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function listOpenIdConnectProviderSecretsOutput(args: ListOpenIdConnectProviderSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOpenIdConnectProviderSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement:listOpenIdConnectProviderSecrets", {
-        "opid": args.opid,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listOpenIdConnectProviderSecrets(a, opts))
 }
 
 export interface ListOpenIdConnectProviderSecretsOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves Migration Config
  */
 export function getMigrationConfig(args: GetMigrationConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20221001preview:getMigrationConfig", {
         "configName": args.configName,
@@ -83,12 +84,7 @@ export interface GetMigrationConfigResult {
  * Retrieves Migration Config
  */
 export function getMigrationConfigOutput(args: GetMigrationConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicebus/v20221001preview:getMigrationConfig", {
-        "configName": args.configName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMigrationConfig(a, opts))
 }
 
 export interface GetMigrationConfigOutputArgs {

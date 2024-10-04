@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a DataSetMapping in a shareSubscription
  */
 export function getSqlDWTableDataSetMapping(args: GetSqlDWTableDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDWTableDataSetMappingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:getSqlDWTableDataSetMapping", {
         "accountName": args.accountName,
@@ -97,13 +98,7 @@ export interface GetSqlDWTableDataSetMappingResult {
  * Get a DataSetMapping in a shareSubscription
  */
 export function getSqlDWTableDataSetMappingOutput(args: GetSqlDWTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDWTableDataSetMappingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getSqlDWTableDataSetMapping", {
-        "accountName": args.accountName,
-        "dataSetMappingName": args.dataSetMappingName,
-        "resourceGroupName": args.resourceGroupName,
-        "shareSubscriptionName": args.shareSubscriptionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlDWTableDataSetMapping(a, opts))
 }
 
 export interface GetSqlDWTableDataSetMappingOutputArgs {

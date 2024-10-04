@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-02-01-preview.
  */
 export function listActiveConnectivityConfiguration(args: ListActiveConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<ListActiveConnectivityConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:listActiveConnectivityConfiguration", {
         "networkManagerName": args.networkManagerName,
@@ -58,13 +59,7 @@ export interface ListActiveConnectivityConfigurationResult {
  * Azure REST API version: 2021-02-01-preview.
  */
 export function listActiveConnectivityConfigurationOutput(args: ListActiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveConnectivityConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:listActiveConnectivityConfiguration", {
-        "networkManagerName": args.networkManagerName,
-        "regions": args.regions,
-        "resourceGroupName": args.resourceGroupName,
-        "skipToken": args.skipToken,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listActiveConnectivityConfiguration(a, opts))
 }
 
 export interface ListActiveConnectivityConfigurationOutputArgs {

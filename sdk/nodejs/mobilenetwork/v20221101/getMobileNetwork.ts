@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about the specified mobile network.
  */
 export function getMobileNetwork(args: GetMobileNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetMobileNetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20221101:getMobileNetwork", {
         "mobileNetworkName": args.mobileNetworkName,
@@ -74,11 +75,7 @@ export interface GetMobileNetworkResult {
  * Gets information about the specified mobile network.
  */
 export function getMobileNetworkOutput(args: GetMobileNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMobileNetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20221101:getMobileNetwork", {
-        "mobileNetworkName": args.mobileNetworkName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMobileNetwork(a, opts))
 }
 
 export interface GetMobileNetworkOutputArgs {

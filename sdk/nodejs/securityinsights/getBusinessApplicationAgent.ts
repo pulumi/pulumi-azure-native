@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-04-01-preview.
  */
 export function getBusinessApplicationAgent(args: GetBusinessApplicationAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessApplicationAgentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getBusinessApplicationAgent", {
         "agentResourceName": args.agentResourceName,
@@ -72,12 +73,7 @@ export interface GetBusinessApplicationAgentResult {
  * Azure REST API version: 2024-04-01-preview.
  */
 export function getBusinessApplicationAgentOutput(args: GetBusinessApplicationAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessApplicationAgentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights:getBusinessApplicationAgent", {
-        "agentResourceName": args.agentResourceName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBusinessApplicationAgent(a, opts))
 }
 
 export interface GetBusinessApplicationAgentOutputArgs {

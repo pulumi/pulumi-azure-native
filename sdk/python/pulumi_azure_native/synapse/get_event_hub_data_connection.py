@@ -261,6 +261,9 @@ def get_event_hub_data_connection(data_connection_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_event_hub_data_connection)
 def get_event_hub_data_connection_output(data_connection_name: Optional[pulumi.Input[str]] = None,
                                          database_name: Optional[pulumi.Input[str]] = None,
                                          kusto_pool_name: Optional[pulumi.Input[str]] = None,
@@ -278,27 +281,4 @@ def get_event_hub_data_connection_output(data_connection_name: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['dataConnectionName'] = data_connection_name
-    __args__['databaseName'] = database_name
-    __args__['kustoPoolName'] = kusto_pool_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getEventHubDataConnection', __args__, opts=opts, typ=GetEventHubDataConnectionResult)
-    return __ret__.apply(lambda __response__: GetEventHubDataConnectionResult(
-        compression=pulumi.get(__response__, 'compression'),
-        consumer_group=pulumi.get(__response__, 'consumer_group'),
-        data_format=pulumi.get(__response__, 'data_format'),
-        event_hub_resource_id=pulumi.get(__response__, 'event_hub_resource_id'),
-        event_system_properties=pulumi.get(__response__, 'event_system_properties'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        managed_identity_resource_id=pulumi.get(__response__, 'managed_identity_resource_id'),
-        mapping_rule_name=pulumi.get(__response__, 'mapping_rule_name'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        table_name=pulumi.get(__response__, 'table_name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

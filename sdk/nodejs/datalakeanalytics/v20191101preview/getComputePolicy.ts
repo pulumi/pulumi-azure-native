@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the specified Data Lake Analytics compute policy.
  */
 export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetComputePolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakeanalytics/v20191101preview:getComputePolicy", {
         "accountName": args.accountName,
@@ -68,12 +69,7 @@ export interface GetComputePolicyResult {
  * Gets the specified Data Lake Analytics compute policy.
  */
 export function getComputePolicyOutput(args: GetComputePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputePolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datalakeanalytics/v20191101preview:getComputePolicy", {
-        "accountName": args.accountName,
-        "computePolicyName": args.computePolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getComputePolicy(a, opts))
 }
 
 export interface GetComputePolicyOutputArgs {

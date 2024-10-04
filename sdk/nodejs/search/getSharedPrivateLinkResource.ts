@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview.
  */
 export function getSharedPrivateLinkResource(args: GetSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedPrivateLinkResourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:search:getSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,
@@ -65,12 +66,7 @@ export interface GetSharedPrivateLinkResourceResult {
  * Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview.
  */
 export function getSharedPrivateLinkResourceOutput(args: GetSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedPrivateLinkResourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:search:getSharedPrivateLinkResource", {
-        "resourceGroupName": args.resourceGroupName,
-        "searchServiceName": args.searchServiceName,
-        "sharedPrivateLinkResourceName": args.sharedPrivateLinkResourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSharedPrivateLinkResource(a, opts))
 }
 
 export interface GetSharedPrivateLinkResourceOutputArgs {

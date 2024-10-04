@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the Network Device resource details.
  */
 export function getNetworkDevice(args: GetNetworkDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDeviceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230201preview:getNetworkDevice", {
         "networkDeviceName": args.networkDeviceName,
@@ -94,11 +95,7 @@ export interface GetNetworkDeviceResult {
  * Get the Network Device resource details.
  */
 export function getNetworkDeviceOutput(args: GetNetworkDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkDeviceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230201preview:getNetworkDevice", {
-        "networkDeviceName": args.networkDeviceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkDevice(a, opts))
 }
 
 export interface GetNetworkDeviceOutputArgs {

@@ -172,6 +172,9 @@ def get_disk_access(disk_access_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_disk_access)
 def get_disk_access_output(disk_access_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskAccessResult]:
@@ -182,18 +185,4 @@ def get_disk_access_output(disk_access_name: Optional[pulumi.Input[str]] = None,
     :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['diskAccessName'] = disk_access_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20220702:getDiskAccess', __args__, opts=opts, typ=GetDiskAccessResult)
-    return __ret__.apply(lambda __response__: GetDiskAccessResult(
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        time_created=pulumi.get(__response__, 'time_created'),
-        type=pulumi.get(__response__, 'type')))
+    ...

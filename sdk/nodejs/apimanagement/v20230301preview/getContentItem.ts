@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Returns the developer portal's content item specified by its identifier.
  */
 export function getContentItem(args: GetContentItemArgs, opts?: pulumi.InvokeOptions): Promise<GetContentItemResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230301preview:getContentItem", {
         "contentItemId": args.contentItemId,
@@ -61,13 +62,7 @@ export interface GetContentItemResult {
  * Returns the developer portal's content item specified by its identifier.
  */
 export function getContentItemOutput(args: GetContentItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentItemResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getContentItem", {
-        "contentItemId": args.contentItemId,
-        "contentTypeId": args.contentTypeId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getContentItem(a, opts))
 }
 
 export interface GetContentItemOutputArgs {

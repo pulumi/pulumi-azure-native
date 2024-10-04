@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * **Gets an access token for live metrics stream data.**
  */
 export function getLiveToken(args: GetLiveTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveTokenResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20211014:getLiveToken", {
         "resourceUri": args.resourceUri,
@@ -34,10 +35,7 @@ export interface GetLiveTokenResult {
  * **Gets an access token for live metrics stream data.**
  */
 export function getLiveTokenOutput(args: GetLiveTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveTokenResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights/v20211014:getLiveToken", {
-        "resourceUri": args.resourceUri,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLiveToken(a, opts))
 }
 
 export interface GetLiveTokenOutputArgs {

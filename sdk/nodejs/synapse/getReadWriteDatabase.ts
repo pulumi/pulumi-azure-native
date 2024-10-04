@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-06-01-preview.
  */
 export function getReadWriteDatabase(args: GetReadWriteDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadWriteDatabaseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:getReadWriteDatabase", {
         "databaseName": args.databaseName,
@@ -95,13 +96,7 @@ export interface GetReadWriteDatabaseResult {
  * Azure REST API version: 2021-06-01-preview.
  */
 export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadWriteDatabaseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:synapse:getReadWriteDatabase", {
-        "databaseName": args.databaseName,
-        "kustoPoolName": args.kustoPoolName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReadWriteDatabase(a, opts))
 }
 
 export interface GetReadWriteDatabaseOutputArgs {

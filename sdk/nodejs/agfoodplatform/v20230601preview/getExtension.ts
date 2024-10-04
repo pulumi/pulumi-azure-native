@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get installed extension details by extension id.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:agfoodplatform/v20230601preview:getExtension", {
         "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,
@@ -87,12 +88,7 @@ export interface GetExtensionResult {
  * Get installed extension details by extension id.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:agfoodplatform/v20230601preview:getExtension", {
-        "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,
-        "extensionId": args.extensionId,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getExtension(a, opts))
 }
 
 export interface GetExtensionOutputArgs {

@@ -191,6 +191,9 @@ def get_app_resiliency(app_name: Optional[str] = None,
         tcp_retry_policy=pulumi.get(__ret__, 'tcp_retry_policy'),
         timeout_policy=pulumi.get(__ret__, 'timeout_policy'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_app_resiliency)
 def get_app_resiliency_output(app_name: Optional[pulumi.Input[str]] = None,
                               name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -206,20 +209,4 @@ def get_app_resiliency_output(app_name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the resiliency policy.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['appName'] = app_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:app:getAppResiliency', __args__, opts=opts, typ=GetAppResiliencyResult)
-    return __ret__.apply(lambda __response__: GetAppResiliencyResult(
-        circuit_breaker_policy=pulumi.get(__response__, 'circuit_breaker_policy'),
-        http_connection_pool=pulumi.get(__response__, 'http_connection_pool'),
-        http_retry_policy=pulumi.get(__response__, 'http_retry_policy'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tcp_connection_pool=pulumi.get(__response__, 'tcp_connection_pool'),
-        tcp_retry_policy=pulumi.get(__response__, 'tcp_retry_policy'),
-        timeout_policy=pulumi.get(__response__, 'timeout_policy'),
-        type=pulumi.get(__response__, 'type')))
+    ...

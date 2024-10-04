@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an existing custom domain within an endpoint.
  */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20240501preview:getCustomDomain", {
         "customDomainName": args.customDomainName,
@@ -92,13 +93,7 @@ export interface GetCustomDomainResult {
  * Gets an existing custom domain within an endpoint.
  */
 export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cdn/v20240501preview:getCustomDomain", {
-        "customDomainName": args.customDomainName,
-        "endpointName": args.endpointName,
-        "profileName": args.profileName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCustomDomain(a, opts))
 }
 
 export interface GetCustomDomainOutputArgs {

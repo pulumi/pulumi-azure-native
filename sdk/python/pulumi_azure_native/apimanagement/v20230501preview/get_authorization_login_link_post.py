@@ -76,6 +76,9 @@ def get_authorization_login_link_post(authorization_id: Optional[str] = None,
 
     return AwaitableGetAuthorizationLoginLinkPostResult(
         login_link=pulumi.get(__ret__, 'login_link'))
+
+
+@_utilities.lift_output_func(get_authorization_login_link_post)
 def get_authorization_login_link_post_output(authorization_id: Optional[pulumi.Input[str]] = None,
                                              authorization_provider_id: Optional[pulumi.Input[str]] = None,
                                              post_login_redirect_url: Optional[pulumi.Input[Optional[str]]] = None,
@@ -92,13 +95,4 @@ def get_authorization_login_link_post_output(authorization_id: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['authorizationId'] = authorization_id
-    __args__['authorizationProviderId'] = authorization_provider_id
-    __args__['postLoginRedirectUrl'] = post_login_redirect_url
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:getAuthorizationLoginLinkPost', __args__, opts=opts, typ=GetAuthorizationLoginLinkPostResult)
-    return __ret__.apply(lambda __response__: GetAuthorizationLoginLinkPostResult(
-        login_link=pulumi.get(__response__, 'login_link')))
+    ...

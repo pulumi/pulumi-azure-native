@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a SuppressionList resource.
  */
 export function getSuppressionList(args: GetSuppressionListArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionListResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication/v20230601preview:getSuppressionList", {
         "domainName": args.domainName,
@@ -80,13 +81,7 @@ export interface GetSuppressionListResult {
  * Get a SuppressionList resource.
  */
 export function getSuppressionListOutput(args: GetSuppressionListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuppressionListResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:communication/v20230601preview:getSuppressionList", {
-        "domainName": args.domainName,
-        "emailServiceName": args.emailServiceName,
-        "resourceGroupName": args.resourceGroupName,
-        "suppressionListName": args.suppressionListName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSuppressionList(a, opts))
 }
 
 export interface GetSuppressionListOutputArgs {

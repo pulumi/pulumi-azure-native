@@ -244,6 +244,9 @@ def list_palo_alto_networks_cloudngfw_support_info(opts: Optional[pulumi.InvokeO
         register_url=pulumi.get(__ret__, 'register_url'),
         start_date_for_credits=pulumi.get(__ret__, 'start_date_for_credits'),
         support_url=pulumi.get(__ret__, 'support_url'))
+
+
+@_utilities.lift_output_func(list_palo_alto_networks_cloudngfw_support_info)
 def list_palo_alto_networks_cloudngfw_support_info_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPaloAltoNetworksCloudngfwSupportInfoResult]:
     """
     Support information for the service
@@ -251,22 +254,4 @@ def list_palo_alto_networks_cloudngfw_support_info_output(opts: Optional[pulumi.
 
     Other available API versions: 2024-01-19-preview.
     """
-    __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw:listPaloAltoNetworksCloudngfwSupportInfo', __args__, opts=opts, typ=ListPaloAltoNetworksCloudngfwSupportInfoResult)
-    return __ret__.apply(lambda __response__: ListPaloAltoNetworksCloudngfwSupportInfoResult(
-        account_id=pulumi.get(__response__, 'account_id'),
-        account_registration_status=pulumi.get(__response__, 'account_registration_status'),
-        credits=pulumi.get(__response__, 'credits'),
-        end_date_for_credits=pulumi.get(__response__, 'end_date_for_credits'),
-        free_trial=pulumi.get(__response__, 'free_trial'),
-        free_trial_credit_left=pulumi.get(__response__, 'free_trial_credit_left'),
-        free_trial_days_left=pulumi.get(__response__, 'free_trial_days_left'),
-        help_url=pulumi.get(__response__, 'help_url'),
-        hub_url=pulumi.get(__response__, 'hub_url'),
-        monthly_credit_left=pulumi.get(__response__, 'monthly_credit_left'),
-        product_serial=pulumi.get(__response__, 'product_serial'),
-        product_sku=pulumi.get(__response__, 'product_sku'),
-        register_url=pulumi.get(__response__, 'register_url'),
-        start_date_for_credits=pulumi.get(__response__, 'start_date_for_credits'),
-        support_url=pulumi.get(__response__, 'support_url')))
+    ...

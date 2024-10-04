@@ -302,6 +302,9 @@ def get_scope_access_review_history_definition_by_id(history_definition_id: Opti
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'),
         user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
+
+
+@_utilities.lift_output_func(get_scope_access_review_history_definition_by_id)
 def get_scope_access_review_history_definition_by_id_output(history_definition_id: Optional[pulumi.Input[str]] = None,
                                                             scope: Optional[pulumi.Input[str]] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeAccessReviewHistoryDefinitionByIdResult]:
@@ -312,28 +315,4 @@ def get_scope_access_review_history_definition_by_id_output(history_definition_i
     :param str history_definition_id: The id of the access review history definition.
     :param str scope: The scope of the resource.
     """
-    __args__ = dict()
-    __args__['historyDefinitionId'] = history_definition_id
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20211201preview:getScopeAccessReviewHistoryDefinitionById', __args__, opts=opts, typ=GetScopeAccessReviewHistoryDefinitionByIdResult)
-    return __ret__.apply(lambda __response__: GetScopeAccessReviewHistoryDefinitionByIdResult(
-        created_date_time=pulumi.get(__response__, 'created_date_time'),
-        decisions=pulumi.get(__response__, 'decisions'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        end_date=pulumi.get(__response__, 'end_date'),
-        id=pulumi.get(__response__, 'id'),
-        instances=pulumi.get(__response__, 'instances'),
-        interval=pulumi.get(__response__, 'interval'),
-        name=pulumi.get(__response__, 'name'),
-        number_of_occurrences=pulumi.get(__response__, 'number_of_occurrences'),
-        principal_id=pulumi.get(__response__, 'principal_id'),
-        principal_name=pulumi.get(__response__, 'principal_name'),
-        principal_type=pulumi.get(__response__, 'principal_type'),
-        review_history_period_end_date_time=pulumi.get(__response__, 'review_history_period_end_date_time'),
-        review_history_period_start_date_time=pulumi.get(__response__, 'review_history_period_start_date_time'),
-        scopes=pulumi.get(__response__, 'scopes'),
-        start_date=pulumi.get(__response__, 'start_date'),
-        status=pulumi.get(__response__, 'status'),
-        type=pulumi.get(__response__, 'type'),
-        user_principal_name=pulumi.get(__response__, 'user_principal_name')))
+    ...

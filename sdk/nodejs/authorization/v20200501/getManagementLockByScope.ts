@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a management lock by scope.
  */
 export function getManagementLockByScope(args: GetManagementLockByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockByScopeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20200501:getManagementLockByScope", {
         "lockName": args.lockName,
@@ -66,11 +67,7 @@ export interface GetManagementLockByScopeResult {
  * Get a management lock by scope.
  */
 export function getManagementLockByScopeOutput(args: GetManagementLockByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockByScopeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization/v20200501:getManagementLockByScope", {
-        "lockName": args.lockName,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagementLockByScope(a, opts))
 }
 
 export interface GetManagementLockByScopeOutputArgs {

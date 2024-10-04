@@ -356,6 +356,9 @@ def get_azure_cli_script(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timeout=pulumi.get(__ret__, 'timeout'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_azure_cli_script)
 def get_azure_cli_script_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                 script_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureCliScriptResult]:
@@ -367,32 +370,4 @@ def get_azure_cli_script_output(resource_group_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str script_name: Name of the deployment script.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['scriptName'] = script_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:resources:getAzureCliScript', __args__, opts=opts, typ=GetAzureCliScriptResult)
-    return __ret__.apply(lambda __response__: GetAzureCliScriptResult(
-        arguments=pulumi.get(__response__, 'arguments'),
-        az_cli_version=pulumi.get(__response__, 'az_cli_version'),
-        cleanup_preference=pulumi.get(__response__, 'cleanup_preference'),
-        container_settings=pulumi.get(__response__, 'container_settings'),
-        environment_variables=pulumi.get(__response__, 'environment_variables'),
-        force_update_tag=pulumi.get(__response__, 'force_update_tag'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        outputs=pulumi.get(__response__, 'outputs'),
-        primary_script_uri=pulumi.get(__response__, 'primary_script_uri'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        retention_interval=pulumi.get(__response__, 'retention_interval'),
-        script_content=pulumi.get(__response__, 'script_content'),
-        status=pulumi.get(__response__, 'status'),
-        storage_account_settings=pulumi.get(__response__, 'storage_account_settings'),
-        supporting_script_uris=pulumi.get(__response__, 'supporting_script_uris'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        timeout=pulumi.get(__response__, 'timeout'),
-        type=pulumi.get(__response__, 'type')))
+    ...

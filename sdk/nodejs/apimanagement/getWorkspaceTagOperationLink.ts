@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getWorkspaceTagOperationLink(args: GetWorkspaceTagOperationLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceTagOperationLinkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getWorkspaceTagOperationLink", {
         "operationLinkId": args.operationLinkId,
@@ -72,14 +73,7 @@ export interface GetWorkspaceTagOperationLinkResult {
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getWorkspaceTagOperationLinkOutput(args: GetWorkspaceTagOperationLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceTagOperationLinkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceTagOperationLink", {
-        "operationLinkId": args.operationLinkId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "tagId": args.tagId,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceTagOperationLink(a, opts))
 }
 
 export interface GetWorkspaceTagOperationLinkOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of an extension associated with a Visual Studio Team Services account resource.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:visualstudio/v20171101preview:getExtension", {
         "accountResourceName": args.accountResourceName,
@@ -71,12 +72,7 @@ export interface GetExtensionResult {
  * Gets the details of an extension associated with a Visual Studio Team Services account resource.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:visualstudio/v20171101preview:getExtension", {
-        "accountResourceName": args.accountResourceName,
-        "extensionResourceName": args.extensionResourceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getExtension(a, opts))
 }
 
 export interface GetExtensionOutputArgs {

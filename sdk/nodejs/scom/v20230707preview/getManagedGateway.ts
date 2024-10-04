@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve the details of the gateway resource.
  */
 export function getManagedGateway(args: GetManagedGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedGatewayResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scom/v20230707preview:getManagedGateway", {
         "instanceName": args.instanceName,
@@ -63,12 +64,7 @@ export interface GetManagedGatewayResult {
  * Retrieve the details of the gateway resource.
  */
 export function getManagedGatewayOutput(args: GetManagedGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedGatewayResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:scom/v20230707preview:getManagedGateway", {
-        "instanceName": args.instanceName,
-        "managedGatewayName": args.managedGatewayName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedGateway(a, opts))
 }
 
 export interface GetManagedGatewayOutputArgs {

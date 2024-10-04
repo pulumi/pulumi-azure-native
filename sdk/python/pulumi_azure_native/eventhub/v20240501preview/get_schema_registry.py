@@ -195,6 +195,9 @@ def get_schema_registry(namespace_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         updated_at_utc=pulumi.get(__ret__, 'updated_at_utc'))
+
+
+@_utilities.lift_output_func(get_schema_registry)
 def get_schema_registry_output(namespace_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                schema_group_name: Optional[pulumi.Input[str]] = None,
@@ -207,21 +210,4 @@ def get_schema_registry_output(namespace_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: Name of the resource group within the azure subscription.
     :param str schema_group_name: The Schema Group name 
     """
-    __args__ = dict()
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['schemaGroupName'] = schema_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub/v20240501preview:getSchemaRegistry', __args__, opts=opts, typ=GetSchemaRegistryResult)
-    return __ret__.apply(lambda __response__: GetSchemaRegistryResult(
-        created_at_utc=pulumi.get(__response__, 'created_at_utc'),
-        e_tag=pulumi.get(__response__, 'e_tag'),
-        group_properties=pulumi.get(__response__, 'group_properties'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        schema_compatibility=pulumi.get(__response__, 'schema_compatibility'),
-        schema_type=pulumi.get(__response__, 'schema_type'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        updated_at_utc=pulumi.get(__response__, 'updated_at_utc')))
+    ...

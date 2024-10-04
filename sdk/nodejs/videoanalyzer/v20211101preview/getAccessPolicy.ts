@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves an existing access policy resource with the given name.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20211101preview:getAccessPolicy", {
         "accessPolicyName": args.accessPolicyName,
@@ -67,12 +68,7 @@ export interface GetAccessPolicyResult {
  * Retrieves an existing access policy resource with the given name.
  */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:videoanalyzer/v20211101preview:getAccessPolicy", {
-        "accessPolicyName": args.accessPolicyName,
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))
 }
 
 export interface GetAccessPolicyOutputArgs {

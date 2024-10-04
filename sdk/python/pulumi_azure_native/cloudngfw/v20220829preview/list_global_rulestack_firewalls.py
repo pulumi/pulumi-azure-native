@@ -77,6 +77,9 @@ def list_global_rulestack_firewalls(global_rulestack_name: Optional[str] = None,
     return AwaitableListGlobalRulestackFirewallsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_global_rulestack_firewalls)
 def list_global_rulestack_firewalls_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGlobalRulestackFirewallsResult]:
     """
@@ -85,10 +88,4 @@ def list_global_rulestack_firewalls_output(global_rulestack_name: Optional[pulum
 
     :param str global_rulestack_name: GlobalRulestack resource name
     """
-    __args__ = dict()
-    __args__['globalRulestackName'] = global_rulestack_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20220829preview:listGlobalRulestackFirewalls', __args__, opts=opts, typ=ListGlobalRulestackFirewallsResult)
-    return __ret__.apply(lambda __response__: ListGlobalRulestackFirewallsResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

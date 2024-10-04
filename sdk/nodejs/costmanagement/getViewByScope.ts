@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
  */
 export function getViewByScope(args: GetViewByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetViewByScopeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement:getViewByScope", {
         "scope": args.scope,
@@ -120,11 +121,7 @@ export interface GetViewByScopeResult {
  * Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
  */
 export function getViewByScopeOutput(args: GetViewByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewByScopeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:costmanagement:getViewByScope", {
-        "scope": args.scope,
-        "viewName": args.viewName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getViewByScope(a, opts))
 }
 
 export interface GetViewByScopeOutputArgs {

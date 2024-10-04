@@ -226,6 +226,9 @@ def get_managed_environment(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vnet_configuration=pulumi.get(__ret__, 'vnet_configuration'))
+
+
+@_utilities.lift_output_func(get_managed_environment)
 def get_managed_environment_output(name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentResult]:
@@ -236,22 +239,4 @@ def get_managed_environment_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the Environment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20220101preview:getManagedEnvironment', __args__, opts=opts, typ=GetManagedEnvironmentResult)
-    return __ret__.apply(lambda __response__: GetManagedEnvironmentResult(
-        app_logs_configuration=pulumi.get(__response__, 'app_logs_configuration'),
-        dapr_ai_instrumentation_key=pulumi.get(__response__, 'dapr_ai_instrumentation_key'),
-        default_domain=pulumi.get(__response__, 'default_domain'),
-        deployment_errors=pulumi.get(__response__, 'deployment_errors'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        static_ip=pulumi.get(__response__, 'static_ip'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        vnet_configuration=pulumi.get(__response__, 'vnet_configuration')))
+    ...

@@ -120,6 +120,9 @@ def get_variable_value(variable_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         values=pulumi.get(__ret__, 'values'))
+
+
+@_utilities.lift_output_func(get_variable_value)
 def get_variable_value_output(variable_name: Optional[pulumi.Input[str]] = None,
                               variable_value_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableValueResult]:
@@ -130,14 +133,4 @@ def get_variable_value_output(variable_name: Optional[pulumi.Input[str]] = None,
     :param str variable_name: The name of the variable to operate on.
     :param str variable_value_name: The name of the variable value to operate on.
     """
-    __args__ = dict()
-    __args__['variableName'] = variable_name
-    __args__['variableValueName'] = variable_value_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20220801preview:getVariableValue', __args__, opts=opts, typ=GetVariableValueResult)
-    return __ret__.apply(lambda __response__: GetVariableValueResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        values=pulumi.get(__response__, 'values')))
+    ...

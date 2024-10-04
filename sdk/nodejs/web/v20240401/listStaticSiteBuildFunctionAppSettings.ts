@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Description for Gets the application settings of a static site build.
  */
 export function listStaticSiteBuildFunctionAppSettings(args: ListStaticSiteBuildFunctionAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteBuildFunctionAppSettingsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:listStaticSiteBuildFunctionAppSettings", {
         "environmentName": args.environmentName,
@@ -60,12 +61,7 @@ export interface ListStaticSiteBuildFunctionAppSettingsResult {
  * Description for Gets the application settings of a static site build.
  */
 export function listStaticSiteBuildFunctionAppSettingsOutput(args: ListStaticSiteBuildFunctionAppSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteBuildFunctionAppSettingsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:listStaticSiteBuildFunctionAppSettings", {
-        "environmentName": args.environmentName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listStaticSiteBuildFunctionAppSettings(a, opts))
 }
 
 export interface ListStaticSiteBuildFunctionAppSettingsOutputArgs {

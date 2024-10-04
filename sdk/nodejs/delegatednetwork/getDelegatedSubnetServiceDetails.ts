@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
  */
 export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedSubnetServiceDetailsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:delegatednetwork:getDelegatedSubnetServiceDetails", {
         "resourceGroupName": args.resourceGroupName,
@@ -80,11 +81,7 @@ export interface GetDelegatedSubnetServiceDetailsResult {
  * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
  */
 export function getDelegatedSubnetServiceDetailsOutput(args: GetDelegatedSubnetServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedSubnetServiceDetailsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:delegatednetwork:getDelegatedSubnetServiceDetails", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDelegatedSubnetServiceDetails(a, opts))
 }
 
 export interface GetDelegatedSubnetServiceDetailsOutputArgs {

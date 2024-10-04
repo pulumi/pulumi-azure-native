@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a BrokerListenerResource
  */
 export function getBrokerListener(args: GetBrokerListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerListenerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperations/v20240701preview:getBrokerListener", {
         "brokerName": args.brokerName,
@@ -72,13 +73,7 @@ export interface GetBrokerListenerResult {
  * Get a BrokerListenerResource
  */
 export function getBrokerListenerOutput(args: GetBrokerListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerListenerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:iotoperations/v20240701preview:getBrokerListener", {
-        "brokerName": args.brokerName,
-        "instanceName": args.instanceName,
-        "listenerName": args.listenerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBrokerListener(a, opts))
 }
 
 export interface GetBrokerListenerOutputArgs {

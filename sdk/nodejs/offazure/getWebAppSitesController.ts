@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-10-01-preview.
  */
 export function getWebAppSitesController(args: GetWebAppSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSitesControllerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure:getWebAppSitesController", {
         "resourceGroupName": args.resourceGroupName,
@@ -83,12 +84,7 @@ export interface GetWebAppSitesControllerResult {
  * Other available API versions: 2023-10-01-preview.
  */
 export function getWebAppSitesControllerOutput(args: GetWebAppSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSitesControllerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:offazure:getWebAppSitesController", {
-        "resourceGroupName": args.resourceGroupName,
-        "siteName": args.siteName,
-        "webAppSiteName": args.webAppSiteName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppSitesController(a, opts))
 }
 
 export interface GetWebAppSitesControllerOutputArgs {

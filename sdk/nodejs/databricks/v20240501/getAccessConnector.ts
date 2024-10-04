@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an Azure Databricks Access Connector.
  */
 export function getAccessConnector(args: GetAccessConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessConnectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databricks/v20240501:getAccessConnector", {
         "connectorName": args.connectorName,
@@ -70,11 +71,7 @@ export interface GetAccessConnectorResult {
  * Gets an Azure Databricks Access Connector.
  */
 export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessConnectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databricks/v20240501:getAccessConnector", {
-        "connectorName": args.connectorName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessConnector(a, opts))
 }
 
 export interface GetAccessConnectorOutputArgs {

@@ -106,6 +106,9 @@ def list_policy_fragment_references(id: Optional[str] = None,
         count=pulumi.get(__ret__, 'count'),
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_policy_fragment_references)
 def list_policy_fragment_references_output(id: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            service_name: Optional[pulumi.Input[str]] = None,
@@ -125,15 +128,4 @@ def list_policy_fragment_references_output(id: Optional[pulumi.Input[str]] = Non
     :param int skip: Number of records to skip.
     :param int top: Number of records to return.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    __args__['skip'] = skip
-    __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:listPolicyFragmentReferences', __args__, opts=opts, typ=ListPolicyFragmentReferencesResult)
-    return __ret__.apply(lambda __response__: ListPolicyFragmentReferencesResult(
-        count=pulumi.get(__response__, 'count'),
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

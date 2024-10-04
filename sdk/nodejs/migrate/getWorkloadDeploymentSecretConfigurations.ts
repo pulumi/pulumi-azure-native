@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-05-01-preview.
  */
 export function getWorkloadDeploymentSecretConfigurations(args: GetWorkloadDeploymentSecretConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadDeploymentSecretConfigurationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getWorkloadDeploymentSecretConfigurations", {
         "modernizeProjectName": args.modernizeProjectName,
@@ -71,13 +72,7 @@ export interface GetWorkloadDeploymentSecretConfigurationsResult {
  * Azure REST API version: 2022-05-01-preview.
  */
 export function getWorkloadDeploymentSecretConfigurationsOutput(args: GetWorkloadDeploymentSecretConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadDeploymentSecretConfigurationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate:getWorkloadDeploymentSecretConfigurations", {
-        "modernizeProjectName": args.modernizeProjectName,
-        "resourceGroupName": args.resourceGroupName,
-        "subscriptionId": args.subscriptionId,
-        "workloadDeploymentName": args.workloadDeploymentName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkloadDeploymentSecretConfigurations(a, opts))
 }
 
 export interface GetWorkloadDeploymentSecretConfigurationsOutputArgs {

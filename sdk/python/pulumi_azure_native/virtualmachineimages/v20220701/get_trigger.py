@@ -149,6 +149,9 @@ def get_trigger(image_template_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_trigger)
 def get_trigger_output(image_template_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        trigger_name: Optional[pulumi.Input[str]] = None,
@@ -161,17 +164,4 @@ def get_trigger_output(image_template_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str trigger_name: The name of the trigger
     """
-    __args__ = dict()
-    __args__['imageTemplateName'] = image_template_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['triggerName'] = trigger_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:virtualmachineimages/v20220701:getTrigger', __args__, opts=opts, typ=GetTriggerResult)
-    return __ret__.apply(lambda __response__: GetTriggerResult(
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns the cluster customer credentials for the dedicated appliance.
  */
 export function listApplianceKeys(args: ListApplianceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListApplianceKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resourceconnector/v20221027:listApplianceKeys", {
         "artifactType": args.artifactType,
@@ -55,12 +56,7 @@ export interface ListApplianceKeysResult {
  * Returns the cluster customer credentials for the dedicated appliance.
  */
 export function listApplianceKeysOutput(args: ListApplianceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:resourceconnector/v20221027:listApplianceKeys", {
-        "artifactType": args.artifactType,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listApplianceKeys(a, opts))
 }
 
 export interface ListApplianceKeysOutputArgs {

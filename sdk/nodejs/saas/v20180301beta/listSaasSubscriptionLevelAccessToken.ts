@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the ISV access token for a specified Subscription Level SaaS.
  */
 export function listSaasSubscriptionLevelAccessToken(args: ListSaasSubscriptionLevelAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListSaasSubscriptionLevelAccessTokenResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:saas/v20180301beta:listSaasSubscriptionLevelAccessToken", {
         "resourceGroupName": args.resourceGroupName,
@@ -43,11 +44,7 @@ export interface ListSaasSubscriptionLevelAccessTokenResult {
  * Gets the ISV access token for a specified Subscription Level SaaS.
  */
 export function listSaasSubscriptionLevelAccessTokenOutput(args: ListSaasSubscriptionLevelAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSaasSubscriptionLevelAccessTokenResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:saas/v20180301beta:listSaasSubscriptionLevelAccessToken", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listSaasSubscriptionLevelAccessToken(a, opts))
 }
 
 export interface ListSaasSubscriptionLevelAccessTokenOutputArgs {

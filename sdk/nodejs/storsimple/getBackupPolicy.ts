@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-06-01.
  */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple:getBackupPolicy", {
         "backupPolicyName": args.backupPolicyName,
@@ -91,13 +92,7 @@ export interface GetBackupPolicyResult {
  * Azure REST API version: 2017-06-01.
  */
 export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storsimple:getBackupPolicy", {
-        "backupPolicyName": args.backupPolicyName,
-        "deviceName": args.deviceName,
-        "managerName": args.managerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBackupPolicy(a, opts))
 }
 
 export interface GetBackupPolicyOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a devcenter.
  */
 export function getDevCenter(args: GetDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetDevCenterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20230801preview:getDevCenter", {
         "devCenterName": args.devCenterName,
@@ -78,11 +79,7 @@ export interface GetDevCenterResult {
  * Gets a devcenter.
  */
 export function getDevCenterOutput(args: GetDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevCenterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20230801preview:getDevCenter", {
-        "devCenterName": args.devCenterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDevCenter(a, opts))
 }
 
 export interface GetDevCenterOutputArgs {

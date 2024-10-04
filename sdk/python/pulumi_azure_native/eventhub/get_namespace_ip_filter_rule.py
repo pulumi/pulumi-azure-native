@@ -136,6 +136,9 @@ def get_namespace_ip_filter_rule(ip_filter_rule_name: Optional[str] = None,
         ip_mask=pulumi.get(__ret__, 'ip_mask'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_namespace_ip_filter_rule)
 def get_namespace_ip_filter_rule_output(ip_filter_rule_name: Optional[pulumi.Input[str]] = None,
                                         namespace_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -149,16 +152,4 @@ def get_namespace_ip_filter_rule_output(ip_filter_rule_name: Optional[pulumi.Inp
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    __args__ = dict()
-    __args__['ipFilterRuleName'] = ip_filter_rule_name
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub:getNamespaceIpFilterRule', __args__, opts=opts, typ=GetNamespaceIpFilterRuleResult)
-    return __ret__.apply(lambda __response__: GetNamespaceIpFilterRuleResult(
-        action=pulumi.get(__response__, 'action'),
-        filter_name=pulumi.get(__response__, 'filter_name'),
-        id=pulumi.get(__response__, 'id'),
-        ip_mask=pulumi.get(__response__, 'ip_mask'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

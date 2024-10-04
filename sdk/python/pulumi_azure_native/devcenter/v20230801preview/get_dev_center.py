@@ -185,6 +185,9 @@ def get_dev_center(dev_center_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_dev_center)
 def get_dev_center_output(dev_center_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevCenterResult]:
@@ -195,19 +198,4 @@ def get_dev_center_output(dev_center_name: Optional[pulumi.Input[str]] = None,
     :param str dev_center_name: The name of the devcenter.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['devCenterName'] = dev_center_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20230801preview:getDevCenter', __args__, opts=opts, typ=GetDevCenterResult)
-    return __ret__.apply(lambda __response__: GetDevCenterResult(
-        dev_center_uri=pulumi.get(__response__, 'dev_center_uri'),
-        encryption=pulumi.get(__response__, 'encryption'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

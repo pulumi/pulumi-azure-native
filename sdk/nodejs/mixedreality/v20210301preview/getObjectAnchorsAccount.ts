@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve an Object Anchors Account.
  */
 export function getObjectAnchorsAccount(args: GetObjectAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectAnchorsAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mixedreality/v20210301preview:getObjectAnchorsAccount", {
         "accountName": args.accountName,
@@ -87,11 +88,7 @@ export interface GetObjectAnchorsAccountResult {
  * Retrieve an Object Anchors Account.
  */
 export function getObjectAnchorsAccountOutput(args: GetObjectAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectAnchorsAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mixedreality/v20210301preview:getObjectAnchorsAccount", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getObjectAnchorsAccount(a, opts))
 }
 
 export interface GetObjectAnchorsAccountOutputArgs {

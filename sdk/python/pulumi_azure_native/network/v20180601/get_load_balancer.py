@@ -266,6 +266,9 @@ def get_load_balancer(expand: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_load_balancer)
 def get_load_balancer_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                              load_balancer_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -278,26 +281,4 @@ def get_load_balancer_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['loadBalancerName'] = load_balancer_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20180601:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
-    return __ret__.apply(lambda __response__: GetLoadBalancerResult(
-        backend_address_pools=pulumi.get(__response__, 'backend_address_pools'),
-        etag=pulumi.get(__response__, 'etag'),
-        frontend_ip_configurations=pulumi.get(__response__, 'frontend_ip_configurations'),
-        id=pulumi.get(__response__, 'id'),
-        inbound_nat_pools=pulumi.get(__response__, 'inbound_nat_pools'),
-        inbound_nat_rules=pulumi.get(__response__, 'inbound_nat_rules'),
-        load_balancing_rules=pulumi.get(__response__, 'load_balancing_rules'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        outbound_nat_rules=pulumi.get(__response__, 'outbound_nat_rules'),
-        probes=pulumi.get(__response__, 'probes'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_guid=pulumi.get(__response__, 'resource_guid'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

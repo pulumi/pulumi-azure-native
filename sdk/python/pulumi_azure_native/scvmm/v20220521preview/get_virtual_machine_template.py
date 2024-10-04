@@ -380,6 +380,9 @@ def get_virtual_machine_template(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
+
+
+@_utilities.lift_output_func(get_virtual_machine_template)
 def get_virtual_machine_template_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         virtual_machine_template_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineTemplateResult]:
@@ -390,34 +393,4 @@ def get_virtual_machine_template_output(resource_group_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group.
     :param str virtual_machine_template_name: Name of the VirtualMachineTemplate.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualMachineTemplateName'] = virtual_machine_template_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm/v20220521preview:getVirtualMachineTemplate', __args__, opts=opts, typ=GetVirtualMachineTemplateResult)
-    return __ret__.apply(lambda __response__: GetVirtualMachineTemplateResult(
-        computer_name=pulumi.get(__response__, 'computer_name'),
-        cpu_count=pulumi.get(__response__, 'cpu_count'),
-        disks=pulumi.get(__response__, 'disks'),
-        dynamic_memory_enabled=pulumi.get(__response__, 'dynamic_memory_enabled'),
-        dynamic_memory_max_mb=pulumi.get(__response__, 'dynamic_memory_max_mb'),
-        dynamic_memory_min_mb=pulumi.get(__response__, 'dynamic_memory_min_mb'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        generation=pulumi.get(__response__, 'generation'),
-        id=pulumi.get(__response__, 'id'),
-        inventory_item_id=pulumi.get(__response__, 'inventory_item_id'),
-        is_customizable=pulumi.get(__response__, 'is_customizable'),
-        is_highly_available=pulumi.get(__response__, 'is_highly_available'),
-        limit_cpu_for_migration=pulumi.get(__response__, 'limit_cpu_for_migration'),
-        location=pulumi.get(__response__, 'location'),
-        memory_mb=pulumi.get(__response__, 'memory_mb'),
-        name=pulumi.get(__response__, 'name'),
-        network_interfaces=pulumi.get(__response__, 'network_interfaces'),
-        os_name=pulumi.get(__response__, 'os_name'),
-        os_type=pulumi.get(__response__, 'os_type'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        uuid=pulumi.get(__response__, 'uuid'),
-        vmm_server_id=pulumi.get(__response__, 'vmm_server_id')))
+    ...

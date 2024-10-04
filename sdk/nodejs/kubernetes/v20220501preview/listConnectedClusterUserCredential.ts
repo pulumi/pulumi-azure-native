@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets cluster user credentials of the connected cluster with a specified resource group and name.
  */
 export function listConnectedClusterUserCredential(args: ListConnectedClusterUserCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectedClusterUserCredentialResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetes/v20220501preview:listConnectedClusterUserCredential", {
         "authenticationMethod": args.authenticationMethod,
@@ -56,13 +57,7 @@ export interface ListConnectedClusterUserCredentialResult {
  * Gets cluster user credentials of the connected cluster with a specified resource group and name.
  */
 export function listConnectedClusterUserCredentialOutput(args: ListConnectedClusterUserCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedClusterUserCredentialResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:kubernetes/v20220501preview:listConnectedClusterUserCredential", {
-        "authenticationMethod": args.authenticationMethod,
-        "clientProxy": args.clientProxy,
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listConnectedClusterUserCredential(a, opts))
 }
 
 export interface ListConnectedClusterUserCredentialOutputArgs {

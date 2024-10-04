@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get domain ownership identifier for web app.
  */
 export function getWebAppDomainOwnershipIdentifierSlot(args: GetWebAppDomainOwnershipIdentifierSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20181101:getWebAppDomainOwnershipIdentifierSlot", {
         "domainOwnershipIdentifierName": args.domainOwnershipIdentifierName,
@@ -61,13 +62,7 @@ export interface GetWebAppDomainOwnershipIdentifierSlotResult {
  * Get domain ownership identifier for web app.
  */
 export function getWebAppDomainOwnershipIdentifierSlotOutput(args: GetWebAppDomainOwnershipIdentifierSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20181101:getWebAppDomainOwnershipIdentifierSlot", {
-        "domainOwnershipIdentifierName": args.domainOwnershipIdentifierName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppDomainOwnershipIdentifierSlot(a, opts))
 }
 
 export interface GetWebAppDomainOwnershipIdentifierSlotOutputArgs {

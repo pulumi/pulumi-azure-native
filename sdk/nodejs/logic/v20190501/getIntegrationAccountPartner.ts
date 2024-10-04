@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an integration account partner.
  */
 export function getIntegrationAccountPartner(args: GetIntegrationAccountPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountPartnerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20190501:getIntegrationAccountPartner", {
         "integrationAccountName": args.integrationAccountName,
@@ -83,12 +84,7 @@ export interface GetIntegrationAccountPartnerResult {
  * Gets an integration account partner.
  */
 export function getIntegrationAccountPartnerOutput(args: GetIntegrationAccountPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountPartnerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic/v20190501:getIntegrationAccountPartner", {
-        "integrationAccountName": args.integrationAccountName,
-        "partnerName": args.partnerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIntegrationAccountPartner(a, opts))
 }
 
 export interface GetIntegrationAccountPartnerOutputArgs {

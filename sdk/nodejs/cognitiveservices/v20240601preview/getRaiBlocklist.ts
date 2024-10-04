@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified custom blocklist associated with the Azure OpenAI account.
  */
 export function getRaiBlocklist(args: GetRaiBlocklistArgs, opts?: pulumi.InvokeOptions): Promise<GetRaiBlocklistResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20240601preview:getRaiBlocklist", {
         "accountName": args.accountName,
@@ -71,12 +72,7 @@ export interface GetRaiBlocklistResult {
  * Gets the specified custom blocklist associated with the Azure OpenAI account.
  */
 export function getRaiBlocklistOutput(args: GetRaiBlocklistOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiBlocklistResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20240601preview:getRaiBlocklist", {
-        "accountName": args.accountName,
-        "raiBlocklistName": args.raiBlocklistName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRaiBlocklist(a, opts))
 }
 
 export interface GetRaiBlocklistOutputArgs {

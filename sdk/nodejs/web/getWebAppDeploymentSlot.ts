@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getWebAppDeploymentSlot(args: GetWebAppDeploymentSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentSlotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getWebAppDeploymentSlot", {
         "id": args.id,
@@ -103,13 +104,7 @@ export interface GetWebAppDeploymentSlotResult {
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getWebAppDeploymentSlotOutput(args: GetWebAppDeploymentSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDeploymentSlotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web:getWebAppDeploymentSlot", {
-        "id": args.id,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppDeploymentSlot(a, opts))
 }
 
 export interface GetWebAppDeploymentSlotOutputArgs {

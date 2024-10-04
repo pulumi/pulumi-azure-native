@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2016-11-01.
  */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datalakestore:getVirtualNetworkRule", {
         "accountName": args.accountName,
@@ -58,12 +59,7 @@ export interface GetVirtualNetworkRuleResult {
  * Azure REST API version: 2016-11-01.
  */
 export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datalakestore:getVirtualNetworkRule", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "virtualNetworkRuleName": args.virtualNetworkRuleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkRule(a, opts))
 }
 
 export interface GetVirtualNetworkRuleOutputArgs {

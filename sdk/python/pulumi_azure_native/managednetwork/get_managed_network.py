@@ -173,6 +173,9 @@ def get_managed_network(managed_network_name: Optional[str] = None,
         scope=pulumi.get(__ret__, 'scope'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_managed_network)
 def get_managed_network_output(managed_network_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedNetworkResult]:
@@ -184,18 +187,4 @@ def get_managed_network_output(managed_network_name: Optional[pulumi.Input[str]]
     :param str managed_network_name: The name of the Managed Network.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['managedNetworkName'] = managed_network_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetwork:getManagedNetwork', __args__, opts=opts, typ=GetManagedNetworkResult)
-    return __ret__.apply(lambda __response__: GetManagedNetworkResult(
-        connectivity=pulumi.get(__response__, 'connectivity'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        scope=pulumi.get(__response__, 'scope'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the product specified by its identifier.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:getProduct", {
         "productId": args.productId,
@@ -80,12 +81,7 @@ export interface GetProductResult {
  * Gets the details of the product specified by its identifier.
  */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getProduct", {
-        "productId": args.productId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProduct(a, opts))
 }
 
 export interface GetProductOutputArgs {

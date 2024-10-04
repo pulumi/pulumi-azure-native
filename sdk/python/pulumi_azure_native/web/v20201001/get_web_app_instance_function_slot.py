@@ -295,6 +295,9 @@ def get_web_app_instance_function_slot(function_name: Optional[str] = None,
         test_data=pulumi.get(__ret__, 'test_data'),
         test_data_href=pulumi.get(__ret__, 'test_data_href'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_web_app_instance_function_slot)
 def get_web_app_instance_function_slot_output(function_name: Optional[pulumi.Input[str]] = None,
                                               name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -309,29 +312,4 @@ def get_web_app_instance_function_slot_output(function_name: Optional[pulumi.Inp
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot.
     """
-    __args__ = dict()
-    __args__['functionName'] = function_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:getWebAppInstanceFunctionSlot', __args__, opts=opts, typ=GetWebAppInstanceFunctionSlotResult)
-    return __ret__.apply(lambda __response__: GetWebAppInstanceFunctionSlotResult(
-        config=pulumi.get(__response__, 'config'),
-        config_href=pulumi.get(__response__, 'config_href'),
-        files=pulumi.get(__response__, 'files'),
-        function_app_id=pulumi.get(__response__, 'function_app_id'),
-        href=pulumi.get(__response__, 'href'),
-        id=pulumi.get(__response__, 'id'),
-        invoke_url_template=pulumi.get(__response__, 'invoke_url_template'),
-        is_disabled=pulumi.get(__response__, 'is_disabled'),
-        kind=pulumi.get(__response__, 'kind'),
-        language=pulumi.get(__response__, 'language'),
-        name=pulumi.get(__response__, 'name'),
-        script_href=pulumi.get(__response__, 'script_href'),
-        script_root_path_href=pulumi.get(__response__, 'script_root_path_href'),
-        secrets_file_href=pulumi.get(__response__, 'secrets_file_href'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        test_data=pulumi.get(__response__, 'test_data'),
-        test_data_href=pulumi.get(__response__, 'test_data_href'),
-        type=pulumi.get(__response__, 'type')))
+    ...

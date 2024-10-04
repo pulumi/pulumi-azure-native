@@ -243,6 +243,9 @@ def get_api(api_name: Optional[str] = None,
         terms_of_service=pulumi.get(__ret__, 'terms_of_service'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_api)
 def get_api_output(api_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    service_name: Optional[pulumi.Input[str]] = None,
@@ -257,25 +260,4 @@ def get_api_output(api_name: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of Azure API Center service.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['apiName'] = api_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter/v20240315preview:getApi', __args__, opts=opts, typ=GetApiResult)
-    return __ret__.apply(lambda __response__: GetApiResult(
-        contacts=pulumi.get(__response__, 'contacts'),
-        custom_properties=pulumi.get(__response__, 'custom_properties'),
-        description=pulumi.get(__response__, 'description'),
-        external_documentation=pulumi.get(__response__, 'external_documentation'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        license=pulumi.get(__response__, 'license'),
-        lifecycle_stage=pulumi.get(__response__, 'lifecycle_stage'),
-        name=pulumi.get(__response__, 'name'),
-        summary=pulumi.get(__response__, 'summary'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        terms_of_service=pulumi.get(__response__, 'terms_of_service'),
-        title=pulumi.get(__response__, 'title'),
-        type=pulumi.get(__response__, 'type')))
+    ...

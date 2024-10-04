@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
  */
 export function getCassandraResourceCassandraKeyspace(args: GetCassandraResourceCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraKeyspaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20231115:getCassandraResourceCassandraKeyspace", {
         "accountName": args.accountName,
@@ -65,12 +66,7 @@ export interface GetCassandraResourceCassandraKeyspaceResult {
  * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
  */
 export function getCassandraResourceCassandraKeyspaceOutput(args: GetCassandraResourceCassandraKeyspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraKeyspaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20231115:getCassandraResourceCassandraKeyspace", {
-        "accountName": args.accountName,
-        "keyspaceName": args.keyspaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCassandraResourceCassandraKeyspace(a, opts))
 }
 
 export interface GetCassandraResourceCassandraKeyspaceOutputArgs {

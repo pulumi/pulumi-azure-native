@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets properties of a virtual network link to a DNS forwarding ruleset.
  */
 export function getPrivateResolverVirtualNetworkLink(args: GetPrivateResolverVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateResolverVirtualNetworkLinkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220701:getPrivateResolverVirtualNetworkLink", {
         "dnsForwardingRulesetName": args.dnsForwardingRulesetName,
@@ -75,12 +76,7 @@ export interface GetPrivateResolverVirtualNetworkLinkResult {
  * Gets properties of a virtual network link to a DNS forwarding ruleset.
  */
 export function getPrivateResolverVirtualNetworkLinkOutput(args: GetPrivateResolverVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateResolverVirtualNetworkLinkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20220701:getPrivateResolverVirtualNetworkLink", {
-        "dnsForwardingRulesetName": args.dnsForwardingRulesetName,
-        "resourceGroupName": args.resourceGroupName,
-        "virtualNetworkLinkName": args.virtualNetworkLinkName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateResolverVirtualNetworkLink(a, opts))
 }
 
 export interface GetPrivateResolverVirtualNetworkLinkOutputArgs {

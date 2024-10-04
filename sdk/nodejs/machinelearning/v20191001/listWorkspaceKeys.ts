@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * List the authorization keys associated with this workspace.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearning/v20191001:listWorkspaceKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -43,11 +44,7 @@ export interface ListWorkspaceKeysResult {
  * List the authorization keys associated with this workspace.
  */
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearning/v20191001:listWorkspaceKeys", {
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWorkspaceKeys(a, opts))
 }
 
 export interface ListWorkspaceKeysOutputArgs {

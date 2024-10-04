@@ -8,6 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getMetricsSource(args: GetMetricsSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricsSourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz/v20220101preview:getMetricsSource", {
         "metricsSourceName": args.metricsSourceName,
@@ -57,12 +58,7 @@ export interface GetMetricsSourceResult {
     readonly type: string;
 }
 export function getMetricsSourceOutput(args: GetMetricsSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsSourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logz/v20220101preview:getMetricsSource", {
-        "metricsSourceName": args.metricsSourceName,
-        "monitorName": args.monitorName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMetricsSource(a, opts))
 }
 
 export interface GetMetricsSourceOutputArgs {

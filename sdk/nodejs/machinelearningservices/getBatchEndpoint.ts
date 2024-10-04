@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getBatchEndpoint(args: GetBatchEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getBatchEndpoint", {
         "endpointName": args.endpointName,
@@ -84,12 +85,7 @@ export interface GetBatchEndpointResult {
  * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getBatchEndpointOutput(args: GetBatchEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getBatchEndpoint", {
-        "endpointName": args.endpointName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBatchEndpoint(a, opts))
 }
 
 export interface GetBatchEndpointOutputArgs {

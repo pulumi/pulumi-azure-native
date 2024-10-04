@@ -117,6 +117,9 @@ def get_connector(connector_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_connector)
 def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
@@ -125,13 +128,4 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
 
     :param str connector_name: Name of the cloud account connector
     """
-    __args__ = dict()
-    __args__['connectorName'] = connector_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20200101preview:getConnector', __args__, opts=opts, typ=GetConnectorResult)
-    return __ret__.apply(lambda __response__: GetConnectorResult(
-        authentication_details=pulumi.get(__response__, 'authentication_details'),
-        hybrid_compute_settings=pulumi.get(__response__, 'hybrid_compute_settings'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a SchemaRegistry
  */
 export function getSchemaRegistry(args: GetSchemaRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceregistry/v20240901preview:getSchemaRegistry", {
         "resourceGroupName": args.resourceGroupName,
@@ -90,11 +91,7 @@ export interface GetSchemaRegistryResult {
  * Get a SchemaRegistry
  */
 export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:deviceregistry/v20240901preview:getSchemaRegistry", {
-        "resourceGroupName": args.resourceGroupName,
-        "schemaRegistryName": args.schemaRegistryName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSchemaRegistry(a, opts))
 }
 
 export interface GetSchemaRegistryOutputArgs {

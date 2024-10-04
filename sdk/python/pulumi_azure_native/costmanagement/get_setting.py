@@ -144,6 +144,9 @@ def get_setting(setting_name: Optional[str] = None,
         scope=pulumi.get(__ret__, 'scope'),
         start_on=pulumi.get(__ret__, 'start_on'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_setting)
 def get_setting_output(setting_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSettingResult]:
     """
@@ -153,15 +156,4 @@ def get_setting_output(setting_name: Optional[pulumi.Input[str]] = None,
 
     :param str setting_name: Name of the setting. Allowed values: myscope
     """
-    __args__ = dict()
-    __args__['settingName'] = setting_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getSetting', __args__, opts=opts, typ=GetSettingResult)
-    return __ret__.apply(lambda __response__: GetSettingResult(
-        cache=pulumi.get(__response__, 'cache'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        scope=pulumi.get(__response__, 'scope'),
-        start_on=pulumi.get(__response__, 'start_on'),
-        type=pulumi.get(__response__, 'type')))
+    ...

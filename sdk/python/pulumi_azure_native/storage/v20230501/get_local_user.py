@@ -266,6 +266,9 @@ def get_local_user(account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         user_id=pulumi.get(__ret__, 'user_id'))
+
+
+@_utilities.lift_output_func(get_local_user)
 def get_local_user_output(account_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           username: Optional[pulumi.Input[str]] = None,
@@ -278,26 +281,4 @@ def get_local_user_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str username: The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['username'] = username
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230501:getLocalUser', __args__, opts=opts, typ=GetLocalUserResult)
-    return __ret__.apply(lambda __response__: GetLocalUserResult(
-        allow_acl_authorization=pulumi.get(__response__, 'allow_acl_authorization'),
-        extended_groups=pulumi.get(__response__, 'extended_groups'),
-        group_id=pulumi.get(__response__, 'group_id'),
-        has_shared_key=pulumi.get(__response__, 'has_shared_key'),
-        has_ssh_key=pulumi.get(__response__, 'has_ssh_key'),
-        has_ssh_password=pulumi.get(__response__, 'has_ssh_password'),
-        home_directory=pulumi.get(__response__, 'home_directory'),
-        id=pulumi.get(__response__, 'id'),
-        is_nf_sv3_enabled=pulumi.get(__response__, 'is_nf_sv3_enabled'),
-        name=pulumi.get(__response__, 'name'),
-        permission_scopes=pulumi.get(__response__, 'permission_scopes'),
-        sid=pulumi.get(__response__, 'sid'),
-        ssh_authorized_keys=pulumi.get(__response__, 'ssh_authorized_keys'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        user_id=pulumi.get(__response__, 'user_id')))
+    ...

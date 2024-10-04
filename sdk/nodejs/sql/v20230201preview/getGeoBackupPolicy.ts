@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a Geo backup policy for the given database resource.
  */
 export function getGeoBackupPolicy(args: GetGeoBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGeoBackupPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230201preview:getGeoBackupPolicy", {
         "databaseName": args.databaseName,
@@ -73,13 +74,7 @@ export interface GetGeoBackupPolicyResult {
  * Gets a Geo backup policy for the given database resource.
  */
 export function getGeoBackupPolicyOutput(args: GetGeoBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeoBackupPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20230201preview:getGeoBackupPolicy", {
-        "databaseName": args.databaseName,
-        "geoBackupPolicyName": args.geoBackupPolicyName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGeoBackupPolicy(a, opts))
 }
 
 export interface GetGeoBackupPolicyOutputArgs {

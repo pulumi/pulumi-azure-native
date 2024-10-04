@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the Shared Access Authorization Token for the User.
  */
 export function getUserSharedAccessToken(args: GetUserSharedAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSharedAccessTokenResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getUserSharedAccessToken", {
         "expiry": args.expiry,
@@ -57,14 +58,7 @@ export interface GetUserSharedAccessTokenResult {
  * Gets the Shared Access Authorization Token for the User.
  */
 export function getUserSharedAccessTokenOutput(args: GetUserSharedAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSharedAccessTokenResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getUserSharedAccessToken", {
-        "expiry": args.expiry,
-        "keyType": args.keyType,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "userId": args.userId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUserSharedAccessToken(a, opts))
 }
 
 export interface GetUserSharedAccessTokenOutputArgs {

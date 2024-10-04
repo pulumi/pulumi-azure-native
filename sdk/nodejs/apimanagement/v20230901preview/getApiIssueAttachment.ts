@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the issue Attachment for an API specified by its identifier.
  */
 export function getApiIssueAttachment(args: GetApiIssueAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueAttachmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:getApiIssueAttachment", {
         "apiId": args.apiId,
@@ -74,14 +75,7 @@ export interface GetApiIssueAttachmentResult {
  * Gets the details of the issue Attachment for an API specified by its identifier.
  */
 export function getApiIssueAttachmentOutput(args: GetApiIssueAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueAttachmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getApiIssueAttachment", {
-        "apiId": args.apiId,
-        "attachmentId": args.attachmentId,
-        "issueId": args.issueId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApiIssueAttachment(a, opts))
 }
 
 export interface GetApiIssueAttachmentOutputArgs {

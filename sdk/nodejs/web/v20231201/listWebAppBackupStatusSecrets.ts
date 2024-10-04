@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Description for Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
  */
 export function listWebAppBackupStatusSecrets(args: ListWebAppBackupStatusSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupStatusSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20231201:listWebAppBackupStatusSecrets", {
         "backupId": args.backupId,
@@ -141,18 +142,7 @@ export interface ListWebAppBackupStatusSecretsResult {
  * Description for Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
  */
 export function listWebAppBackupStatusSecretsOutput(args: ListWebAppBackupStatusSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupStatusSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20231201:listWebAppBackupStatusSecrets", {
-        "backupId": args.backupId,
-        "backupName": args.backupName,
-        "backupSchedule": args.backupSchedule ? pulumi.output(args.backupSchedule).apply(inputs.web.v20231201.backupScheduleProvideDefaults) : undefined,
-        "databases": args.databases,
-        "enabled": args.enabled,
-        "kind": args.kind,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "storageAccountUrl": args.storageAccountUrl,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWebAppBackupStatusSecrets(a, opts))
 }
 
 export interface ListWebAppBackupStatusSecretsOutputArgs {

@@ -165,6 +165,9 @@ def get_namespace_topic_event_subscription(event_subscription_name: Optional[str
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_namespace_topic_event_subscription)
 def get_namespace_topic_event_subscription_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                   namespace_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -179,19 +182,4 @@ def get_namespace_topic_event_subscription_output(event_subscription_name: Optio
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the namespace topic.
     """
-    __args__ = dict()
-    __args__['eventSubscriptionName'] = event_subscription_name
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['topicName'] = topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20230601preview:getNamespaceTopicEventSubscription', __args__, opts=opts, typ=GetNamespaceTopicEventSubscriptionResult)
-    return __ret__.apply(lambda __response__: GetNamespaceTopicEventSubscriptionResult(
-        delivery_configuration=pulumi.get(__response__, 'delivery_configuration'),
-        event_delivery_schema=pulumi.get(__response__, 'event_delivery_schema'),
-        filters_configuration=pulumi.get(__response__, 'filters_configuration'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

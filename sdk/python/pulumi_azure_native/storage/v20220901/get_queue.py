@@ -119,6 +119,9 @@ def get_queue(account_name: Optional[str] = None,
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_queue)
 def get_queue_output(account_name: Optional[pulumi.Input[str]] = None,
                      queue_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -131,15 +134,4 @@ def get_queue_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str queue_name: A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['queueName'] = queue_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20220901:getQueue', __args__, opts=opts, typ=GetQueueResult)
-    return __ret__.apply(lambda __response__: GetQueueResult(
-        approximate_message_count=pulumi.get(__response__, 'approximate_message_count'),
-        id=pulumi.get(__response__, 'id'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

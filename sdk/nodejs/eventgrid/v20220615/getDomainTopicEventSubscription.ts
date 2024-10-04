@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of a nested event subscription for a domain topic.
  */
 export function getDomainTopicEventSubscription(args: GetDomainTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicEventSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20220615:getDomainTopicEventSubscription", {
         "domainName": args.domainName,
@@ -112,13 +113,7 @@ export interface GetDomainTopicEventSubscriptionResult {
  * Get properties of a nested event subscription for a domain topic.
  */
 export function getDomainTopicEventSubscriptionOutput(args: GetDomainTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicEventSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20220615:getDomainTopicEventSubscription", {
-        "domainName": args.domainName,
-        "eventSubscriptionName": args.eventSubscriptionName,
-        "resourceGroupName": args.resourceGroupName,
-        "topicName": args.topicName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDomainTopicEventSubscription(a, opts))
 }
 
 export interface GetDomainTopicEventSubscriptionOutputArgs {

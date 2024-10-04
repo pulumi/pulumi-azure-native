@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
  */
 export function listDnsResolverByVirtualNetwork(args: ListDnsResolverByVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<ListDnsResolverByVirtualNetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:listDnsResolverByVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,
@@ -57,12 +58,7 @@ export interface ListDnsResolverByVirtualNetworkResult {
  * Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
  */
 export function listDnsResolverByVirtualNetworkOutput(args: ListDnsResolverByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsResolverByVirtualNetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:listDnsResolverByVirtualNetwork", {
-        "resourceGroupName": args.resourceGroupName,
-        "top": args.top,
-        "virtualNetworkName": args.virtualNetworkName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listDnsResolverByVirtualNetwork(a, opts))
 }
 
 export interface ListDnsResolverByVirtualNetworkOutputArgs {

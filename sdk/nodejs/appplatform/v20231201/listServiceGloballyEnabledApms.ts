@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * List globally enabled APMs for a Service.
  */
 export function listServiceGloballyEnabledApms(args: ListServiceGloballyEnabledApmsArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceGloballyEnabledApmsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20231201:listServiceGloballyEnabledApms", {
         "resourceGroupName": args.resourceGroupName,
@@ -39,11 +40,7 @@ export interface ListServiceGloballyEnabledApmsResult {
  * List globally enabled APMs for a Service.
  */
 export function listServiceGloballyEnabledApmsOutput(args: ListServiceGloballyEnabledApmsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceGloballyEnabledApmsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231201:listServiceGloballyEnabledApms", {
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listServiceGloballyEnabledApms(a, opts))
 }
 
 export interface ListServiceGloballyEnabledApmsOutputArgs {

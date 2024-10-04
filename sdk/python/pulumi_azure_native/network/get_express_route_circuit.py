@@ -357,6 +357,9 @@ def get_express_route_circuit(circuit_name: Optional[str] = None,
         stag=pulumi.get(__ret__, 'stag'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_express_route_circuit)
 def get_express_route_circuit_output(circuit_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitResult]:
@@ -370,32 +373,4 @@ def get_express_route_circuit_output(circuit_name: Optional[pulumi.Input[str]] =
     :param str circuit_name: The name of express route circuit.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['circuitName'] = circuit_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getExpressRouteCircuit', __args__, opts=opts, typ=GetExpressRouteCircuitResult)
-    return __ret__.apply(lambda __response__: GetExpressRouteCircuitResult(
-        allow_classic_operations=pulumi.get(__response__, 'allow_classic_operations'),
-        authorization_key=pulumi.get(__response__, 'authorization_key'),
-        authorization_status=pulumi.get(__response__, 'authorization_status'),
-        authorizations=pulumi.get(__response__, 'authorizations'),
-        bandwidth_in_gbps=pulumi.get(__response__, 'bandwidth_in_gbps'),
-        circuit_provisioning_state=pulumi.get(__response__, 'circuit_provisioning_state'),
-        etag=pulumi.get(__response__, 'etag'),
-        express_route_port=pulumi.get(__response__, 'express_route_port'),
-        gateway_manager_etag=pulumi.get(__response__, 'gateway_manager_etag'),
-        global_reach_enabled=pulumi.get(__response__, 'global_reach_enabled'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        peerings=pulumi.get(__response__, 'peerings'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        service_key=pulumi.get(__response__, 'service_key'),
-        service_provider_notes=pulumi.get(__response__, 'service_provider_notes'),
-        service_provider_properties=pulumi.get(__response__, 'service_provider_properties'),
-        service_provider_provisioning_state=pulumi.get(__response__, 'service_provider_provisioning_state'),
-        sku=pulumi.get(__response__, 'sku'),
-        stag=pulumi.get(__response__, 'stag'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

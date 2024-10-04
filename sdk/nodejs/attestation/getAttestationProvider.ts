@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-06-01-preview.
  */
 export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationProviderResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:attestation:getAttestationProvider", {
         "providerName": args.providerName,
@@ -92,11 +93,7 @@ export interface GetAttestationProviderResult {
  * Other available API versions: 2021-06-01-preview.
  */
 export function getAttestationProviderOutput(args: GetAttestationProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationProviderResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:attestation:getAttestationProvider", {
-        "providerName": args.providerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAttestationProvider(a, opts))
 }
 
 export interface GetAttestationProviderOutputArgs {

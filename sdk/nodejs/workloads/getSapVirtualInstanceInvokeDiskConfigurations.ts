@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-09-01.
  */
 export function getSapVirtualInstanceInvokeDiskConfigurations(args: GetSapVirtualInstanceInvokeDiskConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSapVirtualInstanceInvokeDiskConfigurationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads:getSapVirtualInstanceInvokeDiskConfigurations", {
         "appLocation": args.appLocation,
@@ -69,16 +70,7 @@ export interface GetSapVirtualInstanceInvokeDiskConfigurationsResult {
  * Azure REST API version: 2024-09-01.
  */
 export function getSapVirtualInstanceInvokeDiskConfigurationsOutput(args: GetSapVirtualInstanceInvokeDiskConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapVirtualInstanceInvokeDiskConfigurationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads:getSapVirtualInstanceInvokeDiskConfigurations", {
-        "appLocation": args.appLocation,
-        "databaseType": args.databaseType,
-        "dbVmSku": args.dbVmSku,
-        "deploymentType": args.deploymentType,
-        "environment": args.environment,
-        "location": args.location,
-        "sapProduct": args.sapProduct,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSapVirtualInstanceInvokeDiskConfigurations(a, opts))
 }
 
 export interface GetSapVirtualInstanceInvokeDiskConfigurationsOutputArgs {

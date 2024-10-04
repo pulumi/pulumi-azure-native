@@ -165,6 +165,9 @@ def get_object_replication_policy(account_name: Optional[str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         source_account=pulumi.get(__ret__, 'source_account'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_object_replication_policy)
 def get_object_replication_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                          object_replication_policy_id: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -180,18 +183,4 @@ def get_object_replication_policy_output(account_name: Optional[pulumi.Input[str
     :param str object_replication_policy_id: For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['objectReplicationPolicyId'] = object_replication_policy_id
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getObjectReplicationPolicy', __args__, opts=opts, typ=GetObjectReplicationPolicyResult)
-    return __ret__.apply(lambda __response__: GetObjectReplicationPolicyResult(
-        destination_account=pulumi.get(__response__, 'destination_account'),
-        enabled_time=pulumi.get(__response__, 'enabled_time'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        policy_id=pulumi.get(__response__, 'policy_id'),
-        rules=pulumi.get(__response__, 'rules'),
-        source_account=pulumi.get(__response__, 'source_account'),
-        type=pulumi.get(__response__, 'type')))
+    ...

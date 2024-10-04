@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get installed Solution details by Solution id.
  */
 export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:agfoodplatform/v20210901preview:getSolution", {
         "farmBeatsResourceName": args.farmBeatsResourceName,
@@ -67,12 +68,7 @@ export interface GetSolutionResult {
  * Get installed Solution details by Solution id.
  */
 export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:agfoodplatform/v20210901preview:getSolution", {
-        "farmBeatsResourceName": args.farmBeatsResourceName,
-        "resourceGroupName": args.resourceGroupName,
-        "solutionId": args.solutionId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSolution(a, opts))
 }
 
 export interface GetSolutionOutputArgs {

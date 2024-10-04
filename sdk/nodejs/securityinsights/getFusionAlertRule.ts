@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-02-01.
  */
 export function getFusionAlertRule(args: GetFusionAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFusionAlertRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getFusionAlertRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -102,12 +103,7 @@ export interface GetFusionAlertRuleResult {
  * Azure REST API version: 2023-02-01.
  */
 export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFusionAlertRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights:getFusionAlertRule", {
-        "resourceGroupName": args.resourceGroupName,
-        "ruleId": args.ruleId,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFusionAlertRule(a, opts))
 }
 
 export interface GetFusionAlertRuleOutputArgs {

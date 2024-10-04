@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of a channel.
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20240601preview:getChannel", {
         "channelName": args.channelName,
@@ -88,12 +89,7 @@ export interface GetChannelResult {
  * Get properties of a channel.
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getChannel", {
-        "channelName": args.channelName,
-        "partnerNamespaceName": args.partnerNamespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getChannel(a, opts))
 }
 
 export interface GetChannelOutputArgs {

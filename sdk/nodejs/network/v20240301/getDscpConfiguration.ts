@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a DSCP Configuration.
  */
 export function getDscpConfiguration(args: GetDscpConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscpConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:getDscpConfiguration", {
         "dscpConfigurationName": args.dscpConfigurationName,
@@ -106,11 +107,7 @@ export interface GetDscpConfigurationResult {
  * Gets a DSCP Configuration.
  */
 export function getDscpConfigurationOutput(args: GetDscpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscpConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getDscpConfiguration", {
-        "dscpConfigurationName": args.dscpConfigurationName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDscpConfiguration(a, opts))
 }
 
 export interface GetDscpConfigurationOutputArgs {

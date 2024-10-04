@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
  */
 export function listKustoPoolFollowerDatabases(args: ListKustoPoolFollowerDatabasesArgs, opts?: pulumi.InvokeOptions): Promise<ListKustoPoolFollowerDatabasesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:listKustoPoolFollowerDatabases", {
         "kustoPoolName": args.kustoPoolName,
@@ -47,12 +48,7 @@ export interface ListKustoPoolFollowerDatabasesResult {
  * Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
  */
 export function listKustoPoolFollowerDatabasesOutput(args: ListKustoPoolFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolFollowerDatabasesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:listKustoPoolFollowerDatabases", {
-        "kustoPoolName": args.kustoPoolName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listKustoPoolFollowerDatabases(a, opts))
 }
 
 export interface ListKustoPoolFollowerDatabasesOutputArgs {

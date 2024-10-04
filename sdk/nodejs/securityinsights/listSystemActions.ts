@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-04-01-preview.
  */
 export function listSystemActions(args: ListSystemActionsArgs, opts?: pulumi.InvokeOptions): Promise<ListSystemActionsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:listSystemActions", {
         "agentResourceName": args.agentResourceName,
@@ -58,13 +59,7 @@ export interface ListSystemActionsResult {
  * Azure REST API version: 2024-04-01-preview.
  */
 export function listSystemActionsOutput(args: ListSystemActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSystemActionsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights:listSystemActions", {
-        "agentResourceName": args.agentResourceName,
-        "resourceGroupName": args.resourceGroupName,
-        "systemResourceName": args.systemResourceName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listSystemActions(a, opts))
 }
 
 export interface ListSystemActionsOutputArgs {

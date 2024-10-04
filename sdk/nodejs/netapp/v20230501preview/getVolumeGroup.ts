@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get details of the specified volume group
  */
 export function getVolumeGroup(args: GetVolumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20230501preview:getVolumeGroup", {
         "accountName": args.accountName,
@@ -71,12 +72,7 @@ export interface GetVolumeGroupResult {
  * Get details of the specified volume group
  */
 export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:netapp/v20230501preview:getVolumeGroup", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "volumeGroupName": args.volumeGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVolumeGroup(a, opts))
 }
 
 export interface GetVolumeGroupOutputArgs {

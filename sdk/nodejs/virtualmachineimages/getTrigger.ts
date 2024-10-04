@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01, 2024-02-01.
  */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:virtualmachineimages:getTrigger", {
         "imageTemplateName": args.imageTemplateName,
@@ -77,12 +78,7 @@ export interface GetTriggerResult {
  * Other available API versions: 2023-07-01, 2024-02-01.
  */
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:virtualmachineimages:getTrigger", {
-        "imageTemplateName": args.imageTemplateName,
-        "resourceGroupName": args.resourceGroupName,
-        "triggerName": args.triggerName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTrigger(a, opts))
 }
 
 export interface GetTriggerOutputArgs {

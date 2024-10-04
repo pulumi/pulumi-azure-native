@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationAccountSession(args: GetIntegrationAccountSessionArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountSessionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic:getIntegrationAccountSession", {
         "integrationAccountName": args.integrationAccountName,
@@ -74,12 +75,7 @@ export interface GetIntegrationAccountSessionResult {
  * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationAccountSessionOutput(args: GetIntegrationAccountSessionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountSessionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic:getIntegrationAccountSession", {
-        "integrationAccountName": args.integrationAccountName,
-        "resourceGroupName": args.resourceGroupName,
-        "sessionName": args.sessionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIntegrationAccountSession(a, opts))
 }
 
 export interface GetIntegrationAccountSessionOutputArgs {

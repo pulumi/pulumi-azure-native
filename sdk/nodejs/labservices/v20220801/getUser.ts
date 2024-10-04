@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns the properties of a lab user.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices/v20220801:getUser", {
         "labName": args.labName,
@@ -91,12 +92,7 @@ export interface GetUserResult {
  * Returns the properties of a lab user.
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:labservices/v20220801:getUser", {
-        "labName": args.labName,
-        "resourceGroupName": args.resourceGroupName,
-        "userName": args.userName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }
 
 export interface GetUserOutputArgs {

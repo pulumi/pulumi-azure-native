@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get Private endpoint connection object.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:agfoodplatform/v20230601preview:getPrivateEndpointConnection", {
         "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,
@@ -75,12 +76,7 @@ export interface GetPrivateEndpointConnectionResult {
  * Get Private endpoint connection object.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:agfoodplatform/v20230601preview:getPrivateEndpointConnection", {
-        "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,
-        "privateEndpointConnectionName": args.privateEndpointConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionOutputArgs {

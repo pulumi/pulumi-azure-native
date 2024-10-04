@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns a list of L2 Connections attached to an edge site.
  */
 export function listEdgeSiteL2Connections(args: ListEdgeSiteL2ConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<ListEdgeSiteL2ConnectionsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:orbital/v20240301preview:listEdgeSiteL2Connections", {
         "edgeSiteName": args.edgeSiteName,
@@ -46,11 +47,7 @@ export interface ListEdgeSiteL2ConnectionsResult {
  * Returns a list of L2 Connections attached to an edge site.
  */
 export function listEdgeSiteL2ConnectionsOutput(args: ListEdgeSiteL2ConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEdgeSiteL2ConnectionsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:orbital/v20240301preview:listEdgeSiteL2Connections", {
-        "edgeSiteName": args.edgeSiteName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listEdgeSiteL2Connections(a, opts))
 }
 
 export interface ListEdgeSiteL2ConnectionsOutputArgs {

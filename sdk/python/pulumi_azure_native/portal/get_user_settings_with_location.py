@@ -69,6 +69,9 @@ def get_user_settings_with_location(location: Optional[str] = None,
 
     return AwaitableGetUserSettingsWithLocationResult(
         properties=pulumi.get(__ret__, 'properties'))
+
+
+@_utilities.lift_output_func(get_user_settings_with_location)
 def get_user_settings_with_location_output(location: Optional[pulumi.Input[str]] = None,
                                            user_settings_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSettingsWithLocationResult]:
@@ -80,10 +83,4 @@ def get_user_settings_with_location_output(location: Optional[pulumi.Input[str]]
     :param str location: The provider location
     :param str user_settings_name: The name of the user settings
     """
-    __args__ = dict()
-    __args__['location'] = location
-    __args__['userSettingsName'] = user_settings_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:portal:getUserSettingsWithLocation', __args__, opts=opts, typ=GetUserSettingsWithLocationResult)
-    return __ret__.apply(lambda __response__: GetUserSettingsWithLocationResult(
-        properties=pulumi.get(__response__, 'properties')))
+    ...

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the list of assignments for an access policy of a redis cache
  */
 export function getAccessPolicyAssignment(args: GetAccessPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20240401preview:getAccessPolicyAssignment", {
         "accessPolicyAssignmentName": args.accessPolicyAssignmentName,
@@ -68,12 +69,7 @@ export interface GetAccessPolicyAssignmentResult {
  * Gets the list of assignments for an access policy of a redis cache
  */
 export function getAccessPolicyAssignmentOutput(args: GetAccessPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cache/v20240401preview:getAccessPolicyAssignment", {
-        "accessPolicyAssignmentName": args.accessPolicyAssignmentName,
-        "cacheName": args.cacheName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessPolicyAssignment(a, opts))
 }
 
 export interface GetAccessPolicyAssignmentOutputArgs {

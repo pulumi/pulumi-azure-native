@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getCodelessApiPollingDataConnector(args: GetCodelessApiPollingDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetCodelessApiPollingDataConnectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20240401preview:getCodelessApiPollingDataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -76,12 +77,7 @@ export interface GetCodelessApiPollingDataConnectorResult {
  * Gets a data connector.
  */
 export function getCodelessApiPollingDataConnectorOutput(args: GetCodelessApiPollingDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodelessApiPollingDataConnectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:getCodelessApiPollingDataConnector", {
-        "dataConnectorId": args.dataConnectorId,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCodelessApiPollingDataConnector(a, opts))
 }
 
 export interface GetCodelessApiPollingDataConnectorOutputArgs {

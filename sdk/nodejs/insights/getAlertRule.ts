@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2016-03-01.
  */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getAlertRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -88,11 +89,7 @@ export interface GetAlertRuleResult {
  * Azure REST API version: 2016-03-01.
  */
 export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights:getAlertRule", {
-        "resourceGroupName": args.resourceGroupName,
-        "ruleName": args.ruleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAlertRule(a, opts))
 }
 
 export interface GetAlertRuleOutputArgs {

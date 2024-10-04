@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-04-26.
  */
 export function getPredictionTrainingResults(args: GetPredictionTrainingResultsArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionTrainingResultsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights:getPredictionTrainingResults", {
         "hubName": args.hubName,
@@ -65,12 +66,7 @@ export interface GetPredictionTrainingResultsResult {
  * Azure REST API version: 2017-04-26.
  */
 export function getPredictionTrainingResultsOutput(args: GetPredictionTrainingResultsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionTrainingResultsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:customerinsights:getPredictionTrainingResults", {
-        "hubName": args.hubName,
-        "predictionName": args.predictionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPredictionTrainingResults(a, opts))
 }
 
 export interface GetPredictionTrainingResultsOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateEndpointConnectionsForMIPPolicySync(args: GetPrivateEndpointConnectionsForMIPPolicySyncArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsForMIPPolicySyncResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsForMIPPolicySync", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
@@ -73,12 +74,7 @@ export interface GetPrivateEndpointConnectionsForMIPPolicySyncResult {
  * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateEndpointConnectionsForMIPPolicySyncOutput(args: GetPrivateEndpointConnectionsForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsForMIPPolicySyncResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsForMIPPolicySync", {
-        "privateEndpointConnectionName": args.privateEndpointConnectionName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsForMIPPolicySync(a, opts))
 }
 
 export interface GetPrivateEndpointConnectionsForMIPPolicySyncOutputArgs {

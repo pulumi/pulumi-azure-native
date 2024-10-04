@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-10-04-preview.
  */
 export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsdataprocessor:getDataset", {
         "datasetName": args.datasetName,
@@ -97,12 +98,7 @@ export interface GetDatasetResult {
  * Azure REST API version: 2023-10-04-preview.
  */
 export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:iotoperationsdataprocessor:getDataset", {
-        "datasetName": args.datasetName,
-        "instanceName": args.instanceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDataset(a, opts))
 }
 
 export interface GetDatasetOutputArgs {

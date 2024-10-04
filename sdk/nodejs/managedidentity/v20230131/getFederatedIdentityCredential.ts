@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the federated identity credential.
  */
 export function getFederatedIdentityCredential(args: GetFederatedIdentityCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedIdentityCredentialResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managedidentity/v20230131:getFederatedIdentityCredential", {
         "federatedIdentityCredentialResourceName": args.federatedIdentityCredentialResourceName,
@@ -71,12 +72,7 @@ export interface GetFederatedIdentityCredentialResult {
  * Gets the federated identity credential.
  */
 export function getFederatedIdentityCredentialOutput(args: GetFederatedIdentityCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIdentityCredentialResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managedidentity/v20230131:getFederatedIdentityCredential", {
-        "federatedIdentityCredentialResourceName": args.federatedIdentityCredentialResourceName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFederatedIdentityCredential(a, opts))
 }
 
 export interface GetFederatedIdentityCredentialOutputArgs {

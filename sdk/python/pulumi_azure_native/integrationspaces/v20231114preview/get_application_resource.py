@@ -165,6 +165,9 @@ def get_application_resource(application_name: Optional[str] = None,
         resource_type=pulumi.get(__ret__, 'resource_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_application_resource)
 def get_application_resource_output(application_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     resource_name: Optional[pulumi.Input[str]] = None,
@@ -179,19 +182,4 @@ def get_application_resource_output(application_name: Optional[pulumi.Input[str]
     :param str resource_name: The name of the application resource.
     :param str space_name: The name of the space
     """
-    __args__ = dict()
-    __args__['applicationName'] = application_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    __args__['spaceName'] = space_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:integrationspaces/v20231114preview:getApplicationResource', __args__, opts=opts, typ=GetApplicationResourceResult)
-    return __ret__.apply(lambda __response__: GetApplicationResourceResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_id=pulumi.get(__response__, 'resource_id'),
-        resource_kind=pulumi.get(__response__, 'resource_kind'),
-        resource_type=pulumi.get(__response__, 'resource_type'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

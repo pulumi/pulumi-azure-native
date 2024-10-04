@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about a server group.
  */
 export function getServerGroup(args: GetServerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetServerGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", {
         "resourceGroupName": args.resourceGroupName,
@@ -134,11 +135,7 @@ export interface GetServerGroupResult {
  * Gets information about a server group.
  */
 export function getServerGroupOutput(args: GetServerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", {
-        "resourceGroupName": args.resourceGroupName,
-        "serverGroupName": args.serverGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServerGroup(a, opts))
 }
 
 export interface GetServerGroupOutputArgs {

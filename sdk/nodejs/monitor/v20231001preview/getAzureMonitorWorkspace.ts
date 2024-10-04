@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns the specific Azure Monitor workspace
  */
 export function getAzureMonitorWorkspace(args: GetAzureMonitorWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureMonitorWorkspaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:monitor/v20231001preview:getAzureMonitorWorkspace", {
         "azureMonitorWorkspaceName": args.azureMonitorWorkspaceName,
@@ -90,11 +91,7 @@ export interface GetAzureMonitorWorkspaceResult {
  * Returns the specific Azure Monitor workspace
  */
 export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureMonitorWorkspaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:monitor/v20231001preview:getAzureMonitorWorkspace", {
-        "azureMonitorWorkspaceName": args.azureMonitorWorkspaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAzureMonitorWorkspace(a, opts))
 }
 
 export interface GetAzureMonitorWorkspaceOutputArgs {

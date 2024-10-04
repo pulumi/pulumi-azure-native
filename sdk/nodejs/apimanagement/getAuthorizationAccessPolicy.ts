@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getAuthorizationAccessPolicy(args: GetAuthorizationAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationAccessPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getAuthorizationAccessPolicy", {
         "authorizationAccessPolicyId": args.authorizationAccessPolicyId,
@@ -76,14 +77,7 @@ export interface GetAuthorizationAccessPolicyResult {
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getAuthorizationAccessPolicyOutput(args: GetAuthorizationAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationAccessPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getAuthorizationAccessPolicy", {
-        "authorizationAccessPolicyId": args.authorizationAccessPolicyId,
-        "authorizationId": args.authorizationId,
-        "authorizationProviderId": args.authorizationProviderId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAuthorizationAccessPolicy(a, opts))
 }
 
 export interface GetAuthorizationAccessPolicyOutputArgs {

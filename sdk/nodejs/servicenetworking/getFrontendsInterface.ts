@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview.
  */
 export function getFrontendsInterface(args: GetFrontendsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontendsInterfaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicenetworking:getFrontendsInterface", {
         "frontendName": args.frontendName,
@@ -81,12 +82,7 @@ export interface GetFrontendsInterfaceResult {
  * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview.
  */
 export function getFrontendsInterfaceOutput(args: GetFrontendsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontendsInterfaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicenetworking:getFrontendsInterface", {
-        "frontendName": args.frontendName,
-        "resourceGroupName": args.resourceGroupName,
-        "trafficControllerName": args.trafficControllerName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFrontendsInterface(a, opts))
 }
 
 export interface GetFrontendsInterfaceOutputArgs {

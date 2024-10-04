@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-08-03, 2023-07-03.
  */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getGallery", {
         "expand": args.expand,
@@ -98,13 +99,7 @@ export interface GetGalleryResult {
  * Other available API versions: 2022-08-03, 2023-07-03.
  */
 export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute:getGallery", {
-        "expand": args.expand,
-        "galleryName": args.galleryName,
-        "resourceGroupName": args.resourceGroupName,
-        "select": args.select,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGallery(a, opts))
 }
 
 export interface GetGalleryOutputArgs {

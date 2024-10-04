@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns the Workspace resource associated with the given name.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:quantum/v20231113preview:getWorkspace", {
         "resourceGroupName": args.resourceGroupName,
@@ -90,11 +91,7 @@ export interface GetWorkspaceResult {
  * Returns the Workspace resource associated with the given name.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:quantum/v20231113preview:getWorkspace", {
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }
 
 export interface GetWorkspaceOutputArgs {

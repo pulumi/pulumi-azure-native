@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
  */
 export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter:getPlan", {
         "planName": args.planName,
@@ -76,11 +77,7 @@ export interface GetPlanResult {
  * Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
  */
 export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devcenter:getPlan", {
-        "planName": args.planName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPlan(a, opts))
 }
 
 export interface GetPlanOutputArgs {

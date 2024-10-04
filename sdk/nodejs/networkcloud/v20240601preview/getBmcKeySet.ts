@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get baseboard management controller key set of the provided cluster.
  */
 export function getBmcKeySet(args: GetBmcKeySetArgs, opts?: pulumi.InvokeOptions): Promise<GetBmcKeySetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20240601preview:getBmcKeySet", {
         "bmcKeySetName": args.bmcKeySetName,
@@ -104,12 +105,7 @@ export interface GetBmcKeySetResult {
  * Get baseboard management controller key set of the provided cluster.
  */
 export function getBmcKeySetOutput(args: GetBmcKeySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBmcKeySetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240601preview:getBmcKeySet", {
-        "bmcKeySetName": args.bmcKeySetName,
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBmcKeySet(a, opts))
 }
 
 export interface GetBmcKeySetOutputArgs {

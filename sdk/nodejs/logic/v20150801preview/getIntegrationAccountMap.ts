@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an integration account map.
  */
 export function getIntegrationAccountMap(args: GetIntegrationAccountMapArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountMapResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20150801preview:getIntegrationAccountMap", {
         "integrationAccountName": args.integrationAccountName,
@@ -88,12 +89,7 @@ export interface GetIntegrationAccountMapResult {
  * Gets an integration account map.
  */
 export function getIntegrationAccountMapOutput(args: GetIntegrationAccountMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountMapResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic/v20150801preview:getIntegrationAccountMap", {
-        "integrationAccountName": args.integrationAccountName,
-        "mapName": args.mapName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIntegrationAccountMap(a, opts))
 }
 
 export interface GetIntegrationAccountMapOutputArgs {

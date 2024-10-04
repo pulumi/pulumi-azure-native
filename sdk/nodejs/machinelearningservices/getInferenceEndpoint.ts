@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
  */
 export function getInferenceEndpoint(args: GetInferenceEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetInferenceEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getInferenceEndpoint", {
         "endpointName": args.endpointName,
@@ -89,13 +90,7 @@ export interface GetInferenceEndpointResult {
  * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
  */
 export function getInferenceEndpointOutput(args: GetInferenceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getInferenceEndpoint", {
-        "endpointName": args.endpointName,
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInferenceEndpoint(a, opts))
 }
 
 export interface GetInferenceEndpointOutputArgs {

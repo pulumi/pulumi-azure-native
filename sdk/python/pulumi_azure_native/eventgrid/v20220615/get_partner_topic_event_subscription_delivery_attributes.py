@@ -71,6 +71,9 @@ def get_partner_topic_event_subscription_delivery_attributes(event_subscription_
 
     return AwaitableGetPartnerTopicEventSubscriptionDeliveryAttributesResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(get_partner_topic_event_subscription_delivery_attributes)
 def get_partner_topic_event_subscription_delivery_attributes_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                                     partner_topic_name: Optional[pulumi.Input[str]] = None,
                                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -83,11 +86,4 @@ def get_partner_topic_event_subscription_delivery_attributes_output(event_subscr
     :param str partner_topic_name: Name of the partner topic.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    __args__ = dict()
-    __args__['eventSubscriptionName'] = event_subscription_name
-    __args__['partnerTopicName'] = partner_topic_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20220615:getPartnerTopicEventSubscriptionDeliveryAttributes', __args__, opts=opts, typ=GetPartnerTopicEventSubscriptionDeliveryAttributesResult)
-    return __ret__.apply(lambda __response__: GetPartnerTopicEventSubscriptionDeliveryAttributesResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

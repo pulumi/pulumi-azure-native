@@ -203,6 +203,9 @@ def get_web_app_premier_add_on_slot(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vendor=pulumi.get(__ret__, 'vendor'))
+
+
+@_utilities.lift_output_func(get_web_app_premier_add_on_slot)
 def get_web_app_premier_add_on_slot_output(name: Optional[pulumi.Input[str]] = None,
                                            premier_add_on_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -217,22 +220,4 @@ def get_web_app_premier_add_on_slot_output(name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the named add-on for the production slot.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['premierAddOnName'] = premier_add_on_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:getWebAppPremierAddOnSlot', __args__, opts=opts, typ=GetWebAppPremierAddOnSlotResult)
-    return __ret__.apply(lambda __response__: GetWebAppPremierAddOnSlotResult(
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        marketplace_offer=pulumi.get(__response__, 'marketplace_offer'),
-        marketplace_publisher=pulumi.get(__response__, 'marketplace_publisher'),
-        name=pulumi.get(__response__, 'name'),
-        product=pulumi.get(__response__, 'product'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        vendor=pulumi.get(__response__, 'vendor')))
+    ...

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-04-01-preview.
  */
 export function getDefaultUserRule(args: GetDefaultUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultUserRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getDefaultUserRule", {
         "configurationName": args.configurationName,
@@ -116,14 +117,7 @@ export interface GetDefaultUserRuleResult {
  * Azure REST API version: 2022-04-01-preview.
  */
 export function getDefaultUserRuleOutput(args: GetDefaultUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultUserRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getDefaultUserRule", {
-        "configurationName": args.configurationName,
-        "networkManagerName": args.networkManagerName,
-        "resourceGroupName": args.resourceGroupName,
-        "ruleCollectionName": args.ruleCollectionName,
-        "ruleName": args.ruleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDefaultUserRule(a, opts))
 }
 
 export interface GetDefaultUserRuleOutputArgs {

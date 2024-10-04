@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-12-15-preview.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci:getVirtualMachine", {
         "resourceGroupName": args.resourceGroupName,
@@ -108,11 +109,7 @@ export interface GetVirtualMachineResult {
  * Azure REST API version: 2022-12-15-preview.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getVirtualMachine", {
-        "resourceGroupName": args.resourceGroupName,
-        "virtualMachineName": args.virtualMachineName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
 }
 
 export interface GetVirtualMachineOutputArgs {

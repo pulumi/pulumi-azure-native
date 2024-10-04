@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a Service by name.
  */
 export function getAKSService(args: GetAKSServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAKSServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20210401:getAKSService", {
         "expand": args.expand,
@@ -84,13 +85,7 @@ export interface GetAKSServiceResult {
  * Get a Service by name.
  */
 export function getAKSServiceOutput(args: GetAKSServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAKSServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20210401:getAKSService", {
-        "expand": args.expand,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAKSService(a, opts))
 }
 
 export interface GetAKSServiceOutputArgs {

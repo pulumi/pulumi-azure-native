@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-04-26.
  */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights:getHub", {
         "hubName": args.hubName,
@@ -80,11 +81,7 @@ export interface GetHubResult {
  * Azure REST API version: 2017-04-26.
  */
 export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:customerinsights:getHub", {
-        "hubName": args.hubName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHub(a, opts))
 }
 
 export interface GetHubOutputArgs {

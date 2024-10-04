@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-01-01.
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getAssessment", {
         "assessmentName": args.assessmentName,
@@ -89,12 +90,7 @@ export interface GetAssessmentResult {
  * Other available API versions: 2020-01-01.
  */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security:getAssessment", {
-        "assessmentName": args.assessmentName,
-        "expand": args.expand,
-        "resourceId": args.resourceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAssessment(a, opts))
 }
 
 export interface GetAssessmentOutputArgs {

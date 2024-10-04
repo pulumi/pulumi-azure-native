@@ -201,6 +201,9 @@ def get_saved_search(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_saved_search)
 def get_saved_search_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             saved_search_id: Optional[pulumi.Input[str]] = None,
                             workspace_name: Optional[pulumi.Input[str]] = None,
@@ -213,21 +216,4 @@ def get_saved_search_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str saved_search_id: The id of the saved search.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['savedSearchId'] = saved_search_id
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights/v20200801:getSavedSearch', __args__, opts=opts, typ=GetSavedSearchResult)
-    return __ret__.apply(lambda __response__: GetSavedSearchResult(
-        category=pulumi.get(__response__, 'category'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        etag=pulumi.get(__response__, 'etag'),
-        function_alias=pulumi.get(__response__, 'function_alias'),
-        function_parameters=pulumi.get(__response__, 'function_parameters'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        query=pulumi.get(__response__, 'query'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

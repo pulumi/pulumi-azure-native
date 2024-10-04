@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-15.
  */
 export function getNetworkFunctionDefinitionVersion(args: GetNetworkFunctionDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFunctionDefinitionVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:getNetworkFunctionDefinitionVersion", {
         "networkFunctionDefinitionGroupName": args.networkFunctionDefinitionGroupName,
@@ -82,13 +83,7 @@ export interface GetNetworkFunctionDefinitionVersionResult {
  * Other available API versions: 2024-04-15.
  */
 export function getNetworkFunctionDefinitionVersionOutput(args: GetNetworkFunctionDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFunctionDefinitionVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getNetworkFunctionDefinitionVersion", {
-        "networkFunctionDefinitionGroupName": args.networkFunctionDefinitionGroupName,
-        "networkFunctionDefinitionVersionName": args.networkFunctionDefinitionVersionName,
-        "publisherName": args.publisherName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkFunctionDefinitionVersion(a, opts))
 }
 
 export interface GetNetworkFunctionDefinitionVersionOutputArgs {

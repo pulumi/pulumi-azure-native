@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a server DNS alias.
  */
 export function getServerDnsAlias(args: GetServerDnsAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDnsAliasResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230801preview:getServerDnsAlias", {
         "dnsAliasName": args.dnsAliasName,
@@ -56,12 +57,7 @@ export interface GetServerDnsAliasResult {
  * Gets a server DNS alias.
  */
 export function getServerDnsAliasOutput(args: GetServerDnsAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerDnsAliasResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getServerDnsAlias", {
-        "dnsAliasName": args.dnsAliasName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServerDnsAlias(a, opts))
 }
 
 export interface GetServerDnsAliasOutputArgs {

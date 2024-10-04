@@ -302,6 +302,9 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
         virtual_network_connections=pulumi.get(__ret__, 'virtual_network_connections'),
         virtual_wan=pulumi.get(__ret__, 'virtual_wan'),
         vpn_gateway=pulumi.get(__ret__, 'vpn_gateway'))
+
+
+@_utilities.lift_output_func(get_virtual_hub)
 def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            virtual_hub_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubResult]:
@@ -312,28 +315,4 @@ def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualHubName'] = virtual_hub_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20200401:getVirtualHub', __args__, opts=opts, typ=GetVirtualHubResult)
-    return __ret__.apply(lambda __response__: GetVirtualHubResult(
-        address_prefix=pulumi.get(__response__, 'address_prefix'),
-        azure_firewall=pulumi.get(__response__, 'azure_firewall'),
-        etag=pulumi.get(__response__, 'etag'),
-        express_route_gateway=pulumi.get(__response__, 'express_route_gateway'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        p2_s_vpn_gateway=pulumi.get(__response__, 'p2_s_vpn_gateway'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        route_table=pulumi.get(__response__, 'route_table'),
-        security_partner_provider=pulumi.get(__response__, 'security_partner_provider'),
-        security_provider_name=pulumi.get(__response__, 'security_provider_name'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_hub_route_table_v2s=pulumi.get(__response__, 'virtual_hub_route_table_v2s'),
-        virtual_network_connections=pulumi.get(__response__, 'virtual_network_connections'),
-        virtual_wan=pulumi.get(__response__, 'virtual_wan'),
-        vpn_gateway=pulumi.get(__response__, 'vpn_gateway')))
+    ...

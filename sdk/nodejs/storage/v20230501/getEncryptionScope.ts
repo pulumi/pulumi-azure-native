@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns the properties for the specified encryption scope.
  */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20230501:getEncryptionScope", {
         "accountName": args.accountName,
@@ -79,12 +80,7 @@ export interface GetEncryptionScopeResult {
  * Returns the properties for the specified encryption scope.
  */
 export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage/v20230501:getEncryptionScope", {
-        "accountName": args.accountName,
-        "encryptionScopeName": args.encryptionScopeName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEncryptionScope(a, opts))
 }
 
 export interface GetEncryptionScopeOutputArgs {

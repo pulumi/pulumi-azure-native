@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the metadata of an IoT Central application.
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotcentral/v20210601:getApp", {
         "resourceGroupName": args.resourceGroupName,
@@ -86,11 +87,7 @@ export interface GetAppResult {
  * Get the metadata of an IoT Central application.
  */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:iotcentral/v20210601:getApp", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApp(a, opts))
 }
 
 export interface GetAppOutputArgs {

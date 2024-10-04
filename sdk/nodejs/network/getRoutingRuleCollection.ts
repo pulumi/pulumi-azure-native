@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-03-01.
  */
 export function getRoutingRuleCollection(args: GetRoutingRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingRuleCollectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getRoutingRuleCollection", {
         "configurationName": args.configurationName,
@@ -90,13 +91,7 @@ export interface GetRoutingRuleCollectionResult {
  * Azure REST API version: 2024-03-01.
  */
 export function getRoutingRuleCollectionOutput(args: GetRoutingRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingRuleCollectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getRoutingRuleCollection", {
-        "configurationName": args.configurationName,
-        "networkManagerName": args.networkManagerName,
-        "resourceGroupName": args.resourceGroupName,
-        "ruleCollectionName": args.ruleCollectionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRoutingRuleCollection(a, opts))
 }
 
 export interface GetRoutingRuleCollectionOutputArgs {

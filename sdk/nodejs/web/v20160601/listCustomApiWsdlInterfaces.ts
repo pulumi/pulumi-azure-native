@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * This returns the list of interfaces in the WSDL
  */
 export function listCustomApiWsdlInterfaces(args: ListCustomApiWsdlInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<ListCustomApiWsdlInterfacesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20160601:listCustomApiWsdlInterfaces", {
         "content": args.content,
@@ -62,15 +63,7 @@ export interface ListCustomApiWsdlInterfacesResult {
  * This returns the list of interfaces in the WSDL
  */
 export function listCustomApiWsdlInterfacesOutput(args: ListCustomApiWsdlInterfacesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCustomApiWsdlInterfacesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20160601:listCustomApiWsdlInterfaces", {
-        "content": args.content,
-        "importMethod": args.importMethod,
-        "location": args.location,
-        "service": args.service,
-        "subscriptionId": args.subscriptionId,
-        "url": args.url,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listCustomApiWsdlInterfaces(a, opts))
 }
 
 export interface ListCustomApiWsdlInterfacesOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-05-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge:getOrder", {
         "deviceName": args.deviceName,
@@ -100,11 +101,7 @@ export interface GetOrderResult {
  * Other available API versions: 2020-05-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export function getOrderOutput(args: GetOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databoxedge:getOrder", {
-        "deviceName": args.deviceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOrder(a, opts))
 }
 
 export interface GetOrderOutputArgs {

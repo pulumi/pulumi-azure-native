@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of the provided cloud services network.
  */
 export function getCloudServicesNetwork(args: GetCloudServicesNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServicesNetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20231001preview:getCloudServicesNetwork", {
         "cloudServicesNetworkName": args.cloudServicesNetworkName,
@@ -113,11 +114,7 @@ export interface GetCloudServicesNetworkResult {
  * Get properties of the provided cloud services network.
  */
 export function getCloudServicesNetworkOutput(args: GetCloudServicesNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudServicesNetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20231001preview:getCloudServicesNetwork", {
-        "cloudServicesNetworkName": args.cloudServicesNetworkName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCloudServicesNetwork(a, opts))
 }
 
 export interface GetCloudServicesNetworkOutputArgs {

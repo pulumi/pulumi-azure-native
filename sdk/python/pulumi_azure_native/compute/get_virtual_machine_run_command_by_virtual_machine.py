@@ -311,6 +311,9 @@ def get_virtual_machine_run_command_by_virtual_machine(expand: Optional[str] = N
         timeout_in_seconds=pulumi.get(__ret__, 'timeout_in_seconds'),
         treat_failure_as_deployment_failure=pulumi.get(__ret__, 'treat_failure_as_deployment_failure'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_virtual_machine_run_command_by_virtual_machine)
 def get_virtual_machine_run_command_by_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                                               run_command_name: Optional[pulumi.Input[str]] = None,
@@ -328,30 +331,4 @@ def get_virtual_machine_run_command_by_virtual_machine_output(expand: Optional[p
     :param str run_command_name: The name of the virtual machine run command.
     :param str vm_name: The name of the virtual machine containing the run command.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['runCommandName'] = run_command_name
-    __args__['vmName'] = vm_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getVirtualMachineRunCommandByVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineRunCommandByVirtualMachineResult)
-    return __ret__.apply(lambda __response__: GetVirtualMachineRunCommandByVirtualMachineResult(
-        async_execution=pulumi.get(__response__, 'async_execution'),
-        error_blob_managed_identity=pulumi.get(__response__, 'error_blob_managed_identity'),
-        error_blob_uri=pulumi.get(__response__, 'error_blob_uri'),
-        id=pulumi.get(__response__, 'id'),
-        instance_view=pulumi.get(__response__, 'instance_view'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        output_blob_managed_identity=pulumi.get(__response__, 'output_blob_managed_identity'),
-        output_blob_uri=pulumi.get(__response__, 'output_blob_uri'),
-        parameters=pulumi.get(__response__, 'parameters'),
-        protected_parameters=pulumi.get(__response__, 'protected_parameters'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        run_as_password=pulumi.get(__response__, 'run_as_password'),
-        run_as_user=pulumi.get(__response__, 'run_as_user'),
-        source=pulumi.get(__response__, 'source'),
-        tags=pulumi.get(__response__, 'tags'),
-        timeout_in_seconds=pulumi.get(__response__, 'timeout_in_seconds'),
-        treat_failure_as_deployment_failure=pulumi.get(__response__, 'treat_failure_as_deployment_failure'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List sensitive environment variables of Job execution.
  */
 export function listJobExecutionEnvSecrets(args: ListJobExecutionEnvSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListJobExecutionEnvSecretsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20240501preview:listJobExecutionEnvSecrets", {
         "jobExecutionName": args.jobExecutionName,
@@ -52,13 +53,7 @@ export interface ListJobExecutionEnvSecretsResult {
  * List sensitive environment variables of Job execution.
  */
 export function listJobExecutionEnvSecretsOutput(args: ListJobExecutionEnvSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobExecutionEnvSecretsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240501preview:listJobExecutionEnvSecrets", {
-        "jobExecutionName": args.jobExecutionName,
-        "jobName": args.jobName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listJobExecutionEnvSecrets(a, opts))
 }
 
 export interface ListJobExecutionEnvSecretsOutputArgs {

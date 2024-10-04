@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Definition of ARM tracked top level resource.
  */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20230311:getDataCollectionRule", {
         "dataCollectionRuleName": args.dataCollectionRuleName,
@@ -123,11 +124,7 @@ export interface GetDataCollectionRuleResult {
  * Definition of ARM tracked top level resource.
  */
 export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights/v20230311:getDataCollectionRule", {
-        "dataCollectionRuleName": args.dataCollectionRuleName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDataCollectionRule(a, opts))
 }
 
 export interface GetDataCollectionRuleOutputArgs {

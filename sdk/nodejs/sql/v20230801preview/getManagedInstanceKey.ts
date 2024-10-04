@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets a managed instance key.
  */
 export function getManagedInstanceKey(args: GetManagedInstanceKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230801preview:getManagedInstanceKey", {
         "keyName": args.keyName,
@@ -68,12 +69,7 @@ export interface GetManagedInstanceKeyResult {
  * Gets a managed instance key.
  */
 export function getManagedInstanceKeyOutput(args: GetManagedInstanceKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getManagedInstanceKey", {
-        "keyName": args.keyName,
-        "managedInstanceName": args.managedInstanceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedInstanceKey(a, opts))
 }
 
 export interface GetManagedInstanceKeyOutputArgs {

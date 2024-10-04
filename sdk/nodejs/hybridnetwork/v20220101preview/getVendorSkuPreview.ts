@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the preview information of a vendor sku.
  */
 export function getVendorSkuPreview(args: GetVendorSkuPreviewArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkuPreviewResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20220101preview:getVendorSkuPreview", {
         "previewSubscription": args.previewSubscription,
@@ -63,12 +64,7 @@ export interface GetVendorSkuPreviewResult {
  * Gets the preview information of a vendor sku.
  */
 export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkuPreviewResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20220101preview:getVendorSkuPreview", {
-        "previewSubscription": args.previewSubscription,
-        "skuName": args.skuName,
-        "vendorName": args.vendorName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVendorSkuPreview(a, opts))
 }
 
 export interface GetVendorSkuPreviewOutputArgs {

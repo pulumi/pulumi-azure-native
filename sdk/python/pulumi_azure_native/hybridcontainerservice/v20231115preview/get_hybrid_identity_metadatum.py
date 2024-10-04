@@ -143,6 +143,9 @@ def get_hybrid_identity_metadatum(connected_cluster_resource_uri: Optional[str] 
         resource_uid=pulumi.get(__ret__, 'resource_uid'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_hybrid_identity_metadatum)
 def get_hybrid_identity_metadatum_output(connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridIdentityMetadatumResult]:
     """
@@ -151,15 +154,4 @@ def get_hybrid_identity_metadatum_output(connected_cluster_resource_uri: Optiona
 
     :param str connected_cluster_resource_uri: The fully qualified Azure Resource manager identifier of the connected cluster resource.
     """
-    __args__ = dict()
-    __args__['connectedClusterResourceUri'] = connected_cluster_resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice/v20231115preview:getHybridIdentityMetadatum', __args__, opts=opts, typ=GetHybridIdentityMetadatumResult)
-    return __ret__.apply(lambda __response__: GetHybridIdentityMetadatumResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_key=pulumi.get(__response__, 'public_key'),
-        resource_uid=pulumi.get(__response__, 'resource_uid'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

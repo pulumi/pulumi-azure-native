@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get the full endpoint URL for an event subscription of a system topic.
  */
 export function getSystemTopicEventSubscriptionFullUrl(args: GetSystemTopicEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionFullUrlResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20230601preview:getSystemTopicEventSubscriptionFullUrl", {
         "eventSubscriptionName": args.eventSubscriptionName,
@@ -44,12 +45,7 @@ export interface GetSystemTopicEventSubscriptionFullUrlResult {
  * Get the full endpoint URL for an event subscription of a system topic.
  */
 export function getSystemTopicEventSubscriptionFullUrlOutput(args: GetSystemTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicEventSubscriptionFullUrlResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20230601preview:getSystemTopicEventSubscriptionFullUrl", {
-        "eventSubscriptionName": args.eventSubscriptionName,
-        "resourceGroupName": args.resourceGroupName,
-        "systemTopicName": args.systemTopicName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSystemTopicEventSubscriptionFullUrl(a, opts))
 }
 
 export interface GetSystemTopicEventSubscriptionFullUrlOutputArgs {

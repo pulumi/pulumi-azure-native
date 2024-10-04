@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get regional availability information for each size category configured under a lab account
  */
 export function getLabAccountRegionalAvailability(args: GetLabAccountRegionalAvailabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetLabAccountRegionalAvailabilityResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices/v20181015:getLabAccountRegionalAvailability", {
         "labAccountName": args.labAccountName,
@@ -42,11 +43,7 @@ export interface GetLabAccountRegionalAvailabilityResult {
  * Get regional availability information for each size category configured under a lab account
  */
 export function getLabAccountRegionalAvailabilityOutput(args: GetLabAccountRegionalAvailabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabAccountRegionalAvailabilityResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:labservices/v20181015:getLabAccountRegionalAvailability", {
-        "labAccountName": args.labAccountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLabAccountRegionalAvailability(a, opts))
 }
 
 export interface GetLabAccountRegionalAvailabilityOutputArgs {

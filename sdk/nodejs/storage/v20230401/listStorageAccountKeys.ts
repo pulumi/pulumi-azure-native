@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
  */
 export function listStorageAccountKeys(args: ListStorageAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStorageAccountKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20230401:listStorageAccountKeys", {
         "accountName": args.accountName,
@@ -47,12 +48,7 @@ export interface ListStorageAccountKeysResult {
  * Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
  */
 export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storage/v20230401:listStorageAccountKeys", {
-        "accountName": args.accountName,
-        "expand": args.expand,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listStorageAccountKeys(a, opts))
 }
 
 export interface ListStorageAccountKeysOutputArgs {

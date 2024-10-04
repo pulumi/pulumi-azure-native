@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieve an scheduled query rule definition.
  */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20240101preview:getScheduledQueryRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -150,11 +151,7 @@ export interface GetScheduledQueryRuleResult {
  * Retrieve an scheduled query rule definition.
  */
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights/v20240101preview:getScheduledQueryRule", {
-        "resourceGroupName": args.resourceGroupName,
-        "ruleName": args.ruleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getScheduledQueryRule(a, opts))
 }
 
 export interface GetScheduledQueryRuleOutputArgs {

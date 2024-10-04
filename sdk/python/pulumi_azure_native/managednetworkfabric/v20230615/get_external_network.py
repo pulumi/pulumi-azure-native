@@ -266,6 +266,9 @@ def get_external_network(external_network_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_external_network)
 def get_external_network_output(external_network_name: Optional[pulumi.Input[str]] = None,
                                 l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -278,26 +281,4 @@ def get_external_network_output(external_network_name: Optional[pulumi.Input[str
     :param str l3_isolation_domain_name: Name of the L3 Isolation Domain.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['externalNetworkName'] = external_network_name
-    __args__['l3IsolationDomainName'] = l3_isolation_domain_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getExternalNetwork', __args__, opts=opts, typ=GetExternalNetworkResult)
-    return __ret__.apply(lambda __response__: GetExternalNetworkResult(
-        administrative_state=pulumi.get(__response__, 'administrative_state'),
-        annotation=pulumi.get(__response__, 'annotation'),
-        configuration_state=pulumi.get(__response__, 'configuration_state'),
-        export_route_policy=pulumi.get(__response__, 'export_route_policy'),
-        export_route_policy_id=pulumi.get(__response__, 'export_route_policy_id'),
-        id=pulumi.get(__response__, 'id'),
-        import_route_policy=pulumi.get(__response__, 'import_route_policy'),
-        import_route_policy_id=pulumi.get(__response__, 'import_route_policy_id'),
-        name=pulumi.get(__response__, 'name'),
-        network_to_network_interconnect_id=pulumi.get(__response__, 'network_to_network_interconnect_id'),
-        option_a_properties=pulumi.get(__response__, 'option_a_properties'),
-        option_b_properties=pulumi.get(__response__, 'option_b_properties'),
-        peering_option=pulumi.get(__response__, 'peering_option'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

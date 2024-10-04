@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the container registries resource.
  */
 export function getContainerRegistry(args: GetContainerRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRegistryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20240501preview:getContainerRegistry", {
         "containerRegistryName": args.containerRegistryName,
@@ -63,12 +64,7 @@ export interface GetContainerRegistryResult {
  * Get the container registries resource.
  */
 export function getContainerRegistryOutput(args: GetContainerRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRegistryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240501preview:getContainerRegistry", {
-        "containerRegistryName": args.containerRegistryName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getContainerRegistry(a, opts))
 }
 
 export interface GetContainerRegistryOutputArgs {

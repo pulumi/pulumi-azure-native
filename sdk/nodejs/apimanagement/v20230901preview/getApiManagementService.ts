@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an API Management service resource description.
  */
 export function getApiManagementService(args: GetApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:getApiManagementService", {
         "resourceGroupName": args.resourceGroupName,
@@ -210,11 +211,7 @@ export interface GetApiManagementServiceResult {
  * Gets an API Management service resource description.
  */
 export function getApiManagementServiceOutput(args: GetApiManagementServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getApiManagementService", {
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApiManagementService(a, opts))
 }
 
 export interface GetApiManagementServiceOutputArgs {

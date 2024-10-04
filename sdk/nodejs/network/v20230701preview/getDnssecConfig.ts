@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the DNSSEC configuration.
  */
 export function getDnssecConfig(args: GetDnssecConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDnssecConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230701preview:getDnssecConfig", {
         "resourceGroupName": args.resourceGroupName,
@@ -66,11 +67,7 @@ export interface GetDnssecConfigResult {
  * Gets the DNSSEC configuration.
  */
 export function getDnssecConfigOutput(args: GetDnssecConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnssecConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230701preview:getDnssecConfig", {
-        "resourceGroupName": args.resourceGroupName,
-        "zoneName": args.zoneName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDnssecConfig(a, opts))
 }
 
 export interface GetDnssecConfigOutputArgs {

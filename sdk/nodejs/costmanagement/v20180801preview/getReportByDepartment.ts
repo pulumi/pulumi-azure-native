@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the report for a department by report name.
  */
 export function getReportByDepartment(args: GetReportByDepartmentArgs, opts?: pulumi.InvokeOptions): Promise<GetReportByDepartmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20180801preview:getReportByDepartment", {
         "departmentId": args.departmentId,
@@ -70,11 +71,7 @@ export interface GetReportByDepartmentResult {
  * Gets the report for a department by report name.
  */
 export function getReportByDepartmentOutput(args: GetReportByDepartmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByDepartmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20180801preview:getReportByDepartment", {
-        "departmentId": args.departmentId,
-        "reportName": args.reportName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReportByDepartment(a, opts))
 }
 
 export interface GetReportByDepartmentOutputArgs {

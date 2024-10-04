@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-09-15.
  */
 export function getServiceRunner(args: GetServiceRunnerArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRunnerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab:getServiceRunner", {
         "labName": args.labName,
@@ -69,12 +70,7 @@ export interface GetServiceRunnerResult {
  * Azure REST API version: 2018-09-15.
  */
 export function getServiceRunnerOutput(args: GetServiceRunnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRunnerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devtestlab:getServiceRunner", {
-        "labName": args.labName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServiceRunner(a, opts))
 }
 
 export interface GetServiceRunnerOutputArgs {

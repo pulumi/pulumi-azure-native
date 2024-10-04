@@ -159,6 +159,9 @@ def get_secret(profile_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_secret)
 def get_secret_output(profile_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       secret_name: Optional[pulumi.Input[str]] = None,
@@ -171,18 +174,4 @@ def get_secret_output(profile_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str secret_name: Name of the Secret under the profile.
     """
-    __args__ = dict()
-    __args__['profileName'] = profile_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['secretName'] = secret_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20230501:getSecret', __args__, opts=opts, typ=GetSecretResult)
-    return __ret__.apply(lambda __response__: GetSecretResult(
-        deployment_status=pulumi.get(__response__, 'deployment_status'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        parameters=pulumi.get(__response__, 'parameters'),
-        profile_name=pulumi.get(__response__, 'profile_name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -100,6 +100,9 @@ def get_project_catalog_sync_error_details(catalog_name: Optional[str] = None,
         conflicts=pulumi.get(__ret__, 'conflicts'),
         errors=pulumi.get(__ret__, 'errors'),
         operation_error=pulumi.get(__ret__, 'operation_error'))
+
+
+@_utilities.lift_output_func(get_project_catalog_sync_error_details)
 def get_project_catalog_sync_error_details_output(catalog_name: Optional[pulumi.Input[str]] = None,
                                                   project_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -115,13 +118,4 @@ def get_project_catalog_sync_error_details_output(catalog_name: Optional[pulumi.
     :param str project_name: The name of the project.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['catalogName'] = catalog_name
-    __args__['projectName'] = project_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getProjectCatalogSyncErrorDetails', __args__, opts=opts, typ=GetProjectCatalogSyncErrorDetailsResult)
-    return __ret__.apply(lambda __response__: GetProjectCatalogSyncErrorDetailsResult(
-        conflicts=pulumi.get(__response__, 'conflicts'),
-        errors=pulumi.get(__response__, 'errors'),
-        operation_error=pulumi.get(__response__, 'operation_error')))
+    ...

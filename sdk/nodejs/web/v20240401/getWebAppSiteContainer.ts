@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Container of a site
  */
 export function getWebAppSiteContainer(args: GetWebAppSiteContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteContainerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:getWebAppSiteContainer", {
         "containerName": args.containerName,
@@ -107,12 +108,7 @@ export interface GetWebAppSiteContainerResult {
  * Container of a site
  */
 export function getWebAppSiteContainerOutput(args: GetWebAppSiteContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteContainerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getWebAppSiteContainer", {
-        "containerName": args.containerName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebAppSiteContainer(a, opts))
 }
 
 export interface GetWebAppSiteContainerOutputArgs {

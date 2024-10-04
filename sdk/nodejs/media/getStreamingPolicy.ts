@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-01-01.
  */
 export function getStreamingPolicy(args: GetStreamingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:getStreamingPolicy", {
         "accountName": args.accountName,
@@ -85,12 +86,7 @@ export interface GetStreamingPolicyResult {
  * Azure REST API version: 2023-01-01.
  */
 export function getStreamingPolicyOutput(args: GetStreamingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media:getStreamingPolicy", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-        "streamingPolicyName": args.streamingPolicyName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStreamingPolicy(a, opts))
 }
 
 export interface GetStreamingPolicyOutputArgs {

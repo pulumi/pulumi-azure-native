@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the SAP Central Services Instance resource.
  */
 export function getSAPCentralInstance(args: GetSAPCentralInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPCentralInstanceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20231001preview:getSAPCentralInstance", {
         "centralInstanceName": args.centralInstanceName,
@@ -123,12 +124,7 @@ export interface GetSAPCentralInstanceResult {
  * Gets the SAP Central Services Instance resource.
  */
 export function getSAPCentralInstanceOutput(args: GetSAPCentralInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPCentralInstanceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads/v20231001preview:getSAPCentralInstance", {
-        "centralInstanceName": args.centralInstanceName,
-        "resourceGroupName": args.resourceGroupName,
-        "sapVirtualInstanceName": args.sapVirtualInstanceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSAPCentralInstance(a, opts))
 }
 
 export interface GetSAPCentralInstanceOutputArgs {

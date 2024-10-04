@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about the specified data manager resource.
  */
 export function getDataManager(args: GetDataManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataManagerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybriddata/v20190601:getDataManager", {
         "dataManagerName": args.dataManagerName,
@@ -69,11 +70,7 @@ export interface GetDataManagerResult {
  * Gets information about the specified data manager resource.
  */
 export function getDataManagerOutput(args: GetDataManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataManagerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybriddata/v20190601:getDataManager", {
-        "dataManagerName": args.dataManagerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDataManager(a, opts))
 }
 
 export interface GetDataManagerOutputArgs {

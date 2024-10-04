@@ -175,6 +175,9 @@ def get_workspace_manager_assignment(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         target_resource_name=pulumi.get(__ret__, 'target_resource_name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workspace_manager_assignment)
 def get_workspace_manager_assignment_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             workspace_manager_assignment_name: Optional[pulumi.Input[str]] = None,
                                             workspace_name: Optional[pulumi.Input[str]] = None,
@@ -187,19 +190,4 @@ def get_workspace_manager_assignment_output(resource_group_name: Optional[pulumi
     :param str workspace_manager_assignment_name: The name of the workspace manager assignment
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceManagerAssignmentName'] = workspace_manager_assignment_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20231001preview:getWorkspaceManagerAssignment', __args__, opts=opts, typ=GetWorkspaceManagerAssignmentResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceManagerAssignmentResult(
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        items=pulumi.get(__response__, 'items'),
-        last_job_end_time=pulumi.get(__response__, 'last_job_end_time'),
-        last_job_provisioning_state=pulumi.get(__response__, 'last_job_provisioning_state'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        target_resource_name=pulumi.get(__response__, 'target_resource_name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

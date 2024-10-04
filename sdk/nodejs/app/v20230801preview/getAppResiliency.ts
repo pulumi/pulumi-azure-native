@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get container app resiliency policy.
  */
 export function getAppResiliency(args: GetAppResiliencyArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResiliencyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20230801preview:getAppResiliency", {
         "appName": args.appName,
@@ -83,12 +84,7 @@ export interface GetAppResiliencyResult {
  * Get container app resiliency policy.
  */
 export function getAppResiliencyOutput(args: GetAppResiliencyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResiliencyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app/v20230801preview:getAppResiliency", {
-        "appName": args.appName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAppResiliency(a, opts))
 }
 
 export interface GetAppResiliencyOutputArgs {

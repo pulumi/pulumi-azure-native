@@ -269,6 +269,9 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_connected_registry)
 def get_connected_registry_output(connected_registry_name: Optional[pulumi.Input[str]] = None,
                                   registry_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -284,26 +287,4 @@ def get_connected_registry_output(connected_registry_name: Optional[pulumi.Input
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['connectedRegistryName'] = connected_registry_name
-    __args__['registryName'] = registry_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getConnectedRegistry', __args__, opts=opts, typ=GetConnectedRegistryResult)
-    return __ret__.apply(lambda __response__: GetConnectedRegistryResult(
-        activation=pulumi.get(__response__, 'activation'),
-        client_token_ids=pulumi.get(__response__, 'client_token_ids'),
-        connection_state=pulumi.get(__response__, 'connection_state'),
-        id=pulumi.get(__response__, 'id'),
-        last_activity_time=pulumi.get(__response__, 'last_activity_time'),
-        logging=pulumi.get(__response__, 'logging'),
-        login_server=pulumi.get(__response__, 'login_server'),
-        mode=pulumi.get(__response__, 'mode'),
-        name=pulumi.get(__response__, 'name'),
-        notifications_list=pulumi.get(__response__, 'notifications_list'),
-        parent=pulumi.get(__response__, 'parent'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        status_details=pulumi.get(__response__, 'status_details'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

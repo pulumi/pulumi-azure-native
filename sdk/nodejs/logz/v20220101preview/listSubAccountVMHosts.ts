@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Response of a list VM Host Update Operation.
  */
 export function listSubAccountVMHosts(args: ListSubAccountVMHostsArgs, opts?: pulumi.InvokeOptions): Promise<ListSubAccountVMHostsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz/v20220101preview:listSubAccountVMHosts", {
         "monitorName": args.monitorName,
@@ -51,12 +52,7 @@ export interface ListSubAccountVMHostsResult {
  * Response of a list VM Host Update Operation.
  */
 export function listSubAccountVMHostsOutput(args: ListSubAccountVMHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubAccountVMHostsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logz/v20220101preview:listSubAccountVMHosts", {
-        "monitorName": args.monitorName,
-        "resourceGroupName": args.resourceGroupName,
-        "subAccountName": args.subAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listSubAccountVMHosts(a, opts))
 }
 
 export interface ListSubAccountVMHostsOutputArgs {

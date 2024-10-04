@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Implements vCenter GET method.
  */
 export function getVCenter(args: GetVCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetVCenterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20230301preview:getVCenter", {
         "resourceGroupName": args.resourceGroupName,
@@ -110,11 +111,7 @@ export interface GetVCenterResult {
  * Implements vCenter GET method.
  */
 export function getVCenterOutput(args: GetVCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVCenterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere/v20230301preview:getVCenter", {
-        "resourceGroupName": args.resourceGroupName,
-        "vcenterName": args.vcenterName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVCenter(a, opts))
 }
 
 export interface GetVCenterOutputArgs {

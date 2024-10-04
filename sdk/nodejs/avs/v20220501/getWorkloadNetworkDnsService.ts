@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * NSX DNS Service
  */
 export function getWorkloadNetworkDnsService(args: GetWorkloadNetworkDnsServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDnsServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20220501:getWorkloadNetworkDnsService", {
         "dnsServiceId": args.dnsServiceId,
@@ -84,12 +85,7 @@ export interface GetWorkloadNetworkDnsServiceResult {
  * NSX DNS Service
  */
 export function getWorkloadNetworkDnsServiceOutput(args: GetWorkloadNetworkDnsServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:avs/v20220501:getWorkloadNetworkDnsService", {
-        "dnsServiceId": args.dnsServiceId,
-        "privateCloudName": args.privateCloudName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkloadNetworkDnsService(a, opts))
 }
 
 export interface GetWorkloadNetworkDnsServiceOutputArgs {

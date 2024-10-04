@@ -187,6 +187,9 @@ def get_pre_rule_counters(firewall_name: Optional[str] = None,
         rule_name=pulumi.get(__ret__, 'rule_name'),
         rule_stack_name=pulumi.get(__ret__, 'rule_stack_name'),
         timestamp=pulumi.get(__ret__, 'timestamp'))
+
+
+@_utilities.lift_output_func(get_pre_rule_counters)
 def get_pre_rule_counters_output(firewall_name: Optional[pulumi.Input[Optional[str]]] = None,
                                  global_rulestack_name: Optional[pulumi.Input[str]] = None,
                                  priority: Optional[pulumi.Input[str]] = None,
@@ -198,20 +201,4 @@ def get_pre_rule_counters_output(firewall_name: Optional[pulumi.Input[Optional[s
     :param str global_rulestack_name: GlobalRulestack resource name
     :param str priority: Pre Rule priority
     """
-    __args__ = dict()
-    __args__['firewallName'] = firewall_name
-    __args__['globalRulestackName'] = global_rulestack_name
-    __args__['priority'] = priority
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240207preview:getPreRuleCounters', __args__, opts=opts, typ=GetPreRuleCountersResult)
-    return __ret__.apply(lambda __response__: GetPreRuleCountersResult(
-        app_seen=pulumi.get(__response__, 'app_seen'),
-        firewall_name=pulumi.get(__response__, 'firewall_name'),
-        hit_count=pulumi.get(__response__, 'hit_count'),
-        last_updated_timestamp=pulumi.get(__response__, 'last_updated_timestamp'),
-        priority=pulumi.get(__response__, 'priority'),
-        request_timestamp=pulumi.get(__response__, 'request_timestamp'),
-        rule_list_name=pulumi.get(__response__, 'rule_list_name'),
-        rule_name=pulumi.get(__response__, 'rule_name'),
-        rule_stack_name=pulumi.get(__response__, 'rule_stack_name'),
-        timestamp=pulumi.get(__response__, 'timestamp')))
+    ...

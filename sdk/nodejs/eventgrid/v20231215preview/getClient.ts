@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of a client.
  */
 export function getClient(args: GetClientArgs, opts?: pulumi.InvokeOptions): Promise<GetClientResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20231215preview:getClient", {
         "clientName": args.clientName,
@@ -85,12 +86,7 @@ export interface GetClientResult {
  * Get properties of a client.
  */
 export function getClientOutput(args: GetClientOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getClient", {
-        "clientName": args.clientName,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getClient(a, opts))
 }
 
 export interface GetClientOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns a subscription description for the specified topic.
  */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20221001preview:getSubscription", {
         "namespaceName": args.namespaceName,
@@ -144,13 +145,7 @@ export interface GetSubscriptionResult {
  * Returns a subscription description for the specified topic.
  */
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicebus/v20221001preview:getSubscription", {
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
-        "subscriptionName": args.subscriptionName,
-        "topicName": args.topicName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSubscription(a, opts))
 }
 
 export interface GetSubscriptionOutputArgs {

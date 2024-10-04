@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2019-10-01, 2022-09-01.
  */
 export function getServerEndpoint(args: GetServerEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagesync:getServerEndpoint", {
         "resourceGroupName": args.resourceGroupName,
@@ -150,13 +151,7 @@ export interface GetServerEndpointResult {
  * Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2019-10-01, 2022-09-01.
  */
 export function getServerEndpointOutput(args: GetServerEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storagesync:getServerEndpoint", {
-        "resourceGroupName": args.resourceGroupName,
-        "serverEndpointName": args.serverEndpointName,
-        "storageSyncServiceName": args.storageSyncServiceName,
-        "syncGroupName": args.syncGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServerEndpoint(a, opts))
 }
 
 export interface GetServerEndpointOutputArgs {

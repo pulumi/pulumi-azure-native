@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an invoice section by its ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
  */
 export function getInvoiceSection(args: GetInvoiceSectionArgs, opts?: pulumi.InvokeOptions): Promise<GetInvoiceSectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:billing/v20240401:getInvoiceSection", {
         "billingAccountName": args.billingAccountName,
@@ -67,12 +68,7 @@ export interface GetInvoiceSectionResult {
  * Gets an invoice section by its ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
  */
 export function getInvoiceSectionOutput(args: GetInvoiceSectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvoiceSectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:billing/v20240401:getInvoiceSection", {
-        "billingAccountName": args.billingAccountName,
-        "billingProfileName": args.billingProfileName,
-        "invoiceSectionName": args.invoiceSectionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInvoiceSection(a, opts))
 }
 
 export interface GetInvoiceSectionOutputArgs {

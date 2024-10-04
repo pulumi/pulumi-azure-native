@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Implements host GET method.
  */
 export function getHost(args: GetHostArgs, opts?: pulumi.InvokeOptions): Promise<GetHostResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20231201:getHost", {
         "hostName": args.hostName,
@@ -126,11 +127,7 @@ export interface GetHostResult {
  * Implements host GET method.
  */
 export function getHostOutput(args: GetHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere/v20231201:getHost", {
-        "hostName": args.hostName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHost(a, opts))
 }
 
 export interface GetHostOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
  */
 export function listOpenShiftClusterAdminCredentials(args: ListOpenShiftClusterAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenShiftClusterAdminCredentialsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:redhatopenshift:listOpenShiftClusterAdminCredentials", {
         "resourceGroupName": args.resourceGroupName,
@@ -45,11 +46,7 @@ export interface ListOpenShiftClusterAdminCredentialsResult {
  * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
  */
 export function listOpenShiftClusterAdminCredentialsOutput(args: ListOpenShiftClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOpenShiftClusterAdminCredentialsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:redhatopenshift:listOpenShiftClusterAdminCredentials", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listOpenShiftClusterAdminCredentials(a, opts))
 }
 
 export interface ListOpenShiftClusterAdminCredentialsOutputArgs {

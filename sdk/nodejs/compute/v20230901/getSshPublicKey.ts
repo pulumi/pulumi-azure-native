@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Retrieves information about an SSH public key.
  */
 export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshPublicKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20230901:getSshPublicKey", {
         "resourceGroupName": args.resourceGroupName,
@@ -59,11 +60,7 @@ export interface GetSshPublicKeyResult {
  * Retrieves information about an SSH public key.
  */
 export function getSshPublicKeyOutput(args: GetSshPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshPublicKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute/v20230901:getSshPublicKey", {
-        "resourceGroupName": args.resourceGroupName,
-        "sshPublicKeyName": args.sshPublicKeyName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSshPublicKey(a, opts))
 }
 
 export interface GetSshPublicKeyOutputArgs {

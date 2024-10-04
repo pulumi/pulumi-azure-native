@@ -188,6 +188,9 @@ def get_certificate(automation_account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                            certificate_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -200,20 +203,4 @@ def get_certificate_output(automation_account_name: Optional[pulumi.Input[str]] 
     :param str certificate_name: The name of certificate.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    __args__ = dict()
-    __args__['automationAccountName'] = automation_account_name
-    __args__['certificateName'] = certificate_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
-    return __ret__.apply(lambda __response__: GetCertificateResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        expiry_time=pulumi.get(__response__, 'expiry_time'),
-        id=pulumi.get(__response__, 'id'),
-        is_exportable=pulumi.get(__response__, 'is_exportable'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        thumbprint=pulumi.get(__response__, 'thumbprint'),
-        type=pulumi.get(__response__, 'type')))
+    ...

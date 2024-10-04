@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about a configuration of server.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20230301preview:getConfiguration", {
         "configurationName": args.configurationName,
@@ -103,12 +104,7 @@ export interface GetConfigurationResult {
  * Gets information about a configuration of server.
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20230301preview:getConfiguration", {
-        "configurationName": args.configurationName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))
 }
 
 export interface GetConfigurationOutputArgs {

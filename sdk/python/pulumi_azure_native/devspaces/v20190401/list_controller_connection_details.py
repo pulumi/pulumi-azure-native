@@ -68,6 +68,9 @@ def list_controller_connection_details(name: Optional[str] = None,
 
     return AwaitableListControllerConnectionDetailsResult(
         connection_details_list=pulumi.get(__ret__, 'connection_details_list'))
+
+
+@_utilities.lift_output_func(list_controller_connection_details)
 def list_controller_connection_details_output(name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               target_container_host_resource_id: Optional[pulumi.Input[str]] = None,
@@ -80,11 +83,4 @@ def list_controller_connection_details_output(name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: Resource group to which the resource belongs.
     :param str target_container_host_resource_id: Resource ID of the target container host mapped to the Azure Dev Spaces Controller.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['targetContainerHostResourceId'] = target_container_host_resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devspaces/v20190401:listControllerConnectionDetails', __args__, opts=opts, typ=ListControllerConnectionDetailsResult)
-    return __ret__.apply(lambda __response__: ListControllerConnectionDetailsResult(
-        connection_details_list=pulumi.get(__response__, 'connection_details_list')))
+    ...

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-02-01-preview.
  */
 export function listEffectiveConnectivityConfiguration(args: ListEffectiveConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<ListEffectiveConnectivityConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:listEffectiveConnectivityConfiguration", {
         "resourceGroupName": args.resourceGroupName,
@@ -53,12 +54,7 @@ export interface ListEffectiveConnectivityConfigurationResult {
  * Azure REST API version: 2021-02-01-preview.
  */
 export function listEffectiveConnectivityConfigurationOutput(args: ListEffectiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveConnectivityConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:listEffectiveConnectivityConfiguration", {
-        "resourceGroupName": args.resourceGroupName,
-        "skipToken": args.skipToken,
-        "virtualNetworkName": args.virtualNetworkName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listEffectiveConnectivityConfiguration(a, opts))
 }
 
 export interface ListEffectiveConnectivityConfigurationOutputArgs {

@@ -122,6 +122,9 @@ def get_draft_package_path(draft_package_name: Optional[str] = None,
         expiration_time=pulumi.get(__ret__, 'expiration_time'),
         sas_token=pulumi.get(__ret__, 'sas_token'),
         working_path=pulumi.get(__ret__, 'working_path'))
+
+
+@_utilities.lift_output_func(get_draft_package_path)
 def get_draft_package_path_output(draft_package_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   test_base_account_name: Optional[pulumi.Input[str]] = None,
@@ -134,15 +137,4 @@ def get_draft_package_path_output(draft_package_name: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
-    __args__ = dict()
-    __args__['draftPackageName'] = draft_package_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:testbase/v20231101preview:getDraftPackagePath', __args__, opts=opts, typ=GetDraftPackagePathResult)
-    return __ret__.apply(lambda __response__: GetDraftPackagePathResult(
-        base_url=pulumi.get(__response__, 'base_url'),
-        draft_package_path=pulumi.get(__response__, 'draft_package_path'),
-        expiration_time=pulumi.get(__response__, 'expiration_time'),
-        sas_token=pulumi.get(__response__, 'sas_token'),
-        working_path=pulumi.get(__response__, 'working_path')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a data connector definition.
  */
 export function getCustomizableConnectorDefinition(args: GetCustomizableConnectorDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomizableConnectorDefinitionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230801preview:getCustomizableConnectorDefinition", {
         "dataConnectorDefinitionName": args.dataConnectorDefinitionName,
@@ -84,12 +85,7 @@ export interface GetCustomizableConnectorDefinitionResult {
  * Gets a data connector definition.
  */
 export function getCustomizableConnectorDefinitionOutput(args: GetCustomizableConnectorDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizableConnectorDefinitionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230801preview:getCustomizableConnectorDefinition", {
-        "dataConnectorDefinitionName": args.dataConnectorDefinitionName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCustomizableConnectorDefinition(a, opts))
 }
 
 export interface GetCustomizableConnectorDefinitionOutputArgs {

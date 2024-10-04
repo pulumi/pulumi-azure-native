@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an existing remediation at subscription scope.
  */
 export function getRemediationAtSubscription(args: GetRemediationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights/v20211001:getRemediationAtSubscription", {
         "remediationName": args.remediationName,
@@ -101,10 +102,7 @@ export interface GetRemediationAtSubscriptionResult {
  * Gets an existing remediation at subscription scope.
  */
 export function getRemediationAtSubscriptionOutput(args: GetRemediationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:policyinsights/v20211001:getRemediationAtSubscription", {
-        "remediationName": args.remediationName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRemediationAtSubscription(a, opts))
 }
 
 export interface GetRemediationAtSubscriptionOutputArgs {

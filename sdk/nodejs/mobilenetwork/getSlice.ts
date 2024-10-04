@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
  */
 export function getSlice(args: GetSliceArgs, opts?: pulumi.InvokeOptions): Promise<GetSliceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork:getSlice", {
         "mobileNetworkName": args.mobileNetworkName,
@@ -85,12 +86,7 @@ export interface GetSliceResult {
  * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
  */
 export function getSliceOutput(args: GetSliceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSliceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork:getSlice", {
-        "mobileNetworkName": args.mobileNetworkName,
-        "resourceGroupName": args.resourceGroupName,
-        "sliceName": args.sliceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSlice(a, opts))
 }
 
 export interface GetSliceOutputArgs {

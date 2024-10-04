@@ -175,6 +175,9 @@ def get_container_apps_auth_config(container_app_name: Optional[str] = None,
         platform=pulumi.get(__ret__, 'platform'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_container_apps_auth_config)
 def get_container_apps_auth_config_output(container_app_name: Optional[pulumi.Input[str]] = None,
                                           name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -187,19 +190,4 @@ def get_container_apps_auth_config_output(container_app_name: Optional[pulumi.In
     :param str name: Name of the Container App AuthConfig.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['containerAppName'] = container_app_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20220101preview:getContainerAppsAuthConfig', __args__, opts=opts, typ=GetContainerAppsAuthConfigResult)
-    return __ret__.apply(lambda __response__: GetContainerAppsAuthConfigResult(
-        global_validation=pulumi.get(__response__, 'global_validation'),
-        http_settings=pulumi.get(__response__, 'http_settings'),
-        id=pulumi.get(__response__, 'id'),
-        identity_providers=pulumi.get(__response__, 'identity_providers'),
-        login=pulumi.get(__response__, 'login'),
-        name=pulumi.get(__response__, 'name'),
-        platform=pulumi.get(__response__, 'platform'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

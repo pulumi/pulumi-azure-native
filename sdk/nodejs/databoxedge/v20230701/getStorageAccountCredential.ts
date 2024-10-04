@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified storage account credential.
  */
 export function getStorageAccountCredential(args: GetStorageAccountCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountCredentialResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20230701:getStorageAccountCredential", {
         "deviceName": args.deviceName,
@@ -91,12 +92,7 @@ export interface GetStorageAccountCredentialResult {
  * Gets the properties of the specified storage account credential.
  */
 export function getStorageAccountCredentialOutput(args: GetStorageAccountCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountCredentialResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230701:getStorageAccountCredential", {
-        "deviceName": args.deviceName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageAccountCredential(a, opts))
 }
 
 export interface GetStorageAccountCredentialOutputArgs {

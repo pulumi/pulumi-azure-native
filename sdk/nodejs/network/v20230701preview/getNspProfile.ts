@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the specified NSP profile.
  */
 export function getNspProfile(args: GetNspProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNspProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230701preview:getNspProfile", {
         "networkSecurityPerimeterName": args.networkSecurityPerimeterName,
@@ -68,12 +69,7 @@ export interface GetNspProfileResult {
  * Gets the specified NSP profile.
  */
 export function getNspProfileOutput(args: GetNspProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230701preview:getNspProfile", {
-        "networkSecurityPerimeterName": args.networkSecurityPerimeterName,
-        "profileName": args.profileName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNspProfile(a, opts))
 }
 
 export interface GetNspProfileOutputArgs {

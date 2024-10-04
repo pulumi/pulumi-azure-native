@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the secrets of the workload deployment.
  */
 export function getWorkloadDeploymentSecretConfigurations(args: GetWorkloadDeploymentSecretConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadDeploymentSecretConfigurationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20220501preview:getWorkloadDeploymentSecretConfigurations", {
         "modernizeProjectName": args.modernizeProjectName,
@@ -69,13 +70,7 @@ export interface GetWorkloadDeploymentSecretConfigurationsResult {
  * Gets the secrets of the workload deployment.
  */
 export function getWorkloadDeploymentSecretConfigurationsOutput(args: GetWorkloadDeploymentSecretConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadDeploymentSecretConfigurationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate/v20220501preview:getWorkloadDeploymentSecretConfigurations", {
-        "modernizeProjectName": args.modernizeProjectName,
-        "resourceGroupName": args.resourceGroupName,
-        "subscriptionId": args.subscriptionId,
-        "workloadDeploymentName": args.workloadDeploymentName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkloadDeploymentSecretConfigurations(a, opts))
 }
 
 export interface GetWorkloadDeploymentSecretConfigurationsOutputArgs {

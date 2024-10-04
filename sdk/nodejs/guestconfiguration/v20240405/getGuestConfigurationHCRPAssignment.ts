@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get information about a guest configuration assignment
  */
 export function getGuestConfigurationHCRPAssignment(args: GetGuestConfigurationHCRPAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationHCRPAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:guestconfiguration/v20240405:getGuestConfigurationHCRPAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
@@ -67,12 +68,7 @@ export interface GetGuestConfigurationHCRPAssignmentResult {
  * Get information about a guest configuration assignment
  */
 export function getGuestConfigurationHCRPAssignmentOutput(args: GetGuestConfigurationHCRPAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationHCRPAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:guestconfiguration/v20240405:getGuestConfigurationHCRPAssignment", {
-        "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
-        "machineName": args.machineName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGuestConfigurationHCRPAssignment(a, opts))
 }
 
 export interface GetGuestConfigurationHCRPAssignmentOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagemover:getProject", {
         "projectName": args.projectName,
@@ -73,12 +74,7 @@ export interface GetProjectResult {
  * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storagemover:getProject", {
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-        "storageMoverName": args.storageMoverName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProject(a, opts))
 }
 
 export interface GetProjectOutputArgs {

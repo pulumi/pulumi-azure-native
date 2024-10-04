@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the properties of an App Service Environment.
  */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:getAppServiceEnvironment", {
         "name": args.name,
@@ -216,11 +217,7 @@ export interface GetAppServiceEnvironmentResult {
  * Get the properties of an App Service Environment.
  */
 export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:getAppServiceEnvironment", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAppServiceEnvironment(a, opts))
 }
 
 export interface GetAppServiceEnvironmentOutputArgs {

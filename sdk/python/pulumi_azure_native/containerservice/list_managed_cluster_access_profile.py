@@ -138,6 +138,9 @@ def list_managed_cluster_access_profile(resource_group_name: Optional[str] = Non
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(list_managed_cluster_access_profile)
 def list_managed_cluster_access_profile_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                resource_name: Optional[pulumi.Input[str]] = None,
                                                role_name: Optional[pulumi.Input[str]] = None,
@@ -153,16 +156,4 @@ def list_managed_cluster_access_profile_output(resource_group_name: Optional[pul
     :param str resource_name: The name of the managed cluster resource.
     :param str role_name: The name of the role for managed cluster accessProfile resource.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    __args__['roleName'] = role_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice:listManagedClusterAccessProfile', __args__, opts=opts, typ=ListManagedClusterAccessProfileResult)
-    return __ret__.apply(lambda __response__: ListManagedClusterAccessProfileResult(
-        id=pulumi.get(__response__, 'id'),
-        kube_config=pulumi.get(__response__, 'kube_config'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

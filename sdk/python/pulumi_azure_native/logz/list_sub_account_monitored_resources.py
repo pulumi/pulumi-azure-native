@@ -85,6 +85,9 @@ def list_sub_account_monitored_resources(monitor_name: Optional[str] = None,
     return AwaitableListSubAccountMonitoredResourcesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_sub_account_monitored_resources)
 def list_sub_account_monitored_resources_output(monitor_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 sub_account_name: Optional[pulumi.Input[str]] = None,
@@ -98,12 +101,4 @@ def list_sub_account_monitored_resources_output(monitor_name: Optional[pulumi.In
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sub_account_name: Sub Account resource name
     """
-    __args__ = dict()
-    __args__['monitorName'] = monitor_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['subAccountName'] = sub_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:logz:listSubAccountMonitoredResources', __args__, opts=opts, typ=ListSubAccountMonitoredResourcesResult)
-    return __ret__.apply(lambda __response__: ListSubAccountMonitoredResourcesResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

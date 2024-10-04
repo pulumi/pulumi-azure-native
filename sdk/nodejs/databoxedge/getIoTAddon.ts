@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-03-01.
  */
 export function getIoTAddon(args: GetIoTAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTAddonResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge:getIoTAddon", {
         "addonName": args.addonName,
@@ -95,13 +96,7 @@ export interface GetIoTAddonResult {
  * Azure REST API version: 2022-03-01.
  */
 export function getIoTAddonOutput(args: GetIoTAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTAddonResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databoxedge:getIoTAddon", {
-        "addonName": args.addonName,
-        "deviceName": args.deviceName,
-        "resourceGroupName": args.resourceGroupName,
-        "roleName": args.roleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIoTAddon(a, opts))
 }
 
 export interface GetIoTAddonOutputArgs {

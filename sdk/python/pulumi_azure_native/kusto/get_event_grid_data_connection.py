@@ -296,6 +296,9 @@ def get_event_grid_data_connection(cluster_name: Optional[str] = None,
         storage_account_resource_id=pulumi.get(__ret__, 'storage_account_resource_id'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_event_grid_data_connection)
 def get_event_grid_data_connection_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                           data_connection_name: Optional[pulumi.Input[str]] = None,
                                           database_name: Optional[pulumi.Input[str]] = None,
@@ -311,29 +314,4 @@ def get_event_grid_data_connection_output(cluster_name: Optional[pulumi.Input[st
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['dataConnectionName'] = data_connection_name
-    __args__['databaseName'] = database_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:kusto:getEventGridDataConnection', __args__, opts=opts, typ=GetEventGridDataConnectionResult)
-    return __ret__.apply(lambda __response__: GetEventGridDataConnectionResult(
-        blob_storage_event_type=pulumi.get(__response__, 'blob_storage_event_type'),
-        consumer_group=pulumi.get(__response__, 'consumer_group'),
-        data_format=pulumi.get(__response__, 'data_format'),
-        database_routing=pulumi.get(__response__, 'database_routing'),
-        event_grid_resource_id=pulumi.get(__response__, 'event_grid_resource_id'),
-        event_hub_resource_id=pulumi.get(__response__, 'event_hub_resource_id'),
-        id=pulumi.get(__response__, 'id'),
-        ignore_first_record=pulumi.get(__response__, 'ignore_first_record'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        managed_identity_object_id=pulumi.get(__response__, 'managed_identity_object_id'),
-        managed_identity_resource_id=pulumi.get(__response__, 'managed_identity_resource_id'),
-        mapping_rule_name=pulumi.get(__response__, 'mapping_rule_name'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        storage_account_resource_id=pulumi.get(__response__, 'storage_account_resource_id'),
-        table_name=pulumi.get(__response__, 'table_name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

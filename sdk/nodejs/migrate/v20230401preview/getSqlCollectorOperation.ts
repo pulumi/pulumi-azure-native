@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a SqlCollector
  */
 export function getSqlCollectorOperation(args: GetSqlCollectorOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlCollectorOperationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20230401preview:getSqlCollectorOperation", {
         "collectorName": args.collectorName,
@@ -79,12 +80,7 @@ export interface GetSqlCollectorOperationResult {
  * Get a SqlCollector
  */
 export function getSqlCollectorOperationOutput(args: GetSqlCollectorOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlCollectorOperationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:migrate/v20230401preview:getSqlCollectorOperation", {
-        "collectorName": args.collectorName,
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSqlCollectorOperation(a, opts))
 }
 
 export interface GetSqlCollectorOperationOutputArgs {

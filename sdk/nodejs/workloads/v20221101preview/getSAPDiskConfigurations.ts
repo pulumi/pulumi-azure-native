@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the SAP Disk Configuration Layout prod/non-prod SAP System.
  */
 export function getSAPDiskConfigurations(args: GetSAPDiskConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDiskConfigurationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20221101preview:getSAPDiskConfigurations", {
         "appLocation": args.appLocation,
@@ -67,16 +68,7 @@ export interface GetSAPDiskConfigurationsResult {
  * Get the SAP Disk Configuration Layout prod/non-prod SAP System.
  */
 export function getSAPDiskConfigurationsOutput(args: GetSAPDiskConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPDiskConfigurationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads/v20221101preview:getSAPDiskConfigurations", {
-        "appLocation": args.appLocation,
-        "databaseType": args.databaseType,
-        "dbVmSku": args.dbVmSku,
-        "deploymentType": args.deploymentType,
-        "environment": args.environment,
-        "location": args.location,
-        "sapProduct": args.sapProduct,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSAPDiskConfigurations(a, opts))
 }
 
 export interface GetSAPDiskConfigurationsOutputArgs {

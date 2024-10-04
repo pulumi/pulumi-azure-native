@@ -67,6 +67,9 @@ def get_event_subscription_full_url(event_subscription_name: Optional[str] = Non
 
     return AwaitableGetEventSubscriptionFullUrlResult(
         endpoint_url=pulumi.get(__ret__, 'endpoint_url'))
+
+
+@_utilities.lift_output_func(get_event_subscription_full_url)
 def get_event_subscription_full_url_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                            scope: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionFullUrlResult]:
@@ -77,10 +80,4 @@ def get_event_subscription_full_url_output(event_subscription_name: Optional[pul
     :param str event_subscription_name: Name of the event subscription.
     :param str scope: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
     """
-    __args__ = dict()
-    __args__['eventSubscriptionName'] = event_subscription_name
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20240601preview:getEventSubscriptionFullUrl', __args__, opts=opts, typ=GetEventSubscriptionFullUrlResult)
-    return __ret__.apply(lambda __response__: GetEventSubscriptionFullUrlResult(
-        endpoint_url=pulumi.get(__response__, 'endpoint_url')))
+    ...

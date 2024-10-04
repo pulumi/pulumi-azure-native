@@ -125,6 +125,9 @@ def list_hybrid_connection_keys(authorization_rule_name: Optional[str] = None,
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
+
+
+@_utilities.lift_output_func(list_hybrid_connection_keys)
 def list_hybrid_connection_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
                                        hybrid_connection_name: Optional[pulumi.Input[str]] = None,
                                        namespace_name: Optional[pulumi.Input[str]] = None,
@@ -139,16 +142,4 @@ def list_hybrid_connection_keys_output(authorization_rule_name: Optional[pulumi.
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    __args__ = dict()
-    __args__['authorizationRuleName'] = authorization_rule_name
-    __args__['hybridConnectionName'] = hybrid_connection_name
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:relay/v20211101:listHybridConnectionKeys', __args__, opts=opts, typ=ListHybridConnectionKeysResult)
-    return __ret__.apply(lambda __response__: ListHybridConnectionKeysResult(
-        key_name=pulumi.get(__response__, 'key_name'),
-        primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
-        primary_key=pulumi.get(__response__, 'primary_key'),
-        secondary_connection_string=pulumi.get(__response__, 'secondary_connection_string'),
-        secondary_key=pulumi.get(__response__, 'secondary_key')))
+    ...

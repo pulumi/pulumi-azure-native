@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-07-01, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
  */
 export function listIotHubResourceKeys(args: ListIotHubResourceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIotHubResourceKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices:listIotHubResourceKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -52,11 +53,7 @@ export interface ListIotHubResourceKeysResult {
  * Other available API versions: 2017-07-01, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
  */
 export function listIotHubResourceKeysOutput(args: ListIotHubResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotHubResourceKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devices:listIotHubResourceKeys", {
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listIotHubResourceKeys(a, opts))
 }
 
 export interface ListIotHubResourceKeysOutputArgs {

@@ -84,6 +84,9 @@ def list_static_site_users(authprovider: Optional[str] = None,
     return AwaitableListStaticSiteUsersResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_static_site_users)
 def list_static_site_users_output(authprovider: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -96,12 +99,4 @@ def list_static_site_users_output(authprovider: Optional[pulumi.Input[str]] = No
     :param str name: Name of the static site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['authprovider'] = authprovider
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:listStaticSiteUsers', __args__, opts=opts, typ=ListStaticSiteUsersResult)
-    return __ret__.apply(lambda __response__: ListStaticSiteUsersResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

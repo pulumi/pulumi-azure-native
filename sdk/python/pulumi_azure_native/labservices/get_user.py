@@ -217,6 +217,9 @@ def get_user(lab_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         total_usage=pulumi.get(__ret__, 'total_usage'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_user)
 def get_user_output(lab_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     user_name: Optional[pulumi.Input[str]] = None,
@@ -232,22 +235,4 @@ def get_user_output(lab_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str user_name: The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
     """
-    __args__ = dict()
-    __args__['labName'] = lab_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getUser', __args__, opts=opts, typ=GetUserResult)
-    return __ret__.apply(lambda __response__: GetUserResult(
-        additional_usage_quota=pulumi.get(__response__, 'additional_usage_quota'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        email=pulumi.get(__response__, 'email'),
-        id=pulumi.get(__response__, 'id'),
-        invitation_sent=pulumi.get(__response__, 'invitation_sent'),
-        invitation_state=pulumi.get(__response__, 'invitation_state'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        registration_state=pulumi.get(__response__, 'registration_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        total_usage=pulumi.get(__response__, 'total_usage'),
-        type=pulumi.get(__response__, 'type')))
+    ...

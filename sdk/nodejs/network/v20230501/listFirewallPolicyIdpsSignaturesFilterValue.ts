@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Retrieves the current filter values for the signatures overrides
  */
 export function listFirewallPolicyIdpsSignaturesFilterValue(args: ListFirewallPolicyIdpsSignaturesFilterValueArgs, opts?: pulumi.InvokeOptions): Promise<ListFirewallPolicyIdpsSignaturesFilterValueResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230501:listFirewallPolicyIdpsSignaturesFilterValue", {
         "filterName": args.filterName,
@@ -44,12 +45,7 @@ export interface ListFirewallPolicyIdpsSignaturesFilterValueResult {
  * Retrieves the current filter values for the signatures overrides
  */
 export function listFirewallPolicyIdpsSignaturesFilterValueOutput(args: ListFirewallPolicyIdpsSignaturesFilterValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFirewallPolicyIdpsSignaturesFilterValueResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20230501:listFirewallPolicyIdpsSignaturesFilterValue", {
-        "filterName": args.filterName,
-        "firewallPolicyName": args.firewallPolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listFirewallPolicyIdpsSignaturesFilterValue(a, opts))
 }
 
 export interface ListFirewallPolicyIdpsSignaturesFilterValueOutputArgs {

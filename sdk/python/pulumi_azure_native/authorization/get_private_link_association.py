@@ -105,6 +105,9 @@ def get_private_link_association(group_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_private_link_association)
 def get_private_link_association_output(group_id: Optional[pulumi.Input[str]] = None,
                                         pla_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkAssociationResult]:
@@ -116,13 +119,4 @@ def get_private_link_association_output(group_id: Optional[pulumi.Input[str]] = 
     :param str group_id: The management group ID.
     :param str pla_id: The ID of the PLA
     """
-    __args__ = dict()
-    __args__['groupId'] = group_id
-    __args__['plaId'] = pla_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getPrivateLinkAssociation', __args__, opts=opts, typ=GetPrivateLinkAssociationResult)
-    return __ret__.apply(lambda __response__: GetPrivateLinkAssociationResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -396,6 +396,9 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
         uuid=pulumi.get(__ret__, 'uuid'),
         vm_name=pulumi.get(__ret__, 'vm_name'),
         vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
+
+
+@_utilities.lift_output_func(get_virtual_machine)
 def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                virtual_machine_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
@@ -409,35 +412,4 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group.
     :param str virtual_machine_name: Name of the VirtualMachine.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualMachineName'] = virtual_machine_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
-    return __ret__.apply(lambda __response__: GetVirtualMachineResult(
-        availability_sets=pulumi.get(__response__, 'availability_sets'),
-        checkpoint_type=pulumi.get(__response__, 'checkpoint_type'),
-        checkpoints=pulumi.get(__response__, 'checkpoints'),
-        cloud_id=pulumi.get(__response__, 'cloud_id'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        generation=pulumi.get(__response__, 'generation'),
-        guest_agent_profile=pulumi.get(__response__, 'guest_agent_profile'),
-        hardware_profile=pulumi.get(__response__, 'hardware_profile'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        inventory_item_id=pulumi.get(__response__, 'inventory_item_id'),
-        last_restored_vm_checkpoint=pulumi.get(__response__, 'last_restored_vm_checkpoint'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_profile=pulumi.get(__response__, 'network_profile'),
-        os_profile=pulumi.get(__response__, 'os_profile'),
-        power_state=pulumi.get(__response__, 'power_state'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        storage_profile=pulumi.get(__response__, 'storage_profile'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        template_id=pulumi.get(__response__, 'template_id'),
-        type=pulumi.get(__response__, 'type'),
-        uuid=pulumi.get(__response__, 'uuid'),
-        vm_name=pulumi.get(__response__, 'vm_name'),
-        vmm_server_id=pulumi.get(__response__, 'vmm_server_id')))
+    ...

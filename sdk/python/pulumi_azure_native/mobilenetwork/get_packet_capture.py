@@ -217,6 +217,9 @@ def get_packet_capture(packet_capture_name: Optional[str] = None,
         time_limit_in_seconds=pulumi.get(__ret__, 'time_limit_in_seconds'),
         total_bytes_per_session=pulumi.get(__ret__, 'total_bytes_per_session'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_packet_capture)
 def get_packet_capture_output(packet_capture_name: Optional[pulumi.Input[str]] = None,
                               packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -232,22 +235,4 @@ def get_packet_capture_output(packet_capture_name: Optional[pulumi.Input[str]] =
     :param str packet_core_control_plane_name: The name of the packet core control plane.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['packetCaptureName'] = packet_capture_name
-    __args__['packetCoreControlPlaneName'] = packet_core_control_plane_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork:getPacketCapture', __args__, opts=opts, typ=GetPacketCaptureResult)
-    return __ret__.apply(lambda __response__: GetPacketCaptureResult(
-        bytes_to_capture_per_packet=pulumi.get(__response__, 'bytes_to_capture_per_packet'),
-        capture_start_time=pulumi.get(__response__, 'capture_start_time'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        network_interfaces=pulumi.get(__response__, 'network_interfaces'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        reason=pulumi.get(__response__, 'reason'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        time_limit_in_seconds=pulumi.get(__response__, 'time_limit_in_seconds'),
-        total_bytes_per_session=pulumi.get(__response__, 'total_bytes_per_session'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -177,6 +177,9 @@ def get_workload_group(database_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         query_execution_timeout=pulumi.get(__ret__, 'query_execution_timeout'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workload_group)
 def get_workload_group_output(database_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               server_name: Optional[pulumi.Input[str]] = None,
@@ -191,20 +194,4 @@ def get_workload_group_output(database_name: Optional[pulumi.Input[str]] = None,
     :param str server_name: The name of the server.
     :param str workload_group_name: The name of the workload group.
     """
-    __args__ = dict()
-    __args__['databaseName'] = database_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    __args__['workloadGroupName'] = workload_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20240501preview:getWorkloadGroup', __args__, opts=opts, typ=GetWorkloadGroupResult)
-    return __ret__.apply(lambda __response__: GetWorkloadGroupResult(
-        id=pulumi.get(__response__, 'id'),
-        importance=pulumi.get(__response__, 'importance'),
-        max_resource_percent=pulumi.get(__response__, 'max_resource_percent'),
-        max_resource_percent_per_request=pulumi.get(__response__, 'max_resource_percent_per_request'),
-        min_resource_percent=pulumi.get(__response__, 'min_resource_percent'),
-        min_resource_percent_per_request=pulumi.get(__response__, 'min_resource_percent_per_request'),
-        name=pulumi.get(__response__, 'name'),
-        query_execution_timeout=pulumi.get(__response__, 'query_execution_timeout'),
-        type=pulumi.get(__response__, 'type')))
+    ...

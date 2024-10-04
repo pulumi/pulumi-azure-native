@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Keys for endpoint authentication.
  */
 export function listOnlineEndpointKeys(args: ListOnlineEndpointKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListOnlineEndpointKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240401:listOnlineEndpointKeys", {
         "endpointName": args.endpointName,
@@ -48,12 +49,7 @@ export interface ListOnlineEndpointKeysResult {
  * Keys for endpoint authentication.
  */
 export function listOnlineEndpointKeysOutput(args: ListOnlineEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOnlineEndpointKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401:listOnlineEndpointKeys", {
-        "endpointName": args.endpointName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listOnlineEndpointKeys(a, opts))
 }
 
 export interface ListOnlineEndpointKeysOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get an resource upload URL for an App, which may be artifacts or source archive.
  */
 export function getAppResourceUploadUrl(args: GetAppResourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResourceUploadUrlResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20230501preview:getAppResourceUploadUrl", {
         "appName": args.appName,
@@ -48,12 +49,7 @@ export interface GetAppResourceUploadUrlResult {
  * Get an resource upload URL for an App, which may be artifacts or source archive.
  */
 export function getAppResourceUploadUrlOutput(args: GetAppResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResourceUploadUrlResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230501preview:getAppResourceUploadUrl", {
-        "appName": args.appName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAppResourceUploadUrl(a, opts))
 }
 
 export interface GetAppResourceUploadUrlOutputArgs {

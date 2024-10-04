@@ -652,6 +652,9 @@ def list_web_app_auth_settings(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         unauthenticated_client_action=pulumi.get(__ret__, 'unauthenticated_client_action'),
         validate_issuer=pulumi.get(__ret__, 'validate_issuer'))
+
+
+@_utilities.lift_output_func(list_web_app_auth_settings)
 def list_web_app_auth_settings_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppAuthSettingsResult]:
@@ -662,51 +665,4 @@ def list_web_app_auth_settings_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:listWebAppAuthSettings', __args__, opts=opts, typ=ListWebAppAuthSettingsResult)
-    return __ret__.apply(lambda __response__: ListWebAppAuthSettingsResult(
-        aad_claims_authorization=pulumi.get(__response__, 'aad_claims_authorization'),
-        additional_login_params=pulumi.get(__response__, 'additional_login_params'),
-        allowed_audiences=pulumi.get(__response__, 'allowed_audiences'),
-        allowed_external_redirect_urls=pulumi.get(__response__, 'allowed_external_redirect_urls'),
-        auth_file_path=pulumi.get(__response__, 'auth_file_path'),
-        client_id=pulumi.get(__response__, 'client_id'),
-        client_secret=pulumi.get(__response__, 'client_secret'),
-        client_secret_certificate_thumbprint=pulumi.get(__response__, 'client_secret_certificate_thumbprint'),
-        client_secret_setting_name=pulumi.get(__response__, 'client_secret_setting_name'),
-        config_version=pulumi.get(__response__, 'config_version'),
-        default_provider=pulumi.get(__response__, 'default_provider'),
-        enabled=pulumi.get(__response__, 'enabled'),
-        facebook_app_id=pulumi.get(__response__, 'facebook_app_id'),
-        facebook_app_secret=pulumi.get(__response__, 'facebook_app_secret'),
-        facebook_app_secret_setting_name=pulumi.get(__response__, 'facebook_app_secret_setting_name'),
-        facebook_o_auth_scopes=pulumi.get(__response__, 'facebook_o_auth_scopes'),
-        git_hub_client_id=pulumi.get(__response__, 'git_hub_client_id'),
-        git_hub_client_secret=pulumi.get(__response__, 'git_hub_client_secret'),
-        git_hub_client_secret_setting_name=pulumi.get(__response__, 'git_hub_client_secret_setting_name'),
-        git_hub_o_auth_scopes=pulumi.get(__response__, 'git_hub_o_auth_scopes'),
-        google_client_id=pulumi.get(__response__, 'google_client_id'),
-        google_client_secret=pulumi.get(__response__, 'google_client_secret'),
-        google_client_secret_setting_name=pulumi.get(__response__, 'google_client_secret_setting_name'),
-        google_o_auth_scopes=pulumi.get(__response__, 'google_o_auth_scopes'),
-        id=pulumi.get(__response__, 'id'),
-        is_auth_from_file=pulumi.get(__response__, 'is_auth_from_file'),
-        issuer=pulumi.get(__response__, 'issuer'),
-        kind=pulumi.get(__response__, 'kind'),
-        microsoft_account_client_id=pulumi.get(__response__, 'microsoft_account_client_id'),
-        microsoft_account_client_secret=pulumi.get(__response__, 'microsoft_account_client_secret'),
-        microsoft_account_client_secret_setting_name=pulumi.get(__response__, 'microsoft_account_client_secret_setting_name'),
-        microsoft_account_o_auth_scopes=pulumi.get(__response__, 'microsoft_account_o_auth_scopes'),
-        name=pulumi.get(__response__, 'name'),
-        runtime_version=pulumi.get(__response__, 'runtime_version'),
-        token_refresh_extension_hours=pulumi.get(__response__, 'token_refresh_extension_hours'),
-        token_store_enabled=pulumi.get(__response__, 'token_store_enabled'),
-        twitter_consumer_key=pulumi.get(__response__, 'twitter_consumer_key'),
-        twitter_consumer_secret=pulumi.get(__response__, 'twitter_consumer_secret'),
-        twitter_consumer_secret_setting_name=pulumi.get(__response__, 'twitter_consumer_secret_setting_name'),
-        type=pulumi.get(__response__, 'type'),
-        unauthenticated_client_action=pulumi.get(__response__, 'unauthenticated_client_action'),
-        validate_issuer=pulumi.get(__response__, 'validate_issuer')))
+    ...

@@ -276,6 +276,9 @@ def get_cloud_hsm_cluster(cloud_hsm_cluster_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_cloud_hsm_cluster)
 def get_cloud_hsm_cluster_output(cloud_hsm_cluster_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudHsmClusterResult]:
@@ -286,26 +289,4 @@ def get_cloud_hsm_cluster_output(cloud_hsm_cluster_name: Optional[pulumi.Input[s
     :param str cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 24 characters in length.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['cloudHsmClusterName'] = cloud_hsm_cluster_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hardwaresecuritymodules/v20231210preview:getCloudHsmCluster', __args__, opts=opts, typ=GetCloudHsmClusterResult)
-    return __ret__.apply(lambda __response__: GetCloudHsmClusterResult(
-        auto_generated_domain_name_label_scope=pulumi.get(__response__, 'auto_generated_domain_name_label_scope'),
-        backup_properties=pulumi.get(__response__, 'backup_properties'),
-        hsms=pulumi.get(__response__, 'hsms'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        restore_properties=pulumi.get(__response__, 'restore_properties'),
-        security_domain=pulumi.get(__response__, 'security_domain'),
-        sku=pulumi.get(__response__, 'sku'),
-        status_message=pulumi.get(__response__, 'status_message'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

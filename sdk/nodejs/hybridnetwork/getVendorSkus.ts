@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-01-01-preview.
  */
 export function getVendorSkus(args: GetVendorSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:getVendorSkus", {
         "skuName": args.skuName,
@@ -88,11 +89,7 @@ export interface GetVendorSkusResult {
  * Azure REST API version: 2022-01-01-preview.
  */
 export function getVendorSkusOutput(args: GetVendorSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getVendorSkus", {
-        "skuName": args.skuName,
-        "vendorName": args.vendorName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVendorSkus(a, opts))
 }
 
 export interface GetVendorSkusOutputArgs {

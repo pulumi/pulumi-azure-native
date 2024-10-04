@@ -68,6 +68,9 @@ def list_container_app_secrets(container_app_name: Optional[str] = None,
 
     return AwaitableListContainerAppSecretsResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_container_app_secrets)
 def list_container_app_secrets_output(container_app_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListContainerAppSecretsResult]:
@@ -78,10 +81,4 @@ def list_container_app_secrets_output(container_app_name: Optional[pulumi.Input[
     :param str container_app_name: Name of the Container App.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['containerAppName'] = container_app_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20240202preview:listContainerAppSecrets', __args__, opts=opts, typ=ListContainerAppSecretsResult)
-    return __ret__.apply(lambda __response__: ListContainerAppSecretsResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

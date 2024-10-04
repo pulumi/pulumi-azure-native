@@ -228,6 +228,9 @@ def get_io_t_role(device_name: Optional[str] = None,
         share_mappings=pulumi.get(__ret__, 'share_mappings'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_io_t_role)
 def get_io_t_role_output(device_name: Optional[pulumi.Input[str]] = None,
                          name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -240,23 +243,4 @@ def get_io_t_role_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str name: The role name.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['deviceName'] = device_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20231201:getIoTRole', __args__, opts=opts, typ=GetIoTRoleResult)
-    return __ret__.apply(lambda __response__: GetIoTRoleResult(
-        compute_resource=pulumi.get(__response__, 'compute_resource'),
-        host_platform=pulumi.get(__response__, 'host_platform'),
-        host_platform_type=pulumi.get(__response__, 'host_platform_type'),
-        id=pulumi.get(__response__, 'id'),
-        io_t_device_details=pulumi.get(__response__, 'io_t_device_details'),
-        io_t_edge_agent_info=pulumi.get(__response__, 'io_t_edge_agent_info'),
-        io_t_edge_device_details=pulumi.get(__response__, 'io_t_edge_device_details'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        role_status=pulumi.get(__response__, 'role_status'),
-        share_mappings=pulumi.get(__response__, 'share_mappings'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -240,6 +240,9 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
         virtual_appliance_asn=pulumi.get(__ret__, 'virtual_appliance_asn'),
         virtual_appliance_nics=pulumi.get(__ret__, 'virtual_appliance_nics'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
+
+
+@_utilities.lift_output_func(get_network_virtual_appliance)
 def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                          network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -252,24 +255,4 @@ def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[
     :param str network_virtual_appliance_name: The name of Network Virtual Appliance.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['networkVirtualApplianceName'] = network_virtual_appliance_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20200401:getNetworkVirtualAppliance', __args__, opts=opts, typ=GetNetworkVirtualApplianceResult)
-    return __ret__.apply(lambda __response__: GetNetworkVirtualApplianceResult(
-        boot_strap_configuration_blob=pulumi.get(__response__, 'boot_strap_configuration_blob'),
-        cloud_init_configuration_blob=pulumi.get(__response__, 'cloud_init_configuration_blob'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_appliance_asn=pulumi.get(__response__, 'virtual_appliance_asn'),
-        virtual_appliance_nics=pulumi.get(__response__, 'virtual_appliance_nics'),
-        virtual_hub=pulumi.get(__response__, 'virtual_hub')))
+    ...

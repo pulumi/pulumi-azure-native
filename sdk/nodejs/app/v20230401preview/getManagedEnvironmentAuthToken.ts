@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Checks if resource name is available.
  */
 export function getManagedEnvironmentAuthToken(args: GetManagedEnvironmentAuthTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentAuthTokenResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20230401preview:getManagedEnvironmentAuthToken", {
         "environmentName": args.environmentName,
@@ -70,11 +71,7 @@ export interface GetManagedEnvironmentAuthTokenResult {
  * Checks if resource name is available.
  */
 export function getManagedEnvironmentAuthTokenOutput(args: GetManagedEnvironmentAuthTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentAuthTokenResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app/v20230401preview:getManagedEnvironmentAuthToken", {
-        "environmentName": args.environmentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedEnvironmentAuthToken(a, opts))
 }
 
 export interface GetManagedEnvironmentAuthTokenOutputArgs {

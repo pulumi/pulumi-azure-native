@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview.
  */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp:getBackup", {
         "accountName": args.accountName,
@@ -115,14 +116,7 @@ export interface GetBackupResult {
  * Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview.
  */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:netapp:getBackup", {
-        "accountName": args.accountName,
-        "backupName": args.backupName,
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-        "volumeName": args.volumeName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBackup(a, opts))
 }
 
 export interface GetBackupOutputArgs {

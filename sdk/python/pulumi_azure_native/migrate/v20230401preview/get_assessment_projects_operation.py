@@ -281,6 +281,9 @@ def get_assessment_projects_operation(project_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
+
+
+@_utilities.lift_output_func(get_assessment_projects_operation)
 def get_assessment_projects_operation_output(project_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentProjectsOperationResult]:
@@ -291,26 +294,4 @@ def get_assessment_projects_operation_output(project_name: Optional[pulumi.Input
     :param str project_name: Assessment Project Name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['projectName'] = project_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230401preview:getAssessmentProjectsOperation', __args__, opts=opts, typ=GetAssessmentProjectsOperationResult)
-    return __ret__.apply(lambda __response__: GetAssessmentProjectsOperationResult(
-        assessment_solution_id=pulumi.get(__response__, 'assessment_solution_id'),
-        created_timestamp=pulumi.get(__response__, 'created_timestamp'),
-        customer_storage_account_arm_id=pulumi.get(__response__, 'customer_storage_account_arm_id'),
-        customer_workspace_id=pulumi.get(__response__, 'customer_workspace_id'),
-        customer_workspace_location=pulumi.get(__response__, 'customer_workspace_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        project_status=pulumi.get(__response__, 'project_status'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        service_endpoint=pulumi.get(__response__, 'service_endpoint'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        updated_timestamp=pulumi.get(__response__, 'updated_timestamp')))
+    ...

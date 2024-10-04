@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns the path associated with the subvolumeName provided
  */
 export function getSubvolume(args: GetSubvolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetSubvolumeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20240301preview:getSubvolume", {
         "accountName": args.accountName,
@@ -85,14 +86,7 @@ export interface GetSubvolumeResult {
  * Returns the path associated with the subvolumeName provided
  */
 export function getSubvolumeOutput(args: GetSubvolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubvolumeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:netapp/v20240301preview:getSubvolume", {
-        "accountName": args.accountName,
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-        "subvolumeName": args.subvolumeName,
-        "volumeName": args.volumeName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSubvolume(a, opts))
 }
 
 export interface GetSubvolumeOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a job collection.
  */
 export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scheduler/v20160301:getJobCollection", {
         "jobCollectionName": args.jobCollectionName,
@@ -59,11 +60,7 @@ export interface GetJobCollectionResult {
  * Gets a job collection.
  */
 export function getJobCollectionOutput(args: GetJobCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCollectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:scheduler/v20160301:getJobCollection", {
-        "jobCollectionName": args.jobCollectionName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getJobCollection(a, opts))
 }
 
 export interface GetJobCollectionOutputArgs {

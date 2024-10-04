@@ -204,6 +204,9 @@ def get_key_value(config_store_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(get_key_value)
 def get_key_value_output(config_store_name: Optional[pulumi.Input[str]] = None,
                          key_value_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -216,21 +219,4 @@ def get_key_value_output(config_store_name: Optional[pulumi.Input[str]] = None,
     :param str key_value_name: Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    __args__ = dict()
-    __args__['configStoreName'] = config_store_name
-    __args__['keyValueName'] = key_value_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:appconfiguration/v20240501:getKeyValue', __args__, opts=opts, typ=GetKeyValueResult)
-    return __ret__.apply(lambda __response__: GetKeyValueResult(
-        content_type=pulumi.get(__response__, 'content_type'),
-        e_tag=pulumi.get(__response__, 'e_tag'),
-        id=pulumi.get(__response__, 'id'),
-        key=pulumi.get(__response__, 'key'),
-        label=pulumi.get(__response__, 'label'),
-        last_modified=pulumi.get(__response__, 'last_modified'),
-        locked=pulumi.get(__response__, 'locked'),
-        name=pulumi.get(__response__, 'name'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        value=pulumi.get(__response__, 'value')))
+    ...

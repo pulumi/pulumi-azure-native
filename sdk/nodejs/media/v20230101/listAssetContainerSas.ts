@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
  */
 export function listAssetContainerSas(args: ListAssetContainerSasArgs, opts?: pulumi.InvokeOptions): Promise<ListAssetContainerSasResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20230101:listAssetContainerSas", {
         "accountName": args.accountName,
@@ -57,14 +58,7 @@ export interface ListAssetContainerSasResult {
  * Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
  */
 export function listAssetContainerSasOutput(args: ListAssetContainerSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAssetContainerSasResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media/v20230101:listAssetContainerSas", {
-        "accountName": args.accountName,
-        "assetName": args.assetName,
-        "expiryTime": args.expiryTime,
-        "permissions": args.permissions,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listAssetContainerSas(a, opts))
 }
 
 export interface ListAssetContainerSasOutputArgs {

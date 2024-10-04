@@ -109,6 +109,9 @@ def get_billing_hub_service_usage(end_time_stamp: Optional[str] = None,
         total_charges=pulumi.get(__ret__, 'total_charges'),
         total_used_billable_hours=pulumi.get(__ret__, 'total_used_billable_hours'),
         total_used_free_hours=pulumi.get(__ret__, 'total_used_free_hours'))
+
+
+@_utilities.lift_output_func(get_billing_hub_service_usage)
 def get_billing_hub_service_usage_output(end_time_stamp: Optional[pulumi.Input[str]] = None,
                                          page_index: Optional[pulumi.Input[Optional[int]]] = None,
                                          page_size: Optional[pulumi.Input[Optional[int]]] = None,
@@ -122,18 +125,4 @@ def get_billing_hub_service_usage_output(end_time_stamp: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group that contains the resource.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
-    __args__ = dict()
-    __args__['endTimeStamp'] = end_time_stamp
-    __args__['pageIndex'] = page_index
-    __args__['pageSize'] = page_size
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['startTimeStamp'] = start_time_stamp
-    __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:testbase/v20220401preview:getBillingHubServiceUsage', __args__, opts=opts, typ=GetBillingHubServiceUsageResult)
-    return __ret__.apply(lambda __response__: GetBillingHubServiceUsageResult(
-        next_request=pulumi.get(__response__, 'next_request'),
-        package_usage_entries=pulumi.get(__response__, 'package_usage_entries'),
-        total_charges=pulumi.get(__response__, 'total_charges'),
-        total_used_billable_hours=pulumi.get(__response__, 'total_used_billable_hours'),
-        total_used_free_hours=pulumi.get(__response__, 'total_used_free_hours')))
+    ...

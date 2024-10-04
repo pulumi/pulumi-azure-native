@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Lists a workflow run expression trace.
  */
 export function listWorkflowRunActionExpressionTraces(args: ListWorkflowRunActionExpressionTracesArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowRunActionExpressionTracesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20230101:listWorkflowRunActionExpressionTraces", {
         "actionName": args.actionName,
@@ -59,14 +60,7 @@ export interface ListWorkflowRunActionExpressionTracesResult {
  * Lists a workflow run expression trace.
  */
 export function listWorkflowRunActionExpressionTracesOutput(args: ListWorkflowRunActionExpressionTracesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowRunActionExpressionTracesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20230101:listWorkflowRunActionExpressionTraces", {
-        "actionName": args.actionName,
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "runName": args.runName,
-        "workflowName": args.workflowName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWorkflowRunActionExpressionTraces(a, opts))
 }
 
 export interface ListWorkflowRunActionExpressionTracesOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the AppComplianceAutomation scoping configuration of the specific report.
  */
 export function getScopingConfiguration(args: GetScopingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetScopingConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appcomplianceautomation/v20240627:getScopingConfiguration", {
         "reportName": args.reportName,
@@ -62,11 +63,7 @@ export interface GetScopingConfigurationResult {
  * Get the AppComplianceAutomation scoping configuration of the specific report.
  */
 export function getScopingConfigurationOutput(args: GetScopingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopingConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation/v20240627:getScopingConfiguration", {
-        "reportName": args.reportName,
-        "scopingConfigurationName": args.scopingConfigurationName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getScopingConfiguration(a, opts))
 }
 
 export interface GetScopingConfigurationOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-01-preview.
  */
 export function listDnsResolverPolicyByVirtualNetwork(args: ListDnsResolverPolicyByVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<ListDnsResolverPolicyByVirtualNetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:listDnsResolverPolicyByVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,
@@ -48,11 +49,7 @@ export interface ListDnsResolverPolicyByVirtualNetworkResult {
  * Azure REST API version: 2023-07-01-preview.
  */
 export function listDnsResolverPolicyByVirtualNetworkOutput(args: ListDnsResolverPolicyByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsResolverPolicyByVirtualNetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:listDnsResolverPolicyByVirtualNetwork", {
-        "resourceGroupName": args.resourceGroupName,
-        "virtualNetworkName": args.virtualNetworkName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listDnsResolverPolicyByVirtualNetwork(a, opts))
 }
 
 export interface ListDnsResolverPolicyByVirtualNetworkOutputArgs {

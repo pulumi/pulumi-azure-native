@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a managed instance.
  */
 export function getManagedInstance(args: GetManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getManagedInstance", {
         "expand": args.expand,
@@ -169,12 +170,7 @@ export interface GetManagedInstanceResult {
  * Gets a managed instance.
  */
 export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getManagedInstance", {
-        "expand": args.expand,
-        "managedInstanceName": args.managedInstanceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedInstance(a, opts))
 }
 
 export interface GetManagedInstanceOutputArgs {

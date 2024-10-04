@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the specified ground station in a specified resource group.
  */
 export function getGroundStation(args: GetGroundStationArgs, opts?: pulumi.InvokeOptions): Promise<GetGroundStationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:orbital/v20240301:getGroundStation", {
         "groundStationName": args.groundStationName,
@@ -94,11 +95,7 @@ export interface GetGroundStationResult {
  * Gets the specified ground station in a specified resource group.
  */
 export function getGroundStationOutput(args: GetGroundStationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroundStationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:orbital/v20240301:getGroundStation", {
-        "groundStationName": args.groundStationName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGroundStation(a, opts))
 }
 
 export interface GetGroundStationOutputArgs {

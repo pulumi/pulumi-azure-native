@@ -120,6 +120,9 @@ def list_vendor_skus_credential(sku_name: Optional[str] = None,
         expiry=pulumi.get(__ret__, 'expiry'),
         repositories=pulumi.get(__ret__, 'repositories'),
         username=pulumi.get(__ret__, 'username'))
+
+
+@_utilities.lift_output_func(list_vendor_skus_credential)
 def list_vendor_skus_credential_output(sku_name: Optional[pulumi.Input[str]] = None,
                                        vendor_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVendorSkusCredentialResult]:
@@ -131,14 +134,4 @@ def list_vendor_skus_credential_output(sku_name: Optional[pulumi.Input[str]] = N
     :param str sku_name: The name of the sku.
     :param str vendor_name: The name of the vendor.
     """
-    __args__ = dict()
-    __args__['skuName'] = sku_name
-    __args__['vendorName'] = vendor_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:listVendorSkusCredential', __args__, opts=opts, typ=ListVendorSkusCredentialResult)
-    return __ret__.apply(lambda __response__: ListVendorSkusCredentialResult(
-        acr_server_url=pulumi.get(__response__, 'acr_server_url'),
-        acr_token=pulumi.get(__response__, 'acr_token'),
-        expiry=pulumi.get(__response__, 'expiry'),
-        repositories=pulumi.get(__response__, 'repositories'),
-        username=pulumi.get(__response__, 'username')))
+    ...

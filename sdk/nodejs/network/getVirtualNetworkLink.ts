@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-06-01.
  */
 export function getVirtualNetworkLink(args: GetVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkLinkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getVirtualNetworkLink", {
         "privateZoneName": args.privateZoneName,
@@ -89,12 +90,7 @@ export interface GetVirtualNetworkLinkResult {
  * Other available API versions: 2024-06-01.
  */
 export function getVirtualNetworkLinkOutput(args: GetVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkLinkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:getVirtualNetworkLink", {
-        "privateZoneName": args.privateZoneName,
-        "resourceGroupName": args.resourceGroupName,
-        "virtualNetworkLinkName": args.virtualNetworkLinkName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualNetworkLink(a, opts))
 }
 
 export interface GetVirtualNetworkLinkOutputArgs {

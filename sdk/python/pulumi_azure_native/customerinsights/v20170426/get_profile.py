@@ -334,6 +334,9 @@ def get_profile(hub_name: Optional[str] = None,
         timestamp_field_name=pulumi.get(__ret__, 'timestamp_field_name'),
         type=pulumi.get(__ret__, 'type'),
         type_name=pulumi.get(__ret__, 'type_name'))
+
+
+@_utilities.lift_output_func(get_profile)
 def get_profile_output(hub_name: Optional[pulumi.Input[str]] = None,
                        locale_code: Optional[pulumi.Input[Optional[str]]] = None,
                        profile_name: Optional[pulumi.Input[str]] = None,
@@ -348,32 +351,4 @@ def get_profile_output(hub_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: The name of the profile.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['hubName'] = hub_name
-    __args__['localeCode'] = locale_code
-    __args__['profileName'] = profile_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights/v20170426:getProfile', __args__, opts=opts, typ=GetProfileResult)
-    return __ret__.apply(lambda __response__: GetProfileResult(
-        api_entity_set_name=pulumi.get(__response__, 'api_entity_set_name'),
-        attributes=pulumi.get(__response__, 'attributes'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        entity_type=pulumi.get(__response__, 'entity_type'),
-        fields=pulumi.get(__response__, 'fields'),
-        id=pulumi.get(__response__, 'id'),
-        instances_count=pulumi.get(__response__, 'instances_count'),
-        large_image=pulumi.get(__response__, 'large_image'),
-        last_changed_utc=pulumi.get(__response__, 'last_changed_utc'),
-        localized_attributes=pulumi.get(__response__, 'localized_attributes'),
-        medium_image=pulumi.get(__response__, 'medium_image'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        schema_item_type_link=pulumi.get(__response__, 'schema_item_type_link'),
-        small_image=pulumi.get(__response__, 'small_image'),
-        strong_ids=pulumi.get(__response__, 'strong_ids'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        timestamp_field_name=pulumi.get(__response__, 'timestamp_field_name'),
-        type=pulumi.get(__response__, 'type'),
-        type_name=pulumi.get(__response__, 'type_name')))
+    ...

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-10-01-preview.
  */
 export function getMasterSitesController(args: GetMasterSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetMasterSitesControllerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure:getMasterSitesController", {
         "resourceGroupName": args.resourceGroupName,
@@ -99,11 +100,7 @@ export interface GetMasterSitesControllerResult {
  * Other available API versions: 2023-10-01-preview.
  */
 export function getMasterSitesControllerOutput(args: GetMasterSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMasterSitesControllerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:offazure:getMasterSitesController", {
-        "resourceGroupName": args.resourceGroupName,
-        "siteName": args.siteName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMasterSitesController(a, opts))
 }
 
 export interface GetMasterSitesControllerOutputArgs {

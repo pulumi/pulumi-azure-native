@@ -279,6 +279,9 @@ def get_custom_image(custom_image_name: Optional[str] = None,
         version_name=pulumi.get(__ret__, 'version_name'),
         vhd_file_name=pulumi.get(__ret__, 'vhd_file_name'),
         vhd_id=pulumi.get(__ret__, 'vhd_id'))
+
+
+@_utilities.lift_output_func(get_custom_image)
 def get_custom_image_output(custom_image_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             test_base_account_name: Optional[pulumi.Input[str]] = None,
@@ -291,27 +294,4 @@ def get_custom_image_output(custom_image_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
-    __args__ = dict()
-    __args__['customImageName'] = custom_image_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:testbase/v20231101preview:getCustomImage', __args__, opts=opts, typ=GetCustomImageResult)
-    return __ret__.apply(lambda __response__: GetCustomImageResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        definition_name=pulumi.get(__response__, 'definition_name'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        os_disk_image_size_in_gb=pulumi.get(__response__, 'os_disk_image_size_in_gb'),
-        product=pulumi.get(__response__, 'product'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        release=pulumi.get(__response__, 'release'),
-        release_version_date=pulumi.get(__response__, 'release_version_date'),
-        source=pulumi.get(__response__, 'source'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        validation_results=pulumi.get(__response__, 'validation_results'),
-        version_name=pulumi.get(__response__, 'version_name'),
-        vhd_file_name=pulumi.get(__response__, 'vhd_file_name'),
-        vhd_id=pulumi.get(__response__, 'vhd_id')))
+    ...

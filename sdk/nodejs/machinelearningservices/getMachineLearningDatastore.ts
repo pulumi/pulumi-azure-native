@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-05-01-preview.
  */
 export function getMachineLearningDatastore(args: GetMachineLearningDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningDatastoreResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getMachineLearningDatastore", {
         "datastoreName": args.datastoreName,
@@ -77,12 +78,7 @@ export interface GetMachineLearningDatastoreResult {
  * Azure REST API version: 2020-05-01-preview.
  */
 export function getMachineLearningDatastoreOutput(args: GetMachineLearningDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatastoreResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getMachineLearningDatastore", {
-        "datastoreName": args.datastoreName,
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMachineLearningDatastore(a, opts))
 }
 
 export interface GetMachineLearningDatastoreOutputArgs {

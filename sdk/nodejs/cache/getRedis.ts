@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
  */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache:getRedis", {
         "name": args.name,
@@ -152,11 +153,7 @@ export interface GetRedisResult {
  * Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
  */
 export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cache:getRedis", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRedis(a, opts))
 }
 
 export interface GetRedisOutputArgs {

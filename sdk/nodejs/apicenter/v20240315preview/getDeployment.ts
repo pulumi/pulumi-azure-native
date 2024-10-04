@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Returns details of the API deployment.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apicenter/v20240315preview:getDeployment", {
         "apiName": args.apiName,
@@ -97,14 +98,7 @@ export interface GetDeploymentResult {
  * Returns details of the API deployment.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apicenter/v20240315preview:getDeployment", {
-        "apiName": args.apiName,
-        "deploymentName": args.deploymentName,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
 }
 
 export interface GetDeploymentOutputArgs {

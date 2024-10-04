@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * This operation retrieves a single standard assignment, given its name and the scope it was created at.
  */
 export function getStandardAssignment(args: GetStandardAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20240801:getStandardAssignment", {
         "resourceId": args.resourceId,
@@ -86,11 +87,7 @@ export interface GetStandardAssignmentResult {
  * This operation retrieves a single standard assignment, given its name and the scope it was created at.
  */
 export function getStandardAssignmentOutput(args: GetStandardAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security/v20240801:getStandardAssignment", {
-        "resourceId": args.resourceId,
-        "standardAssignmentName": args.standardAssignmentName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStandardAssignment(a, opts))
 }
 
 export interface GetStandardAssignmentOutputArgs {

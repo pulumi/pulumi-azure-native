@@ -146,6 +146,9 @@ def get_management_group_network_manager_connection(management_group_id: Optiona
         network_manager_id=pulumi.get(__ret__, 'network_manager_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_management_group_network_manager_connection)
 def get_management_group_network_manager_connection_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                                            network_manager_connection_name: Optional[pulumi.Input[str]] = None,
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupNetworkManagerConnectionResult]:
@@ -156,16 +159,4 @@ def get_management_group_network_manager_connection_output(management_group_id: 
     :param str management_group_id: The management group Id which uniquely identify the Microsoft Azure management group.
     :param str network_manager_connection_name: Name for the network manager connection.
     """
-    __args__ = dict()
-    __args__['managementGroupId'] = management_group_id
-    __args__['networkManagerConnectionName'] = network_manager_connection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getManagementGroupNetworkManagerConnection', __args__, opts=opts, typ=GetManagementGroupNetworkManagerConnectionResult)
-    return __ret__.apply(lambda __response__: GetManagementGroupNetworkManagerConnectionResult(
-        description=pulumi.get(__response__, 'description'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        network_manager_id=pulumi.get(__response__, 'network_manager_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

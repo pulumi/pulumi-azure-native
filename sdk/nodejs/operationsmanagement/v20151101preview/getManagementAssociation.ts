@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Retrieves the user ManagementAssociation.
  */
 export function getManagementAssociation(args: GetManagementAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementAssociationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationsmanagement/v20151101preview:getManagementAssociation", {
         "managementAssociationName": args.managementAssociationName,
@@ -73,14 +74,7 @@ export interface GetManagementAssociationResult {
  * Retrieves the user ManagementAssociation.
  */
 export function getManagementAssociationOutput(args: GetManagementAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementAssociationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:operationsmanagement/v20151101preview:getManagementAssociation", {
-        "managementAssociationName": args.managementAssociationName,
-        "providerName": args.providerName,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-        "resourceType": args.resourceType,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagementAssociation(a, opts))
 }
 
 export interface GetManagementAssociationOutputArgs {

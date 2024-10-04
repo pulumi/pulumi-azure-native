@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  */
 export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubAuthorizationRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20230901:getNotificationHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -76,13 +77,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  */
 export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20230901:getNotificationHubAuthorizationRule", {
-        "authorizationRuleName": args.authorizationRuleName,
-        "namespaceName": args.namespaceName,
-        "notificationHubName": args.notificationHubName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNotificationHubAuthorizationRule(a, opts))
 }
 
 export interface GetNotificationHubAuthorizationRuleOutputArgs {

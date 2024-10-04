@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20240901:getEndpoint", {
         "endpointName": args.endpointName,
@@ -147,12 +148,7 @@ export interface GetEndpointResult {
  * Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cdn/v20240901:getEndpoint", {
-        "endpointName": args.endpointName,
-        "profileName": args.profileName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
 }
 
 export interface GetEndpointOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Display information about a cloud service.
  */
 export function getCloudService(args: GetCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20220904:getCloudService", {
         "cloudServiceName": args.cloudServiceName,
@@ -70,11 +71,7 @@ export interface GetCloudServiceResult {
  * Display information about a cloud service.
  */
 export function getCloudServiceOutput(args: GetCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute/v20220904:getCloudService", {
-        "cloudServiceName": args.cloudServiceName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCloudService(a, opts))
 }
 
 export interface GetCloudServiceOutputArgs {

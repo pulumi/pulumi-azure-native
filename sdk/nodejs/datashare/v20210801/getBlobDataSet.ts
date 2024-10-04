@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a DataSet in a share
  */
 export function getBlobDataSet(args: GetBlobDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobDataSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:getBlobDataSet", {
         "accountName": args.accountName,
@@ -93,13 +94,7 @@ export interface GetBlobDataSetResult {
  * Get a DataSet in a share
  */
 export function getBlobDataSetOutput(args: GetBlobDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobDataSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getBlobDataSet", {
-        "accountName": args.accountName,
-        "dataSetName": args.dataSetName,
-        "resourceGroupName": args.resourceGroupName,
-        "shareName": args.shareName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBlobDataSet(a, opts))
 }
 
 export interface GetBlobDataSetOutputArgs {

@@ -240,6 +240,9 @@ def get_project_catalog(catalog_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_project_catalog)
 def get_project_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
                                project_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -252,24 +255,4 @@ def get_project_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: The name of the project.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['catalogName'] = catalog_name
-    __args__['projectName'] = project_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20240801preview:getProjectCatalog', __args__, opts=opts, typ=GetProjectCatalogResult)
-    return __ret__.apply(lambda __response__: GetProjectCatalogResult(
-        ado_git=pulumi.get(__response__, 'ado_git'),
-        connection_state=pulumi.get(__response__, 'connection_state'),
-        git_hub=pulumi.get(__response__, 'git_hub'),
-        id=pulumi.get(__response__, 'id'),
-        last_connection_time=pulumi.get(__response__, 'last_connection_time'),
-        last_sync_stats=pulumi.get(__response__, 'last_sync_stats'),
-        last_sync_time=pulumi.get(__response__, 'last_sync_time'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sync_state=pulumi.get(__response__, 'sync_state'),
-        sync_type=pulumi.get(__response__, 'sync_type'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

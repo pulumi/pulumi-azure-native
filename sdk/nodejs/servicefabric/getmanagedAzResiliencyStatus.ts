@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview.
  */
 export function getmanagedAzResiliencyStatus(args: GetmanagedAzResiliencyStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagedAzResiliencyStatusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric:getmanagedAzResiliencyStatus", {
         "clusterName": args.clusterName,
@@ -52,11 +53,7 @@ export interface GetmanagedAzResiliencyStatusResult {
  * Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview.
  */
 export function getmanagedAzResiliencyStatusOutput(args: GetmanagedAzResiliencyStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmanagedAzResiliencyStatusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicefabric:getmanagedAzResiliencyStatus", {
-        "clusterName": args.clusterName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getmanagedAzResiliencyStatus(a, opts))
 }
 
 export interface GetmanagedAzResiliencyStatusOutputArgs {

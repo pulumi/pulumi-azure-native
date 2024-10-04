@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-02-01-preview.
  */
 export function listNetworkManagerEffectiveSecurityAdminRule(args: ListNetworkManagerEffectiveSecurityAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<ListNetworkManagerEffectiveSecurityAdminRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:listNetworkManagerEffectiveSecurityAdminRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -53,12 +54,7 @@ export interface ListNetworkManagerEffectiveSecurityAdminRuleResult {
  * Azure REST API version: 2021-02-01-preview.
  */
 export function listNetworkManagerEffectiveSecurityAdminRuleOutput(args: ListNetworkManagerEffectiveSecurityAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerEffectiveSecurityAdminRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network:listNetworkManagerEffectiveSecurityAdminRule", {
-        "resourceGroupName": args.resourceGroupName,
-        "skipToken": args.skipToken,
-        "virtualNetworkName": args.virtualNetworkName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listNetworkManagerEffectiveSecurityAdminRule(a, opts))
 }
 
 export interface ListNetworkManagerEffectiveSecurityAdminRuleOutputArgs {

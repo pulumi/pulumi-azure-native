@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-06-01.
  */
 export function getIntegrationRuntimeStatus(args: GetIntegrationRuntimeStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeStatusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory:getIntegrationRuntimeStatus", {
         "factoryName": args.factoryName,
@@ -53,12 +54,7 @@ export interface GetIntegrationRuntimeStatusResult {
  * Azure REST API version: 2018-06-01.
  */
 export function getIntegrationRuntimeStatusOutput(args: GetIntegrationRuntimeStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeStatusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datafactory:getIntegrationRuntimeStatus", {
-        "factoryName": args.factoryName,
-        "integrationRuntimeName": args.integrationRuntimeName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIntegrationRuntimeStatus(a, opts))
 }
 
 export interface GetIntegrationRuntimeStatusOutputArgs {

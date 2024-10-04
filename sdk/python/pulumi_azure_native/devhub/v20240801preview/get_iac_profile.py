@@ -309,6 +309,9 @@ def get_iac_profile(iac_profile_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         templates=pulumi.get(__ret__, 'templates'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_iac_profile)
 def get_iac_profile_output(iac_profile_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIacProfileResult]:
@@ -319,29 +322,4 @@ def get_iac_profile_output(iac_profile_name: Optional[pulumi.Input[str]] = None,
     :param str iac_profile_name: The name of the IacProfile.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['iacProfileName'] = iac_profile_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devhub/v20240801preview:getIacProfile', __args__, opts=opts, typ=GetIacProfileResult)
-    return __ret__.apply(lambda __response__: GetIacProfileResult(
-        auth_status=pulumi.get(__response__, 'auth_status'),
-        branch_name=pulumi.get(__response__, 'branch_name'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        pr_status=pulumi.get(__response__, 'pr_status'),
-        pull_number=pulumi.get(__response__, 'pull_number'),
-        repository_main_branch=pulumi.get(__response__, 'repository_main_branch'),
-        repository_name=pulumi.get(__response__, 'repository_name'),
-        repository_owner=pulumi.get(__response__, 'repository_owner'),
-        stages=pulumi.get(__response__, 'stages'),
-        storage_account_name=pulumi.get(__response__, 'storage_account_name'),
-        storage_account_resource_group=pulumi.get(__response__, 'storage_account_resource_group'),
-        storage_account_subscription=pulumi.get(__response__, 'storage_account_subscription'),
-        storage_container_name=pulumi.get(__response__, 'storage_container_name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        templates=pulumi.get(__response__, 'templates'),
-        type=pulumi.get(__response__, 'type')))
+    ...

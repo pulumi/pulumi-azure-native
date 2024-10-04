@@ -226,6 +226,9 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
         signin_tenant=pulumi.get(__ret__, 'signin_tenant'),
         signup_policy_name=pulumi.get(__ret__, 'signup_policy_name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_identity_provider)
 def get_identity_provider_output(identity_provider_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  service_name: Optional[pulumi.Input[str]] = None,
@@ -238,23 +241,4 @@ def get_identity_provider_output(identity_provider_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['identityProviderName'] = identity_provider_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:getIdentityProvider', __args__, opts=opts, typ=GetIdentityProviderResult)
-    return __ret__.apply(lambda __response__: GetIdentityProviderResult(
-        allowed_tenants=pulumi.get(__response__, 'allowed_tenants'),
-        authority=pulumi.get(__response__, 'authority'),
-        client_id=pulumi.get(__response__, 'client_id'),
-        client_library=pulumi.get(__response__, 'client_library'),
-        client_secret=pulumi.get(__response__, 'client_secret'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        password_reset_policy_name=pulumi.get(__response__, 'password_reset_policy_name'),
-        profile_editing_policy_name=pulumi.get(__response__, 'profile_editing_policy_name'),
-        signin_policy_name=pulumi.get(__response__, 'signin_policy_name'),
-        signin_tenant=pulumi.get(__response__, 'signin_tenant'),
-        signup_policy_name=pulumi.get(__response__, 'signup_policy_name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

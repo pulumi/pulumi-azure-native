@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * List Both of the 2 Keys of an object anchors Account
  */
 export function listObjectAnchorsAccountKeys(args: ListObjectAnchorsAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListObjectAnchorsAccountKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", {
         "accountName": args.accountName,
@@ -43,11 +44,7 @@ export interface ListObjectAnchorsAccountKeysResult {
  * List Both of the 2 Keys of an object anchors Account
  */
 export function listObjectAnchorsAccountKeysOutput(args: ListObjectAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListObjectAnchorsAccountKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", {
-        "accountName": args.accountName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listObjectAnchorsAccountKeys(a, opts))
 }
 
 export interface ListObjectAnchorsAccountKeysOutputArgs {

@@ -188,6 +188,9 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
         trusted_service_access_enabled=pulumi.get(__ret__, 'trusted_service_access_enabled'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_rules=pulumi.get(__ret__, 'virtual_network_rules'))
+
+
+@_utilities.lift_output_func(get_namespace_network_rule_set)
 def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceNetworkRuleSetResult]:
@@ -201,19 +204,4 @@ def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    __args__ = dict()
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus:getNamespaceNetworkRuleSet', __args__, opts=opts, typ=GetNamespaceNetworkRuleSetResult)
-    return __ret__.apply(lambda __response__: GetNamespaceNetworkRuleSetResult(
-        default_action=pulumi.get(__response__, 'default_action'),
-        id=pulumi.get(__response__, 'id'),
-        ip_rules=pulumi.get(__response__, 'ip_rules'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        trusted_service_access_enabled=pulumi.get(__response__, 'trusted_service_access_enabled'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_network_rules=pulumi.get(__response__, 'virtual_network_rules')))
+    ...

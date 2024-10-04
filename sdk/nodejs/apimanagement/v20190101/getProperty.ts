@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the property specified by its identifier.
  */
 export function getProperty(args: GetPropertyArgs, opts?: pulumi.InvokeOptions): Promise<GetPropertyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20190101:getProperty", {
         "propId": args.propId,
@@ -68,12 +69,7 @@ export interface GetPropertyResult {
  * Gets the details of the property specified by its identifier.
  */
 export function getPropertyOutput(args: GetPropertyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPropertyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20190101:getProperty", {
-        "propId": args.propId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProperty(a, opts))
 }
 
 export interface GetPropertyOutputArgs {

@@ -201,6 +201,9 @@ def get_rule(profile_name: Optional[str] = None,
         rule_set_name=pulumi.get(__ret__, 'rule_set_name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_rule)
 def get_rule_output(profile_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     rule_name: Optional[pulumi.Input[str]] = None,
@@ -215,22 +218,4 @@ def get_rule_output(profile_name: Optional[pulumi.Input[str]] = None,
     :param str rule_name: Name of the delivery rule which is unique within the endpoint.
     :param str rule_set_name: Name of the rule set under the profile.
     """
-    __args__ = dict()
-    __args__['profileName'] = profile_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['ruleName'] = rule_name
-    __args__['ruleSetName'] = rule_set_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20240201:getRule', __args__, opts=opts, typ=GetRuleResult)
-    return __ret__.apply(lambda __response__: GetRuleResult(
-        actions=pulumi.get(__response__, 'actions'),
-        conditions=pulumi.get(__response__, 'conditions'),
-        deployment_status=pulumi.get(__response__, 'deployment_status'),
-        id=pulumi.get(__response__, 'id'),
-        match_processing_behavior=pulumi.get(__response__, 'match_processing_behavior'),
-        name=pulumi.get(__response__, 'name'),
-        order=pulumi.get(__response__, 'order'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        rule_set_name=pulumi.get(__response__, 'rule_set_name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

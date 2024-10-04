@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get OuContainer in DomainService instance.
  */
 export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetOuContainerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aad/v20221201:getOuContainer", {
         "domainServiceName": args.domainServiceName,
@@ -103,12 +104,7 @@ export interface GetOuContainerResult {
  * Get OuContainer in DomainService instance.
  */
 export function getOuContainerOutput(args: GetOuContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOuContainerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:aad/v20221201:getOuContainer", {
-        "domainServiceName": args.domainServiceName,
-        "ouContainerName": args.ouContainerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOuContainer(a, opts))
 }
 
 export interface GetOuContainerOutputArgs {

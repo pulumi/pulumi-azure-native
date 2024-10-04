@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get metrics configuration of the provided cluster.
  */
 export function getMetricsConfiguration(args: GetMetricsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricsConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20240701:getMetricsConfiguration", {
         "clusterName": args.clusterName,
@@ -92,12 +93,7 @@ export interface GetMetricsConfigurationResult {
  * Get metrics configuration of the provided cluster.
  */
 export function getMetricsConfigurationOutput(args: GetMetricsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240701:getMetricsConfiguration", {
-        "clusterName": args.clusterName,
-        "metricsConfigurationName": args.metricsConfigurationName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMetricsConfiguration(a, opts))
 }
 
 export interface GetMetricsConfigurationOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-06-15.
  */
 export function getNetworkFabric(args: GetNetworkFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFabricResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric:getNetworkFabric", {
         "networkFabricName": args.networkFabricName,
@@ -132,11 +133,7 @@ export interface GetNetworkFabricResult {
  * Other available API versions: 2023-06-15.
  */
 export function getNetworkFabricOutput(args: GetNetworkFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFabricResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNetworkFabric", {
-        "networkFabricName": args.networkFabricName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkFabric(a, opts))
 }
 
 export interface GetNetworkFabricOutputArgs {

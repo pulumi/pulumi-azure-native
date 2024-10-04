@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
  */
 export function getRuleSet(args: GetRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20230501:getRuleSet", {
         "profileName": args.profileName,
@@ -68,12 +69,7 @@ export interface GetRuleSetResult {
  * Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
  */
 export function getRuleSetOutput(args: GetRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cdn/v20230501:getRuleSet", {
-        "profileName": args.profileName,
-        "resourceGroupName": args.resourceGroupName,
-        "ruleSetName": args.ruleSetName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRuleSet(a, opts))
 }
 
 export interface GetRuleSetOutputArgs {

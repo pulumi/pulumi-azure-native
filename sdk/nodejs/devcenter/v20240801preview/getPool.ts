@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a machine pool
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20240801preview:getPool", {
         "poolName": args.poolName,
@@ -127,12 +128,7 @@ export interface GetPoolResult {
  * Gets a machine pool
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240801preview:getPool", {
-        "poolName": args.poolName,
-        "projectName": args.projectName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPool(a, opts))
 }
 
 export interface GetPoolOutputArgs {

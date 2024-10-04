@@ -263,6 +263,9 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         v_center_id=pulumi.get(__ret__, 'v_center_id'))
+
+
+@_utilities.lift_output_func(get_virtual_network)
 def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                virtual_network_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResult]:
@@ -273,25 +276,4 @@ def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The Resource Group Name.
     :param str virtual_network_name: Name of the virtual network resource.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualNetworkName'] = virtual_network_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere/v20220715preview:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult)
-    return __ret__.apply(lambda __response__: GetVirtualNetworkResult(
-        custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        inventory_item_id=pulumi.get(__response__, 'inventory_item_id'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        mo_name=pulumi.get(__response__, 'mo_name'),
-        mo_ref_id=pulumi.get(__response__, 'mo_ref_id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        statuses=pulumi.get(__response__, 'statuses'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        uuid=pulumi.get(__response__, 'uuid'),
-        v_center_id=pulumi.get(__response__, 'v_center_id')))
+    ...

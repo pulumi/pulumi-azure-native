@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get information about a guest configuration assignment
  */
 export function getGuestConfigurationAssignment(args: GetGuestConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:guestconfiguration/v20240405:getGuestConfigurationAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
@@ -67,12 +68,7 @@ export interface GetGuestConfigurationAssignmentResult {
  * Get information about a guest configuration assignment
  */
 export function getGuestConfigurationAssignmentOutput(args: GetGuestConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:guestconfiguration/v20240405:getGuestConfigurationAssignment", {
-        "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
-        "resourceGroupName": args.resourceGroupName,
-        "vmName": args.vmName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGuestConfigurationAssignment(a, opts))
 }
 
 export interface GetGuestConfigurationAssignmentOutputArgs {

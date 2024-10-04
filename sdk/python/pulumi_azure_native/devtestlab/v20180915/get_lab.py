@@ -385,6 +385,9 @@ def get_lab(expand: Optional[str] = None,
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
         vault_name=pulumi.get(__ret__, 'vault_name'),
         vm_creation_resource_group=pulumi.get(__ret__, 'vm_creation_resource_group'))
+
+
+@_utilities.lift_output_func(get_lab)
 def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -397,35 +400,4 @@ def get_lab_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: The name of the lab.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getLab', __args__, opts=opts, typ=GetLabResult)
-    return __ret__.apply(lambda __response__: GetLabResult(
-        announcement=pulumi.get(__response__, 'announcement'),
-        artifacts_storage_account=pulumi.get(__response__, 'artifacts_storage_account'),
-        created_date=pulumi.get(__response__, 'created_date'),
-        default_premium_storage_account=pulumi.get(__response__, 'default_premium_storage_account'),
-        default_storage_account=pulumi.get(__response__, 'default_storage_account'),
-        environment_permission=pulumi.get(__response__, 'environment_permission'),
-        extended_properties=pulumi.get(__response__, 'extended_properties'),
-        id=pulumi.get(__response__, 'id'),
-        lab_storage_type=pulumi.get(__response__, 'lab_storage_type'),
-        load_balancer_id=pulumi.get(__response__, 'load_balancer_id'),
-        location=pulumi.get(__response__, 'location'),
-        mandatory_artifacts_resource_ids_linux=pulumi.get(__response__, 'mandatory_artifacts_resource_ids_linux'),
-        mandatory_artifacts_resource_ids_windows=pulumi.get(__response__, 'mandatory_artifacts_resource_ids_windows'),
-        name=pulumi.get(__response__, 'name'),
-        network_security_group_id=pulumi.get(__response__, 'network_security_group_id'),
-        premium_data_disk_storage_account=pulumi.get(__response__, 'premium_data_disk_storage_account'),
-        premium_data_disks=pulumi.get(__response__, 'premium_data_disks'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_ip_id=pulumi.get(__response__, 'public_ip_id'),
-        support=pulumi.get(__response__, 'support'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        unique_identifier=pulumi.get(__response__, 'unique_identifier'),
-        vault_name=pulumi.get(__response__, 'vault_name'),
-        vm_creation_resource_group=pulumi.get(__response__, 'vm_creation_resource_group')))
+    ...

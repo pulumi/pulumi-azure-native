@@ -90,6 +90,9 @@ def list_effective_virtual_network_by_network_manager(conditional_members: Optio
     return AwaitableListEffectiveVirtualNetworkByNetworkManagerResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_effective_virtual_network_by_network_manager)
 def list_effective_virtual_network_by_network_manager_output(conditional_members: Optional[pulumi.Input[Optional[str]]] = None,
                                                              network_manager_name: Optional[pulumi.Input[str]] = None,
                                                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -106,14 +109,4 @@ def list_effective_virtual_network_by_network_manager_output(conditional_members
     :param str skip_token: Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
     :param int top: An optional query parameter which specifies the maximum number of records to be returned by the server.
     """
-    __args__ = dict()
-    __args__['conditionalMembers'] = conditional_members
-    __args__['networkManagerName'] = network_manager_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['skipToken'] = skip_token
-    __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20210501preview:listEffectiveVirtualNetworkByNetworkManager', __args__, opts=opts, typ=ListEffectiveVirtualNetworkByNetworkManagerResult)
-    return __ret__.apply(lambda __response__: ListEffectiveVirtualNetworkByNetworkManagerResult(
-        skip_token=pulumi.get(__response__, 'skip_token'),
-        value=pulumi.get(__response__, 'value')))
+    ...

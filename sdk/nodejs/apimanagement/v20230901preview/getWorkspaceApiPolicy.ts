@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Get the policy configuration at the API level.
  */
 export function getWorkspaceApiPolicy(args: GetWorkspaceApiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceApiPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:getWorkspaceApiPolicy", {
         "apiId": args.apiId,
@@ -75,15 +76,7 @@ export interface GetWorkspaceApiPolicyResult {
  * Get the policy configuration at the API level.
  */
 export function getWorkspaceApiPolicyOutput(args: GetWorkspaceApiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getWorkspaceApiPolicy", {
-        "apiId": args.apiId,
-        "format": args.format,
-        "policyId": args.policyId,
-        "resourceGroupName": args.resourceGroupName,
-        "serviceName": args.serviceName,
-        "workspaceId": args.workspaceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspaceApiPolicy(a, opts))
 }
 
 export interface GetWorkspaceApiPolicyOutputArgs {

@@ -205,6 +205,9 @@ def get_web_app_vnet_connection_slot(name: Optional[str] = None,
         routes=pulumi.get(__ret__, 'routes'),
         type=pulumi.get(__ret__, 'type'),
         vnet_resource_id=pulumi.get(__ret__, 'vnet_resource_id'))
+
+
+@_utilities.lift_output_func(get_web_app_vnet_connection_slot)
 def get_web_app_vnet_connection_slot_output(name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             slot: Optional[pulumi.Input[str]] = None,
@@ -219,22 +222,4 @@ def get_web_app_vnet_connection_slot_output(name: Optional[pulumi.Input[str]] = 
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
     :param str vnet_name: Name of the virtual network.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['slot'] = slot
-    __args__['vnetName'] = vnet_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:getWebAppVnetConnectionSlot', __args__, opts=opts, typ=GetWebAppVnetConnectionSlotResult)
-    return __ret__.apply(lambda __response__: GetWebAppVnetConnectionSlotResult(
-        cert_blob=pulumi.get(__response__, 'cert_blob'),
-        cert_thumbprint=pulumi.get(__response__, 'cert_thumbprint'),
-        dns_servers=pulumi.get(__response__, 'dns_servers'),
-        id=pulumi.get(__response__, 'id'),
-        is_swift=pulumi.get(__response__, 'is_swift'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        resync_required=pulumi.get(__response__, 'resync_required'),
-        routes=pulumi.get(__response__, 'routes'),
-        type=pulumi.get(__response__, 'type'),
-        vnet_resource_id=pulumi.get(__response__, 'vnet_resource_id')))
+    ...

@@ -87,6 +87,9 @@ def list_edge_module_provisioning_token(account_name: Optional[str] = None,
     return AwaitableListEdgeModuleProvisioningTokenResult(
         expiration_date=pulumi.get(__ret__, 'expiration_date'),
         token=pulumi.get(__ret__, 'token'))
+
+
+@_utilities.lift_output_func(list_edge_module_provisioning_token)
 def list_edge_module_provisioning_token_output(account_name: Optional[pulumi.Input[str]] = None,
                                                edge_module_name: Optional[pulumi.Input[str]] = None,
                                                expiration_date: Optional[pulumi.Input[str]] = None,
@@ -102,13 +105,4 @@ def list_edge_module_provisioning_token_output(account_name: Optional[pulumi.Inp
     :param str expiration_date: The desired expiration date of the registration token. The Azure Video Analyzer IoT edge module must be initialized and connected to the Internet prior to the token expiration date.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['edgeModuleName'] = edge_module_name
-    __args__['expirationDate'] = expiration_date
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer:listEdgeModuleProvisioningToken', __args__, opts=opts, typ=ListEdgeModuleProvisioningTokenResult)
-    return __ret__.apply(lambda __response__: ListEdgeModuleProvisioningTokenResult(
-        expiration_date=pulumi.get(__response__, 'expiration_date'),
-        token=pulumi.get(__response__, 'token')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
  */
 export function listRedisKeys(args: ListRedisKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRedisKeysResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache:listRedisKeys", {
         "name": args.name,
@@ -49,11 +50,7 @@ export interface ListRedisKeysResult {
  * Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
  */
 export function listRedisKeysOutput(args: ListRedisKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRedisKeysResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cache:listRedisKeys", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listRedisKeys(a, opts))
 }
 
 export interface ListRedisKeysOutputArgs {

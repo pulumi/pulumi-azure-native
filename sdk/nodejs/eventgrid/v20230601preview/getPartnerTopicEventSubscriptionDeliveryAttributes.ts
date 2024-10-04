@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get all delivery attributes for an event subscription of a partner topic.
  */
 export function getPartnerTopicEventSubscriptionDeliveryAttributes(args: GetPartnerTopicEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20230601preview:getPartnerTopicEventSubscriptionDeliveryAttributes", {
         "eventSubscriptionName": args.eventSubscriptionName,
@@ -47,12 +48,7 @@ export interface GetPartnerTopicEventSubscriptionDeliveryAttributesResult {
  * Get all delivery attributes for an event subscription of a partner topic.
  */
 export function getPartnerTopicEventSubscriptionDeliveryAttributesOutput(args: GetPartnerTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicEventSubscriptionDeliveryAttributesResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20230601preview:getPartnerTopicEventSubscriptionDeliveryAttributes", {
-        "eventSubscriptionName": args.eventSubscriptionName,
-        "partnerTopicName": args.partnerTopicName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPartnerTopicEventSubscriptionDeliveryAttributes(a, opts))
 }
 
 export interface GetPartnerTopicEventSubscriptionDeliveryAttributesOutputArgs {

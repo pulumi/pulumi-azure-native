@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a scoped resource in a private link scope.
  */
 export function getPrivateLinkScopedResource(args: GetPrivateLinkScopedResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopedResourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20210701preview:getPrivateLinkScopedResource", {
         "name": args.name,
@@ -67,12 +68,7 @@ export interface GetPrivateLinkScopedResourceResult {
  * Gets a scoped resource in a private link scope.
  */
 export function getPrivateLinkScopedResourceOutput(args: GetPrivateLinkScopedResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopedResourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights/v20210701preview:getPrivateLinkScopedResource", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-        "scopeName": args.scopeName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateLinkScopedResource(a, opts))
 }
 
 export interface GetPrivateLinkScopedResourceOutputArgs {

@@ -305,6 +305,9 @@ def get_network_interface(expand: Optional[str] = None,
         tap_configurations=pulumi.get(__ret__, 'tap_configurations'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machine=pulumi.get(__ret__, 'virtual_machine'))
+
+
+@_utilities.lift_output_func(get_network_interface)
 def get_network_interface_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                  network_interface_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -317,29 +320,4 @@ def get_network_interface_output(expand: Optional[pulumi.Input[Optional[str]]] =
     :param str network_interface_name: The name of the network interface.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['networkInterfaceName'] = network_interface_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20190601:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult)
-    return __ret__.apply(lambda __response__: GetNetworkInterfaceResult(
-        dns_settings=pulumi.get(__response__, 'dns_settings'),
-        enable_accelerated_networking=pulumi.get(__response__, 'enable_accelerated_networking'),
-        enable_ip_forwarding=pulumi.get(__response__, 'enable_ip_forwarding'),
-        etag=pulumi.get(__response__, 'etag'),
-        hosted_workloads=pulumi.get(__response__, 'hosted_workloads'),
-        id=pulumi.get(__response__, 'id'),
-        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
-        location=pulumi.get(__response__, 'location'),
-        mac_address=pulumi.get(__response__, 'mac_address'),
-        name=pulumi.get(__response__, 'name'),
-        network_security_group=pulumi.get(__response__, 'network_security_group'),
-        primary=pulumi.get(__response__, 'primary'),
-        private_endpoint=pulumi.get(__response__, 'private_endpoint'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_guid=pulumi.get(__response__, 'resource_guid'),
-        tags=pulumi.get(__response__, 'tags'),
-        tap_configurations=pulumi.get(__response__, 'tap_configurations'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_machine=pulumi.get(__response__, 'virtual_machine')))
+    ...

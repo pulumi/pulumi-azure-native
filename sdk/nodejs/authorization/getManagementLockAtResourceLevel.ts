@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-05-01.
  */
 export function getManagementLockAtResourceLevel(args: GetManagementLockAtResourceLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceLevelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getManagementLockAtResourceLevel", {
         "lockName": args.lockName,
@@ -88,15 +89,7 @@ export interface GetManagementLockAtResourceLevelResult {
  * Azure REST API version: 2020-05-01.
  */
 export function getManagementLockAtResourceLevelOutput(args: GetManagementLockAtResourceLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceLevelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization:getManagementLockAtResourceLevel", {
-        "lockName": args.lockName,
-        "parentResourcePath": args.parentResourcePath,
-        "resourceGroupName": args.resourceGroupName,
-        "resourceName": args.resourceName,
-        "resourceProviderNamespace": args.resourceProviderNamespace,
-        "resourceType": args.resourceType,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagementLockAtResourceLevel(a, opts))
 }
 
 export interface GetManagementLockAtResourceLevelOutputArgs {

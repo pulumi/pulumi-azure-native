@@ -237,6 +237,9 @@ def get_private_store_offer(offer_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         unique_offer_id=pulumi.get(__ret__, 'unique_offer_id'),
         update_suppressed_due_idempotence=pulumi.get(__ret__, 'update_suppressed_due_idempotence'))
+
+
+@_utilities.lift_output_func(get_private_store_offer)
 def get_private_store_offer_output(offer_id: Optional[pulumi.Input[str]] = None,
                                    private_store_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreOfferResult]:
@@ -247,23 +250,4 @@ def get_private_store_offer_output(offer_id: Optional[pulumi.Input[str]] = None,
     :param str offer_id: The offer ID to update or delete
     :param str private_store_id: The store ID - must use the tenant ID
     """
-    __args__ = dict()
-    __args__['offerId'] = offer_id
-    __args__['privateStoreId'] = private_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:marketplace/v20200101:getPrivateStoreOffer', __args__, opts=opts, typ=GetPrivateStoreOfferResult)
-    return __ret__.apply(lambda __response__: GetPrivateStoreOfferResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        e_tag=pulumi.get(__response__, 'e_tag'),
-        icon_file_uris=pulumi.get(__response__, 'icon_file_uris'),
-        id=pulumi.get(__response__, 'id'),
-        modified_at=pulumi.get(__response__, 'modified_at'),
-        name=pulumi.get(__response__, 'name'),
-        offer_display_name=pulumi.get(__response__, 'offer_display_name'),
-        plans=pulumi.get(__response__, 'plans'),
-        private_store_id=pulumi.get(__response__, 'private_store_id'),
-        publisher_display_name=pulumi.get(__response__, 'publisher_display_name'),
-        specific_plan_ids_limitation=pulumi.get(__response__, 'specific_plan_ids_limitation'),
-        type=pulumi.get(__response__, 'type'),
-        unique_offer_id=pulumi.get(__response__, 'unique_offer_id'),
-        update_suppressed_due_idempotence=pulumi.get(__response__, 'update_suppressed_due_idempotence')))
+    ...

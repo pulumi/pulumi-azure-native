@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * The operation to get the extension.
  */
 export function getVirtualMachineScaleSetExtension(args: GetVirtualMachineScaleSetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetExtensionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20240301:getVirtualMachineScaleSetExtension", {
         "expand": args.expand,
@@ -104,13 +105,7 @@ export interface GetVirtualMachineScaleSetExtensionResult {
  * The operation to get the extension.
  */
 export function getVirtualMachineScaleSetExtensionOutput(args: GetVirtualMachineScaleSetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetExtensionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:compute/v20240301:getVirtualMachineScaleSetExtension", {
-        "expand": args.expand,
-        "resourceGroupName": args.resourceGroupName,
-        "vmScaleSetName": args.vmScaleSetName,
-        "vmssExtensionName": args.vmssExtensionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetExtension(a, opts))
 }
 
 export interface GetVirtualMachineScaleSetExtensionOutputArgs {

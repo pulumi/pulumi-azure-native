@@ -59,12 +59,11 @@ def list_palo_alto_networks_cloudngfw_cloud_manager_tenants(opts: Optional[pulum
 
     return AwaitableListPaloAltoNetworksCloudngfwCloudManagerTenantsResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_palo_alto_networks_cloudngfw_cloud_manager_tenants)
 def list_palo_alto_networks_cloudngfw_cloud_manager_tenants_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult]:
     """
     Cloud Manager Tenant
     """
-    __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240207preview:listPaloAltoNetworksCloudngfwCloudManagerTenants', __args__, opts=opts, typ=ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult)
-    return __ret__.apply(lambda __response__: ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

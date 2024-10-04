@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get properties of a topic.
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20231215preview:getTopic", {
         "resourceGroupName": args.resourceGroupName,
@@ -125,11 +126,7 @@ export interface GetTopicResult {
  * Get properties of a topic.
  */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getTopic", {
-        "resourceGroupName": args.resourceGroupName,
-        "topicName": args.topicName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTopic(a, opts))
 }
 
 export interface GetTopicOutputArgs {

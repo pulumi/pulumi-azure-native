@@ -302,6 +302,9 @@ def get_express_route_port(express_route_port_name: Optional[str] = None,
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_express_route_port)
 def get_express_route_port_output(express_route_port_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRoutePortResult]:
@@ -312,28 +315,4 @@ def get_express_route_port_output(express_route_port_name: Optional[pulumi.Input
     :param str express_route_port_name: The name of ExpressRoutePort.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expressRoutePortName'] = express_route_port_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getExpressRoutePort', __args__, opts=opts, typ=GetExpressRoutePortResult)
-    return __ret__.apply(lambda __response__: GetExpressRoutePortResult(
-        allocation_date=pulumi.get(__response__, 'allocation_date'),
-        bandwidth_in_gbps=pulumi.get(__response__, 'bandwidth_in_gbps'),
-        billing_type=pulumi.get(__response__, 'billing_type'),
-        circuits=pulumi.get(__response__, 'circuits'),
-        encapsulation=pulumi.get(__response__, 'encapsulation'),
-        etag=pulumi.get(__response__, 'etag'),
-        ether_type=pulumi.get(__response__, 'ether_type'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        links=pulumi.get(__response__, 'links'),
-        location=pulumi.get(__response__, 'location'),
-        mtu=pulumi.get(__response__, 'mtu'),
-        name=pulumi.get(__response__, 'name'),
-        peering_location=pulumi.get(__response__, 'peering_location'),
-        provisioned_bandwidth_in_gbps=pulumi.get(__response__, 'provisioned_bandwidth_in_gbps'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_guid=pulumi.get(__response__, 'resource_guid'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

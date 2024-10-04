@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getWorkloadClassifier(args: GetWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadClassifierResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql:getWorkloadClassifier", {
         "databaseName": args.databaseName,
@@ -92,14 +93,7 @@ export interface GetWorkloadClassifierResult {
  * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getWorkloadClassifierOutput(args: GetWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadClassifierResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:sql:getWorkloadClassifier", {
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-        "serverName": args.serverName,
-        "workloadClassifierName": args.workloadClassifierName,
-        "workloadGroupName": args.workloadGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkloadClassifier(a, opts))
 }
 
 export interface GetWorkloadClassifierOutputArgs {

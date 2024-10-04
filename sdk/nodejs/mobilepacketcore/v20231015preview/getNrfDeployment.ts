@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a NrfDeploymentResource
  */
 export function getNrfDeployment(args: GetNrfDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetNrfDeploymentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilepacketcore/v20231015preview:getNrfDeployment", {
         "nrfDeploymentName": args.nrfDeploymentName,
@@ -86,11 +87,7 @@ export interface GetNrfDeploymentResult {
  * Get a NrfDeploymentResource
  */
 export function getNrfDeploymentOutput(args: GetNrfDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNrfDeploymentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:mobilepacketcore/v20231015preview:getNrfDeployment", {
-        "nrfDeploymentName": args.nrfDeploymentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNrfDeployment(a, opts))
 }
 
 export interface GetNrfDeploymentOutputArgs {

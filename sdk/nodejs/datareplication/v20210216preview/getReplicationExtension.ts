@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the details of the replication extension.
  */
 export function getReplicationExtension(args: GetReplicationExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationExtensionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datareplication/v20210216preview:getReplicationExtension", {
         "replicationExtensionName": args.replicationExtensionName,
@@ -60,12 +61,7 @@ export interface GetReplicationExtensionResult {
  * Gets the details of the replication extension.
  */
 export function getReplicationExtensionOutput(args: GetReplicationExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationExtensionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:datareplication/v20210216preview:getReplicationExtension", {
-        "replicationExtensionName": args.replicationExtensionName,
-        "resourceGroupName": args.resourceGroupName,
-        "vaultName": args.vaultName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReplicationExtension(a, opts))
 }
 
 export interface GetReplicationExtensionOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets information about access policy assignment for database.
  */
 export function getAccessPolicyAssignment(args: GetAccessPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyAssignmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20240901preview:getAccessPolicyAssignment", {
         "accessPolicyAssignmentName": args.accessPolicyAssignmentName,
@@ -72,13 +73,7 @@ export interface GetAccessPolicyAssignmentResult {
  * Gets information about access policy assignment for database.
  */
 export function getAccessPolicyAssignmentOutput(args: GetAccessPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyAssignmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:cache/v20240901preview:getAccessPolicyAssignment", {
-        "accessPolicyAssignmentName": args.accessPolicyAssignmentName,
-        "clusterName": args.clusterName,
-        "databaseName": args.databaseName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessPolicyAssignment(a, opts))
 }
 
 export interface GetAccessPolicyAssignmentOutputArgs {

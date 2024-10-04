@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a valid sender username for a domains resource.
  */
 export function getSenderUsername(args: GetSenderUsernameArgs, opts?: pulumi.InvokeOptions): Promise<GetSenderUsernameResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication/v20230401:getSenderUsername", {
         "domainName": args.domainName,
@@ -80,13 +81,7 @@ export interface GetSenderUsernameResult {
  * Get a valid sender username for a domains resource.
  */
 export function getSenderUsernameOutput(args: GetSenderUsernameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSenderUsernameResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:communication/v20230401:getSenderUsername", {
-        "domainName": args.domainName,
-        "emailServiceName": args.emailServiceName,
-        "resourceGroupName": args.resourceGroupName,
-        "senderUsername": args.senderUsername,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSenderUsername(a, opts))
 }
 
 export interface GetSenderUsernameOutputArgs {

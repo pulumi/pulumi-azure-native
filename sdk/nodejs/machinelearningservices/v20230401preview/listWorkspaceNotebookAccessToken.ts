@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * return notebook access token and refresh token
  */
 export function listWorkspaceNotebookAccessToken(args: ListWorkspaceNotebookAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNotebookAccessTokenResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230401preview:listWorkspaceNotebookAccessToken", {
         "resourceGroupName": args.resourceGroupName,
@@ -40,11 +41,7 @@ export interface ListWorkspaceNotebookAccessTokenResult {
  * return notebook access token and refresh token
  */
 export function listWorkspaceNotebookAccessTokenOutput(args: ListWorkspaceNotebookAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookAccessTokenResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230401preview:listWorkspaceNotebookAccessToken", {
-        "resourceGroupName": args.resourceGroupName,
-        "workspaceName": args.workspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listWorkspaceNotebookAccessToken(a, opts))
 }
 
 export interface ListWorkspaceNotebookAccessTokenOutputArgs {

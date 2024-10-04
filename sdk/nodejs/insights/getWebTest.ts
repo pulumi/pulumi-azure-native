@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-10-05-preview.
  */
 export function getWebTest(args: GetWebTestArgs, opts?: pulumi.InvokeOptions): Promise<GetWebTestResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getWebTest", {
         "resourceGroupName": args.resourceGroupName,
@@ -120,11 +121,7 @@ export interface GetWebTestResult {
  * Other available API versions: 2020-10-05-preview.
  */
 export function getWebTestOutput(args: GetWebTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebTestResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights:getWebTest", {
-        "resourceGroupName": args.resourceGroupName,
-        "webTestName": args.webTestName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWebTest(a, opts))
 }
 
 export interface GetWebTestOutputArgs {

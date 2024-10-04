@@ -315,6 +315,9 @@ def get_azure_firewall(azure_firewall_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'),
         zones=pulumi.get(__ret__, 'zones'))
+
+
+@_utilities.lift_output_func(get_azure_firewall)
 def get_azure_firewall_output(azure_firewall_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureFirewallResult]:
@@ -325,29 +328,4 @@ def get_azure_firewall_output(azure_firewall_name: Optional[pulumi.Input[str]] =
     :param str azure_firewall_name: The name of the Azure Firewall.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['azureFirewallName'] = azure_firewall_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getAzureFirewall', __args__, opts=opts, typ=GetAzureFirewallResult)
-    return __ret__.apply(lambda __response__: GetAzureFirewallResult(
-        additional_properties=pulumi.get(__response__, 'additional_properties'),
-        application_rule_collections=pulumi.get(__response__, 'application_rule_collections'),
-        etag=pulumi.get(__response__, 'etag'),
-        firewall_policy=pulumi.get(__response__, 'firewall_policy'),
-        hub_ip_addresses=pulumi.get(__response__, 'hub_ip_addresses'),
-        id=pulumi.get(__response__, 'id'),
-        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
-        ip_groups=pulumi.get(__response__, 'ip_groups'),
-        location=pulumi.get(__response__, 'location'),
-        management_ip_configuration=pulumi.get(__response__, 'management_ip_configuration'),
-        name=pulumi.get(__response__, 'name'),
-        nat_rule_collections=pulumi.get(__response__, 'nat_rule_collections'),
-        network_rule_collections=pulumi.get(__response__, 'network_rule_collections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        threat_intel_mode=pulumi.get(__response__, 'threat_intel_mode'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_hub=pulumi.get(__response__, 'virtual_hub'),
-        zones=pulumi.get(__response__, 'zones')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified backup schedule name.
  */
 export function getBackupSchedule(args: GetBackupScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupScheduleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:getBackupSchedule", {
         "backupPolicyName": args.backupPolicyName,
@@ -93,14 +94,7 @@ export interface GetBackupScheduleResult {
  * Gets the properties of the specified backup schedule name.
  */
 export function getBackupScheduleOutput(args: GetBackupScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupScheduleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:getBackupSchedule", {
-        "backupPolicyName": args.backupPolicyName,
-        "backupScheduleName": args.backupScheduleName,
-        "deviceName": args.deviceName,
-        "managerName": args.managerName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBackupSchedule(a, opts))
 }
 
 export interface GetBackupScheduleOutputArgs {

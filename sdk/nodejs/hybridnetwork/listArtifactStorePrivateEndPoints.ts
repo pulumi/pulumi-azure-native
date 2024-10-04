@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-04-15.
  */
 export function listArtifactStorePrivateEndPoints(args: ListArtifactStorePrivateEndPointsArgs, opts?: pulumi.InvokeOptions): Promise<ListArtifactStorePrivateEndPointsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:listArtifactStorePrivateEndPoints", {
         "artifactStoreName": args.artifactStoreName,
@@ -53,12 +54,7 @@ export interface ListArtifactStorePrivateEndPointsResult {
  * Azure REST API version: 2024-04-15.
  */
 export function listArtifactStorePrivateEndPointsOutput(args: ListArtifactStorePrivateEndPointsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListArtifactStorePrivateEndPointsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:listArtifactStorePrivateEndPoints", {
-        "artifactStoreName": args.artifactStoreName,
-        "publisherName": args.publisherName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listArtifactStorePrivateEndPoints(a, opts))
 }
 
 export interface ListArtifactStorePrivateEndPointsOutputArgs {

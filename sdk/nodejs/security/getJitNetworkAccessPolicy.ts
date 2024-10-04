@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-01-01.
  */
 export function getJitNetworkAccessPolicy(args: GetJitNetworkAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetJitNetworkAccessPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getJitNetworkAccessPolicy", {
         "ascLocation": args.ascLocation,
@@ -71,12 +72,7 @@ export interface GetJitNetworkAccessPolicyResult {
  * Azure REST API version: 2020-01-01.
  */
 export function getJitNetworkAccessPolicyOutput(args: GetJitNetworkAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitNetworkAccessPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:security:getJitNetworkAccessPolicy", {
-        "ascLocation": args.ascLocation,
-        "jitNetworkAccessPolicyName": args.jitNetworkAccessPolicyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getJitNetworkAccessPolicy(a, opts))
 }
 
 export interface GetJitNetworkAccessPolicyOutputArgs {

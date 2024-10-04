@@ -295,6 +295,9 @@ def get_service(application_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_service)
 def get_service_output(application_name: Optional[pulumi.Input[str]] = None,
                        cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -309,29 +312,4 @@ def get_service_output(application_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
     """
-    __args__ = dict()
-    __args__['applicationName'] = application_name
-    __args__['clusterName'] = cluster_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20210601:getService', __args__, opts=opts, typ=GetServiceResult)
-    return __ret__.apply(lambda __response__: GetServiceResult(
-        correlation_scheme=pulumi.get(__response__, 'correlation_scheme'),
-        default_move_cost=pulumi.get(__response__, 'default_move_cost'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        partition_description=pulumi.get(__response__, 'partition_description'),
-        placement_constraints=pulumi.get(__response__, 'placement_constraints'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        service_dns_name=pulumi.get(__response__, 'service_dns_name'),
-        service_kind=pulumi.get(__response__, 'service_kind'),
-        service_load_metrics=pulumi.get(__response__, 'service_load_metrics'),
-        service_package_activation_mode=pulumi.get(__response__, 'service_package_activation_mode'),
-        service_placement_policies=pulumi.get(__response__, 'service_placement_policies'),
-        service_type_name=pulumi.get(__response__, 'service_type_name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

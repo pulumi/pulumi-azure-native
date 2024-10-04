@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
  */
 export function getFleetMember(args: GetFleetMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetMemberResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice:getFleetMember", {
         "fleetMemberName": args.fleetMemberName,
@@ -81,12 +82,7 @@ export interface GetFleetMemberResult {
  * Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
  */
 export function getFleetMemberOutput(args: GetFleetMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetMemberResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:containerservice:getFleetMember", {
-        "fleetMemberName": args.fleetMemberName,
-        "fleetName": args.fleetName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFleetMember(a, opts))
 }
 
 export interface GetFleetMemberOutputArgs {

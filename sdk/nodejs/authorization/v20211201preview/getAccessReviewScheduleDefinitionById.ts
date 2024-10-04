@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get single access review definition
  */
 export function getAccessReviewScheduleDefinitionById(args: GetAccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewScheduleDefinitionByIdResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20211201preview:getAccessReviewScheduleDefinitionById", {
         "scheduleDefinitionId": args.scheduleDefinitionId,
@@ -181,10 +182,7 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
  * Get single access review definition
  */
 export function getAccessReviewScheduleDefinitionByIdOutput(args: GetAccessReviewScheduleDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessReviewScheduleDefinitionByIdResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:authorization/v20211201preview:getAccessReviewScheduleDefinitionById", {
-        "scheduleDefinitionId": args.scheduleDefinitionId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessReviewScheduleDefinitionById(a, opts))
 }
 
 export interface GetAccessReviewScheduleDefinitionByIdOutputArgs {

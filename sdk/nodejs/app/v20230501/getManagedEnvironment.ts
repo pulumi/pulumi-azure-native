@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get the properties of a Managed Environment used to host container apps.
  */
 export function getManagedEnvironment(args: GetManagedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20230501:getManagedEnvironment", {
         "environmentName": args.environmentName,
@@ -132,11 +133,7 @@ export interface GetManagedEnvironmentResult {
  * Get the properties of a Managed Environment used to host container apps.
  */
 export function getManagedEnvironmentOutput(args: GetManagedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:app/v20230501:getManagedEnvironment", {
-        "environmentName": args.environmentName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getManagedEnvironment(a, opts))
 }
 
 export interface GetManagedEnvironmentOutputArgs {

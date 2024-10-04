@@ -8,6 +8,7 @@ import * as utilities from "../../utilities";
  * Full view of the custom domain suffix configuration for ASEv3.
  */
 export function getAppServiceEnvironmentAseCustomDnsSuffixConfiguration(args: GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220901:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", {
         "name": args.name,
@@ -65,11 +66,7 @@ export interface GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult {
  * Full view of the custom domain suffix configuration for ASEv3.
  */
 export function getAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutput(args: GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web/v20220901:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAppServiceEnvironmentAseCustomDnsSuffixConfiguration(a, opts))
 }
 
 export interface GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutputArgs {

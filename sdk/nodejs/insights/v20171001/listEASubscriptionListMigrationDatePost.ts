@@ -9,6 +9,7 @@ import * as utilities from "../../utilities";
  */
 export function listEASubscriptionListMigrationDatePost(args?: ListEASubscriptionListMigrationDatePostArgs, opts?: pulumi.InvokeOptions): Promise<ListEASubscriptionListMigrationDatePostResult> {
     args = args || {};
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20171001:listEASubscriptionListMigrationDatePost", {
     }, opts);
@@ -34,8 +35,5 @@ export interface ListEASubscriptionListMigrationDatePostResult {
  * list date to migrate to new pricing model.
  */
 export function listEASubscriptionListMigrationDatePostOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListEASubscriptionListMigrationDatePostResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:insights/v20171001:listEASubscriptionListMigrationDatePost", {
-    }, opts);
+    return pulumi.output(listEASubscriptionListMigrationDatePost(opts))
 }
-

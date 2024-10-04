@@ -149,6 +149,9 @@ def get_guest_usage(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_guest_usage)
 def get_guest_usage_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            resource_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestUsageResult]:
@@ -162,16 +165,4 @@ def get_guest_usage_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The initial domain name of the Azure AD B2C tenant.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azureactivedirectory:getGuestUsage', __args__, opts=opts, typ=GetGuestUsageResult)
-    return __ret__.apply(lambda __response__: GetGuestUsageResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

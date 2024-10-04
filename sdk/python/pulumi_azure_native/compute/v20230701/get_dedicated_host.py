@@ -256,6 +256,9 @@ def get_dedicated_host(expand: Optional[str] = None,
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machines=pulumi.get(__ret__, 'virtual_machines'))
+
+
+@_utilities.lift_output_func(get_dedicated_host)
 def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                               host_group_name: Optional[pulumi.Input[str]] = None,
                               host_name: Optional[pulumi.Input[str]] = None,
@@ -270,26 +273,4 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = No
     :param str host_name: The name of the dedicated host.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['hostGroupName'] = host_group_name
-    __args__['hostName'] = host_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230701:getDedicatedHost', __args__, opts=opts, typ=GetDedicatedHostResult)
-    return __ret__.apply(lambda __response__: GetDedicatedHostResult(
-        auto_replace_on_failure=pulumi.get(__response__, 'auto_replace_on_failure'),
-        host_id=pulumi.get(__response__, 'host_id'),
-        id=pulumi.get(__response__, 'id'),
-        instance_view=pulumi.get(__response__, 'instance_view'),
-        license_type=pulumi.get(__response__, 'license_type'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        platform_fault_domain=pulumi.get(__response__, 'platform_fault_domain'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        provisioning_time=pulumi.get(__response__, 'provisioning_time'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        time_created=pulumi.get(__response__, 'time_created'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_machines=pulumi.get(__response__, 'virtual_machines')))
+    ...

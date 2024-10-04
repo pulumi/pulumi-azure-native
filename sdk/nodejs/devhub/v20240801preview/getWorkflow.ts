@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Resource representation of a workflow
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devhub/v20240801preview:getWorkflow", {
         "resourceGroupName": args.resourceGroupName,
@@ -66,11 +67,7 @@ export interface GetWorkflowResult {
  * Resource representation of a workflow
  */
 export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:devhub/v20240801preview:getWorkflow", {
-        "resourceGroupName": args.resourceGroupName,
-        "workflowName": args.workflowName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkflow(a, opts))
 }
 
 export interface GetWorkflowOutputArgs {

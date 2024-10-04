@@ -340,6 +340,9 @@ def get_l3_network(l3_network_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'),
         vlan=pulumi.get(__ret__, 'vlan'))
+
+
+@_utilities.lift_output_func(get_l3_network)
 def get_l3_network_output(l3_network_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL3NetworkResult]:
@@ -350,31 +353,4 @@ def get_l3_network_output(l3_network_name: Optional[pulumi.Input[str]] = None,
     :param str l3_network_name: The name of the L3 network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['l3NetworkName'] = l3_network_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20240701:getL3Network', __args__, opts=opts, typ=GetL3NetworkResult)
-    return __ret__.apply(lambda __response__: GetL3NetworkResult(
-        associated_resource_ids=pulumi.get(__response__, 'associated_resource_ids'),
-        cluster_id=pulumi.get(__response__, 'cluster_id'),
-        detailed_status=pulumi.get(__response__, 'detailed_status'),
-        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        hybrid_aks_clusters_associated_ids=pulumi.get(__response__, 'hybrid_aks_clusters_associated_ids'),
-        hybrid_aks_ipam_enabled=pulumi.get(__response__, 'hybrid_aks_ipam_enabled'),
-        hybrid_aks_plugin_type=pulumi.get(__response__, 'hybrid_aks_plugin_type'),
-        id=pulumi.get(__response__, 'id'),
-        interface_name=pulumi.get(__response__, 'interface_name'),
-        ip_allocation_type=pulumi.get(__response__, 'ip_allocation_type'),
-        ipv4_connected_prefix=pulumi.get(__response__, 'ipv4_connected_prefix'),
-        ipv6_connected_prefix=pulumi.get(__response__, 'ipv6_connected_prefix'),
-        l3_isolation_domain_id=pulumi.get(__response__, 'l3_isolation_domain_id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_machines_associated_ids=pulumi.get(__response__, 'virtual_machines_associated_ids'),
-        vlan=pulumi.get(__response__, 'vlan')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets the integration service environment managed Api.
  */
 export function getIntegrationServiceEnvironmentManagedApi(args: GetIntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationServiceEnvironmentManagedApiResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20190501:getIntegrationServiceEnvironmentManagedApi", {
         "apiName": args.apiName,
@@ -115,12 +116,7 @@ export interface GetIntegrationServiceEnvironmentManagedApiResult {
  * Gets the integration service environment managed Api.
  */
 export function getIntegrationServiceEnvironmentManagedApiOutput(args: GetIntegrationServiceEnvironmentManagedApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationServiceEnvironmentManagedApiResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:logic/v20190501:getIntegrationServiceEnvironmentManagedApi", {
-        "apiName": args.apiName,
-        "integrationServiceEnvironmentName": args.integrationServiceEnvironmentName,
-        "resourceGroup": args.resourceGroup,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIntegrationServiceEnvironmentManagedApi(a, opts))
 }
 
 export interface GetIntegrationServiceEnvironmentManagedApiOutputArgs {

@@ -224,6 +224,9 @@ def get_cluster(cluster_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
+
+
+@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -234,22 +237,4 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the Event Hubs Cluster.
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub/v20240501preview:getCluster', __args__, opts=opts, typ=GetClusterResult)
-    return __ret__.apply(lambda __response__: GetClusterResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        metric_id=pulumi.get(__response__, 'metric_id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sku=pulumi.get(__response__, 'sku'),
-        status=pulumi.get(__response__, 'status'),
-        supports_scaling=pulumi.get(__response__, 'supports_scaling'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        updated_at=pulumi.get(__response__, 'updated_at')))
+    ...

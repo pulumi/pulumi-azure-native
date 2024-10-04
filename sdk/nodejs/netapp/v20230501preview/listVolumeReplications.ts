@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * List all replications for a specified volume
  */
 export function listVolumeReplications(args: ListVolumeReplicationsArgs, opts?: pulumi.InvokeOptions): Promise<ListVolumeReplicationsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20230501preview:listVolumeReplications", {
         "accountName": args.accountName,
@@ -52,13 +53,7 @@ export interface ListVolumeReplicationsResult {
  * List all replications for a specified volume
  */
 export function listVolumeReplicationsOutput(args: ListVolumeReplicationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeReplicationsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:netapp/v20230501preview:listVolumeReplications", {
-        "accountName": args.accountName,
-        "poolName": args.poolName,
-        "resourceGroupName": args.resourceGroupName,
-        "volumeName": args.volumeName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listVolumeReplications(a, opts))
 }
 
 export interface ListVolumeReplicationsOutputArgs {

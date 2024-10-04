@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-05-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge:getStorageAccount", {
         "deviceName": args.deviceName,
@@ -89,12 +90,7 @@ export interface GetStorageAccountResult {
  * Other available API versions: 2020-05-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:databoxedge:getStorageAccount", {
-        "deviceName": args.deviceName,
-        "resourceGroupName": args.resourceGroupName,
-        "storageAccountName": args.storageAccountName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageAccount(a, opts))
 }
 
 export interface GetStorageAccountOutputArgs {

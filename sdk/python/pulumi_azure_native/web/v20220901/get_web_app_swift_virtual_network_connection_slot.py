@@ -135,6 +135,9 @@ def get_web_app_swift_virtual_network_connection_slot(name: Optional[str] = None
         subnet_resource_id=pulumi.get(__ret__, 'subnet_resource_id'),
         swift_supported=pulumi.get(__ret__, 'swift_supported'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_web_app_swift_virtual_network_connection_slot)
 def get_web_app_swift_virtual_network_connection_slot_output(name: Optional[pulumi.Input[str]] = None,
                                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                                              slot: Optional[pulumi.Input[str]] = None,
@@ -147,16 +150,4 @@ def get_web_app_swift_virtual_network_connection_slot_output(name: Optional[pulu
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:getWebAppSwiftVirtualNetworkConnectionSlot', __args__, opts=opts, typ=GetWebAppSwiftVirtualNetworkConnectionSlotResult)
-    return __ret__.apply(lambda __response__: GetWebAppSwiftVirtualNetworkConnectionSlotResult(
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        subnet_resource_id=pulumi.get(__response__, 'subnet_resource_id'),
-        swift_supported=pulumi.get(__response__, 'swift_supported'),
-        type=pulumi.get(__response__, 'type')))
+    ...

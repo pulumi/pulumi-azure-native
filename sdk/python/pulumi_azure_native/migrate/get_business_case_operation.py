@@ -165,6 +165,9 @@ def get_business_case_operation(business_case_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_business_case_operation)
 def get_business_case_operation_output(business_case_name: Optional[pulumi.Input[str]] = None,
                                        project_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -180,18 +183,4 @@ def get_business_case_operation_output(business_case_name: Optional[pulumi.Input
     :param str project_name: Assessment Project Name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['businessCaseName'] = business_case_name
-    __args__['projectName'] = project_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getBusinessCaseOperation', __args__, opts=opts, typ=GetBusinessCaseOperationResult)
-    return __ret__.apply(lambda __response__: GetBusinessCaseOperationResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        report_status_details=pulumi.get(__response__, 'report_status_details'),
-        settings=pulumi.get(__response__, 'settings'),
-        state=pulumi.get(__response__, 'state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

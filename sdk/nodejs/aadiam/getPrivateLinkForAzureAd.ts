@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-03-01.
  */
 export function getPrivateLinkForAzureAd(args: GetPrivateLinkForAzureAdArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkForAzureAdResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aadiam:getPrivateLinkForAzureAd", {
         "policyName": args.policyName,
@@ -77,11 +78,7 @@ export interface GetPrivateLinkForAzureAdResult {
  * Azure REST API version: 2020-03-01.
  */
 export function getPrivateLinkForAzureAdOutput(args: GetPrivateLinkForAzureAdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkForAzureAdResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:aadiam:getPrivateLinkForAzureAd", {
-        "policyName": args.policyName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivateLinkForAzureAd(a, opts))
 }
 
 export interface GetPrivateLinkForAzureAdOutputArgs {

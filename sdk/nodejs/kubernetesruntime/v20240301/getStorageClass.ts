@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Get a StorageClassResource
  */
 export function getStorageClass(args: GetStorageClassArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageClassResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kubernetesruntime/v20240301:getStorageClass", {
         "resourceUri": args.resourceUri,
@@ -102,11 +103,7 @@ export interface GetStorageClassResult {
  * Get a StorageClassResource
  */
 export function getStorageClassOutput(args: GetStorageClassOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageClassResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:kubernetesruntime/v20240301:getStorageClass", {
-        "resourceUri": args.resourceUri,
-        "storageClassName": args.storageClassName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageClass(a, opts))
 }
 
 export interface GetStorageClassOutputArgs {

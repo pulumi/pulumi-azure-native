@@ -11,6 +11,7 @@ import * as utilities from "../../utilities";
  * Gets a Rules Engine Configuration with the specified name within the specified Front Door.
  */
 export function getRulesEngine(args: GetRulesEngineArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesEngineResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210601:getRulesEngine", {
         "frontDoorName": args.frontDoorName,
@@ -63,12 +64,7 @@ export interface GetRulesEngineResult {
  * Gets a Rules Engine Configuration with the specified name within the specified Front Door.
  */
 export function getRulesEngineOutput(args: GetRulesEngineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesEngineResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:network/v20210601:getRulesEngine", {
-        "frontDoorName": args.frontDoorName,
-        "resourceGroupName": args.resourceGroupName,
-        "rulesEngineName": args.rulesEngineName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRulesEngine(a, opts))
 }
 
 export interface GetRulesEngineOutputArgs {

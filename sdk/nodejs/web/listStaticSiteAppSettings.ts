@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function listStaticSiteAppSettings(args: ListStaticSiteAppSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteAppSettingsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:listStaticSiteAppSettings", {
         "name": args.name,
@@ -61,11 +62,7 @@ export interface ListStaticSiteAppSettingsResult {
  * Other available API versions: 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function listStaticSiteAppSettingsOutput(args: ListStaticSiteAppSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteAppSettingsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:web:listStaticSiteAppSettings", {
-        "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listStaticSiteAppSettings(a, opts))
 }
 
 export interface ListStaticSiteAppSettingsOutputArgs {

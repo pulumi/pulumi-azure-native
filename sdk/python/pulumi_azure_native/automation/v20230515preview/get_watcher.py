@@ -266,6 +266,9 @@ def get_watcher(automation_account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_watcher)
 def get_watcher_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        watcher_name: Optional[pulumi.Input[str]] = None,
@@ -278,26 +281,4 @@ def get_watcher_output(automation_account_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: Name of an Azure Resource group.
     :param str watcher_name: The watcher name.
     """
-    __args__ = dict()
-    __args__['automationAccountName'] = automation_account_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['watcherName'] = watcher_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:getWatcher', __args__, opts=opts, typ=GetWatcherResult)
-    return __ret__.apply(lambda __response__: GetWatcherResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        etag=pulumi.get(__response__, 'etag'),
-        execution_frequency_in_seconds=pulumi.get(__response__, 'execution_frequency_in_seconds'),
-        id=pulumi.get(__response__, 'id'),
-        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        script_name=pulumi.get(__response__, 'script_name'),
-        script_parameters=pulumi.get(__response__, 'script_parameters'),
-        script_run_on=pulumi.get(__response__, 'script_run_on'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

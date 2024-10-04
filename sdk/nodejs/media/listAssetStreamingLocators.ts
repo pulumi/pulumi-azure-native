@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-01-01.
  */
 export function listAssetStreamingLocators(args: ListAssetStreamingLocatorsArgs, opts?: pulumi.InvokeOptions): Promise<ListAssetStreamingLocatorsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:listAssetStreamingLocators", {
         "accountName": args.accountName,
@@ -49,12 +50,7 @@ export interface ListAssetStreamingLocatorsResult {
  * Azure REST API version: 2023-01-01.
  */
 export function listAssetStreamingLocatorsOutput(args: ListAssetStreamingLocatorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAssetStreamingLocatorsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:media:listAssetStreamingLocators", {
-        "accountName": args.accountName,
-        "assetName": args.assetName,
-        "resourceGroupName": args.resourceGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => listAssetStreamingLocators(a, opts))
 }
 
 export interface ListAssetStreamingLocatorsOutputArgs {
