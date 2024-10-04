@@ -20,16 +20,29 @@ import (
 )
 
 func newOidcCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
-	if authConf.oidcToken != "" {
+	oidcTokenCredential := func(token string) (azcore.TokenCredential, error) {
 		return azidentity.NewClientAssertionCredential(
 			authConf.tenantId,
 			authConf.clientId,
 			func(ctx context.Context) (string, error) {
-				return authConf.oidcToken, nil
+				return token, nil
 			},
 			nil)
 	}
 
+	if authConf.oidcToken != "" {
+		return oidcTokenCredential(authConf.oidcToken)
+	}
+
+	if authConf.oidcTokenFilePath != "" {
+		token, err := os.ReadFile(authConf.oidcTokenFilePath)
+		if err != nil {
+			return nil, fmt.Errorf("failed to read OIDC token from %s: %w", authConf.oidcTokenFilePath, err)
+		}
+		return oidcTokenCredential(string(token))
+	}
+
+	// In this case, we need to obtain the OIDC token first from the configured endpoint.
 	if authConf.oidcTokenRequestUrl != "" && authConf.oidcTokenRequestToken != "" {
 		return azidentity.NewClientAssertionCredential(
 			authConf.tenantId,
@@ -79,47 +92,6 @@ func newOidcCredential(authConf *authConfiguration) (azcore.TokenCredential, err
 	}
 
 	return nil, errors.New("OIDC token or request URL and token are not provided")
-}
-
-func (k *azureNativeProvider) newChainedAuthCredential() (*azidentity.ChainedTokenCredential, error) {
-	authConf, err := k.getAuthConfig3()
-	if err != nil {
-		return nil, err
-	}
-
-	var credentials []azcore.TokenCredential
-	var errs []error
-	add := func(cred azcore.TokenCredential, name string, err error) ([]azcore.TokenCredential, []error) {
-		if err != nil {
-			errs = append(errs, err)
-			logging.V(9).Infof("%s credential cannot be used: %v", name, err)
-		} else {
-			credentials = append(credentials, cred)
-			logging.V(9).Infof("%s credential is valid and will be considered", name)
-		}
-		return credentials, errs
-	}
-
-	spCert, err := azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, nil)
-	credentials, errs = add(spCert, "SP with client secret", err)
-
-	oidc, err := newOidcCredential(authConf)
-	credentials, errs = add(oidc, "OIDC", err)
-
-	// TODO,tkappler using it as-is in the chain causes a hard failure when the MSI endpoint is not available
-	// Need to wrap with a timeout handler as shown here:
-	// https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#example-NewChainedTokenCredential-ManagedIdentityTimeout
-	// managedIdentity, err := azidentity.NewManagedIdentityCredential(nil)
-	// credentials, errs = add(managedIdentity, "Managed Identity", err)
-
-	cli, err := azidentity.NewAzureCLICredential(nil)
-	credentials, errs = add(cli, "Azure CLI", err)
-
-	if len(credentials) == 0 {
-		return nil, errors.Errorf("Failed to find valid credentials: %v", errs)
-	}
-
-	return azidentity.NewChainedTokenCredential(credentials, nil)
 }
 
 func readCertificate(certPath, certPassword string) ([]*x509.Certificate, crypto.PrivateKey, error) {
@@ -214,6 +186,7 @@ type authConfiguration struct {
 
 	useOidc               bool
 	oidcToken             string
+	oidcTokenFilePath     string
 	oidcTokenRequestToken string
 	oidcTokenRequestUrl   string
 
@@ -256,6 +229,7 @@ func (k *azureNativeProvider) getAuthConfig3() (*authConfiguration, error) {
 
 		useOidc:               k.getConfig("useOidc", "ARM_USE_OIDC") == "true",
 		oidcToken:             k.getConfig("oidcToken", "ARM_OIDC_TOKEN"),
+		oidcTokenFilePath:     k.getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH"),
 		oidcTokenRequestToken: k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
 		oidcTokenRequestUrl:   k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
 	}, nil
