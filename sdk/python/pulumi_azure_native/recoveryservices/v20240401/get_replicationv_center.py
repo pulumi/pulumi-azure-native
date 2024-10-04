@@ -126,6 +126,9 @@ def get_replicationv_center(fabric_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_replicationv_center)
 def get_replicationv_center_output(fabric_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    resource_name: Optional[pulumi.Input[str]] = None,
@@ -140,16 +143,4 @@ def get_replicationv_center_output(fabric_name: Optional[pulumi.Input[str]] = No
     :param str resource_name: The name of the recovery services vault.
     :param str vcenter_name: vcenter name.
     """
-    __args__ = dict()
-    __args__['fabricName'] = fabric_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    __args__['vcenterName'] = vcenter_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20240401:getReplicationvCenter', __args__, opts=opts, typ=GetReplicationvCenterResult)
-    return __ret__.apply(lambda __response__: GetReplicationvCenterResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        type=pulumi.get(__response__, 'type')))
+    ...

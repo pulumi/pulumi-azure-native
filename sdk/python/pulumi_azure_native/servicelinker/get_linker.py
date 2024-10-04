@@ -227,6 +227,9 @@ def get_linker(linker_name: Optional[str] = None,
         target_service=pulumi.get(__ret__, 'target_service'),
         type=pulumi.get(__ret__, 'type'),
         v_net_solution=pulumi.get(__ret__, 'v_net_solution'))
+
+
+@_utilities.lift_output_func(get_linker)
 def get_linker_output(linker_name: Optional[pulumi.Input[str]] = None,
                       resource_uri: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkerResult]:
@@ -240,22 +243,4 @@ def get_linker_output(linker_name: Optional[pulumi.Input[str]] = None,
     :param str linker_name: The name Linker resource.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
-    __args__ = dict()
-    __args__['linkerName'] = linker_name
-    __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicelinker:getLinker', __args__, opts=opts, typ=GetLinkerResult)
-    return __ret__.apply(lambda __response__: GetLinkerResult(
-        auth_info=pulumi.get(__response__, 'auth_info'),
-        client_type=pulumi.get(__response__, 'client_type'),
-        configuration_info=pulumi.get(__response__, 'configuration_info'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_solution=pulumi.get(__response__, 'public_network_solution'),
-        scope=pulumi.get(__response__, 'scope'),
-        secret_store=pulumi.get(__response__, 'secret_store'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        target_service=pulumi.get(__response__, 'target_service'),
-        type=pulumi.get(__response__, 'type'),
-        v_net_solution=pulumi.get(__response__, 'v_net_solution')))
+    ...

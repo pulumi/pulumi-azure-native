@@ -81,6 +81,9 @@ def get_shared_keys(resource_group_name: Optional[str] = None,
     return AwaitableGetSharedKeysResult(
         primary_shared_key=pulumi.get(__ret__, 'primary_shared_key'),
         secondary_shared_key=pulumi.get(__ret__, 'secondary_shared_key'))
+
+
+@_utilities.lift_output_func(get_shared_keys)
 def get_shared_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            workspace_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedKeysResult]:
@@ -92,11 +95,4 @@ def get_shared_keys_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights:getSharedKeys', __args__, opts=opts, typ=GetSharedKeysResult)
-    return __ret__.apply(lambda __response__: GetSharedKeysResult(
-        primary_shared_key=pulumi.get(__response__, 'primary_shared_key'),
-        secondary_shared_key=pulumi.get(__response__, 'secondary_shared_key')))
+    ...

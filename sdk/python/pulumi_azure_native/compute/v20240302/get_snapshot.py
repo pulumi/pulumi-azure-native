@@ -458,6 +458,9 @@ def get_snapshot(resource_group_name: Optional[str] = None,
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
         unique_id=pulumi.get(__ret__, 'unique_id'))
+
+
+@_utilities.lift_output_func(get_snapshot)
 def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         snapshot_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
@@ -468,40 +471,4 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['snapshotName'] = snapshot_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20240302:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
-    return __ret__.apply(lambda __response__: GetSnapshotResult(
-        completion_percent=pulumi.get(__response__, 'completion_percent'),
-        copy_completion_error=pulumi.get(__response__, 'copy_completion_error'),
-        creation_data=pulumi.get(__response__, 'creation_data'),
-        data_access_auth_mode=pulumi.get(__response__, 'data_access_auth_mode'),
-        disk_access_id=pulumi.get(__response__, 'disk_access_id'),
-        disk_size_bytes=pulumi.get(__response__, 'disk_size_bytes'),
-        disk_size_gb=pulumi.get(__response__, 'disk_size_gb'),
-        disk_state=pulumi.get(__response__, 'disk_state'),
-        encryption=pulumi.get(__response__, 'encryption'),
-        encryption_settings_collection=pulumi.get(__response__, 'encryption_settings_collection'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        hyper_v_generation=pulumi.get(__response__, 'hyper_v_generation'),
-        id=pulumi.get(__response__, 'id'),
-        incremental=pulumi.get(__response__, 'incremental'),
-        incremental_snapshot_family_id=pulumi.get(__response__, 'incremental_snapshot_family_id'),
-        location=pulumi.get(__response__, 'location'),
-        managed_by=pulumi.get(__response__, 'managed_by'),
-        name=pulumi.get(__response__, 'name'),
-        network_access_policy=pulumi.get(__response__, 'network_access_policy'),
-        os_type=pulumi.get(__response__, 'os_type'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        purchase_plan=pulumi.get(__response__, 'purchase_plan'),
-        security_profile=pulumi.get(__response__, 'security_profile'),
-        sku=pulumi.get(__response__, 'sku'),
-        supported_capabilities=pulumi.get(__response__, 'supported_capabilities'),
-        supports_hibernation=pulumi.get(__response__, 'supports_hibernation'),
-        tags=pulumi.get(__response__, 'tags'),
-        time_created=pulumi.get(__response__, 'time_created'),
-        type=pulumi.get(__response__, 'type'),
-        unique_id=pulumi.get(__response__, 'unique_id')))
+    ...

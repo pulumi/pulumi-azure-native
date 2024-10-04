@@ -247,6 +247,9 @@ def get_global_rulestack(global_rulestack_name: Optional[str] = None,
         security_services=pulumi.get(__ret__, 'security_services'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_global_rulestack)
 def get_global_rulestack_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalRulestackResult]:
     """
@@ -255,23 +258,4 @@ def get_global_rulestack_output(global_rulestack_name: Optional[pulumi.Input[str
 
     :param str global_rulestack_name: GlobalRulestack resource name
     """
-    __args__ = dict()
-    __args__['globalRulestackName'] = global_rulestack_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240119preview:getGlobalRulestack', __args__, opts=opts, typ=GetGlobalRulestackResult)
-    return __ret__.apply(lambda __response__: GetGlobalRulestackResult(
-        associated_subscriptions=pulumi.get(__response__, 'associated_subscriptions'),
-        default_mode=pulumi.get(__response__, 'default_mode'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        min_app_id_version=pulumi.get(__response__, 'min_app_id_version'),
-        name=pulumi.get(__response__, 'name'),
-        pan_etag=pulumi.get(__response__, 'pan_etag'),
-        pan_location=pulumi.get(__response__, 'pan_location'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        scope=pulumi.get(__response__, 'scope'),
-        security_services=pulumi.get(__response__, 'security_services'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -211,6 +211,9 @@ def get_device_extended_information(device_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_key=pulumi.get(__ret__, 'resource_key'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_device_extended_information)
 def get_device_extended_information_output(device_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceExtendedInformationResult]:
@@ -221,21 +224,4 @@ def get_device_extended_information_output(device_name: Optional[pulumi.Input[st
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['deviceName'] = device_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20210201preview:getDeviceExtendedInformation', __args__, opts=opts, typ=GetDeviceExtendedInformationResult)
-    return __ret__.apply(lambda __response__: GetDeviceExtendedInformationResult(
-        channel_integrity_key_name=pulumi.get(__response__, 'channel_integrity_key_name'),
-        channel_integrity_key_version=pulumi.get(__response__, 'channel_integrity_key_version'),
-        client_secret_store_id=pulumi.get(__response__, 'client_secret_store_id'),
-        client_secret_store_url=pulumi.get(__response__, 'client_secret_store_url'),
-        device_secrets=pulumi.get(__response__, 'device_secrets'),
-        encryption_key=pulumi.get(__response__, 'encryption_key'),
-        encryption_key_thumbprint=pulumi.get(__response__, 'encryption_key_thumbprint'),
-        id=pulumi.get(__response__, 'id'),
-        key_vault_sync_status=pulumi.get(__response__, 'key_vault_sync_status'),
-        name=pulumi.get(__response__, 'name'),
-        resource_key=pulumi.get(__response__, 'resource_key'),
-        type=pulumi.get(__response__, 'type')))
+    ...

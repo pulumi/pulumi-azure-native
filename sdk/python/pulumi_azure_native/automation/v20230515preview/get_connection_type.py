@@ -162,6 +162,9 @@ def get_connection_type(automation_account_name: Optional[str] = None,
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_connection_type)
 def get_connection_type_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                connection_type_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -174,18 +177,4 @@ def get_connection_type_output(automation_account_name: Optional[pulumi.Input[st
     :param str connection_type_name: The name of connection type.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    __args__ = dict()
-    __args__['automationAccountName'] = automation_account_name
-    __args__['connectionTypeName'] = connection_type_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:getConnectionType', __args__, opts=opts, typ=GetConnectionTypeResult)
-    return __ret__.apply(lambda __response__: GetConnectionTypeResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        field_definitions=pulumi.get(__response__, 'field_definitions'),
-        id=pulumi.get(__response__, 'id'),
-        is_global=pulumi.get(__response__, 'is_global'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

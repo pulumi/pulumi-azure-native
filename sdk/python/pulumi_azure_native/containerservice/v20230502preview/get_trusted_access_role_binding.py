@@ -149,6 +149,9 @@ def get_trusted_access_role_binding(resource_group_name: Optional[str] = None,
         source_resource_id=pulumi.get(__ret__, 'source_resource_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_trusted_access_role_binding)
 def get_trusted_access_role_binding_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                            resource_name: Optional[pulumi.Input[str]] = None,
                                            trusted_access_role_binding_name: Optional[pulumi.Input[str]] = None,
@@ -161,17 +164,4 @@ def get_trusted_access_role_binding_output(resource_group_name: Optional[pulumi.
     :param str resource_name: The name of the managed cluster resource.
     :param str trusted_access_role_binding_name: The name of trusted access role binding.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    __args__['trustedAccessRoleBindingName'] = trusted_access_role_binding_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20230502preview:getTrustedAccessRoleBinding', __args__, opts=opts, typ=GetTrustedAccessRoleBindingResult)
-    return __ret__.apply(lambda __response__: GetTrustedAccessRoleBindingResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        roles=pulumi.get(__response__, 'roles'),
-        source_resource_id=pulumi.get(__response__, 'source_resource_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

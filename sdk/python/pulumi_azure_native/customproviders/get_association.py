@@ -120,6 +120,9 @@ def get_association(association_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_association)
 def get_association_output(association_name: Optional[pulumi.Input[str]] = None,
                            scope: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssociationResult]:
@@ -131,14 +134,4 @@ def get_association_output(association_name: Optional[pulumi.Input[str]] = None,
     :param str association_name: The name of the association.
     :param str scope: The scope of the association.
     """
-    __args__ = dict()
-    __args__['associationName'] = association_name
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:customproviders:getAssociation', __args__, opts=opts, typ=GetAssociationResult)
-    return __ret__.apply(lambda __response__: GetAssociationResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        target_resource_id=pulumi.get(__response__, 'target_resource_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

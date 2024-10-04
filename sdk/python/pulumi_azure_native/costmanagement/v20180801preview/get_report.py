@@ -156,6 +156,9 @@ def get_report(report_name: Optional[str] = None,
         schedule=pulumi.get(__ret__, 'schedule'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_report)
 def get_report_output(report_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportResult]:
     """
@@ -164,16 +167,4 @@ def get_report_output(report_name: Optional[pulumi.Input[str]] = None,
 
     :param str report_name: Report Name.
     """
-    __args__ = dict()
-    __args__['reportName'] = report_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20180801preview:getReport', __args__, opts=opts, typ=GetReportResult)
-    return __ret__.apply(lambda __response__: GetReportResult(
-        definition=pulumi.get(__response__, 'definition'),
-        delivery_info=pulumi.get(__response__, 'delivery_info'),
-        format=pulumi.get(__response__, 'format'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        schedule=pulumi.get(__response__, 'schedule'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -139,6 +139,9 @@ def get_ip_syncer(operational_insights_resource_provider: Optional[str] = None,
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_ip_syncer)
 def get_ip_syncer_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          settings_name: Optional[pulumi.Input[str]] = None,
@@ -153,17 +156,4 @@ def get_ip_syncer_output(operational_insights_resource_provider: Optional[pulumi
     :param str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['settingsName'] = settings_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20190101preview:getIPSyncer', __args__, opts=opts, typ=GetIPSyncerResult)
-    return __ret__.apply(lambda __response__: GetIPSyncerResult(
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        is_enabled=pulumi.get(__response__, 'is_enabled'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

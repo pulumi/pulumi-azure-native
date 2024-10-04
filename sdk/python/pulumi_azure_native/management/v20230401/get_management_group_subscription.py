@@ -146,6 +146,9 @@ def get_management_group_subscription(group_id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tenant=pulumi.get(__ret__, 'tenant'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_management_group_subscription)
 def get_management_group_subscription_output(group_id: Optional[pulumi.Input[str]] = None,
                                              subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupSubscriptionResult]:
@@ -156,16 +159,4 @@ def get_management_group_subscription_output(group_id: Optional[pulumi.Input[str
     :param str group_id: Management Group ID.
     :param str subscription_id: Subscription ID.
     """
-    __args__ = dict()
-    __args__['groupId'] = group_id
-    __args__['subscriptionId'] = subscription_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:management/v20230401:getManagementGroupSubscription', __args__, opts=opts, typ=GetManagementGroupSubscriptionResult)
-    return __ret__.apply(lambda __response__: GetManagementGroupSubscriptionResult(
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        parent=pulumi.get(__response__, 'parent'),
-        state=pulumi.get(__response__, 'state'),
-        tenant=pulumi.get(__response__, 'tenant'),
-        type=pulumi.get(__response__, 'type')))
+    ...

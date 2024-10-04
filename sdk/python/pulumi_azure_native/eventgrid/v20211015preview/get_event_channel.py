@@ -203,6 +203,9 @@ def get_event_channel(event_channel_name: Optional[str] = None,
         source=pulumi.get(__ret__, 'source'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_event_channel)
 def get_event_channel_output(event_channel_name: Optional[pulumi.Input[str]] = None,
                              partner_namespace_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -215,21 +218,4 @@ def get_event_channel_output(event_channel_name: Optional[pulumi.Input[str]] = N
     :param str partner_namespace_name: Name of the partner namespace.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    __args__ = dict()
-    __args__['eventChannelName'] = event_channel_name
-    __args__['partnerNamespaceName'] = partner_namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20211015preview:getEventChannel', __args__, opts=opts, typ=GetEventChannelResult)
-    return __ret__.apply(lambda __response__: GetEventChannelResult(
-        destination=pulumi.get(__response__, 'destination'),
-        expiration_time_if_not_activated_utc=pulumi.get(__response__, 'expiration_time_if_not_activated_utc'),
-        filter=pulumi.get(__response__, 'filter'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        partner_topic_friendly_description=pulumi.get(__response__, 'partner_topic_friendly_description'),
-        partner_topic_readiness_state=pulumi.get(__response__, 'partner_topic_readiness_state'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        source=pulumi.get(__response__, 'source'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -245,6 +245,9 @@ def get_sync_member(database_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_private_link_connection=pulumi.get(__ret__, 'use_private_link_connection'),
         user_name=pulumi.get(__ret__, 'user_name'))
+
+
+@_utilities.lift_output_func(get_sync_member)
 def get_sync_member_output(database_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            server_name: Optional[pulumi.Input[str]] = None,
@@ -261,26 +264,4 @@ def get_sync_member_output(database_name: Optional[pulumi.Input[str]] = None,
     :param str sync_group_name: The name of the sync group on which the sync member is hosted.
     :param str sync_member_name: The name of the sync member.
     """
-    __args__ = dict()
-    __args__['databaseName'] = database_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    __args__['syncGroupName'] = sync_group_name
-    __args__['syncMemberName'] = sync_member_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230201preview:getSyncMember', __args__, opts=opts, typ=GetSyncMemberResult)
-    return __ret__.apply(lambda __response__: GetSyncMemberResult(
-        database_name=pulumi.get(__response__, 'database_name'),
-        database_type=pulumi.get(__response__, 'database_type'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_name=pulumi.get(__response__, 'private_endpoint_name'),
-        server_name=pulumi.get(__response__, 'server_name'),
-        sql_server_database_id=pulumi.get(__response__, 'sql_server_database_id'),
-        sync_agent_id=pulumi.get(__response__, 'sync_agent_id'),
-        sync_direction=pulumi.get(__response__, 'sync_direction'),
-        sync_member_azure_database_resource_id=pulumi.get(__response__, 'sync_member_azure_database_resource_id'),
-        sync_state=pulumi.get(__response__, 'sync_state'),
-        type=pulumi.get(__response__, 'type'),
-        use_private_link_connection=pulumi.get(__response__, 'use_private_link_connection'),
-        user_name=pulumi.get(__response__, 'user_name')))
+    ...

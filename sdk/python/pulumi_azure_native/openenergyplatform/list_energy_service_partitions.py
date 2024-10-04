@@ -69,6 +69,9 @@ def list_energy_service_partitions(resource_group_name: Optional[str] = None,
 
     return AwaitableListEnergyServicePartitionsResult(
         data_partition_info=pulumi.get(__ret__, 'data_partition_info'))
+
+
+@_utilities.lift_output_func(list_energy_service_partitions)
 def list_energy_service_partitions_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                           resource_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEnergyServicePartitionsResult]:
@@ -80,10 +83,4 @@ def list_energy_service_partitions_output(resource_group_name: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The resource name.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:openenergyplatform:listEnergyServicePartitions', __args__, opts=opts, typ=ListEnergyServicePartitionsResult)
-    return __ret__.apply(lambda __response__: ListEnergyServicePartitionsResult(
-        data_partition_info=pulumi.get(__response__, 'data_partition_info')))
+    ...

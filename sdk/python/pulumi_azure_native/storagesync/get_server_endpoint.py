@@ -376,6 +376,9 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
         tier_files_older_than_days=pulumi.get(__ret__, 'tier_files_older_than_days'),
         type=pulumi.get(__ret__, 'type'),
         volume_free_space_percent=pulumi.get(__ret__, 'volume_free_space_percent'))
+
+
+@_utilities.lift_output_func(get_server_endpoint)
 def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                server_endpoint_name: Optional[pulumi.Input[str]] = None,
                                storage_sync_service_name: Optional[pulumi.Input[str]] = None,
@@ -393,35 +396,4 @@ def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverEndpointName'] = server_endpoint_name
-    __args__['storageSyncServiceName'] = storage_sync_service_name
-    __args__['syncGroupName'] = sync_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storagesync:getServerEndpoint', __args__, opts=opts, typ=GetServerEndpointResult)
-    return __ret__.apply(lambda __response__: GetServerEndpointResult(
-        cloud_tiering=pulumi.get(__response__, 'cloud_tiering'),
-        cloud_tiering_status=pulumi.get(__response__, 'cloud_tiering_status'),
-        friendly_name=pulumi.get(__response__, 'friendly_name'),
-        id=pulumi.get(__response__, 'id'),
-        initial_download_policy=pulumi.get(__response__, 'initial_download_policy'),
-        initial_upload_policy=pulumi.get(__response__, 'initial_upload_policy'),
-        last_operation_name=pulumi.get(__response__, 'last_operation_name'),
-        last_workflow_id=pulumi.get(__response__, 'last_workflow_id'),
-        local_cache_mode=pulumi.get(__response__, 'local_cache_mode'),
-        name=pulumi.get(__response__, 'name'),
-        offline_data_transfer=pulumi.get(__response__, 'offline_data_transfer'),
-        offline_data_transfer_share_name=pulumi.get(__response__, 'offline_data_transfer_share_name'),
-        offline_data_transfer_storage_account_resource_id=pulumi.get(__response__, 'offline_data_transfer_storage_account_resource_id'),
-        offline_data_transfer_storage_account_tenant_id=pulumi.get(__response__, 'offline_data_transfer_storage_account_tenant_id'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        recall_status=pulumi.get(__response__, 'recall_status'),
-        server_local_path=pulumi.get(__response__, 'server_local_path'),
-        server_name=pulumi.get(__response__, 'server_name'),
-        server_resource_id=pulumi.get(__response__, 'server_resource_id'),
-        sync_status=pulumi.get(__response__, 'sync_status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tier_files_older_than_days=pulumi.get(__response__, 'tier_files_older_than_days'),
-        type=pulumi.get(__response__, 'type'),
-        volume_free_space_percent=pulumi.get(__response__, 'volume_free_space_percent')))
+    ...

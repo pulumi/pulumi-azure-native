@@ -237,6 +237,9 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
         scope=pulumi.get(__ret__, 'scope'),
         sku=pulumi.get(__ret__, 'sku'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_policy_assignment)
 def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[str]] = None,
                                  scope: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
@@ -247,23 +250,4 @@ def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[s
     :param str policy_assignment_name: The name of the policy assignment to get.
     :param str scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     """
-    __args__ = dict()
-    __args__['policyAssignmentName'] = policy_assignment_name
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20200301:getPolicyAssignment', __args__, opts=opts, typ=GetPolicyAssignmentResult)
-    return __ret__.apply(lambda __response__: GetPolicyAssignmentResult(
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        enforcement_mode=pulumi.get(__response__, 'enforcement_mode'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        name=pulumi.get(__response__, 'name'),
-        not_scopes=pulumi.get(__response__, 'not_scopes'),
-        parameters=pulumi.get(__response__, 'parameters'),
-        policy_definition_id=pulumi.get(__response__, 'policy_definition_id'),
-        scope=pulumi.get(__response__, 'scope'),
-        sku=pulumi.get(__response__, 'sku'),
-        type=pulumi.get(__response__, 'type')))
+    ...

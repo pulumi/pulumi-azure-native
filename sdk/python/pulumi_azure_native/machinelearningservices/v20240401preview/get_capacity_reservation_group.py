@@ -181,6 +181,9 @@ def get_capacity_reservation_group(group_id: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_capacity_reservation_group)
 def get_capacity_reservation_group_output(group_id: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationGroupResult]:
@@ -190,19 +193,4 @@ def get_capacity_reservation_group_output(group_id: Optional[pulumi.Input[str]] 
     :param str group_id: Group ID
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['groupId'] = group_id
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20240401preview:getCapacityReservationGroup', __args__, opts=opts, typ=GetCapacityReservationGroupResult)
-    return __ret__.apply(lambda __response__: GetCapacityReservationGroupResult(
-        capacity_reservation_group_properties=pulumi.get(__response__, 'capacity_reservation_group_properties'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

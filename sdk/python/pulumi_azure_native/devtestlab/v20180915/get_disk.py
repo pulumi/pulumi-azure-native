@@ -271,6 +271,9 @@ def get_disk(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
+
+
+@_utilities.lift_output_func(get_disk)
 def get_disk_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                     lab_name: Optional[pulumi.Input[str]] = None,
                     name: Optional[pulumi.Input[str]] = None,
@@ -287,28 +290,4 @@ def get_disk_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str user_name: The name of the user profile.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['labName'] = lab_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getDisk', __args__, opts=opts, typ=GetDiskResult)
-    return __ret__.apply(lambda __response__: GetDiskResult(
-        created_date=pulumi.get(__response__, 'created_date'),
-        disk_blob_name=pulumi.get(__response__, 'disk_blob_name'),
-        disk_size_gi_b=pulumi.get(__response__, 'disk_size_gi_b'),
-        disk_type=pulumi.get(__response__, 'disk_type'),
-        disk_uri=pulumi.get(__response__, 'disk_uri'),
-        host_caching=pulumi.get(__response__, 'host_caching'),
-        id=pulumi.get(__response__, 'id'),
-        leased_by_lab_vm_id=pulumi.get(__response__, 'leased_by_lab_vm_id'),
-        location=pulumi.get(__response__, 'location'),
-        managed_disk_id=pulumi.get(__response__, 'managed_disk_id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        unique_identifier=pulumi.get(__response__, 'unique_identifier')))
+    ...

@@ -190,6 +190,9 @@ def get_local_rule_counters(firewall_name: Optional[str] = None,
         rule_name=pulumi.get(__ret__, 'rule_name'),
         rule_stack_name=pulumi.get(__ret__, 'rule_stack_name'),
         timestamp=pulumi.get(__ret__, 'timestamp'))
+
+
+@_utilities.lift_output_func(get_local_rule_counters)
 def get_local_rule_counters_output(firewall_name: Optional[pulumi.Input[Optional[str]]] = None,
                                    local_rulestack_name: Optional[pulumi.Input[str]] = None,
                                    priority: Optional[pulumi.Input[str]] = None,
@@ -203,21 +206,4 @@ def get_local_rule_counters_output(firewall_name: Optional[pulumi.Input[Optional
     :param str priority: Local Rule priority
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['firewallName'] = firewall_name
-    __args__['localRulestackName'] = local_rulestack_name
-    __args__['priority'] = priority
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20231010preview:getLocalRuleCounters', __args__, opts=opts, typ=GetLocalRuleCountersResult)
-    return __ret__.apply(lambda __response__: GetLocalRuleCountersResult(
-        app_seen=pulumi.get(__response__, 'app_seen'),
-        firewall_name=pulumi.get(__response__, 'firewall_name'),
-        hit_count=pulumi.get(__response__, 'hit_count'),
-        last_updated_timestamp=pulumi.get(__response__, 'last_updated_timestamp'),
-        priority=pulumi.get(__response__, 'priority'),
-        request_timestamp=pulumi.get(__response__, 'request_timestamp'),
-        rule_list_name=pulumi.get(__response__, 'rule_list_name'),
-        rule_name=pulumi.get(__response__, 'rule_name'),
-        rule_stack_name=pulumi.get(__response__, 'rule_stack_name'),
-        timestamp=pulumi.get(__response__, 'timestamp')))
+    ...

@@ -134,6 +134,9 @@ def get_billing_profile(billing_account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_billing_profile)
 def get_billing_profile_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                billing_profile_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingProfileResult]:
@@ -145,15 +148,4 @@ def get_billing_profile_output(billing_account_name: Optional[pulumi.Input[str]]
     :param str billing_account_name: The ID that uniquely identifies a billing account.
     :param str billing_profile_name: The ID that uniquely identifies a billing profile.
     """
-    __args__ = dict()
-    __args__['billingAccountName'] = billing_account_name
-    __args__['billingProfileName'] = billing_profile_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:billing:getBillingProfile', __args__, opts=opts, typ=GetBillingProfileResult)
-    return __ret__.apply(lambda __response__: GetBillingProfileResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -201,6 +201,9 @@ def get_favorite(favorite_id: Optional[str] = None,
         time_modified=pulumi.get(__ret__, 'time_modified'),
         user_id=pulumi.get(__ret__, 'user_id'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_favorite)
 def get_favorite_output(favorite_id: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
@@ -214,21 +217,4 @@ def get_favorite_output(favorite_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
-    __args__ = dict()
-    __args__['favoriteId'] = favorite_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getFavorite', __args__, opts=opts, typ=GetFavoriteResult)
-    return __ret__.apply(lambda __response__: GetFavoriteResult(
-        category=pulumi.get(__response__, 'category'),
-        config=pulumi.get(__response__, 'config'),
-        favorite_id=pulumi.get(__response__, 'favorite_id'),
-        favorite_type=pulumi.get(__response__, 'favorite_type'),
-        is_generated_from_template=pulumi.get(__response__, 'is_generated_from_template'),
-        name=pulumi.get(__response__, 'name'),
-        source_type=pulumi.get(__response__, 'source_type'),
-        tags=pulumi.get(__response__, 'tags'),
-        time_modified=pulumi.get(__response__, 'time_modified'),
-        user_id=pulumi.get(__response__, 'user_id'),
-        version=pulumi.get(__response__, 'version')))
+    ...

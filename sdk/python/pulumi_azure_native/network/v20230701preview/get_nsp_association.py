@@ -188,6 +188,9 @@ def get_nsp_association(association_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_nsp_association)
 def get_nsp_association_output(association_name: Optional[pulumi.Input[str]] = None,
                                network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -200,20 +203,4 @@ def get_nsp_association_output(association_name: Optional[pulumi.Input[str]] = N
     :param str network_security_perimeter_name: The name of the network security perimeter.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['associationName'] = association_name
-    __args__['networkSecurityPerimeterName'] = network_security_perimeter_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230701preview:getNspAssociation', __args__, opts=opts, typ=GetNspAssociationResult)
-    return __ret__.apply(lambda __response__: GetNspAssociationResult(
-        access_mode=pulumi.get(__response__, 'access_mode'),
-        has_provisioning_issues=pulumi.get(__response__, 'has_provisioning_issues'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        private_link_resource=pulumi.get(__response__, 'private_link_resource'),
-        profile=pulumi.get(__response__, 'profile'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

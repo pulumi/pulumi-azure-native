@@ -81,6 +81,9 @@ def list_registry_credentials(registry_name: Optional[str] = None,
     return AwaitableListRegistryCredentialsResult(
         passwords=pulumi.get(__ret__, 'passwords'),
         username=pulumi.get(__ret__, 'username'))
+
+
+@_utilities.lift_output_func(list_registry_credentials)
 def list_registry_credentials_output(registry_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryCredentialsResult]:
@@ -91,11 +94,4 @@ def list_registry_credentials_output(registry_name: Optional[pulumi.Input[str]] 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    __args__ = dict()
-    __args__['registryName'] = registry_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20190501:listRegistryCredentials', __args__, opts=opts, typ=ListRegistryCredentialsResult)
-    return __ret__.apply(lambda __response__: ListRegistryCredentialsResult(
-        passwords=pulumi.get(__response__, 'passwords'),
-        username=pulumi.get(__response__, 'username')))
+    ...

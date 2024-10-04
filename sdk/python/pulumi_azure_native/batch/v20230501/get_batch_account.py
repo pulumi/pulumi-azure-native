@@ -348,6 +348,9 @@ def get_batch_account(account_name: Optional[str] = None,
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_batch_account)
 def get_batch_account_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBatchAccountResult]:
@@ -358,32 +361,4 @@ def get_batch_account_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: The name of the Batch account.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:batch/v20230501:getBatchAccount', __args__, opts=opts, typ=GetBatchAccountResult)
-    return __ret__.apply(lambda __response__: GetBatchAccountResult(
-        account_endpoint=pulumi.get(__response__, 'account_endpoint'),
-        active_job_and_job_schedule_quota=pulumi.get(__response__, 'active_job_and_job_schedule_quota'),
-        allowed_authentication_modes=pulumi.get(__response__, 'allowed_authentication_modes'),
-        auto_storage=pulumi.get(__response__, 'auto_storage'),
-        dedicated_core_quota=pulumi.get(__response__, 'dedicated_core_quota'),
-        dedicated_core_quota_per_vm_family=pulumi.get(__response__, 'dedicated_core_quota_per_vm_family'),
-        dedicated_core_quota_per_vm_family_enforced=pulumi.get(__response__, 'dedicated_core_quota_per_vm_family_enforced'),
-        encryption=pulumi.get(__response__, 'encryption'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        key_vault_reference=pulumi.get(__response__, 'key_vault_reference'),
-        location=pulumi.get(__response__, 'location'),
-        low_priority_core_quota=pulumi.get(__response__, 'low_priority_core_quota'),
-        name=pulumi.get(__response__, 'name'),
-        network_profile=pulumi.get(__response__, 'network_profile'),
-        node_management_endpoint=pulumi.get(__response__, 'node_management_endpoint'),
-        pool_allocation_mode=pulumi.get(__response__, 'pool_allocation_mode'),
-        pool_quota=pulumi.get(__response__, 'pool_quota'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

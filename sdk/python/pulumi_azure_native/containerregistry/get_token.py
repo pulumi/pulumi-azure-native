@@ -178,6 +178,9 @@ def get_token(registry_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_token)
 def get_token_output(registry_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      token_name: Optional[pulumi.Input[str]] = None,
@@ -193,19 +196,4 @@ def get_token_output(registry_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str token_name: The name of the token.
     """
-    __args__ = dict()
-    __args__['registryName'] = registry_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['tokenName'] = token_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getToken', __args__, opts=opts, typ=GetTokenResult)
-    return __ret__.apply(lambda __response__: GetTokenResult(
-        creation_date=pulumi.get(__response__, 'creation_date'),
-        credentials=pulumi.get(__response__, 'credentials'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        scope_map_id=pulumi.get(__response__, 'scope_map_id'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

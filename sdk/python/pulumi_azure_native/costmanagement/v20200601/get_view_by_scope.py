@@ -263,6 +263,9 @@ def get_view_by_scope(scope: Optional[str] = None,
         time_period=pulumi.get(__ret__, 'time_period'),
         timeframe=pulumi.get(__ret__, 'timeframe'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_view_by_scope)
 def get_view_by_scope_output(scope: Optional[pulumi.Input[str]] = None,
                              view_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewByScopeResult]:
@@ -273,25 +276,4 @@ def get_view_by_scope_output(scope: Optional[pulumi.Input[str]] = None,
     :param str scope: The scope associated with view operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.
     :param str view_name: View name
     """
-    __args__ = dict()
-    __args__['scope'] = scope
-    __args__['viewName'] = view_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20200601:getViewByScope', __args__, opts=opts, typ=GetViewByScopeResult)
-    return __ret__.apply(lambda __response__: GetViewByScopeResult(
-        accumulated=pulumi.get(__response__, 'accumulated'),
-        chart=pulumi.get(__response__, 'chart'),
-        created_on=pulumi.get(__response__, 'created_on'),
-        dataset=pulumi.get(__response__, 'dataset'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        e_tag=pulumi.get(__response__, 'e_tag'),
-        id=pulumi.get(__response__, 'id'),
-        kpis=pulumi.get(__response__, 'kpis'),
-        metric=pulumi.get(__response__, 'metric'),
-        modified_on=pulumi.get(__response__, 'modified_on'),
-        name=pulumi.get(__response__, 'name'),
-        pivots=pulumi.get(__response__, 'pivots'),
-        scope=pulumi.get(__response__, 'scope'),
-        time_period=pulumi.get(__response__, 'time_period'),
-        timeframe=pulumi.get(__response__, 'timeframe'),
-        type=pulumi.get(__response__, 'type')))
+    ...

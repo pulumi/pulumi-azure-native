@@ -579,6 +579,9 @@ def get_cluster(cluster_name: Optional[str] = None,
         vm_image=pulumi.get(__ret__, 'vm_image'),
         vmss_zonal_upgrade_mode=pulumi.get(__ret__, 'vmss_zonal_upgrade_mode'),
         wave_upgrade_paused=pulumi.get(__ret__, 'wave_upgrade_paused'))
+
+
+@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -589,48 +592,4 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20210601:getCluster', __args__, opts=opts, typ=GetClusterResult)
-    return __ret__.apply(lambda __response__: GetClusterResult(
-        add_on_features=pulumi.get(__response__, 'add_on_features'),
-        application_type_versions_cleanup_policy=pulumi.get(__response__, 'application_type_versions_cleanup_policy'),
-        available_cluster_versions=pulumi.get(__response__, 'available_cluster_versions'),
-        azure_active_directory=pulumi.get(__response__, 'azure_active_directory'),
-        certificate=pulumi.get(__response__, 'certificate'),
-        certificate_common_names=pulumi.get(__response__, 'certificate_common_names'),
-        client_certificate_common_names=pulumi.get(__response__, 'client_certificate_common_names'),
-        client_certificate_thumbprints=pulumi.get(__response__, 'client_certificate_thumbprints'),
-        cluster_code_version=pulumi.get(__response__, 'cluster_code_version'),
-        cluster_endpoint=pulumi.get(__response__, 'cluster_endpoint'),
-        cluster_id=pulumi.get(__response__, 'cluster_id'),
-        cluster_state=pulumi.get(__response__, 'cluster_state'),
-        diagnostics_storage_account_config=pulumi.get(__response__, 'diagnostics_storage_account_config'),
-        etag=pulumi.get(__response__, 'etag'),
-        event_store_service_enabled=pulumi.get(__response__, 'event_store_service_enabled'),
-        fabric_settings=pulumi.get(__response__, 'fabric_settings'),
-        id=pulumi.get(__response__, 'id'),
-        infrastructure_service_manager=pulumi.get(__response__, 'infrastructure_service_manager'),
-        location=pulumi.get(__response__, 'location'),
-        management_endpoint=pulumi.get(__response__, 'management_endpoint'),
-        name=pulumi.get(__response__, 'name'),
-        node_types=pulumi.get(__response__, 'node_types'),
-        notifications=pulumi.get(__response__, 'notifications'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        reliability_level=pulumi.get(__response__, 'reliability_level'),
-        reverse_proxy_certificate=pulumi.get(__response__, 'reverse_proxy_certificate'),
-        reverse_proxy_certificate_common_names=pulumi.get(__response__, 'reverse_proxy_certificate_common_names'),
-        sf_zonal_upgrade_mode=pulumi.get(__response__, 'sf_zonal_upgrade_mode'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        upgrade_description=pulumi.get(__response__, 'upgrade_description'),
-        upgrade_mode=pulumi.get(__response__, 'upgrade_mode'),
-        upgrade_pause_end_timestamp_utc=pulumi.get(__response__, 'upgrade_pause_end_timestamp_utc'),
-        upgrade_pause_start_timestamp_utc=pulumi.get(__response__, 'upgrade_pause_start_timestamp_utc'),
-        upgrade_wave=pulumi.get(__response__, 'upgrade_wave'),
-        vm_image=pulumi.get(__response__, 'vm_image'),
-        vmss_zonal_upgrade_mode=pulumi.get(__response__, 'vmss_zonal_upgrade_mode'),
-        wave_upgrade_paused=pulumi.get(__response__, 'wave_upgrade_paused')))
+    ...

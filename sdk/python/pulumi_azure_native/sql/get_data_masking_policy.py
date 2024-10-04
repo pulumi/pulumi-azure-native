@@ -180,6 +180,9 @@ def get_data_masking_policy(data_masking_policy_name: Optional[str] = None,
         masking_level=pulumi.get(__ret__, 'masking_level'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_data_masking_policy)
 def get_data_masking_policy_output(data_masking_policy_name: Optional[pulumi.Input[str]] = None,
                                    database_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -197,20 +200,4 @@ def get_data_masking_policy_output(data_masking_policy_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    __args__ = dict()
-    __args__['dataMaskingPolicyName'] = data_masking_policy_name
-    __args__['databaseName'] = database_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDataMaskingPolicy', __args__, opts=opts, typ=GetDataMaskingPolicyResult)
-    return __ret__.apply(lambda __response__: GetDataMaskingPolicyResult(
-        application_principals=pulumi.get(__response__, 'application_principals'),
-        data_masking_state=pulumi.get(__response__, 'data_masking_state'),
-        exempt_principals=pulumi.get(__response__, 'exempt_principals'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        masking_level=pulumi.get(__response__, 'masking_level'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

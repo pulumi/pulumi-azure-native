@@ -69,6 +69,9 @@ def list_azure_data_transfer_approved_schemas(direction: Optional[Union[str, 'Li
 
     return AwaitableListAzureDataTransferApprovedSchemasResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_azure_data_transfer_approved_schemas)
 def list_azure_data_transfer_approved_schemas_output(direction: Optional[pulumi.Input[Optional[Union[str, 'ListApprovedSchemasDirection']]]] = None,
                                                      pipeline: Optional[pulumi.Input[Optional[str]]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAzureDataTransferApprovedSchemasResult]:
@@ -79,10 +82,4 @@ def list_azure_data_transfer_approved_schemas_output(direction: Optional[pulumi.
     :param Union[str, 'ListApprovedSchemasDirection'] direction: The direction pipeline to filter approved schemas.
     :param str pipeline: The name of the pipeline to filter approved schemas.
     """
-    __args__ = dict()
-    __args__['direction'] = direction
-    __args__['pipeline'] = pipeline
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azuredatatransfer/v20231011preview:listAzureDataTransferApprovedSchemas', __args__, opts=opts, typ=ListAzureDataTransferApprovedSchemasResult)
-    return __ret__.apply(lambda __response__: ListAzureDataTransferApprovedSchemasResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

@@ -152,6 +152,9 @@ def get_datastore(cluster_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_datastore)
 def get_datastore_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          datastore_name: Optional[pulumi.Input[str]] = None,
                          private_cloud_name: Optional[pulumi.Input[str]] = None,
@@ -166,18 +169,4 @@ def get_datastore_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['datastoreName'] = datastore_name
-    __args__['privateCloudName'] = private_cloud_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20220501:getDatastore', __args__, opts=opts, typ=GetDatastoreResult)
-    return __ret__.apply(lambda __response__: GetDatastoreResult(
-        disk_pool_volume=pulumi.get(__response__, 'disk_pool_volume'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        net_app_volume=pulumi.get(__response__, 'net_app_volume'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        status=pulumi.get(__response__, 'status'),
-        type=pulumi.get(__response__, 'type')))
+    ...

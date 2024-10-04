@@ -232,6 +232,9 @@ def get_volume(device_name: Optional[str] = None,
         volume_container_id=pulumi.get(__ret__, 'volume_container_id'),
         volume_status=pulumi.get(__ret__, 'volume_status'),
         volume_type=pulumi.get(__ret__, 'volume_type'))
+
+
+@_utilities.lift_output_func(get_volume)
 def get_volume_output(device_name: Optional[pulumi.Input[str]] = None,
                       manager_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -248,25 +251,4 @@ def get_volume_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str volume_container_name: The volume container name.
     :param str volume_name: The volume name.
     """
-    __args__ = dict()
-    __args__['deviceName'] = device_name
-    __args__['managerName'] = manager_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['volumeContainerName'] = volume_container_name
-    __args__['volumeName'] = volume_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple/v20170601:getVolume', __args__, opts=opts, typ=GetVolumeResult)
-    return __ret__.apply(lambda __response__: GetVolumeResult(
-        access_control_record_ids=pulumi.get(__response__, 'access_control_record_ids'),
-        backup_policy_ids=pulumi.get(__response__, 'backup_policy_ids'),
-        backup_status=pulumi.get(__response__, 'backup_status'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        monitoring_status=pulumi.get(__response__, 'monitoring_status'),
-        name=pulumi.get(__response__, 'name'),
-        operation_status=pulumi.get(__response__, 'operation_status'),
-        size_in_bytes=pulumi.get(__response__, 'size_in_bytes'),
-        type=pulumi.get(__response__, 'type'),
-        volume_container_id=pulumi.get(__response__, 'volume_container_id'),
-        volume_status=pulumi.get(__response__, 'volume_status'),
-        volume_type=pulumi.get(__response__, 'volume_type')))
+    ...

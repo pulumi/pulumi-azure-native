@@ -70,6 +70,9 @@ def list_firewall_policy_idps_signatures_filter_value(filter_name: Optional[str]
 
     return AwaitableListFirewallPolicyIdpsSignaturesFilterValueResult(
         filter_values=pulumi.get(__ret__, 'filter_values'))
+
+
+@_utilities.lift_output_func(list_firewall_policy_idps_signatures_filter_value)
 def list_firewall_policy_idps_signatures_filter_value_output(filter_name: Optional[pulumi.Input[Optional[str]]] = None,
                                                              firewall_policy_name: Optional[pulumi.Input[str]] = None,
                                                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -82,11 +85,4 @@ def list_firewall_policy_idps_signatures_filter_value_output(filter_name: Option
     :param str firewall_policy_name: The name of the Firewall Policy.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['filterName'] = filter_name
-    __args__['firewallPolicyName'] = firewall_policy_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:listFirewallPolicyIdpsSignaturesFilterValue', __args__, opts=opts, typ=ListFirewallPolicyIdpsSignaturesFilterValueResult)
-    return __ret__.apply(lambda __response__: ListFirewallPolicyIdpsSignaturesFilterValueResult(
-        filter_values=pulumi.get(__response__, 'filter_values')))
+    ...

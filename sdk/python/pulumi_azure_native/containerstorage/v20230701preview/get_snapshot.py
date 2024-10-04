@@ -149,6 +149,9 @@ def get_snapshot(pool_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_snapshot)
 def get_snapshot_output(pool_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -161,17 +164,4 @@ def get_snapshot_output(pool_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str snapshot_name: Volume Snapshot Resource
     """
-    __args__ = dict()
-    __args__['poolName'] = pool_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['snapshotName'] = snapshot_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerstorage/v20230701preview:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
-    return __ret__.apply(lambda __response__: GetSnapshotResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        source=pulumi.get(__response__, 'source'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

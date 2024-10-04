@@ -180,6 +180,9 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         start_time=pulumi.get(__ret__, 'start_time'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_sql_pool_workload_classifier)
 def get_sql_pool_workload_classifier_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             sql_pool_name: Optional[pulumi.Input[str]] = None,
                                             workload_classifier_name: Optional[pulumi.Input[str]] = None,
@@ -196,21 +199,4 @@ def get_sql_pool_workload_classifier_output(resource_group_name: Optional[pulumi
     :param str workload_group_name: The name of the workload group.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sqlPoolName'] = sql_pool_name
-    __args__['workloadClassifierName'] = workload_classifier_name
-    __args__['workloadGroupName'] = workload_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601preview:getSqlPoolWorkloadClassifier', __args__, opts=opts, typ=GetSqlPoolWorkloadClassifierResult)
-    return __ret__.apply(lambda __response__: GetSqlPoolWorkloadClassifierResult(
-        context=pulumi.get(__response__, 'context'),
-        end_time=pulumi.get(__response__, 'end_time'),
-        id=pulumi.get(__response__, 'id'),
-        importance=pulumi.get(__response__, 'importance'),
-        label=pulumi.get(__response__, 'label'),
-        member_name=pulumi.get(__response__, 'member_name'),
-        name=pulumi.get(__response__, 'name'),
-        start_time=pulumi.get(__response__, 'start_time'),
-        type=pulumi.get(__response__, 'type')))
+    ...

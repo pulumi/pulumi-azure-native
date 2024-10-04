@@ -226,6 +226,9 @@ def get_managed_database(database_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_managed_database)
 def get_managed_database_output(database_name: Optional[pulumi.Input[str]] = None,
                                 managed_instance_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -238,23 +241,4 @@ def get_managed_database_output(database_name: Optional[pulumi.Input[str]] = Non
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
-    __args__ = dict()
-    __args__['databaseName'] = database_name
-    __args__['managedInstanceName'] = managed_instance_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230201preview:getManagedDatabase', __args__, opts=opts, typ=GetManagedDatabaseResult)
-    return __ret__.apply(lambda __response__: GetManagedDatabaseResult(
-        catalog_collation=pulumi.get(__response__, 'catalog_collation'),
-        collation=pulumi.get(__response__, 'collation'),
-        creation_date=pulumi.get(__response__, 'creation_date'),
-        default_secondary_location=pulumi.get(__response__, 'default_secondary_location'),
-        earliest_restore_point=pulumi.get(__response__, 'earliest_restore_point'),
-        failover_group_id=pulumi.get(__response__, 'failover_group_id'),
-        id=pulumi.get(__response__, 'id'),
-        is_ledger_on=pulumi.get(__response__, 'is_ledger_on'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

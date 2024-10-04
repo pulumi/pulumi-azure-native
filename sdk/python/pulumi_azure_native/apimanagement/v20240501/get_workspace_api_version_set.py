@@ -164,6 +164,9 @@ def get_workspace_api_version_set(resource_group_name: Optional[str] = None,
         version_header_name=pulumi.get(__ret__, 'version_header_name'),
         version_query_name=pulumi.get(__ret__, 'version_query_name'),
         versioning_scheme=pulumi.get(__ret__, 'versioning_scheme'))
+
+
+@_utilities.lift_output_func(get_workspace_api_version_set)
 def get_workspace_api_version_set_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                          service_name: Optional[pulumi.Input[str]] = None,
                                          version_set_id: Optional[pulumi.Input[str]] = None,
@@ -178,19 +181,4 @@ def get_workspace_api_version_set_output(resource_group_name: Optional[pulumi.In
     :param str version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
     :param str workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    __args__['versionSetId'] = version_set_id
-    __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240501:getWorkspaceApiVersionSet', __args__, opts=opts, typ=GetWorkspaceApiVersionSetResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceApiVersionSetResult(
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type'),
-        version_header_name=pulumi.get(__response__, 'version_header_name'),
-        version_query_name=pulumi.get(__response__, 'version_query_name'),
-        versioning_scheme=pulumi.get(__response__, 'versioning_scheme')))
+    ...

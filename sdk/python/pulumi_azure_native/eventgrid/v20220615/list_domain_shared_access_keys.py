@@ -80,6 +80,9 @@ def list_domain_shared_access_keys(domain_name: Optional[str] = None,
     return AwaitableListDomainSharedAccessKeysResult(
         key1=pulumi.get(__ret__, 'key1'),
         key2=pulumi.get(__ret__, 'key2'))
+
+
+@_utilities.lift_output_func(list_domain_shared_access_keys)
 def list_domain_shared_access_keys_output(domain_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainSharedAccessKeysResult]:
@@ -90,11 +93,4 @@ def list_domain_shared_access_keys_output(domain_name: Optional[pulumi.Input[str
     :param str domain_name: Name of the domain.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    __args__ = dict()
-    __args__['domainName'] = domain_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20220615:listDomainSharedAccessKeys', __args__, opts=opts, typ=ListDomainSharedAccessKeysResult)
-    return __ret__.apply(lambda __response__: ListDomainSharedAccessKeysResult(
-        key1=pulumi.get(__response__, 'key1'),
-        key2=pulumi.get(__response__, 'key2')))
+    ...

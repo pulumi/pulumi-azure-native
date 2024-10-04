@@ -325,6 +325,9 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'),
         zones=pulumi.get(__ret__, 'zones'))
+
+
+@_utilities.lift_output_func(get_bastion_host)
 def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBastionHostResult]:
@@ -335,30 +338,4 @@ def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = Non
     :param str bastion_host_name: The name of the Bastion Host.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['bastionHostName'] = bastion_host_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240101:getBastionHost', __args__, opts=opts, typ=GetBastionHostResult)
-    return __ret__.apply(lambda __response__: GetBastionHostResult(
-        disable_copy_paste=pulumi.get(__response__, 'disable_copy_paste'),
-        dns_name=pulumi.get(__response__, 'dns_name'),
-        enable_file_copy=pulumi.get(__response__, 'enable_file_copy'),
-        enable_ip_connect=pulumi.get(__response__, 'enable_ip_connect'),
-        enable_kerberos=pulumi.get(__response__, 'enable_kerberos'),
-        enable_session_recording=pulumi.get(__response__, 'enable_session_recording'),
-        enable_shareable_link=pulumi.get(__response__, 'enable_shareable_link'),
-        enable_tunneling=pulumi.get(__response__, 'enable_tunneling'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_acls=pulumi.get(__response__, 'network_acls'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        scale_units=pulumi.get(__response__, 'scale_units'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_network=pulumi.get(__response__, 'virtual_network'),
-        zones=pulumi.get(__response__, 'zones')))
+    ...

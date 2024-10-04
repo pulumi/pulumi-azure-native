@@ -77,6 +77,9 @@ def get_project_catalog_environment_definition_error_details(catalog_name: Optio
 
     return AwaitableGetProjectCatalogEnvironmentDefinitionErrorDetailsResult(
         errors=pulumi.get(__ret__, 'errors'))
+
+
+@_utilities.lift_output_func(get_project_catalog_environment_definition_error_details)
 def get_project_catalog_environment_definition_error_details_output(catalog_name: Optional[pulumi.Input[str]] = None,
                                                                     environment_definition_name: Optional[pulumi.Input[str]] = None,
                                                                     project_name: Optional[pulumi.Input[str]] = None,
@@ -94,12 +97,4 @@ def get_project_catalog_environment_definition_error_details_output(catalog_name
     :param str project_name: The name of the project.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['catalogName'] = catalog_name
-    __args__['environmentDefinitionName'] = environment_definition_name
-    __args__['projectName'] = project_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getProjectCatalogEnvironmentDefinitionErrorDetails', __args__, opts=opts, typ=GetProjectCatalogEnvironmentDefinitionErrorDetailsResult)
-    return __ret__.apply(lambda __response__: GetProjectCatalogEnvironmentDefinitionErrorDetailsResult(
-        errors=pulumi.get(__response__, 'errors')))
+    ...

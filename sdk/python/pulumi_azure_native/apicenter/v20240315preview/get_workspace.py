@@ -136,6 +136,9 @@ def get_workspace(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          service_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
@@ -148,16 +151,4 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str service_name: The name of Azure API Center service.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter/v20240315preview:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceResult(
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        title=pulumi.get(__response__, 'title'),
-        type=pulumi.get(__response__, 'type')))
+    ...

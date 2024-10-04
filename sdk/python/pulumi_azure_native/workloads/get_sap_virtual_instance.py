@@ -266,6 +266,9 @@ def get_sap_virtual_instance(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_sap_virtual_instance)
 def get_sap_virtual_instance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPVirtualInstanceResult]:
@@ -279,25 +282,4 @@ def get_sap_virtual_instance_output(resource_group_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sapVirtualInstanceName'] = sap_virtual_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getSAPVirtualInstance', __args__, opts=opts, typ=GetSAPVirtualInstanceResult)
-    return __ret__.apply(lambda __response__: GetSAPVirtualInstanceResult(
-        configuration=pulumi.get(__response__, 'configuration'),
-        environment=pulumi.get(__response__, 'environment'),
-        errors=pulumi.get(__response__, 'errors'),
-        health=pulumi.get(__response__, 'health'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        managed_resource_group_configuration=pulumi.get(__response__, 'managed_resource_group_configuration'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sap_product=pulumi.get(__response__, 'sap_product'),
-        state=pulumi.get(__response__, 'state'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

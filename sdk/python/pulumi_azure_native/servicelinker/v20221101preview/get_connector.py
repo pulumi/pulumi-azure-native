@@ -230,6 +230,9 @@ def get_connector(connector_name: Optional[str] = None,
         target_service=pulumi.get(__ret__, 'target_service'),
         type=pulumi.get(__ret__, 'type'),
         v_net_solution=pulumi.get(__ret__, 'v_net_solution'))
+
+
+@_utilities.lift_output_func(get_connector)
 def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                          location: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -244,24 +247,4 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str subscription_id: The ID of the target subscription.
     """
-    __args__ = dict()
-    __args__['connectorName'] = connector_name
-    __args__['location'] = location
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['subscriptionId'] = subscription_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicelinker/v20221101preview:getConnector', __args__, opts=opts, typ=GetConnectorResult)
-    return __ret__.apply(lambda __response__: GetConnectorResult(
-        auth_info=pulumi.get(__response__, 'auth_info'),
-        client_type=pulumi.get(__response__, 'client_type'),
-        configuration_info=pulumi.get(__response__, 'configuration_info'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_solution=pulumi.get(__response__, 'public_network_solution'),
-        scope=pulumi.get(__response__, 'scope'),
-        secret_store=pulumi.get(__response__, 'secret_store'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        target_service=pulumi.get(__response__, 'target_service'),
-        type=pulumi.get(__response__, 'type'),
-        v_net_solution=pulumi.get(__response__, 'v_net_solution')))
+    ...

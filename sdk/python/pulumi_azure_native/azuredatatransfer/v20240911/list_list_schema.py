@@ -93,6 +93,9 @@ def list_list_schema(connection_id: Optional[str] = None,
 
     return AwaitableListListSchemaResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_list_schema)
 def list_list_schema_output(connection_id: Optional[pulumi.Input[Optional[str]]] = None,
                             content: Optional[pulumi.Input[Optional[str]]] = None,
                             direction: Optional[pulumi.Input[Optional[Union[str, 'SchemaDirection']]]] = None,
@@ -119,18 +122,4 @@ def list_list_schema_output(connection_id: Optional[pulumi.Input[Optional[str]]]
     :param str schema_uri: Uri containing SAS token for the zipped schema
     :param Union[str, 'SchemaStatus'] status: Status of the schema
     """
-    __args__ = dict()
-    __args__['connectionId'] = connection_id
-    __args__['content'] = content
-    __args__['direction'] = direction
-    __args__['id'] = id
-    __args__['name'] = name
-    __args__['pipelineName'] = pipeline_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['schemaType'] = schema_type
-    __args__['schemaUri'] = schema_uri
-    __args__['status'] = status
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azuredatatransfer/v20240911:listListSchema', __args__, opts=opts, typ=ListListSchemaResult)
-    return __ret__.apply(lambda __response__: ListListSchemaResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

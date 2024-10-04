@@ -448,6 +448,9 @@ def get_scaling_plan_personal_schedule(resource_group_name: Optional[str] = None
         ramp_up_start_vm_on_connect=pulumi.get(__ret__, 'ramp_up_start_vm_on_connect'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_scaling_plan_personal_schedule)
 def get_scaling_plan_personal_schedule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                               scaling_plan_name: Optional[pulumi.Input[str]] = None,
                                               scaling_plan_schedule_name: Optional[pulumi.Input[str]] = None,
@@ -460,40 +463,4 @@ def get_scaling_plan_personal_schedule_output(resource_group_name: Optional[pulu
     :param str scaling_plan_name: The name of the scaling plan.
     :param str scaling_plan_schedule_name: The name of the ScalingPlanSchedule
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['scalingPlanName'] = scaling_plan_name
-    __args__['scalingPlanScheduleName'] = scaling_plan_schedule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization/v20240306preview:getScalingPlanPersonalSchedule', __args__, opts=opts, typ=GetScalingPlanPersonalScheduleResult)
-    return __ret__.apply(lambda __response__: GetScalingPlanPersonalScheduleResult(
-        days_of_week=pulumi.get(__response__, 'days_of_week'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        off_peak_action_on_disconnect=pulumi.get(__response__, 'off_peak_action_on_disconnect'),
-        off_peak_action_on_logoff=pulumi.get(__response__, 'off_peak_action_on_logoff'),
-        off_peak_minutes_to_wait_on_disconnect=pulumi.get(__response__, 'off_peak_minutes_to_wait_on_disconnect'),
-        off_peak_minutes_to_wait_on_logoff=pulumi.get(__response__, 'off_peak_minutes_to_wait_on_logoff'),
-        off_peak_start_time=pulumi.get(__response__, 'off_peak_start_time'),
-        off_peak_start_vm_on_connect=pulumi.get(__response__, 'off_peak_start_vm_on_connect'),
-        peak_action_on_disconnect=pulumi.get(__response__, 'peak_action_on_disconnect'),
-        peak_action_on_logoff=pulumi.get(__response__, 'peak_action_on_logoff'),
-        peak_minutes_to_wait_on_disconnect=pulumi.get(__response__, 'peak_minutes_to_wait_on_disconnect'),
-        peak_minutes_to_wait_on_logoff=pulumi.get(__response__, 'peak_minutes_to_wait_on_logoff'),
-        peak_start_time=pulumi.get(__response__, 'peak_start_time'),
-        peak_start_vm_on_connect=pulumi.get(__response__, 'peak_start_vm_on_connect'),
-        ramp_down_action_on_disconnect=pulumi.get(__response__, 'ramp_down_action_on_disconnect'),
-        ramp_down_action_on_logoff=pulumi.get(__response__, 'ramp_down_action_on_logoff'),
-        ramp_down_minutes_to_wait_on_disconnect=pulumi.get(__response__, 'ramp_down_minutes_to_wait_on_disconnect'),
-        ramp_down_minutes_to_wait_on_logoff=pulumi.get(__response__, 'ramp_down_minutes_to_wait_on_logoff'),
-        ramp_down_start_time=pulumi.get(__response__, 'ramp_down_start_time'),
-        ramp_down_start_vm_on_connect=pulumi.get(__response__, 'ramp_down_start_vm_on_connect'),
-        ramp_up_action_on_disconnect=pulumi.get(__response__, 'ramp_up_action_on_disconnect'),
-        ramp_up_action_on_logoff=pulumi.get(__response__, 'ramp_up_action_on_logoff'),
-        ramp_up_auto_start_hosts=pulumi.get(__response__, 'ramp_up_auto_start_hosts'),
-        ramp_up_minutes_to_wait_on_disconnect=pulumi.get(__response__, 'ramp_up_minutes_to_wait_on_disconnect'),
-        ramp_up_minutes_to_wait_on_logoff=pulumi.get(__response__, 'ramp_up_minutes_to_wait_on_logoff'),
-        ramp_up_start_time=pulumi.get(__response__, 'ramp_up_start_time'),
-        ramp_up_start_vm_on_connect=pulumi.get(__response__, 'ramp_up_start_vm_on_connect'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -318,6 +318,9 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
         source_port_range=pulumi.get(__ret__, 'source_port_range'),
         source_port_ranges=pulumi.get(__ret__, 'source_port_ranges'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_security_rule)
 def get_security_rule_output(network_security_group_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              security_rule_name: Optional[pulumi.Input[str]] = None,
@@ -330,30 +333,4 @@ def get_security_rule_output(network_security_group_name: Optional[pulumi.Input[
     :param str resource_group_name: The name of the resource group.
     :param str security_rule_name: The name of the security rule.
     """
-    __args__ = dict()
-    __args__['networkSecurityGroupName'] = network_security_group_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['securityRuleName'] = security_rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getSecurityRule', __args__, opts=opts, typ=GetSecurityRuleResult)
-    return __ret__.apply(lambda __response__: GetSecurityRuleResult(
-        access=pulumi.get(__response__, 'access'),
-        description=pulumi.get(__response__, 'description'),
-        destination_address_prefix=pulumi.get(__response__, 'destination_address_prefix'),
-        destination_address_prefixes=pulumi.get(__response__, 'destination_address_prefixes'),
-        destination_application_security_groups=pulumi.get(__response__, 'destination_application_security_groups'),
-        destination_port_range=pulumi.get(__response__, 'destination_port_range'),
-        destination_port_ranges=pulumi.get(__response__, 'destination_port_ranges'),
-        direction=pulumi.get(__response__, 'direction'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        priority=pulumi.get(__response__, 'priority'),
-        protocol=pulumi.get(__response__, 'protocol'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        source_address_prefix=pulumi.get(__response__, 'source_address_prefix'),
-        source_address_prefixes=pulumi.get(__response__, 'source_address_prefixes'),
-        source_application_security_groups=pulumi.get(__response__, 'source_application_security_groups'),
-        source_port_range=pulumi.get(__response__, 'source_port_range'),
-        source_port_ranges=pulumi.get(__response__, 'source_port_ranges'),
-        type=pulumi.get(__response__, 'type')))
+    ...

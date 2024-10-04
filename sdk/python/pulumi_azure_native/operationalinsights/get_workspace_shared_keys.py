@@ -81,6 +81,9 @@ def get_workspace_shared_keys(resource_group_name: Optional[str] = None,
     return AwaitableGetWorkspaceSharedKeysResult(
         primary_shared_key=pulumi.get(__ret__, 'primary_shared_key'),
         secondary_shared_key=pulumi.get(__ret__, 'secondary_shared_key'))
+
+
+@_utilities.lift_output_func(get_workspace_shared_keys)
 def get_workspace_shared_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                      workspace_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceSharedKeysResult]:
@@ -92,11 +95,4 @@ def get_workspace_shared_keys_output(resource_group_name: Optional[pulumi.Input[
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
     :param str workspace_name: Name of the Log Analytics Workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights:getWorkspaceSharedKeys', __args__, opts=opts, typ=GetWorkspaceSharedKeysResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceSharedKeysResult(
-        primary_shared_key=pulumi.get(__response__, 'primary_shared_key'),
-        secondary_shared_key=pulumi.get(__response__, 'secondary_shared_key')))
+    ...

@@ -164,6 +164,9 @@ def get_configuration_assignment_parent(configuration_assignment_name: Optional[
         resource_id=pulumi.get(__ret__, 'resource_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_configuration_assignment_parent)
 def get_configuration_assignment_parent_output(configuration_assignment_name: Optional[pulumi.Input[str]] = None,
                                                provider_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -187,21 +190,4 @@ def get_configuration_assignment_parent_output(configuration_assignment_name: Op
     :param str resource_parent_type: Resource parent type
     :param str resource_type: Resource type
     """
-    __args__ = dict()
-    __args__['configurationAssignmentName'] = configuration_assignment_name
-    __args__['providerName'] = provider_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    __args__['resourceParentName'] = resource_parent_name
-    __args__['resourceParentType'] = resource_parent_type
-    __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:maintenance:getConfigurationAssignmentParent', __args__, opts=opts, typ=GetConfigurationAssignmentParentResult)
-    return __ret__.apply(lambda __response__: GetConfigurationAssignmentParentResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        maintenance_configuration_id=pulumi.get(__response__, 'maintenance_configuration_id'),
-        name=pulumi.get(__response__, 'name'),
-        resource_id=pulumi.get(__response__, 'resource_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -188,6 +188,9 @@ def get_workload_network_segment(private_cloud_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         subnet=pulumi.get(__ret__, 'subnet'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workload_network_segment)
 def get_workload_network_segment_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         segment_id: Optional[pulumi.Input[str]] = None,
@@ -200,20 +203,4 @@ def get_workload_network_segment_output(private_cloud_name: Optional[pulumi.Inpu
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str segment_id: NSX Segment identifier. Generally the same as the Segment's display name
     """
-    __args__ = dict()
-    __args__['privateCloudName'] = private_cloud_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['segmentId'] = segment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20220501:getWorkloadNetworkSegment', __args__, opts=opts, typ=GetWorkloadNetworkSegmentResult)
-    return __ret__.apply(lambda __response__: GetWorkloadNetworkSegmentResult(
-        connected_gateway=pulumi.get(__response__, 'connected_gateway'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        port_vif=pulumi.get(__response__, 'port_vif'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        revision=pulumi.get(__response__, 'revision'),
-        status=pulumi.get(__response__, 'status'),
-        subnet=pulumi.get(__response__, 'subnet'),
-        type=pulumi.get(__response__, 'type')))
+    ...

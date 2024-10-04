@@ -461,6 +461,9 @@ def get_cluster(cluster_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -474,40 +477,4 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql:getCluster', __args__, opts=opts, typ=GetClusterResult)
-    return __ret__.apply(lambda __response__: GetClusterResult(
-        administrator_login=pulumi.get(__response__, 'administrator_login'),
-        citus_version=pulumi.get(__response__, 'citus_version'),
-        coordinator_enable_public_ip_access=pulumi.get(__response__, 'coordinator_enable_public_ip_access'),
-        coordinator_server_edition=pulumi.get(__response__, 'coordinator_server_edition'),
-        coordinator_storage_quota_in_mb=pulumi.get(__response__, 'coordinator_storage_quota_in_mb'),
-        coordinator_v_cores=pulumi.get(__response__, 'coordinator_v_cores'),
-        earliest_restore_time=pulumi.get(__response__, 'earliest_restore_time'),
-        enable_ha=pulumi.get(__response__, 'enable_ha'),
-        enable_shards_on_coordinator=pulumi.get(__response__, 'enable_shards_on_coordinator'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
-        name=pulumi.get(__response__, 'name'),
-        node_count=pulumi.get(__response__, 'node_count'),
-        node_enable_public_ip_access=pulumi.get(__response__, 'node_enable_public_ip_access'),
-        node_server_edition=pulumi.get(__response__, 'node_server_edition'),
-        node_storage_quota_in_mb=pulumi.get(__response__, 'node_storage_quota_in_mb'),
-        node_v_cores=pulumi.get(__response__, 'node_v_cores'),
-        point_in_time_utc=pulumi.get(__response__, 'point_in_time_utc'),
-        postgresql_version=pulumi.get(__response__, 'postgresql_version'),
-        preferred_primary_zone=pulumi.get(__response__, 'preferred_primary_zone'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        read_replicas=pulumi.get(__response__, 'read_replicas'),
-        server_names=pulumi.get(__response__, 'server_names'),
-        source_location=pulumi.get(__response__, 'source_location'),
-        source_resource_id=pulumi.get(__response__, 'source_resource_id'),
-        state=pulumi.get(__response__, 'state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

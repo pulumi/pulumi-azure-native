@@ -135,6 +135,9 @@ def get_ip_firewall_rule(resource_group_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         start_ip_address=pulumi.get(__ret__, 'start_ip_address'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_ip_firewall_rule)
 def get_ip_firewall_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                 rule_name: Optional[pulumi.Input[str]] = None,
                                 workspace_name: Optional[pulumi.Input[str]] = None,
@@ -147,16 +150,4 @@ def get_ip_firewall_rule_output(resource_group_name: Optional[pulumi.Input[str]]
     :param str rule_name: The IP firewall rule name
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['ruleName'] = rule_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601:getIpFirewallRule', __args__, opts=opts, typ=GetIpFirewallRuleResult)
-    return __ret__.apply(lambda __response__: GetIpFirewallRuleResult(
-        end_ip_address=pulumi.get(__response__, 'end_ip_address'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        start_ip_address=pulumi.get(__response__, 'start_ip_address'),
-        type=pulumi.get(__response__, 'type')))
+    ...

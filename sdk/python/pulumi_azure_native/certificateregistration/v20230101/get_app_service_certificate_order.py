@@ -393,6 +393,9 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         validity_in_years=pulumi.get(__ret__, 'validity_in_years'))
+
+
+@_utilities.lift_output_func(get_app_service_certificate_order)
 def get_app_service_certificate_order_output(certificate_order_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceCertificateOrderResult]:
@@ -403,35 +406,4 @@ def get_app_service_certificate_order_output(certificate_order_name: Optional[pu
     :param str certificate_order_name: Name of the certificate order..
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['certificateOrderName'] = certificate_order_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:certificateregistration/v20230101:getAppServiceCertificateOrder', __args__, opts=opts, typ=GetAppServiceCertificateOrderResult)
-    return __ret__.apply(lambda __response__: GetAppServiceCertificateOrderResult(
-        app_service_certificate_not_renewable_reasons=pulumi.get(__response__, 'app_service_certificate_not_renewable_reasons'),
-        auto_renew=pulumi.get(__response__, 'auto_renew'),
-        certificates=pulumi.get(__response__, 'certificates'),
-        contact=pulumi.get(__response__, 'contact'),
-        csr=pulumi.get(__response__, 'csr'),
-        distinguished_name=pulumi.get(__response__, 'distinguished_name'),
-        domain_verification_token=pulumi.get(__response__, 'domain_verification_token'),
-        expiration_time=pulumi.get(__response__, 'expiration_time'),
-        id=pulumi.get(__response__, 'id'),
-        intermediate=pulumi.get(__response__, 'intermediate'),
-        is_private_key_external=pulumi.get(__response__, 'is_private_key_external'),
-        key_size=pulumi.get(__response__, 'key_size'),
-        kind=pulumi.get(__response__, 'kind'),
-        last_certificate_issuance_time=pulumi.get(__response__, 'last_certificate_issuance_time'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        next_auto_renewal_time_stamp=pulumi.get(__response__, 'next_auto_renewal_time_stamp'),
-        product_type=pulumi.get(__response__, 'product_type'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        root=pulumi.get(__response__, 'root'),
-        serial_number=pulumi.get(__response__, 'serial_number'),
-        signed_certificate=pulumi.get(__response__, 'signed_certificate'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        validity_in_years=pulumi.get(__response__, 'validity_in_years')))
+    ...

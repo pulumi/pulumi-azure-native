@@ -224,6 +224,9 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         third_party_configurations=pulumi.get(__ret__, 'third_party_configurations'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_contact_profile)
 def get_contact_profile_output(contact_profile_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactProfileResult]:
@@ -234,22 +237,4 @@ def get_contact_profile_output(contact_profile_name: Optional[pulumi.Input[str]]
     :param str contact_profile_name: Contact Profile name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['contactProfileName'] = contact_profile_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:orbital/v20221101:getContactProfile', __args__, opts=opts, typ=GetContactProfileResult)
-    return __ret__.apply(lambda __response__: GetContactProfileResult(
-        auto_tracking_configuration=pulumi.get(__response__, 'auto_tracking_configuration'),
-        event_hub_uri=pulumi.get(__response__, 'event_hub_uri'),
-        id=pulumi.get(__response__, 'id'),
-        links=pulumi.get(__response__, 'links'),
-        location=pulumi.get(__response__, 'location'),
-        minimum_elevation_degrees=pulumi.get(__response__, 'minimum_elevation_degrees'),
-        minimum_viable_contact_duration=pulumi.get(__response__, 'minimum_viable_contact_duration'),
-        name=pulumi.get(__response__, 'name'),
-        network_configuration=pulumi.get(__response__, 'network_configuration'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        third_party_configurations=pulumi.get(__response__, 'third_party_configurations'),
-        type=pulumi.get(__response__, 'type')))
+    ...

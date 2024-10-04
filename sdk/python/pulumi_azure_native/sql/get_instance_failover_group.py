@@ -178,6 +178,9 @@ def get_instance_failover_group(failover_group_name: Optional[str] = None,
         replication_role=pulumi.get(__ret__, 'replication_role'),
         replication_state=pulumi.get(__ret__, 'replication_state'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_instance_failover_group)
 def get_instance_failover_group_output(failover_group_name: Optional[pulumi.Input[str]] = None,
                                        location_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -193,19 +196,4 @@ def get_instance_failover_group_output(failover_group_name: Optional[pulumi.Inpu
     :param str location_name: The name of the region where the resource is located.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
-    __args__ = dict()
-    __args__['failoverGroupName'] = failover_group_name
-    __args__['locationName'] = location_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getInstanceFailoverGroup', __args__, opts=opts, typ=GetInstanceFailoverGroupResult)
-    return __ret__.apply(lambda __response__: GetInstanceFailoverGroupResult(
-        id=pulumi.get(__response__, 'id'),
-        managed_instance_pairs=pulumi.get(__response__, 'managed_instance_pairs'),
-        name=pulumi.get(__response__, 'name'),
-        partner_regions=pulumi.get(__response__, 'partner_regions'),
-        read_only_endpoint=pulumi.get(__response__, 'read_only_endpoint'),
-        read_write_endpoint=pulumi.get(__response__, 'read_write_endpoint'),
-        replication_role=pulumi.get(__response__, 'replication_role'),
-        replication_state=pulumi.get(__response__, 'replication_state'),
-        type=pulumi.get(__response__, 'type')))
+    ...

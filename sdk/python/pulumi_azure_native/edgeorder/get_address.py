@@ -175,6 +175,9 @@ def get_address(address_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_address)
 def get_address_output(address_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddressResult]:
@@ -188,18 +191,4 @@ def get_address_output(address_name: Optional[pulumi.Input[str]] = None,
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['addressName'] = address_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:edgeorder:getAddress', __args__, opts=opts, typ=GetAddressResult)
-    return __ret__.apply(lambda __response__: GetAddressResult(
-        address_validation_status=pulumi.get(__response__, 'address_validation_status'),
-        contact_details=pulumi.get(__response__, 'contact_details'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        shipping_address=pulumi.get(__response__, 'shipping_address'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

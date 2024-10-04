@@ -185,6 +185,9 @@ def get_private_link_for_azure_ad(policy_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenants=pulumi.get(__ret__, 'tenants'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_private_link_for_azure_ad)
 def get_private_link_for_azure_ad_output(policy_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkForAzureAdResult]:
@@ -196,19 +199,4 @@ def get_private_link_for_azure_ad_output(policy_name: Optional[pulumi.Input[str]
     :param str policy_name: The name of the private link policy in Azure AD.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    __args__ = dict()
-    __args__['policyName'] = policy_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:aadiam:getPrivateLinkForAzureAd', __args__, opts=opts, typ=GetPrivateLinkForAzureAdResult)
-    return __ret__.apply(lambda __response__: GetPrivateLinkForAzureAdResult(
-        all_tenants=pulumi.get(__response__, 'all_tenants'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        owner_tenant_id=pulumi.get(__response__, 'owner_tenant_id'),
-        resource_group=pulumi.get(__response__, 'resource_group'),
-        resource_name=pulumi.get(__response__, 'resource_name'),
-        subscription_id=pulumi.get(__response__, 'subscription_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        tenants=pulumi.get(__response__, 'tenants'),
-        type=pulumi.get(__response__, 'type')))
+    ...

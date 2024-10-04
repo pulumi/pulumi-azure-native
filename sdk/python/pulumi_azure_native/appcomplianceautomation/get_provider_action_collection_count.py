@@ -65,6 +65,9 @@ def get_provider_action_collection_count(type: Optional[str] = None,
 
     return AwaitableGetProviderActionCollectionCountResult(
         count=pulumi.get(__ret__, 'count'))
+
+
+@_utilities.lift_output_func(get_provider_action_collection_count)
 def get_provider_action_collection_count_output(type: Optional[pulumi.Input[Optional[str]]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderActionCollectionCountResult]:
     """
@@ -74,9 +77,4 @@ def get_provider_action_collection_count_output(type: Optional[pulumi.Input[Opti
 
     :param str type: The resource type.
     """
-    __args__ = dict()
-    __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation:getProviderActionCollectionCount', __args__, opts=opts, typ=GetProviderActionCollectionCountResult)
-    return __ret__.apply(lambda __response__: GetProviderActionCollectionCountResult(
-        count=pulumi.get(__response__, 'count')))
+    ...

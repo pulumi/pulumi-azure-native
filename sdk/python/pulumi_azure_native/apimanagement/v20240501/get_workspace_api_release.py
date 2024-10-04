@@ -154,6 +154,9 @@ def get_workspace_api_release(api_id: Optional[str] = None,
         notes=pulumi.get(__ret__, 'notes'),
         type=pulumi.get(__ret__, 'type'),
         updated_date_time=pulumi.get(__ret__, 'updated_date_time'))
+
+
+@_utilities.lift_output_func(get_workspace_api_release)
 def get_workspace_api_release_output(api_id: Optional[pulumi.Input[str]] = None,
                                      release_id: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -170,19 +173,4 @@ def get_workspace_api_release_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of the API Management service.
     :param str workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
     """
-    __args__ = dict()
-    __args__['apiId'] = api_id
-    __args__['releaseId'] = release_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240501:getWorkspaceApiRelease', __args__, opts=opts, typ=GetWorkspaceApiReleaseResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceApiReleaseResult(
-        api_id=pulumi.get(__response__, 'api_id'),
-        created_date_time=pulumi.get(__response__, 'created_date_time'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        notes=pulumi.get(__response__, 'notes'),
-        type=pulumi.get(__response__, 'type'),
-        updated_date_time=pulumi.get(__response__, 'updated_date_time')))
+    ...

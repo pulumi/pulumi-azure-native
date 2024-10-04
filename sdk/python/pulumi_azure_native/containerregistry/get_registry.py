@@ -344,6 +344,9 @@ def get_registry(registry_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zone_redundancy=pulumi.get(__ret__, 'zone_redundancy'))
+
+
+@_utilities.lift_output_func(get_registry)
 def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
@@ -357,31 +360,4 @@ def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['registryName'] = registry_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getRegistry', __args__, opts=opts, typ=GetRegistryResult)
-    return __ret__.apply(lambda __response__: GetRegistryResult(
-        admin_user_enabled=pulumi.get(__response__, 'admin_user_enabled'),
-        creation_date=pulumi.get(__response__, 'creation_date'),
-        data_endpoint_enabled=pulumi.get(__response__, 'data_endpoint_enabled'),
-        data_endpoint_host_names=pulumi.get(__response__, 'data_endpoint_host_names'),
-        encryption=pulumi.get(__response__, 'encryption'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        login_server=pulumi.get(__response__, 'login_server'),
-        name=pulumi.get(__response__, 'name'),
-        network_rule_bypass_options=pulumi.get(__response__, 'network_rule_bypass_options'),
-        network_rule_set=pulumi.get(__response__, 'network_rule_set'),
-        policies=pulumi.get(__response__, 'policies'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        sku=pulumi.get(__response__, 'sku'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        zone_redundancy=pulumi.get(__response__, 'zone_redundancy')))
+    ...

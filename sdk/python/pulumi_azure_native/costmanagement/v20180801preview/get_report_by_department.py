@@ -159,6 +159,9 @@ def get_report_by_department(department_id: Optional[str] = None,
         schedule=pulumi.get(__ret__, 'schedule'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_report_by_department)
 def get_report_by_department_output(department_id: Optional[pulumi.Input[str]] = None,
                                     report_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportByDepartmentResult]:
@@ -169,17 +172,4 @@ def get_report_by_department_output(department_id: Optional[pulumi.Input[str]] =
     :param str department_id: Department ID
     :param str report_name: Report Name.
     """
-    __args__ = dict()
-    __args__['departmentId'] = department_id
-    __args__['reportName'] = report_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20180801preview:getReportByDepartment', __args__, opts=opts, typ=GetReportByDepartmentResult)
-    return __ret__.apply(lambda __response__: GetReportByDepartmentResult(
-        definition=pulumi.get(__response__, 'definition'),
-        delivery_info=pulumi.get(__response__, 'delivery_info'),
-        format=pulumi.get(__response__, 'format'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        schedule=pulumi.get(__response__, 'schedule'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

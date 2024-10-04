@@ -113,6 +113,9 @@ def list_vpn_link_connection_default_shared_key(connection_name: Optional[str] =
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(list_vpn_link_connection_default_shared_key)
 def list_vpn_link_connection_default_shared_key_output(connection_name: Optional[pulumi.Input[str]] = None,
                                                        gateway_name: Optional[pulumi.Input[str]] = None,
                                                        link_connection_name: Optional[pulumi.Input[str]] = None,
@@ -127,15 +130,4 @@ def list_vpn_link_connection_default_shared_key_output(connection_name: Optional
     :param str link_connection_name: The name of the vpn link connection.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['connectionName'] = connection_name
-    __args__['gatewayName'] = gateway_name
-    __args__['linkConnectionName'] = link_connection_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:listVpnLinkConnectionDefaultSharedKey', __args__, opts=opts, typ=ListVpnLinkConnectionDefaultSharedKeyResult)
-    return __ret__.apply(lambda __response__: ListVpnLinkConnectionDefaultSharedKeyResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        type=pulumi.get(__response__, 'type')))
+    ...

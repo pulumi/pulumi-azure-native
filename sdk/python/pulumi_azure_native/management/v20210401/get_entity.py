@@ -118,6 +118,9 @@ def get_entity(filter: Optional[str] = None,
         count=pulumi.get(__ret__, 'count'),
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(get_entity)
 def get_entity_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
                       group_name: Optional[pulumi.Input[Optional[str]]] = None,
                       search: Optional[pulumi.Input[Optional[str]]] = None,
@@ -146,18 +149,4 @@ def get_entity_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
     :param int top: Number of elements to return when retrieving results. Passing this in will override $skipToken.
     :param str view: The view parameter allows clients to filter the type of data that is returned by the getEntities call.
     """
-    __args__ = dict()
-    __args__['filter'] = filter
-    __args__['groupName'] = group_name
-    __args__['search'] = search
-    __args__['select'] = select
-    __args__['skip'] = skip
-    __args__['skiptoken'] = skiptoken
-    __args__['top'] = top
-    __args__['view'] = view
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:management/v20210401:getEntity', __args__, opts=opts, typ=GetEntityResult)
-    return __ret__.apply(lambda __response__: GetEntityResult(
-        count=pulumi.get(__response__, 'count'),
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

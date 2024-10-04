@@ -344,6 +344,9 @@ def get_firewall_policy(expand: Optional[str] = None,
         threat_intel_whitelist=pulumi.get(__ret__, 'threat_intel_whitelist'),
         transport_security=pulumi.get(__ret__, 'transport_security'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_firewall_policy)
 def get_firewall_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                firewall_policy_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -356,32 +359,4 @@ def get_firewall_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str firewall_policy_name: The name of the Firewall Policy.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['firewallPolicyName'] = firewall_policy_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult)
-    return __ret__.apply(lambda __response__: GetFirewallPolicyResult(
-        base_policy=pulumi.get(__response__, 'base_policy'),
-        child_policies=pulumi.get(__response__, 'child_policies'),
-        dns_settings=pulumi.get(__response__, 'dns_settings'),
-        etag=pulumi.get(__response__, 'etag'),
-        explicit_proxy=pulumi.get(__response__, 'explicit_proxy'),
-        firewalls=pulumi.get(__response__, 'firewalls'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        insights=pulumi.get(__response__, 'insights'),
-        intrusion_detection=pulumi.get(__response__, 'intrusion_detection'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        rule_collection_groups=pulumi.get(__response__, 'rule_collection_groups'),
-        sku=pulumi.get(__response__, 'sku'),
-        snat=pulumi.get(__response__, 'snat'),
-        sql=pulumi.get(__response__, 'sql'),
-        tags=pulumi.get(__response__, 'tags'),
-        threat_intel_mode=pulumi.get(__response__, 'threat_intel_mode'),
-        threat_intel_whitelist=pulumi.get(__response__, 'threat_intel_whitelist'),
-        transport_security=pulumi.get(__response__, 'transport_security'),
-        type=pulumi.get(__response__, 'type')))
+    ...

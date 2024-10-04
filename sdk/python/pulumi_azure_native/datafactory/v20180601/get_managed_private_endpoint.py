@@ -126,6 +126,9 @@ def get_managed_private_endpoint(factory_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_managed_private_endpoint)
 def get_managed_private_endpoint_output(factory_name: Optional[pulumi.Input[str]] = None,
                                         managed_private_endpoint_name: Optional[pulumi.Input[str]] = None,
                                         managed_virtual_network_name: Optional[pulumi.Input[str]] = None,
@@ -140,16 +143,4 @@ def get_managed_private_endpoint_output(factory_name: Optional[pulumi.Input[str]
     :param str managed_virtual_network_name: Managed virtual network name
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['factoryName'] = factory_name
-    __args__['managedPrivateEndpointName'] = managed_private_endpoint_name
-    __args__['managedVirtualNetworkName'] = managed_virtual_network_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory/v20180601:getManagedPrivateEndpoint', __args__, opts=opts, typ=GetManagedPrivateEndpointResult)
-    return __ret__.apply(lambda __response__: GetManagedPrivateEndpointResult(
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        type=pulumi.get(__response__, 'type')))
+    ...

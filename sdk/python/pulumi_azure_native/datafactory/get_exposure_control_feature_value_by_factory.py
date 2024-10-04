@@ -87,6 +87,9 @@ def get_exposure_control_feature_value_by_factory(factory_name: Optional[str] = 
     return AwaitableGetExposureControlFeatureValueByFactoryResult(
         feature_name=pulumi.get(__ret__, 'feature_name'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(get_exposure_control_feature_value_by_factory)
 def get_exposure_control_feature_value_by_factory_output(factory_name: Optional[pulumi.Input[str]] = None,
                                                          feature_name: Optional[pulumi.Input[Optional[str]]] = None,
                                                          feature_type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -102,13 +105,4 @@ def get_exposure_control_feature_value_by_factory_output(factory_name: Optional[
     :param str feature_type: The feature type.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['factoryName'] = factory_name
-    __args__['featureName'] = feature_name
-    __args__['featureType'] = feature_type
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory:getExposureControlFeatureValueByFactory', __args__, opts=opts, typ=GetExposureControlFeatureValueByFactoryResult)
-    return __ret__.apply(lambda __response__: GetExposureControlFeatureValueByFactoryResult(
-        feature_name=pulumi.get(__response__, 'feature_name'),
-        value=pulumi.get(__response__, 'value')))
+    ...

@@ -227,6 +227,9 @@ def get_profile(profile_name: Optional[str] = None,
         traffic_routing_method=pulumi.get(__ret__, 'traffic_routing_method'),
         traffic_view_enrollment_status=pulumi.get(__ret__, 'traffic_view_enrollment_status'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_profile)
 def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
@@ -240,22 +243,4 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['profileName'] = profile_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getProfile', __args__, opts=opts, typ=GetProfileResult)
-    return __ret__.apply(lambda __response__: GetProfileResult(
-        allowed_endpoint_record_types=pulumi.get(__response__, 'allowed_endpoint_record_types'),
-        dns_config=pulumi.get(__response__, 'dns_config'),
-        endpoints=pulumi.get(__response__, 'endpoints'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        max_return=pulumi.get(__response__, 'max_return'),
-        monitor_config=pulumi.get(__response__, 'monitor_config'),
-        name=pulumi.get(__response__, 'name'),
-        profile_status=pulumi.get(__response__, 'profile_status'),
-        tags=pulumi.get(__response__, 'tags'),
-        traffic_routing_method=pulumi.get(__response__, 'traffic_routing_method'),
-        traffic_view_enrollment_status=pulumi.get(__response__, 'traffic_view_enrollment_status'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -318,6 +318,9 @@ def get_import_job(aml_filesystem_name: Optional[str] = None,
         total_conflicts=pulumi.get(__ret__, 'total_conflicts'),
         total_errors=pulumi.get(__ret__, 'total_errors'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_import_job)
 def get_import_job_output(aml_filesystem_name: Optional[pulumi.Input[str]] = None,
                           import_job_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -330,30 +333,4 @@ def get_import_job_output(aml_filesystem_name: Optional[pulumi.Input[str]] = Non
     :param str import_job_name: Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['amlFilesystemName'] = aml_filesystem_name
-    __args__['importJobName'] = import_job_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storagecache/v20240301:getImportJob', __args__, opts=opts, typ=GetImportJobResult)
-    return __ret__.apply(lambda __response__: GetImportJobResult(
-        blobs_imported_per_second=pulumi.get(__response__, 'blobs_imported_per_second'),
-        blobs_walked_per_second=pulumi.get(__response__, 'blobs_walked_per_second'),
-        conflict_resolution_mode=pulumi.get(__response__, 'conflict_resolution_mode'),
-        id=pulumi.get(__response__, 'id'),
-        import_prefixes=pulumi.get(__response__, 'import_prefixes'),
-        last_completion_time=pulumi.get(__response__, 'last_completion_time'),
-        last_started_time=pulumi.get(__response__, 'last_started_time'),
-        location=pulumi.get(__response__, 'location'),
-        maximum_errors=pulumi.get(__response__, 'maximum_errors'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        state=pulumi.get(__response__, 'state'),
-        status_message=pulumi.get(__response__, 'status_message'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        total_blobs_imported=pulumi.get(__response__, 'total_blobs_imported'),
-        total_blobs_walked=pulumi.get(__response__, 'total_blobs_walked'),
-        total_conflicts=pulumi.get(__response__, 'total_conflicts'),
-        total_errors=pulumi.get(__response__, 'total_errors'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -161,6 +161,9 @@ def get_workspace_connection(connection_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'),
         value_format=pulumi.get(__ret__, 'value_format'))
+
+
+@_utilities.lift_output_func(get_workspace_connection)
 def get_workspace_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     workspace_name: Optional[pulumi.Input[str]] = None,
@@ -173,18 +176,4 @@ def get_workspace_connection_output(connection_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    __args__ = dict()
-    __args__['connectionName'] = connection_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20210401:getWorkspaceConnection', __args__, opts=opts, typ=GetWorkspaceConnectionResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceConnectionResult(
-        auth_type=pulumi.get(__response__, 'auth_type'),
-        category=pulumi.get(__response__, 'category'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        target=pulumi.get(__response__, 'target'),
-        type=pulumi.get(__response__, 'type'),
-        value=pulumi.get(__response__, 'value'),
-        value_format=pulumi.get(__response__, 'value_format')))
+    ...

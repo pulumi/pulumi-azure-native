@@ -383,6 +383,9 @@ def get_domain_service(domain_service_name: Optional[str] = None,
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_domain_service)
 def get_domain_service_output(domain_service_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainServiceResult]:
@@ -396,34 +399,4 @@ def get_domain_service_output(domain_service_name: Optional[pulumi.Input[str]] =
     :param str domain_service_name: The name of the domain service.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['domainServiceName'] = domain_service_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:aad:getDomainService', __args__, opts=opts, typ=GetDomainServiceResult)
-    return __ret__.apply(lambda __response__: GetDomainServiceResult(
-        config_diagnostics=pulumi.get(__response__, 'config_diagnostics'),
-        deployment_id=pulumi.get(__response__, 'deployment_id'),
-        domain_configuration_type=pulumi.get(__response__, 'domain_configuration_type'),
-        domain_name=pulumi.get(__response__, 'domain_name'),
-        domain_security_settings=pulumi.get(__response__, 'domain_security_settings'),
-        etag=pulumi.get(__response__, 'etag'),
-        filtered_sync=pulumi.get(__response__, 'filtered_sync'),
-        id=pulumi.get(__response__, 'id'),
-        ldaps_settings=pulumi.get(__response__, 'ldaps_settings'),
-        location=pulumi.get(__response__, 'location'),
-        migration_properties=pulumi.get(__response__, 'migration_properties'),
-        name=pulumi.get(__response__, 'name'),
-        notification_settings=pulumi.get(__response__, 'notification_settings'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        replica_sets=pulumi.get(__response__, 'replica_sets'),
-        resource_forest_settings=pulumi.get(__response__, 'resource_forest_settings'),
-        sku=pulumi.get(__response__, 'sku'),
-        sync_application_id=pulumi.get(__response__, 'sync_application_id'),
-        sync_owner=pulumi.get(__response__, 'sync_owner'),
-        sync_scope=pulumi.get(__response__, 'sync_scope'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

@@ -292,6 +292,9 @@ def get_route(endpoint_name: Optional[str] = None,
         supported_protocols=pulumi.get(__ret__, 'supported_protocols'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_route)
 def get_route_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                      profile_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -306,29 +309,4 @@ def get_route_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str route_name: Name of the routing rule.
     """
-    __args__ = dict()
-    __args__['endpointName'] = endpoint_name
-    __args__['profileName'] = profile_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['routeName'] = route_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20200901:getRoute', __args__, opts=opts, typ=GetRouteResult)
-    return __ret__.apply(lambda __response__: GetRouteResult(
-        compression_settings=pulumi.get(__response__, 'compression_settings'),
-        custom_domains=pulumi.get(__response__, 'custom_domains'),
-        deployment_status=pulumi.get(__response__, 'deployment_status'),
-        enabled_state=pulumi.get(__response__, 'enabled_state'),
-        forwarding_protocol=pulumi.get(__response__, 'forwarding_protocol'),
-        https_redirect=pulumi.get(__response__, 'https_redirect'),
-        id=pulumi.get(__response__, 'id'),
-        link_to_default_domain=pulumi.get(__response__, 'link_to_default_domain'),
-        name=pulumi.get(__response__, 'name'),
-        origin_group=pulumi.get(__response__, 'origin_group'),
-        origin_path=pulumi.get(__response__, 'origin_path'),
-        patterns_to_match=pulumi.get(__response__, 'patterns_to_match'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        query_string_caching_behavior=pulumi.get(__response__, 'query_string_caching_behavior'),
-        rule_sets=pulumi.get(__response__, 'rule_sets'),
-        supported_protocols=pulumi.get(__response__, 'supported_protocols'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

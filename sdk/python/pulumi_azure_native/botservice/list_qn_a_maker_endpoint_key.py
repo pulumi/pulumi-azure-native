@@ -109,6 +109,9 @@ def list_qn_a_maker_endpoint_key(authkey: Optional[str] = None,
         last_stable_version=pulumi.get(__ret__, 'last_stable_version'),
         primary_endpoint_key=pulumi.get(__ret__, 'primary_endpoint_key'),
         secondary_endpoint_key=pulumi.get(__ret__, 'secondary_endpoint_key'))
+
+
+@_utilities.lift_output_func(list_qn_a_maker_endpoint_key)
 def list_qn_a_maker_endpoint_key_output(authkey: Optional[pulumi.Input[Optional[str]]] = None,
                                         hostname: Optional[pulumi.Input[Optional[str]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListQnAMakerEndpointKeyResult]:
@@ -122,13 +125,4 @@ def list_qn_a_maker_endpoint_key_output(authkey: Optional[pulumi.Input[Optional[
     :param str authkey: Subscription key which provides access to this API.
     :param str hostname: the host name of the QnA Maker endpoint
     """
-    __args__ = dict()
-    __args__['authkey'] = authkey
-    __args__['hostname'] = hostname
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:botservice:listQnAMakerEndpointKey', __args__, opts=opts, typ=ListQnAMakerEndpointKeyResult)
-    return __ret__.apply(lambda __response__: ListQnAMakerEndpointKeyResult(
-        installed_version=pulumi.get(__response__, 'installed_version'),
-        last_stable_version=pulumi.get(__response__, 'last_stable_version'),
-        primary_endpoint_key=pulumi.get(__response__, 'primary_endpoint_key'),
-        secondary_endpoint_key=pulumi.get(__response__, 'secondary_endpoint_key')))
+    ...

@@ -149,6 +149,9 @@ def get_fleet_update_strategy(fleet_name: Optional[str] = None,
         strategy=pulumi.get(__ret__, 'strategy'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_fleet_update_strategy)
 def get_fleet_update_strategy_output(fleet_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      update_strategy_name: Optional[pulumi.Input[str]] = None,
@@ -161,17 +164,4 @@ def get_fleet_update_strategy_output(fleet_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str update_strategy_name: The name of the UpdateStrategy resource.
     """
-    __args__ = dict()
-    __args__['fleetName'] = fleet_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['updateStrategyName'] = update_strategy_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20231015:getFleetUpdateStrategy', __args__, opts=opts, typ=GetFleetUpdateStrategyResult)
-    return __ret__.apply(lambda __response__: GetFleetUpdateStrategyResult(
-        e_tag=pulumi.get(__response__, 'e_tag'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        strategy=pulumi.get(__response__, 'strategy'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -305,6 +305,9 @@ def get_export_configuration(export_id: Optional[str] = None,
         resource_group=pulumi.get(__ret__, 'resource_group'),
         storage_name=pulumi.get(__ret__, 'storage_name'),
         subscription_id=pulumi.get(__ret__, 'subscription_id'))
+
+
+@_utilities.lift_output_func(get_export_configuration)
 def get_export_configuration_output(export_id: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     resource_name: Optional[pulumi.Input[str]] = None,
@@ -318,29 +321,4 @@ def get_export_configuration_output(export_id: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
-    __args__ = dict()
-    __args__['exportId'] = export_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getExportConfiguration', __args__, opts=opts, typ=GetExportConfigurationResult)
-    return __ret__.apply(lambda __response__: GetExportConfigurationResult(
-        application_name=pulumi.get(__response__, 'application_name'),
-        container_name=pulumi.get(__response__, 'container_name'),
-        destination_account_id=pulumi.get(__response__, 'destination_account_id'),
-        destination_storage_location_id=pulumi.get(__response__, 'destination_storage_location_id'),
-        destination_storage_subscription_id=pulumi.get(__response__, 'destination_storage_subscription_id'),
-        destination_type=pulumi.get(__response__, 'destination_type'),
-        export_id=pulumi.get(__response__, 'export_id'),
-        export_status=pulumi.get(__response__, 'export_status'),
-        instrumentation_key=pulumi.get(__response__, 'instrumentation_key'),
-        is_user_enabled=pulumi.get(__response__, 'is_user_enabled'),
-        last_gap_time=pulumi.get(__response__, 'last_gap_time'),
-        last_success_time=pulumi.get(__response__, 'last_success_time'),
-        last_user_update=pulumi.get(__response__, 'last_user_update'),
-        notification_queue_enabled=pulumi.get(__response__, 'notification_queue_enabled'),
-        permanent_error_reason=pulumi.get(__response__, 'permanent_error_reason'),
-        record_types=pulumi.get(__response__, 'record_types'),
-        resource_group=pulumi.get(__response__, 'resource_group'),
-        storage_name=pulumi.get(__response__, 'storage_name'),
-        subscription_id=pulumi.get(__response__, 'subscription_id')))
+    ...

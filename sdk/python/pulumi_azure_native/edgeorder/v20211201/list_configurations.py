@@ -86,6 +86,9 @@ def list_configurations(configuration_filters: Optional[Sequence[Union['Configur
     return AwaitableListConfigurationsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_configurations)
 def list_configurations_output(configuration_filters: Optional[pulumi.Input[Sequence[Union['ConfigurationFilters', 'ConfigurationFiltersDict']]]] = None,
                                customer_subscription_details: Optional[pulumi.Input[Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']]]] = None,
                                skip_token: Optional[pulumi.Input[Optional[str]]] = None,
@@ -98,12 +101,4 @@ def list_configurations_output(configuration_filters: Optional[pulumi.Input[Sequ
     :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
     :param str skip_token: $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
     """
-    __args__ = dict()
-    __args__['configurationFilters'] = configuration_filters
-    __args__['customerSubscriptionDetails'] = customer_subscription_details
-    __args__['skipToken'] = skip_token
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:edgeorder/v20211201:listConfigurations', __args__, opts=opts, typ=ListConfigurationsResult)
-    return __ret__.apply(lambda __response__: ListConfigurationsResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

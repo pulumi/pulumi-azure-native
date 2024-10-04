@@ -121,6 +121,9 @@ def get_management_configuration(management_configuration_name: Optional[str] = 
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_management_configuration)
 def get_management_configuration_output(management_configuration_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementConfigurationResult]:
@@ -132,14 +135,4 @@ def get_management_configuration_output(management_configuration_name: Optional[
     :param str management_configuration_name: User Management Configuration Name.
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['managementConfigurationName'] = management_configuration_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:operationsmanagement:getManagementConfiguration', __args__, opts=opts, typ=GetManagementConfigurationResult)
-    return __ret__.apply(lambda __response__: GetManagementConfigurationResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        type=pulumi.get(__response__, 'type')))
+    ...

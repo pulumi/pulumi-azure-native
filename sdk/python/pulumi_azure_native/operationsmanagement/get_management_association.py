@@ -130,6 +130,9 @@ def get_management_association(management_association_name: Optional[str] = None
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_management_association)
 def get_management_association_output(management_association_name: Optional[pulumi.Input[str]] = None,
                                       provider_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -147,17 +150,4 @@ def get_management_association_output(management_association_name: Optional[pulu
     :param str resource_name: Parent resource name.
     :param str resource_type: Resource type for the parent resource
     """
-    __args__ = dict()
-    __args__['managementAssociationName'] = management_association_name
-    __args__['providerName'] = provider_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:operationsmanagement:getManagementAssociation', __args__, opts=opts, typ=GetManagementAssociationResult)
-    return __ret__.apply(lambda __response__: GetManagementAssociationResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        type=pulumi.get(__response__, 'type')))
+    ...

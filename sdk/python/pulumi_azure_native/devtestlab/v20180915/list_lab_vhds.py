@@ -81,6 +81,9 @@ def list_lab_vhds(name: Optional[str] = None,
     return AwaitableListLabVhdsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_lab_vhds)
 def list_lab_vhds_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLabVhdsResult]:
@@ -91,11 +94,4 @@ def list_lab_vhds_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the lab.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:listLabVhds', __args__, opts=opts, typ=ListLabVhdsResult)
-    return __ret__.apply(lambda __response__: ListLabVhdsResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

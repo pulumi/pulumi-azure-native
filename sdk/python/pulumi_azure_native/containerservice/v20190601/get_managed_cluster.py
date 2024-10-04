@@ -341,6 +341,9 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         windows_profile=pulumi.get(__ret__, 'windows_profile'))
+
+
+@_utilities.lift_output_func(get_managed_cluster)
 def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                resource_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterResult]:
@@ -351,31 +354,4 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20190601:getManagedCluster', __args__, opts=opts, typ=GetManagedClusterResult)
-    return __ret__.apply(lambda __response__: GetManagedClusterResult(
-        aad_profile=pulumi.get(__response__, 'aad_profile'),
-        addon_profiles=pulumi.get(__response__, 'addon_profiles'),
-        agent_pool_profiles=pulumi.get(__response__, 'agent_pool_profiles'),
-        api_server_authorized_ip_ranges=pulumi.get(__response__, 'api_server_authorized_ip_ranges'),
-        dns_prefix=pulumi.get(__response__, 'dns_prefix'),
-        enable_pod_security_policy=pulumi.get(__response__, 'enable_pod_security_policy'),
-        enable_rbac=pulumi.get(__response__, 'enable_rbac'),
-        fqdn=pulumi.get(__response__, 'fqdn'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
-        linux_profile=pulumi.get(__response__, 'linux_profile'),
-        location=pulumi.get(__response__, 'location'),
-        max_agent_pools=pulumi.get(__response__, 'max_agent_pools'),
-        name=pulumi.get(__response__, 'name'),
-        network_profile=pulumi.get(__response__, 'network_profile'),
-        node_resource_group=pulumi.get(__response__, 'node_resource_group'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        service_principal_profile=pulumi.get(__response__, 'service_principal_profile'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        windows_profile=pulumi.get(__response__, 'windows_profile')))
+    ...

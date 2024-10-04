@@ -282,6 +282,9 @@ def get_private_link_service(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         visibility=pulumi.get(__ret__, 'visibility'))
+
+
+@_utilities.lift_output_func(get_private_link_service)
 def get_private_link_service_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     service_name: Optional[pulumi.Input[str]] = None,
@@ -297,27 +300,4 @@ def get_private_link_service_output(expand: Optional[pulumi.Input[Optional[str]]
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the private link service.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getPrivateLinkService', __args__, opts=opts, typ=GetPrivateLinkServiceResult)
-    return __ret__.apply(lambda __response__: GetPrivateLinkServiceResult(
-        alias=pulumi.get(__response__, 'alias'),
-        auto_approval=pulumi.get(__response__, 'auto_approval'),
-        enable_proxy_protocol=pulumi.get(__response__, 'enable_proxy_protocol'),
-        etag=pulumi.get(__response__, 'etag'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        fqdns=pulumi.get(__response__, 'fqdns'),
-        id=pulumi.get(__response__, 'id'),
-        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
-        load_balancer_frontend_ip_configurations=pulumi.get(__response__, 'load_balancer_frontend_ip_configurations'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_interfaces=pulumi.get(__response__, 'network_interfaces'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        visibility=pulumi.get(__response__, 'visibility')))
+    ...

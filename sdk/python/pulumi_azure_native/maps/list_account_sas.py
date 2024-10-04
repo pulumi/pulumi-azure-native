@@ -93,6 +93,9 @@ def list_account_sas(account_name: Optional[str] = None,
 
     return AwaitableListAccountSasResult(
         account_sas_token=pulumi.get(__ret__, 'account_sas_token'))
+
+
+@_utilities.lift_output_func(list_account_sas)
 def list_account_sas_output(account_name: Optional[pulumi.Input[str]] = None,
                             expiry: Optional[pulumi.Input[str]] = None,
                             max_rate_per_second: Optional[pulumi.Input[int]] = None,
@@ -122,16 +125,4 @@ def list_account_sas_output(account_name: Optional[pulumi.Input[str]] = None,
     :param Union[str, 'SigningKey'] signing_key: The Map account key to use for signing.
     :param str start: The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z".
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['expiry'] = expiry
-    __args__['maxRatePerSecond'] = max_rate_per_second
-    __args__['principalId'] = principal_id
-    __args__['regions'] = regions
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['signingKey'] = signing_key
-    __args__['start'] = start
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:maps:listAccountSas', __args__, opts=opts, typ=ListAccountSasResult)
-    return __ret__.apply(lambda __response__: ListAccountSasResult(
-        account_sas_token=pulumi.get(__response__, 'account_sas_token')))
+    ...

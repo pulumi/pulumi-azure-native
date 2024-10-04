@@ -328,6 +328,9 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
         vpn_client_configuration=pulumi.get(__ret__, 'vpn_client_configuration'),
         vpn_gateway_generation=pulumi.get(__ret__, 'vpn_gateway_generation'),
         vpn_type=pulumi.get(__ret__, 'vpn_type'))
+
+
+@_utilities.lift_output_func(get_virtual_network_gateway)
 def get_virtual_network_gateway_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayResult]:
@@ -338,30 +341,4 @@ def get_virtual_network_gateway_output(resource_group_name: Optional[pulumi.Inpu
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The name of the virtual network gateway.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20190801:getVirtualNetworkGateway', __args__, opts=opts, typ=GetVirtualNetworkGatewayResult)
-    return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayResult(
-        active_active=pulumi.get(__response__, 'active_active'),
-        bgp_settings=pulumi.get(__response__, 'bgp_settings'),
-        custom_routes=pulumi.get(__response__, 'custom_routes'),
-        enable_bgp=pulumi.get(__response__, 'enable_bgp'),
-        enable_dns_forwarding=pulumi.get(__response__, 'enable_dns_forwarding'),
-        etag=pulumi.get(__response__, 'etag'),
-        gateway_default_site=pulumi.get(__response__, 'gateway_default_site'),
-        gateway_type=pulumi.get(__response__, 'gateway_type'),
-        id=pulumi.get(__response__, 'id'),
-        inbound_dns_forwarding_endpoint=pulumi.get(__response__, 'inbound_dns_forwarding_endpoint'),
-        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_guid=pulumi.get(__response__, 'resource_guid'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        vpn_client_configuration=pulumi.get(__response__, 'vpn_client_configuration'),
-        vpn_gateway_generation=pulumi.get(__response__, 'vpn_gateway_generation'),
-        vpn_type=pulumi.get(__response__, 'vpn_type')))
+    ...

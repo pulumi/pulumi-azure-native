@@ -115,6 +115,9 @@ def get_resource_type_registration(provider_namespace: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_resource_type_registration)
 def get_resource_type_registration_output(provider_namespace: Optional[pulumi.Input[str]] = None,
                                           resource_type: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceTypeRegistrationResult]:
@@ -126,14 +129,4 @@ def get_resource_type_registration_output(provider_namespace: Optional[pulumi.In
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str resource_type: The resource type.
     """
-    __args__ = dict()
-    __args__['providerNamespace'] = provider_namespace
-    __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:providerhub:getResourceTypeRegistration', __args__, opts=opts, typ=GetResourceTypeRegistrationResult)
-    return __ret__.apply(lambda __response__: GetResourceTypeRegistrationResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

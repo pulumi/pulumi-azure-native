@@ -307,6 +307,9 @@ def get_script_execution_logs(private_cloud_name: Optional[str] = None,
         timeout=pulumi.get(__ret__, 'timeout'),
         type=pulumi.get(__ret__, 'type'),
         warnings=pulumi.get(__ret__, 'warnings'))
+
+
+@_utilities.lift_output_func(get_script_execution_logs)
 def get_script_execution_logs_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      script_execution_name: Optional[pulumi.Input[str]] = None,
@@ -319,29 +322,4 @@ def get_script_execution_logs_output(private_cloud_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str script_execution_name: Name of the script cmdlet.
     """
-    __args__ = dict()
-    __args__['privateCloudName'] = private_cloud_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['scriptExecutionName'] = script_execution_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20230901:getScriptExecutionLogs', __args__, opts=opts, typ=GetScriptExecutionLogsResult)
-    return __ret__.apply(lambda __response__: GetScriptExecutionLogsResult(
-        errors=pulumi.get(__response__, 'errors'),
-        failure_reason=pulumi.get(__response__, 'failure_reason'),
-        finished_at=pulumi.get(__response__, 'finished_at'),
-        hidden_parameters=pulumi.get(__response__, 'hidden_parameters'),
-        id=pulumi.get(__response__, 'id'),
-        information=pulumi.get(__response__, 'information'),
-        name=pulumi.get(__response__, 'name'),
-        named_outputs=pulumi.get(__response__, 'named_outputs'),
-        output=pulumi.get(__response__, 'output'),
-        parameters=pulumi.get(__response__, 'parameters'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        retention=pulumi.get(__response__, 'retention'),
-        script_cmdlet_id=pulumi.get(__response__, 'script_cmdlet_id'),
-        started_at=pulumi.get(__response__, 'started_at'),
-        submitted_at=pulumi.get(__response__, 'submitted_at'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        timeout=pulumi.get(__response__, 'timeout'),
-        type=pulumi.get(__response__, 'type'),
-        warnings=pulumi.get(__response__, 'warnings')))
+    ...

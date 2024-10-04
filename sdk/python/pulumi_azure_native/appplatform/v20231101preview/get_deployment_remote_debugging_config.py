@@ -86,6 +86,9 @@ def get_deployment_remote_debugging_config(app_name: Optional[str] = None,
     return AwaitableGetDeploymentRemoteDebuggingConfigResult(
         enabled=pulumi.get(__ret__, 'enabled'),
         port=pulumi.get(__ret__, 'port'))
+
+
+@_utilities.lift_output_func(get_deployment_remote_debugging_config)
 def get_deployment_remote_debugging_config_output(app_name: Optional[pulumi.Input[str]] = None,
                                                   deployment_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -100,13 +103,4 @@ def get_deployment_remote_debugging_config_output(app_name: Optional[pulumi.Inpu
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
-    __args__ = dict()
-    __args__['appName'] = app_name
-    __args__['deploymentName'] = deployment_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20231101preview:getDeploymentRemoteDebuggingConfig', __args__, opts=opts, typ=GetDeploymentRemoteDebuggingConfigResult)
-    return __ret__.apply(lambda __response__: GetDeploymentRemoteDebuggingConfigResult(
-        enabled=pulumi.get(__response__, 'enabled'),
-        port=pulumi.get(__response__, 'port')))
+    ...

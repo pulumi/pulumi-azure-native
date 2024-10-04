@@ -177,6 +177,9 @@ def get_application_package(account_name: Optional[str] = None,
         storage_url=pulumi.get(__ret__, 'storage_url'),
         storage_url_expiry=pulumi.get(__ret__, 'storage_url_expiry'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_application_package)
 def get_application_package_output(account_name: Optional[pulumi.Input[str]] = None,
                                    application_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -191,20 +194,4 @@ def get_application_package_output(account_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     :param str version_name: The version of the application.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['applicationName'] = application_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['versionName'] = version_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:batch/v20230501:getApplicationPackage', __args__, opts=opts, typ=GetApplicationPackageResult)
-    return __ret__.apply(lambda __response__: GetApplicationPackageResult(
-        etag=pulumi.get(__response__, 'etag'),
-        format=pulumi.get(__response__, 'format'),
-        id=pulumi.get(__response__, 'id'),
-        last_activation_time=pulumi.get(__response__, 'last_activation_time'),
-        name=pulumi.get(__response__, 'name'),
-        state=pulumi.get(__response__, 'state'),
-        storage_url=pulumi.get(__response__, 'storage_url'),
-        storage_url_expiry=pulumi.get(__response__, 'storage_url_expiry'),
-        type=pulumi.get(__response__, 'type')))
+    ...

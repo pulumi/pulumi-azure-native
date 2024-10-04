@@ -76,6 +76,9 @@ def list_artifact_manifest_credential(artifact_manifest_name: Optional[str] = No
 
     return AwaitableListArtifactManifestCredentialResult(
         credential_type=pulumi.get(__ret__, 'credential_type'))
+
+
+@_utilities.lift_output_func(list_artifact_manifest_credential)
 def list_artifact_manifest_credential_output(artifact_manifest_name: Optional[pulumi.Input[str]] = None,
                                              artifact_store_name: Optional[pulumi.Input[str]] = None,
                                              publisher_name: Optional[pulumi.Input[str]] = None,
@@ -93,12 +96,4 @@ def list_artifact_manifest_credential_output(artifact_manifest_name: Optional[pu
     :param str publisher_name: The name of the publisher.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['artifactManifestName'] = artifact_manifest_name
-    __args__['artifactStoreName'] = artifact_store_name
-    __args__['publisherName'] = publisher_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:listArtifactManifestCredential', __args__, opts=opts, typ=ListArtifactManifestCredentialResult)
-    return __ret__.apply(lambda __response__: ListArtifactManifestCredentialResult(
-        credential_type=pulumi.get(__response__, 'credential_type')))
+    ...

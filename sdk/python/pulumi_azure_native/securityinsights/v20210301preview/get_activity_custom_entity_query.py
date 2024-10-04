@@ -283,6 +283,9 @@ def get_activity_custom_entity_query(entity_query_id: Optional[str] = None,
         template_name=pulumi.get(__ret__, 'template_name'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_activity_custom_entity_query)
 def get_activity_custom_entity_query_output(entity_query_id: Optional[pulumi.Input[str]] = None,
                                             operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -297,28 +300,4 @@ def get_activity_custom_entity_query_output(entity_query_id: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['entityQueryId'] = entity_query_id
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20210301preview:getActivityCustomEntityQuery', __args__, opts=opts, typ=GetActivityCustomEntityQueryResult)
-    return __ret__.apply(lambda __response__: GetActivityCustomEntityQueryResult(
-        content=pulumi.get(__response__, 'content'),
-        created_time_utc=pulumi.get(__response__, 'created_time_utc'),
-        description=pulumi.get(__response__, 'description'),
-        enabled=pulumi.get(__response__, 'enabled'),
-        entities_filter=pulumi.get(__response__, 'entities_filter'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        input_entity_type=pulumi.get(__response__, 'input_entity_type'),
-        kind=pulumi.get(__response__, 'kind'),
-        last_modified_time_utc=pulumi.get(__response__, 'last_modified_time_utc'),
-        name=pulumi.get(__response__, 'name'),
-        query_definitions=pulumi.get(__response__, 'query_definitions'),
-        required_input_fields_sets=pulumi.get(__response__, 'required_input_fields_sets'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        template_name=pulumi.get(__response__, 'template_name'),
-        title=pulumi.get(__response__, 'title'),
-        type=pulumi.get(__response__, 'type')))
+    ...

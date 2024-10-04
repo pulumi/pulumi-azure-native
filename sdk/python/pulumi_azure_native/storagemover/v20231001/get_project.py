@@ -136,6 +136,9 @@ def get_project(project_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_project)
 def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        storage_mover_name: Optional[pulumi.Input[str]] = None,
@@ -148,16 +151,4 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_mover_name: The name of the Storage Mover resource.
     """
-    __args__ = dict()
-    __args__['projectName'] = project_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['storageMoverName'] = storage_mover_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storagemover/v20231001:getProject', __args__, opts=opts, typ=GetProjectResult)
-    return __ret__.apply(lambda __response__: GetProjectResult(
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

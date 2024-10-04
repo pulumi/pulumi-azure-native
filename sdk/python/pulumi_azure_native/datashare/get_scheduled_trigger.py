@@ -219,6 +219,9 @@ def get_scheduled_trigger(account_name: Optional[str] = None,
         trigger_status=pulumi.get(__ret__, 'trigger_status'),
         type=pulumi.get(__ret__, 'type'),
         user_name=pulumi.get(__ret__, 'user_name'))
+
+
+@_utilities.lift_output_func(get_scheduled_trigger)
 def get_scheduled_trigger_output(account_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  share_subscription_name: Optional[pulumi.Input[str]] = None,
@@ -234,23 +237,4 @@ def get_scheduled_trigger_output(account_name: Optional[pulumi.Input[str]] = Non
     :param str share_subscription_name: The name of the shareSubscription.
     :param str trigger_name: The name of the trigger.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['shareSubscriptionName'] = share_subscription_name
-    __args__['triggerName'] = trigger_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getScheduledTrigger', __args__, opts=opts, typ=GetScheduledTriggerResult)
-    return __ret__.apply(lambda __response__: GetScheduledTriggerResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        recurrence_interval=pulumi.get(__response__, 'recurrence_interval'),
-        synchronization_mode=pulumi.get(__response__, 'synchronization_mode'),
-        synchronization_time=pulumi.get(__response__, 'synchronization_time'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        trigger_status=pulumi.get(__response__, 'trigger_status'),
-        type=pulumi.get(__response__, 'type'),
-        user_name=pulumi.get(__response__, 'user_name')))
+    ...

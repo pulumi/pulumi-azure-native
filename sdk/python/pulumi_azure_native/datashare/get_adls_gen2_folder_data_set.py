@@ -206,6 +206,9 @@ def get_adls_gen2_folder_data_set(account_name: Optional[str] = None,
         subscription_id=pulumi.get(__ret__, 'subscription_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_adls_gen2_folder_data_set)
 def get_adls_gen2_folder_data_set_output(account_name: Optional[pulumi.Input[str]] = None,
                                          data_set_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -221,22 +224,4 @@ def get_adls_gen2_folder_data_set_output(account_name: Optional[pulumi.Input[str
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['dataSetName'] = data_set_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['shareName'] = share_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getADLSGen2FolderDataSet', __args__, opts=opts, typ=GetADLSGen2FolderDataSetResult)
-    return __ret__.apply(lambda __response__: GetADLSGen2FolderDataSetResult(
-        data_set_id=pulumi.get(__response__, 'data_set_id'),
-        file_system=pulumi.get(__response__, 'file_system'),
-        folder_path=pulumi.get(__response__, 'folder_path'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        resource_group=pulumi.get(__response__, 'resource_group'),
-        storage_account_name=pulumi.get(__response__, 'storage_account_name'),
-        subscription_id=pulumi.get(__response__, 'subscription_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

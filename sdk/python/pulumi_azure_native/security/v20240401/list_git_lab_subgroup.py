@@ -84,6 +84,9 @@ def list_git_lab_subgroup(group_fq_name: Optional[str] = None,
     return AwaitableListGitLabSubgroupResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_git_lab_subgroup)
 def list_git_lab_subgroup_output(group_fq_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  security_connector_name: Optional[pulumi.Input[str]] = None,
@@ -96,12 +99,4 @@ def list_git_lab_subgroup_output(group_fq_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str security_connector_name: The security connector name.
     """
-    __args__ = dict()
-    __args__['groupFQName'] = group_fq_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['securityConnectorName'] = security_connector_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20240401:listGitLabSubgroup', __args__, opts=opts, typ=ListGitLabSubgroupResult)
-    return __ret__.apply(lambda __response__: ListGitLabSubgroupResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

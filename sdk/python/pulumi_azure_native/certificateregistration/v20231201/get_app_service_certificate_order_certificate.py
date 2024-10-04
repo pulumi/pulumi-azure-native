@@ -174,6 +174,9 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_app_service_certificate_order_certificate)
 def get_app_service_certificate_order_certificate_output(certificate_order_name: Optional[pulumi.Input[str]] = None,
                                                          name: Optional[pulumi.Input[str]] = None,
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -186,19 +189,4 @@ def get_app_service_certificate_order_certificate_output(certificate_order_name:
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['certificateOrderName'] = certificate_order_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:certificateregistration/v20231201:getAppServiceCertificateOrderCertificate', __args__, opts=opts, typ=GetAppServiceCertificateOrderCertificateResult)
-    return __ret__.apply(lambda __response__: GetAppServiceCertificateOrderCertificateResult(
-        id=pulumi.get(__response__, 'id'),
-        key_vault_id=pulumi.get(__response__, 'key_vault_id'),
-        key_vault_secret_name=pulumi.get(__response__, 'key_vault_secret_name'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

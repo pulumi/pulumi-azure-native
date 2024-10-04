@@ -260,6 +260,9 @@ def get_environment_setting(environment_setting_name: Optional[str] = None,
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
+
+
+@_utilities.lift_output_func(get_environment_setting)
 def get_environment_setting_output(environment_setting_name: Optional[pulumi.Input[str]] = None,
                                    expand: Optional[pulumi.Input[Optional[str]]] = None,
                                    lab_account_name: Optional[pulumi.Input[str]] = None,
@@ -277,27 +280,4 @@ def get_environment_setting_output(environment_setting_name: Optional[pulumi.Inp
     :param str lab_name: The name of the lab.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['environmentSettingName'] = environment_setting_name
-    __args__['expand'] = expand
-    __args__['labAccountName'] = lab_account_name
-    __args__['labName'] = lab_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getEnvironmentSetting', __args__, opts=opts, typ=GetEnvironmentSettingResult)
-    return __ret__.apply(lambda __response__: GetEnvironmentSettingResult(
-        configuration_state=pulumi.get(__response__, 'configuration_state'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        last_changed=pulumi.get(__response__, 'last_changed'),
-        last_published=pulumi.get(__response__, 'last_published'),
-        latest_operation_result=pulumi.get(__response__, 'latest_operation_result'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        publishing_state=pulumi.get(__response__, 'publishing_state'),
-        resource_settings=pulumi.get(__response__, 'resource_settings'),
-        tags=pulumi.get(__response__, 'tags'),
-        title=pulumi.get(__response__, 'title'),
-        type=pulumi.get(__response__, 'type'),
-        unique_identifier=pulumi.get(__response__, 'unique_identifier')))
+    ...

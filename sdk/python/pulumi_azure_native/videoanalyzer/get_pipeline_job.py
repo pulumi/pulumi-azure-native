@@ -189,6 +189,9 @@ def get_pipeline_job(account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         topology_name=pulumi.get(__ret__, 'topology_name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_pipeline_job)
 def get_pipeline_job_output(account_name: Optional[pulumi.Input[str]] = None,
                             pipeline_job_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -202,20 +205,4 @@ def get_pipeline_job_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str pipeline_job_name: The pipeline job name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['pipelineJobName'] = pipeline_job_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer:getPipelineJob', __args__, opts=opts, typ=GetPipelineJobResult)
-    return __ret__.apply(lambda __response__: GetPipelineJobResult(
-        description=pulumi.get(__response__, 'description'),
-        error=pulumi.get(__response__, 'error'),
-        expiration=pulumi.get(__response__, 'expiration'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        parameters=pulumi.get(__response__, 'parameters'),
-        state=pulumi.get(__response__, 'state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        topology_name=pulumi.get(__response__, 'topology_name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -224,6 +224,9 @@ def get_l2_isolation_domain(l2_isolation_domain_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
+
+
+@_utilities.lift_output_func(get_l2_isolation_domain)
 def get_l2_isolation_domain_output(l2_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL2IsolationDomainResult]:
@@ -234,22 +237,4 @@ def get_l2_isolation_domain_output(l2_isolation_domain_name: Optional[pulumi.Inp
     :param str l2_isolation_domain_name: Name of the L2 Isolation Domain.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['l2IsolationDomainName'] = l2_isolation_domain_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getL2IsolationDomain', __args__, opts=opts, typ=GetL2IsolationDomainResult)
-    return __ret__.apply(lambda __response__: GetL2IsolationDomainResult(
-        administrative_state=pulumi.get(__response__, 'administrative_state'),
-        annotation=pulumi.get(__response__, 'annotation'),
-        configuration_state=pulumi.get(__response__, 'configuration_state'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        mtu=pulumi.get(__response__, 'mtu'),
-        name=pulumi.get(__response__, 'name'),
-        network_fabric_id=pulumi.get(__response__, 'network_fabric_id'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        vlan_id=pulumi.get(__response__, 'vlan_id')))
+    ...

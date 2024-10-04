@@ -302,6 +302,9 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_size=pulumi.get(__ret__, 'vm_size'))
+
+
+@_utilities.lift_output_func(get_agent_pool)
 def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentPoolResult]:
@@ -312,28 +315,4 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     :param str agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster.
     :param str connected_cluster_resource_uri: The fully qualified Azure Resource Manager identifier of the connected cluster resource.
     """
-    __args__ = dict()
-    __args__['agentPoolName'] = agent_pool_name
-    __args__['connectedClusterResourceUri'] = connected_cluster_resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice/v20240101:getAgentPool', __args__, opts=opts, typ=GetAgentPoolResult)
-    return __ret__.apply(lambda __response__: GetAgentPoolResult(
-        count=pulumi.get(__response__, 'count'),
-        enable_auto_scaling=pulumi.get(__response__, 'enable_auto_scaling'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
-        max_count=pulumi.get(__response__, 'max_count'),
-        max_pods=pulumi.get(__response__, 'max_pods'),
-        min_count=pulumi.get(__response__, 'min_count'),
-        name=pulumi.get(__response__, 'name'),
-        node_labels=pulumi.get(__response__, 'node_labels'),
-        node_taints=pulumi.get(__response__, 'node_taints'),
-        os_sku=pulumi.get(__response__, 'os_sku'),
-        os_type=pulumi.get(__response__, 'os_type'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        vm_size=pulumi.get(__response__, 'vm_size')))
+    ...

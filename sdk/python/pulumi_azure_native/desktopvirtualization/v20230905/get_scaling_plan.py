@@ -306,6 +306,9 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_scaling_plan)
 def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             scaling_plan_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScalingPlanResult]:
@@ -316,29 +319,4 @@ def get_scaling_plan_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scaling_plan_name: The name of the scaling plan.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['scalingPlanName'] = scaling_plan_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization/v20230905:getScalingPlan', __args__, opts=opts, typ=GetScalingPlanResult)
-    return __ret__.apply(lambda __response__: GetScalingPlanResult(
-        description=pulumi.get(__response__, 'description'),
-        etag=pulumi.get(__response__, 'etag'),
-        exclusion_tag=pulumi.get(__response__, 'exclusion_tag'),
-        friendly_name=pulumi.get(__response__, 'friendly_name'),
-        host_pool_references=pulumi.get(__response__, 'host_pool_references'),
-        host_pool_type=pulumi.get(__response__, 'host_pool_type'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        managed_by=pulumi.get(__response__, 'managed_by'),
-        name=pulumi.get(__response__, 'name'),
-        object_id=pulumi.get(__response__, 'object_id'),
-        plan=pulumi.get(__response__, 'plan'),
-        schedules=pulumi.get(__response__, 'schedules'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        time_zone=pulumi.get(__response__, 'time_zone'),
-        type=pulumi.get(__response__, 'type')))
+    ...

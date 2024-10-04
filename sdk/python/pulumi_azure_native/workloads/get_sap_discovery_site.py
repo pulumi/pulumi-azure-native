@@ -199,6 +199,9 @@ def get_sap_discovery_site(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_sap_discovery_site)
 def get_sap_discovery_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                   sap_discovery_site_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSapDiscoverySiteResult]:
@@ -210,20 +213,4 @@ def get_sap_discovery_site_output(resource_group_name: Optional[pulumi.Input[str
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sap_discovery_site_name: The name of the discovery site resource for SAP Migration.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sapDiscoverySiteName'] = sap_discovery_site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getSapDiscoverySite', __args__, opts=opts, typ=GetSapDiscoverySiteResult)
-    return __ret__.apply(lambda __response__: GetSapDiscoverySiteResult(
-        errors=pulumi.get(__response__, 'errors'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        master_site_id=pulumi.get(__response__, 'master_site_id'),
-        migrate_project_id=pulumi.get(__response__, 'migrate_project_id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

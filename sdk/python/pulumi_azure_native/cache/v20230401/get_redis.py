@@ -406,6 +406,9 @@ def get_redis(name: Optional[str] = None,
         tenant_settings=pulumi.get(__ret__, 'tenant_settings'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
+
+
+@_utilities.lift_output_func(get_redis)
 def get_redis_output(name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRedisResult]:
@@ -416,36 +419,4 @@ def get_redis_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Redis cache.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cache/v20230401:getRedis', __args__, opts=opts, typ=GetRedisResult)
-    return __ret__.apply(lambda __response__: GetRedisResult(
-        access_keys=pulumi.get(__response__, 'access_keys'),
-        enable_non_ssl_port=pulumi.get(__response__, 'enable_non_ssl_port'),
-        host_name=pulumi.get(__response__, 'host_name'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        instances=pulumi.get(__response__, 'instances'),
-        linked_servers=pulumi.get(__response__, 'linked_servers'),
-        location=pulumi.get(__response__, 'location'),
-        minimum_tls_version=pulumi.get(__response__, 'minimum_tls_version'),
-        name=pulumi.get(__response__, 'name'),
-        port=pulumi.get(__response__, 'port'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        redis_configuration=pulumi.get(__response__, 'redis_configuration'),
-        redis_version=pulumi.get(__response__, 'redis_version'),
-        replicas_per_master=pulumi.get(__response__, 'replicas_per_master'),
-        replicas_per_primary=pulumi.get(__response__, 'replicas_per_primary'),
-        shard_count=pulumi.get(__response__, 'shard_count'),
-        sku=pulumi.get(__response__, 'sku'),
-        ssl_port=pulumi.get(__response__, 'ssl_port'),
-        static_ip=pulumi.get(__response__, 'static_ip'),
-        subnet_id=pulumi.get(__response__, 'subnet_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        tenant_settings=pulumi.get(__response__, 'tenant_settings'),
-        type=pulumi.get(__response__, 'type'),
-        zones=pulumi.get(__response__, 'zones')))
+    ...

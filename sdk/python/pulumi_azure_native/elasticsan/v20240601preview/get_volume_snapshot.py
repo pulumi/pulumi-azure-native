@@ -165,6 +165,9 @@ def get_volume_snapshot(elastic_san_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         volume_name=pulumi.get(__ret__, 'volume_name'))
+
+
+@_utilities.lift_output_func(get_volume_snapshot)
 def get_volume_snapshot_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -179,19 +182,4 @@ def get_volume_snapshot_output(elastic_san_name: Optional[pulumi.Input[str]] = N
     :param str snapshot_name: The name of the volume snapshot within the given volume group.
     :param str volume_group_name: The name of the VolumeGroup.
     """
-    __args__ = dict()
-    __args__['elasticSanName'] = elastic_san_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['snapshotName'] = snapshot_name
-    __args__['volumeGroupName'] = volume_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:elasticsan/v20240601preview:getVolumeSnapshot', __args__, opts=opts, typ=GetVolumeSnapshotResult)
-    return __ret__.apply(lambda __response__: GetVolumeSnapshotResult(
-        creation_data=pulumi.get(__response__, 'creation_data'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        source_volume_size_gi_b=pulumi.get(__response__, 'source_volume_size_gi_b'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        volume_name=pulumi.get(__response__, 'volume_name')))
+    ...

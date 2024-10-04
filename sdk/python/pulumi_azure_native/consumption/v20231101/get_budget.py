@@ -211,6 +211,9 @@ def get_budget(budget_name: Optional[str] = None,
         time_grain=pulumi.get(__ret__, 'time_grain'),
         time_period=pulumi.get(__ret__, 'time_period'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_budget)
 def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
                       scope: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetResult]:
@@ -221,21 +224,4 @@ def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
     :param str budget_name: Budget Name.
     :param str scope: The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
     """
-    __args__ = dict()
-    __args__['budgetName'] = budget_name
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:consumption/v20231101:getBudget', __args__, opts=opts, typ=GetBudgetResult)
-    return __ret__.apply(lambda __response__: GetBudgetResult(
-        amount=pulumi.get(__response__, 'amount'),
-        category=pulumi.get(__response__, 'category'),
-        current_spend=pulumi.get(__response__, 'current_spend'),
-        e_tag=pulumi.get(__response__, 'e_tag'),
-        filter=pulumi.get(__response__, 'filter'),
-        forecast_spend=pulumi.get(__response__, 'forecast_spend'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        notifications=pulumi.get(__response__, 'notifications'),
-        time_grain=pulumi.get(__response__, 'time_grain'),
-        time_period=pulumi.get(__response__, 'time_period'),
-        type=pulumi.get(__response__, 'type')))
+    ...

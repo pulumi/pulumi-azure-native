@@ -181,6 +181,9 @@ def get_job_step(job_agent_name: Optional[str] = None,
         step_id=pulumi.get(__ret__, 'step_id'),
         target_group=pulumi.get(__ret__, 'target_group'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_job_step)
 def get_job_step_output(job_agent_name: Optional[pulumi.Input[str]] = None,
                         job_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -197,21 +200,4 @@ def get_job_step_output(job_agent_name: Optional[pulumi.Input[str]] = None,
     :param str server_name: The name of the server.
     :param str step_name: The name of the job step.
     """
-    __args__ = dict()
-    __args__['jobAgentName'] = job_agent_name
-    __args__['jobName'] = job_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    __args__['stepName'] = step_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230201preview:getJobStep', __args__, opts=opts, typ=GetJobStepResult)
-    return __ret__.apply(lambda __response__: GetJobStepResult(
-        action=pulumi.get(__response__, 'action'),
-        credential=pulumi.get(__response__, 'credential'),
-        execution_options=pulumi.get(__response__, 'execution_options'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        output=pulumi.get(__response__, 'output'),
-        step_id=pulumi.get(__response__, 'step_id'),
-        target_group=pulumi.get(__response__, 'target_group'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -86,6 +86,9 @@ def list_endpoint_managed_proxy_details(endpoint_name: Optional[str] = None,
     return AwaitableListEndpointManagedProxyDetailsResult(
         expires_on=pulumi.get(__ret__, 'expires_on'),
         proxy=pulumi.get(__ret__, 'proxy'))
+
+
+@_utilities.lift_output_func(list_endpoint_managed_proxy_details)
 def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                                hostname: Optional[pulumi.Input[Optional[str]]] = None,
                                                resource_uri: Optional[pulumi.Input[str]] = None,
@@ -100,13 +103,4 @@ def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.In
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     :param str service: The name of the service.
     """
-    __args__ = dict()
-    __args__['endpointName'] = endpoint_name
-    __args__['hostname'] = hostname
-    __args__['resourceUri'] = resource_uri
-    __args__['service'] = service
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity/v20220501preview:listEndpointManagedProxyDetails', __args__, opts=opts, typ=ListEndpointManagedProxyDetailsResult)
-    return __ret__.apply(lambda __response__: ListEndpointManagedProxyDetailsResult(
-        expires_on=pulumi.get(__response__, 'expires_on'),
-        proxy=pulumi.get(__response__, 'proxy')))
+    ...

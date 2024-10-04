@@ -224,6 +224,9 @@ def get_connected_environment(connected_environment_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_connected_environment)
 def get_connected_environment_output(connected_environment_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedEnvironmentResult]:
@@ -234,22 +237,4 @@ def get_connected_environment_output(connected_environment_name: Optional[pulumi
     :param str connected_environment_name: Name of the connectedEnvironment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['connectedEnvironmentName'] = connected_environment_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20230502preview:getConnectedEnvironment', __args__, opts=opts, typ=GetConnectedEnvironmentResult)
-    return __ret__.apply(lambda __response__: GetConnectedEnvironmentResult(
-        custom_domain_configuration=pulumi.get(__response__, 'custom_domain_configuration'),
-        dapr_ai_connection_string=pulumi.get(__response__, 'dapr_ai_connection_string'),
-        default_domain=pulumi.get(__response__, 'default_domain'),
-        deployment_errors=pulumi.get(__response__, 'deployment_errors'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        static_ip=pulumi.get(__response__, 'static_ip'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

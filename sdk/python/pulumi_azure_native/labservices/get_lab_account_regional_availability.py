@@ -69,6 +69,9 @@ def get_lab_account_regional_availability(lab_account_name: Optional[str] = None
 
     return AwaitableGetLabAccountRegionalAvailabilityResult(
         regional_availability=pulumi.get(__ret__, 'regional_availability'))
+
+
+@_utilities.lift_output_func(get_lab_account_regional_availability)
 def get_lab_account_regional_availability_output(lab_account_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabAccountRegionalAvailabilityResult]:
@@ -80,10 +83,4 @@ def get_lab_account_regional_availability_output(lab_account_name: Optional[pulu
     :param str lab_account_name: The name of the lab Account.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['labAccountName'] = lab_account_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getLabAccountRegionalAvailability', __args__, opts=opts, typ=GetLabAccountRegionalAvailabilityResult)
-    return __ret__.apply(lambda __response__: GetLabAccountRegionalAvailabilityResult(
-        regional_availability=pulumi.get(__response__, 'regional_availability')))
+    ...

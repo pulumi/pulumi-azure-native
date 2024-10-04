@@ -76,6 +76,9 @@ def list_workspace_notebook_keys(resource_group_name: Optional[str] = None,
     return AwaitableListWorkspaceNotebookKeysResult(
         primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'))
+
+
+@_utilities.lift_output_func(list_workspace_notebook_keys)
 def list_workspace_notebook_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         workspace_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceNotebookKeysResult]:
@@ -85,11 +88,4 @@ def list_workspace_notebook_keys_output(resource_group_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Azure Machine Learning Workspace Name
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20240101preview:listWorkspaceNotebookKeys', __args__, opts=opts, typ=ListWorkspaceNotebookKeysResult)
-    return __ret__.apply(lambda __response__: ListWorkspaceNotebookKeysResult(
-        primary_access_key=pulumi.get(__response__, 'primary_access_key'),
-        secondary_access_key=pulumi.get(__response__, 'secondary_access_key')))
+    ...

@@ -237,6 +237,9 @@ def get_gateway(gateway_resource_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tcp=pulumi.get(__ret__, 'tcp'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_gateway)
 def get_gateway_output(gateway_resource_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
@@ -247,23 +250,4 @@ def get_gateway_output(gateway_resource_name: Optional[pulumi.Input[str]] = None
     :param str gateway_resource_name: The identity of the gateway.
     :param str resource_group_name: Azure resource group name
     """
-    __args__ = dict()
-    __args__['gatewayResourceName'] = gateway_resource_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh/v20180901preview:getGateway', __args__, opts=opts, typ=GetGatewayResult)
-    return __ret__.apply(lambda __response__: GetGatewayResult(
-        description=pulumi.get(__response__, 'description'),
-        destination_network=pulumi.get(__response__, 'destination_network'),
-        http=pulumi.get(__response__, 'http'),
-        id=pulumi.get(__response__, 'id'),
-        ip_address=pulumi.get(__response__, 'ip_address'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        source_network=pulumi.get(__response__, 'source_network'),
-        status=pulumi.get(__response__, 'status'),
-        status_details=pulumi.get(__response__, 'status_details'),
-        tags=pulumi.get(__response__, 'tags'),
-        tcp=pulumi.get(__response__, 'tcp'),
-        type=pulumi.get(__response__, 'type')))
+    ...

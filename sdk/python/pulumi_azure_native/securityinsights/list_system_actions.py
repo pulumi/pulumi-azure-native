@@ -88,6 +88,9 @@ def list_system_actions(agent_resource_name: Optional[str] = None,
     return AwaitableListSystemActionsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_system_actions)
 def list_system_actions_output(agent_resource_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                system_resource_name: Optional[pulumi.Input[str]] = None,
@@ -103,13 +106,4 @@ def list_system_actions_output(agent_resource_name: Optional[pulumi.Input[str]] 
     :param str system_resource_name: The name of the system.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['agentResourceName'] = agent_resource_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['systemResourceName'] = system_resource_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:listSystemActions', __args__, opts=opts, typ=ListSystemActionsResult)
-    return __ret__.apply(lambda __response__: ListSystemActionsResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

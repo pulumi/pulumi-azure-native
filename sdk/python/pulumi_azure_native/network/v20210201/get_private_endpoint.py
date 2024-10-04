@@ -240,6 +240,9 @@ def get_private_endpoint(expand: Optional[str] = None,
         subnet=pulumi.get(__ret__, 'subnet'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_private_endpoint)
 def get_private_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                 private_endpoint_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -252,24 +255,4 @@ def get_private_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     :param str private_endpoint_name: The name of the private endpoint.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['privateEndpointName'] = private_endpoint_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20210201:getPrivateEndpoint', __args__, opts=opts, typ=GetPrivateEndpointResult)
-    return __ret__.apply(lambda __response__: GetPrivateEndpointResult(
-        custom_dns_configs=pulumi.get(__response__, 'custom_dns_configs'),
-        etag=pulumi.get(__response__, 'etag'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        manual_private_link_service_connections=pulumi.get(__response__, 'manual_private_link_service_connections'),
-        name=pulumi.get(__response__, 'name'),
-        network_interfaces=pulumi.get(__response__, 'network_interfaces'),
-        private_link_service_connections=pulumi.get(__response__, 'private_link_service_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_guid=pulumi.get(__response__, 'resource_guid'),
-        subnet=pulumi.get(__response__, 'subnet'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

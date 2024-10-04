@@ -127,6 +127,9 @@ def get_reachability_analysis_run(network_manager_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_reachability_analysis_run)
 def get_reachability_analysis_run_output(network_manager_name: Optional[pulumi.Input[str]] = None,
                                          reachability_analysis_run_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -142,16 +145,4 @@ def get_reachability_analysis_run_output(network_manager_name: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group.
     :param str workspace_name: Workspace name.
     """
-    __args__ = dict()
-    __args__['networkManagerName'] = network_manager_name
-    __args__['reachabilityAnalysisRunName'] = reachability_analysis_run_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getReachabilityAnalysisRun', __args__, opts=opts, typ=GetReachabilityAnalysisRunResult)
-    return __ret__.apply(lambda __response__: GetReachabilityAnalysisRunResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

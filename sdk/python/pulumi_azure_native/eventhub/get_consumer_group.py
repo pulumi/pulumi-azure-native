@@ -168,6 +168,9 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         user_metadata=pulumi.get(__ret__, 'user_metadata'))
+
+
+@_utilities.lift_output_func(get_consumer_group)
 def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] = None,
                               event_hub_name: Optional[pulumi.Input[str]] = None,
                               namespace_name: Optional[pulumi.Input[str]] = None,
@@ -185,19 +188,4 @@ def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] =
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    __args__ = dict()
-    __args__['consumerGroupName'] = consumer_group_name
-    __args__['eventHubName'] = event_hub_name
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub:getConsumerGroup', __args__, opts=opts, typ=GetConsumerGroupResult)
-    return __ret__.apply(lambda __response__: GetConsumerGroupResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        updated_at=pulumi.get(__response__, 'updated_at'),
-        user_metadata=pulumi.get(__response__, 'user_metadata')))
+    ...

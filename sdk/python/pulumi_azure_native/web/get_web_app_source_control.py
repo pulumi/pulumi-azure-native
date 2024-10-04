@@ -201,6 +201,9 @@ def get_web_app_source_control(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         repo_url=pulumi.get(__ret__, 'repo_url'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_web_app_source_control)
 def get_web_app_source_control_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSourceControlResult]:
@@ -214,20 +217,4 @@ def get_web_app_source_control_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppSourceControl', __args__, opts=opts, typ=GetWebAppSourceControlResult)
-    return __ret__.apply(lambda __response__: GetWebAppSourceControlResult(
-        branch=pulumi.get(__response__, 'branch'),
-        deployment_rollback_enabled=pulumi.get(__response__, 'deployment_rollback_enabled'),
-        git_hub_action_configuration=pulumi.get(__response__, 'git_hub_action_configuration'),
-        id=pulumi.get(__response__, 'id'),
-        is_git_hub_action=pulumi.get(__response__, 'is_git_hub_action'),
-        is_manual_integration=pulumi.get(__response__, 'is_manual_integration'),
-        is_mercurial=pulumi.get(__response__, 'is_mercurial'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        repo_url=pulumi.get(__response__, 'repo_url'),
-        type=pulumi.get(__response__, 'type')))
+    ...

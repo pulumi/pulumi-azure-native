@@ -162,6 +162,9 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_private_endpoint_connection)
 def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[str]] = None,
                                            private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -174,18 +177,4 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20240901preview:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult)
-    return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionResult(
-        group_id=pulumi.get(__response__, 'group_id'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint=pulumi.get(__response__, 'private_endpoint'),
-        private_link_service_connection_state=pulumi.get(__response__, 'private_link_service_connection_state'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

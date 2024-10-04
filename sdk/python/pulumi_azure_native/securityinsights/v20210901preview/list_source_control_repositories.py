@@ -81,6 +81,9 @@ def list_source_control_repositories(resource_group_name: Optional[str] = None,
     return AwaitableListSourceControlRepositoriesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_source_control_repositories)
 def list_source_control_repositories_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             workspace_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSourceControlRepositoriesResult]:
@@ -91,11 +94,4 @@ def list_source_control_repositories_output(resource_group_name: Optional[pulumi
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20210901preview:listSourceControlRepositories', __args__, opts=opts, typ=ListSourceControlRepositoriesResult)
-    return __ret__.apply(lambda __response__: ListSourceControlRepositoriesResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

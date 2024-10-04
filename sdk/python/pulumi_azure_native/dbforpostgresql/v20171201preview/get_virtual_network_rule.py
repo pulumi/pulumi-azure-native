@@ -135,6 +135,9 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
+
+
+@_utilities.lift_output_func(get_virtual_network_rule)
 def get_virtual_network_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     server_name: Optional[pulumi.Input[str]] = None,
                                     virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
@@ -147,16 +150,4 @@ def get_virtual_network_rule_output(resource_group_name: Optional[pulumi.Input[s
     :param str server_name: The name of the server.
     :param str virtual_network_rule_name: The name of the virtual network rule.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    __args__['virtualNetworkRuleName'] = virtual_network_rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20171201preview:getVirtualNetworkRule', __args__, opts=opts, typ=GetVirtualNetworkRuleResult)
-    return __ret__.apply(lambda __response__: GetVirtualNetworkRuleResult(
-        id=pulumi.get(__response__, 'id'),
-        ignore_missing_vnet_service_endpoint=pulumi.get(__response__, 'ignore_missing_vnet_service_endpoint'),
-        name=pulumi.get(__response__, 'name'),
-        state=pulumi.get(__response__, 'state'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_network_subnet_id=pulumi.get(__response__, 'virtual_network_subnet_id')))
+    ...

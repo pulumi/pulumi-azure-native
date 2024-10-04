@@ -175,6 +175,9 @@ def get_acss_backup_connection(backup_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_acss_backup_connection)
 def get_acss_backup_connection_output(backup_name: Optional[pulumi.Input[str]] = None,
                                       connector_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -187,19 +190,4 @@ def get_acss_backup_connection_output(backup_name: Optional[pulumi.Input[str]] =
     :param str connector_name: The name of the connector resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['backupName'] = backup_name
-    __args__['connectorName'] = connector_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20231001preview:getACSSBackupConnection', __args__, opts=opts, typ=GetACSSBackupConnectionResult)
-    return __ret__.apply(lambda __response__: GetACSSBackupConnectionResult(
-        backup_data=pulumi.get(__response__, 'backup_data'),
-        errors=pulumi.get(__response__, 'errors'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

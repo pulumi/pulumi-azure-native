@@ -198,6 +198,9 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
+
+
+@_utilities.lift_output_func(get_express_route_gateway)
 def get_express_route_gateway_output(express_route_gateway_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteGatewayResult]:
@@ -208,20 +211,4 @@ def get_express_route_gateway_output(express_route_gateway_name: Optional[pulumi
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expressRouteGatewayName'] = express_route_gateway_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getExpressRouteGateway', __args__, opts=opts, typ=GetExpressRouteGatewayResult)
-    return __ret__.apply(lambda __response__: GetExpressRouteGatewayResult(
-        allow_non_virtual_wan_traffic=pulumi.get(__response__, 'allow_non_virtual_wan_traffic'),
-        auto_scale_configuration=pulumi.get(__response__, 'auto_scale_configuration'),
-        etag=pulumi.get(__response__, 'etag'),
-        express_route_connections=pulumi.get(__response__, 'express_route_connections'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_hub=pulumi.get(__response__, 'virtual_hub')))
+    ...

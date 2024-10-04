@@ -77,6 +77,9 @@ def list_application_tokens(application_name: Optional[str] = None,
 
     return AwaitableListApplicationTokensResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_application_tokens)
 def list_application_tokens_output(application_name: Optional[pulumi.Input[str]] = None,
                                    authorization_audience: Optional[pulumi.Input[Optional[str]]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -94,12 +97,4 @@ def list_application_tokens_output(application_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param Sequence[str] user_assigned_identities: The user assigned identities.
     """
-    __args__ = dict()
-    __args__['applicationName'] = application_name
-    __args__['authorizationAudience'] = authorization_audience
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['userAssignedIdentities'] = user_assigned_identities
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:solutions:listApplicationTokens', __args__, opts=opts, typ=ListApplicationTokensResult)
-    return __ret__.apply(lambda __response__: ListApplicationTokensResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

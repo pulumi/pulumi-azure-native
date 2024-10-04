@@ -123,6 +123,9 @@ def get_dpp_resource_guard_proxy(resource_group_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_dpp_resource_guard_proxy)
 def get_dpp_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         resource_guard_proxy_name: Optional[pulumi.Input[str]] = None,
                                         vault_name: Optional[pulumi.Input[str]] = None,
@@ -135,15 +138,4 @@ def get_dpp_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Inp
     :param str resource_guard_proxy_name: name of the resource guard proxy
     :param str vault_name: The name of the backup vault.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceGuardProxyName'] = resource_guard_proxy_name
-    __args__['vaultName'] = vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:dataprotection/v20230401preview:getDppResourceGuardProxy', __args__, opts=opts, typ=GetDppResourceGuardProxyResult)
-    return __ret__.apply(lambda __response__: GetDppResourceGuardProxyResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

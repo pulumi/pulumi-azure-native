@@ -292,6 +292,9 @@ def get_python3_package(automation_account_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_python3_package)
 def get_python3_package_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                package_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -304,28 +307,4 @@ def get_python3_package_output(automation_account_name: Optional[pulumi.Input[st
     :param str package_name: The python package name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    __args__ = dict()
-    __args__['automationAccountName'] = automation_account_name
-    __args__['packageName'] = package_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:getPython3Package', __args__, opts=opts, typ=GetPython3PackageResult)
-    return __ret__.apply(lambda __response__: GetPython3PackageResult(
-        activity_count=pulumi.get(__response__, 'activity_count'),
-        content_link=pulumi.get(__response__, 'content_link'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        error=pulumi.get(__response__, 'error'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        is_composite=pulumi.get(__response__, 'is_composite'),
-        is_global=pulumi.get(__response__, 'is_global'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        size_in_bytes=pulumi.get(__response__, 'size_in_bytes'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

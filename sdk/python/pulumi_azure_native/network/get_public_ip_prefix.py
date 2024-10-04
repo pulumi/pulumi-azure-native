@@ -308,6 +308,9 @@ def get_public_ip_prefix(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
+
+
+@_utilities.lift_output_func(get_public_ip_prefix)
 def get_public_ip_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                 public_ip_prefix_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -323,29 +326,4 @@ def get_public_ip_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     :param str public_ip_prefix_name: The name of the public IP prefix.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['publicIpPrefixName'] = public_ip_prefix_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getPublicIPPrefix', __args__, opts=opts, typ=GetPublicIPPrefixResult)
-    return __ret__.apply(lambda __response__: GetPublicIPPrefixResult(
-        custom_ip_prefix=pulumi.get(__response__, 'custom_ip_prefix'),
-        etag=pulumi.get(__response__, 'etag'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        ip_prefix=pulumi.get(__response__, 'ip_prefix'),
-        ip_tags=pulumi.get(__response__, 'ip_tags'),
-        load_balancer_frontend_ip_configuration=pulumi.get(__response__, 'load_balancer_frontend_ip_configuration'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        nat_gateway=pulumi.get(__response__, 'nat_gateway'),
-        prefix_length=pulumi.get(__response__, 'prefix_length'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_ip_address_version=pulumi.get(__response__, 'public_ip_address_version'),
-        public_ip_addresses=pulumi.get(__response__, 'public_ip_addresses'),
-        resource_guid=pulumi.get(__response__, 'resource_guid'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        zones=pulumi.get(__response__, 'zones')))
+    ...

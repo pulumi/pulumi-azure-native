@@ -257,6 +257,9 @@ def get_system_topic_event_subscription(event_subscription_name: Optional[str] =
         system_data=pulumi.get(__ret__, 'system_data'),
         topic=pulumi.get(__ret__, 'topic'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_system_topic_event_subscription)
 def get_system_topic_event_subscription_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                system_topic_name: Optional[pulumi.Input[str]] = None,
@@ -269,25 +272,4 @@ def get_system_topic_event_subscription_output(event_subscription_name: Optional
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str system_topic_name: Name of the system topic.
     """
-    __args__ = dict()
-    __args__['eventSubscriptionName'] = event_subscription_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['systemTopicName'] = system_topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20220615:getSystemTopicEventSubscription', __args__, opts=opts, typ=GetSystemTopicEventSubscriptionResult)
-    return __ret__.apply(lambda __response__: GetSystemTopicEventSubscriptionResult(
-        dead_letter_destination=pulumi.get(__response__, 'dead_letter_destination'),
-        dead_letter_with_resource_identity=pulumi.get(__response__, 'dead_letter_with_resource_identity'),
-        delivery_with_resource_identity=pulumi.get(__response__, 'delivery_with_resource_identity'),
-        destination=pulumi.get(__response__, 'destination'),
-        event_delivery_schema=pulumi.get(__response__, 'event_delivery_schema'),
-        expiration_time_utc=pulumi.get(__response__, 'expiration_time_utc'),
-        filter=pulumi.get(__response__, 'filter'),
-        id=pulumi.get(__response__, 'id'),
-        labels=pulumi.get(__response__, 'labels'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        retry_policy=pulumi.get(__response__, 'retry_policy'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        topic=pulumi.get(__response__, 'topic'),
-        type=pulumi.get(__response__, 'type')))
+    ...

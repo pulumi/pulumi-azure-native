@@ -325,6 +325,9 @@ def get_storage_appliance(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_storage_appliance)
 def get_storage_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  storage_appliance_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageApplianceResult]:
@@ -335,30 +338,4 @@ def get_storage_appliance_output(resource_group_name: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_appliance_name: The name of the storage appliance.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['storageApplianceName'] = storage_appliance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20231001preview:getStorageAppliance', __args__, opts=opts, typ=GetStorageApplianceResult)
-    return __ret__.apply(lambda __response__: GetStorageApplianceResult(
-        administrator_credentials=pulumi.get(__response__, 'administrator_credentials'),
-        capacity=pulumi.get(__response__, 'capacity'),
-        capacity_used=pulumi.get(__response__, 'capacity_used'),
-        cluster_id=pulumi.get(__response__, 'cluster_id'),
-        detailed_status=pulumi.get(__response__, 'detailed_status'),
-        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        management_ipv4_address=pulumi.get(__response__, 'management_ipv4_address'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        rack_id=pulumi.get(__response__, 'rack_id'),
-        rack_slot=pulumi.get(__response__, 'rack_slot'),
-        remote_vendor_management_feature=pulumi.get(__response__, 'remote_vendor_management_feature'),
-        remote_vendor_management_status=pulumi.get(__response__, 'remote_vendor_management_status'),
-        serial_number=pulumi.get(__response__, 'serial_number'),
-        storage_appliance_sku_id=pulumi.get(__response__, 'storage_appliance_sku_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

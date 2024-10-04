@@ -175,6 +175,9 @@ def get_capacity_reservation_group(capacity_reservation_group_name: Optional[str
         type=pulumi.get(__ret__, 'type'),
         virtual_machines_associated=pulumi.get(__ret__, 'virtual_machines_associated'),
         zones=pulumi.get(__ret__, 'zones'))
+
+
+@_utilities.lift_output_func(get_capacity_reservation_group)
 def get_capacity_reservation_group_output(capacity_reservation_group_name: Optional[pulumi.Input[str]] = None,
                                           expand: Optional[pulumi.Input[Optional[str]]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -187,19 +190,4 @@ def get_capacity_reservation_group_output(capacity_reservation_group_name: Optio
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the capacity reservations under the capacity reservation group which is a snapshot of the runtime properties of a capacity reservation that is managed by the platform and can change outside of control plane operations.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['capacityReservationGroupName'] = capacity_reservation_group_name
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230701:getCapacityReservationGroup', __args__, opts=opts, typ=GetCapacityReservationGroupResult)
-    return __ret__.apply(lambda __response__: GetCapacityReservationGroupResult(
-        capacity_reservations=pulumi.get(__response__, 'capacity_reservations'),
-        id=pulumi.get(__response__, 'id'),
-        instance_view=pulumi.get(__response__, 'instance_view'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_machines_associated=pulumi.get(__response__, 'virtual_machines_associated'),
-        zones=pulumi.get(__response__, 'zones')))
+    ...

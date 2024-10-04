@@ -289,6 +289,9 @@ def get_cloud_connector(connector_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         subscription_id=pulumi.get(__ret__, 'subscription_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_cloud_connector)
 def get_cloud_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                                expand: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudConnectorResult]:
@@ -299,27 +302,4 @@ def get_cloud_connector_output(connector_name: Optional[pulumi.Input[str]] = Non
     :param str connector_name: Connector Name.
     :param str expand: May be used to expand the collectionInfo property. By default, collectionInfo is not included.
     """
-    __args__ = dict()
-    __args__['connectorName'] = connector_name
-    __args__['expand'] = expand
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20190301preview:getCloudConnector', __args__, opts=opts, typ=GetCloudConnectorResult)
-    return __ret__.apply(lambda __response__: GetCloudConnectorResult(
-        billing_model=pulumi.get(__response__, 'billing_model'),
-        collection_info=pulumi.get(__response__, 'collection_info'),
-        created_on=pulumi.get(__response__, 'created_on'),
-        credentials_key=pulumi.get(__response__, 'credentials_key'),
-        days_trial_remaining=pulumi.get(__response__, 'days_trial_remaining'),
-        default_management_group_id=pulumi.get(__response__, 'default_management_group_id'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        external_billing_account_id=pulumi.get(__response__, 'external_billing_account_id'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        modified_on=pulumi.get(__response__, 'modified_on'),
-        name=pulumi.get(__response__, 'name'),
-        provider_billing_account_display_name=pulumi.get(__response__, 'provider_billing_account_display_name'),
-        provider_billing_account_id=pulumi.get(__response__, 'provider_billing_account_id'),
-        report_id=pulumi.get(__response__, 'report_id'),
-        status=pulumi.get(__response__, 'status'),
-        subscription_id=pulumi.get(__response__, 'subscription_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

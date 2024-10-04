@@ -147,6 +147,9 @@ def get_solution(resource_group_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_solution)
 def get_solution_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         solution_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionResult]:
@@ -158,16 +161,4 @@ def get_solution_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
     :param str solution_name: User Solution Name.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['solutionName'] = solution_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:operationsmanagement:getSolution', __args__, opts=opts, typ=GetSolutionResult)
-    return __ret__.apply(lambda __response__: GetSolutionResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        plan=pulumi.get(__response__, 'plan'),
-        properties=pulumi.get(__response__, 'properties'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

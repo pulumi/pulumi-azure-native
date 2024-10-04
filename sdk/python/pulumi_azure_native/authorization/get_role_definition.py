@@ -212,6 +212,9 @@ def get_role_definition(role_definition_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_by=pulumi.get(__ret__, 'updated_by'),
         updated_on=pulumi.get(__ret__, 'updated_on'))
+
+
+@_utilities.lift_output_func(get_role_definition)
 def get_role_definition_output(role_definition_id: Optional[pulumi.Input[str]] = None,
                                scope: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleDefinitionResult]:
@@ -223,21 +226,4 @@ def get_role_definition_output(role_definition_id: Optional[pulumi.Input[str]] =
     :param str role_definition_id: The ID of the role definition.
     :param str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     """
-    __args__ = dict()
-    __args__['roleDefinitionId'] = role_definition_id
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getRoleDefinition', __args__, opts=opts, typ=GetRoleDefinitionResult)
-    return __ret__.apply(lambda __response__: GetRoleDefinitionResult(
-        assignable_scopes=pulumi.get(__response__, 'assignable_scopes'),
-        created_by=pulumi.get(__response__, 'created_by'),
-        created_on=pulumi.get(__response__, 'created_on'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        permissions=pulumi.get(__response__, 'permissions'),
-        role_name=pulumi.get(__response__, 'role_name'),
-        role_type=pulumi.get(__response__, 'role_type'),
-        type=pulumi.get(__response__, 'type'),
-        updated_by=pulumi.get(__response__, 'updated_by'),
-        updated_on=pulumi.get(__response__, 'updated_on')))
+    ...

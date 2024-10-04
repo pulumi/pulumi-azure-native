@@ -526,6 +526,9 @@ def get_machine(expand: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         vm_id=pulumi.get(__ret__, 'vm_id'),
         vm_uuid=pulumi.get(__ret__, 'vm_uuid'))
+
+
+@_utilities.lift_output_func(get_machine)
 def get_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        machine_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -538,46 +541,4 @@ def get_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str machine_name: The name of the hybrid machine.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['machineName'] = machine_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcompute/v20221227:getMachine', __args__, opts=opts, typ=GetMachineResult)
-    return __ret__.apply(lambda __response__: GetMachineResult(
-        ad_fqdn=pulumi.get(__response__, 'ad_fqdn'),
-        agent_configuration=pulumi.get(__response__, 'agent_configuration'),
-        agent_upgrade=pulumi.get(__response__, 'agent_upgrade'),
-        agent_version=pulumi.get(__response__, 'agent_version'),
-        client_public_key=pulumi.get(__response__, 'client_public_key'),
-        cloud_metadata=pulumi.get(__response__, 'cloud_metadata'),
-        detected_properties=pulumi.get(__response__, 'detected_properties'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        dns_fqdn=pulumi.get(__response__, 'dns_fqdn'),
-        domain_name=pulumi.get(__response__, 'domain_name'),
-        error_details=pulumi.get(__response__, 'error_details'),
-        extensions=pulumi.get(__response__, 'extensions'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        last_status_change=pulumi.get(__response__, 'last_status_change'),
-        location=pulumi.get(__response__, 'location'),
-        location_data=pulumi.get(__response__, 'location_data'),
-        machine_fqdn=pulumi.get(__response__, 'machine_fqdn'),
-        mssql_discovered=pulumi.get(__response__, 'mssql_discovered'),
-        name=pulumi.get(__response__, 'name'),
-        os_name=pulumi.get(__response__, 'os_name'),
-        os_profile=pulumi.get(__response__, 'os_profile'),
-        os_sku=pulumi.get(__response__, 'os_sku'),
-        os_type=pulumi.get(__response__, 'os_type'),
-        os_version=pulumi.get(__response__, 'os_version'),
-        parent_cluster_resource_id=pulumi.get(__response__, 'parent_cluster_resource_id'),
-        private_link_scope_resource_id=pulumi.get(__response__, 'private_link_scope_resource_id'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resources=pulumi.get(__response__, 'resources'),
-        service_statuses=pulumi.get(__response__, 'service_statuses'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        vm_id=pulumi.get(__response__, 'vm_id'),
-        vm_uuid=pulumi.get(__response__, 'vm_uuid')))
+    ...

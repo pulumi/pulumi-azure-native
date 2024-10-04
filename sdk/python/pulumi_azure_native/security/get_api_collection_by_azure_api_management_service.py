@@ -227,6 +227,9 @@ def get_api_collection_by_azure_api_management_service(api_id: Optional[str] = N
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         sensitivity_label=pulumi.get(__ret__, 'sensitivity_label'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_api_collection_by_azure_api_management_service)
 def get_api_collection_by_azure_api_management_service_output(api_id: Optional[pulumi.Input[str]] = None,
                                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                                               service_name: Optional[pulumi.Input[str]] = None,
@@ -240,23 +243,4 @@ def get_api_collection_by_azure_api_management_service_output(api_id: Optional[p
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['apiId'] = api_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAPICollectionByAzureApiManagementService', __args__, opts=opts, typ=GetAPICollectionByAzureApiManagementServiceResult)
-    return __ret__.apply(lambda __response__: GetAPICollectionByAzureApiManagementServiceResult(
-        base_url=pulumi.get(__response__, 'base_url'),
-        discovered_via=pulumi.get(__response__, 'discovered_via'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        number_of_api_endpoints=pulumi.get(__response__, 'number_of_api_endpoints'),
-        number_of_api_endpoints_with_sensitive_data_exposed=pulumi.get(__response__, 'number_of_api_endpoints_with_sensitive_data_exposed'),
-        number_of_external_api_endpoints=pulumi.get(__response__, 'number_of_external_api_endpoints'),
-        number_of_inactive_api_endpoints=pulumi.get(__response__, 'number_of_inactive_api_endpoints'),
-        number_of_unauthenticated_api_endpoints=pulumi.get(__response__, 'number_of_unauthenticated_api_endpoints'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sensitivity_label=pulumi.get(__response__, 'sensitivity_label'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -217,6 +217,9 @@ def get_storagecontainer_retrieve(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_storagecontainer_retrieve)
 def get_storagecontainer_retrieve_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                          storagecontainers_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStoragecontainerRetrieveResult]:
@@ -226,22 +229,4 @@ def get_storagecontainer_retrieve_output(resource_group_name: Optional[pulumi.In
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['storagecontainersName'] = storagecontainers_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20210901preview:getStoragecontainerRetrieve', __args__, opts=opts, typ=GetStoragecontainerRetrieveResult)
-    return __ret__.apply(lambda __response__: GetStoragecontainerRetrieveResult(
-        available_size_mb=pulumi.get(__response__, 'available_size_mb'),
-        container_size_mb=pulumi.get(__response__, 'container_size_mb'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        path=pulumi.get(__response__, 'path'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_name=pulumi.get(__response__, 'resource_name'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

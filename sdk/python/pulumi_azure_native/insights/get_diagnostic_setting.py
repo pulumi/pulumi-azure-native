@@ -225,6 +225,9 @@ def get_diagnostic_setting(name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
+
+
+@_utilities.lift_output_func(get_diagnostic_setting)
 def get_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_uri: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticSettingResult]:
@@ -236,22 +239,4 @@ def get_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the diagnostic setting.
     :param str resource_uri: The identifier of the resource.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getDiagnosticSetting', __args__, opts=opts, typ=GetDiagnosticSettingResult)
-    return __ret__.apply(lambda __response__: GetDiagnosticSettingResult(
-        event_hub_authorization_rule_id=pulumi.get(__response__, 'event_hub_authorization_rule_id'),
-        event_hub_name=pulumi.get(__response__, 'event_hub_name'),
-        id=pulumi.get(__response__, 'id'),
-        log_analytics_destination_type=pulumi.get(__response__, 'log_analytics_destination_type'),
-        logs=pulumi.get(__response__, 'logs'),
-        marketplace_partner_id=pulumi.get(__response__, 'marketplace_partner_id'),
-        metrics=pulumi.get(__response__, 'metrics'),
-        name=pulumi.get(__response__, 'name'),
-        service_bus_rule_id=pulumi.get(__response__, 'service_bus_rule_id'),
-        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        workspace_id=pulumi.get(__response__, 'workspace_id')))
+    ...

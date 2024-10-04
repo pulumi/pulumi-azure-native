@@ -370,6 +370,9 @@ def get_local_rule(local_rulestack_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_local_rule)
 def get_local_rule_output(local_rulestack_name: Optional[pulumi.Input[str]] = None,
                           priority: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -385,34 +388,4 @@ def get_local_rule_output(local_rulestack_name: Optional[pulumi.Input[str]] = No
     :param str priority: Local Rule priority
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['localRulestackName'] = local_rulestack_name
-    __args__['priority'] = priority
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw:getLocalRule', __args__, opts=opts, typ=GetLocalRuleResult)
-    return __ret__.apply(lambda __response__: GetLocalRuleResult(
-        action_type=pulumi.get(__response__, 'action_type'),
-        applications=pulumi.get(__response__, 'applications'),
-        audit_comment=pulumi.get(__response__, 'audit_comment'),
-        category=pulumi.get(__response__, 'category'),
-        decryption_rule_type=pulumi.get(__response__, 'decryption_rule_type'),
-        description=pulumi.get(__response__, 'description'),
-        destination=pulumi.get(__response__, 'destination'),
-        enable_logging=pulumi.get(__response__, 'enable_logging'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        inbound_inspection_certificate=pulumi.get(__response__, 'inbound_inspection_certificate'),
-        name=pulumi.get(__response__, 'name'),
-        negate_destination=pulumi.get(__response__, 'negate_destination'),
-        negate_source=pulumi.get(__response__, 'negate_source'),
-        priority=pulumi.get(__response__, 'priority'),
-        protocol=pulumi.get(__response__, 'protocol'),
-        protocol_port_list=pulumi.get(__response__, 'protocol_port_list'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        rule_name=pulumi.get(__response__, 'rule_name'),
-        rule_state=pulumi.get(__response__, 'rule_state'),
-        source=pulumi.get(__response__, 'source'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

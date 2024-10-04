@@ -136,6 +136,9 @@ def get_guest_configuration_assignments_vmss(name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_guest_configuration_assignments_vmss)
 def get_guest_configuration_assignments_vmss_output(name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     vmss_name: Optional[pulumi.Input[str]] = None,
@@ -148,16 +151,4 @@ def get_guest_configuration_assignments_vmss_output(name: Optional[pulumi.Input[
     :param str resource_group_name: The resource group name.
     :param str vmss_name: The name of the virtual machine scale set.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['vmssName'] = vmss_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:guestconfiguration/v20240405:getGuestConfigurationAssignmentsVMSS', __args__, opts=opts, typ=GetGuestConfigurationAssignmentsVMSSResult)
-    return __ret__.apply(lambda __response__: GetGuestConfigurationAssignmentsVMSSResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

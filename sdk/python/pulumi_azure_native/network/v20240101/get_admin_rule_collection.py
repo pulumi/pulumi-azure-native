@@ -178,6 +178,9 @@ def get_admin_rule_collection(configuration_name: Optional[str] = None,
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_admin_rule_collection)
 def get_admin_rule_collection_output(configuration_name: Optional[pulumi.Input[str]] = None,
                                      network_manager_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -192,20 +195,4 @@ def get_admin_rule_collection_output(configuration_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group.
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
     """
-    __args__ = dict()
-    __args__['configurationName'] = configuration_name
-    __args__['networkManagerName'] = network_manager_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['ruleCollectionName'] = rule_collection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240101:getAdminRuleCollection', __args__, opts=opts, typ=GetAdminRuleCollectionResult)
-    return __ret__.apply(lambda __response__: GetAdminRuleCollectionResult(
-        applies_to_groups=pulumi.get(__response__, 'applies_to_groups'),
-        description=pulumi.get(__response__, 'description'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_guid=pulumi.get(__response__, 'resource_guid'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -150,6 +150,9 @@ def get_ipam_pool(network_manager_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_ipam_pool)
 def get_ipam_pool_output(network_manager_name: Optional[pulumi.Input[str]] = None,
                          pool_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -163,17 +166,4 @@ def get_ipam_pool_output(network_manager_name: Optional[pulumi.Input[str]] = Non
     :param str pool_name: Pool resource name.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['networkManagerName'] = network_manager_name
-    __args__['poolName'] = pool_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getIpamPool', __args__, opts=opts, typ=GetIpamPoolResult)
-    return __ret__.apply(lambda __response__: GetIpamPoolResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

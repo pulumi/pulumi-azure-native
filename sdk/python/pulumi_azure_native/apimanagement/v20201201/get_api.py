@@ -331,6 +331,9 @@ def get_api(api_id: Optional[str] = None,
         subscription_key_parameter_names=pulumi.get(__ret__, 'subscription_key_parameter_names'),
         subscription_required=pulumi.get(__ret__, 'subscription_required'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_api)
 def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    service_name: Optional[pulumi.Input[str]] = None,
@@ -343,31 +346,4 @@ def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['apiId'] = api_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20201201:getApi', __args__, opts=opts, typ=GetApiResult)
-    return __ret__.apply(lambda __response__: GetApiResult(
-        api_revision=pulumi.get(__response__, 'api_revision'),
-        api_revision_description=pulumi.get(__response__, 'api_revision_description'),
-        api_type=pulumi.get(__response__, 'api_type'),
-        api_version=pulumi.get(__response__, 'api_version'),
-        api_version_description=pulumi.get(__response__, 'api_version_description'),
-        api_version_set=pulumi.get(__response__, 'api_version_set'),
-        api_version_set_id=pulumi.get(__response__, 'api_version_set_id'),
-        authentication_settings=pulumi.get(__response__, 'authentication_settings'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        is_current=pulumi.get(__response__, 'is_current'),
-        is_online=pulumi.get(__response__, 'is_online'),
-        name=pulumi.get(__response__, 'name'),
-        path=pulumi.get(__response__, 'path'),
-        protocols=pulumi.get(__response__, 'protocols'),
-        service_url=pulumi.get(__response__, 'service_url'),
-        source_api_id=pulumi.get(__response__, 'source_api_id'),
-        subscription_key_parameter_names=pulumi.get(__response__, 'subscription_key_parameter_names'),
-        subscription_required=pulumi.get(__response__, 'subscription_required'),
-        type=pulumi.get(__response__, 'type')))
+    ...

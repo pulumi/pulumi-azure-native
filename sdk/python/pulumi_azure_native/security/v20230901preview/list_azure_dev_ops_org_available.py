@@ -81,6 +81,9 @@ def list_azure_dev_ops_org_available(resource_group_name: Optional[str] = None,
     return AwaitableListAzureDevOpsOrgAvailableResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_azure_dev_ops_org_available)
 def list_azure_dev_ops_org_available_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             security_connector_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAzureDevOpsOrgAvailableResult]:
@@ -91,11 +94,4 @@ def list_azure_dev_ops_org_available_output(resource_group_name: Optional[pulumi
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str security_connector_name: The security connector name.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['securityConnectorName'] = security_connector_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20230901preview:listAzureDevOpsOrgAvailable', __args__, opts=opts, typ=ListAzureDevOpsOrgAvailableResult)
-    return __ret__.apply(lambda __response__: ListAzureDevOpsOrgAvailableResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

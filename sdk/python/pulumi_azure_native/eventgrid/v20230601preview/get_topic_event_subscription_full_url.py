@@ -70,6 +70,9 @@ def get_topic_event_subscription_full_url(event_subscription_name: Optional[str]
 
     return AwaitableGetTopicEventSubscriptionFullUrlResult(
         endpoint_url=pulumi.get(__ret__, 'endpoint_url'))
+
+
+@_utilities.lift_output_func(get_topic_event_subscription_full_url)
 def get_topic_event_subscription_full_url_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  topic_name: Optional[pulumi.Input[str]] = None,
@@ -82,11 +85,4 @@ def get_topic_event_subscription_full_url_output(event_subscription_name: Option
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the domain topic.
     """
-    __args__ = dict()
-    __args__['eventSubscriptionName'] = event_subscription_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['topicName'] = topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20230601preview:getTopicEventSubscriptionFullUrl', __args__, opts=opts, typ=GetTopicEventSubscriptionFullUrlResult)
-    return __ret__.apply(lambda __response__: GetTopicEventSubscriptionFullUrlResult(
-        endpoint_url=pulumi.get(__response__, 'endpoint_url')))
+    ...

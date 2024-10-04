@@ -238,6 +238,9 @@ def get_pricing(pricing_name: Optional[str] = None,
         resources_coverage_status=pulumi.get(__ret__, 'resources_coverage_status'),
         sub_plan=pulumi.get(__ret__, 'sub_plan'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_pricing)
 def get_pricing_output(pricing_name: Optional[pulumi.Input[str]] = None,
                        scope_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPricingResult]:
@@ -249,23 +252,4 @@ def get_pricing_output(pricing_name: Optional[pulumi.Input[str]] = None,
     :param str pricing_name: name of the pricing configuration
     :param str scope_id: The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
     """
-    __args__ = dict()
-    __args__['pricingName'] = pricing_name
-    __args__['scopeId'] = scope_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security:getPricing', __args__, opts=opts, typ=GetPricingResult)
-    return __ret__.apply(lambda __response__: GetPricingResult(
-        deprecated=pulumi.get(__response__, 'deprecated'),
-        enablement_time=pulumi.get(__response__, 'enablement_time'),
-        enforce=pulumi.get(__response__, 'enforce'),
-        extensions=pulumi.get(__response__, 'extensions'),
-        free_trial_remaining_time=pulumi.get(__response__, 'free_trial_remaining_time'),
-        id=pulumi.get(__response__, 'id'),
-        inherited=pulumi.get(__response__, 'inherited'),
-        inherited_from=pulumi.get(__response__, 'inherited_from'),
-        name=pulumi.get(__response__, 'name'),
-        pricing_tier=pulumi.get(__response__, 'pricing_tier'),
-        replaced_by=pulumi.get(__response__, 'replaced_by'),
-        resources_coverage_status=pulumi.get(__response__, 'resources_coverage_status'),
-        sub_plan=pulumi.get(__response__, 'sub_plan'),
-        type=pulumi.get(__response__, 'type')))
+    ...

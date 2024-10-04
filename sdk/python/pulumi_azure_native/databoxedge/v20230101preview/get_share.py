@@ -240,6 +240,9 @@ def get_share(device_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         user_access_rights=pulumi.get(__ret__, 'user_access_rights'))
+
+
+@_utilities.lift_output_func(get_share)
 def get_share_output(device_name: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -252,24 +255,4 @@ def get_share_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str name: The share name.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['deviceName'] = device_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20230101preview:getShare', __args__, opts=opts, typ=GetShareResult)
-    return __ret__.apply(lambda __response__: GetShareResult(
-        access_protocol=pulumi.get(__response__, 'access_protocol'),
-        azure_container_info=pulumi.get(__response__, 'azure_container_info'),
-        client_access_rights=pulumi.get(__response__, 'client_access_rights'),
-        data_policy=pulumi.get(__response__, 'data_policy'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        monitoring_status=pulumi.get(__response__, 'monitoring_status'),
-        name=pulumi.get(__response__, 'name'),
-        refresh_details=pulumi.get(__response__, 'refresh_details'),
-        share_mappings=pulumi.get(__response__, 'share_mappings'),
-        share_status=pulumi.get(__response__, 'share_status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        user_access_rights=pulumi.get(__response__, 'user_access_rights')))
+    ...

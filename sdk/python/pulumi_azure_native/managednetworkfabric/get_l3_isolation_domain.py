@@ -279,6 +279,9 @@ def get_l3_isolation_domain(l3_isolation_domain_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_l3_isolation_domain)
 def get_l3_isolation_domain_output(l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL3IsolationDomainResult]:
@@ -292,26 +295,4 @@ def get_l3_isolation_domain_output(l3_isolation_domain_name: Optional[pulumi.Inp
     :param str l3_isolation_domain_name: Name of the L3 Isolation Domain
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['l3IsolationDomainName'] = l3_isolation_domain_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getL3IsolationDomain', __args__, opts=opts, typ=GetL3IsolationDomainResult)
-    return __ret__.apply(lambda __response__: GetL3IsolationDomainResult(
-        administrative_state=pulumi.get(__response__, 'administrative_state'),
-        aggregate_route_configuration=pulumi.get(__response__, 'aggregate_route_configuration'),
-        annotation=pulumi.get(__response__, 'annotation'),
-        connected_subnet_route_policy=pulumi.get(__response__, 'connected_subnet_route_policy'),
-        description=pulumi.get(__response__, 'description'),
-        disabled_on_resources=pulumi.get(__response__, 'disabled_on_resources'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_fabric_id=pulumi.get(__response__, 'network_fabric_id'),
-        option_b_disabled_on_resources=pulumi.get(__response__, 'option_b_disabled_on_resources'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        redistribute_connected_subnets=pulumi.get(__response__, 'redistribute_connected_subnets'),
-        redistribute_static_routes=pulumi.get(__response__, 'redistribute_static_routes'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

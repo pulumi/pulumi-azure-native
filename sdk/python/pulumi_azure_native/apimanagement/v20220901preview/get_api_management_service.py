@@ -575,6 +575,9 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
         virtual_network_configuration=pulumi.get(__ret__, 'virtual_network_configuration'),
         virtual_network_type=pulumi.get(__ret__, 'virtual_network_type'),
         zones=pulumi.get(__ret__, 'zones'))
+
+
+@_utilities.lift_output_func(get_api_management_service)
 def get_api_management_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                       service_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceResult]:
@@ -585,49 +588,4 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20220901preview:getApiManagementService', __args__, opts=opts, typ=GetApiManagementServiceResult)
-    return __ret__.apply(lambda __response__: GetApiManagementServiceResult(
-        additional_locations=pulumi.get(__response__, 'additional_locations'),
-        api_version_constraint=pulumi.get(__response__, 'api_version_constraint'),
-        certificates=pulumi.get(__response__, 'certificates'),
-        created_at_utc=pulumi.get(__response__, 'created_at_utc'),
-        custom_properties=pulumi.get(__response__, 'custom_properties'),
-        developer_portal_url=pulumi.get(__response__, 'developer_portal_url'),
-        disable_gateway=pulumi.get(__response__, 'disable_gateway'),
-        enable_client_certificate=pulumi.get(__response__, 'enable_client_certificate'),
-        etag=pulumi.get(__response__, 'etag'),
-        gateway_regional_url=pulumi.get(__response__, 'gateway_regional_url'),
-        gateway_url=pulumi.get(__response__, 'gateway_url'),
-        hostname_configurations=pulumi.get(__response__, 'hostname_configurations'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        management_api_url=pulumi.get(__response__, 'management_api_url'),
-        name=pulumi.get(__response__, 'name'),
-        nat_gateway_state=pulumi.get(__response__, 'nat_gateway_state'),
-        notification_sender_email=pulumi.get(__response__, 'notification_sender_email'),
-        outbound_public_ip_addresses=pulumi.get(__response__, 'outbound_public_ip_addresses'),
-        platform_version=pulumi.get(__response__, 'platform_version'),
-        portal_url=pulumi.get(__response__, 'portal_url'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        private_ip_addresses=pulumi.get(__response__, 'private_ip_addresses'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_ip_addresses=pulumi.get(__response__, 'public_ip_addresses'),
-        public_ip_address_id=pulumi.get(__response__, 'public_ip_address_id'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        publisher_email=pulumi.get(__response__, 'publisher_email'),
-        publisher_name=pulumi.get(__response__, 'publisher_name'),
-        restore=pulumi.get(__response__, 'restore'),
-        scm_url=pulumi.get(__response__, 'scm_url'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_provisioning_state=pulumi.get(__response__, 'target_provisioning_state'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_network_configuration=pulumi.get(__response__, 'virtual_network_configuration'),
-        virtual_network_type=pulumi.get(__response__, 'virtual_network_type'),
-        zones=pulumi.get(__response__, 'zones')))
+    ...

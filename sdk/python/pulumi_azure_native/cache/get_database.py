@@ -230,6 +230,9 @@ def get_database(cluster_name: Optional[str] = None,
         resource_state=pulumi.get(__ret__, 'resource_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_database)
 def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
                         database_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -245,23 +248,4 @@ def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str database_name: The name of the database.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['databaseName'] = database_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cache:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
-    return __ret__.apply(lambda __response__: GetDatabaseResult(
-        client_protocol=pulumi.get(__response__, 'client_protocol'),
-        clustering_policy=pulumi.get(__response__, 'clustering_policy'),
-        eviction_policy=pulumi.get(__response__, 'eviction_policy'),
-        geo_replication=pulumi.get(__response__, 'geo_replication'),
-        id=pulumi.get(__response__, 'id'),
-        modules=pulumi.get(__response__, 'modules'),
-        name=pulumi.get(__response__, 'name'),
-        persistence=pulumi.get(__response__, 'persistence'),
-        port=pulumi.get(__response__, 'port'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_state=pulumi.get(__response__, 'resource_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

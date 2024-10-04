@@ -225,6 +225,9 @@ def get_storage_task(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         task_version=pulumi.get(__ret__, 'task_version'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_storage_task)
 def get_storage_task_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             storage_task_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageTaskResult]:
@@ -236,22 +239,4 @@ def get_storage_task_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_task_name: The name of the storage task within the specified resource group. Storage task names must be between 3 and 18 characters in length and use numbers and lower-case letters only.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['storageTaskName'] = storage_task_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storageactions:getStorageTask', __args__, opts=opts, typ=GetStorageTaskResult)
-    return __ret__.apply(lambda __response__: GetStorageTaskResult(
-        action=pulumi.get(__response__, 'action'),
-        creation_time_in_utc=pulumi.get(__response__, 'creation_time_in_utc'),
-        description=pulumi.get(__response__, 'description'),
-        enabled=pulumi.get(__response__, 'enabled'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        task_version=pulumi.get(__response__, 'task_version'),
-        type=pulumi.get(__response__, 'type')))
+    ...

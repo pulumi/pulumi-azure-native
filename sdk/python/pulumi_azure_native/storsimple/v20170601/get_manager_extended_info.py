@@ -197,6 +197,9 @@ def get_manager_extended_info(manager_name: Optional[str] = None,
         portal_certificate_thumbprint=pulumi.get(__ret__, 'portal_certificate_thumbprint'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_manager_extended_info)
 def get_manager_extended_info_output(manager_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagerExtendedInfoResult]:
@@ -207,20 +210,4 @@ def get_manager_extended_info_output(manager_name: Optional[pulumi.Input[str]] =
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    __args__ = dict()
-    __args__['managerName'] = manager_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple/v20170601:getManagerExtendedInfo', __args__, opts=opts, typ=GetManagerExtendedInfoResult)
-    return __ret__.apply(lambda __response__: GetManagerExtendedInfoResult(
-        algorithm=pulumi.get(__response__, 'algorithm'),
-        encryption_key=pulumi.get(__response__, 'encryption_key'),
-        encryption_key_thumbprint=pulumi.get(__response__, 'encryption_key_thumbprint'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        integrity_key=pulumi.get(__response__, 'integrity_key'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        portal_certificate_thumbprint=pulumi.get(__response__, 'portal_certificate_thumbprint'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

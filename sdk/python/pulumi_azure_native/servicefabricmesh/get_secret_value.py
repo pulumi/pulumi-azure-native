@@ -149,6 +149,9 @@ def get_secret_value(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(get_secret_value)
 def get_secret_value_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             secret_resource_name: Optional[pulumi.Input[str]] = None,
                             secret_value_resource_name: Optional[pulumi.Input[str]] = None,
@@ -162,17 +165,4 @@ def get_secret_value_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str secret_resource_name: The name of the secret resource.
     :param str secret_value_resource_name: The name of the secret resource value which is typically the version identifier for the value.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['secretResourceName'] = secret_resource_name
-    __args__['secretValueResourceName'] = secret_value_resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh:getSecretValue', __args__, opts=opts, typ=GetSecretValueResult)
-    return __ret__.apply(lambda __response__: GetSecretValueResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        value=pulumi.get(__response__, 'value')))
+    ...

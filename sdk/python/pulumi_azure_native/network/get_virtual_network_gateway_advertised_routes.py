@@ -74,6 +74,9 @@ def get_virtual_network_gateway_advertised_routes(peer: Optional[str] = None,
 
     return AwaitableGetVirtualNetworkGatewayAdvertisedRoutesResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(get_virtual_network_gateway_advertised_routes)
 def get_virtual_network_gateway_advertised_routes_output(peer: Optional[pulumi.Input[str]] = None,
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
@@ -89,11 +92,4 @@ def get_virtual_network_gateway_advertised_routes_output(peer: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_name: The name of the virtual network gateway.
     """
-    __args__ = dict()
-    __args__['peer'] = peer
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVirtualNetworkGatewayAdvertisedRoutes', __args__, opts=opts, typ=GetVirtualNetworkGatewayAdvertisedRoutesResult)
-    return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayAdvertisedRoutesResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

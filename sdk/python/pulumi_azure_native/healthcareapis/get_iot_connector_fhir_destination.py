@@ -181,6 +181,9 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[str] = No
         resource_identity_resolution_type=pulumi.get(__ret__, 'resource_identity_resolution_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_iot_connector_fhir_destination)
 def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pulumi.Input[str]] = None,
                                               iot_connector_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -198,20 +201,4 @@ def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pu
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
-    __args__ = dict()
-    __args__['fhirDestinationName'] = fhir_destination_name
-    __args__['iotConnectorName'] = iot_connector_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:healthcareapis:getIotConnectorFhirDestination', __args__, opts=opts, typ=GetIotConnectorFhirDestinationResult)
-    return __ret__.apply(lambda __response__: GetIotConnectorFhirDestinationResult(
-        etag=pulumi.get(__response__, 'etag'),
-        fhir_mapping=pulumi.get(__response__, 'fhir_mapping'),
-        fhir_service_resource_id=pulumi.get(__response__, 'fhir_service_resource_id'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        resource_identity_resolution_type=pulumi.get(__response__, 'resource_identity_resolution_type'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

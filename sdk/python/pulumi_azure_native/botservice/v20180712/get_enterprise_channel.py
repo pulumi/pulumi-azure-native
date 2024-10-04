@@ -172,6 +172,9 @@ def get_enterprise_channel(resource_group_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_enterprise_channel)
 def get_enterprise_channel_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                   resource_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseChannelResult]:
@@ -182,18 +185,4 @@ def get_enterprise_channel_output(resource_group_name: Optional[pulumi.Input[str
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
     :param str resource_name: The name of the Bot resource.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:botservice/v20180712:getEnterpriseChannel', __args__, opts=opts, typ=GetEnterpriseChannelResult)
-    return __ret__.apply(lambda __response__: GetEnterpriseChannelResult(
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -113,6 +113,9 @@ def get_job_target_group(job_agent_name: Optional[str] = None,
         members=pulumi.get(__ret__, 'members'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_job_target_group)
 def get_job_target_group_output(job_agent_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 server_name: Optional[pulumi.Input[str]] = None,
@@ -127,15 +130,4 @@ def get_job_target_group_output(job_agent_name: Optional[pulumi.Input[str]] = No
     :param str server_name: The name of the server.
     :param str target_group_name: The name of the target group.
     """
-    __args__ = dict()
-    __args__['jobAgentName'] = job_agent_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    __args__['targetGroupName'] = target_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230501preview:getJobTargetGroup', __args__, opts=opts, typ=GetJobTargetGroupResult)
-    return __ret__.apply(lambda __response__: GetJobTargetGroupResult(
-        id=pulumi.get(__response__, 'id'),
-        members=pulumi.get(__response__, 'members'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

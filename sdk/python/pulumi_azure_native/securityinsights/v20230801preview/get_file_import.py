@@ -279,6 +279,9 @@ def get_file_import(file_import_id: Optional[str] = None,
         total_record_count=pulumi.get(__ret__, 'total_record_count'),
         type=pulumi.get(__ret__, 'type'),
         valid_record_count=pulumi.get(__ret__, 'valid_record_count'))
+
+
+@_utilities.lift_output_func(get_file_import)
 def get_file_import_output(file_import_id: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            workspace_name: Optional[pulumi.Input[str]] = None,
@@ -291,27 +294,4 @@ def get_file_import_output(file_import_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['fileImportId'] = file_import_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20230801preview:getFileImport', __args__, opts=opts, typ=GetFileImportResult)
-    return __ret__.apply(lambda __response__: GetFileImportResult(
-        content_type=pulumi.get(__response__, 'content_type'),
-        created_time_utc=pulumi.get(__response__, 'created_time_utc'),
-        error_file=pulumi.get(__response__, 'error_file'),
-        errors_preview=pulumi.get(__response__, 'errors_preview'),
-        files_valid_until_time_utc=pulumi.get(__response__, 'files_valid_until_time_utc'),
-        id=pulumi.get(__response__, 'id'),
-        import_file=pulumi.get(__response__, 'import_file'),
-        import_valid_until_time_utc=pulumi.get(__response__, 'import_valid_until_time_utc'),
-        ingested_record_count=pulumi.get(__response__, 'ingested_record_count'),
-        ingestion_mode=pulumi.get(__response__, 'ingestion_mode'),
-        name=pulumi.get(__response__, 'name'),
-        source=pulumi.get(__response__, 'source'),
-        state=pulumi.get(__response__, 'state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        total_record_count=pulumi.get(__response__, 'total_record_count'),
-        type=pulumi.get(__response__, 'type'),
-        valid_record_count=pulumi.get(__response__, 'valid_record_count')))
+    ...

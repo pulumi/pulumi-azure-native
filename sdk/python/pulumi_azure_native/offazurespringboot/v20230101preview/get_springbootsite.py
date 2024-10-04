@@ -159,6 +159,9 @@ def get_springbootsite(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_springbootsite)
 def get_springbootsite_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               springbootsites_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpringbootsiteResult]:
@@ -169,17 +172,4 @@ def get_springbootsite_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str springbootsites_name: The springbootsites name.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['springbootsitesName'] = springbootsites_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:offazurespringboot/v20230101preview:getSpringbootsite', __args__, opts=opts, typ=GetSpringbootsiteResult)
-    return __ret__.apply(lambda __response__: GetSpringbootsiteResult(
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

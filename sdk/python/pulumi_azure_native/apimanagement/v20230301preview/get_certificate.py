@@ -149,6 +149,9 @@ def get_certificate(certificate_id: Optional[str] = None,
         subject=pulumi.get(__ret__, 'subject'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            service_name: Optional[pulumi.Input[str]] = None,
@@ -161,17 +164,4 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['certificateId'] = certificate_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230301preview:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
-    return __ret__.apply(lambda __response__: GetCertificateResult(
-        expiration_date=pulumi.get(__response__, 'expiration_date'),
-        id=pulumi.get(__response__, 'id'),
-        key_vault=pulumi.get(__response__, 'key_vault'),
-        name=pulumi.get(__response__, 'name'),
-        subject=pulumi.get(__response__, 'subject'),
-        thumbprint=pulumi.get(__response__, 'thumbprint'),
-        type=pulumi.get(__response__, 'type')))
+    ...

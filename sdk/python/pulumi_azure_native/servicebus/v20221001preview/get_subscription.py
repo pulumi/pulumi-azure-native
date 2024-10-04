@@ -373,6 +373,9 @@ def get_subscription(namespace_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
+
+
+@_utilities.lift_output_func(get_subscription)
 def get_subscription_output(namespace_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             subscription_name: Optional[pulumi.Input[str]] = None,
@@ -387,35 +390,4 @@ def get_subscription_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """
-    __args__ = dict()
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['subscriptionName'] = subscription_name
-    __args__['topicName'] = topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus/v20221001preview:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult)
-    return __ret__.apply(lambda __response__: GetSubscriptionResult(
-        accessed_at=pulumi.get(__response__, 'accessed_at'),
-        auto_delete_on_idle=pulumi.get(__response__, 'auto_delete_on_idle'),
-        client_affine_properties=pulumi.get(__response__, 'client_affine_properties'),
-        count_details=pulumi.get(__response__, 'count_details'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        dead_lettering_on_filter_evaluation_exceptions=pulumi.get(__response__, 'dead_lettering_on_filter_evaluation_exceptions'),
-        dead_lettering_on_message_expiration=pulumi.get(__response__, 'dead_lettering_on_message_expiration'),
-        default_message_time_to_live=pulumi.get(__response__, 'default_message_time_to_live'),
-        duplicate_detection_history_time_window=pulumi.get(__response__, 'duplicate_detection_history_time_window'),
-        enable_batched_operations=pulumi.get(__response__, 'enable_batched_operations'),
-        forward_dead_lettered_messages_to=pulumi.get(__response__, 'forward_dead_lettered_messages_to'),
-        forward_to=pulumi.get(__response__, 'forward_to'),
-        id=pulumi.get(__response__, 'id'),
-        is_client_affine=pulumi.get(__response__, 'is_client_affine'),
-        location=pulumi.get(__response__, 'location'),
-        lock_duration=pulumi.get(__response__, 'lock_duration'),
-        max_delivery_count=pulumi.get(__response__, 'max_delivery_count'),
-        message_count=pulumi.get(__response__, 'message_count'),
-        name=pulumi.get(__response__, 'name'),
-        requires_session=pulumi.get(__response__, 'requires_session'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        updated_at=pulumi.get(__response__, 'updated_at')))
+    ...

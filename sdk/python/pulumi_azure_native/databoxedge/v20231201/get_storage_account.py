@@ -188,6 +188,9 @@ def get_storage_account(device_name: Optional[str] = None,
         storage_account_status=pulumi.get(__ret__, 'storage_account_status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_storage_account)
 def get_storage_account_output(device_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -200,20 +203,4 @@ def get_storage_account_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str storage_account_name: The storage account name.
     """
-    __args__ = dict()
-    __args__['deviceName'] = device_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['storageAccountName'] = storage_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20231201:getStorageAccount', __args__, opts=opts, typ=GetStorageAccountResult)
-    return __ret__.apply(lambda __response__: GetStorageAccountResult(
-        blob_endpoint=pulumi.get(__response__, 'blob_endpoint'),
-        container_count=pulumi.get(__response__, 'container_count'),
-        data_policy=pulumi.get(__response__, 'data_policy'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        storage_account_credential_id=pulumi.get(__response__, 'storage_account_credential_id'),
-        storage_account_status=pulumi.get(__response__, 'storage_account_status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

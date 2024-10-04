@@ -175,6 +175,9 @@ def get_azure_large_storage_instance(azure_large_storage_instance_name: Optional
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_azure_large_storage_instance)
 def get_azure_large_storage_instance_output(azure_large_storage_instance_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureLargeStorageInstanceResult]:
@@ -187,18 +190,4 @@ def get_azure_large_storage_instance_output(azure_large_storage_instance_name: O
     :param str azure_large_storage_instance_name: Name of the AzureLargeStorageInstance.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['azureLargeStorageInstanceName'] = azure_large_storage_instance_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azurelargeinstance:getAzureLargeStorageInstance', __args__, opts=opts, typ=GetAzureLargeStorageInstanceResult)
-    return __ret__.apply(lambda __response__: GetAzureLargeStorageInstanceResult(
-        azure_large_storage_instance_unique_identifier=pulumi.get(__response__, 'azure_large_storage_instance_unique_identifier'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        storage_properties=pulumi.get(__response__, 'storage_properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

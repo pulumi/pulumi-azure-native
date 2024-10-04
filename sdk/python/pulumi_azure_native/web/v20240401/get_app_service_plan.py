@@ -460,6 +460,9 @@ def get_app_service_plan(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         worker_tier_name=pulumi.get(__ret__, 'worker_tier_name'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
+
+
+@_utilities.lift_output_func(get_app_service_plan)
 def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServicePlanResult]:
@@ -470,40 +473,4 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the App Service plan.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:getAppServicePlan', __args__, opts=opts, typ=GetAppServicePlanResult)
-    return __ret__.apply(lambda __response__: GetAppServicePlanResult(
-        elastic_scale_enabled=pulumi.get(__response__, 'elastic_scale_enabled'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        free_offer_expiration_time=pulumi.get(__response__, 'free_offer_expiration_time'),
-        geo_region=pulumi.get(__response__, 'geo_region'),
-        hosting_environment_profile=pulumi.get(__response__, 'hosting_environment_profile'),
-        hyper_v=pulumi.get(__response__, 'hyper_v'),
-        id=pulumi.get(__response__, 'id'),
-        is_spot=pulumi.get(__response__, 'is_spot'),
-        is_xenon=pulumi.get(__response__, 'is_xenon'),
-        kind=pulumi.get(__response__, 'kind'),
-        kube_environment_profile=pulumi.get(__response__, 'kube_environment_profile'),
-        location=pulumi.get(__response__, 'location'),
-        maximum_elastic_worker_count=pulumi.get(__response__, 'maximum_elastic_worker_count'),
-        maximum_number_of_workers=pulumi.get(__response__, 'maximum_number_of_workers'),
-        name=pulumi.get(__response__, 'name'),
-        number_of_sites=pulumi.get(__response__, 'number_of_sites'),
-        number_of_workers=pulumi.get(__response__, 'number_of_workers'),
-        per_site_scaling=pulumi.get(__response__, 'per_site_scaling'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        reserved=pulumi.get(__response__, 'reserved'),
-        resource_group=pulumi.get(__response__, 'resource_group'),
-        sku=pulumi.get(__response__, 'sku'),
-        spot_expiration_time=pulumi.get(__response__, 'spot_expiration_time'),
-        status=pulumi.get(__response__, 'status'),
-        subscription=pulumi.get(__response__, 'subscription'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_worker_count=pulumi.get(__response__, 'target_worker_count'),
-        target_worker_size_id=pulumi.get(__response__, 'target_worker_size_id'),
-        type=pulumi.get(__response__, 'type'),
-        worker_tier_name=pulumi.get(__response__, 'worker_tier_name'),
-        zone_redundant=pulumi.get(__response__, 'zone_redundant')))
+    ...

@@ -71,6 +71,9 @@ def list_database_principals(cluster_name: Optional[str] = None,
 
     return AwaitableListDatabasePrincipalsResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_database_principals)
 def list_database_principals_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                     database_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -83,11 +86,4 @@ def list_database_principals_output(cluster_name: Optional[pulumi.Input[str]] = 
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['databaseName'] = database_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20230502:listDatabasePrincipals', __args__, opts=opts, typ=ListDatabasePrincipalsResult)
-    return __ret__.apply(lambda __response__: ListDatabasePrincipalsResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

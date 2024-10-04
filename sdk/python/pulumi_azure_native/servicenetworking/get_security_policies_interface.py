@@ -176,6 +176,9 @@ def get_security_policies_interface(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         waf_policy=pulumi.get(__ret__, 'waf_policy'))
+
+
+@_utilities.lift_output_func(get_security_policies_interface)
 def get_security_policies_interface_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                            security_policy_name: Optional[pulumi.Input[str]] = None,
                                            traffic_controller_name: Optional[pulumi.Input[str]] = None,
@@ -189,19 +192,4 @@ def get_security_policies_interface_output(resource_group_name: Optional[pulumi.
     :param str security_policy_name: SecurityPolicy
     :param str traffic_controller_name: traffic controller name for path
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['securityPolicyName'] = security_policy_name
-    __args__['trafficControllerName'] = traffic_controller_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicenetworking:getSecurityPoliciesInterface', __args__, opts=opts, typ=GetSecurityPoliciesInterfaceResult)
-    return __ret__.apply(lambda __response__: GetSecurityPoliciesInterfaceResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        policy_type=pulumi.get(__response__, 'policy_type'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        waf_policy=pulumi.get(__response__, 'waf_policy')))
+    ...

@@ -135,6 +135,9 @@ def get_access_policy(access_policy_name: Optional[str] = None,
         principal_object_id=pulumi.get(__ret__, 'principal_object_id'),
         roles=pulumi.get(__ret__, 'roles'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_access_policy)
 def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = None,
                              environment_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -147,16 +150,4 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
     :param str environment_name: The name of the Time Series Insights environment associated with the specified resource group.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    __args__ = dict()
-    __args__['accessPolicyName'] = access_policy_name
-    __args__['environmentName'] = environment_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:timeseriesinsights/v20210630preview:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult)
-    return __ret__.apply(lambda __response__: GetAccessPolicyResult(
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        principal_object_id=pulumi.get(__response__, 'principal_object_id'),
-        roles=pulumi.get(__response__, 'roles'),
-        type=pulumi.get(__response__, 'type')))
+    ...

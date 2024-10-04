@@ -306,6 +306,9 @@ def get_application_group(application_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         workspace_arm_path=pulumi.get(__ret__, 'workspace_arm_path'))
+
+
+@_utilities.lift_output_func(get_application_group)
 def get_application_group_output(application_group_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGroupResult]:
@@ -316,29 +319,4 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
     :param str application_group_name: The name of the application group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['applicationGroupName'] = application_group_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization/v20240403:getApplicationGroup', __args__, opts=opts, typ=GetApplicationGroupResult)
-    return __ret__.apply(lambda __response__: GetApplicationGroupResult(
-        application_group_type=pulumi.get(__response__, 'application_group_type'),
-        cloud_pc_resource=pulumi.get(__response__, 'cloud_pc_resource'),
-        description=pulumi.get(__response__, 'description'),
-        etag=pulumi.get(__response__, 'etag'),
-        friendly_name=pulumi.get(__response__, 'friendly_name'),
-        host_pool_arm_path=pulumi.get(__response__, 'host_pool_arm_path'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        managed_by=pulumi.get(__response__, 'managed_by'),
-        name=pulumi.get(__response__, 'name'),
-        object_id=pulumi.get(__response__, 'object_id'),
-        plan=pulumi.get(__response__, 'plan'),
-        show_in_feed=pulumi.get(__response__, 'show_in_feed'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        workspace_arm_path=pulumi.get(__response__, 'workspace_arm_path')))
+    ...

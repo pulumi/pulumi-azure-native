@@ -331,6 +331,9 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
         total_core_count=pulumi.get(__ret__, 'total_core_count'),
         total_node_count=pulumi.get(__ret__, 'total_node_count'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_connected_cluster)
 def get_connected_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedClusterResult]:
@@ -344,30 +347,4 @@ def get_connected_cluster_output(cluster_name: Optional[pulumi.Input[str]] = Non
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetes:getConnectedCluster', __args__, opts=opts, typ=GetConnectedClusterResult)
-    return __ret__.apply(lambda __response__: GetConnectedClusterResult(
-        agent_public_key_certificate=pulumi.get(__response__, 'agent_public_key_certificate'),
-        agent_version=pulumi.get(__response__, 'agent_version'),
-        connectivity_status=pulumi.get(__response__, 'connectivity_status'),
-        distribution=pulumi.get(__response__, 'distribution'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        infrastructure=pulumi.get(__response__, 'infrastructure'),
-        kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
-        last_connectivity_time=pulumi.get(__response__, 'last_connectivity_time'),
-        location=pulumi.get(__response__, 'location'),
-        managed_identity_certificate_expiration_time=pulumi.get(__response__, 'managed_identity_certificate_expiration_time'),
-        name=pulumi.get(__response__, 'name'),
-        offering=pulumi.get(__response__, 'offering'),
-        private_link_scope_resource_id=pulumi.get(__response__, 'private_link_scope_resource_id'),
-        private_link_state=pulumi.get(__response__, 'private_link_state'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        total_core_count=pulumi.get(__response__, 'total_core_count'),
-        total_node_count=pulumi.get(__response__, 'total_node_count'),
-        type=pulumi.get(__response__, 'type')))
+    ...

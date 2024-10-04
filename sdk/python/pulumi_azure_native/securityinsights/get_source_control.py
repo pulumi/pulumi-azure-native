@@ -230,6 +230,9 @@ def get_source_control(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_source_control)
 def get_source_control_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               source_control_id: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
@@ -245,23 +248,4 @@ def get_source_control_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str source_control_id: Source control Id
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sourceControlId'] = source_control_id
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getSourceControl', __args__, opts=opts, typ=GetSourceControlResult)
-    return __ret__.apply(lambda __response__: GetSourceControlResult(
-        content_types=pulumi.get(__response__, 'content_types'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        last_deployment_info=pulumi.get(__response__, 'last_deployment_info'),
-        name=pulumi.get(__response__, 'name'),
-        repo_type=pulumi.get(__response__, 'repo_type'),
-        repository=pulumi.get(__response__, 'repository'),
-        repository_resource_info=pulumi.get(__response__, 'repository_resource_info'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

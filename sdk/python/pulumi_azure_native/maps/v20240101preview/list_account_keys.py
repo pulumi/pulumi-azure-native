@@ -106,6 +106,9 @@ def list_account_keys(account_name: Optional[str] = None,
         primary_key_last_updated=pulumi.get(__ret__, 'primary_key_last_updated'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'),
         secondary_key_last_updated=pulumi.get(__ret__, 'secondary_key_last_updated'))
+
+
+@_utilities.lift_output_func(list_account_keys)
 def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
@@ -116,13 +119,4 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: The name of the Maps Account.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:maps/v20240101preview:listAccountKeys', __args__, opts=opts, typ=ListAccountKeysResult)
-    return __ret__.apply(lambda __response__: ListAccountKeysResult(
-        primary_key=pulumi.get(__response__, 'primary_key'),
-        primary_key_last_updated=pulumi.get(__response__, 'primary_key_last_updated'),
-        secondary_key=pulumi.get(__response__, 'secondary_key'),
-        secondary_key_last_updated=pulumi.get(__response__, 'secondary_key_last_updated')))
+    ...

@@ -345,6 +345,9 @@ def get_account(account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_account)
 def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
@@ -358,31 +361,4 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: The name of the account.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:purview:getAccount', __args__, opts=opts, typ=GetAccountResult)
-    return __ret__.apply(lambda __response__: GetAccountResult(
-        account_status=pulumi.get(__response__, 'account_status'),
-        cloud_connectors=pulumi.get(__response__, 'cloud_connectors'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        created_by=pulumi.get(__response__, 'created_by'),
-        created_by_object_id=pulumi.get(__response__, 'created_by_object_id'),
-        endpoints=pulumi.get(__response__, 'endpoints'),
-        friendly_name=pulumi.get(__response__, 'friendly_name'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        managed_event_hub_state=pulumi.get(__response__, 'managed_event_hub_state'),
-        managed_resource_group_name=pulumi.get(__response__, 'managed_resource_group_name'),
-        managed_resources=pulumi.get(__response__, 'managed_resources'),
-        managed_resources_public_network_access=pulumi.get(__response__, 'managed_resources_public_network_access'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

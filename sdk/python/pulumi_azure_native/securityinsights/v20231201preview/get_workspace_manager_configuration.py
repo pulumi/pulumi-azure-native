@@ -136,6 +136,9 @@ def get_workspace_manager_configuration(resource_group_name: Optional[str] = Non
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workspace_manager_configuration)
 def get_workspace_manager_configuration_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                workspace_manager_configuration_name: Optional[pulumi.Input[str]] = None,
                                                workspace_name: Optional[pulumi.Input[str]] = None,
@@ -148,16 +151,4 @@ def get_workspace_manager_configuration_output(resource_group_name: Optional[pul
     :param str workspace_manager_configuration_name: The name of the workspace manager configuration
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceManagerConfigurationName'] = workspace_manager_configuration_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20231201preview:getWorkspaceManagerConfiguration', __args__, opts=opts, typ=GetWorkspaceManagerConfigurationResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceManagerConfigurationResult(
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        mode=pulumi.get(__response__, 'mode'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

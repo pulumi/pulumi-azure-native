@@ -191,6 +191,9 @@ def get_prefix(expand: Optional[str] = None,
         prefix_validation_state=pulumi.get(__ret__, 'prefix_validation_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_prefix)
 def get_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       peering_service_name: Optional[pulumi.Input[str]] = None,
                       prefix_name: Optional[pulumi.Input[str]] = None,
@@ -205,21 +208,4 @@ def get_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str prefix_name: The name of the prefix.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['peeringServiceName'] = peering_service_name
-    __args__['prefixName'] = prefix_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:peering/v20221001:getPrefix', __args__, opts=opts, typ=GetPrefixResult)
-    return __ret__.apply(lambda __response__: GetPrefixResult(
-        error_message=pulumi.get(__response__, 'error_message'),
-        events=pulumi.get(__response__, 'events'),
-        id=pulumi.get(__response__, 'id'),
-        learned_type=pulumi.get(__response__, 'learned_type'),
-        name=pulumi.get(__response__, 'name'),
-        peering_service_prefix_key=pulumi.get(__response__, 'peering_service_prefix_key'),
-        prefix=pulumi.get(__response__, 'prefix'),
-        prefix_validation_state=pulumi.get(__response__, 'prefix_validation_state'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        type=pulumi.get(__response__, 'type')))
+    ...

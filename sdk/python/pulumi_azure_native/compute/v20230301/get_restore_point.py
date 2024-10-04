@@ -191,6 +191,9 @@ def get_restore_point(expand: Optional[str] = None,
         source_restore_point=pulumi.get(__ret__, 'source_restore_point'),
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_restore_point)
 def get_restore_point_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              restore_point_collection_name: Optional[pulumi.Input[str]] = None,
@@ -205,21 +208,4 @@ def get_restore_point_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     :param str restore_point_collection_name: The name of the restore point collection.
     :param str restore_point_name: The name of the restore point.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['restorePointCollectionName'] = restore_point_collection_name
-    __args__['restorePointName'] = restore_point_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230301:getRestorePoint', __args__, opts=opts, typ=GetRestorePointResult)
-    return __ret__.apply(lambda __response__: GetRestorePointResult(
-        consistency_mode=pulumi.get(__response__, 'consistency_mode'),
-        exclude_disks=pulumi.get(__response__, 'exclude_disks'),
-        id=pulumi.get(__response__, 'id'),
-        instance_view=pulumi.get(__response__, 'instance_view'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        source_metadata=pulumi.get(__response__, 'source_metadata'),
-        source_restore_point=pulumi.get(__response__, 'source_restore_point'),
-        time_created=pulumi.get(__response__, 'time_created'),
-        type=pulumi.get(__response__, 'type')))
+    ...

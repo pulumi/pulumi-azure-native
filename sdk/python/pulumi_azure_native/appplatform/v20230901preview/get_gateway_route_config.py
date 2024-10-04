@@ -126,6 +126,9 @@ def get_gateway_route_config(gateway_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_gateway_route_config)
 def get_gateway_route_config_output(gateway_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     route_config_name: Optional[pulumi.Input[str]] = None,
@@ -140,16 +143,4 @@ def get_gateway_route_config_output(gateway_name: Optional[pulumi.Input[str]] = 
     :param str route_config_name: The name of the Spring Cloud Gateway route config.
     :param str service_name: The name of the Service resource.
     """
-    __args__ = dict()
-    __args__['gatewayName'] = gateway_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['routeConfigName'] = route_config_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20230901preview:getGatewayRouteConfig', __args__, opts=opts, typ=GetGatewayRouteConfigResult)
-    return __ret__.apply(lambda __response__: GetGatewayRouteConfigResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

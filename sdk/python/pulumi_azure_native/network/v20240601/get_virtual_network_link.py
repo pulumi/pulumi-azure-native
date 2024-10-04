@@ -201,6 +201,9 @@ def get_virtual_network_link(private_zone_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'),
         virtual_network_link_state=pulumi.get(__ret__, 'virtual_network_link_state'))
+
+
+@_utilities.lift_output_func(get_virtual_network_link)
 def get_virtual_network_link_output(private_zone_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     virtual_network_link_name: Optional[pulumi.Input[str]] = None,
@@ -213,21 +216,4 @@ def get_virtual_network_link_output(private_zone_name: Optional[pulumi.Input[str
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_link_name: The name of the virtual network link.
     """
-    __args__ = dict()
-    __args__['privateZoneName'] = private_zone_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualNetworkLinkName'] = virtual_network_link_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240601:getVirtualNetworkLink', __args__, opts=opts, typ=GetVirtualNetworkLinkResult)
-    return __ret__.apply(lambda __response__: GetVirtualNetworkLinkResult(
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        registration_enabled=pulumi.get(__response__, 'registration_enabled'),
-        resolution_policy=pulumi.get(__response__, 'resolution_policy'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_network=pulumi.get(__response__, 'virtual_network'),
-        virtual_network_link_state=pulumi.get(__response__, 'virtual_network_link_state')))
+    ...

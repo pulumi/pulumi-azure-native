@@ -217,6 +217,9 @@ def get_job_definition(data_manager_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'),
         user_confirmation=pulumi.get(__ret__, 'user_confirmation'))
+
+
+@_utilities.lift_output_func(get_job_definition)
 def get_job_definition_output(data_manager_name: Optional[pulumi.Input[str]] = None,
                               data_service_name: Optional[pulumi.Input[str]] = None,
                               job_definition_name: Optional[pulumi.Input[str]] = None,
@@ -231,23 +234,4 @@ def get_job_definition_output(data_manager_name: Optional[pulumi.Input[str]] = N
     :param str job_definition_name: The job definition name that is being queried.
     :param str resource_group_name: The Resource Group Name
     """
-    __args__ = dict()
-    __args__['dataManagerName'] = data_manager_name
-    __args__['dataServiceName'] = data_service_name
-    __args__['jobDefinitionName'] = job_definition_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybriddata/v20190601:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult)
-    return __ret__.apply(lambda __response__: GetJobDefinitionResult(
-        customer_secrets=pulumi.get(__response__, 'customer_secrets'),
-        data_service_input=pulumi.get(__response__, 'data_service_input'),
-        data_sink_id=pulumi.get(__response__, 'data_sink_id'),
-        data_source_id=pulumi.get(__response__, 'data_source_id'),
-        id=pulumi.get(__response__, 'id'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        name=pulumi.get(__response__, 'name'),
-        run_location=pulumi.get(__response__, 'run_location'),
-        schedules=pulumi.get(__response__, 'schedules'),
-        state=pulumi.get(__response__, 'state'),
-        type=pulumi.get(__response__, 'type'),
-        user_confirmation=pulumi.get(__response__, 'user_confirmation')))
+    ...

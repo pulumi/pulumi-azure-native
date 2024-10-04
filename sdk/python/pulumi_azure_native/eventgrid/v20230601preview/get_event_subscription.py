@@ -254,6 +254,9 @@ def get_event_subscription(event_subscription_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         topic=pulumi.get(__ret__, 'topic'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_event_subscription)
 def get_event_subscription_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                   scope: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionResult]:
@@ -264,24 +267,4 @@ def get_event_subscription_output(event_subscription_name: Optional[pulumi.Input
     :param str event_subscription_name: Name of the event subscription.
     :param str scope: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
     """
-    __args__ = dict()
-    __args__['eventSubscriptionName'] = event_subscription_name
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20230601preview:getEventSubscription', __args__, opts=opts, typ=GetEventSubscriptionResult)
-    return __ret__.apply(lambda __response__: GetEventSubscriptionResult(
-        dead_letter_destination=pulumi.get(__response__, 'dead_letter_destination'),
-        dead_letter_with_resource_identity=pulumi.get(__response__, 'dead_letter_with_resource_identity'),
-        delivery_with_resource_identity=pulumi.get(__response__, 'delivery_with_resource_identity'),
-        destination=pulumi.get(__response__, 'destination'),
-        event_delivery_schema=pulumi.get(__response__, 'event_delivery_schema'),
-        expiration_time_utc=pulumi.get(__response__, 'expiration_time_utc'),
-        filter=pulumi.get(__response__, 'filter'),
-        id=pulumi.get(__response__, 'id'),
-        labels=pulumi.get(__response__, 'labels'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        retry_policy=pulumi.get(__response__, 'retry_policy'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        topic=pulumi.get(__response__, 'topic'),
-        type=pulumi.get(__response__, 'type')))
+    ...

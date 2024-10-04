@@ -84,6 +84,9 @@ def list_security_advisory_impacted_resource_by_subscription_id_and_event_id(eve
     return AwaitableListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_security_advisory_impacted_resource_by_subscription_id_and_event_id)
 def list_security_advisory_impacted_resource_by_subscription_id_and_event_id_output(event_tracking_id: Optional[pulumi.Input[str]] = None,
                                                                                     filter: Optional[pulumi.Input[Optional[str]]] = None,
                                                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult]:
@@ -97,11 +100,4 @@ def list_security_advisory_impacted_resource_by_subscription_id_and_event_id_out
     :param str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.
     :param str filter: The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN
     """
-    __args__ = dict()
-    __args__['eventTrackingId'] = event_tracking_id
-    __args__['filter'] = filter
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:resourcehealth:listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId', __args__, opts=opts, typ=ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult)
-    return __ret__.apply(lambda __response__: ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

@@ -198,6 +198,9 @@ def get_account(account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_account)
 def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
@@ -208,20 +211,4 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: Name of account.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azureplaywrightservice/v20240201preview:getAccount', __args__, opts=opts, typ=GetAccountResult)
-    return __ret__.apply(lambda __response__: GetAccountResult(
-        dashboard_uri=pulumi.get(__response__, 'dashboard_uri'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        regional_affinity=pulumi.get(__response__, 'regional_affinity'),
-        reporting=pulumi.get(__response__, 'reporting'),
-        scalable_execution=pulumi.get(__response__, 'scalable_execution'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

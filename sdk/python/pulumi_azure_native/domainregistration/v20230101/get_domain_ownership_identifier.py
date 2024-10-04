@@ -122,6 +122,9 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         ownership_id=pulumi.get(__ret__, 'ownership_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_domain_ownership_identifier)
 def get_domain_ownership_identifier_output(domain_name: Optional[pulumi.Input[str]] = None,
                                            name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -134,15 +137,4 @@ def get_domain_ownership_identifier_output(domain_name: Optional[pulumi.Input[st
     :param str name: Name of identifier.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['domainName'] = domain_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:domainregistration/v20230101:getDomainOwnershipIdentifier', __args__, opts=opts, typ=GetDomainOwnershipIdentifierResult)
-    return __ret__.apply(lambda __response__: GetDomainOwnershipIdentifierResult(
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        ownership_id=pulumi.get(__response__, 'ownership_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

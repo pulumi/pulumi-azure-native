@@ -204,6 +204,9 @@ def get_extension(data_manager_for_agriculture_resource_name: Optional[str] = No
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_extension)
 def get_extension_output(data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
                          extension_id: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -219,21 +222,4 @@ def get_extension_output(data_manager_for_agriculture_resource_name: Optional[pu
     :param str extension_id: Id of extension resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['dataManagerForAgricultureResourceName'] = data_manager_for_agriculture_resource_name
-    __args__['extensionId'] = extension_id
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:agfoodplatform:getExtension', __args__, opts=opts, typ=GetExtensionResult)
-    return __ret__.apply(lambda __response__: GetExtensionResult(
-        additional_api_properties=pulumi.get(__response__, 'additional_api_properties'),
-        e_tag=pulumi.get(__response__, 'e_tag'),
-        extension_api_docs_link=pulumi.get(__response__, 'extension_api_docs_link'),
-        extension_auth_link=pulumi.get(__response__, 'extension_auth_link'),
-        extension_category=pulumi.get(__response__, 'extension_category'),
-        extension_id=pulumi.get(__response__, 'extension_id'),
-        id=pulumi.get(__response__, 'id'),
-        installed_extension_version=pulumi.get(__response__, 'installed_extension_version'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

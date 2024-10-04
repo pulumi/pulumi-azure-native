@@ -356,6 +356,9 @@ def get_migration(migration_name: Optional[str] = None,
         target_db_server_resource_id=pulumi.get(__ret__, 'target_db_server_resource_id'),
         trigger_cutover=pulumi.get(__ret__, 'trigger_cutover'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_migration)
 def get_migration_output(migration_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -370,36 +373,4 @@ def get_migration_output(migration_name: Optional[pulumi.Input[str]] = None,
     :param str subscription_id: The subscription ID of the target database server.
     :param str target_db_server_name: The name of the target database server.
     """
-    __args__ = dict()
-    __args__['migrationName'] = migration_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['subscriptionId'] = subscription_id
-    __args__['targetDBServerName'] = target_db_server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20220501preview:getMigration', __args__, opts=opts, typ=GetMigrationResult)
-    return __ret__.apply(lambda __response__: GetMigrationResult(
-        cancel=pulumi.get(__response__, 'cancel'),
-        current_status=pulumi.get(__response__, 'current_status'),
-        d_bs_to_cancel_migration_on=pulumi.get(__response__, 'd_bs_to_cancel_migration_on'),
-        d_bs_to_migrate=pulumi.get(__response__, 'd_bs_to_migrate'),
-        d_bs_to_tigger_cutover_on=pulumi.get(__response__, 'd_bs_to_tigger_cutover_on'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        migration_details_level=pulumi.get(__response__, 'migration_details_level'),
-        migration_id=pulumi.get(__response__, 'migration_id'),
-        migration_mode=pulumi.get(__response__, 'migration_mode'),
-        migration_window_start_time_in_utc=pulumi.get(__response__, 'migration_window_start_time_in_utc'),
-        name=pulumi.get(__response__, 'name'),
-        overwrite_dbs_in_target=pulumi.get(__response__, 'overwrite_dbs_in_target'),
-        setup_logical_replication_on_source_db_if_needed=pulumi.get(__response__, 'setup_logical_replication_on_source_db_if_needed'),
-        source_db_server_fully_qualified_domain_name=pulumi.get(__response__, 'source_db_server_fully_qualified_domain_name'),
-        source_db_server_metadata=pulumi.get(__response__, 'source_db_server_metadata'),
-        source_db_server_resource_id=pulumi.get(__response__, 'source_db_server_resource_id'),
-        start_data_migration=pulumi.get(__response__, 'start_data_migration'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_db_server_fully_qualified_domain_name=pulumi.get(__response__, 'target_db_server_fully_qualified_domain_name'),
-        target_db_server_metadata=pulumi.get(__response__, 'target_db_server_metadata'),
-        target_db_server_resource_id=pulumi.get(__response__, 'target_db_server_resource_id'),
-        trigger_cutover=pulumi.get(__response__, 'trigger_cutover'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -74,6 +74,9 @@ def get_billing_hub_service_free_hour_balance(resource_group_name: Optional[str]
     return AwaitableGetBillingHubServiceFreeHourBalanceResult(
         increment_entries=pulumi.get(__ret__, 'increment_entries'),
         total_remaining_free_hours=pulumi.get(__ret__, 'total_remaining_free_hours'))
+
+
+@_utilities.lift_output_func(get_billing_hub_service_free_hour_balance)
 def get_billing_hub_service_free_hour_balance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      test_base_account_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingHubServiceFreeHourBalanceResult]:
@@ -86,11 +89,4 @@ def get_billing_hub_service_free_hour_balance_output(resource_group_name: Option
     :param str resource_group_name: The name of the resource group that contains the resource.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getBillingHubServiceFreeHourBalance', __args__, opts=opts, typ=GetBillingHubServiceFreeHourBalanceResult)
-    return __ret__.apply(lambda __response__: GetBillingHubServiceFreeHourBalanceResult(
-        increment_entries=pulumi.get(__response__, 'increment_entries'),
-        total_remaining_free_hours=pulumi.get(__response__, 'total_remaining_free_hours')))
+    ...

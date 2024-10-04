@@ -325,6 +325,9 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_size=pulumi.get(__ret__, 'vm_size'))
+
+
+@_utilities.lift_output_func(get_agent_pool)
 def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           resource_name: Optional[pulumi.Input[str]] = None,
@@ -337,31 +340,4 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Parameter for the name of the provisioned cluster
     """
-    __args__ = dict()
-    __args__['agentPoolName'] = agent_pool_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice/v20220901preview:getAgentPool', __args__, opts=opts, typ=GetAgentPoolResult)
-    return __ret__.apply(lambda __response__: GetAgentPoolResult(
-        availability_zones=pulumi.get(__response__, 'availability_zones'),
-        cloud_provider_profile=pulumi.get(__response__, 'cloud_provider_profile'),
-        count=pulumi.get(__response__, 'count'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        max_count=pulumi.get(__response__, 'max_count'),
-        max_pods=pulumi.get(__response__, 'max_pods'),
-        min_count=pulumi.get(__response__, 'min_count'),
-        mode=pulumi.get(__response__, 'mode'),
-        name=pulumi.get(__response__, 'name'),
-        node_image_version=pulumi.get(__response__, 'node_image_version'),
-        node_labels=pulumi.get(__response__, 'node_labels'),
-        node_taints=pulumi.get(__response__, 'node_taints'),
-        os_type=pulumi.get(__response__, 'os_type'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        vm_size=pulumi.get(__response__, 'vm_size')))
+    ...

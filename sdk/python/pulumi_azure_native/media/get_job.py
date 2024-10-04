@@ -244,6 +244,9 @@ def get_job(account_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_job)
 def get_job_output(account_name: Optional[pulumi.Input[str]] = None,
                    job_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -259,25 +262,4 @@ def get_job_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str transform_name: The Transform name.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['jobName'] = job_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['transformName'] = transform_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:media:getJob', __args__, opts=opts, typ=GetJobResult)
-    return __ret__.apply(lambda __response__: GetJobResult(
-        correlation_data=pulumi.get(__response__, 'correlation_data'),
-        created=pulumi.get(__response__, 'created'),
-        description=pulumi.get(__response__, 'description'),
-        end_time=pulumi.get(__response__, 'end_time'),
-        id=pulumi.get(__response__, 'id'),
-        input=pulumi.get(__response__, 'input'),
-        last_modified=pulumi.get(__response__, 'last_modified'),
-        name=pulumi.get(__response__, 'name'),
-        outputs=pulumi.get(__response__, 'outputs'),
-        priority=pulumi.get(__response__, 'priority'),
-        start_time=pulumi.get(__response__, 'start_time'),
-        state=pulumi.get(__response__, 'state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

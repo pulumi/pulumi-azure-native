@@ -121,6 +121,9 @@ def get_web_app_ftp_allowed_slot(name: Optional[str] = None,
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_web_app_ftp_allowed_slot)
 def get_web_app_ftp_allowed_slot_output(name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         slot: Optional[pulumi.Input[str]] = None,
@@ -132,15 +135,4 @@ def get_web_app_ftp_allowed_slot_output(name: Optional[pulumi.Input[str]] = None
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201201:getWebAppFtpAllowedSlot', __args__, opts=opts, typ=GetWebAppFtpAllowedSlotResult)
-    return __ret__.apply(lambda __response__: GetWebAppFtpAllowedSlotResult(
-        allow=pulumi.get(__response__, 'allow'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

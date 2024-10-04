@@ -218,6 +218,9 @@ def get_app_attach_package(app_attach_package_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_app_attach_package)
 def get_app_attach_package_output(app_attach_package_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppAttachPackageResult]:
@@ -231,22 +234,4 @@ def get_app_attach_package_output(app_attach_package_name: Optional[pulumi.Input
     :param str app_attach_package_name: The name of the App Attach package arm object
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['appAttachPackageName'] = app_attach_package_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization:getAppAttachPackage', __args__, opts=opts, typ=GetAppAttachPackageResult)
-    return __ret__.apply(lambda __response__: GetAppAttachPackageResult(
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        managed_by=pulumi.get(__response__, 'managed_by'),
-        name=pulumi.get(__response__, 'name'),
-        plan=pulumi.get(__response__, 'plan'),
-        properties=pulumi.get(__response__, 'properties'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -279,6 +279,9 @@ def get_network_to_network_interconnect(network_fabric_name: Optional[str] = Non
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         use_option_b=pulumi.get(__ret__, 'use_option_b'))
+
+
+@_utilities.lift_output_func(get_network_to_network_interconnect)
 def get_network_to_network_interconnect_output(network_fabric_name: Optional[pulumi.Input[str]] = None,
                                                network_to_network_interconnect_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -291,27 +294,4 @@ def get_network_to_network_interconnect_output(network_fabric_name: Optional[pul
     :param str network_to_network_interconnect_name: Name of the Network to Network Interconnect.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['networkFabricName'] = network_fabric_name
-    __args__['networkToNetworkInterconnectName'] = network_to_network_interconnect_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getNetworkToNetworkInterconnect', __args__, opts=opts, typ=GetNetworkToNetworkInterconnectResult)
-    return __ret__.apply(lambda __response__: GetNetworkToNetworkInterconnectResult(
-        administrative_state=pulumi.get(__response__, 'administrative_state'),
-        configuration_state=pulumi.get(__response__, 'configuration_state'),
-        egress_acl_id=pulumi.get(__response__, 'egress_acl_id'),
-        export_route_policy=pulumi.get(__response__, 'export_route_policy'),
-        id=pulumi.get(__response__, 'id'),
-        import_route_policy=pulumi.get(__response__, 'import_route_policy'),
-        ingress_acl_id=pulumi.get(__response__, 'ingress_acl_id'),
-        is_management_type=pulumi.get(__response__, 'is_management_type'),
-        layer2_configuration=pulumi.get(__response__, 'layer2_configuration'),
-        name=pulumi.get(__response__, 'name'),
-        nni_type=pulumi.get(__response__, 'nni_type'),
-        npb_static_route_configuration=pulumi.get(__response__, 'npb_static_route_configuration'),
-        option_b_layer3_configuration=pulumi.get(__response__, 'option_b_layer3_configuration'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        use_option_b=pulumi.get(__response__, 'use_option_b')))
+    ...

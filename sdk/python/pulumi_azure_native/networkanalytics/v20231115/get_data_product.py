@@ -393,6 +393,9 @@ def get_data_product(data_product_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_data_product)
 def get_data_product_output(data_product_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataProductResult]:
@@ -403,35 +406,4 @@ def get_data_product_output(data_product_name: Optional[pulumi.Input[str]] = Non
     :param str data_product_name: The data product resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['dataProductName'] = data_product_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:networkanalytics/v20231115:getDataProduct', __args__, opts=opts, typ=GetDataProductResult)
-    return __ret__.apply(lambda __response__: GetDataProductResult(
-        available_minor_versions=pulumi.get(__response__, 'available_minor_versions'),
-        consumption_endpoints=pulumi.get(__response__, 'consumption_endpoints'),
-        current_minor_version=pulumi.get(__response__, 'current_minor_version'),
-        customer_encryption_key=pulumi.get(__response__, 'customer_encryption_key'),
-        customer_managed_key_encryption_enabled=pulumi.get(__response__, 'customer_managed_key_encryption_enabled'),
-        documentation=pulumi.get(__response__, 'documentation'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        key_vault_url=pulumi.get(__response__, 'key_vault_url'),
-        location=pulumi.get(__response__, 'location'),
-        major_version=pulumi.get(__response__, 'major_version'),
-        name=pulumi.get(__response__, 'name'),
-        networkacls=pulumi.get(__response__, 'networkacls'),
-        owners=pulumi.get(__response__, 'owners'),
-        private_links_enabled=pulumi.get(__response__, 'private_links_enabled'),
-        product=pulumi.get(__response__, 'product'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        publisher=pulumi.get(__response__, 'publisher'),
-        purview_account=pulumi.get(__response__, 'purview_account'),
-        purview_collection=pulumi.get(__response__, 'purview_collection'),
-        redundancy=pulumi.get(__response__, 'redundancy'),
-        resource_guid=pulumi.get(__response__, 'resource_guid'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

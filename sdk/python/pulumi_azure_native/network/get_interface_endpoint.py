@@ -215,6 +215,9 @@ def get_interface_endpoint(expand: Optional[str] = None,
         subnet=pulumi.get(__ret__, 'subnet'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_interface_endpoint)
 def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                   interface_endpoint_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -228,22 +231,4 @@ def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] 
     :param str interface_endpoint_name: The name of the interface endpoint.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['interfaceEndpointName'] = interface_endpoint_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getInterfaceEndpoint', __args__, opts=opts, typ=GetInterfaceEndpointResult)
-    return __ret__.apply(lambda __response__: GetInterfaceEndpointResult(
-        endpoint_service=pulumi.get(__response__, 'endpoint_service'),
-        etag=pulumi.get(__response__, 'etag'),
-        fqdn=pulumi.get(__response__, 'fqdn'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_interfaces=pulumi.get(__response__, 'network_interfaces'),
-        owner=pulumi.get(__response__, 'owner'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        subnet=pulumi.get(__response__, 'subnet'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

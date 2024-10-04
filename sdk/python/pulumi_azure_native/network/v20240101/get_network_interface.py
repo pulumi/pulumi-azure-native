@@ -435,6 +435,9 @@ def get_network_interface(expand: Optional[str] = None,
         virtual_machine=pulumi.get(__ret__, 'virtual_machine'),
         vnet_encryption_supported=pulumi.get(__ret__, 'vnet_encryption_supported'),
         workload_type=pulumi.get(__ret__, 'workload_type'))
+
+
+@_utilities.lift_output_func(get_network_interface)
 def get_network_interface_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                  network_interface_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -447,39 +450,4 @@ def get_network_interface_output(expand: Optional[pulumi.Input[Optional[str]]] =
     :param str network_interface_name: The name of the network interface.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['networkInterfaceName'] = network_interface_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240101:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult)
-    return __ret__.apply(lambda __response__: GetNetworkInterfaceResult(
-        auxiliary_mode=pulumi.get(__response__, 'auxiliary_mode'),
-        auxiliary_sku=pulumi.get(__response__, 'auxiliary_sku'),
-        disable_tcp_state_tracking=pulumi.get(__response__, 'disable_tcp_state_tracking'),
-        dns_settings=pulumi.get(__response__, 'dns_settings'),
-        dscp_configuration=pulumi.get(__response__, 'dscp_configuration'),
-        enable_accelerated_networking=pulumi.get(__response__, 'enable_accelerated_networking'),
-        enable_ip_forwarding=pulumi.get(__response__, 'enable_ip_forwarding'),
-        etag=pulumi.get(__response__, 'etag'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        hosted_workloads=pulumi.get(__response__, 'hosted_workloads'),
-        id=pulumi.get(__response__, 'id'),
-        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
-        location=pulumi.get(__response__, 'location'),
-        mac_address=pulumi.get(__response__, 'mac_address'),
-        migration_phase=pulumi.get(__response__, 'migration_phase'),
-        name=pulumi.get(__response__, 'name'),
-        network_security_group=pulumi.get(__response__, 'network_security_group'),
-        nic_type=pulumi.get(__response__, 'nic_type'),
-        primary=pulumi.get(__response__, 'primary'),
-        private_endpoint=pulumi.get(__response__, 'private_endpoint'),
-        private_link_service=pulumi.get(__response__, 'private_link_service'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_guid=pulumi.get(__response__, 'resource_guid'),
-        tags=pulumi.get(__response__, 'tags'),
-        tap_configurations=pulumi.get(__response__, 'tap_configurations'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_machine=pulumi.get(__response__, 'virtual_machine'),
-        vnet_encryption_supported=pulumi.get(__response__, 'vnet_encryption_supported'),
-        workload_type=pulumi.get(__response__, 'workload_type')))
+    ...

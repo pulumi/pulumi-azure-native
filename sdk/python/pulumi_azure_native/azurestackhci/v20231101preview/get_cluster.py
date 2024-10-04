@@ -432,6 +432,9 @@ def get_cluster(cluster_name: Optional[str] = None,
         trial_days_remaining=pulumi.get(__ret__, 'trial_days_remaining'),
         type=pulumi.get(__ret__, 'type'),
         user_assigned_identities=pulumi.get(__ret__, 'user_assigned_identities'))
+
+
+@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -442,38 +445,4 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20231101preview:getCluster', __args__, opts=opts, typ=GetClusterResult)
-    return __ret__.apply(lambda __response__: GetClusterResult(
-        aad_application_object_id=pulumi.get(__response__, 'aad_application_object_id'),
-        aad_client_id=pulumi.get(__response__, 'aad_client_id'),
-        aad_service_principal_object_id=pulumi.get(__response__, 'aad_service_principal_object_id'),
-        aad_tenant_id=pulumi.get(__response__, 'aad_tenant_id'),
-        billing_model=pulumi.get(__response__, 'billing_model'),
-        cloud_id=pulumi.get(__response__, 'cloud_id'),
-        cloud_management_endpoint=pulumi.get(__response__, 'cloud_management_endpoint'),
-        connectivity_status=pulumi.get(__response__, 'connectivity_status'),
-        desired_properties=pulumi.get(__response__, 'desired_properties'),
-        id=pulumi.get(__response__, 'id'),
-        isolated_vm_attestation_configuration=pulumi.get(__response__, 'isolated_vm_attestation_configuration'),
-        last_billing_timestamp=pulumi.get(__response__, 'last_billing_timestamp'),
-        last_sync_timestamp=pulumi.get(__response__, 'last_sync_timestamp'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        principal_id=pulumi.get(__response__, 'principal_id'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        registration_timestamp=pulumi.get(__response__, 'registration_timestamp'),
-        reported_properties=pulumi.get(__response__, 'reported_properties'),
-        resource_provider_object_id=pulumi.get(__response__, 'resource_provider_object_id'),
-        service_endpoint=pulumi.get(__response__, 'service_endpoint'),
-        software_assurance_properties=pulumi.get(__response__, 'software_assurance_properties'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        trial_days_remaining=pulumi.get(__response__, 'trial_days_remaining'),
-        type=pulumi.get(__response__, 'type'),
-        user_assigned_identities=pulumi.get(__response__, 'user_assigned_identities')))
+    ...

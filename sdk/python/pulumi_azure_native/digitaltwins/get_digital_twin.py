@@ -227,6 +227,9 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_digital_twin)
 def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             resource_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDigitalTwinResult]:
@@ -240,22 +243,4 @@ def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param str resource_name: The name of the DigitalTwinsInstance.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:digitaltwins:getDigitalTwin', __args__, opts=opts, typ=GetDigitalTwinResult)
-    return __ret__.apply(lambda __response__: GetDigitalTwinResult(
-        created_time=pulumi.get(__response__, 'created_time'),
-        host_name=pulumi.get(__response__, 'host_name'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

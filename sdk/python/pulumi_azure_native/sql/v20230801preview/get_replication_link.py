@@ -255,6 +255,9 @@ def get_replication_link(database_name: Optional[str] = None,
         role=pulumi.get(__ret__, 'role'),
         start_time=pulumi.get(__ret__, 'start_time'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_replication_link)
 def get_replication_link_output(database_name: Optional[pulumi.Input[str]] = None,
                                 link_id: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -269,26 +272,4 @@ def get_replication_link_output(database_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    __args__ = dict()
-    __args__['databaseName'] = database_name
-    __args__['linkId'] = link_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230801preview:getReplicationLink', __args__, opts=opts, typ=GetReplicationLinkResult)
-    return __ret__.apply(lambda __response__: GetReplicationLinkResult(
-        id=pulumi.get(__response__, 'id'),
-        is_termination_allowed=pulumi.get(__response__, 'is_termination_allowed'),
-        link_type=pulumi.get(__response__, 'link_type'),
-        name=pulumi.get(__response__, 'name'),
-        partner_database=pulumi.get(__response__, 'partner_database'),
-        partner_database_id=pulumi.get(__response__, 'partner_database_id'),
-        partner_location=pulumi.get(__response__, 'partner_location'),
-        partner_role=pulumi.get(__response__, 'partner_role'),
-        partner_server=pulumi.get(__response__, 'partner_server'),
-        percent_complete=pulumi.get(__response__, 'percent_complete'),
-        replication_mode=pulumi.get(__response__, 'replication_mode'),
-        replication_state=pulumi.get(__response__, 'replication_state'),
-        role=pulumi.get(__response__, 'role'),
-        start_time=pulumi.get(__response__, 'start_time'),
-        type=pulumi.get(__response__, 'type')))
+    ...

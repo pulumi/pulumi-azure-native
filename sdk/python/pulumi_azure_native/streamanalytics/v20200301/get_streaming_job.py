@@ -435,6 +435,9 @@ def get_streaming_job(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transformation=pulumi.get(__ret__, 'transformation'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_streaming_job)
 def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                              job_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -447,39 +450,4 @@ def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     :param str job_name: The name of the streaming job.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['jobName'] = job_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:streamanalytics/v20200301:getStreamingJob', __args__, opts=opts, typ=GetStreamingJobResult)
-    return __ret__.apply(lambda __response__: GetStreamingJobResult(
-        cluster=pulumi.get(__response__, 'cluster'),
-        compatibility_level=pulumi.get(__response__, 'compatibility_level'),
-        content_storage_policy=pulumi.get(__response__, 'content_storage_policy'),
-        created_date=pulumi.get(__response__, 'created_date'),
-        data_locale=pulumi.get(__response__, 'data_locale'),
-        etag=pulumi.get(__response__, 'etag'),
-        events_late_arrival_max_delay_in_seconds=pulumi.get(__response__, 'events_late_arrival_max_delay_in_seconds'),
-        events_out_of_order_max_delay_in_seconds=pulumi.get(__response__, 'events_out_of_order_max_delay_in_seconds'),
-        events_out_of_order_policy=pulumi.get(__response__, 'events_out_of_order_policy'),
-        functions=pulumi.get(__response__, 'functions'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        inputs=pulumi.get(__response__, 'inputs'),
-        job_id=pulumi.get(__response__, 'job_id'),
-        job_state=pulumi.get(__response__, 'job_state'),
-        job_storage_account=pulumi.get(__response__, 'job_storage_account'),
-        job_type=pulumi.get(__response__, 'job_type'),
-        last_output_event_time=pulumi.get(__response__, 'last_output_event_time'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        output_error_policy=pulumi.get(__response__, 'output_error_policy'),
-        output_start_mode=pulumi.get(__response__, 'output_start_mode'),
-        output_start_time=pulumi.get(__response__, 'output_start_time'),
-        outputs=pulumi.get(__response__, 'outputs'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        transformation=pulumi.get(__response__, 'transformation'),
-        type=pulumi.get(__response__, 'type')))
+    ...

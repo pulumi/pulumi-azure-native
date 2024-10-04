@@ -224,6 +224,9 @@ def get_target(name: Optional[str] = None,
         topologies=pulumi.get(__ret__, 'topologies'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_target)
 def get_target_output(name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetResult]:
@@ -234,22 +237,4 @@ def get_target_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of target.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsorchestrator/v20231004preview:getTarget', __args__, opts=opts, typ=GetTargetResult)
-    return __ret__.apply(lambda __response__: GetTargetResult(
-        components=pulumi.get(__response__, 'components'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        reconciliation_policy=pulumi.get(__response__, 'reconciliation_policy'),
-        scope=pulumi.get(__response__, 'scope'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        topologies=pulumi.get(__response__, 'topologies'),
-        type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+    ...

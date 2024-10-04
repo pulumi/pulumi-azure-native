@@ -207,6 +207,9 @@ def get_availability_group_listener(availability_group_listener_name: Optional[s
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_availability_group_listener)
 def get_availability_group_listener_output(availability_group_listener_name: Optional[pulumi.Input[str]] = None,
                                            expand: Optional[pulumi.Input[Optional[str]]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -224,22 +227,4 @@ def get_availability_group_listener_output(availability_group_listener_name: Opt
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str sql_virtual_machine_group_name: Name of the SQL virtual machine group.
     """
-    __args__ = dict()
-    __args__['availabilityGroupListenerName'] = availability_group_listener_name
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sqlVirtualMachineGroupName'] = sql_virtual_machine_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sqlvirtualmachine:getAvailabilityGroupListener', __args__, opts=opts, typ=GetAvailabilityGroupListenerResult)
-    return __ret__.apply(lambda __response__: GetAvailabilityGroupListenerResult(
-        availability_group_configuration=pulumi.get(__response__, 'availability_group_configuration'),
-        availability_group_name=pulumi.get(__response__, 'availability_group_name'),
-        create_default_availability_group_if_not_exist=pulumi.get(__response__, 'create_default_availability_group_if_not_exist'),
-        id=pulumi.get(__response__, 'id'),
-        load_balancer_configurations=pulumi.get(__response__, 'load_balancer_configurations'),
-        multi_subnet_ip_configurations=pulumi.get(__response__, 'multi_subnet_ip_configurations'),
-        name=pulumi.get(__response__, 'name'),
-        port=pulumi.get(__response__, 'port'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -177,6 +177,9 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
         peer_express_route_circuit=pulumi.get(__ret__, 'peer_express_route_circuit'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_global_reach_connection)
 def get_global_reach_connection_output(global_reach_connection_name: Optional[pulumi.Input[str]] = None,
                                        private_cloud_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -192,19 +195,4 @@ def get_global_reach_connection_output(global_reach_connection_name: Optional[pu
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['globalReachConnectionName'] = global_reach_connection_name
-    __args__['privateCloudName'] = private_cloud_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:avs:getGlobalReachConnection', __args__, opts=opts, typ=GetGlobalReachConnectionResult)
-    return __ret__.apply(lambda __response__: GetGlobalReachConnectionResult(
-        address_prefix=pulumi.get(__response__, 'address_prefix'),
-        authorization_key=pulumi.get(__response__, 'authorization_key'),
-        circuit_connection_status=pulumi.get(__response__, 'circuit_connection_status'),
-        express_route_id=pulumi.get(__response__, 'express_route_id'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        peer_express_route_circuit=pulumi.get(__response__, 'peer_express_route_circuit'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        type=pulumi.get(__response__, 'type')))
+    ...

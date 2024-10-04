@@ -239,6 +239,9 @@ def get_private_zone(private_zone_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_private_zone)
 def get_private_zone_output(private_zone_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateZoneResult]:
@@ -252,23 +255,4 @@ def get_private_zone_output(private_zone_name: Optional[pulumi.Input[str]] = Non
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['privateZoneName'] = private_zone_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getPrivateZone', __args__, opts=opts, typ=GetPrivateZoneResult)
-    return __ret__.apply(lambda __response__: GetPrivateZoneResult(
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        internal_id=pulumi.get(__response__, 'internal_id'),
-        location=pulumi.get(__response__, 'location'),
-        max_number_of_record_sets=pulumi.get(__response__, 'max_number_of_record_sets'),
-        max_number_of_virtual_network_links=pulumi.get(__response__, 'max_number_of_virtual_network_links'),
-        max_number_of_virtual_network_links_with_registration=pulumi.get(__response__, 'max_number_of_virtual_network_links_with_registration'),
-        name=pulumi.get(__response__, 'name'),
-        number_of_record_sets=pulumi.get(__response__, 'number_of_record_sets'),
-        number_of_virtual_network_links=pulumi.get(__response__, 'number_of_virtual_network_links'),
-        number_of_virtual_network_links_with_registration=pulumi.get(__response__, 'number_of_virtual_network_links_with_registration'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

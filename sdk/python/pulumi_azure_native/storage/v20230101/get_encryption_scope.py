@@ -175,6 +175,9 @@ def get_encryption_scope(account_name: Optional[str] = None,
         source=pulumi.get(__ret__, 'source'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_encryption_scope)
 def get_encryption_scope_output(account_name: Optional[pulumi.Input[str]] = None,
                                 encryption_scope_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -187,19 +190,4 @@ def get_encryption_scope_output(account_name: Optional[pulumi.Input[str]] = None
     :param str encryption_scope_name: The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['encryptionScopeName'] = encryption_scope_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230101:getEncryptionScope', __args__, opts=opts, typ=GetEncryptionScopeResult)
-    return __ret__.apply(lambda __response__: GetEncryptionScopeResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        id=pulumi.get(__response__, 'id'),
-        key_vault_properties=pulumi.get(__response__, 'key_vault_properties'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        name=pulumi.get(__response__, 'name'),
-        require_infrastructure_encryption=pulumi.get(__response__, 'require_infrastructure_encryption'),
-        source=pulumi.get(__response__, 'source'),
-        state=pulumi.get(__response__, 'state'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -264,6 +264,9 @@ def get_azure_bare_metal_instance(azure_bare_metal_instance_name: Optional[str] 
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_azure_bare_metal_instance)
 def get_azure_bare_metal_instance_output(azure_bare_metal_instance_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureBareMetalInstanceResult]:
@@ -275,25 +278,4 @@ def get_azure_bare_metal_instance_output(azure_bare_metal_instance_name: Optiona
     :param str azure_bare_metal_instance_name: Name of the Azure Bare Metal Instance, also known as the ResourceName.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['azureBareMetalInstanceName'] = azure_bare_metal_instance_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:baremetalinfrastructure:getAzureBareMetalInstance', __args__, opts=opts, typ=GetAzureBareMetalInstanceResult)
-    return __ret__.apply(lambda __response__: GetAzureBareMetalInstanceResult(
-        azure_bare_metal_instance_id=pulumi.get(__response__, 'azure_bare_metal_instance_id'),
-        hardware_profile=pulumi.get(__response__, 'hardware_profile'),
-        hw_revision=pulumi.get(__response__, 'hw_revision'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_profile=pulumi.get(__response__, 'network_profile'),
-        os_profile=pulumi.get(__response__, 'os_profile'),
-        partner_node_id=pulumi.get(__response__, 'partner_node_id'),
-        power_state=pulumi.get(__response__, 'power_state'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        proximity_placement_group=pulumi.get(__response__, 'proximity_placement_group'),
-        storage_profile=pulumi.get(__response__, 'storage_profile'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

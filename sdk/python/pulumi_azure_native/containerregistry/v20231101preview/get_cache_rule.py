@@ -176,6 +176,9 @@ def get_cache_rule(cache_rule_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         target_repository=pulumi.get(__ret__, 'target_repository'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_cache_rule)
 def get_cache_rule_output(cache_rule_name: Optional[pulumi.Input[str]] = None,
                           registry_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -188,19 +191,4 @@ def get_cache_rule_output(cache_rule_name: Optional[pulumi.Input[str]] = None,
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['cacheRuleName'] = cache_rule_name
-    __args__['registryName'] = registry_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20231101preview:getCacheRule', __args__, opts=opts, typ=GetCacheRuleResult)
-    return __ret__.apply(lambda __response__: GetCacheRuleResult(
-        creation_date=pulumi.get(__response__, 'creation_date'),
-        credential_set_resource_id=pulumi.get(__response__, 'credential_set_resource_id'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        source_repository=pulumi.get(__response__, 'source_repository'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        target_repository=pulumi.get(__response__, 'target_repository'),
-        type=pulumi.get(__response__, 'type')))
+    ...

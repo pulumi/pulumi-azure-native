@@ -102,6 +102,9 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
         notebook_access_keys=pulumi.get(__ret__, 'notebook_access_keys'),
         user_storage_key=pulumi.get(__ret__, 'user_storage_key'),
         user_storage_resource_id=pulumi.get(__ret__, 'user_storage_resource_id'))
+
+
+@_utilities.lift_output_func(list_workspace_keys)
 def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
@@ -112,14 +115,4 @@ def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20230401preview:listWorkspaceKeys', __args__, opts=opts, typ=ListWorkspaceKeysResult)
-    return __ret__.apply(lambda __response__: ListWorkspaceKeysResult(
-        app_insights_instrumentation_key=pulumi.get(__response__, 'app_insights_instrumentation_key'),
-        container_registry_credentials=pulumi.get(__response__, 'container_registry_credentials'),
-        notebook_access_keys=pulumi.get(__response__, 'notebook_access_keys'),
-        user_storage_key=pulumi.get(__response__, 'user_storage_key'),
-        user_storage_resource_id=pulumi.get(__response__, 'user_storage_resource_id')))
+    ...

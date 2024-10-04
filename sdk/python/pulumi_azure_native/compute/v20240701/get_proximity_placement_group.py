@@ -214,6 +214,9 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
         virtual_machine_scale_sets=pulumi.get(__ret__, 'virtual_machine_scale_sets'),
         virtual_machines=pulumi.get(__ret__, 'virtual_machines'),
         zones=pulumi.get(__ret__, 'zones'))
+
+
+@_utilities.lift_output_func(get_proximity_placement_group)
 def get_proximity_placement_group_output(include_colocation_status: Optional[pulumi.Input[Optional[str]]] = None,
                                          proximity_placement_group_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -226,22 +229,4 @@ def get_proximity_placement_group_output(include_colocation_status: Optional[pul
     :param str proximity_placement_group_name: The name of the proximity placement group.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['includeColocationStatus'] = include_colocation_status
-    __args__['proximityPlacementGroupName'] = proximity_placement_group_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20240701:getProximityPlacementGroup', __args__, opts=opts, typ=GetProximityPlacementGroupResult)
-    return __ret__.apply(lambda __response__: GetProximityPlacementGroupResult(
-        availability_sets=pulumi.get(__response__, 'availability_sets'),
-        colocation_status=pulumi.get(__response__, 'colocation_status'),
-        id=pulumi.get(__response__, 'id'),
-        intent=pulumi.get(__response__, 'intent'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        proximity_placement_group_type=pulumi.get(__response__, 'proximity_placement_group_type'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_machine_scale_sets=pulumi.get(__response__, 'virtual_machine_scale_sets'),
-        virtual_machines=pulumi.get(__response__, 'virtual_machines'),
-        zones=pulumi.get(__response__, 'zones')))
+    ...

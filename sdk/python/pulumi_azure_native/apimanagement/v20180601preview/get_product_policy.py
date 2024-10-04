@@ -125,6 +125,9 @@ def get_product_policy(policy_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         policy_content=pulumi.get(__ret__, 'policy_content'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_product_policy)
 def get_product_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
                               product_id: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -139,16 +142,4 @@ def get_product_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['policyId'] = policy_id
-    __args__['productId'] = product_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20180601preview:getProductPolicy', __args__, opts=opts, typ=GetProductPolicyResult)
-    return __ret__.apply(lambda __response__: GetProductPolicyResult(
-        content_format=pulumi.get(__response__, 'content_format'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        policy_content=pulumi.get(__response__, 'policy_content'),
-        type=pulumi.get(__response__, 'type')))
+    ...

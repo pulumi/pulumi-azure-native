@@ -283,6 +283,9 @@ def get_connection(connection_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_connection)
 def get_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
@@ -293,27 +296,4 @@ def get_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
     :param str connection_name: The connection name.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['connectionName'] = connection_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20150801preview:getConnection', __args__, opts=opts, typ=GetConnectionResult)
-    return __ret__.apply(lambda __response__: GetConnectionResult(
-        api=pulumi.get(__response__, 'api'),
-        changed_time=pulumi.get(__response__, 'changed_time'),
-        created_time=pulumi.get(__response__, 'created_time'),
-        custom_parameter_values=pulumi.get(__response__, 'custom_parameter_values'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        first_expiration_time=pulumi.get(__response__, 'first_expiration_time'),
-        id=pulumi.get(__response__, 'id'),
-        keywords=pulumi.get(__response__, 'keywords'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        name=pulumi.get(__response__, 'name'),
-        non_secret_parameter_values=pulumi.get(__response__, 'non_secret_parameter_values'),
-        parameter_values=pulumi.get(__response__, 'parameter_values'),
-        statuses=pulumi.get(__response__, 'statuses'),
-        tags=pulumi.get(__response__, 'tags'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

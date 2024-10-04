@@ -175,6 +175,9 @@ def get_start_stop_managed_instance_schedule(managed_instance_name: Optional[str
         system_data=pulumi.get(__ret__, 'system_data'),
         time_zone_id=pulumi.get(__ret__, 'time_zone_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_start_stop_managed_instance_schedule)
 def get_start_stop_managed_instance_schedule_output(managed_instance_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     start_stop_schedule_name: Optional[pulumi.Input[str]] = None,
@@ -187,19 +190,4 @@ def get_start_stop_managed_instance_schedule_output(managed_instance_name: Optio
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str start_stop_schedule_name: Name of the managed instance Start/Stop schedule.
     """
-    __args__ = dict()
-    __args__['managedInstanceName'] = managed_instance_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['startStopScheduleName'] = start_stop_schedule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230201preview:getStartStopManagedInstanceSchedule', __args__, opts=opts, typ=GetStartStopManagedInstanceScheduleResult)
-    return __ret__.apply(lambda __response__: GetStartStopManagedInstanceScheduleResult(
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        next_execution_time=pulumi.get(__response__, 'next_execution_time'),
-        next_run_action=pulumi.get(__response__, 'next_run_action'),
-        schedule_list=pulumi.get(__response__, 'schedule_list'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        time_zone_id=pulumi.get(__response__, 'time_zone_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

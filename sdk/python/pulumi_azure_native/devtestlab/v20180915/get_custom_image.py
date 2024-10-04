@@ -282,6 +282,9 @@ def get_custom_image(expand: Optional[str] = None,
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
         vhd=pulumi.get(__ret__, 'vhd'),
         vm=pulumi.get(__ret__, 'vm'))
+
+
+@_utilities.lift_output_func(get_custom_image)
 def get_custom_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                             lab_name: Optional[pulumi.Input[str]] = None,
                             name: Optional[pulumi.Input[str]] = None,
@@ -296,28 +299,4 @@ def get_custom_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None
     :param str name: The name of the custom image.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['labName'] = lab_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getCustomImage', __args__, opts=opts, typ=GetCustomImageResult)
-    return __ret__.apply(lambda __response__: GetCustomImageResult(
-        author=pulumi.get(__response__, 'author'),
-        creation_date=pulumi.get(__response__, 'creation_date'),
-        custom_image_plan=pulumi.get(__response__, 'custom_image_plan'),
-        data_disk_storage_info=pulumi.get(__response__, 'data_disk_storage_info'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        is_plan_authorized=pulumi.get(__response__, 'is_plan_authorized'),
-        location=pulumi.get(__response__, 'location'),
-        managed_image_id=pulumi.get(__response__, 'managed_image_id'),
-        managed_snapshot_id=pulumi.get(__response__, 'managed_snapshot_id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        unique_identifier=pulumi.get(__response__, 'unique_identifier'),
-        vhd=pulumi.get(__response__, 'vhd'),
-        vm=pulumi.get(__response__, 'vm')))
+    ...

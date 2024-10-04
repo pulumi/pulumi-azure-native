@@ -171,6 +171,9 @@ def get_query_pack(query_pack_name: Optional[str] = None,
         time_created=pulumi.get(__ret__, 'time_created'),
         time_modified=pulumi.get(__ret__, 'time_modified'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_query_pack)
 def get_query_pack_output(query_pack_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueryPackResult]:
@@ -181,18 +184,4 @@ def get_query_pack_output(query_pack_name: Optional[pulumi.Input[str]] = None,
     :param str query_pack_name: The name of the Log Analytics QueryPack resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['queryPackName'] = query_pack_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights/v20190901:getQueryPack', __args__, opts=opts, typ=GetQueryPackResult)
-    return __ret__.apply(lambda __response__: GetQueryPackResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        query_pack_id=pulumi.get(__response__, 'query_pack_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        time_created=pulumi.get(__response__, 'time_created'),
-        time_modified=pulumi.get(__response__, 'time_modified'),
-        type=pulumi.get(__response__, 'type')))
+    ...

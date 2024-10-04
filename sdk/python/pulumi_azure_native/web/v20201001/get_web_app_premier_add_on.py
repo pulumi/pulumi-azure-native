@@ -214,6 +214,9 @@ def get_web_app_premier_add_on(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vendor=pulumi.get(__ret__, 'vendor'))
+
+
+@_utilities.lift_output_func(get_web_app_premier_add_on)
 def get_web_app_premier_add_on_output(name: Optional[pulumi.Input[str]] = None,
                                       premier_add_on_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -226,22 +229,4 @@ def get_web_app_premier_add_on_output(name: Optional[pulumi.Input[str]] = None,
     :param str premier_add_on_name: Add-on name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['premierAddOnName'] = premier_add_on_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:getWebAppPremierAddOn', __args__, opts=opts, typ=GetWebAppPremierAddOnResult)
-    return __ret__.apply(lambda __response__: GetWebAppPremierAddOnResult(
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        marketplace_offer=pulumi.get(__response__, 'marketplace_offer'),
-        marketplace_publisher=pulumi.get(__response__, 'marketplace_publisher'),
-        name=pulumi.get(__response__, 'name'),
-        product=pulumi.get(__response__, 'product'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        vendor=pulumi.get(__response__, 'vendor')))
+    ...

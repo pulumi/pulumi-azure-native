@@ -96,6 +96,9 @@ def get_test_result_file(continuation_token: Optional[str] = None,
     return AwaitableGetTestResultFileResult(
         data=pulumi.get(__ret__, 'data'),
         next_link=pulumi.get(__ret__, 'next_link'))
+
+
+@_utilities.lift_output_func(get_test_result_file)
 def get_test_result_file_output(continuation_token: Optional[pulumi.Input[Optional[str]]] = None,
                                 download_as: Optional[pulumi.Input[str]] = None,
                                 geo_location_id: Optional[pulumi.Input[str]] = None,
@@ -117,16 +120,4 @@ def get_test_result_file_output(continuation_token: Optional[pulumi.Input[Option
     :param int time_stamp: The posix (epoch) time stamp for the webtest result.
     :param str web_test_name: The name of the Application Insights webtest resource.
     """
-    __args__ = dict()
-    __args__['continuationToken'] = continuation_token
-    __args__['downloadAs'] = download_as
-    __args__['geoLocationId'] = geo_location_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['testSuccessfulCriteria'] = test_successful_criteria
-    __args__['timeStamp'] = time_stamp
-    __args__['webTestName'] = web_test_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getTestResultFile', __args__, opts=opts, typ=GetTestResultFileResult)
-    return __ret__.apply(lambda __response__: GetTestResultFileResult(
-        data=pulumi.get(__response__, 'data'),
-        next_link=pulumi.get(__response__, 'next_link')))
+    ...

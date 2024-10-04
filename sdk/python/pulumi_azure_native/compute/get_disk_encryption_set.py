@@ -240,6 +240,9 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
         rotation_to_latest_key_version_enabled=pulumi.get(__ret__, 'rotation_to_latest_key_version_enabled'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_disk_encryption_set)
 def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskEncryptionSetResult]:
@@ -253,23 +256,4 @@ def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Inp
     :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['diskEncryptionSetName'] = disk_encryption_set_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getDiskEncryptionSet', __args__, opts=opts, typ=GetDiskEncryptionSetResult)
-    return __ret__.apply(lambda __response__: GetDiskEncryptionSetResult(
-        active_key=pulumi.get(__response__, 'active_key'),
-        auto_key_rotation_error=pulumi.get(__response__, 'auto_key_rotation_error'),
-        encryption_type=pulumi.get(__response__, 'encryption_type'),
-        federated_client_id=pulumi.get(__response__, 'federated_client_id'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        last_key_rotation_timestamp=pulumi.get(__response__, 'last_key_rotation_timestamp'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        previous_keys=pulumi.get(__response__, 'previous_keys'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        rotation_to_latest_key_version_enabled=pulumi.get(__response__, 'rotation_to_latest_key_version_enabled'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

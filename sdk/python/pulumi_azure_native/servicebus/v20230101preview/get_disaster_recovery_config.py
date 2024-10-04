@@ -188,6 +188,9 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
         role=pulumi.get(__ret__, 'role'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_disaster_recovery_config)
 def get_disaster_recovery_config_output(alias: Optional[pulumi.Input[str]] = None,
                                         namespace_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -200,20 +203,4 @@ def get_disaster_recovery_config_output(alias: Optional[pulumi.Input[str]] = Non
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    __args__ = dict()
-    __args__['alias'] = alias
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus/v20230101preview:getDisasterRecoveryConfig', __args__, opts=opts, typ=GetDisasterRecoveryConfigResult)
-    return __ret__.apply(lambda __response__: GetDisasterRecoveryConfigResult(
-        alternate_name=pulumi.get(__response__, 'alternate_name'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        partner_namespace=pulumi.get(__response__, 'partner_namespace'),
-        pending_replication_operations_count=pulumi.get(__response__, 'pending_replication_operations_count'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        role=pulumi.get(__response__, 'role'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

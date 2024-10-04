@@ -67,6 +67,9 @@ def get_profile_supported_optimization_types(profile_name: Optional[str] = None,
 
     return AwaitableGetProfileSupportedOptimizationTypesResult(
         supported_optimization_types=pulumi.get(__ret__, 'supported_optimization_types'))
+
+
+@_utilities.lift_output_func(get_profile_supported_optimization_types)
 def get_profile_supported_optimization_types_output(profile_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileSupportedOptimizationTypesResult]:
@@ -77,10 +80,4 @@ def get_profile_supported_optimization_types_output(profile_name: Optional[pulum
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    __args__ = dict()
-    __args__['profileName'] = profile_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20240601preview:getProfileSupportedOptimizationTypes', __args__, opts=opts, typ=GetProfileSupportedOptimizationTypesResult)
-    return __ret__.apply(lambda __response__: GetProfileSupportedOptimizationTypesResult(
-        supported_optimization_types=pulumi.get(__response__, 'supported_optimization_types')))
+    ...

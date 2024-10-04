@@ -73,6 +73,9 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed(gateway_name: Optiona
 
     return AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult(
         sas_url=pulumi.get(__ret__, 'sas_url'))
+
+
+@_utilities.lift_output_func(get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed)
 def get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed_output(gateway_name: Optional[pulumi.Input[str]] = None,
                                                                   output_blob_sas_url: Optional[pulumi.Input[Optional[str]]] = None,
                                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -87,12 +90,4 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed_output(gateway_name: 
     :param str resource_group_name: The name of the resource group.
     :param Sequence[str] vpn_user_names_filter: The list of p2s vpn user names whose p2s vpn connection detailed health to retrieve for.
     """
-    __args__ = dict()
-    __args__['gatewayName'] = gateway_name
-    __args__['outputBlobSasUrl'] = output_blob_sas_url
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['vpnUserNamesFilter'] = vpn_user_names_filter
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getP2sVpnGatewayP2sVpnConnectionHealthDetailed', __args__, opts=opts, typ=GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult)
-    return __ret__.apply(lambda __response__: GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult(
-        sas_url=pulumi.get(__response__, 'sas_url')))
+    ...

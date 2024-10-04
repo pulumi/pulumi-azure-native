@@ -136,6 +136,9 @@ def get_proactive_detection_configuration(configuration_id: Optional[str] = None
         name=pulumi.get(__ret__, 'name'),
         rule_definitions=pulumi.get(__ret__, 'rule_definitions'),
         send_emails_to_subscription_owners=pulumi.get(__ret__, 'send_emails_to_subscription_owners'))
+
+
+@_utilities.lift_output_func(get_proactive_detection_configuration)
 def get_proactive_detection_configuration_output(configuration_id: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  resource_name: Optional[pulumi.Input[str]] = None,
@@ -148,16 +151,4 @@ def get_proactive_detection_configuration_output(configuration_id: Optional[pulu
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
-    __args__ = dict()
-    __args__['configurationId'] = configuration_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20150501:getProactiveDetectionConfiguration', __args__, opts=opts, typ=GetProactiveDetectionConfigurationResult)
-    return __ret__.apply(lambda __response__: GetProactiveDetectionConfigurationResult(
-        custom_emails=pulumi.get(__response__, 'custom_emails'),
-        enabled=pulumi.get(__response__, 'enabled'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        name=pulumi.get(__response__, 'name'),
-        rule_definitions=pulumi.get(__response__, 'rule_definitions'),
-        send_emails_to_subscription_owners=pulumi.get(__response__, 'send_emails_to_subscription_owners')))
+    ...

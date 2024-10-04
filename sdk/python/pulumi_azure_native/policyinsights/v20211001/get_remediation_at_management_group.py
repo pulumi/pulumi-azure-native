@@ -279,6 +279,9 @@ def get_remediation_at_management_group(management_group_id: Optional[str] = Non
         status_message=pulumi.get(__ret__, 'status_message'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_remediation_at_management_group)
 def get_remediation_at_management_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                                management_groups_namespace: Optional[pulumi.Input[str]] = None,
                                                remediation_name: Optional[pulumi.Input[str]] = None,
@@ -291,27 +294,4 @@ def get_remediation_at_management_group_output(management_group_id: Optional[pul
     :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
     :param str remediation_name: The name of the remediation.
     """
-    __args__ = dict()
-    __args__['managementGroupId'] = management_group_id
-    __args__['managementGroupsNamespace'] = management_groups_namespace
-    __args__['remediationName'] = remediation_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights/v20211001:getRemediationAtManagementGroup', __args__, opts=opts, typ=GetRemediationAtManagementGroupResult)
-    return __ret__.apply(lambda __response__: GetRemediationAtManagementGroupResult(
-        correlation_id=pulumi.get(__response__, 'correlation_id'),
-        created_on=pulumi.get(__response__, 'created_on'),
-        deployment_status=pulumi.get(__response__, 'deployment_status'),
-        failure_threshold=pulumi.get(__response__, 'failure_threshold'),
-        filters=pulumi.get(__response__, 'filters'),
-        id=pulumi.get(__response__, 'id'),
-        last_updated_on=pulumi.get(__response__, 'last_updated_on'),
-        name=pulumi.get(__response__, 'name'),
-        parallel_deployments=pulumi.get(__response__, 'parallel_deployments'),
-        policy_assignment_id=pulumi.get(__response__, 'policy_assignment_id'),
-        policy_definition_reference_id=pulumi.get(__response__, 'policy_definition_reference_id'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_count=pulumi.get(__response__, 'resource_count'),
-        resource_discovery_mode=pulumi.get(__response__, 'resource_discovery_mode'),
-        status_message=pulumi.get(__response__, 'status_message'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

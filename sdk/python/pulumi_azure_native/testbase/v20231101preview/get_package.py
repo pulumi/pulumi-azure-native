@@ -357,6 +357,9 @@ def get_package(package_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         validation_results=pulumi.get(__ret__, 'validation_results'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_package)
 def get_package_output(package_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        test_base_account_name: Optional[pulumi.Input[str]] = None,
@@ -369,33 +372,4 @@ def get_package_output(package_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
-    __args__ = dict()
-    __args__['packageName'] = package_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:testbase/v20231101preview:getPackage', __args__, opts=opts, typ=GetPackageResult)
-    return __ret__.apply(lambda __response__: GetPackageResult(
-        application_name=pulumi.get(__response__, 'application_name'),
-        blob_path=pulumi.get(__response__, 'blob_path'),
-        draft_package_id=pulumi.get(__response__, 'draft_package_id'),
-        first_party_apps=pulumi.get(__response__, 'first_party_apps'),
-        flighting_ring=pulumi.get(__response__, 'flighting_ring'),
-        gallery_apps=pulumi.get(__response__, 'gallery_apps'),
-        id=pulumi.get(__response__, 'id'),
-        inplace_upgrade_os_pair=pulumi.get(__response__, 'inplace_upgrade_os_pair'),
-        intune_enrollment_metadata=pulumi.get(__response__, 'intune_enrollment_metadata'),
-        is_enabled=pulumi.get(__response__, 'is_enabled'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        package_status=pulumi.get(__response__, 'package_status'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_os_list=pulumi.get(__response__, 'target_os_list'),
-        test_types=pulumi.get(__response__, 'test_types'),
-        tests=pulumi.get(__response__, 'tests'),
-        type=pulumi.get(__response__, 'type'),
-        validation_results=pulumi.get(__response__, 'validation_results'),
-        version=pulumi.get(__response__, 'version')))
+    ...

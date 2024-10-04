@@ -435,6 +435,9 @@ def get_virtual_machine_scale_set(expand: Optional[str] = None,
         virtual_machine_profile=pulumi.get(__ret__, 'virtual_machine_profile'),
         zone_balance=pulumi.get(__ret__, 'zone_balance'),
         zones=pulumi.get(__ret__, 'zones'))
+
+
+@_utilities.lift_output_func(get_virtual_machine_scale_set)
 def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          vm_scale_set_name: Optional[pulumi.Input[str]] = None,
@@ -447,39 +450,4 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['vmScaleSetName'] = vm_scale_set_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230701:getVirtualMachineScaleSet', __args__, opts=opts, typ=GetVirtualMachineScaleSetResult)
-    return __ret__.apply(lambda __response__: GetVirtualMachineScaleSetResult(
-        additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),
-        automatic_repairs_policy=pulumi.get(__response__, 'automatic_repairs_policy'),
-        constrained_maximum_capacity=pulumi.get(__response__, 'constrained_maximum_capacity'),
-        do_not_run_extensions_on_overprovisioned_vms=pulumi.get(__response__, 'do_not_run_extensions_on_overprovisioned_vms'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        host_group=pulumi.get(__response__, 'host_group'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        orchestration_mode=pulumi.get(__response__, 'orchestration_mode'),
-        overprovision=pulumi.get(__response__, 'overprovision'),
-        plan=pulumi.get(__response__, 'plan'),
-        platform_fault_domain_count=pulumi.get(__response__, 'platform_fault_domain_count'),
-        priority_mix_policy=pulumi.get(__response__, 'priority_mix_policy'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        proximity_placement_group=pulumi.get(__response__, 'proximity_placement_group'),
-        scale_in_policy=pulumi.get(__response__, 'scale_in_policy'),
-        single_placement_group=pulumi.get(__response__, 'single_placement_group'),
-        sku=pulumi.get(__response__, 'sku'),
-        spot_restore_policy=pulumi.get(__response__, 'spot_restore_policy'),
-        tags=pulumi.get(__response__, 'tags'),
-        time_created=pulumi.get(__response__, 'time_created'),
-        type=pulumi.get(__response__, 'type'),
-        unique_id=pulumi.get(__response__, 'unique_id'),
-        upgrade_policy=pulumi.get(__response__, 'upgrade_policy'),
-        virtual_machine_profile=pulumi.get(__response__, 'virtual_machine_profile'),
-        zone_balance=pulumi.get(__response__, 'zone_balance'),
-        zones=pulumi.get(__response__, 'zones')))
+    ...

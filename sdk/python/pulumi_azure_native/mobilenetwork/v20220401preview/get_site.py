@@ -240,6 +240,9 @@ def get_site(mobile_network_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_site)
 def get_site_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     site_name: Optional[pulumi.Input[str]] = None,
@@ -252,24 +255,4 @@ def get_site_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: The name of the mobile network site.
     """
-    __args__ = dict()
-    __args__['mobileNetworkName'] = mobile_network_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['siteName'] = site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork/v20220401preview:getSite', __args__, opts=opts, typ=GetSiteResult)
-    return __ret__.apply(lambda __response__: GetSiteResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        created_by=pulumi.get(__response__, 'created_by'),
-        created_by_type=pulumi.get(__response__, 'created_by_type'),
-        id=pulumi.get(__response__, 'id'),
-        last_modified_at=pulumi.get(__response__, 'last_modified_at'),
-        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
-        last_modified_by_type=pulumi.get(__response__, 'last_modified_by_type'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_functions=pulumi.get(__response__, 'network_functions'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

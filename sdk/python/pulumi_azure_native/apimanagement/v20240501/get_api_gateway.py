@@ -250,6 +250,9 @@ def get_api_gateway(gateway_name: Optional[str] = None,
         target_provisioning_state=pulumi.get(__ret__, 'target_provisioning_state'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_type=pulumi.get(__ret__, 'virtual_network_type'))
+
+
+@_utilities.lift_output_func(get_api_gateway)
 def get_api_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiGatewayResult]:
@@ -260,24 +263,4 @@ def get_api_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     :param str gateway_name: The name of the API Management gateway.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['gatewayName'] = gateway_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240501:getApiGateway', __args__, opts=opts, typ=GetApiGatewayResult)
-    return __ret__.apply(lambda __response__: GetApiGatewayResult(
-        backend=pulumi.get(__response__, 'backend'),
-        configuration_api=pulumi.get(__response__, 'configuration_api'),
-        created_at_utc=pulumi.get(__response__, 'created_at_utc'),
-        etag=pulumi.get(__response__, 'etag'),
-        frontend=pulumi.get(__response__, 'frontend'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_provisioning_state=pulumi.get(__response__, 'target_provisioning_state'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_network_type=pulumi.get(__response__, 'virtual_network_type')))
+    ...

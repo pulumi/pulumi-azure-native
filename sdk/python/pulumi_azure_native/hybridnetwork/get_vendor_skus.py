@@ -212,6 +212,9 @@ def get_vendor_skus(sku_name: Optional[str] = None,
         sku_type=pulumi.get(__ret__, 'sku_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_vendor_skus)
 def get_vendor_skus_output(sku_name: Optional[pulumi.Input[str]] = None,
                            vendor_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorSkusResult]:
@@ -223,21 +226,4 @@ def get_vendor_skus_output(sku_name: Optional[pulumi.Input[str]] = None,
     :param str sku_name: The name of the sku.
     :param str vendor_name: The name of the vendor.
     """
-    __args__ = dict()
-    __args__['skuName'] = sku_name
-    __args__['vendorName'] = vendor_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:getVendorSkus', __args__, opts=opts, typ=GetVendorSkusResult)
-    return __ret__.apply(lambda __response__: GetVendorSkusResult(
-        deployment_mode=pulumi.get(__response__, 'deployment_mode'),
-        id=pulumi.get(__response__, 'id'),
-        managed_application_parameters=pulumi.get(__response__, 'managed_application_parameters'),
-        managed_application_template=pulumi.get(__response__, 'managed_application_template'),
-        name=pulumi.get(__response__, 'name'),
-        network_function_template=pulumi.get(__response__, 'network_function_template'),
-        network_function_type=pulumi.get(__response__, 'network_function_type'),
-        preview=pulumi.get(__response__, 'preview'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sku_type=pulumi.get(__response__, 'sku_type'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -272,6 +272,9 @@ def get_private_record_set(private_zone_name: Optional[str] = None,
         ttl=pulumi.get(__ret__, 'ttl'),
         txt_records=pulumi.get(__ret__, 'txt_records'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_private_record_set)
 def get_private_record_set_output(private_zone_name: Optional[pulumi.Input[str]] = None,
                                   record_type: Optional[pulumi.Input[str]] = None,
                                   relative_record_set_name: Optional[pulumi.Input[str]] = None,
@@ -289,27 +292,4 @@ def get_private_record_set_output(private_zone_name: Optional[pulumi.Input[str]]
     :param str relative_record_set_name: The name of the record set, relative to the name of the zone.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['privateZoneName'] = private_zone_name
-    __args__['recordType'] = record_type
-    __args__['relativeRecordSetName'] = relative_record_set_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getPrivateRecordSet', __args__, opts=opts, typ=GetPrivateRecordSetResult)
-    return __ret__.apply(lambda __response__: GetPrivateRecordSetResult(
-        a_records=pulumi.get(__response__, 'a_records'),
-        aaaa_records=pulumi.get(__response__, 'aaaa_records'),
-        cname_record=pulumi.get(__response__, 'cname_record'),
-        etag=pulumi.get(__response__, 'etag'),
-        fqdn=pulumi.get(__response__, 'fqdn'),
-        id=pulumi.get(__response__, 'id'),
-        is_auto_registered=pulumi.get(__response__, 'is_auto_registered'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        mx_records=pulumi.get(__response__, 'mx_records'),
-        name=pulumi.get(__response__, 'name'),
-        ptr_records=pulumi.get(__response__, 'ptr_records'),
-        soa_record=pulumi.get(__response__, 'soa_record'),
-        srv_records=pulumi.get(__response__, 'srv_records'),
-        ttl=pulumi.get(__response__, 'ttl'),
-        txt_records=pulumi.get(__response__, 'txt_records'),
-        type=pulumi.get(__response__, 'type')))
+    ...

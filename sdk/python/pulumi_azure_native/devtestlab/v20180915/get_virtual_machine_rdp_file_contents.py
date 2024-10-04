@@ -70,6 +70,9 @@ def get_virtual_machine_rdp_file_contents(lab_name: Optional[str] = None,
 
     return AwaitableGetVirtualMachineRdpFileContentsResult(
         contents=pulumi.get(__ret__, 'contents'))
+
+
+@_utilities.lift_output_func(get_virtual_machine_rdp_file_contents)
 def get_virtual_machine_rdp_file_contents_output(lab_name: Optional[pulumi.Input[str]] = None,
                                                  name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -82,11 +85,4 @@ def get_virtual_machine_rdp_file_contents_output(lab_name: Optional[pulumi.Input
     :param str name: The name of the virtual machine.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['labName'] = lab_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getVirtualMachineRdpFileContents', __args__, opts=opts, typ=GetVirtualMachineRdpFileContentsResult)
-    return __ret__.apply(lambda __response__: GetVirtualMachineRdpFileContentsResult(
-        contents=pulumi.get(__response__, 'contents')))
+    ...

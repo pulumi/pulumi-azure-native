@@ -182,6 +182,9 @@ def get_machine_group(end_time: Optional[str] = None,
         machines=pulumi.get(__ret__, 'machines'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_machine_group)
 def get_machine_group_output(end_time: Optional[pulumi.Input[Optional[str]]] = None,
                              machine_group_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -198,21 +201,4 @@ def get_machine_group_output(end_time: Optional[pulumi.Input[Optional[str]]] = N
     :param str start_time: UTC date and time specifying the start time of an interval. When not specified the service uses DateTime.UtcNow - 10m
     :param str workspace_name: OMS workspace containing the resources of interest.
     """
-    __args__ = dict()
-    __args__['endTime'] = end_time
-    __args__['machineGroupName'] = machine_group_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['startTime'] = start_time
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights/v20151101preview:getMachineGroup', __args__, opts=opts, typ=GetMachineGroupResult)
-    return __ret__.apply(lambda __response__: GetMachineGroupResult(
-        count=pulumi.get(__response__, 'count'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        etag=pulumi.get(__response__, 'etag'),
-        group_type=pulumi.get(__response__, 'group_type'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        machines=pulumi.get(__response__, 'machines'),
-        name=pulumi.get(__response__, 'name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

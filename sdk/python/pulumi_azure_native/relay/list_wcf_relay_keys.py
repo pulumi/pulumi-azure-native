@@ -128,6 +128,9 @@ def list_wcf_relay_keys(authorization_rule_name: Optional[str] = None,
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
+
+
+@_utilities.lift_output_func(list_wcf_relay_keys)
 def list_wcf_relay_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
                                namespace_name: Optional[pulumi.Input[str]] = None,
                                relay_name: Optional[pulumi.Input[str]] = None,
@@ -145,16 +148,4 @@ def list_wcf_relay_keys_output(authorization_rule_name: Optional[pulumi.Input[st
     :param str relay_name: The relay name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    __args__ = dict()
-    __args__['authorizationRuleName'] = authorization_rule_name
-    __args__['namespaceName'] = namespace_name
-    __args__['relayName'] = relay_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:relay:listWCFRelayKeys', __args__, opts=opts, typ=ListWCFRelayKeysResult)
-    return __ret__.apply(lambda __response__: ListWCFRelayKeysResult(
-        key_name=pulumi.get(__response__, 'key_name'),
-        primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
-        primary_key=pulumi.get(__response__, 'primary_key'),
-        secondary_connection_string=pulumi.get(__response__, 'secondary_connection_string'),
-        secondary_key=pulumi.get(__response__, 'secondary_key')))
+    ...

@@ -190,6 +190,9 @@ def get_template_artifact(artifact_name: Optional[str] = None,
         resource_group=pulumi.get(__ret__, 'resource_group'),
         template=pulumi.get(__ret__, 'template'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_template_artifact)
 def get_template_artifact_output(artifact_name: Optional[pulumi.Input[str]] = None,
                                  blueprint_name: Optional[pulumi.Input[str]] = None,
                                  resource_scope: Optional[pulumi.Input[str]] = None,
@@ -203,20 +206,4 @@ def get_template_artifact_output(artifact_name: Optional[pulumi.Input[str]] = No
     :param str blueprint_name: Name of the blueprint definition.
     :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
     """
-    __args__ = dict()
-    __args__['artifactName'] = artifact_name
-    __args__['blueprintName'] = blueprint_name
-    __args__['resourceScope'] = resource_scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:blueprint:getTemplateArtifact', __args__, opts=opts, typ=GetTemplateArtifactResult)
-    return __ret__.apply(lambda __response__: GetTemplateArtifactResult(
-        depends_on=pulumi.get(__response__, 'depends_on'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        parameters=pulumi.get(__response__, 'parameters'),
-        resource_group=pulumi.get(__response__, 'resource_group'),
-        template=pulumi.get(__response__, 'template'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -357,6 +357,9 @@ def get_role_assignment(assignment_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         views=pulumi.get(__ret__, 'views'),
         widget_types=pulumi.get(__ret__, 'widget_types'))
+
+
+@_utilities.lift_output_func(get_role_assignment)
 def get_role_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
                                hub_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -369,33 +372,4 @@ def get_role_assignment_output(assignment_name: Optional[pulumi.Input[str]] = No
     :param str hub_name: The name of the hub.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['assignmentName'] = assignment_name
-    __args__['hubName'] = hub_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights/v20170426:getRoleAssignment', __args__, opts=opts, typ=GetRoleAssignmentResult)
-    return __ret__.apply(lambda __response__: GetRoleAssignmentResult(
-        assignment_name=pulumi.get(__response__, 'assignment_name'),
-        conflation_policies=pulumi.get(__response__, 'conflation_policies'),
-        connectors=pulumi.get(__response__, 'connectors'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        interactions=pulumi.get(__response__, 'interactions'),
-        kpis=pulumi.get(__response__, 'kpis'),
-        links=pulumi.get(__response__, 'links'),
-        name=pulumi.get(__response__, 'name'),
-        principals=pulumi.get(__response__, 'principals'),
-        profiles=pulumi.get(__response__, 'profiles'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        relationship_links=pulumi.get(__response__, 'relationship_links'),
-        relationships=pulumi.get(__response__, 'relationships'),
-        role=pulumi.get(__response__, 'role'),
-        role_assignments=pulumi.get(__response__, 'role_assignments'),
-        sas_policies=pulumi.get(__response__, 'sas_policies'),
-        segments=pulumi.get(__response__, 'segments'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        type=pulumi.get(__response__, 'type'),
-        views=pulumi.get(__response__, 'views'),
-        widget_types=pulumi.get(__response__, 'widget_types')))
+    ...

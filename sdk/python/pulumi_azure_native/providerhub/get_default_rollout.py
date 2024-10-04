@@ -121,6 +121,9 @@ def get_default_rollout(provider_namespace: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_default_rollout)
 def get_default_rollout_output(provider_namespace: Optional[pulumi.Input[str]] = None,
                                rollout_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultRolloutResult]:
@@ -132,14 +135,4 @@ def get_default_rollout_output(provider_namespace: Optional[pulumi.Input[str]] =
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str rollout_name: The rollout name.
     """
-    __args__ = dict()
-    __args__['providerNamespace'] = provider_namespace
-    __args__['rolloutName'] = rollout_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:providerhub:getDefaultRollout', __args__, opts=opts, typ=GetDefaultRolloutResult)
-    return __ret__.apply(lambda __response__: GetDefaultRolloutResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

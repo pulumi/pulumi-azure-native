@@ -292,6 +292,9 @@ def get_open_shift_managed_cluster(resource_group_name: Optional[str] = None,
         router_profiles=pulumi.get(__ret__, 'router_profiles'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_open_shift_managed_cluster)
 def get_open_shift_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                           resource_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenShiftManagedClusterResult]:
@@ -305,27 +308,4 @@ def get_open_shift_managed_cluster_output(resource_group_name: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the OpenShift managed cluster resource.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice:getOpenShiftManagedCluster', __args__, opts=opts, typ=GetOpenShiftManagedClusterResult)
-    return __ret__.apply(lambda __response__: GetOpenShiftManagedClusterResult(
-        agent_pool_profiles=pulumi.get(__response__, 'agent_pool_profiles'),
-        auth_profile=pulumi.get(__response__, 'auth_profile'),
-        cluster_version=pulumi.get(__response__, 'cluster_version'),
-        fqdn=pulumi.get(__response__, 'fqdn'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        master_pool_profile=pulumi.get(__response__, 'master_pool_profile'),
-        monitor_profile=pulumi.get(__response__, 'monitor_profile'),
-        name=pulumi.get(__response__, 'name'),
-        network_profile=pulumi.get(__response__, 'network_profile'),
-        open_shift_version=pulumi.get(__response__, 'open_shift_version'),
-        plan=pulumi.get(__response__, 'plan'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_hostname=pulumi.get(__response__, 'public_hostname'),
-        refresh_cluster=pulumi.get(__response__, 'refresh_cluster'),
-        router_profiles=pulumi.get(__response__, 'router_profiles'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

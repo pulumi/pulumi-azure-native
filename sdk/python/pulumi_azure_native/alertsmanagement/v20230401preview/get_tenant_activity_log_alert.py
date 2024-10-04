@@ -198,6 +198,9 @@ def get_tenant_activity_log_alert(alert_rule_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenant_scope=pulumi.get(__ret__, 'tenant_scope'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_tenant_activity_log_alert)
 def get_tenant_activity_log_alert_output(alert_rule_name: Optional[pulumi.Input[str]] = None,
                                          management_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTenantActivityLogAlertResult]:
@@ -208,20 +211,4 @@ def get_tenant_activity_log_alert_output(alert_rule_name: Optional[pulumi.Input[
     :param str alert_rule_name: The name of the Tenant Activity Log Alert rule.
     :param str management_group_name: The name of the management group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['alertRuleName'] = alert_rule_name
-    __args__['managementGroupName'] = management_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:alertsmanagement/v20230401preview:getTenantActivityLogAlert', __args__, opts=opts, typ=GetTenantActivityLogAlertResult)
-    return __ret__.apply(lambda __response__: GetTenantActivityLogAlertResult(
-        actions=pulumi.get(__response__, 'actions'),
-        condition=pulumi.get(__response__, 'condition'),
-        description=pulumi.get(__response__, 'description'),
-        enabled=pulumi.get(__response__, 'enabled'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        scopes=pulumi.get(__response__, 'scopes'),
-        tags=pulumi.get(__response__, 'tags'),
-        tenant_scope=pulumi.get(__response__, 'tenant_scope'),
-        type=pulumi.get(__response__, 'type')))
+    ...

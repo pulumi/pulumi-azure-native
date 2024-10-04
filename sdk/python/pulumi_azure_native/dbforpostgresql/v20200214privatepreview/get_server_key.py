@@ -148,6 +148,9 @@ def get_server_key(key_name: Optional[str] = None,
         server_key_type=pulumi.get(__ret__, 'server_key_type'),
         type=pulumi.get(__ret__, 'type'),
         uri=pulumi.get(__ret__, 'uri'))
+
+
+@_utilities.lift_output_func(get_server_key)
 def get_server_key_output(key_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           server_name: Optional[pulumi.Input[str]] = None,
@@ -160,17 +163,4 @@ def get_server_key_output(key_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
     """
-    __args__ = dict()
-    __args__['keyName'] = key_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20200214privatepreview:getServerKey', __args__, opts=opts, typ=GetServerKeyResult)
-    return __ret__.apply(lambda __response__: GetServerKeyResult(
-        creation_date=pulumi.get(__response__, 'creation_date'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        server_key_type=pulumi.get(__response__, 'server_key_type'),
-        type=pulumi.get(__response__, 'type'),
-        uri=pulumi.get(__response__, 'uri')))
+    ...

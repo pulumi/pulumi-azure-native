@@ -123,6 +123,9 @@ def get_edge_module(account_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_edge_module)
 def get_edge_module_output(account_name: Optional[pulumi.Input[str]] = None,
                            edge_module_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -135,15 +138,4 @@ def get_edge_module_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str edge_module_name: The Edge Module name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['edgeModuleName'] = edge_module_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer/v20211101preview:getEdgeModule', __args__, opts=opts, typ=GetEdgeModuleResult)
-    return __ret__.apply(lambda __response__: GetEdgeModuleResult(
-        edge_module_id=pulumi.get(__response__, 'edge_module_id'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

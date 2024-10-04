@@ -191,6 +191,9 @@ def get_broker_authorization(authorization_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_broker_authorization)
 def get_broker_authorization_output(authorization_name: Optional[pulumi.Input[str]] = None,
                                     broker_name: Optional[pulumi.Input[str]] = None,
                                     mq_name: Optional[pulumi.Input[str]] = None,
@@ -205,21 +208,4 @@ def get_broker_authorization_output(authorization_name: Optional[pulumi.Input[st
     :param str mq_name: Name of MQ resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['authorizationName'] = authorization_name
-    __args__['brokerName'] = broker_name
-    __args__['mqName'] = mq_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq/v20231004preview:getBrokerAuthorization', __args__, opts=opts, typ=GetBrokerAuthorizationResult)
-    return __ret__.apply(lambda __response__: GetBrokerAuthorizationResult(
-        authorization_policies=pulumi.get(__response__, 'authorization_policies'),
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        listener_ref=pulumi.get(__response__, 'listener_ref'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

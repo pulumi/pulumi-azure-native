@@ -279,6 +279,9 @@ def get_lab(lab_name: Optional[str] = None,
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machine_profile=pulumi.get(__ret__, 'virtual_machine_profile'))
+
+
+@_utilities.lift_output_func(get_lab)
 def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
@@ -292,26 +295,4 @@ def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['labName'] = lab_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getLab', __args__, opts=opts, typ=GetLabResult)
-    return __ret__.apply(lambda __response__: GetLabResult(
-        auto_shutdown_profile=pulumi.get(__response__, 'auto_shutdown_profile'),
-        connection_profile=pulumi.get(__response__, 'connection_profile'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        lab_plan_id=pulumi.get(__response__, 'lab_plan_id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_profile=pulumi.get(__response__, 'network_profile'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        roster_profile=pulumi.get(__response__, 'roster_profile'),
-        security_profile=pulumi.get(__response__, 'security_profile'),
-        state=pulumi.get(__response__, 'state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        title=pulumi.get(__response__, 'title'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_machine_profile=pulumi.get(__response__, 'virtual_machine_profile')))
+    ...

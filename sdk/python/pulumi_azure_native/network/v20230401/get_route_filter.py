@@ -188,6 +188,9 @@ def get_route_filter(expand: Optional[str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_route_filter)
 def get_route_filter_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             route_filter_name: Optional[pulumi.Input[str]] = None,
@@ -200,20 +203,4 @@ def get_route_filter_output(expand: Optional[pulumi.Input[Optional[str]]] = None
     :param str resource_group_name: The name of the resource group.
     :param str route_filter_name: The name of the route filter.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['routeFilterName'] = route_filter_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getRouteFilter', __args__, opts=opts, typ=GetRouteFilterResult)
-    return __ret__.apply(lambda __response__: GetRouteFilterResult(
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        ipv6_peerings=pulumi.get(__response__, 'ipv6_peerings'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        peerings=pulumi.get(__response__, 'peerings'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        rules=pulumi.get(__response__, 'rules'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

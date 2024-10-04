@@ -228,6 +228,9 @@ def get_assessments_metadata_subscription(assessment_metadata_name: Optional[str
         threats=pulumi.get(__ret__, 'threats'),
         type=pulumi.get(__ret__, 'type'),
         user_impact=pulumi.get(__ret__, 'user_impact'))
+
+
+@_utilities.lift_output_func(get_assessments_metadata_subscription)
 def get_assessments_metadata_subscription_output(assessment_metadata_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentsMetadataSubscriptionResult]:
     """
@@ -237,22 +240,4 @@ def get_assessments_metadata_subscription_output(assessment_metadata_name: Optio
 
     :param str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
     """
-    __args__ = dict()
-    __args__['assessmentMetadataName'] = assessment_metadata_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAssessmentsMetadataSubscription', __args__, opts=opts, typ=GetAssessmentsMetadataSubscriptionResult)
-    return __ret__.apply(lambda __response__: GetAssessmentsMetadataSubscriptionResult(
-        assessment_type=pulumi.get(__response__, 'assessment_type'),
-        categories=pulumi.get(__response__, 'categories'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
-        implementation_effort=pulumi.get(__response__, 'implementation_effort'),
-        name=pulumi.get(__response__, 'name'),
-        policy_definition_id=pulumi.get(__response__, 'policy_definition_id'),
-        preview=pulumi.get(__response__, 'preview'),
-        remediation_description=pulumi.get(__response__, 'remediation_description'),
-        severity=pulumi.get(__response__, 'severity'),
-        threats=pulumi.get(__response__, 'threats'),
-        type=pulumi.get(__response__, 'type'),
-        user_impact=pulumi.get(__response__, 'user_impact')))
+    ...

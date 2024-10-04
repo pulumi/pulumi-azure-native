@@ -265,6 +265,9 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_by=pulumi.get(__ret__, 'updated_by'),
         updated_on=pulumi.get(__ret__, 'updated_on'))
+
+
+@_utilities.lift_output_func(get_role_assignment)
 def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]] = None,
                                scope: Optional[pulumi.Input[str]] = None,
                                tenant_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -277,26 +280,4 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]]
     :param str scope: The scope of the role assignment.
     :param str tenant_id: Tenant ID for cross-tenant request
     """
-    __args__ = dict()
-    __args__['roleAssignmentName'] = role_assignment_name
-    __args__['scope'] = scope
-    __args__['tenantId'] = tenant_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20200401preview:getRoleAssignment', __args__, opts=opts, typ=GetRoleAssignmentResult)
-    return __ret__.apply(lambda __response__: GetRoleAssignmentResult(
-        can_delegate=pulumi.get(__response__, 'can_delegate'),
-        condition=pulumi.get(__response__, 'condition'),
-        condition_version=pulumi.get(__response__, 'condition_version'),
-        created_by=pulumi.get(__response__, 'created_by'),
-        created_on=pulumi.get(__response__, 'created_on'),
-        delegated_managed_identity_resource_id=pulumi.get(__response__, 'delegated_managed_identity_resource_id'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        principal_id=pulumi.get(__response__, 'principal_id'),
-        principal_type=pulumi.get(__response__, 'principal_type'),
-        role_definition_id=pulumi.get(__response__, 'role_definition_id'),
-        scope=pulumi.get(__response__, 'scope'),
-        type=pulumi.get(__response__, 'type'),
-        updated_by=pulumi.get(__response__, 'updated_by'),
-        updated_on=pulumi.get(__response__, 'updated_on')))
+    ...

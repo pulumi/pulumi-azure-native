@@ -139,6 +139,9 @@ def get_sql_resource_sql_stored_procedure(account_name: Optional[str] = None,
         resource=pulumi.get(__ret__, 'resource'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_sql_resource_sql_stored_procedure)
 def get_sql_resource_sql_stored_procedure_output(account_name: Optional[pulumi.Input[str]] = None,
                                                  container_name: Optional[pulumi.Input[str]] = None,
                                                  database_name: Optional[pulumi.Input[str]] = None,
@@ -155,18 +158,4 @@ def get_sql_resource_sql_stored_procedure_output(account_name: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str stored_procedure_name: Cosmos DB storedProcedure name.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['containerName'] = container_name
-    __args__['databaseName'] = database_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['storedProcedureName'] = stored_procedure_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20231115:getSqlResourceSqlStoredProcedure', __args__, opts=opts, typ=GetSqlResourceSqlStoredProcedureResult)
-    return __ret__.apply(lambda __response__: GetSqlResourceSqlStoredProcedureResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        resource=pulumi.get(__response__, 'resource'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

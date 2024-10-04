@@ -201,6 +201,9 @@ def get_schema(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
+
+
+@_utilities.lift_output_func(get_schema)
 def get_schema_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       schema_name: Optional[pulumi.Input[str]] = None,
                       schema_registry_name: Optional[pulumi.Input[str]] = None,
@@ -213,21 +216,4 @@ def get_schema_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str schema_name: Schema name parameter.
     :param str schema_registry_name: Schema registry name parameter.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['schemaName'] = schema_name
-    __args__['schemaRegistryName'] = schema_registry_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry/v20240901preview:getSchema', __args__, opts=opts, typ=GetSchemaResult)
-    return __ret__.apply(lambda __response__: GetSchemaResult(
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        format=pulumi.get(__response__, 'format'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        schema_type=pulumi.get(__response__, 'schema_type'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        uuid=pulumi.get(__response__, 'uuid')))
+    ...

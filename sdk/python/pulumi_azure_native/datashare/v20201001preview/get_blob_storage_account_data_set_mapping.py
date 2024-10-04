@@ -231,6 +231,9 @@ def get_blob_storage_account_data_set_mapping(account_name: Optional[str] = None
         storage_account_resource_id=pulumi.get(__ret__, 'storage_account_resource_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_blob_storage_account_data_set_mapping)
 def get_blob_storage_account_data_set_mapping_output(account_name: Optional[pulumi.Input[str]] = None,
                                                      data_set_mapping_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -245,24 +248,4 @@ def get_blob_storage_account_data_set_mapping_output(account_name: Optional[pulu
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the shareSubscription.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['dataSetMappingName'] = data_set_mapping_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['shareSubscriptionName'] = share_subscription_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20201001preview:getBlobStorageAccountDataSetMapping', __args__, opts=opts, typ=GetBlobStorageAccountDataSetMappingResult)
-    return __ret__.apply(lambda __response__: GetBlobStorageAccountDataSetMappingResult(
-        container_name=pulumi.get(__response__, 'container_name'),
-        data_set_id=pulumi.get(__response__, 'data_set_id'),
-        data_set_mapping_status=pulumi.get(__response__, 'data_set_mapping_status'),
-        folder=pulumi.get(__response__, 'folder'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        mount_path=pulumi.get(__response__, 'mount_path'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        storage_account_resource_id=pulumi.get(__response__, 'storage_account_resource_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

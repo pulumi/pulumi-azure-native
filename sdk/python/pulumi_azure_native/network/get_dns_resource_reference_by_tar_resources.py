@@ -69,6 +69,9 @@ def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Seque
 
     return AwaitableGetDnsResourceReferenceByTarResourcesResult(
         dns_resource_references=pulumi.get(__ret__, 'dns_resource_references'))
+
+
+@_utilities.lift_output_func(get_dns_resource_reference_by_tar_resources)
 def get_dns_resource_reference_by_tar_resources_output(target_resources: Optional[pulumi.Input[Optional[Sequence[Union['SubResource', 'SubResourceDict']]]]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsResourceReferenceByTarResourcesResult]:
     """
@@ -80,9 +83,4 @@ def get_dns_resource_reference_by_tar_resources_output(target_resources: Optiona
 
     :param Sequence[Union['SubResource', 'SubResourceDict']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.
     """
-    __args__ = dict()
-    __args__['targetResources'] = target_resources
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getDnsResourceReferenceByTarResources', __args__, opts=opts, typ=GetDnsResourceReferenceByTarResourcesResult)
-    return __ret__.apply(lambda __response__: GetDnsResourceReferenceByTarResourcesResult(
-        dns_resource_references=pulumi.get(__response__, 'dns_resource_references')))
+    ...

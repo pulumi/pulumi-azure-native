@@ -227,6 +227,9 @@ def get_machine_extension(extension_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
+
+
+@_utilities.lift_output_func(get_machine_extension)
 def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = None,
                                  name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -239,23 +242,4 @@ def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = N
     :param str name: The name of the machine containing the extension.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['extensionName'] = extension_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcompute/v20200815preview:getMachineExtension', __args__, opts=opts, typ=GetMachineExtensionResult)
-    return __ret__.apply(lambda __response__: GetMachineExtensionResult(
-        auto_upgrade_minor_version=pulumi.get(__response__, 'auto_upgrade_minor_version'),
-        force_update_tag=pulumi.get(__response__, 'force_update_tag'),
-        id=pulumi.get(__response__, 'id'),
-        instance_view=pulumi.get(__response__, 'instance_view'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        protected_settings=pulumi.get(__response__, 'protected_settings'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        publisher=pulumi.get(__response__, 'publisher'),
-        settings=pulumi.get(__response__, 'settings'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        type_handler_version=pulumi.get(__response__, 'type_handler_version')))
+    ...

@@ -227,6 +227,9 @@ def get_hunt(hunt_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_hunt)
 def get_hunt_output(hunt_id: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     workspace_name: Optional[pulumi.Input[str]] = None,
@@ -239,23 +242,4 @@ def get_hunt_output(hunt_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['huntId'] = hunt_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20230701preview:getHunt', __args__, opts=opts, typ=GetHuntResult)
-    return __ret__.apply(lambda __response__: GetHuntResult(
-        attack_tactics=pulumi.get(__response__, 'attack_tactics'),
-        attack_techniques=pulumi.get(__response__, 'attack_techniques'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        etag=pulumi.get(__response__, 'etag'),
-        hypothesis_status=pulumi.get(__response__, 'hypothesis_status'),
-        id=pulumi.get(__response__, 'id'),
-        labels=pulumi.get(__response__, 'labels'),
-        name=pulumi.get(__response__, 'name'),
-        owner=pulumi.get(__response__, 'owner'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

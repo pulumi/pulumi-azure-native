@@ -283,6 +283,9 @@ def get_gallery_image(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
+
+
+@_utilities.lift_output_func(get_gallery_image)
 def get_gallery_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                              gallery_image_name: Optional[pulumi.Input[str]] = None,
                              lab_account_name: Optional[pulumi.Input[str]] = None,
@@ -298,28 +301,4 @@ def get_gallery_image_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     :param str lab_account_name: The name of the lab Account.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['expand'] = expand
-    __args__['galleryImageName'] = gallery_image_name
-    __args__['labAccountName'] = lab_account_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getGalleryImage', __args__, opts=opts, typ=GetGalleryImageResult)
-    return __ret__.apply(lambda __response__: GetGalleryImageResult(
-        author=pulumi.get(__response__, 'author'),
-        created_date=pulumi.get(__response__, 'created_date'),
-        description=pulumi.get(__response__, 'description'),
-        icon=pulumi.get(__response__, 'icon'),
-        id=pulumi.get(__response__, 'id'),
-        image_reference=pulumi.get(__response__, 'image_reference'),
-        is_enabled=pulumi.get(__response__, 'is_enabled'),
-        is_override=pulumi.get(__response__, 'is_override'),
-        is_plan_authorized=pulumi.get(__response__, 'is_plan_authorized'),
-        latest_operation_result=pulumi.get(__response__, 'latest_operation_result'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        plan_id=pulumi.get(__response__, 'plan_id'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        unique_identifier=pulumi.get(__response__, 'unique_identifier')))
+    ...

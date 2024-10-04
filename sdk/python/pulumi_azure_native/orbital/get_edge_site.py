@@ -149,6 +149,9 @@ def get_edge_site(edge_site_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_edge_site)
 def get_edge_site_output(edge_site_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEdgeSiteResult]:
@@ -162,16 +165,4 @@ def get_edge_site_output(edge_site_name: Optional[pulumi.Input[str]] = None,
     :param str edge_site_name: Edge site name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['edgeSiteName'] = edge_site_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:orbital:getEdgeSite', __args__, opts=opts, typ=GetEdgeSiteResult)
-    return __ret__.apply(lambda __response__: GetEdgeSiteResult(
-        global_communications_site=pulumi.get(__response__, 'global_communications_site'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

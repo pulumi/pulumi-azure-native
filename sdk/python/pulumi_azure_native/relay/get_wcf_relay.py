@@ -230,6 +230,9 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         user_metadata=pulumi.get(__ret__, 'user_metadata'))
+
+
+@_utilities.lift_output_func(get_wcf_relay)
 def get_wcf_relay_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          relay_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -245,23 +248,4 @@ def get_wcf_relay_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str relay_name: The relay name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    __args__ = dict()
-    __args__['namespaceName'] = namespace_name
-    __args__['relayName'] = relay_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:relay:getWCFRelay', __args__, opts=opts, typ=GetWCFRelayResult)
-    return __ret__.apply(lambda __response__: GetWCFRelayResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        id=pulumi.get(__response__, 'id'),
-        is_dynamic=pulumi.get(__response__, 'is_dynamic'),
-        listener_count=pulumi.get(__response__, 'listener_count'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        relay_type=pulumi.get(__response__, 'relay_type'),
-        requires_client_authorization=pulumi.get(__response__, 'requires_client_authorization'),
-        requires_transport_security=pulumi.get(__response__, 'requires_transport_security'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        updated_at=pulumi.get(__response__, 'updated_at'),
-        user_metadata=pulumi.get(__response__, 'user_metadata')))
+    ...

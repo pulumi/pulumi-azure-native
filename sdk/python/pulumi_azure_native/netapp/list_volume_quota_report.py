@@ -88,6 +88,9 @@ def list_volume_quota_report(account_name: Optional[str] = None,
     return AwaitableListVolumeQuotaReportResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_volume_quota_report)
 def list_volume_quota_report_output(account_name: Optional[pulumi.Input[str]] = None,
                                     pool_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -103,13 +106,4 @@ def list_volume_quota_report_output(account_name: Optional[pulumi.Input[str]] = 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str volume_name: The name of the volume
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['poolName'] = pool_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['volumeName'] = volume_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:netapp:listVolumeQuotaReport', __args__, opts=opts, typ=ListVolumeQuotaReportResult)
-    return __ret__.apply(lambda __response__: ListVolumeQuotaReportResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

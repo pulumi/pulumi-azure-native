@@ -112,6 +112,9 @@ def get_hybrid_connection_authorization_rule(authorization_rule_name: Optional[s
         name=pulumi.get(__ret__, 'name'),
         rights=pulumi.get(__ret__, 'rights'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_hybrid_connection_authorization_rule)
 def get_hybrid_connection_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
                                                     hybrid_connection_name: Optional[pulumi.Input[str]] = None,
                                                     namespace_name: Optional[pulumi.Input[str]] = None,
@@ -126,15 +129,4 @@ def get_hybrid_connection_authorization_rule_output(authorization_rule_name: Opt
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    __args__ = dict()
-    __args__['authorizationRuleName'] = authorization_rule_name
-    __args__['hybridConnectionName'] = hybrid_connection_name
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:relay/v20170401:getHybridConnectionAuthorizationRule', __args__, opts=opts, typ=GetHybridConnectionAuthorizationRuleResult)
-    return __ret__.apply(lambda __response__: GetHybridConnectionAuthorizationRuleResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        rights=pulumi.get(__response__, 'rights'),
-        type=pulumi.get(__response__, 'type')))
+    ...

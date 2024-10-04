@@ -264,6 +264,9 @@ def get_operator_api_connection(operator_api_connection_name: Optional[str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_operator_api_connection)
 def get_operator_api_connection_output(operator_api_connection_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOperatorApiConnectionResult]:
@@ -275,25 +278,4 @@ def get_operator_api_connection_output(operator_api_connection_name: Optional[pu
     :param str operator_api_connection_name: Azure Programmable Connectivity (APC) Operator API Connection Name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['operatorApiConnectionName'] = operator_api_connection_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:programmableconnectivity:getOperatorApiConnection', __args__, opts=opts, typ=GetOperatorApiConnectionResult)
-    return __ret__.apply(lambda __response__: GetOperatorApiConnectionResult(
-        account_type=pulumi.get(__response__, 'account_type'),
-        app_id=pulumi.get(__response__, 'app_id'),
-        camara_api_name=pulumi.get(__response__, 'camara_api_name'),
-        configured_application=pulumi.get(__response__, 'configured_application'),
-        gateway_id=pulumi.get(__response__, 'gateway_id'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        operator_api_plan_id=pulumi.get(__response__, 'operator_api_plan_id'),
-        operator_name=pulumi.get(__response__, 'operator_name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        saas_properties=pulumi.get(__response__, 'saas_properties'),
-        status=pulumi.get(__response__, 'status'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

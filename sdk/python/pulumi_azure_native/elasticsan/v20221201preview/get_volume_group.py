@@ -175,6 +175,9 @@ def get_volume_group(elastic_san_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_volume_group)
 def get_volume_group_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             volume_group_name: Optional[pulumi.Input[str]] = None,
@@ -187,19 +190,4 @@ def get_volume_group_output(elastic_san_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str volume_group_name: The name of the VolumeGroup.
     """
-    __args__ = dict()
-    __args__['elasticSanName'] = elastic_san_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['volumeGroupName'] = volume_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:elasticsan/v20221201preview:getVolumeGroup', __args__, opts=opts, typ=GetVolumeGroupResult)
-    return __ret__.apply(lambda __response__: GetVolumeGroupResult(
-        encryption=pulumi.get(__response__, 'encryption'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        network_acls=pulumi.get(__response__, 'network_acls'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        protocol_type=pulumi.get(__response__, 'protocol_type'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

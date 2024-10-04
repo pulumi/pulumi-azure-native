@@ -409,6 +409,9 @@ def get_registered_server(resource_group_name: Optional[str] = None,
         storage_sync_service_uid=pulumi.get(__ret__, 'storage_sync_service_uid'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_registered_server)
 def get_registered_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  server_id: Optional[pulumi.Input[str]] = None,
                                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
@@ -421,37 +424,4 @@ def get_registered_server_output(resource_group_name: Optional[pulumi.Input[str]
     :param str server_id: GUID identifying the on-premises server.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverId'] = server_id
-    __args__['storageSyncServiceName'] = storage_sync_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storagesync/v20220601:getRegisteredServer', __args__, opts=opts, typ=GetRegisteredServerResult)
-    return __ret__.apply(lambda __response__: GetRegisteredServerResult(
-        agent_version=pulumi.get(__response__, 'agent_version'),
-        agent_version_expiration_date=pulumi.get(__response__, 'agent_version_expiration_date'),
-        agent_version_status=pulumi.get(__response__, 'agent_version_status'),
-        cluster_id=pulumi.get(__response__, 'cluster_id'),
-        cluster_name=pulumi.get(__response__, 'cluster_name'),
-        discovery_endpoint_uri=pulumi.get(__response__, 'discovery_endpoint_uri'),
-        friendly_name=pulumi.get(__response__, 'friendly_name'),
-        id=pulumi.get(__response__, 'id'),
-        last_heart_beat=pulumi.get(__response__, 'last_heart_beat'),
-        last_operation_name=pulumi.get(__response__, 'last_operation_name'),
-        last_workflow_id=pulumi.get(__response__, 'last_workflow_id'),
-        management_endpoint_uri=pulumi.get(__response__, 'management_endpoint_uri'),
-        monitoring_configuration=pulumi.get(__response__, 'monitoring_configuration'),
-        monitoring_endpoint_uri=pulumi.get(__response__, 'monitoring_endpoint_uri'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_location=pulumi.get(__response__, 'resource_location'),
-        server_certificate=pulumi.get(__response__, 'server_certificate'),
-        server_id=pulumi.get(__response__, 'server_id'),
-        server_management_error_code=pulumi.get(__response__, 'server_management_error_code'),
-        server_name=pulumi.get(__response__, 'server_name'),
-        server_os_version=pulumi.get(__response__, 'server_os_version'),
-        server_role=pulumi.get(__response__, 'server_role'),
-        service_location=pulumi.get(__response__, 'service_location'),
-        storage_sync_service_uid=pulumi.get(__response__, 'storage_sync_service_uid'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

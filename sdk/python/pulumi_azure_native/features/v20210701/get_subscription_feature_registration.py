@@ -104,6 +104,9 @@ def get_subscription_feature_registration(feature_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_subscription_feature_registration)
 def get_subscription_feature_registration_output(feature_name: Optional[pulumi.Input[str]] = None,
                                                  provider_namespace: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionFeatureRegistrationResult]:
@@ -114,13 +117,4 @@ def get_subscription_feature_registration_output(feature_name: Optional[pulumi.I
     :param str feature_name: The feature name.
     :param str provider_namespace: The provider namespace.
     """
-    __args__ = dict()
-    __args__['featureName'] = feature_name
-    __args__['providerNamespace'] = provider_namespace
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:features/v20210701:getSubscriptionFeatureRegistration', __args__, opts=opts, typ=GetSubscriptionFeatureRegistrationResult)
-    return __ret__.apply(lambda __response__: GetSubscriptionFeatureRegistrationResult(
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
-        type=pulumi.get(__response__, 'type')))
+    ...

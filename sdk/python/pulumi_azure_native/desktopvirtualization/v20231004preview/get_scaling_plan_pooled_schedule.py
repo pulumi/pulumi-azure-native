@@ -331,6 +331,9 @@ def get_scaling_plan_pooled_schedule(resource_group_name: Optional[str] = None,
         ramp_up_start_time=pulumi.get(__ret__, 'ramp_up_start_time'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_scaling_plan_pooled_schedule)
 def get_scaling_plan_pooled_schedule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             scaling_plan_name: Optional[pulumi.Input[str]] = None,
                                             scaling_plan_schedule_name: Optional[pulumi.Input[str]] = None,
@@ -343,31 +346,4 @@ def get_scaling_plan_pooled_schedule_output(resource_group_name: Optional[pulumi
     :param str scaling_plan_name: The name of the scaling plan.
     :param str scaling_plan_schedule_name: The name of the ScalingPlanSchedule
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['scalingPlanName'] = scaling_plan_name
-    __args__['scalingPlanScheduleName'] = scaling_plan_schedule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization/v20231004preview:getScalingPlanPooledSchedule', __args__, opts=opts, typ=GetScalingPlanPooledScheduleResult)
-    return __ret__.apply(lambda __response__: GetScalingPlanPooledScheduleResult(
-        days_of_week=pulumi.get(__response__, 'days_of_week'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        off_peak_load_balancing_algorithm=pulumi.get(__response__, 'off_peak_load_balancing_algorithm'),
-        off_peak_start_time=pulumi.get(__response__, 'off_peak_start_time'),
-        peak_load_balancing_algorithm=pulumi.get(__response__, 'peak_load_balancing_algorithm'),
-        peak_start_time=pulumi.get(__response__, 'peak_start_time'),
-        ramp_down_capacity_threshold_pct=pulumi.get(__response__, 'ramp_down_capacity_threshold_pct'),
-        ramp_down_force_logoff_users=pulumi.get(__response__, 'ramp_down_force_logoff_users'),
-        ramp_down_load_balancing_algorithm=pulumi.get(__response__, 'ramp_down_load_balancing_algorithm'),
-        ramp_down_minimum_hosts_pct=pulumi.get(__response__, 'ramp_down_minimum_hosts_pct'),
-        ramp_down_notification_message=pulumi.get(__response__, 'ramp_down_notification_message'),
-        ramp_down_start_time=pulumi.get(__response__, 'ramp_down_start_time'),
-        ramp_down_stop_hosts_when=pulumi.get(__response__, 'ramp_down_stop_hosts_when'),
-        ramp_down_wait_time_minutes=pulumi.get(__response__, 'ramp_down_wait_time_minutes'),
-        ramp_up_capacity_threshold_pct=pulumi.get(__response__, 'ramp_up_capacity_threshold_pct'),
-        ramp_up_load_balancing_algorithm=pulumi.get(__response__, 'ramp_up_load_balancing_algorithm'),
-        ramp_up_minimum_hosts_pct=pulumi.get(__response__, 'ramp_up_minimum_hosts_pct'),
-        ramp_up_start_time=pulumi.get(__response__, 'ramp_up_start_time'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

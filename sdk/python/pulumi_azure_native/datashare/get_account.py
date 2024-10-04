@@ -199,6 +199,9 @@ def get_account(account_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_email=pulumi.get(__ret__, 'user_email'),
         user_name=pulumi.get(__ret__, 'user_name'))
+
+
+@_utilities.lift_output_func(get_account)
 def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
@@ -210,20 +213,4 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: The name of the share account.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['accountName'] = account_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getAccount', __args__, opts=opts, typ=GetAccountResult)
-    return __ret__.apply(lambda __response__: GetAccountResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        user_email=pulumi.get(__response__, 'user_email'),
-        user_name=pulumi.get(__response__, 'user_name')))
+    ...

@@ -227,6 +227,9 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_azure_monitor_workspace)
 def get_azure_monitor_workspace_output(azure_monitor_workspace_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureMonitorWorkspaceResult]:
@@ -240,22 +243,4 @@ def get_azure_monitor_workspace_output(azure_monitor_workspace_name: Optional[pu
     :param str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['azureMonitorWorkspaceName'] = azure_monitor_workspace_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:monitor:getAzureMonitorWorkspace', __args__, opts=opts, typ=GetAzureMonitorWorkspaceResult)
-    return __ret__.apply(lambda __response__: GetAzureMonitorWorkspaceResult(
-        account_id=pulumi.get(__response__, 'account_id'),
-        default_ingestion_settings=pulumi.get(__response__, 'default_ingestion_settings'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        metrics=pulumi.get(__response__, 'metrics'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

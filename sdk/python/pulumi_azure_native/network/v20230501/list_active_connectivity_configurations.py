@@ -90,6 +90,9 @@ def list_active_connectivity_configurations(network_manager_name: Optional[str] 
     return AwaitableListActiveConnectivityConfigurationsResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_active_connectivity_configurations)
 def list_active_connectivity_configurations_output(network_manager_name: Optional[pulumi.Input[str]] = None,
                                                    regions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -106,14 +109,4 @@ def list_active_connectivity_configurations_output(network_manager_name: Optiona
     :param str skip_token: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
     :param int top: An optional query parameter which specifies the maximum number of records to be returned by the server.
     """
-    __args__ = dict()
-    __args__['networkManagerName'] = network_manager_name
-    __args__['regions'] = regions
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['skipToken'] = skip_token
-    __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230501:listActiveConnectivityConfigurations', __args__, opts=opts, typ=ListActiveConnectivityConfigurationsResult)
-    return __ret__.apply(lambda __response__: ListActiveConnectivityConfigurationsResult(
-        skip_token=pulumi.get(__response__, 'skip_token'),
-        value=pulumi.get(__response__, 'value')))
+    ...

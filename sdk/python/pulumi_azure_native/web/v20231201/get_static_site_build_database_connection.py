@@ -178,6 +178,9 @@ def get_static_site_build_database_connection(database_connection_name: Optional
         region=pulumi.get(__ret__, 'region'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_static_site_build_database_connection)
 def get_static_site_build_database_connection_output(database_connection_name: Optional[pulumi.Input[str]] = None,
                                                      environment_name: Optional[pulumi.Input[str]] = None,
                                                      name: Optional[pulumi.Input[str]] = None,
@@ -192,20 +195,4 @@ def get_static_site_build_database_connection_output(database_connection_name: O
     :param str name: Name of the static site
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['databaseConnectionName'] = database_connection_name
-    __args__['environmentName'] = environment_name
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:getStaticSiteBuildDatabaseConnection', __args__, opts=opts, typ=GetStaticSiteBuildDatabaseConnectionResult)
-    return __ret__.apply(lambda __response__: GetStaticSiteBuildDatabaseConnectionResult(
-        configuration_files=pulumi.get(__response__, 'configuration_files'),
-        connection_identity=pulumi.get(__response__, 'connection_identity'),
-        connection_string=pulumi.get(__response__, 'connection_string'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        region=pulumi.get(__response__, 'region'),
-        resource_id=pulumi.get(__response__, 'resource_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

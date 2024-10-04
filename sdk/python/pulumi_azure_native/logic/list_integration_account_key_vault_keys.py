@@ -89,6 +89,9 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[s
     return AwaitableListIntegrationAccountKeyVaultKeysResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_integration_account_key_vault_keys)
 def list_integration_account_key_vault_keys_output(integration_account_name: Optional[pulumi.Input[str]] = None,
                                                    key_vault: Optional[pulumi.Input[Union['KeyVaultReference', 'KeyVaultReferenceDict']]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -104,13 +107,4 @@ def list_integration_account_key_vault_keys_output(integration_account_name: Opt
     :param str resource_group_name: The resource group name.
     :param str skip_token: The skip token.
     """
-    __args__ = dict()
-    __args__['integrationAccountName'] = integration_account_name
-    __args__['keyVault'] = key_vault
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['skipToken'] = skip_token
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:logic:listIntegrationAccountKeyVaultKeys', __args__, opts=opts, typ=ListIntegrationAccountKeyVaultKeysResult)
-    return __ret__.apply(lambda __response__: ListIntegrationAccountKeyVaultKeysResult(
-        skip_token=pulumi.get(__response__, 'skip_token'),
-        value=pulumi.get(__response__, 'value')))
+    ...

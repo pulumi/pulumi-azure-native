@@ -159,6 +159,9 @@ def get_static_site_private_endpoint_connection(name: Optional[str] = None,
         private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_static_site_private_endpoint_connection)
 def get_static_site_private_endpoint_connection_output(name: Optional[pulumi.Input[str]] = None,
                                                        private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -171,18 +174,4 @@ def get_static_site_private_endpoint_connection_output(name: Optional[pulumi.Inp
     :param str private_endpoint_connection_name: Name of the private endpoint connection.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:getStaticSitePrivateEndpointConnection', __args__, opts=opts, typ=GetStaticSitePrivateEndpointConnectionResult)
-    return __ret__.apply(lambda __response__: GetStaticSitePrivateEndpointConnectionResult(
-        id=pulumi.get(__response__, 'id'),
-        ip_addresses=pulumi.get(__response__, 'ip_addresses'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        private_endpoint=pulumi.get(__response__, 'private_endpoint'),
-        private_link_service_connection_state=pulumi.get(__response__, 'private_link_service_connection_state'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -293,6 +293,9 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_data_collection_rule)
 def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionRuleResult]:
@@ -306,27 +309,4 @@ def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.I
     :param str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['dataCollectionRuleName'] = data_collection_rule_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getDataCollectionRule', __args__, opts=opts, typ=GetDataCollectionRuleResult)
-    return __ret__.apply(lambda __response__: GetDataCollectionRuleResult(
-        data_collection_endpoint_id=pulumi.get(__response__, 'data_collection_endpoint_id'),
-        data_flows=pulumi.get(__response__, 'data_flows'),
-        data_sources=pulumi.get(__response__, 'data_sources'),
-        description=pulumi.get(__response__, 'description'),
-        destinations=pulumi.get(__response__, 'destinations'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        immutable_id=pulumi.get(__response__, 'immutable_id'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        stream_declarations=pulumi.get(__response__, 'stream_declarations'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

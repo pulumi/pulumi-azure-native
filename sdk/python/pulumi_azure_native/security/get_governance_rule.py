@@ -277,6 +277,9 @@ def get_governance_rule(rule_id: Optional[str] = None,
         source_resource_type=pulumi.get(__ret__, 'source_resource_type'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_governance_rule)
 def get_governance_rule_output(rule_id: Optional[pulumi.Input[str]] = None,
                                scope: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGovernanceRuleResult]:
@@ -288,26 +291,4 @@ def get_governance_rule_output(rule_id: Optional[pulumi.Input[str]] = None,
     :param str rule_id: The governance rule key - unique key for the standard governance rule (GUID)
     :param str scope: The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
     """
-    __args__ = dict()
-    __args__['ruleId'] = rule_id
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:security:getGovernanceRule', __args__, opts=opts, typ=GetGovernanceRuleResult)
-    return __ret__.apply(lambda __response__: GetGovernanceRuleResult(
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        excluded_scopes=pulumi.get(__response__, 'excluded_scopes'),
-        governance_email_notification=pulumi.get(__response__, 'governance_email_notification'),
-        id=pulumi.get(__response__, 'id'),
-        include_member_scopes=pulumi.get(__response__, 'include_member_scopes'),
-        is_disabled=pulumi.get(__response__, 'is_disabled'),
-        is_grace_period=pulumi.get(__response__, 'is_grace_period'),
-        metadata=pulumi.get(__response__, 'metadata'),
-        name=pulumi.get(__response__, 'name'),
-        owner_source=pulumi.get(__response__, 'owner_source'),
-        remediation_timeframe=pulumi.get(__response__, 'remediation_timeframe'),
-        rule_priority=pulumi.get(__response__, 'rule_priority'),
-        rule_type=pulumi.get(__response__, 'rule_type'),
-        source_resource_type=pulumi.get(__response__, 'source_resource_type'),
-        tenant_id=pulumi.get(__response__, 'tenant_id'),
-        type=pulumi.get(__response__, 'type')))
+    ...

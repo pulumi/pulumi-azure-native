@@ -211,6 +211,9 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_alert_rule)
 def get_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                           rule_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertRuleResult]:
@@ -221,21 +224,4 @@ def get_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['ruleName'] = rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20160301:getAlertRule', __args__, opts=opts, typ=GetAlertRuleResult)
-    return __ret__.apply(lambda __response__: GetAlertRuleResult(
-        action=pulumi.get(__response__, 'action'),
-        actions=pulumi.get(__response__, 'actions'),
-        condition=pulumi.get(__response__, 'condition'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        is_enabled=pulumi.get(__response__, 'is_enabled'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

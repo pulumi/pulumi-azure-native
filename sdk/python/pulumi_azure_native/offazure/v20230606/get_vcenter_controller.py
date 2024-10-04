@@ -253,6 +253,9 @@ def get_vcenter_controller(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_vcenter_controller)
 def get_vcenter_controller_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                   site_name: Optional[pulumi.Input[str]] = None,
                                   vcenter_name: Optional[pulumi.Input[str]] = None,
@@ -265,25 +268,4 @@ def get_vcenter_controller_output(resource_group_name: Optional[pulumi.Input[str
     :param str site_name: Site name
     :param str vcenter_name:  VCenters name
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['siteName'] = site_name
-    __args__['vcenterName'] = vcenter_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:offazure/v20230606:getVcenterController', __args__, opts=opts, typ=GetVcenterControllerResult)
-    return __ret__.apply(lambda __response__: GetVcenterControllerResult(
-        created_timestamp=pulumi.get(__response__, 'created_timestamp'),
-        errors=pulumi.get(__response__, 'errors'),
-        fqdn=pulumi.get(__response__, 'fqdn'),
-        friendly_name=pulumi.get(__response__, 'friendly_name'),
-        id=pulumi.get(__response__, 'id'),
-        instance_uuid=pulumi.get(__response__, 'instance_uuid'),
-        name=pulumi.get(__response__, 'name'),
-        perf_statistics_level=pulumi.get(__response__, 'perf_statistics_level'),
-        port=pulumi.get(__response__, 'port'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        run_as_account_id=pulumi.get(__response__, 'run_as_account_id'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type'),
-        updated_timestamp=pulumi.get(__response__, 'updated_timestamp'),
-        version=pulumi.get(__response__, 'version')))
+    ...

@@ -80,6 +80,9 @@ def list_admin_key(resource_group_name: Optional[str] = None,
     return AwaitableListAdminKeyResult(
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
+
+
+@_utilities.lift_output_func(list_admin_key)
 def list_admin_key_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                           search_service_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAdminKeyResult]:
@@ -90,11 +93,4 @@ def list_admin_key_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str search_service_name: The name of the Azure AI Search service associated with the specified resource group.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['searchServiceName'] = search_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:search/v20240301preview:listAdminKey', __args__, opts=opts, typ=ListAdminKeyResult)
-    return __ret__.apply(lambda __response__: ListAdminKeyResult(
-        primary_key=pulumi.get(__response__, 'primary_key'),
-        secondary_key=pulumi.get(__response__, 'secondary_key')))
+    ...

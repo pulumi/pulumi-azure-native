@@ -139,6 +139,9 @@ def get_access_policy_assignment(access_policy_assignment_name: Optional[str] = 
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'),
         user=pulumi.get(__ret__, 'user'))
+
+
+@_utilities.lift_output_func(get_access_policy_assignment)
 def get_access_policy_assignment_output(access_policy_assignment_name: Optional[pulumi.Input[str]] = None,
                                         cluster_name: Optional[pulumi.Input[str]] = None,
                                         database_name: Optional[pulumi.Input[str]] = None,
@@ -153,17 +156,4 @@ def get_access_policy_assignment_output(access_policy_assignment_name: Optional[
     :param str database_name: The name of the Redis Enterprise database.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['accessPolicyAssignmentName'] = access_policy_assignment_name
-    __args__['clusterName'] = cluster_name
-    __args__['databaseName'] = database_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cache/v20240901preview:getAccessPolicyAssignment', __args__, opts=opts, typ=GetAccessPolicyAssignmentResult)
-    return __ret__.apply(lambda __response__: GetAccessPolicyAssignmentResult(
-        access_policy_name=pulumi.get(__response__, 'access_policy_name'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        type=pulumi.get(__response__, 'type'),
-        user=pulumi.get(__response__, 'user')))
+    ...

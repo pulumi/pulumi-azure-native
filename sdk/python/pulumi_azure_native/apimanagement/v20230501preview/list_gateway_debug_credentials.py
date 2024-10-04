@@ -80,6 +80,9 @@ def list_gateway_debug_credentials(api_id: Optional[str] = None,
 
     return AwaitableListGatewayDebugCredentialsResult(
         token=pulumi.get(__ret__, 'token'))
+
+
+@_utilities.lift_output_func(list_gateway_debug_credentials)
 def list_gateway_debug_credentials_output(api_id: Optional[pulumi.Input[str]] = None,
                                           credentials_expire_after: Optional[pulumi.Input[Optional[str]]] = None,
                                           gateway_id: Optional[pulumi.Input[str]] = None,
@@ -98,14 +101,4 @@ def list_gateway_debug_credentials_output(api_id: Optional[pulumi.Input[str]] = 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['apiId'] = api_id
-    __args__['credentialsExpireAfter'] = credentials_expire_after
-    __args__['gatewayId'] = gateway_id
-    __args__['purposes'] = purposes
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:listGatewayDebugCredentials', __args__, opts=opts, typ=ListGatewayDebugCredentialsResult)
-    return __ret__.apply(lambda __response__: ListGatewayDebugCredentialsResult(
-        token=pulumi.get(__response__, 'token')))
+    ...

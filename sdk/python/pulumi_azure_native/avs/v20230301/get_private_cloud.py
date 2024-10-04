@@ -406,6 +406,9 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
         vcenter_certificate_thumbprint=pulumi.get(__ret__, 'vcenter_certificate_thumbprint'),
         vcenter_password=pulumi.get(__ret__, 'vcenter_password'),
         vmotion_network=pulumi.get(__ret__, 'vmotion_network'))
+
+
+@_utilities.lift_output_func(get_private_cloud)
 def get_private_cloud_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateCloudResult]:
@@ -416,36 +419,4 @@ def get_private_cloud_output(private_cloud_name: Optional[pulumi.Input[str]] = N
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['privateCloudName'] = private_cloud_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20230301:getPrivateCloud', __args__, opts=opts, typ=GetPrivateCloudResult)
-    return __ret__.apply(lambda __response__: GetPrivateCloudResult(
-        availability=pulumi.get(__response__, 'availability'),
-        circuit=pulumi.get(__response__, 'circuit'),
-        encryption=pulumi.get(__response__, 'encryption'),
-        endpoints=pulumi.get(__response__, 'endpoints'),
-        extended_network_blocks=pulumi.get(__response__, 'extended_network_blocks'),
-        external_cloud_links=pulumi.get(__response__, 'external_cloud_links'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        identity_sources=pulumi.get(__response__, 'identity_sources'),
-        internet=pulumi.get(__response__, 'internet'),
-        location=pulumi.get(__response__, 'location'),
-        management_cluster=pulumi.get(__response__, 'management_cluster'),
-        management_network=pulumi.get(__response__, 'management_network'),
-        name=pulumi.get(__response__, 'name'),
-        network_block=pulumi.get(__response__, 'network_block'),
-        nsx_public_ip_quota_raised=pulumi.get(__response__, 'nsx_public_ip_quota_raised'),
-        nsxt_certificate_thumbprint=pulumi.get(__response__, 'nsxt_certificate_thumbprint'),
-        nsxt_password=pulumi.get(__response__, 'nsxt_password'),
-        provisioning_network=pulumi.get(__response__, 'provisioning_network'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        secondary_circuit=pulumi.get(__response__, 'secondary_circuit'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        vcenter_certificate_thumbprint=pulumi.get(__response__, 'vcenter_certificate_thumbprint'),
-        vcenter_password=pulumi.get(__response__, 'vcenter_password'),
-        vmotion_network=pulumi.get(__response__, 'vmotion_network')))
+    ...

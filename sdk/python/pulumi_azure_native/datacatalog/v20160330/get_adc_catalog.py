@@ -211,6 +211,9 @@ def get_adc_catalog(catalog_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         units=pulumi.get(__ret__, 'units'),
         users=pulumi.get(__ret__, 'users'))
+
+
+@_utilities.lift_output_func(get_adc_catalog)
 def get_adc_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADCCatalogResult]:
@@ -221,21 +224,4 @@ def get_adc_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
     :param str catalog_name: The name of the data catalog in the specified subscription and resource group.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['catalogName'] = catalog_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:datacatalog/v20160330:getADCCatalog', __args__, opts=opts, typ=GetADCCatalogResult)
-    return __ret__.apply(lambda __response__: GetADCCatalogResult(
-        admins=pulumi.get(__response__, 'admins'),
-        enable_automatic_unit_adjustment=pulumi.get(__response__, 'enable_automatic_unit_adjustment'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        sku=pulumi.get(__response__, 'sku'),
-        successfully_provisioned=pulumi.get(__response__, 'successfully_provisioned'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        units=pulumi.get(__response__, 'units'),
-        users=pulumi.get(__response__, 'users')))
+    ...

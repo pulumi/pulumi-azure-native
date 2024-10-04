@@ -75,6 +75,9 @@ def list_device_failover_tars(manager_name: Optional[str] = None,
 
     return AwaitableListDeviceFailoverTarsResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_device_failover_tars)
 def list_device_failover_tars_output(manager_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      source_device_name: Optional[pulumi.Input[str]] = None,
@@ -90,12 +93,4 @@ def list_device_failover_tars_output(manager_name: Optional[pulumi.Input[str]] =
     :param str source_device_name: The source device name on which failover is performed.
     :param Sequence[str] volume_containers: The list of path IDs of the volume containers that needs to be failed-over, for which we want to fetch the eligible targets.
     """
-    __args__ = dict()
-    __args__['managerName'] = manager_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['sourceDeviceName'] = source_device_name
-    __args__['volumeContainers'] = volume_containers
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:listDeviceFailoverTars', __args__, opts=opts, typ=ListDeviceFailoverTarsResult)
-    return __ret__.apply(lambda __response__: ListDeviceFailoverTarsResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

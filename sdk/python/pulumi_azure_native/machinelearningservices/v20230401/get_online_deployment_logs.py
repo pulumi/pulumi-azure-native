@@ -76,6 +76,9 @@ def get_online_deployment_logs(container_type: Optional[Union[str, 'ContainerTyp
 
     return AwaitableGetOnlineDeploymentLogsResult(
         content=pulumi.get(__ret__, 'content'))
+
+
+@_utilities.lift_output_func(get_online_deployment_logs)
 def get_online_deployment_logs_output(container_type: Optional[pulumi.Input[Optional[Union[str, 'ContainerType']]]] = None,
                                       deployment_name: Optional[pulumi.Input[str]] = None,
                                       endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -93,14 +96,4 @@ def get_online_deployment_logs_output(container_type: Optional[pulumi.Input[Opti
     :param int tail: The maximum number of lines to tail.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    __args__ = dict()
-    __args__['containerType'] = container_type
-    __args__['deploymentName'] = deployment_name
-    __args__['endpointName'] = endpoint_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['tail'] = tail
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20230401:getOnlineDeploymentLogs', __args__, opts=opts, typ=GetOnlineDeploymentLogsResult)
-    return __ret__.apply(lambda __response__: GetOnlineDeploymentLogsResult(
-        content=pulumi.get(__response__, 'content')))
+    ...

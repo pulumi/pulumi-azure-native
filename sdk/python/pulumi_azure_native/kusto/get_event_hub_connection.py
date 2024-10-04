@@ -178,6 +178,9 @@ def get_event_hub_connection(cluster_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_event_hub_connection)
 def get_event_hub_connection_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                     database_name: Optional[pulumi.Input[str]] = None,
                                     event_hub_connection_name: Optional[pulumi.Input[str]] = None,
@@ -193,20 +196,4 @@ def get_event_hub_connection_output(cluster_name: Optional[pulumi.Input[str]] = 
     :param str event_hub_connection_name: The name of the event hub connection.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['databaseName'] = database_name
-    __args__['eventHubConnectionName'] = event_hub_connection_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:kusto:getEventHubConnection', __args__, opts=opts, typ=GetEventHubConnectionResult)
-    return __ret__.apply(lambda __response__: GetEventHubConnectionResult(
-        consumer_group=pulumi.get(__response__, 'consumer_group'),
-        data_format=pulumi.get(__response__, 'data_format'),
-        event_hub_resource_id=pulumi.get(__response__, 'event_hub_resource_id'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        mapping_rule_name=pulumi.get(__response__, 'mapping_rule_name'),
-        name=pulumi.get(__response__, 'name'),
-        table_name=pulumi.get(__response__, 'table_name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

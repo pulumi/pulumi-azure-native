@@ -201,6 +201,9 @@ def get_disaster_recovery_configuration(disaster_recovery_configuration_name: Op
         role=pulumi.get(__ret__, 'role'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_disaster_recovery_configuration)
 def get_disaster_recovery_configuration_output(disaster_recovery_configuration_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                server_name: Optional[pulumi.Input[str]] = None,
@@ -214,21 +217,4 @@ def get_disaster_recovery_configuration_output(disaster_recovery_configuration_n
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    __args__ = dict()
-    __args__['disasterRecoveryConfigurationName'] = disaster_recovery_configuration_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDisasterRecoveryConfiguration', __args__, opts=opts, typ=GetDisasterRecoveryConfigurationResult)
-    return __ret__.apply(lambda __response__: GetDisasterRecoveryConfigurationResult(
-        auto_failover=pulumi.get(__response__, 'auto_failover'),
-        failover_policy=pulumi.get(__response__, 'failover_policy'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        logical_server_name=pulumi.get(__response__, 'logical_server_name'),
-        name=pulumi.get(__response__, 'name'),
-        partner_logical_server_name=pulumi.get(__response__, 'partner_logical_server_name'),
-        partner_server_id=pulumi.get(__response__, 'partner_server_id'),
-        role=pulumi.get(__response__, 'role'),
-        status=pulumi.get(__response__, 'status'),
-        type=pulumi.get(__response__, 'type')))
+    ...

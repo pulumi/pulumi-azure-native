@@ -178,6 +178,9 @@ def get_target(resource_group_name: Optional[str] = None,
         target_type=pulumi.get(__ret__, 'target_type'),
         target_vault=pulumi.get(__ret__, 'target_vault'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_target)
 def get_target_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       target_name: Optional[pulumi.Input[str]] = None,
                       watcher_name: Optional[pulumi.Input[str]] = None,
@@ -193,19 +196,4 @@ def get_target_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str target_name: The target resource name.
     :param str watcher_name: The database watcher name.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['targetName'] = target_name
-    __args__['watcherName'] = watcher_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:databasewatcher:getTarget', __args__, opts=opts, typ=GetTargetResult)
-    return __ret__.apply(lambda __response__: GetTargetResult(
-        connection_server_name=pulumi.get(__response__, 'connection_server_name'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        target_authentication_type=pulumi.get(__response__, 'target_authentication_type'),
-        target_type=pulumi.get(__response__, 'target_type'),
-        target_vault=pulumi.get(__response__, 'target_vault'),
-        type=pulumi.get(__response__, 'type')))
+    ...

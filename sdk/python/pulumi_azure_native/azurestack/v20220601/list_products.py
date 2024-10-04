@@ -84,6 +84,9 @@ def list_products(product_name: Optional[str] = None,
     return AwaitableListProductsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_products)
 def list_products_output(product_name: Optional[pulumi.Input[str]] = None,
                          registration_name: Optional[pulumi.Input[str]] = None,
                          resource_group: Optional[pulumi.Input[str]] = None,
@@ -96,12 +99,4 @@ def list_products_output(product_name: Optional[pulumi.Input[str]] = None,
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
-    __args__ = dict()
-    __args__['productName'] = product_name
-    __args__['registrationName'] = registration_name
-    __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack/v20220601:listProducts', __args__, opts=opts, typ=ListProductsResult)
-    return __ret__.apply(lambda __response__: ListProductsResult(
-        next_link=pulumi.get(__response__, 'next_link'),
-        value=pulumi.get(__response__, 'value')))
+    ...

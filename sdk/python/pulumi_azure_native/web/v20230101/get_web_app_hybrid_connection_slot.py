@@ -220,6 +220,9 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
         service_bus_namespace=pulumi.get(__ret__, 'service_bus_namespace'),
         service_bus_suffix=pulumi.get(__ret__, 'service_bus_suffix'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_web_app_hybrid_connection_slot)
 def get_web_app_hybrid_connection_slot_output(name: Optional[pulumi.Input[str]] = None,
                                               namespace_name: Optional[pulumi.Input[str]] = None,
                                               relay_name: Optional[pulumi.Input[str]] = None,
@@ -236,24 +239,4 @@ def get_web_app_hybrid_connection_slot_output(name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: The name of the slot for the web app.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['namespaceName'] = namespace_name
-    __args__['relayName'] = relay_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:getWebAppHybridConnectionSlot', __args__, opts=opts, typ=GetWebAppHybridConnectionSlotResult)
-    return __ret__.apply(lambda __response__: GetWebAppHybridConnectionSlotResult(
-        hostname=pulumi.get(__response__, 'hostname'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        name=pulumi.get(__response__, 'name'),
-        port=pulumi.get(__response__, 'port'),
-        relay_arm_uri=pulumi.get(__response__, 'relay_arm_uri'),
-        relay_name=pulumi.get(__response__, 'relay_name'),
-        send_key_name=pulumi.get(__response__, 'send_key_name'),
-        send_key_value=pulumi.get(__response__, 'send_key_value'),
-        service_bus_namespace=pulumi.get(__response__, 'service_bus_namespace'),
-        service_bus_suffix=pulumi.get(__response__, 'service_bus_suffix'),
-        type=pulumi.get(__response__, 'type')))
+    ...

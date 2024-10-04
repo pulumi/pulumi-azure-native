@@ -302,6 +302,9 @@ def get_firewall(firewall_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_firewall)
 def get_firewall_output(firewall_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
@@ -312,28 +315,4 @@ def get_firewall_output(firewall_name: Optional[pulumi.Input[str]] = None,
     :param str firewall_name: Firewall resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    __args__ = dict()
-    __args__['firewallName'] = firewall_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240207preview:getFirewall', __args__, opts=opts, typ=GetFirewallResult)
-    return __ret__.apply(lambda __response__: GetFirewallResult(
-        associated_rulestack=pulumi.get(__response__, 'associated_rulestack'),
-        dns_settings=pulumi.get(__response__, 'dns_settings'),
-        front_end_settings=pulumi.get(__response__, 'front_end_settings'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        is_panorama_managed=pulumi.get(__response__, 'is_panorama_managed'),
-        is_strata_cloud_managed=pulumi.get(__response__, 'is_strata_cloud_managed'),
-        location=pulumi.get(__response__, 'location'),
-        marketplace_details=pulumi.get(__response__, 'marketplace_details'),
-        name=pulumi.get(__response__, 'name'),
-        network_profile=pulumi.get(__response__, 'network_profile'),
-        pan_etag=pulumi.get(__response__, 'pan_etag'),
-        panorama_config=pulumi.get(__response__, 'panorama_config'),
-        plan_data=pulumi.get(__response__, 'plan_data'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        strata_cloud_manager_config=pulumi.get(__response__, 'strata_cloud_manager_config'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

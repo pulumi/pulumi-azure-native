@@ -186,6 +186,9 @@ def get_workbook_template(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template_data=pulumi.get(__ret__, 'template_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_workbook_template)
 def get_workbook_template_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  resource_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookTemplateResult]:
@@ -197,19 +200,4 @@ def get_workbook_template_output(resource_group_name: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getWorkbookTemplate', __args__, opts=opts, typ=GetWorkbookTemplateResult)
-    return __ret__.apply(lambda __response__: GetWorkbookTemplateResult(
-        author=pulumi.get(__response__, 'author'),
-        galleries=pulumi.get(__response__, 'galleries'),
-        id=pulumi.get(__response__, 'id'),
-        localized=pulumi.get(__response__, 'localized'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        priority=pulumi.get(__response__, 'priority'),
-        tags=pulumi.get(__response__, 'tags'),
-        template_data=pulumi.get(__response__, 'template_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

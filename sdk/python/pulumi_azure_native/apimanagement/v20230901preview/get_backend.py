@@ -237,6 +237,9 @@ def get_backend(backend_id: Optional[str] = None,
         tls=pulumi.get(__ret__, 'tls'),
         type=pulumi.get(__ret__, 'type'),
         url=pulumi.get(__ret__, 'url'))
+
+
+@_utilities.lift_output_func(get_backend)
 def get_backend_output(backend_id: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
@@ -249,24 +252,4 @@ def get_backend_output(backend_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    __args__ = dict()
-    __args__['backendId'] = backend_id
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getBackend', __args__, opts=opts, typ=GetBackendResult)
-    return __ret__.apply(lambda __response__: GetBackendResult(
-        circuit_breaker=pulumi.get(__response__, 'circuit_breaker'),
-        credentials=pulumi.get(__response__, 'credentials'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        pool=pulumi.get(__response__, 'pool'),
-        properties=pulumi.get(__response__, 'properties'),
-        protocol=pulumi.get(__response__, 'protocol'),
-        proxy=pulumi.get(__response__, 'proxy'),
-        resource_id=pulumi.get(__response__, 'resource_id'),
-        title=pulumi.get(__response__, 'title'),
-        tls=pulumi.get(__response__, 'tls'),
-        type=pulumi.get(__response__, 'type'),
-        url=pulumi.get(__response__, 'url')))
+    ...

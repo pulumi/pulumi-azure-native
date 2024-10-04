@@ -144,6 +144,9 @@ def list_integration_account_map_content_callback_url(integration_account_name: 
         relative_path=pulumi.get(__ret__, 'relative_path'),
         relative_path_parameters=pulumi.get(__ret__, 'relative_path_parameters'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_integration_account_map_content_callback_url)
 def list_integration_account_map_content_callback_url_output(integration_account_name: Optional[pulumi.Input[str]] = None,
                                                              key_type: Optional[pulumi.Input[Optional[Union[str, 'KeyType']]]] = None,
                                                              map_name: Optional[pulumi.Input[str]] = None,
@@ -161,18 +164,4 @@ def list_integration_account_map_content_callback_url_output(integration_account
     :param str not_after: The expiry time.
     :param str resource_group_name: The resource group name.
     """
-    __args__ = dict()
-    __args__['integrationAccountName'] = integration_account_name
-    __args__['keyType'] = key_type
-    __args__['mapName'] = map_name
-    __args__['notAfter'] = not_after
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:logic:listIntegrationAccountMapContentCallbackUrl', __args__, opts=opts, typ=ListIntegrationAccountMapContentCallbackUrlResult)
-    return __ret__.apply(lambda __response__: ListIntegrationAccountMapContentCallbackUrlResult(
-        base_path=pulumi.get(__response__, 'base_path'),
-        method=pulumi.get(__response__, 'method'),
-        queries=pulumi.get(__response__, 'queries'),
-        relative_path=pulumi.get(__response__, 'relative_path'),
-        relative_path_parameters=pulumi.get(__response__, 'relative_path_parameters'),
-        value=pulumi.get(__response__, 'value')))
+    ...

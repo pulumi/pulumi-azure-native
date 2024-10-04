@@ -166,6 +166,9 @@ def get_business_application_agent(agent_resource_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_business_application_agent)
 def get_business_application_agent_output(agent_resource_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           workspace_name: Optional[pulumi.Input[str]] = None,
@@ -178,19 +181,4 @@ def get_business_application_agent_output(agent_resource_name: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    __args__ = dict()
-    __args__['agentResourceName'] = agent_resource_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240401preview:getBusinessApplicationAgent', __args__, opts=opts, typ=GetBusinessApplicationAgentResult)
-    return __ret__.apply(lambda __response__: GetBusinessApplicationAgentResult(
-        agent_systems=pulumi.get(__response__, 'agent_systems'),
-        configuration=pulumi.get(__response__, 'configuration'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        etag=pulumi.get(__response__, 'etag'),
-        id=pulumi.get(__response__, 'id'),
-        last_modified_time_utc=pulumi.get(__response__, 'last_modified_time_utc'),
-        name=pulumi.get(__response__, 'name'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+    ...

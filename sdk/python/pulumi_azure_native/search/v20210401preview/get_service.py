@@ -354,6 +354,9 @@ def get_service(resource_group_name: Optional[str] = None,
         status_details=pulumi.get(__ret__, 'status_details'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_service)
 def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        search_service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
@@ -364,32 +367,4 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
     """
-    __args__ = dict()
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['searchServiceName'] = search_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:search/v20210401preview:getService', __args__, opts=opts, typ=GetServiceResult)
-    return __ret__.apply(lambda __response__: GetServiceResult(
-        auth_options=pulumi.get(__response__, 'auth_options'),
-        disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
-        disabled_data_exfiltration_options=pulumi.get(__response__, 'disabled_data_exfiltration_options'),
-        e_tag=pulumi.get(__response__, 'e_tag'),
-        encryption_with_cmk=pulumi.get(__response__, 'encryption_with_cmk'),
-        hosting_mode=pulumi.get(__response__, 'hosting_mode'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_rule_set=pulumi.get(__response__, 'network_rule_set'),
-        partition_count=pulumi.get(__response__, 'partition_count'),
-        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        public_network_access=pulumi.get(__response__, 'public_network_access'),
-        replica_count=pulumi.get(__response__, 'replica_count'),
-        semantic_search=pulumi.get(__response__, 'semantic_search'),
-        shared_private_link_resources=pulumi.get(__response__, 'shared_private_link_resources'),
-        sku=pulumi.get(__response__, 'sku'),
-        status=pulumi.get(__response__, 'status'),
-        status_details=pulumi.get(__response__, 'status_details'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

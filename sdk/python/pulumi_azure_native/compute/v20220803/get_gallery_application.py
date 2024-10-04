@@ -214,6 +214,9 @@ def get_gallery_application(gallery_application_name: Optional[str] = None,
         supported_os_type=pulumi.get(__ret__, 'supported_os_type'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_gallery_application)
 def get_gallery_application_output(gallery_application_name: Optional[pulumi.Input[str]] = None,
                                    gallery_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -226,22 +229,4 @@ def get_gallery_application_output(gallery_application_name: Optional[pulumi.Inp
     :param str gallery_name: The name of the Shared Application Gallery from which the Application Definitions are to be retrieved.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['galleryApplicationName'] = gallery_application_name
-    __args__['galleryName'] = gallery_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20220803:getGalleryApplication', __args__, opts=opts, typ=GetGalleryApplicationResult)
-    return __ret__.apply(lambda __response__: GetGalleryApplicationResult(
-        custom_actions=pulumi.get(__response__, 'custom_actions'),
-        description=pulumi.get(__response__, 'description'),
-        end_of_life_date=pulumi.get(__response__, 'end_of_life_date'),
-        eula=pulumi.get(__response__, 'eula'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        privacy_statement_uri=pulumi.get(__response__, 'privacy_statement_uri'),
-        release_note_uri=pulumi.get(__response__, 'release_note_uri'),
-        supported_os_type=pulumi.get(__response__, 'supported_os_type'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

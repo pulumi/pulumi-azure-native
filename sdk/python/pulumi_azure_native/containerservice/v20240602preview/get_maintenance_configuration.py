@@ -149,6 +149,9 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         time_in_week=pulumi.get(__ret__, 'time_in_week'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_maintenance_configuration)
 def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          resource_name: Optional[pulumi.Input[str]] = None,
@@ -161,17 +164,4 @@ def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
     """
-    __args__ = dict()
-    __args__['configName'] = config_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20240602preview:getMaintenanceConfiguration', __args__, opts=opts, typ=GetMaintenanceConfigurationResult)
-    return __ret__.apply(lambda __response__: GetMaintenanceConfigurationResult(
-        id=pulumi.get(__response__, 'id'),
-        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
-        name=pulumi.get(__response__, 'name'),
-        not_allowed_time=pulumi.get(__response__, 'not_allowed_time'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        time_in_week=pulumi.get(__response__, 'time_in_week'),
-        type=pulumi.get(__response__, 'type')))
+    ...

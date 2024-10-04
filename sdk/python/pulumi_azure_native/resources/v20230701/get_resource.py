@@ -220,6 +220,9 @@ def get_resource(parent_resource_path: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_resource)
 def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
@@ -236,24 +239,4 @@ def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str resource_type: The resource type of the resource.
     """
-    __args__ = dict()
-    __args__['parentResourcePath'] = parent_resource_path
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['resourceName'] = resource_name
-    __args__['resourceProviderNamespace'] = resource_provider_namespace
-    __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:resources/v20230701:getResource', __args__, opts=opts, typ=GetResourceResult)
-    return __ret__.apply(lambda __response__: GetResourceResult(
-        extended_location=pulumi.get(__response__, 'extended_location'),
-        id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        managed_by=pulumi.get(__response__, 'managed_by'),
-        name=pulumi.get(__response__, 'name'),
-        plan=pulumi.get(__response__, 'plan'),
-        properties=pulumi.get(__response__, 'properties'),
-        sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

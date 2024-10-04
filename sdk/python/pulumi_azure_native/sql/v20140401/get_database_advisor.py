@@ -177,6 +177,9 @@ def get_database_advisor(advisor_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         recommendations_status=pulumi.get(__ret__, 'recommendations_status'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_database_advisor)
 def get_database_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None,
                                 database_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -191,20 +194,4 @@ def get_database_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    __args__ = dict()
-    __args__['advisorName'] = advisor_name
-    __args__['databaseName'] = database_name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20140401:getDatabaseAdvisor', __args__, opts=opts, typ=GetDatabaseAdvisorResult)
-    return __ret__.apply(lambda __response__: GetDatabaseAdvisorResult(
-        advisor_status=pulumi.get(__response__, 'advisor_status'),
-        auto_execute_value=pulumi.get(__response__, 'auto_execute_value'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        last_checked=pulumi.get(__response__, 'last_checked'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        recommendations_status=pulumi.get(__response__, 'recommendations_status'),
-        type=pulumi.get(__response__, 'type')))
+    ...

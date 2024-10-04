@@ -203,6 +203,9 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         tier=pulumi.get(__ret__, 'tier'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_subnet_resource_id=pulumi.get(__ret__, 'virtual_network_subnet_resource_id'))
+
+
+@_utilities.lift_output_func(get_agent_pool)
 def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           registry_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -216,21 +219,4 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    __args__ = dict()
-    __args__['agentPoolName'] = agent_pool_name
-    __args__['registryName'] = registry_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getAgentPool', __args__, opts=opts, typ=GetAgentPoolResult)
-    return __ret__.apply(lambda __response__: GetAgentPoolResult(
-        count=pulumi.get(__response__, 'count'),
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        os=pulumi.get(__response__, 'os'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        tier=pulumi.get(__response__, 'tier'),
-        type=pulumi.get(__response__, 'type'),
-        virtual_network_subnet_resource_id=pulumi.get(__response__, 'virtual_network_subnet_resource_id')))
+    ...

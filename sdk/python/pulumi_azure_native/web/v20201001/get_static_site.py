@@ -237,6 +237,9 @@ def get_static_site(name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_static_site)
 def get_static_site_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteResult]:
@@ -247,23 +250,4 @@ def get_static_site_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the static site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:getStaticSite', __args__, opts=opts, typ=GetStaticSiteResult)
-    return __ret__.apply(lambda __response__: GetStaticSiteResult(
-        branch=pulumi.get(__response__, 'branch'),
-        build_properties=pulumi.get(__response__, 'build_properties'),
-        custom_domains=pulumi.get(__response__, 'custom_domains'),
-        default_hostname=pulumi.get(__response__, 'default_hostname'),
-        id=pulumi.get(__response__, 'id'),
-        kind=pulumi.get(__response__, 'kind'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        repository_token=pulumi.get(__response__, 'repository_token'),
-        repository_url=pulumi.get(__response__, 'repository_url'),
-        sku=pulumi.get(__response__, 'sku'),
-        system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

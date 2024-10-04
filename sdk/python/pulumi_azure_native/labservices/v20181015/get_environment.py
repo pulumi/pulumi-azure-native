@@ -288,6 +288,9 @@ def get_environment(environment_name: Optional[str] = None,
         total_usage=pulumi.get(__ret__, 'total_usage'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
+
+
+@_utilities.lift_output_func(get_environment)
 def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
                            environment_setting_name: Optional[pulumi.Input[str]] = None,
                            expand: Optional[pulumi.Input[Optional[str]]] = None,
@@ -306,30 +309,4 @@ def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
     :param str lab_name: The name of the lab.
     :param str resource_group_name: The name of the resource group.
     """
-    __args__ = dict()
-    __args__['environmentName'] = environment_name
-    __args__['environmentSettingName'] = environment_setting_name
-    __args__['expand'] = expand
-    __args__['labAccountName'] = lab_account_name
-    __args__['labName'] = lab_name
-    __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices/v20181015:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
-    return __ret__.apply(lambda __response__: GetEnvironmentResult(
-        claimed_by_user_name=pulumi.get(__response__, 'claimed_by_user_name'),
-        claimed_by_user_object_id=pulumi.get(__response__, 'claimed_by_user_object_id'),
-        claimed_by_user_principal_id=pulumi.get(__response__, 'claimed_by_user_principal_id'),
-        id=pulumi.get(__response__, 'id'),
-        is_claimed=pulumi.get(__response__, 'is_claimed'),
-        last_known_power_state=pulumi.get(__response__, 'last_known_power_state'),
-        latest_operation_result=pulumi.get(__response__, 'latest_operation_result'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        network_interface=pulumi.get(__response__, 'network_interface'),
-        password_last_reset=pulumi.get(__response__, 'password_last_reset'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        resource_sets=pulumi.get(__response__, 'resource_sets'),
-        tags=pulumi.get(__response__, 'tags'),
-        total_usage=pulumi.get(__response__, 'total_usage'),
-        type=pulumi.get(__response__, 'type'),
-        unique_identifier=pulumi.get(__response__, 'unique_identifier')))
+    ...
