@@ -116,6 +116,7 @@ func main() {
 		vmIdentity := &compute.VirtualMachineIdentityArgs{Type: compute.ResourceIdentityTypeSystemAssigned}
 
 		var umi *managedidentity.UserAssignedIdentity
+		var umiClientId pulumi.StringOutput = pulumi.String("").ToStringOutput()
 		if os.Getenv("PULUMI_TEST_USER_IDENTITY") == "true" {
 			fmt.Printf("go-azure-in-azure: using user-assigned identity\n")
 
@@ -125,10 +126,20 @@ func main() {
 			if err != nil {
 				return err
 			}
+			umiClientId = umi.ClientId
+
+			// Create a second user-assigned identity to test multiple identities. With multiple identities, the one to
+			// use needs to be specified via clientId.
+			umi2, err := managedidentity.NewUserAssignedIdentity(ctx, "umi2", &managedidentity.UserAssignedIdentityArgs{
+				ResourceGroupName: rg.Name,
+			})
+			if err != nil {
+				return err
+			}
 
 			vmIdentity = &compute.VirtualMachineIdentityArgs{
 				Type:                   compute.ResourceIdentityTypeUserAssigned,
-				UserAssignedIdentities: pulumi.StringArray{umi.ID()},
+				UserAssignedIdentities: pulumi.StringArray{umi.ID(), umi2.ID()},
 			}
 		}
 
@@ -292,12 +303,13 @@ rand=$(openssl rand -hex 4) && \
 stackname="%s-$rand" && \
 pulumi login --local && \
 pulumi stack init $stackname && \
+pulumi config set azure-native:clientId "%s" -s $stackname && \
 pulumi config set rgId "%s" -s $stackname && \
 pulumi config -s $stackname && \
 pulumi up -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi down -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi stack rm --yes $stackname && \
-pulumi logout --local`, innerProgram, clientConf.SubscriptionId, useAutorest, useLegacyAuth, innerProgram, rg.ID())
+pulumi logout --local`, innerProgram, clientConf.SubscriptionId, useAutorest, useLegacyAuth, innerProgram, umiClientId, rg.ID())
 
 		pulumiPreview, err := remote.NewCommand(ctx, "pulumiUpDown", &remote.CommandArgs{
 			Connection: sshConn,
