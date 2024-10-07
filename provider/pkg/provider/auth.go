@@ -329,7 +329,7 @@ func (k *azureNativeProvider) getOAuthToken(ctx context.Context, auth *authConfi
 
 type TokenFactory func(ctx context.Context, auth *authConfig, endpoint string) (string, error)
 
-// Implements the `azidentity.TokenCredential` interface.
+// Implements the `azcore.TokenCredential` interface.
 type azCoreTokenCredential struct {
 	p *azureNativeProvider
 }
