@@ -19,6 +19,78 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
+// newTokenCredential is the main entry to the new azcore/azidentity-based authenticattion stack. It returns a
+// TokenCredential which can be passed into various Azure Go SDKs.
+func (k *azureNativeProvider) newTokenCredential() (azcore.TokenCredential, error) {
+	authConf, err := k.getAuthConfig3()
+	if err != nil {
+		return nil, err
+	}
+
+	return newSingleMethodAuthCredential(authConf)
+}
+
+// newSingleMethodAuthCredential creates an azcore.TokenCredential. Depending on the given authConfiguration, it is
+// backed by one of several authentication methods such as Service Principal, OIDC, Managed Identity, or Azure CLI.
+//
+// Note: this function's behavior is written to match the behavior of
+// "github.com/hashicorp/go-azure-helpers/authentication".Builder.Build() in some ways, to minimize changes in provider
+// behavior when upgrading authentication dependencies from go-azure-helpers to azidentity. Namely:
+//   - The order in which the the different authentication methods are attempted is the same.
+//   - When a method is configured but instantiating the credential fails, we return an error and do not fall through to
+//     the next method.
+//   - Auxiliary or additional tenants are supported for SP with client secret and CLI authentication, not for others.
+func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
+	if authConf.clientCertPath != "" {
+		logging.V(9).Infof("[auth] Using SP with client certificate credential")
+		certs, key, err := readCertificate(authConf.clientCertPath, authConf.clientCertPassword)
+		if err != nil {
+			return nil, err
+		}
+		return azidentity.NewClientCertificateCredential(authConf.tenantId, authConf.clientId, certs, key, nil)
+	} else {
+		logging.V(9).Infof("SP with client certificate credential is not enabled, skipping")
+	}
+
+	if authConf.clientSecret != "" {
+		logging.V(9).Infof("[auth] Using SP with client secret credential")
+		options := &azidentity.ClientSecretCredentialOptions{
+			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+		}
+		return azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, options)
+	} else {
+		logging.V(9).Infof("SP with client secret credential is not enabled, skipping")
+	}
+
+	if authConf.useOidc {
+		logging.V(9).Infof("[auth] Using OIDC credential")
+		return newOidcCredential(authConf)
+	} else {
+		logging.V(9).Infof("OIDC credential is not enabled, skipping")
+	}
+
+	if authConf.useMsi {
+		logging.V(9).Infof("[auth] Using Managed Identity (MSI) credential")
+		var msiOpts *azidentity.ManagedIdentityCredentialOptions
+		if authConf.clientId != "" {
+			msiOpts = &azidentity.ManagedIdentityCredentialOptions{ID: azidentity.ClientID(authConf.clientId)}
+		}
+		return azidentity.NewManagedIdentityCredential(msiOpts)
+	} else {
+		logging.V(9).Infof("Managed Identity (MSI) credential is not enabled, skipping")
+	}
+
+	logging.V(9).Infof("[auth] Using Azure CLI credential")
+	options := &azidentity.AzureCLICredentialOptions{
+		AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+	}
+	cli, err := azidentity.NewAzureCLICredential(options)
+	if err == nil {
+		return cli, nil
+	}
+	return nil, errors.Errorf("Failed to find any valid credentials")
+}
+
 func newOidcCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
 	oidcTokenCredential := func(token string) (azcore.TokenCredential, error) {
 		return azidentity.NewClientAssertionCredential(
@@ -111,76 +183,6 @@ func readCertificate(certPath, certPassword string) ([]*x509.Certificate, crypto
 	}
 
 	return certs, key, nil
-}
-
-func (k *azureNativeProvider) newTokenCredential() (azcore.TokenCredential, error) {
-	authConf, err := k.getAuthConfig3()
-	if err != nil {
-		return nil, err
-	}
-
-	return newSingleMethodAuthCredential(authConf)
-}
-
-// newSingleMethodAuthCredential creates an azcore.TokenCredential. Depending on the given authConfiguration, it is
-// backed by one of several authentication methods such as Service Principal, OIDC, Managed Identity, or Azure CLI.
-//
-// Note: this function's behavior is written to match the behavior of
-// "github.com/hashicorp/go-azure-helpers/authentication".Builder.Build() in some ways, to minimize changes in provider
-// behavior when upgrading authentication dependencies from go-azure-helpers to azidentity. Namely:
-//   - The order in which the the different authentication methods are attempted is the same.
-//   - When a method is configured but instantiating the credential fails, we return an error and do not fall through to
-//     the next method.
-//   - Auxiliary or additional tenants are supported for SP with client secret and CLI authentication, not for others.
-func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
-	if authConf.clientCertPath != "" {
-		logging.V(9).Infof("[auth] Using SP with client certificate credential")
-		certs, key, err := readCertificate(authConf.clientCertPath, authConf.clientCertPassword)
-		if err != nil {
-			return nil, err
-		}
-		return azidentity.NewClientCertificateCredential(authConf.tenantId, authConf.clientId, certs, key, nil)
-	} else {
-		logging.V(9).Infof("SP with client certificate credential is not enabled, skipping")
-	}
-
-	if authConf.clientSecret != "" {
-		logging.V(9).Infof("[auth] Using SP with client secret credential")
-		options := &azidentity.ClientSecretCredentialOptions{
-			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
-		}
-		return azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, options)
-	} else {
-		logging.V(9).Infof("SP with client secret credential is not enabled, skipping")
-	}
-
-	if authConf.useOidc {
-		logging.V(9).Infof("[auth] Using OIDC credential")
-		return newOidcCredential(authConf)
-	} else {
-		logging.V(9).Infof("OIDC credential is not enabled, skipping")
-	}
-
-	if authConf.useMsi {
-		logging.V(9).Infof("[auth] Using Managed Identity (MSI) credential")
-		var msiOpts *azidentity.ManagedIdentityCredentialOptions
-		if authConf.clientId != "" {
-			msiOpts = &azidentity.ManagedIdentityCredentialOptions{ID: azidentity.ClientID(authConf.clientId)}
-		}
-		return azidentity.NewManagedIdentityCredential(msiOpts)
-	} else {
-		logging.V(9).Infof("Managed Identity (MSI) credential is not enabled, skipping")
-	}
-
-	logging.V(9).Infof("[auth] Using Azure CLI credential")
-	options := &azidentity.AzureCLICredentialOptions{
-		AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
-	}
-	cli, err := azidentity.NewAzureCLICredential(options)
-	if err == nil {
-		return cli, nil
-	}
-	return nil, errors.Errorf("Failed to find any valid credentials")
 }
 
 type authConfiguration struct {
