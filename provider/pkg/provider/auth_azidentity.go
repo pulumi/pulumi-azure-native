@@ -131,6 +131,7 @@ func (k *azureNativeProvider) newTokenCredential() (azcore.TokenCredential, erro
 //   - The order in which the the different authentication methods are attempted is the same.
 //   - When a method is configured but instantiating the credential fails, we return an error and do not fall through to
 //     the next method.
+//   - Auxiliary or additional tenants are supported for SP with client secret and CLI authentication, not for others.
 func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
 	if authConf.clientCertPath != "" {
 		logging.V(9).Infof("[auth] Using SP with client certificate credential")
@@ -145,7 +146,10 @@ func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCre
 
 	if authConf.clientSecret != "" {
 		logging.V(9).Infof("[auth] Using SP with client secret credential")
-		return azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, nil)
+		options := &azidentity.ClientSecretCredentialOptions{
+			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+		}
+		return azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, options)
 	} else {
 		logging.V(9).Infof("SP with client secret credential is not enabled, skipping")
 	}
@@ -169,7 +173,10 @@ func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCre
 	}
 
 	logging.V(9).Infof("[auth] Using Azure CLI credential")
-	cli, err := azidentity.NewAzureCLICredential(nil)
+	options := &azidentity.AzureCLICredentialOptions{
+		AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+	}
+	cli, err := azidentity.NewAzureCLICredential(options)
 	if err == nil {
 		return cli, nil
 	}
