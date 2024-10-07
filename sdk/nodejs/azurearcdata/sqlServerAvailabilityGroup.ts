@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Arc Sql Server Availability Group
  * Azure REST API version: 2024-01-01.
+ *
+ * Other available API versions: 2024-05-01-preview.
  */
 export class SqlServerAvailabilityGroup extends pulumi.CustomResource {
     /**
@@ -101,7 +103,7 @@ export class SqlServerAvailabilityGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20240101:SqlServerAvailabilityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20240101:SqlServerAvailabilityGroup" }, { type: "azure-native:azurearcdata/v20240501preview:SqlServerAvailabilityGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerAvailabilityGroup.__pulumiType, name, resourceInputs, opts);
     }

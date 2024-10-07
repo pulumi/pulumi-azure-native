@@ -3050,7 +3050,8 @@
     "RoleManagementPolicyAssignment": [
       "2020-10-01",
       "2020-10-01-preview",
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-09-01-preview"
     ],
     "ScopeAccessReviewHistoryDefinitionById": [
       "2021-12-01-preview"
@@ -3331,7 +3332,8 @@
       "2022-03-01-preview",
       "2022-06-15-preview",
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ],
     "DataController": [
       "2021-06-01-preview",
@@ -3341,11 +3343,13 @@
       "2022-03-01-preview",
       "2022-06-15-preview",
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ],
     "FailoverGroup": [
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ],
     "PostgresInstance": [
       "2021-06-01-preview",
@@ -3353,7 +3357,8 @@
       "2022-03-01-preview",
       "2022-06-15-preview",
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ],
     "SqlManagedInstance": [
       "2021-06-01-preview",
@@ -3363,15 +3368,21 @@
       "2022-03-01-preview",
       "2022-06-15-preview",
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ],
     "SqlServerAvailabilityGroup": [
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ],
     "SqlServerDatabase": [
       "2022-06-15-preview",
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
+    ],
+    "SqlServerEsuLicense": [
+      "2024-05-01-preview"
     ],
     "SqlServerInstance": [
       "2021-06-01-preview",
@@ -3381,13 +3392,22 @@
       "2022-03-01-preview",
       "2022-06-15-preview",
       "2023-01-15-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
+    ],
+    "SqlServerLicense": [
+      "2024-05-01-preview"
     ],
     "getSqlServerAvailabilityGroupDetailView": [
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
+    ],
+    "getSqlServerInstanceJobsStatus": [
+      "2024-05-01-preview"
     ],
     "getSqlServerInstanceTelemetry": [
-      "2024-01-01"
+      "2024-01-01",
+      "2024-05-01-preview"
     ]
   },
   "AzureData": {
@@ -3447,7 +3467,8 @@
   "AzureFleet": {
     "Fleet": [
       "2023-11-01-preview",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2024-11-01"
     ]
   },
   "AzureLargeInstance": {
@@ -4887,10 +4908,12 @@
   },
   "CodeSigning": {
     "CertificateProfile": [
-      "2024-02-05-preview"
+      "2024-02-05-preview",
+      "2024-09-30-preview"
     ],
     "CodeSigningAccount": [
-      "2024-02-05-preview"
+      "2024-02-05-preview",
+      "2024-09-30-preview"
     ]
   },
   "CognitiveServices": {
@@ -5851,10 +5874,15 @@
       "2022-10-01-preview",
       "2023-02-01-preview",
       "2023-05-01",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2024-09-01-preview",
+      "2024-10-01-preview"
     ],
     "ContainerGroupProfile": [
       "2024-05-01-preview"
+    ],
+    "NGroup": [
+      "2024-09-01-preview"
     ]
   },
   "ContainerRegistry": {
@@ -7209,10 +7237,12 @@
       "2023-03-01-preview",
       "2023-06-01-preview",
       "2023-12-01-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-08-01"
     ],
     "Backup": [
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-08-01"
     ],
     "Cluster": [
       "2022-11-08",
@@ -7233,7 +7263,8 @@
       "2023-03-01-preview",
       "2023-06-01-preview",
       "2023-12-01-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-08-01"
     ],
     "Database": [
       "2017-12-01",
@@ -7247,7 +7278,8 @@
       "2023-03-01-preview",
       "2023-06-01-preview",
       "2023-12-01-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-08-01"
     ],
     "FirewallRule": [
       "2017-12-01",
@@ -7267,7 +7299,8 @@
       "2023-03-02-preview",
       "2023-06-01-preview",
       "2023-12-01-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-08-01"
     ],
     "Migration": [
       "2021-06-15-privatepreview",
@@ -7275,7 +7308,8 @@
       "2023-03-01-preview",
       "2023-06-01-preview",
       "2023-12-01-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-08-01"
     ],
     "PrivateEndpointConnection": [
       "2018-06-01",
@@ -7284,7 +7318,8 @@
       "2023-03-02-preview",
       "2023-06-01-preview",
       "2023-12-01-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-08-01"
     ],
     "Role": [
       "2022-11-08",
@@ -7305,7 +7340,8 @@
       "2023-03-01-preview",
       "2023-06-01-preview",
       "2023-12-01-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-08-01"
     ],
     "ServerAdministrator": [
       "2017-12-01",
@@ -7326,7 +7362,8 @@
     "VirtualEndpoint": [
       "2023-06-01-preview",
       "2023-12-01-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-08-01"
     ],
     "VirtualNetworkRule": [
       "2017-12-01",
@@ -7344,7 +7381,8 @@
       "2023-03-01-preview",
       "2023-06-01-preview",
       "2023-12-01-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-08-01"
     ]
   },
   "Dashboard": {
@@ -12142,19 +12180,23 @@
   "IoTOperations": {
     "Broker": [
       "2024-07-01-preview",
-      "2024-08-15-preview"
+      "2024-08-15-preview",
+      "2024-09-15-preview"
     ],
     "BrokerAuthentication": [
       "2024-07-01-preview",
-      "2024-08-15-preview"
+      "2024-08-15-preview",
+      "2024-09-15-preview"
     ],
     "BrokerAuthorization": [
       "2024-07-01-preview",
-      "2024-08-15-preview"
+      "2024-08-15-preview",
+      "2024-09-15-preview"
     ],
     "BrokerListener": [
       "2024-07-01-preview",
-      "2024-08-15-preview"
+      "2024-08-15-preview",
+      "2024-09-15-preview"
     ],
     "DataFlow": [
       "2024-07-01-preview"
@@ -12166,17 +12208,21 @@
       "2024-07-01-preview"
     ],
     "Dataflow": [
-      "2024-08-15-preview"
+      "2024-08-15-preview",
+      "2024-09-15-preview"
     ],
     "DataflowEndpoint": [
-      "2024-08-15-preview"
+      "2024-08-15-preview",
+      "2024-09-15-preview"
     ],
     "DataflowProfile": [
-      "2024-08-15-preview"
+      "2024-08-15-preview",
+      "2024-09-15-preview"
     ],
     "Instance": [
       "2024-07-01-preview",
-      "2024-08-15-preview"
+      "2024-08-15-preview",
+      "2024-09-15-preview"
     ]
   },
   "IoTOperationsDataProcessor": {

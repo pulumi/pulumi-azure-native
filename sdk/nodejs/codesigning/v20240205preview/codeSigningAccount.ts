@@ -105,7 +105,7 @@ export class CodeSigningAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:codesigning:CodeSigningAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:codesigning:CodeSigningAccount" }, { type: "azure-native:codesigning/v20240930preview:CodeSigningAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodeSigningAccount.__pulumiType, name, resourceInputs, opts);
     }

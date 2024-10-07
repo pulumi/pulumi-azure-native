@@ -153,6 +153,8 @@ def get_code_signing_account(account_name: Optional[str] = None,
     Get a trusted Signing Account.
     Azure REST API version: 2024-02-05-preview.
 
+    Other available API versions: 2024-09-30-preview.
+
 
     :param str account_name: Trusted Signing account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -182,6 +184,8 @@ def get_code_signing_account_output(account_name: Optional[pulumi.Input[str]] = 
     """
     Get a trusted Signing Account.
     Azure REST API version: 2024-02-05-preview.
+
+    Other available API versions: 2024-09-30-preview.
 
 
     :param str account_name: Trusted Signing account name.

@@ -27,6 +27,7 @@ __all__ = [
     'AvailabilityGroupConfigureResponse',
     'AvailabilityGroupInfoResponse',
     'AvailabilityGroupStateResponse',
+    'BackgroundJobResponse',
     'BasicLoginInformationResponse',
     'DataControllerPropertiesResponse',
     'ExtendedLocationResponse',
@@ -45,6 +46,7 @@ __all__ = [
     'OnPremisePropertyResponse',
     'PostgresInstancePropertiesResponse',
     'PostgresInstanceSkuResponse',
+    'SequencerActionResponse',
     'SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse',
     'SqlAvailabilityGroupReplicaResourcePropertiesResponse',
     'SqlManagedInstanceK8sRawResponse',
@@ -57,8 +59,11 @@ __all__ = [
     'SqlServerDatabaseResourcePropertiesResponse',
     'SqlServerDatabaseResourcePropertiesResponseBackupInformation',
     'SqlServerDatabaseResourcePropertiesResponseDatabaseOptions',
+    'SqlServerEsuLicensePropertiesResponse',
+    'SqlServerInstanceJobStatusResponse',
     'SqlServerInstancePropertiesResponse',
     'SqlServerInstanceTelemetryColumnResponse',
+    'SqlServerLicensePropertiesResponse',
     'SystemDataResponse',
     'UploadServicePrincipalResponse',
     'UploadWatermarkResponse',
@@ -1048,6 +1053,89 @@ class AvailabilityGroupStateResponse(dict):
         Reflects a rollup of the database synchronization state (synchronization_state) of all joined availability databases (also known as replicas) and the availability mode of the replica (synchronous-commit or asynchronous-commit mode). The rollup will reflect the least healthy accumulated state the databases on the replica.
         """
         return pulumi.get(self, "synchronization_health_description")
+
+
+@pulumi.output_type
+class BackgroundJobResponse(dict):
+    """
+    The background job details.
+    """
+    def __init__(__self__, *,
+                 end_time: Optional[str] = None,
+                 execution_state: Optional[str] = None,
+                 last_execution_status: Optional[str] = None,
+                 last_execution_time: Optional[str] = None,
+                 start_time: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        The background job details.
+        :param str end_time: The end time of the background job.
+        :param str execution_state: The execution state of the background job.
+        :param str last_execution_status: The last execution status of the background job.
+        :param str last_execution_time: The last execution time of the background job.
+        :param str start_time: The start time of the background job.
+        :param str state: The state of the background job.
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if execution_state is not None:
+            pulumi.set(__self__, "execution_state", execution_state)
+        if last_execution_status is not None:
+            pulumi.set(__self__, "last_execution_status", last_execution_status)
+        if last_execution_time is not None:
+            pulumi.set(__self__, "last_execution_time", last_execution_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        The end time of the background job.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="executionState")
+    def execution_state(self) -> Optional[str]:
+        """
+        The execution state of the background job.
+        """
+        return pulumi.get(self, "execution_state")
+
+    @property
+    @pulumi.getter(name="lastExecutionStatus")
+    def last_execution_status(self) -> Optional[str]:
+        """
+        The last execution status of the background job.
+        """
+        return pulumi.get(self, "last_execution_status")
+
+    @property
+    @pulumi.getter(name="lastExecutionTime")
+    def last_execution_time(self) -> Optional[str]:
+        """
+        The last execution time of the background job.
+        """
+        return pulumi.get(self, "last_execution_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        The start time of the background job.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state of the background job.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -2205,6 +2293,53 @@ class PostgresInstanceSkuResponse(dict):
 
 
 @pulumi.output_type
+class SequencerActionResponse(dict):
+    """
+    The sequencer action details.
+    """
+    def __init__(__self__, *,
+                 action_id: Optional[str] = None,
+                 result: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        The sequencer action details.
+        :param str action_id: The unique identifier of the sequencer action.
+        :param str result: The result of the sequencer action.
+        :param str state: The state of the sequencer action.
+        """
+        if action_id is not None:
+            pulumi.set(__self__, "action_id", action_id)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="actionId")
+    def action_id(self) -> Optional[str]:
+        """
+        The unique identifier of the sequencer action.
+        """
+        return pulumi.get(self, "action_id")
+
+    @property
+    @pulumi.getter
+    def result(self) -> Optional[str]:
+        """
+        The result of the sequencer action.
+        """
+        return pulumi.get(self, "result")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state of the sequencer action.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse(dict):
     """
     The properties of Arc Sql availability group database replica resource
@@ -3344,6 +3479,230 @@ class SqlServerDatabaseResourcePropertiesResponseDatabaseOptions(dict):
 
 
 @pulumi.output_type
+class SqlServerEsuLicensePropertiesResponse(dict):
+    """
+    Properties of SQL Server ESU license.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activatedAt":
+            suggest = "activated_at"
+        elif key == "activationState":
+            suggest = "activation_state"
+        elif key == "billingPlan":
+            suggest = "billing_plan"
+        elif key == "physicalCores":
+            suggest = "physical_cores"
+        elif key == "scopeType":
+            suggest = "scope_type"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "terminatedAt":
+            suggest = "terminated_at"
+        elif key == "uniqueId":
+            suggest = "unique_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlServerEsuLicensePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlServerEsuLicensePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlServerEsuLicensePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 activated_at: str,
+                 activation_state: str,
+                 billing_plan: str,
+                 physical_cores: int,
+                 scope_type: str,
+                 tenant_id: str,
+                 terminated_at: str,
+                 unique_id: str,
+                 version: str):
+        """
+        Properties of SQL Server ESU license.
+        :param str activated_at: The timestamp of the activation of the SqlServerEsuLicense in ISO 8601 date-time format.
+        :param str activation_state: The activation state of the license.
+        :param str billing_plan: SQL Server ESU license type.
+        :param int physical_cores: The number of total cores of the license covers.
+        :param str scope_type: The Azure scope to which the license will apply.
+        :param str tenant_id: The tenantId the SQL Server ESU license resource subscription resides in.
+        :param str terminated_at: The timestamp of the termination of the SqlServerEsuLicense in ISO 8601 date-time format.
+        :param str unique_id: The unique ID of this license. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
+        :param str version: The SQL Server version the license covers.
+        """
+        pulumi.set(__self__, "activated_at", activated_at)
+        pulumi.set(__self__, "activation_state", activation_state)
+        pulumi.set(__self__, "billing_plan", billing_plan)
+        pulumi.set(__self__, "physical_cores", physical_cores)
+        pulumi.set(__self__, "scope_type", scope_type)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "terminated_at", terminated_at)
+        pulumi.set(__self__, "unique_id", unique_id)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="activatedAt")
+    def activated_at(self) -> str:
+        """
+        The timestamp of the activation of the SqlServerEsuLicense in ISO 8601 date-time format.
+        """
+        return pulumi.get(self, "activated_at")
+
+    @property
+    @pulumi.getter(name="activationState")
+    def activation_state(self) -> str:
+        """
+        The activation state of the license.
+        """
+        return pulumi.get(self, "activation_state")
+
+    @property
+    @pulumi.getter(name="billingPlan")
+    def billing_plan(self) -> str:
+        """
+        SQL Server ESU license type.
+        """
+        return pulumi.get(self, "billing_plan")
+
+    @property
+    @pulumi.getter(name="physicalCores")
+    def physical_cores(self) -> int:
+        """
+        The number of total cores of the license covers.
+        """
+        return pulumi.get(self, "physical_cores")
+
+    @property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> str:
+        """
+        The Azure scope to which the license will apply.
+        """
+        return pulumi.get(self, "scope_type")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenantId the SQL Server ESU license resource subscription resides in.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="terminatedAt")
+    def terminated_at(self) -> str:
+        """
+        The timestamp of the termination of the SqlServerEsuLicense in ISO 8601 date-time format.
+        """
+        return pulumi.get(self, "terminated_at")
+
+    @property
+    @pulumi.getter(name="uniqueId")
+    def unique_id(self) -> str:
+        """
+        The unique ID of this license. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000).
+        """
+        return pulumi.get(self, "unique_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The SQL Server version the license covers.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class SqlServerInstanceJobStatusResponse(dict):
+    """
+    The status of the job running on the SQL Server instance.
+    """
+    def __init__(__self__, *,
+                 background_job: Optional['outputs.BackgroundJobResponse'] = None,
+                 id: Optional[str] = None,
+                 instance_name: Optional[str] = None,
+                 job_exception: Optional[str] = None,
+                 job_status: Optional[str] = None,
+                 sequencer_actions: Optional[Sequence['outputs.SequencerActionResponse']] = None):
+        """
+        The status of the job running on the SQL Server instance.
+        :param 'BackgroundJobResponse' background_job: The background job details.
+        :param str id: The unique identifier of the job.
+        :param str instance_name: The name of the SQL Server instance.
+        :param str job_exception: The exception message if the job failed.
+        :param str job_status: The status of the job.
+        :param Sequence['SequencerActionResponse'] sequencer_actions: The list of sequencer actions.
+        """
+        if background_job is not None:
+            pulumi.set(__self__, "background_job", background_job)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
+        if job_exception is not None:
+            pulumi.set(__self__, "job_exception", job_exception)
+        if job_status is not None:
+            pulumi.set(__self__, "job_status", job_status)
+        if sequencer_actions is not None:
+            pulumi.set(__self__, "sequencer_actions", sequencer_actions)
+
+    @property
+    @pulumi.getter(name="backgroundJob")
+    def background_job(self) -> Optional['outputs.BackgroundJobResponse']:
+        """
+        The background job details.
+        """
+        return pulumi.get(self, "background_job")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The unique identifier of the job.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> Optional[str]:
+        """
+        The name of the SQL Server instance.
+        """
+        return pulumi.get(self, "instance_name")
+
+    @property
+    @pulumi.getter(name="jobException")
+    def job_exception(self) -> Optional[str]:
+        """
+        The exception message if the job failed.
+        """
+        return pulumi.get(self, "job_exception")
+
+    @property
+    @pulumi.getter(name="jobStatus")
+    def job_status(self) -> Optional[str]:
+        """
+        The status of the job.
+        """
+        return pulumi.get(self, "job_status")
+
+    @property
+    @pulumi.getter(name="sequencerActions")
+    def sequencer_actions(self) -> Optional[Sequence['outputs.SequencerActionResponse']]:
+        """
+        The list of sequencer actions.
+        """
+        return pulumi.get(self, "sequencer_actions")
+
+
+@pulumi.output_type
 class SqlServerInstancePropertiesResponse(dict):
     """
     Properties of SqlServerInstance.
@@ -3654,6 +4013,136 @@ class SqlServerInstanceTelemetryColumnResponse(dict):
         The type of the telemetry column.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SqlServerLicensePropertiesResponse(dict):
+    """
+    Properties of SQL Server License.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activationState":
+            suggest = "activation_state"
+        elif key == "billingPlan":
+            suggest = "billing_plan"
+        elif key == "lastActivatedAt":
+            suggest = "last_activated_at"
+        elif key == "lastDeactivatedAt":
+            suggest = "last_deactivated_at"
+        elif key == "licenseCategory":
+            suggest = "license_category"
+        elif key == "physicalCores":
+            suggest = "physical_cores"
+        elif key == "scopeType":
+            suggest = "scope_type"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlServerLicensePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlServerLicensePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlServerLicensePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 activation_state: str,
+                 billing_plan: str,
+                 last_activated_at: str,
+                 last_deactivated_at: str,
+                 license_category: str,
+                 physical_cores: int,
+                 scope_type: str,
+                 tenant_id: str):
+        """
+        Properties of SQL Server License.
+        :param str activation_state: The activation state of the license.
+        :param str billing_plan: SQL Server license type.
+        :param str last_activated_at: The timestamp of the most recent activation of the SqlServerLicense.
+        :param str last_deactivated_at: The timestamp of the most recent deactivation of the SqlServerLicense.
+        :param str license_category: This property represents the choice between SQL Server Core and ESU licenses.
+        :param int physical_cores: The number of total cores of the license covers.
+        :param str scope_type: The Azure scope to which the license will apply.
+        :param str tenant_id: The tenantId the SQL Server license resource subscription resides in.
+        """
+        pulumi.set(__self__, "activation_state", activation_state)
+        pulumi.set(__self__, "billing_plan", billing_plan)
+        pulumi.set(__self__, "last_activated_at", last_activated_at)
+        pulumi.set(__self__, "last_deactivated_at", last_deactivated_at)
+        pulumi.set(__self__, "license_category", license_category)
+        pulumi.set(__self__, "physical_cores", physical_cores)
+        pulumi.set(__self__, "scope_type", scope_type)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="activationState")
+    def activation_state(self) -> str:
+        """
+        The activation state of the license.
+        """
+        return pulumi.get(self, "activation_state")
+
+    @property
+    @pulumi.getter(name="billingPlan")
+    def billing_plan(self) -> str:
+        """
+        SQL Server license type.
+        """
+        return pulumi.get(self, "billing_plan")
+
+    @property
+    @pulumi.getter(name="lastActivatedAt")
+    def last_activated_at(self) -> str:
+        """
+        The timestamp of the most recent activation of the SqlServerLicense.
+        """
+        return pulumi.get(self, "last_activated_at")
+
+    @property
+    @pulumi.getter(name="lastDeactivatedAt")
+    def last_deactivated_at(self) -> str:
+        """
+        The timestamp of the most recent deactivation of the SqlServerLicense.
+        """
+        return pulumi.get(self, "last_deactivated_at")
+
+    @property
+    @pulumi.getter(name="licenseCategory")
+    def license_category(self) -> str:
+        """
+        This property represents the choice between SQL Server Core and ESU licenses.
+        """
+        return pulumi.get(self, "license_category")
+
+    @property
+    @pulumi.getter(name="physicalCores")
+    def physical_cores(self) -> int:
+        """
+        The number of total cores of the license covers.
+        """
+        return pulumi.get(self, "physical_cores")
+
+    @property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> str:
+        """
+        The Azure scope to which the license will apply.
+        """
+        return pulumi.get(self, "scope_type")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenantId the SQL Server license resource subscription resides in.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

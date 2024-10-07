@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.CodeSigning
     /// <summary>
     /// Certificate profile resource.
     /// Azure REST API version: 2024-02-05-preview.
+    /// 
+    /// Other available API versions: 2024-09-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:codesigning:CertificateProfile")]
     public partial class CertificateProfile : global::Pulumi.CustomResource
@@ -168,6 +170,7 @@ namespace Pulumi.AzureNative.CodeSigning
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:codesigning/v20240205preview:CertificateProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:codesigning/v20240930preview:CertificateProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

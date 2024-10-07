@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurefleet:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:azurefleet/v20240501preview:Fleet" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurefleet/v20241101:Fleet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets information about a server.
  * Azure REST API version: 2022-12-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
  */
 export function getAdministrator(args: GetAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAdministratorResult> {
 
@@ -79,7 +79,7 @@ export interface GetAdministratorResult {
  * Gets information about a server.
  * Azure REST API version: 2022-12-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
  */
 export function getAdministratorOutput(args: GetAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getAdministrator(a, opts))

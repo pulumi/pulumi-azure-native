@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// Represents a server firewall rule.
     /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
     /// 
-    /// Other available API versions: 2017-12-01, 2020-10-05-privatepreview, 2022-11-08, 2023-03-01-preview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview.
+    /// Other available API versions: 2017-12-01, 2020-10-05-privatepreview, 2022-11-08, 2023-03-01-preview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource
@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230601preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20231201preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240301preview:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240801:FirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

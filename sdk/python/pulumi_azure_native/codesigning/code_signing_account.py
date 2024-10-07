@@ -121,6 +121,8 @@ class CodeSigningAccount(pulumi.CustomResource):
         Trusted signing account resource.
         Azure REST API version: 2024-02-05-preview.
 
+        Other available API versions: 2024-09-30-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Trusted Signing account name.
@@ -138,6 +140,8 @@ class CodeSigningAccount(pulumi.CustomResource):
         """
         Trusted signing account resource.
         Azure REST API version: 2024-02-05-preview.
+
+        Other available API versions: 2024-09-30-preview.
 
         :param str resource_name: The name of the resource.
         :param CodeSigningAccountArgs args: The arguments to use to populate this resource's properties.
@@ -180,7 +184,7 @@ class CodeSigningAccount(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:codesigning/v20240205preview:CodeSigningAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:codesigning/v20240205preview:CodeSigningAccount"), pulumi.Alias(type_="azure-native:codesigning/v20240930preview:CodeSigningAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CodeSigningAccount, __self__).__init__(
             'azure-native:codesigning:CodeSigningAccount',

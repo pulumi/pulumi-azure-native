@@ -137,7 +137,7 @@ class Instance(pulumi.CustomResource):
         A Instance resource is a logical container for a set of child resources.
         Azure REST API version: 2024-07-01-preview.
 
-        Other available API versions: 2024-08-15-preview.
+        Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,7 +158,7 @@ class Instance(pulumi.CustomResource):
         A Instance resource is a logical container for a set of child resources.
         Azure REST API version: 2024-07-01-preview.
 
-        Other available API versions: 2024-08-15-preview.
+        Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
@@ -203,7 +203,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:Instance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240701preview:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:Instance"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:Instance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Instance, __self__).__init__(
             'azure-native:iotoperations:Instance',

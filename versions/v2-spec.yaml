@@ -184,7 +184,10 @@ AzureArcData:
     tracking: 2023-01-15-preview
     additions:
         SqlServerAvailabilityGroup: "2024-01-01"
+        SqlServerEsuLicense: 2024-05-01-preview
+        SqlServerLicense: 2024-05-01-preview
         getSqlServerAvailabilityGroupDetailView: "2024-01-01"
+        getSqlServerInstanceJobsStatus: 2024-05-01-preview
         getSqlServerInstanceTelemetry: "2024-01-01"
 AzureData:
     tracking: 2019-07-24-preview
@@ -351,6 +354,7 @@ ContainerInstance:
     tracking: "2023-05-01"
     additions:
         ContainerGroupProfile: 2024-05-01-preview
+        NGroup: 2024-09-01-preview
 ContainerRegistry:
     tracking: "2022-12-01"
     additions:
@@ -725,6 +729,21 @@ DBforPostgreSQL:
         - provider: DBforPostgreSQL
           resourcename: Server
           detail: version 2024-03-01-preview is greater than 2017-12-01
+        - provider: DBforPostgreSQL
+          resourcename: Configuration
+          detail: version 2024-08-01 is greater than 2017-12-01
+        - provider: DBforPostgreSQL
+          resourcename: Database
+          detail: version 2024-08-01 is greater than 2017-12-01
+        - provider: DBforPostgreSQL
+          resourcename: FirewallRule
+          detail: version 2024-08-01 is greater than 2017-12-01
+        - provider: DBforPostgreSQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2024-08-01 is greater than 2018-06-01
+        - provider: DBforPostgreSQL
+          resourcename: Server
+          detail: version 2024-08-01 is greater than 2017-12-01
 Dashboard:
     tracking: "2022-08-01"
     additions:

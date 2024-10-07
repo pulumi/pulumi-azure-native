@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a BrokerListenerResource
  * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2024-08-15-preview.
+ * Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
  */
 export function getBrokerListener(args: GetBrokerListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerListenerResult> {
 
@@ -76,7 +76,7 @@ export interface GetBrokerListenerResult {
  * Get a BrokerListenerResource
  * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2024-08-15-preview.
+ * Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
  */
 export function getBrokerListenerOutput(args: GetBrokerListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerListenerResult> {
     return pulumi.output(args).apply((a: any) => getBrokerListener(a, opts))

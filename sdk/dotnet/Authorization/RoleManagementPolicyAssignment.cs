@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization
     /// Role management policy
     /// Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
     /// 
-    /// Other available API versions: 2020-10-01-preview, 2024-02-01-preview.
+    /// Other available API versions: 2020-10-01-preview, 2024-02-01-preview, 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleManagementPolicyAssignment")]
     public partial class RoleManagementPolicyAssignment : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Authorization
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20201001:RoleManagementPolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20240201preview:RoleManagementPolicyAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20240901preview:RoleManagementPolicyAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

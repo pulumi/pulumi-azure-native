@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a trusted Signing Account.
  * Azure REST API version: 2024-02-05-preview.
+ *
+ * Other available API versions: 2024-09-30-preview.
  */
 export function getCodeSigningAccount(args: GetCodeSigningAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningAccountResult> {
 
@@ -75,6 +77,8 @@ export interface GetCodeSigningAccountResult {
 /**
  * Get a trusted Signing Account.
  * Azure REST API version: 2024-02-05-preview.
+ *
+ * Other available API versions: 2024-09-30-preview.
  */
 export function getCodeSigningAccountOutput(args: GetCodeSigningAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningAccountResult> {
     return pulumi.output(args).apply((a: any) => getCodeSigningAccount(a, opts))

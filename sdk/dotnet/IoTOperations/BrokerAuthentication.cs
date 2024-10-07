@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTOperations
     /// Instance broker authentication resource
     /// Azure REST API version: 2024-07-01-preview.
     /// 
-    /// Other available API versions: 2024-08-15-preview.
+    /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperations:BrokerAuthentication")]
     public partial class BrokerAuthentication : global::Pulumi.CustomResource
@@ -75,6 +75,7 @@ namespace Pulumi.AzureNative.IoTOperations
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:BrokerAuthentication" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:BrokerAuthentication" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:BrokerAuthentication" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

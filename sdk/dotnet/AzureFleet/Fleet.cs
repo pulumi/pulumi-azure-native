@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureFleet
     /// An Compute Fleet resource
     /// Azure REST API version: 2024-05-01-preview.
     /// 
-    /// Other available API versions: 2023-11-01-preview.
+    /// Other available API versions: 2023-11-01-preview, 2024-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurefleet:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.AzureFleet
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurefleet/v20231101preview:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:azurefleet/v20240501preview:Fleet" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurefleet/v20241101:Fleet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

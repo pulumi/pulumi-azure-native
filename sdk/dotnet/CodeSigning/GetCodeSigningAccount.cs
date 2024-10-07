@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Get a trusted Signing Account.
         /// Azure REST API version: 2024-02-05-preview.
+        /// 
+        /// Other available API versions: 2024-09-30-preview.
         /// </summary>
         public static Task<GetCodeSigningAccountResult> InvokeAsync(GetCodeSigningAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodeSigningAccountResult>("azure-native:codesigning:getCodeSigningAccount", args ?? new GetCodeSigningAccountArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Get a trusted Signing Account.
         /// Azure REST API version: 2024-02-05-preview.
+        /// 
+        /// Other available API versions: 2024-09-30-preview.
         /// </summary>
         public static Output<GetCodeSigningAccountResult> Invoke(GetCodeSigningAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningAccountResult>("azure-native:codesigning:getCodeSigningAccount", args ?? new GetCodeSigningAccountInvokeArgs(), options.WithDefaults());

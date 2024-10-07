@@ -7,6 +7,8 @@ import * as v20210701 from "./v20210701";
 import * as v20230201preview from "./v20230201preview";
 import * as v20230501 from "./v20230501";
 import * as v20240501preview from "./v20240501preview";
+import * as v20240901preview from "./v20240901preview";
+import * as v20241001preview from "./v20241001preview";
 
 export {
     v20210301,
@@ -14,6 +16,8 @@ export {
     v20230201preview,
     v20230501,
     v20240501preview,
+    v20240901preview,
+    v20241001preview,
 };
 
 export const ContainerGroupIpAddressType = {
@@ -133,7 +137,7 @@ export const ResourceIdentityType = {
 } as const;
 
 /**
- * The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+ * The type of identity used for the container scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the nGroup.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 

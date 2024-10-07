@@ -31,9 +31,11 @@ export * from "../types/enums/codesigning";
 
 // Export sub-modules:
 import * as v20240205preview from "./v20240205preview";
+import * as v20240930preview from "./v20240930preview";
 
 export {
     v20240205preview,
+    v20240930preview,
 };
 
 const _module = {

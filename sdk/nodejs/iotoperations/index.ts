@@ -92,10 +92,12 @@ export * from "../types/enums/iotoperations";
 // Export sub-modules:
 import * as v20240701preview from "./v20240701preview";
 import * as v20240815preview from "./v20240815preview";
+import * as v20240915preview from "./v20240915preview";
 
 export {
     v20240701preview,
     v20240815preview,
+    v20240915preview,
 };
 
 const _module = {

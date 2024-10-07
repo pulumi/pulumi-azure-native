@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerInstance
     /// A container group.
     /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
     /// 
-    /// Other available API versions: 2017-08-01-preview, 2017-12-01-preview, 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview.
+    /// Other available API versions: 2017-08-01-preview, 2017-12-01-preview, 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:ContainerGroup")]
     public partial class ContainerGroup : global::Pulumi.CustomResource
@@ -203,6 +203,8 @@ namespace Pulumi.AzureNative.ContainerInstance
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20230201preview:ContainerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20230501:ContainerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20240501preview:ContainerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20240901preview:ContainerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20241001preview:ContainerGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

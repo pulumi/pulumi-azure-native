@@ -5,7 +5,9 @@ META: # not great to be in same namespace than the RPs
 # Semantics are the same as if the entry was missing.
 
 # Properties:
-#   - "exclusions": ignore these resources
+#   - "exclusions": ignore these resources. The value can be a specific API version, in which case _all_ versions
+#     between the default version and the given version (including) will be ignored. The value can also be "*" to
+#     ignore that resource altogether.
 #   - "explicit": (boolean) if true, don't use a tracking version, only explicit versions for each resource
 #   - "preview": (prefer|exclude) use the latest -preview version rather than latest stable
 #   - "folders": folder(s) of the Azure spec GH repo containing this RP, purely informational
@@ -360,9 +362,9 @@ IoTCentral:
 IoTOperations:
   exclusions:
     # These only vary by case and also conflict with the existing versions.
-    Dataflow: 2024-08-15-preview
-    DataflowEndpoint: 2024-08-15-preview
-    DataflowProfile: 2024-08-15-preview
+    Dataflow: 2024-09-15-preview
+    DataflowEndpoint: 2024-09-15-preview
+    DataflowProfile: 2024-09-15-preview
 IoTSecurity:
   expectTracking: preview
   notes: Only single preview version

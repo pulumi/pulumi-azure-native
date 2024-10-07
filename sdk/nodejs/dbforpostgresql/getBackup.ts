@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get specific backup for a given server.
  * Azure REST API version: 2024-03-01-preview.
+ *
+ * Other available API versions: 2024-08-01.
  */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
 
@@ -72,6 +74,8 @@ export interface GetBackupResult {
 /**
  * Get specific backup for a given server.
  * Azure REST API version: 2024-03-01-preview.
+ *
+ * Other available API versions: 2024-08-01.
  */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {
     return pulumi.output(args).apply((a: any) => getBackup(a, opts))

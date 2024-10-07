@@ -102,7 +102,7 @@ class ActiveDirectoryConnector(pulumi.CustomResource):
         Active directory connector resource
         Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2022-03-01-preview.
 
-        Other available API versions: 2024-01-01.
+        Other available API versions: 2024-01-01, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +121,7 @@ class ActiveDirectoryConnector(pulumi.CustomResource):
         Active directory connector resource
         Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2022-03-01-preview.
 
-        Other available API versions: 2024-01-01.
+        Other available API versions: 2024-01-01, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ActiveDirectoryConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -164,7 +164,7 @@ class ActiveDirectoryConnector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector"), pulumi.Alias(type_="azure-native:azurearcdata/v20240101:ActiveDirectoryConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector"), pulumi.Alias(type_="azure-native:azurearcdata/v20240101:ActiveDirectoryConnector"), pulumi.Alias(type_="azure-native:azurearcdata/v20240501preview:ActiveDirectoryConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ActiveDirectoryConnector, __self__).__init__(
             'azure-native:azurearcdata:ActiveDirectoryConnector',

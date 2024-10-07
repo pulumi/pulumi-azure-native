@@ -6,9 +6,11 @@ from enum import Enum
 
 __all__ = [
     'AccountProvisioningMode',
+    'ActivationState',
     'AggregationType',
     'ArcSqlManagedInstanceLicenseType',
     'ArcSqlServerLicenseType',
+    'BillingPlan',
     'ConnectionStatus',
     'DatabaseState',
     'DefenderStatus',
@@ -18,11 +20,15 @@ __all__ = [
     'HostType',
     'Infrastructure',
     'InstanceFailoverGroupRole',
+    'LicenseCategory',
     'PostgresInstanceSkuTier',
     'RecoveryMode',
+    'ScopeType',
     'SqlManagedInstanceSkuName',
     'SqlManagedInstanceSkuTier',
     'SqlVersion',
+    'State',
+    'Version',
 ]
 
 
@@ -32,6 +38,14 @@ class AccountProvisioningMode(str, Enum):
     """
     AUTOMATIC = "automatic"
     MANUAL = "manual"
+
+
+class ActivationState(str, Enum):
+    """
+    The activation state of the license.
+    """
+    ACTIVATED = "Activated"
+    DEACTIVATED = "Deactivated"
 
 
 class AggregationType(str, Enum):
@@ -63,6 +77,14 @@ class ArcSqlServerLicenseType(str, Enum):
     HADR = "HADR"
     SERVER_CAL = "ServerCAL"
     LICENSE_ONLY = "LicenseOnly"
+    PAYG = "PAYG"
+    PAID = "Paid"
+
+
+class BillingPlan(str, Enum):
+    """
+    SQL Server license type.
+    """
     PAYG = "PAYG"
     PAID = "Paid"
 
@@ -170,6 +192,13 @@ class InstanceFailoverGroupRole(str, Enum):
     FORCE_SECONDARY = "force-secondary"
 
 
+class LicenseCategory(str, Enum):
+    """
+    This property represents the choice between SQL Server Core and ESU licenses.
+    """
+    CORE = "Core"
+
+
 class PostgresInstanceSkuTier(str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier.
@@ -184,6 +213,15 @@ class RecoveryMode(str, Enum):
     FULL = "Full"
     BULK_LOGGED = "Bulk-logged"
     SIMPLE = "Simple"
+
+
+class ScopeType(str, Enum):
+    """
+    The Azure scope to which the license will apply.
+    """
+    TENANT = "Tenant"
+    SUBSCRIPTION = "Subscription"
+    RESOURCE_GROUP = "ResourceGroup"
 
 
 class SqlManagedInstanceSkuName(str, Enum):
@@ -212,3 +250,20 @@ class SqlVersion(str, Enum):
     SQ_L_SERVER_2019 = "SQL Server 2019"
     SQ_L_SERVER_2022 = "SQL Server 2022"
     UNKNOWN = "Unknown"
+
+
+class State(str, Enum):
+    """
+    The activation state of the license.
+    """
+    INACTIVE = "Inactive"
+    ACTIVE = "Active"
+    TERMINATED = "Terminated"
+
+
+class Version(str, Enum):
+    """
+    The SQL Server version the license covers.
+    """
+    SQ_L_SERVER_2012 = "SQL Server 2012"
+    SQ_L_SERVER_2014 = "SQL Server 2014"

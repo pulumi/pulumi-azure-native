@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// Represents a virtual endpoint for a server.
     /// Azure REST API version: 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview.
+    /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:VirtualEndpoint")]
     public partial class VirtualEndpoint : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230601preview:VirtualEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20231201preview:VirtualEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240301preview:VirtualEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240801:VirtualEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

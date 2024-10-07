@@ -100,7 +100,7 @@ export class SqlServerAvailabilityGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:SqlServerAvailabilityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:SqlServerAvailabilityGroup" }, { type: "azure-native:azurearcdata/v20240501preview:SqlServerAvailabilityGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerAvailabilityGroup.__pulumiType, name, resourceInputs, opts);
     }

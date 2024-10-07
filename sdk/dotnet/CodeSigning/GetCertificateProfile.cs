@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Get details of a certificate profile.
         /// Azure REST API version: 2024-02-05-preview.
+        /// 
+        /// Other available API versions: 2024-09-30-preview.
         /// </summary>
         public static Task<GetCertificateProfileResult> InvokeAsync(GetCertificateProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateProfileResult>("azure-native:codesigning:getCertificateProfile", args ?? new GetCertificateProfileArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Get details of a certificate profile.
         /// Azure REST API version: 2024-02-05-preview.
+        /// 
+        /// Other available API versions: 2024-09-30-preview.
         /// </summary>
         public static Output<GetCertificateProfileResult> Invoke(GetCertificateProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateProfileResult>("azure-native:codesigning:getCertificateProfile", args ?? new GetCertificateProfileInvokeArgs(), options.WithDefaults());

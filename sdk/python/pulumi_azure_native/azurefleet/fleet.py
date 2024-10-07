@@ -221,7 +221,7 @@ class Fleet(pulumi.CustomResource):
         An Compute Fleet resource
         Azure REST API version: 2024-05-01-preview.
 
-        Other available API versions: 2023-11-01-preview.
+        Other available API versions: 2023-11-01-preview, 2024-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,7 +247,7 @@ class Fleet(pulumi.CustomResource):
         An Compute Fleet resource
         Azure REST API version: 2024-05-01-preview.
 
-        Other available API versions: 2023-11-01-preview.
+        Other available API versions: 2023-11-01-preview, 2024-11-01.
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.
@@ -307,7 +307,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurefleet/v20231101preview:Fleet"), pulumi.Alias(type_="azure-native:azurefleet/v20240501preview:Fleet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurefleet/v20231101preview:Fleet"), pulumi.Alias(type_="azure-native:azurefleet/v20240501preview:Fleet"), pulumi.Alias(type_="azure-native:azurefleet/v20241101:Fleet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Fleet, __self__).__init__(
             'azure-native:azurefleet:Fleet',

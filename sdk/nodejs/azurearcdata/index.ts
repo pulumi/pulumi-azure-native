@@ -60,15 +60,30 @@ export const getSqlServerDatabase: typeof import("./getSqlServerDatabase").getSq
 export const getSqlServerDatabaseOutput: typeof import("./getSqlServerDatabase").getSqlServerDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlServerDatabase","getSqlServerDatabaseOutput"], () => require("./getSqlServerDatabase"));
 
+export { GetSqlServerEsuLicenseArgs, GetSqlServerEsuLicenseResult, GetSqlServerEsuLicenseOutputArgs } from "./getSqlServerEsuLicense";
+export const getSqlServerEsuLicense: typeof import("./getSqlServerEsuLicense").getSqlServerEsuLicense = null as any;
+export const getSqlServerEsuLicenseOutput: typeof import("./getSqlServerEsuLicense").getSqlServerEsuLicenseOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlServerEsuLicense","getSqlServerEsuLicenseOutput"], () => require("./getSqlServerEsuLicense"));
+
 export { GetSqlServerInstanceArgs, GetSqlServerInstanceResult, GetSqlServerInstanceOutputArgs } from "./getSqlServerInstance";
 export const getSqlServerInstance: typeof import("./getSqlServerInstance").getSqlServerInstance = null as any;
 export const getSqlServerInstanceOutput: typeof import("./getSqlServerInstance").getSqlServerInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlServerInstance","getSqlServerInstanceOutput"], () => require("./getSqlServerInstance"));
 
+export { GetSqlServerInstanceJobsStatusArgs, GetSqlServerInstanceJobsStatusResult, GetSqlServerInstanceJobsStatusOutputArgs } from "./getSqlServerInstanceJobsStatus";
+export const getSqlServerInstanceJobsStatus: typeof import("./getSqlServerInstanceJobsStatus").getSqlServerInstanceJobsStatus = null as any;
+export const getSqlServerInstanceJobsStatusOutput: typeof import("./getSqlServerInstanceJobsStatus").getSqlServerInstanceJobsStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlServerInstanceJobsStatus","getSqlServerInstanceJobsStatusOutput"], () => require("./getSqlServerInstanceJobsStatus"));
+
 export { GetSqlServerInstanceTelemetryArgs, GetSqlServerInstanceTelemetryResult, GetSqlServerInstanceTelemetryOutputArgs } from "./getSqlServerInstanceTelemetry";
 export const getSqlServerInstanceTelemetry: typeof import("./getSqlServerInstanceTelemetry").getSqlServerInstanceTelemetry = null as any;
 export const getSqlServerInstanceTelemetryOutput: typeof import("./getSqlServerInstanceTelemetry").getSqlServerInstanceTelemetryOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlServerInstanceTelemetry","getSqlServerInstanceTelemetryOutput"], () => require("./getSqlServerInstanceTelemetry"));
+
+export { GetSqlServerLicenseArgs, GetSqlServerLicenseResult, GetSqlServerLicenseOutputArgs } from "./getSqlServerLicense";
+export const getSqlServerLicense: typeof import("./getSqlServerLicense").getSqlServerLicense = null as any;
+export const getSqlServerLicenseOutput: typeof import("./getSqlServerLicense").getSqlServerLicenseOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlServerLicense","getSqlServerLicenseOutput"], () => require("./getSqlServerLicense"));
 
 export { PostgresInstanceArgs } from "./postgresInstance";
 export type PostgresInstance = import("./postgresInstance").PostgresInstance;
@@ -90,10 +105,20 @@ export type SqlServerDatabase = import("./sqlServerDatabase").SqlServerDatabase;
 export const SqlServerDatabase: typeof import("./sqlServerDatabase").SqlServerDatabase = null as any;
 utilities.lazyLoad(exports, ["SqlServerDatabase"], () => require("./sqlServerDatabase"));
 
+export { SqlServerEsuLicenseArgs } from "./sqlServerEsuLicense";
+export type SqlServerEsuLicense = import("./sqlServerEsuLicense").SqlServerEsuLicense;
+export const SqlServerEsuLicense: typeof import("./sqlServerEsuLicense").SqlServerEsuLicense = null as any;
+utilities.lazyLoad(exports, ["SqlServerEsuLicense"], () => require("./sqlServerEsuLicense"));
+
 export { SqlServerInstanceArgs } from "./sqlServerInstance";
 export type SqlServerInstance = import("./sqlServerInstance").SqlServerInstance;
 export const SqlServerInstance: typeof import("./sqlServerInstance").SqlServerInstance = null as any;
 utilities.lazyLoad(exports, ["SqlServerInstance"], () => require("./sqlServerInstance"));
+
+export { SqlServerLicenseArgs } from "./sqlServerLicense";
+export type SqlServerLicense = import("./sqlServerLicense").SqlServerLicense;
+export const SqlServerLicense: typeof import("./sqlServerLicense").SqlServerLicense = null as any;
+utilities.lazyLoad(exports, ["SqlServerLicense"], () => require("./sqlServerLicense"));
 
 
 // Export enums:
@@ -102,10 +127,12 @@ export * from "../types/enums/azurearcdata";
 // Export sub-modules:
 import * as v20230115preview from "./v20230115preview";
 import * as v20240101 from "./v20240101";
+import * as v20240501preview from "./v20240501preview";
 
 export {
     v20230115preview,
     v20240101,
+    v20240501preview,
 };
 
 const _module = {
@@ -126,8 +153,12 @@ const _module = {
                 return new SqlServerAvailabilityGroup(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlServerDatabase":
                 return new SqlServerDatabase(name, <any>undefined, { urn })
+            case "azure-native:azurearcdata:SqlServerEsuLicense":
+                return new SqlServerEsuLicense(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlServerInstance":
                 return new SqlServerInstance(name, <any>undefined, { urn })
+            case "azure-native:azurearcdata:SqlServerLicense":
+                return new SqlServerLicense(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

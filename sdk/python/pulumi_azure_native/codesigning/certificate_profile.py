@@ -213,6 +213,8 @@ class CertificateProfile(pulumi.CustomResource):
         Certificate profile resource.
         Azure REST API version: 2024-02-05-preview.
 
+        Other available API versions: 2024-09-30-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Trusted Signing account name.
@@ -235,6 +237,8 @@ class CertificateProfile(pulumi.CustomResource):
         """
         Certificate profile resource.
         Azure REST API version: 2024-02-05-preview.
+
+        Other available API versions: 2024-09-30-preview.
 
         :param str resource_name: The name of the resource.
         :param CertificateProfileArgs args: The arguments to use to populate this resource's properties.
@@ -310,7 +314,7 @@ class CertificateProfile(pulumi.CustomResource):
             __props__.__dict__["street_address"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:codesigning/v20240205preview:CertificateProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:codesigning/v20240205preview:CertificateProfile"), pulumi.Alias(type_="azure-native:codesigning/v20240930preview:CertificateProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CertificateProfile, __self__).__init__(
             'azure-native:codesigning:CertificateProfile',
