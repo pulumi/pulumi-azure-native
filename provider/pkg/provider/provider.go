@@ -233,7 +233,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
 
-	k.customResources, err = customresources.BuildCustomResources(&env, k.getAzureCloud(), k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
+	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, credential)
 	if err != nil {
 		return nil, fmt.Errorf("initializing custom resources: %w", err)
@@ -258,17 +258,17 @@ func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenC
 		return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
 	}
 	logging.V(9).Infof("AzureClient: using azCore")
-	return azure.NewAzCoreClient(tokenCred, userAgent, *k.getAzureCloud(), nil)
+	return azure.NewAzCoreClient(tokenCred, userAgent, k.getAzureCloud(), nil)
 }
 
-func (k *azureNativeProvider) getAzureCloud() *cloud.Configuration {
+func (k *azureNativeProvider) getAzureCloud() cloud.Configuration {
 	switch k.environment.Name {
 	case azureEnv.ChinaCloud.Name:
-		return &cloud.AzureChina
+		return cloud.AzureChina
 	case azureEnv.USGovernmentCloud.Name:
-		return &cloud.AzureGovernment
+		return cloud.AzureGovernment
 	default:
-		return &cloud.AzurePublic
+		return cloud.AzurePublic
 	}
 }
 
