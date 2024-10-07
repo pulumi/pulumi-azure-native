@@ -68,6 +68,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20230115Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240101:ActiveDirectoryConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:ActiveDirectoryConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

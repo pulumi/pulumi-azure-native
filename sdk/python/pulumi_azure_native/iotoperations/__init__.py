@@ -31,7 +31,10 @@ if typing.TYPE_CHECKING:
     v20240701preview = __v20240701preview
     import pulumi_azure_native.iotoperations.v20240815preview as __v20240815preview
     v20240815preview = __v20240815preview
+    import pulumi_azure_native.iotoperations.v20240915preview as __v20240915preview
+    v20240915preview = __v20240915preview
 else:
     v20240701preview = _utilities.lazy_import('pulumi_azure_native.iotoperations.v20240701preview')
     v20240815preview = _utilities.lazy_import('pulumi_azure_native.iotoperations.v20240815preview')
+    v20240915preview = _utilities.lazy_import('pulumi_azure_native.iotoperations.v20240915preview')
 

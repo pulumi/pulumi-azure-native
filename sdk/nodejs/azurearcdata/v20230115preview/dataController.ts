@@ -102,7 +102,7 @@ export class DataController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:DataController" }, { type: "azure-native:azurearcdata/v20210601preview:DataController" }, { type: "azure-native:azurearcdata/v20210701preview:DataController" }, { type: "azure-native:azurearcdata/v20210801:DataController" }, { type: "azure-native:azurearcdata/v20211101:DataController" }, { type: "azure-native:azurearcdata/v20220301preview:DataController" }, { type: "azure-native:azurearcdata/v20220615preview:DataController" }, { type: "azure-native:azurearcdata/v20240101:DataController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:DataController" }, { type: "azure-native:azurearcdata/v20210601preview:DataController" }, { type: "azure-native:azurearcdata/v20210701preview:DataController" }, { type: "azure-native:azurearcdata/v20210801:DataController" }, { type: "azure-native:azurearcdata/v20211101:DataController" }, { type: "azure-native:azurearcdata/v20220301preview:DataController" }, { type: "azure-native:azurearcdata/v20220615preview:DataController" }, { type: "azure-native:azurearcdata/v20240101:DataController" }, { type: "azure-native:azurearcdata/v20240501preview:DataController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataController.__pulumiType, name, resourceInputs, opts);
     }

@@ -39,6 +39,37 @@ namespace Pulumi.AzureNative.AzureArcData
     }
 
     /// <summary>
+    /// The activation state of the license.
+    /// </summary>
+    [EnumType]
+    public readonly struct ActivationState : IEquatable<ActivationState>
+    {
+        private readonly string _value;
+
+        private ActivationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActivationState Activated { get; } = new ActivationState("Activated");
+        public static ActivationState Deactivated { get; } = new ActivationState("Deactivated");
+
+        public static bool operator ==(ActivationState left, ActivationState right) => left.Equals(right);
+        public static bool operator !=(ActivationState left, ActivationState right) => !left.Equals(right);
+
+        public static explicit operator string(ActivationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActivationState other && Equals(other);
+        public bool Equals(ActivationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The aggregation type to use for the numerical columns in the dataset.
     /// </summary>
     [EnumType]
@@ -133,6 +164,37 @@ namespace Pulumi.AzureNative.AzureArcData
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ArcSqlServerLicenseType other && Equals(other);
         public bool Equals(ArcSqlServerLicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// SQL Server license type.
+    /// </summary>
+    [EnumType]
+    public readonly struct BillingPlan : IEquatable<BillingPlan>
+    {
+        private readonly string _value;
+
+        private BillingPlan(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BillingPlan PAYG { get; } = new BillingPlan("PAYG");
+        public static BillingPlan Paid { get; } = new BillingPlan("Paid");
+
+        public static bool operator ==(BillingPlan left, BillingPlan right) => left.Equals(right);
+        public static bool operator !=(BillingPlan left, BillingPlan right) => !left.Equals(right);
+
+        public static explicit operator string(BillingPlan value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BillingPlan other && Equals(other);
+        public bool Equals(BillingPlan other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -451,6 +513,36 @@ namespace Pulumi.AzureNative.AzureArcData
     }
 
     /// <summary>
+    /// This property represents the choice between SQL Server Core and ESU licenses.
+    /// </summary>
+    [EnumType]
+    public readonly struct LicenseCategory : IEquatable<LicenseCategory>
+    {
+        private readonly string _value;
+
+        private LicenseCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LicenseCategory Core { get; } = new LicenseCategory("Core");
+
+        public static bool operator ==(LicenseCategory left, LicenseCategory right) => left.Equals(right);
+        public static bool operator !=(LicenseCategory left, LicenseCategory right) => !left.Equals(right);
+
+        public static explicit operator string(LicenseCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LicenseCategory other && Equals(other);
+        public bool Equals(LicenseCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This field is required to be implemented by the Resource Provider if the service has more than one tier.
     /// </summary>
     [EnumType]
@@ -505,6 +597,38 @@ namespace Pulumi.AzureNative.AzureArcData
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RecoveryMode other && Equals(other);
         public bool Equals(RecoveryMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Azure scope to which the license will apply.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScopeType : IEquatable<ScopeType>
+    {
+        private readonly string _value;
+
+        private ScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScopeType Tenant { get; } = new ScopeType("Tenant");
+        public static ScopeType Subscription { get; } = new ScopeType("Subscription");
+        public static ScopeType ResourceGroup { get; } = new ScopeType("ResourceGroup");
+
+        public static bool operator ==(ScopeType left, ScopeType right) => left.Equals(right);
+        public static bool operator !=(ScopeType left, ScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(ScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScopeType other && Equals(other);
+        public bool Equals(ScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -602,6 +726,69 @@ namespace Pulumi.AzureNative.AzureArcData
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SqlVersion other && Equals(other);
         public bool Equals(SqlVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The activation state of the license.
+    /// </summary>
+    [EnumType]
+    public readonly struct State : IEquatable<State>
+    {
+        private readonly string _value;
+
+        private State(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static State Inactive { get; } = new State("Inactive");
+        public static State Active { get; } = new State("Active");
+        public static State Terminated { get; } = new State("Terminated");
+
+        public static bool operator ==(State left, State right) => left.Equals(right);
+        public static bool operator !=(State left, State right) => !left.Equals(right);
+
+        public static explicit operator string(State value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is State other && Equals(other);
+        public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The SQL Server version the license covers.
+    /// </summary>
+    [EnumType]
+    public readonly struct Version : IEquatable<Version>
+    {
+        private readonly string _value;
+
+        private Version(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Version SQL_Server_2012 { get; } = new Version("SQL Server 2012");
+        public static Version SQL_Server_2014 { get; } = new Version("SQL Server 2014");
+
+        public static bool operator ==(Version left, Version right) => left.Equals(right);
+        public static bool operator !=(Version left, Version right) => !left.Equals(right);
+
+        public static explicit operator string(Version value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Version other && Equals(other);
+        public bool Equals(Version other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

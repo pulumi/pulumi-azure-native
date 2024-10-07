@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a InstanceResource
         /// Azure REST API version: 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2024-08-15-preview.
+        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("azure-native:iotoperations:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a InstanceResource
         /// Azure REST API version: 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2024-08-15-preview.
+        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:iotoperations:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());

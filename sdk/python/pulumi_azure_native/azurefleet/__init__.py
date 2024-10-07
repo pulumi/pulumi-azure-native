@@ -17,7 +17,10 @@ if typing.TYPE_CHECKING:
     v20231101preview = __v20231101preview
     import pulumi_azure_native.azurefleet.v20240501preview as __v20240501preview
     v20240501preview = __v20240501preview
+    import pulumi_azure_native.azurefleet.v20241101 as __v20241101
+    v20241101 = __v20241101
 else:
     v20231101preview = _utilities.lazy_import('pulumi_azure_native.azurefleet.v20231101preview')
     v20240501preview = _utilities.lazy_import('pulumi_azure_native.azurefleet.v20240501preview')
+    v20241101 = _utilities.lazy_import('pulumi_azure_native.azurefleet.v20241101')
 

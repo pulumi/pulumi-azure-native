@@ -177,7 +177,7 @@ class VirtualEndpoint(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_endpoints"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:VirtualEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:VirtualEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualEndpoint, __self__).__init__(
             'azure-native:dbforpostgresql/v20240301preview:VirtualEndpoint',

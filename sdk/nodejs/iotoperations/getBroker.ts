@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a BrokerResource
  * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2024-08-15-preview.
+ * Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
  */
 export function getBroker(args: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
 
@@ -71,7 +71,7 @@ export interface GetBrokerResult {
  * Get a BrokerResource
  * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2024-08-15-preview.
+ * Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
  */
 export function getBrokerOutput(args: GetBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerResult> {
     return pulumi.output(args).apply((a: any) => getBroker(a, opts))

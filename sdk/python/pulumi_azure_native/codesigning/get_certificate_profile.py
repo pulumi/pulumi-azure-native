@@ -310,6 +310,8 @@ def get_certificate_profile(account_name: Optional[str] = None,
     Get details of a certificate profile.
     Azure REST API version: 2024-02-05-preview.
 
+    Other available API versions: 2024-09-30-preview.
+
 
     :param str account_name: Trusted Signing account name.
     :param str profile_name: Certificate profile name.
@@ -355,6 +357,8 @@ def get_certificate_profile_output(account_name: Optional[pulumi.Input[str]] = N
     """
     Get details of a certificate profile.
     Azure REST API version: 2024-02-05-preview.
+
+    Other available API versions: 2024-09-30-preview.
 
 
     :param str account_name: Trusted Signing account name.

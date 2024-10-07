@@ -333,7 +333,7 @@ def get_server(resource_group_name: Optional[str] = None,
     Gets information about a server.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview.
+    Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -380,7 +380,7 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     Gets information about a server.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview.
+    Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

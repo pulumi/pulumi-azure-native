@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AzureFleet
         /// Get a Fleet
         /// Azure REST API version: 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Other available API versions: 2023-11-01-preview, 2024-11-01.
         /// </summary>
         public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("azure-native:azurefleet:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AzureFleet
         /// Get a Fleet
         /// Azure REST API version: 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Other available API versions: 2023-11-01-preview, 2024-11-01.
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:azurefleet:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());

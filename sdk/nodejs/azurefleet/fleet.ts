@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An Compute Fleet resource
  * Azure REST API version: 2024-05-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2023-11-01-preview, 2024-11-01.
  */
 export class Fleet extends pulumi.CustomResource {
     /**
@@ -156,7 +156,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurefleet/v20231101preview:Fleet" }, { type: "azure-native:azurefleet/v20240501preview:Fleet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurefleet/v20231101preview:Fleet" }, { type: "azure-native:azurefleet/v20240501preview:Fleet" }, { type: "azure-native:azurefleet/v20241101:Fleet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }

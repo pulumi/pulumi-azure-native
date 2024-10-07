@@ -98,8 +98,12 @@ __all__ = [
     'SqlServerDatabaseResourcePropertiesDatabaseOptionsArgsDict',
     'SqlServerDatabaseResourcePropertiesArgs',
     'SqlServerDatabaseResourcePropertiesArgsDict',
+    'SqlServerEsuLicensePropertiesArgs',
+    'SqlServerEsuLicensePropertiesArgsDict',
     'SqlServerInstancePropertiesArgs',
     'SqlServerInstancePropertiesArgsDict',
+    'SqlServerLicensePropertiesArgs',
+    'SqlServerLicensePropertiesArgsDict',
     'UploadServicePrincipalArgs',
     'UploadServicePrincipalArgsDict',
     'UploadWatermarkArgs',
@@ -3636,6 +3640,117 @@ class SqlServerDatabaseResourcePropertiesArgs:
 
 
 if not MYPY:
+    class SqlServerEsuLicensePropertiesArgsDict(TypedDict):
+        """
+        Properties of SQL Server ESU license.
+        """
+        activation_state: pulumi.Input[Union[str, 'State']]
+        """
+        The activation state of the license.
+        """
+        billing_plan: pulumi.Input[Union[str, 'BillingPlan']]
+        """
+        SQL Server ESU license type.
+        """
+        physical_cores: pulumi.Input[int]
+        """
+        The number of total cores of the license covers.
+        """
+        scope_type: pulumi.Input[Union[str, 'ScopeType']]
+        """
+        The Azure scope to which the license will apply.
+        """
+        version: pulumi.Input[Union[str, 'Version']]
+        """
+        The SQL Server version the license covers.
+        """
+elif False:
+    SqlServerEsuLicensePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SqlServerEsuLicensePropertiesArgs:
+    def __init__(__self__, *,
+                 activation_state: pulumi.Input[Union[str, 'State']],
+                 billing_plan: pulumi.Input[Union[str, 'BillingPlan']],
+                 physical_cores: pulumi.Input[int],
+                 scope_type: pulumi.Input[Union[str, 'ScopeType']],
+                 version: pulumi.Input[Union[str, 'Version']]):
+        """
+        Properties of SQL Server ESU license.
+        :param pulumi.Input[Union[str, 'State']] activation_state: The activation state of the license.
+        :param pulumi.Input[Union[str, 'BillingPlan']] billing_plan: SQL Server ESU license type.
+        :param pulumi.Input[int] physical_cores: The number of total cores of the license covers.
+        :param pulumi.Input[Union[str, 'ScopeType']] scope_type: The Azure scope to which the license will apply.
+        :param pulumi.Input[Union[str, 'Version']] version: The SQL Server version the license covers.
+        """
+        pulumi.set(__self__, "activation_state", activation_state)
+        pulumi.set(__self__, "billing_plan", billing_plan)
+        pulumi.set(__self__, "physical_cores", physical_cores)
+        pulumi.set(__self__, "scope_type", scope_type)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="activationState")
+    def activation_state(self) -> pulumi.Input[Union[str, 'State']]:
+        """
+        The activation state of the license.
+        """
+        return pulumi.get(self, "activation_state")
+
+    @activation_state.setter
+    def activation_state(self, value: pulumi.Input[Union[str, 'State']]):
+        pulumi.set(self, "activation_state", value)
+
+    @property
+    @pulumi.getter(name="billingPlan")
+    def billing_plan(self) -> pulumi.Input[Union[str, 'BillingPlan']]:
+        """
+        SQL Server ESU license type.
+        """
+        return pulumi.get(self, "billing_plan")
+
+    @billing_plan.setter
+    def billing_plan(self, value: pulumi.Input[Union[str, 'BillingPlan']]):
+        pulumi.set(self, "billing_plan", value)
+
+    @property
+    @pulumi.getter(name="physicalCores")
+    def physical_cores(self) -> pulumi.Input[int]:
+        """
+        The number of total cores of the license covers.
+        """
+        return pulumi.get(self, "physical_cores")
+
+    @physical_cores.setter
+    def physical_cores(self, value: pulumi.Input[int]):
+        pulumi.set(self, "physical_cores", value)
+
+    @property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> pulumi.Input[Union[str, 'ScopeType']]:
+        """
+        The Azure scope to which the license will apply.
+        """
+        return pulumi.get(self, "scope_type")
+
+    @scope_type.setter
+    def scope_type(self, value: pulumi.Input[Union[str, 'ScopeType']]):
+        pulumi.set(self, "scope_type", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[Union[str, 'Version']]:
+        """
+        The SQL Server version the license covers.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[Union[str, 'Version']]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
     class SqlServerInstancePropertiesArgsDict(TypedDict):
         """
         Properties of SqlServerInstance.
@@ -3987,6 +4102,117 @@ class SqlServerInstancePropertiesArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[Union[str, 'SqlVersion']]]):
         pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class SqlServerLicensePropertiesArgsDict(TypedDict):
+        """
+        Properties of SQL Server License.
+        """
+        activation_state: pulumi.Input[Union[str, 'ActivationState']]
+        """
+        The activation state of the license.
+        """
+        billing_plan: pulumi.Input[Union[str, 'BillingPlan']]
+        """
+        SQL Server license type.
+        """
+        license_category: pulumi.Input[Union[str, 'LicenseCategory']]
+        """
+        This property represents the choice between SQL Server Core and ESU licenses.
+        """
+        physical_cores: pulumi.Input[int]
+        """
+        The number of total cores of the license covers.
+        """
+        scope_type: pulumi.Input[Union[str, 'ScopeType']]
+        """
+        The Azure scope to which the license will apply.
+        """
+elif False:
+    SqlServerLicensePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SqlServerLicensePropertiesArgs:
+    def __init__(__self__, *,
+                 activation_state: pulumi.Input[Union[str, 'ActivationState']],
+                 billing_plan: pulumi.Input[Union[str, 'BillingPlan']],
+                 license_category: pulumi.Input[Union[str, 'LicenseCategory']],
+                 physical_cores: pulumi.Input[int],
+                 scope_type: pulumi.Input[Union[str, 'ScopeType']]):
+        """
+        Properties of SQL Server License.
+        :param pulumi.Input[Union[str, 'ActivationState']] activation_state: The activation state of the license.
+        :param pulumi.Input[Union[str, 'BillingPlan']] billing_plan: SQL Server license type.
+        :param pulumi.Input[Union[str, 'LicenseCategory']] license_category: This property represents the choice between SQL Server Core and ESU licenses.
+        :param pulumi.Input[int] physical_cores: The number of total cores of the license covers.
+        :param pulumi.Input[Union[str, 'ScopeType']] scope_type: The Azure scope to which the license will apply.
+        """
+        pulumi.set(__self__, "activation_state", activation_state)
+        pulumi.set(__self__, "billing_plan", billing_plan)
+        pulumi.set(__self__, "license_category", license_category)
+        pulumi.set(__self__, "physical_cores", physical_cores)
+        pulumi.set(__self__, "scope_type", scope_type)
+
+    @property
+    @pulumi.getter(name="activationState")
+    def activation_state(self) -> pulumi.Input[Union[str, 'ActivationState']]:
+        """
+        The activation state of the license.
+        """
+        return pulumi.get(self, "activation_state")
+
+    @activation_state.setter
+    def activation_state(self, value: pulumi.Input[Union[str, 'ActivationState']]):
+        pulumi.set(self, "activation_state", value)
+
+    @property
+    @pulumi.getter(name="billingPlan")
+    def billing_plan(self) -> pulumi.Input[Union[str, 'BillingPlan']]:
+        """
+        SQL Server license type.
+        """
+        return pulumi.get(self, "billing_plan")
+
+    @billing_plan.setter
+    def billing_plan(self, value: pulumi.Input[Union[str, 'BillingPlan']]):
+        pulumi.set(self, "billing_plan", value)
+
+    @property
+    @pulumi.getter(name="licenseCategory")
+    def license_category(self) -> pulumi.Input[Union[str, 'LicenseCategory']]:
+        """
+        This property represents the choice between SQL Server Core and ESU licenses.
+        """
+        return pulumi.get(self, "license_category")
+
+    @license_category.setter
+    def license_category(self, value: pulumi.Input[Union[str, 'LicenseCategory']]):
+        pulumi.set(self, "license_category", value)
+
+    @property
+    @pulumi.getter(name="physicalCores")
+    def physical_cores(self) -> pulumi.Input[int]:
+        """
+        The number of total cores of the license covers.
+        """
+        return pulumi.get(self, "physical_cores")
+
+    @physical_cores.setter
+    def physical_cores(self, value: pulumi.Input[int]):
+        pulumi.set(self, "physical_cores", value)
+
+    @property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> pulumi.Input[Union[str, 'ScopeType']]:
+        """
+        The Azure scope to which the license will apply.
+        """
+        return pulumi.get(self, "scope_type")
+
+    @scope_type.setter
+    def scope_type(self, value: pulumi.Input[Union[str, 'ScopeType']]):
+        pulumi.set(self, "scope_type", value)
 
 
 if not MYPY:

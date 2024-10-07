@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Trusted signing account resource.
  * Azure REST API version: 2024-02-05-preview.
+ *
+ * Other available API versions: 2024-09-30-preview.
  */
 export class CodeSigningAccount extends pulumi.CustomResource {
     /**
@@ -106,7 +108,7 @@ export class CodeSigningAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:codesigning/v20240205preview:CodeSigningAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:codesigning/v20240205preview:CodeSigningAccount" }, { type: "azure-native:codesigning/v20240930preview:CodeSigningAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodeSigningAccount.__pulumiType, name, resourceInputs, opts);
     }

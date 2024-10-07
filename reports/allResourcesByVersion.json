@@ -2840,6 +2840,9 @@
       "listPolicySetDefinitionVersionAll",
       "listPolicySetDefinitionVersionAllAtManagementGroup",
       "listPolicySetDefinitionVersionAllBuiltins"
+    ],
+    "2024-09-01-preview": [
+      "RoleManagementPolicyAssignment"
     ]
   },
   "Automanage": {
@@ -3100,6 +3103,21 @@
       "SqlServerInstance",
       "getSqlServerAvailabilityGroupDetailView",
       "getSqlServerInstanceTelemetry"
+    ],
+    "2024-05-01-preview": [
+      "ActiveDirectoryConnector",
+      "DataController",
+      "FailoverGroup",
+      "PostgresInstance",
+      "SqlManagedInstance",
+      "SqlServerAvailabilityGroup",
+      "SqlServerDatabase",
+      "SqlServerEsuLicense",
+      "SqlServerInstance",
+      "SqlServerLicense",
+      "getSqlServerAvailabilityGroupDetailView",
+      "getSqlServerInstanceJobsStatus",
+      "getSqlServerInstanceTelemetry"
     ]
   },
   "AzureData": {
@@ -3155,6 +3173,9 @@
       "Fleet"
     ],
     "2024-05-01-preview": [
+      "Fleet"
+    ],
+    "2024-11-01": [
       "Fleet"
     ]
   },
@@ -4611,6 +4632,10 @@
     "2024-02-05-preview": [
       "CertificateProfile",
       "CodeSigningAccount"
+    ],
+    "2024-09-30-preview": [
+      "CertificateProfile",
+      "CodeSigningAccount"
     ]
   },
   "CognitiveServices": {
@@ -5671,6 +5696,13 @@
     "2024-05-01-preview": [
       "ContainerGroup",
       "ContainerGroupProfile"
+    ],
+    "2024-09-01-preview": [
+      "ContainerGroup",
+      "NGroup"
+    ],
+    "2024-10-01-preview": [
+      "ContainerGroup"
     ]
   },
   "ContainerRegistry": {
@@ -7302,6 +7334,18 @@
       "getGetPrivateDnsZoneSuffixExecute"
     ],
     "2024-03-01-preview": [
+      "Administrator",
+      "Backup",
+      "Configuration",
+      "Database",
+      "FirewallRule",
+      "Migration",
+      "PrivateEndpointConnection",
+      "Server",
+      "VirtualEndpoint",
+      "getGetPrivateDnsZoneSuffixExecute"
+    ],
+    "2024-08-01": [
       "Administrator",
       "Backup",
       "Configuration",
@@ -12148,6 +12192,16 @@
       "Instance"
     ],
     "2024-08-15-preview": [
+      "Broker",
+      "BrokerAuthentication",
+      "BrokerAuthorization",
+      "BrokerListener",
+      "Dataflow",
+      "DataflowEndpoint",
+      "DataflowProfile",
+      "Instance"
+    ],
+    "2024-09-15-preview": [
       "Broker",
       "BrokerAuthentication",
       "BrokerAuthorization",

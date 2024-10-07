@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Data controller resource
  * Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview.
  *
- * Other available API versions: 2024-01-01.
+ * Other available API versions: 2024-01-01, 2024-05-01-preview.
  */
 export class DataController extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class DataController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:DataController" }, { type: "azure-native:azurearcdata/v20210701preview:DataController" }, { type: "azure-native:azurearcdata/v20210801:DataController" }, { type: "azure-native:azurearcdata/v20211101:DataController" }, { type: "azure-native:azurearcdata/v20220301preview:DataController" }, { type: "azure-native:azurearcdata/v20220615preview:DataController" }, { type: "azure-native:azurearcdata/v20230115preview:DataController" }, { type: "azure-native:azurearcdata/v20240101:DataController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:DataController" }, { type: "azure-native:azurearcdata/v20210701preview:DataController" }, { type: "azure-native:azurearcdata/v20210801:DataController" }, { type: "azure-native:azurearcdata/v20211101:DataController" }, { type: "azure-native:azurearcdata/v20220301preview:DataController" }, { type: "azure-native:azurearcdata/v20220615preview:DataController" }, { type: "azure-native:azurearcdata/v20230115preview:DataController" }, { type: "azure-native:azurearcdata/v20240101:DataController" }, { type: "azure-native:azurearcdata/v20240501preview:DataController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataController.__pulumiType, name, resourceInputs, opts);
     }

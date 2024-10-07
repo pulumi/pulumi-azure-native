@@ -1540,6 +1540,13 @@
     "Property": "collationName"
   },
   {
+    "Module": "azurearcdata",
+    "Provider": "AzureArcData",
+    "ResourceName": "SqlServerLicense",
+    "ReferenceName": "SqlServerLicenseProperties",
+    "Property": "licenseCategory"
+  },
+  {
     "Module": "azurearcdata/v20230115preview",
     "Provider": "AzureArcData",
     "ResourceName": "SqlServerDatabase",
@@ -1552,6 +1559,20 @@
     "ResourceName": "SqlServerDatabase",
     "ReferenceName": "SqlServerDatabaseResourceProperties",
     "Property": "collationName"
+  },
+  {
+    "Module": "azurearcdata/v20240501preview",
+    "Provider": "AzureArcData",
+    "ResourceName": "SqlServerDatabase",
+    "ReferenceName": "SqlServerDatabaseResourceProperties",
+    "Property": "collationName"
+  },
+  {
+    "Module": "azurearcdata/v20240501preview",
+    "Provider": "AzureArcData",
+    "ResourceName": "SqlServerLicense",
+    "ReferenceName": "SqlServerLicenseProperties",
+    "Property": "licenseCategory"
   },
   {
     "Module": "azuredatatransfer",
@@ -3424,6 +3445,13 @@
   },
   {
     "Module": "dbforpostgresql/v20240301preview",
+    "Provider": "DBforPostgreSQL",
+    "ResourceName": "Server",
+    "ReferenceName": "Backup",
+    "Property": "geoRedundantBackup"
+  },
+  {
+    "Module": "dbforpostgresql/v20240801",
     "Provider": "DBforPostgreSQL",
     "ResourceName": "Server",
     "ReferenceName": "Backup",
@@ -5731,6 +5759,41 @@
     "ResourceName": "Instance",
     "ReferenceName": "OperationalMode",
     "Property": "state"
+  },
+  {
+    "Module": "iotoperations/v20240915preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "AdvancedSettings",
+    "Property": "advanced"
+  },
+  {
+    "Module": "iotoperations/v20240915preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "Cardinality",
+    "Property": "cardinality"
+  },
+  {
+    "Module": "iotoperations/v20240915preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "DiskBackedMessageBuffer",
+    "Property": "diskBackedMessageBuffer"
+  },
+  {
+    "Module": "iotoperations/v20240915preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "GenerateResourceLimits",
+    "Property": "generateResourceLimits"
+  },
+  {
+    "Module": "iotoperations/v20240915preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "BrokerProperties",
+    "Property": "memoryProfile"
   },
   {
     "Module": "kusto",

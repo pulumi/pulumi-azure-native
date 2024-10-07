@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// Retrieves a dataController resource
         /// Azure REST API version: 2023-01-15-preview.
         /// 
-        /// Other available API versions: 2024-01-01.
+        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
         /// </summary>
         public static Task<GetDataControllerResult> InvokeAsync(GetDataControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AzureArcData
         /// Retrieves a dataController resource
         /// Azure REST API version: 2023-01-15-preview.
         /// 
-        /// Other available API versions: 2024-01-01.
+        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
         /// </summary>
         public static Output<GetDataControllerResult> Invoke(GetDataControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerInvokeArgs(), options.WithDefaults());

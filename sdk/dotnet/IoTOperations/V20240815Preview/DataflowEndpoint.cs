@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.IoTOperations.V20240815Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations:DataflowEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:DataflowEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:DataflowEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

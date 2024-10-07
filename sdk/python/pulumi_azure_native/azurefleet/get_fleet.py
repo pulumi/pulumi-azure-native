@@ -237,7 +237,7 @@ def get_fleet(fleet_name: Optional[str] = None,
     Get a Fleet
     Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2023-11-01-preview, 2024-11-01.
 
 
     :param str fleet_name: The name of the Compute Fleet
@@ -276,7 +276,7 @@ def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
     Get a Fleet
     Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2023-11-01-preview, 2024-11-01.
 
 
     :param str fleet_name: The name of the Compute Fleet

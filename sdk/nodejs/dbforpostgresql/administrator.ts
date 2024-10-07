@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents an Active Directory administrator.
  * Azure REST API version: 2022-12-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
  */
 export class Administrator extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class Administrator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20220308preview:Administrator" }, { type: "azure-native:dbforpostgresql/v20221201:Administrator" }, { type: "azure-native:dbforpostgresql/v20230301preview:Administrator" }, { type: "azure-native:dbforpostgresql/v20230601preview:Administrator" }, { type: "azure-native:dbforpostgresql/v20231201preview:Administrator" }, { type: "azure-native:dbforpostgresql/v20240301preview:Administrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20220308preview:Administrator" }, { type: "azure-native:dbforpostgresql/v20221201:Administrator" }, { type: "azure-native:dbforpostgresql/v20230301preview:Administrator" }, { type: "azure-native:dbforpostgresql/v20230601preview:Administrator" }, { type: "azure-native:dbforpostgresql/v20231201preview:Administrator" }, { type: "azure-native:dbforpostgresql/v20240301preview:Administrator" }, { type: "azure-native:dbforpostgresql/v20240801:Administrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Administrator.__pulumiType, name, resourceInputs, opts);
     }

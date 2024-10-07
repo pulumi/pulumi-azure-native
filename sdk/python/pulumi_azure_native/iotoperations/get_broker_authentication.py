@@ -119,7 +119,7 @@ def get_broker_authentication(authentication_name: Optional[str] = None,
     Get a BrokerAuthenticationResource
     Azure REST API version: 2024-07-01-preview.
 
-    Other available API versions: 2024-08-15-preview.
+    Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
 
 
     :param str authentication_name: Name of Instance broker authentication resource
@@ -154,7 +154,7 @@ def get_broker_authentication_output(authentication_name: Optional[pulumi.Input[
     Get a BrokerAuthenticationResource
     Azure REST API version: 2024-07-01-preview.
 
-    Other available API versions: 2024-08-15-preview.
+    Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
 
 
     :param str authentication_name: Name of Instance broker authentication resource

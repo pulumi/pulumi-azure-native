@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApiEntityReferenceArgs',
+    'ApiEntityReferenceArgsDict',
     'AzureFileVolumeArgs',
     'AzureFileVolumeArgsDict',
     'ConfidentialComputePropertiesArgs',
@@ -28,6 +30,8 @@ __all__ = [
     'ContainerGroupDiagnosticsArgsDict',
     'ContainerGroupIdentityArgs',
     'ContainerGroupIdentityArgsDict',
+    'ContainerGroupProfileStubArgs',
+    'ContainerGroupProfileStubArgsDict',
     'ContainerGroupSubnetIdArgs',
     'ContainerGroupSubnetIdArgsDict',
     'ContainerHttpGetArgs',
@@ -42,6 +46,8 @@ __all__ = [
     'DeploymentExtensionSpecArgsDict',
     'DnsConfigurationArgs',
     'DnsConfigurationArgsDict',
+    'ElasticProfileArgs',
+    'ElasticProfileArgsDict',
     'EncryptionPropertiesArgs',
     'EncryptionPropertiesArgsDict',
     'EnvironmentVariableArgs',
@@ -60,6 +66,8 @@ __all__ = [
     'IpAddressArgsDict',
     'LogAnalyticsArgs',
     'LogAnalyticsArgsDict',
+    'NGroupIdentityArgs',
+    'NGroupIdentityArgsDict',
     'PortArgs',
     'PortArgsDict',
     'ResourceLimitsArgs',
@@ -79,6 +87,42 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ApiEntityReferenceArgsDict(TypedDict):
+        """
+        The API entity reference.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+elif False:
+    ApiEntityReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiEntityReferenceArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        The API entity reference.
+        :param pulumi.Input[str] id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
 
 if not MYPY:
     class AzureFileVolumeArgsDict(TypedDict):
@@ -372,6 +416,42 @@ class ContainerGroupIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class ContainerGroupProfileStubArgsDict(TypedDict):
+        """
+        The object that contains a reference to a Container Group Profile
+        """
+        resource: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
+        """
+        The API entity reference.
+        """
+elif False:
+    ContainerGroupProfileStubArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ContainerGroupProfileStubArgs:
+    def __init__(__self__, *,
+                 resource: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None):
+        """
+        The object that contains a reference to a Container Group Profile
+        :param pulumi.Input['ApiEntityReferenceArgs'] resource: The API entity reference.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input['ApiEntityReferenceArgs']]:
+        """
+        The API entity reference.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input['ApiEntityReferenceArgs']]):
+        pulumi.set(self, "resource", value)
 
 
 if not MYPY:
@@ -1156,6 +1236,35 @@ class DnsConfigurationArgs:
     @search_domains.setter
     def search_domains(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "search_domains", value)
+
+
+if not MYPY:
+    class ElasticProfileArgsDict(TypedDict):
+        """
+        Describes the elastic profile of the Container Scale Set
+        """
+        desired_count: NotRequired[pulumi.Input[int]]
+elif False:
+    ElasticProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ElasticProfileArgs:
+    def __init__(__self__, *,
+                 desired_count: Optional[pulumi.Input[int]] = None):
+        """
+        Describes the elastic profile of the Container Scale Set
+        """
+        if desired_count is not None:
+            pulumi.set(__self__, "desired_count", desired_count)
+
+    @property
+    @pulumi.getter(name="desiredCount")
+    def desired_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "desired_count")
+
+    @desired_count.setter
+    def desired_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "desired_count", value)
 
 
 if not MYPY:
@@ -1989,6 +2098,62 @@ class LogAnalyticsArgs:
     @workspace_resource_id.setter
     def workspace_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workspace_resource_id", value)
+
+
+if not MYPY:
+    class NGroupIdentityArgsDict(TypedDict):
+        """
+        Identity for the nGroup.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the container scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the nGroup.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the container scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    NGroupIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NGroupIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Identity for the nGroup.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the container scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the nGroup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the container scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The type of identity used for the container scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the nGroup.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of user identities associated with the container scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 if not MYPY:

@@ -84,6 +84,8 @@ class Backup(pulumi.CustomResource):
         Server backup properties
         Azure REST API version: 2024-03-01-preview.
 
+        Other available API versions: 2024-08-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_name: The name of the backup.
@@ -99,6 +101,8 @@ class Backup(pulumi.CustomResource):
         """
         Server backup properties
         Azure REST API version: 2024-03-01-preview.
+
+        Other available API versions: 2024-08-01.
 
         :param str resource_name: The name of the resource.
         :param BackupInitArgs args: The arguments to use to populate this resource's properties.
@@ -140,7 +144,7 @@ class Backup(pulumi.CustomResource):
             __props__.__dict__["source"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Backup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Backup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backup, __self__).__init__(
             'azure-native:dbforpostgresql:Backup',

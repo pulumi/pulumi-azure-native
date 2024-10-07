@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData
     /// A Postgres Instance.
     /// Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview.
     /// 
-    /// Other available API versions: 2024-01-01.
+    /// Other available API versions: 2024-01-01, 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:PostgresInstance")]
     public partial class PostgresInstance : global::Pulumi.CustomResource
@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.AzureArcData
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:PostgresInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:PostgresInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240101:PostgresInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:PostgresInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

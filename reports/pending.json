@@ -91,7 +91,8 @@
     "2023-04-01",
     "2024-02-01-preview",
     "2024-04-01",
-    "2024-05-01"
+    "2024-05-01",
+    "2024-09-01-preview"
   ],
   "Automanage": [
     "2021-04-30-preview",
@@ -115,7 +116,8 @@
     "2023-05-17-preview"
   ],
   "AzureArcData": [
-    "2024-01-01"
+    "2024-01-01",
+    "2024-05-01-preview"
   ],
   "AzureData": [],
   "AzureDataTransfer": [
@@ -123,7 +125,9 @@
     "2024-05-07",
     "2024-09-11"
   ],
-  "AzureFleet": [],
+  "AzureFleet": [
+    "2024-11-01"
+  ],
   "AzureLargeInstance": [],
   "AzurePlaywrightService": [
     "2024-02-01-preview",
@@ -212,7 +216,9 @@
     "2024-01-19-preview",
     "2024-02-07-preview"
   ],
-  "CodeSigning": [],
+  "CodeSigning": [
+    "2024-09-30-preview"
+  ],
   "CognitiveServices": [
     "2023-10-01-preview",
     "2024-04-01-preview",
@@ -265,7 +271,9 @@
     "2024-08-01"
   ],
   "ContainerInstance": [
-    "2024-05-01-preview"
+    "2024-05-01-preview",
+    "2024-09-01-preview",
+    "2024-10-01-preview"
   ],
   "ContainerRegistry": [
     "2019-12-01-preview",
@@ -412,7 +420,8 @@
     "2023-03-02-preview",
     "2023-06-01-preview",
     "2023-12-01-preview",
-    "2024-03-01-preview"
+    "2024-03-01-preview",
+    "2024-08-01"
   ],
   "Dashboard": [
     "2022-10-01-preview",
@@ -718,7 +727,8 @@
     "2024-01-10"
   ],
   "IoTOperations": [
-    "2024-08-15-preview"
+    "2024-08-15-preview",
+    "2024-09-15-preview"
   ],
   "IoTOperationsDataProcessor": [],
   "IoTOperationsMQ": [],

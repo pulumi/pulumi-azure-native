@@ -2569,6 +2569,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "authorization/v20240901preview",
+  "fqn": "pulumi_azure_native.authorization.v20240901preview",
+  "classes": {
+   "azure-native:authorization/v20240901preview:RoleManagementPolicyAssignment": "RoleManagementPolicyAssignment"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "automanage",
   "fqn": "pulumi_azure_native.automanage",
   "classes": {
@@ -2952,7 +2960,9 @@ _utilities.register(
    "azure-native:azurearcdata:SqlManagedInstance": "SqlManagedInstance",
    "azure-native:azurearcdata:SqlServerAvailabilityGroup": "SqlServerAvailabilityGroup",
    "azure-native:azurearcdata:SqlServerDatabase": "SqlServerDatabase",
-   "azure-native:azurearcdata:SqlServerInstance": "SqlServerInstance"
+   "azure-native:azurearcdata:SqlServerEsuLicense": "SqlServerEsuLicense",
+   "azure-native:azurearcdata:SqlServerInstance": "SqlServerInstance",
+   "azure-native:azurearcdata:SqlServerLicense": "SqlServerLicense"
   }
  },
  {
@@ -2982,6 +2992,23 @@ _utilities.register(
    "azure-native:azurearcdata/v20240101:SqlServerAvailabilityGroup": "SqlServerAvailabilityGroup",
    "azure-native:azurearcdata/v20240101:SqlServerDatabase": "SqlServerDatabase",
    "azure-native:azurearcdata/v20240101:SqlServerInstance": "SqlServerInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurearcdata/v20240501preview",
+  "fqn": "pulumi_azure_native.azurearcdata.v20240501preview",
+  "classes": {
+   "azure-native:azurearcdata/v20240501preview:ActiveDirectoryConnector": "ActiveDirectoryConnector",
+   "azure-native:azurearcdata/v20240501preview:DataController": "DataController",
+   "azure-native:azurearcdata/v20240501preview:FailoverGroup": "FailoverGroup",
+   "azure-native:azurearcdata/v20240501preview:PostgresInstance": "PostgresInstance",
+   "azure-native:azurearcdata/v20240501preview:SqlManagedInstance": "SqlManagedInstance",
+   "azure-native:azurearcdata/v20240501preview:SqlServerAvailabilityGroup": "SqlServerAvailabilityGroup",
+   "azure-native:azurearcdata/v20240501preview:SqlServerDatabase": "SqlServerDatabase",
+   "azure-native:azurearcdata/v20240501preview:SqlServerEsuLicense": "SqlServerEsuLicense",
+   "azure-native:azurearcdata/v20240501preview:SqlServerInstance": "SqlServerInstance",
+   "azure-native:azurearcdata/v20240501preview:SqlServerLicense": "SqlServerLicense"
   }
  },
  {
@@ -3074,6 +3101,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.azurefleet.v20240501preview",
   "classes": {
    "azure-native:azurefleet/v20240501preview:Fleet": "Fleet"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurefleet/v20241101",
+  "fqn": "pulumi_azure_native.azurefleet.v20241101",
+  "classes": {
+   "azure-native:azurefleet/v20241101:Fleet": "Fleet"
   }
  },
  {
@@ -4364,6 +4399,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "codesigning/v20240930preview",
+  "fqn": "pulumi_azure_native.codesigning.v20240930preview",
+  "classes": {
+   "azure-native:codesigning/v20240930preview:CertificateProfile": "CertificateProfile",
+   "azure-native:codesigning/v20240930preview:CodeSigningAccount": "CodeSigningAccount"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cognitiveservices",
   "fqn": "pulumi_azure_native.cognitiveservices",
   "classes": {
@@ -5060,7 +5104,8 @@ _utilities.register(
   "fqn": "pulumi_azure_native.containerinstance",
   "classes": {
    "azure-native:containerinstance:ContainerGroup": "ContainerGroup",
-   "azure-native:containerinstance:ContainerGroupProfile": "ContainerGroupProfile"
+   "azure-native:containerinstance:ContainerGroupProfile": "ContainerGroupProfile",
+   "azure-native:containerinstance:NGroup": "NGroup"
   }
  },
  {
@@ -5102,6 +5147,23 @@ _utilities.register(
   "classes": {
    "azure-native:containerinstance/v20240501preview:ContainerGroup": "ContainerGroup",
    "azure-native:containerinstance/v20240501preview:ContainerGroupProfile": "ContainerGroupProfile"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerinstance/v20240901preview",
+  "fqn": "pulumi_azure_native.containerinstance.v20240901preview",
+  "classes": {
+   "azure-native:containerinstance/v20240901preview:ContainerGroup": "ContainerGroup",
+   "azure-native:containerinstance/v20240901preview:NGroup": "NGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerinstance/v20241001preview",
+  "fqn": "pulumi_azure_native.containerinstance.v20241001preview",
+  "classes": {
+   "azure-native:containerinstance/v20241001preview:ContainerGroup": "ContainerGroup"
   }
  },
  {
@@ -7245,6 +7307,22 @@ _utilities.register(
    "azure-native:dbforpostgresql/v20240301preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:dbforpostgresql/v20240301preview:Server": "Server",
    "azure-native:dbforpostgresql/v20240301preview:VirtualEndpoint": "VirtualEndpoint"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dbforpostgresql/v20240801",
+  "fqn": "pulumi_azure_native.dbforpostgresql.v20240801",
+  "classes": {
+   "azure-native:dbforpostgresql/v20240801:Administrator": "Administrator",
+   "azure-native:dbforpostgresql/v20240801:Backup": "Backup",
+   "azure-native:dbforpostgresql/v20240801:Configuration": "Configuration",
+   "azure-native:dbforpostgresql/v20240801:Database": "Database",
+   "azure-native:dbforpostgresql/v20240801:FirewallRule": "FirewallRule",
+   "azure-native:dbforpostgresql/v20240801:Migration": "Migration",
+   "azure-native:dbforpostgresql/v20240801:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:dbforpostgresql/v20240801:Server": "Server",
+   "azure-native:dbforpostgresql/v20240801:VirtualEndpoint": "VirtualEndpoint"
   }
  },
  {
@@ -10364,6 +10442,21 @@ _utilities.register(
    "azure-native:iotoperations/v20240815preview:DataflowEndpoint": "DataflowEndpoint",
    "azure-native:iotoperations/v20240815preview:DataflowProfile": "DataflowProfile",
    "azure-native:iotoperations/v20240815preview:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "iotoperations/v20240915preview",
+  "fqn": "pulumi_azure_native.iotoperations.v20240915preview",
+  "classes": {
+   "azure-native:iotoperations/v20240915preview:Broker": "Broker",
+   "azure-native:iotoperations/v20240915preview:BrokerAuthentication": "BrokerAuthentication",
+   "azure-native:iotoperations/v20240915preview:BrokerAuthorization": "BrokerAuthorization",
+   "azure-native:iotoperations/v20240915preview:BrokerListener": "BrokerListener",
+   "azure-native:iotoperations/v20240915preview:Dataflow": "Dataflow",
+   "azure-native:iotoperations/v20240915preview:DataflowEndpoint": "DataflowEndpoint",
+   "azure-native:iotoperations/v20240915preview:DataflowProfile": "DataflowProfile",
+   "azure-native:iotoperations/v20240915preview:Instance": "Instance"
   }
  },
  {
