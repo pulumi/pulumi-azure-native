@@ -828,8 +828,6 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 		HasDetailedDiff:     true,
 	}
 
-	response.Diffs[0] = "agentPoolProfiles"
-
 	return &response, nil
 }
 
