@@ -2,7 +2,10 @@ name: azcore-scheduled
 
 on:
   schedule:
-    - cron: 15 3 * * 1-6 # 3:15 am UTC, Mon-Sat
+      # Note: the TestAccKeyVaultTs_CLI test needs to run every so often so that the Azure refresh
+      # token stored in the GH secret AZURE_CLI_FOLDER doesn't expire. The exact expiration time
+      # of the token is not published.
+    - cron: '15 3/12 * * *' # 3:15 am and 3:15 pm UTC, every day
   workflow_dispatch: {}
 
 jobs:
