@@ -51,6 +51,8 @@ env:
   PULUMI_API: https://api.pulumi-staging.io
   PULUMI_USE_AUTOREST: ${{ inputs.use_autorest }}
   PULUMI_USE_LEGACY_AUTH: ${{ inputs.use_legacy_auth }}
+  # This is the content of a ~/.azure/ folder, zipped and base64-encoded, for CLI auth.
+  AZURE_CLI_FOLDER: ${{ secrets.AZURE_CLI_FOLDER }}
 
 jobs:
   prerequisites:
@@ -207,6 +209,14 @@ jobs:
         # We store the base64-encoded cert as a secret, decode it here, and write it out to a file.
         run: |
           echo "${{ secrets.ARM_CLIENT_CERTIFICATE }}" | base64 -d > "${{ runner.temp }}/azure-client-certificate.pfx"
+
+      - name: Write .azure.tmp folder
+        run: |
+          set -euxo pipefail
+          echo "${{ secrets.AZURE_CLI_FOLDER }}" | base64 -d > "${{ runner.temp }}/azure-cli-folder.zip"
+          # Unzip it to a temp folder to avoid other tests using it unintentionally. We only want one specific test to use it.
+          unzip -d $HOME/.azure.tmp "${{ runner.temp }}/azure-cli-folder.zip"
+          rm "${{ runner.temp }}/azure-cli-folder.zip"
 
       - name: Run tests
         if: ${{ ! inputs.short_test }}
