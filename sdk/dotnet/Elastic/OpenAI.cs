@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic
     /// Capture properties of Open AI resource Integration.
     /// Azure REST API version: 2024-03-01.
     /// 
-    /// Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview.
+    /// Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic:OpenAI")]
     public partial class OpenAI : global::Pulumi.CustomResource
@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Elastic
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240301:OpenAI" },
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240501preview:OpenAI" },
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240615preview:OpenAI" },
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20241001preview:OpenAI" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

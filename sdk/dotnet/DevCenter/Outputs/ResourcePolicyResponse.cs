@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.DevCenter.Outputs
         /// </summary>
         public readonly string? Filter;
         /// <summary>
-        /// Resources that are included and shared as a part of a curation profile.
+        /// Resources that are included and shared as a part of a project policy.
         /// </summary>
         public readonly string? Resources;
 

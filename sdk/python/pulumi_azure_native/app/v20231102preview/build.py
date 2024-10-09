@@ -181,7 +181,7 @@ class Build(pulumi.CustomResource):
             __props__.__dict__["token_endpoint"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["upload_endpoint"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:Build"), pulumi.Alias(type_="azure-native:app/v20230801preview:Build"), pulumi.Alias(type_="azure-native:app/v20240202preview:Build")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:Build"), pulumi.Alias(type_="azure-native:app/v20230801preview:Build"), pulumi.Alias(type_="azure-native:app/v20240202preview:Build"), pulumi.Alias(type_="azure-native:app/v20240802preview:Build")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Build, __self__).__init__(
             'azure-native:app/v20231102preview:Build',

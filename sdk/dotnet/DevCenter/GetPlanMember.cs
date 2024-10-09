@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// Gets a devcenter plan member.
         /// Azure REST API version: 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetPlanMemberResult> InvokeAsync(GetPlanMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlanMemberResult>("azure-native:devcenter:getPlanMember", args ?? new GetPlanMemberArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// Gets a devcenter plan member.
         /// Azure REST API version: 2024-05-01-preview.
         /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetPlanMemberResult> Invoke(GetPlanMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanMemberResult>("azure-native:devcenter:getPlanMember", args ?? new GetPlanMemberInvokeArgs(), options.WithDefaults());

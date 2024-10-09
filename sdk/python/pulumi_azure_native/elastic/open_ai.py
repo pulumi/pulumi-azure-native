@@ -102,7 +102,7 @@ class OpenAI(pulumi.CustomResource):
         Capture properties of Open AI resource Integration.
         Azure REST API version: 2024-03-01.
 
-        Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview.
+        Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +121,7 @@ class OpenAI(pulumi.CustomResource):
         Capture properties of Open AI resource Integration.
         Azure REST API version: 2024-03-01.
 
-        Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview.
+        Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param OpenAIArgs args: The arguments to use to populate this resource's properties.
@@ -161,7 +161,7 @@ class OpenAI(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elastic/v20240101preview:OpenAI"), pulumi.Alias(type_="azure-native:elastic/v20240301:OpenAI"), pulumi.Alias(type_="azure-native:elastic/v20240501preview:OpenAI"), pulumi.Alias(type_="azure-native:elastic/v20240615preview:OpenAI")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elastic/v20240101preview:OpenAI"), pulumi.Alias(type_="azure-native:elastic/v20240301:OpenAI"), pulumi.Alias(type_="azure-native:elastic/v20240501preview:OpenAI"), pulumi.Alias(type_="azure-native:elastic/v20240615preview:OpenAI"), pulumi.Alias(type_="azure-native:elastic/v20241001preview:OpenAI")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenAI, __self__).__init__(
             'azure-native:elastic:OpenAI',

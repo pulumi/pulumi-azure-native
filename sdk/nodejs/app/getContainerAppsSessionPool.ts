@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Container App session pool.
  * Azure REST API version: 2024-02-02-preview.
+ *
+ * Other available API versions: 2024-08-02-preview.
  */
 export function getContainerAppsSessionPool(args: GetContainerAppsSessionPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsSessionPoolResult> {
 
@@ -107,6 +109,8 @@ export interface GetContainerAppsSessionPoolResult {
 /**
  * Container App session pool.
  * Azure REST API version: 2024-02-02-preview.
+ *
+ * Other available API versions: 2024-08-02-preview.
  */
 export function getContainerAppsSessionPoolOutput(args: GetContainerAppsSessionPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppsSessionPoolResult> {
     return pulumi.output(args).apply((a: any) => getContainerAppsSessionPool(a, opts))

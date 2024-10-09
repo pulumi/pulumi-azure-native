@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Elastic
     /// The request to update subscriptions needed to be monitored by the Elastic monitor resource.
     /// Azure REST API version: 2024-05-01-preview.
     /// 
-    /// Other available API versions: 2024-06-15-preview.
+    /// Other available API versions: 2024-06-15-preview, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic:MonitoredSubscription")]
     public partial class MonitoredSubscription : global::Pulumi.CustomResource
@@ -63,6 +63,7 @@ namespace Pulumi.AzureNative.Elastic
                 {
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240501preview:MonitoredSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240615preview:MonitoredSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20241001preview:MonitoredSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

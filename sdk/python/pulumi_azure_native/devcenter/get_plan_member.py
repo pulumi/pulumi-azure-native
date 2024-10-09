@@ -142,7 +142,7 @@ def get_plan_member(member_name: Optional[str] = None,
     Gets a devcenter plan member.
     Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+    Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str member_name: The name of a devcenter plan member.
@@ -176,7 +176,7 @@ def get_plan_member_output(member_name: Optional[pulumi.Input[str]] = None,
     Gets a devcenter plan member.
     Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+    Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str member_name: The name of a devcenter plan member.

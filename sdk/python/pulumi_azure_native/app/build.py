@@ -119,7 +119,7 @@ class Build(pulumi.CustomResource):
         Information pertaining to an individual build.
         Azure REST API version: 2023-08-01-preview.
 
-        Other available API versions: 2023-11-02-preview, 2024-02-02-preview.
+        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +139,7 @@ class Build(pulumi.CustomResource):
         Information pertaining to an individual build.
         Azure REST API version: 2023-08-01-preview.
 
-        Other available API versions: 2023-11-02-preview, 2024-02-02-preview.
+        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview.
 
         :param str resource_name: The name of the resource.
         :param BuildArgs args: The arguments to use to populate this resource's properties.
@@ -187,7 +187,7 @@ class Build(pulumi.CustomResource):
             __props__.__dict__["token_endpoint"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["upload_endpoint"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20230801preview:Build"), pulumi.Alias(type_="azure-native:app/v20231102preview:Build"), pulumi.Alias(type_="azure-native:app/v20240202preview:Build")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20230801preview:Build"), pulumi.Alias(type_="azure-native:app/v20231102preview:Build"), pulumi.Alias(type_="azure-native:app/v20240202preview:Build"), pulumi.Alias(type_="azure-native:app/v20240802preview:Build")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Build, __self__).__init__(
             'azure-native:app:Build',

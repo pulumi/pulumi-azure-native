@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * A logic app extension resource
  * Azure REST API version: 2024-02-02-preview.
+ *
+ * Other available API versions: 2024-08-02-preview.
  */
 export class LogicApp extends pulumi.CustomResource {
     /**
@@ -80,7 +82,7 @@ export class LogicApp extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20240202preview:LogicApp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20240202preview:LogicApp" }, { type: "azure-native:app/v20240802preview:LogicApp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LogicApp.__pulumiType, name, resourceInputs, opts);
     }

@@ -904,7 +904,7 @@ class ResourcePolicyResponse(dict):
         """
         A resource policy.
         :param str filter: Optional. When specified, this expression is used to filter the resources.
-        :param str resources: Resources that are included and shared as a part of a curation profile.
+        :param str resources: Resources that are included and shared as a part of a project policy.
         """
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
@@ -923,7 +923,7 @@ class ResourcePolicyResponse(dict):
     @pulumi.getter
     def resources(self) -> Optional[str]:
         """
-        Resources that are included and shared as a part of a curation profile.
+        Resources that are included and shared as a part of a project policy.
         """
         return pulumi.get(self, "resources")
 

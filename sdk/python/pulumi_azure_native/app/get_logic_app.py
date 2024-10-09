@@ -94,6 +94,8 @@ def get_logic_app(container_app_name: Optional[str] = None,
     A logic app extension resource
     Azure REST API version: 2024-02-02-preview.
 
+    Other available API versions: 2024-08-02-preview.
+
 
     :param str container_app_name: Name of the Container App.
     :param str logic_app_name: Name of the Logic App, the extension resource.
@@ -121,6 +123,8 @@ def get_logic_app_output(container_app_name: Optional[pulumi.Input[str]] = None,
     """
     A logic app extension resource
     Azure REST API version: 2024-02-02-preview.
+
+    Other available API versions: 2024-08-02-preview.
 
 
     :param str container_app_name: Name of the Container App.

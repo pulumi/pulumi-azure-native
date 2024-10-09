@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.DevCenter
     /// <summary>
     /// Represents an curation profile resource.
     /// Azure REST API version: 2024-08-01-preview.
+    /// 
+    /// Other available API versions: 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:CurationProfile")]
     public partial class CurationProfile : global::Pulumi.CustomResource
@@ -78,6 +80,7 @@ namespace Pulumi.AzureNative.DevCenter
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:CurationProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:CurationProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

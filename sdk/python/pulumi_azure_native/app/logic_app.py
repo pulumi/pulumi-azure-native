@@ -84,6 +84,8 @@ class LogicApp(pulumi.CustomResource):
         A logic app extension resource
         Azure REST API version: 2024-02-02-preview.
 
+        Other available API versions: 2024-08-02-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_app_name: Name of the Container App.
@@ -99,6 +101,8 @@ class LogicApp(pulumi.CustomResource):
         """
         A logic app extension resource
         Azure REST API version: 2024-02-02-preview.
+
+        Other available API versions: 2024-08-02-preview.
 
         :param str resource_name: The name of the resource.
         :param LogicAppArgs args: The arguments to use to populate this resource's properties.
@@ -137,7 +141,7 @@ class LogicApp(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20240202preview:LogicApp")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20240202preview:LogicApp"), pulumi.Alias(type_="azure-native:app/v20240802preview:LogicApp")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LogicApp, __self__).__init__(
             'azure-native:app:LogicApp',

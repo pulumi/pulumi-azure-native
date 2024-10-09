@@ -249,6 +249,8 @@ def get_container_apps_session_pool(resource_group_name: Optional[str] = None,
     Container App session pool.
     Azure REST API version: 2024-02-02-preview.
 
+    Other available API versions: 2024-08-02-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str session_pool_name: Name of the session pool.
@@ -286,6 +288,8 @@ def get_container_apps_session_pool_output(resource_group_name: Optional[pulumi.
     """
     Container App session pool.
     Azure REST API version: 2024-02-02-preview.
+
+    Other available API versions: 2024-08-02-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

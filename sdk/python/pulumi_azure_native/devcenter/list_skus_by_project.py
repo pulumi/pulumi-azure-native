@@ -69,7 +69,7 @@ def list_skus_by_project(project_name: Optional[str] = None,
     Lists SKUs available to the project
     Azure REST API version: 2024-06-01-preview.
 
-    Other available API versions: 2024-07-01-preview, 2024-08-01-preview.
+    Other available API versions: 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str project_name: The name of the project.
@@ -94,7 +94,7 @@ def list_skus_by_project_output(project_name: Optional[pulumi.Input[str]] = None
     Lists SKUs available to the project
     Azure REST API version: 2024-06-01-preview.
 
-    Other available API versions: 2024-07-01-preview, 2024-08-01-preview.
+    Other available API versions: 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str project_name: The name of the project.

@@ -11,6 +11,7 @@ import * as v20240101preview from "./v20240101preview";
 import * as v20240301 from "./v20240301";
 import * as v20240501preview from "./v20240501preview";
 import * as v20240615preview from "./v20240615preview";
+import * as v20241001preview from "./v20241001preview";
 
 export {
     v20230601,
@@ -22,6 +23,7 @@ export {
     v20240301,
     v20240501preview,
     v20240615preview,
+    v20241001preview,
 };
 
 export const ManagedIdentityTypes = {

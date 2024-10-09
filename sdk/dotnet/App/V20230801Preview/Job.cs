@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.App.V20230801Preview
                     new global::Pulumi.Alias { Type = "azure-native:app/v20231102preview:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:Job" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

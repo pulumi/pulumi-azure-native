@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App
     /// .NET Component.
     /// Azure REST API version: 2023-11-02-preview.
     /// 
-    /// Other available API versions: 2024-02-02-preview.
+    /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:DotNetComponent")]
     public partial class DotNetComponent : global::Pulumi.CustomResource
@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.App
                 {
                     new global::Pulumi.Alias { Type = "azure-native:app/v20231102preview:DotNetComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:DotNetComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:DotNetComponent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

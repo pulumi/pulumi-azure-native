@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// A logic app extension resource
         /// Azure REST API version: 2024-02-02-preview.
+        /// 
+        /// Other available API versions: 2024-08-02-preview.
         /// </summary>
         public static Task<GetLogicAppResult> InvokeAsync(GetLogicAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogicAppResult>("azure-native:app:getLogicApp", args ?? new GetLogicAppArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// A logic app extension resource
         /// Azure REST API version: 2024-02-02-preview.
+        /// 
+        /// Other available API versions: 2024-08-02-preview.
         /// </summary>
         public static Output<GetLogicAppResult> Invoke(GetLogicAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogicAppResult>("azure-native:app:getLogicApp", args ?? new GetLogicAppInvokeArgs(), options.WithDefaults());

@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DevCenter.Inputs
         public Input<string>? Filter { get; set; }
 
         /// <summary>
-        /// Resources that are included and shared as a part of a curation profile.
+        /// Resources that are included and shared as a part of a project policy.
         /// </summary>
         [Input("resources")]
         public Input<string>? Resources { get; set; }

@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.DevCenter.V20240801Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:CurationProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:CurationProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

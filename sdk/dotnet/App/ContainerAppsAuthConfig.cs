@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App
     /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
     /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
     /// 
-    /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01.
+    /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerAppsAuthConfig")]
     public partial class ContainerAppsAuthConfig : global::Pulumi.CustomResource
@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20231102preview:ContainerAppsAuthConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:ContainerAppsAuthConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:ContainerAppsAuthConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ContainerAppsAuthConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

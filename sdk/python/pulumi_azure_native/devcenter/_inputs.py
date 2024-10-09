@@ -270,7 +270,7 @@ if not MYPY:
         """
         resources: NotRequired[pulumi.Input[str]]
         """
-        Resources that are included and shared as a part of a curation profile.
+        Resources that are included and shared as a part of a project policy.
         """
 elif False:
     ResourcePolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -283,7 +283,7 @@ class ResourcePolicyArgs:
         """
         A resource policy.
         :param pulumi.Input[str] filter: Optional. When specified, this expression is used to filter the resources.
-        :param pulumi.Input[str] resources: Resources that are included and shared as a part of a curation profile.
+        :param pulumi.Input[str] resources: Resources that are included and shared as a part of a project policy.
         """
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
@@ -306,7 +306,7 @@ class ResourcePolicyArgs:
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[str]]:
         """
-        Resources that are included and shared as a part of a curation profile.
+        Resources that are included and shared as a part of a project policy.
         """
         return pulumi.get(self, "resources")
 

@@ -168,7 +168,7 @@ def get_project_catalog_image_definition_build_details(build_name: Optional[str]
     Gets Build details
     Azure REST API version: 2024-07-01-preview.
 
-    Other available API versions: 2024-08-01-preview.
+    Other available API versions: 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str build_name: The ID of the Image Definition Build.
@@ -210,7 +210,7 @@ def get_project_catalog_image_definition_build_details_output(build_name: Option
     Gets Build details
     Azure REST API version: 2024-07-01-preview.
 
-    Other available API versions: 2024-08-01-preview.
+    Other available API versions: 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str build_name: The ID of the Image Definition Build.

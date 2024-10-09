@@ -154,7 +154,7 @@ def get_attached_network_by_dev_center(attached_network_connection_name: Optiona
     Gets an attached NetworkConnection.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str attached_network_connection_name: The name of the attached NetworkConnection.
@@ -189,7 +189,7 @@ def get_attached_network_by_dev_center_output(attached_network_connection_name: 
     Gets an attached NetworkConnection.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str attached_network_connection_name: The name of the attached NetworkConnection.

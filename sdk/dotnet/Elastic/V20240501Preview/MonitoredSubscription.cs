@@ -60,6 +60,7 @@ namespace Pulumi.AzureNative.Elastic.V20240501Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:elastic:MonitoredSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240615preview:MonitoredSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20241001preview:MonitoredSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

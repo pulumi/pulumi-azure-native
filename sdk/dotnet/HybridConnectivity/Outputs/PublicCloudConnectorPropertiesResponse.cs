@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.HybridConnectivity.Outputs
         /// </summary>
         public readonly string ConnectorPrimaryIdentifier;
         /// <summary>
+        /// Host cloud the public cloud connector.
+        /// </summary>
+        public readonly string HostType;
+        /// <summary>
         /// The resource provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.HybridConnectivity.Outputs
 
             string connectorPrimaryIdentifier,
 
+            string hostType,
+
             string provisioningState)
         {
             AwsCloudProfile = awsCloudProfile;
             ConnectorPrimaryIdentifier = connectorPrimaryIdentifier;
+            HostType = hostType;
             ProvisioningState = provisioningState;
         }
     }

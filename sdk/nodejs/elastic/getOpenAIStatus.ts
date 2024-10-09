@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Status of the OpenAI Integration
  * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview.
+ * Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
  */
 export function getOpenAIStatus(args: GetOpenAIStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenAIStatusResult> {
 
@@ -51,7 +51,7 @@ export interface GetOpenAIStatusResult {
  * Status of the OpenAI Integration
  * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview.
+ * Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
  */
 export function getOpenAIStatusOutput(args: GetOpenAIStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenAIStatusResult> {
     return pulumi.output(args).apply((a: any) => getOpenAIStatus(a, opts))

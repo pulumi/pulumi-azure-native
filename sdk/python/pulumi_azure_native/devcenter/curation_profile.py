@@ -119,6 +119,8 @@ class CurationProfile(pulumi.CustomResource):
         Represents an curation profile resource.
         Azure REST API version: 2024-08-01-preview.
 
+        Other available API versions: 2024-10-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] curation_profile_name: The name of the curation profile.
@@ -136,6 +138,8 @@ class CurationProfile(pulumi.CustomResource):
         """
         Represents an curation profile resource.
         Azure REST API version: 2024-08-01-preview.
+
+        Other available API versions: 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CurationProfileArgs args: The arguments to use to populate this resource's properties.
@@ -179,7 +183,7 @@ class CurationProfile(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20240801preview:CurationProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20240801preview:CurationProfile"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:CurationProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CurationProfile, __self__).__init__(
             'azure-native:devcenter:CurationProfile',

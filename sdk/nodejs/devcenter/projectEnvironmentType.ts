@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents an environment type.
  * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
 export class ProjectEnvironmentType extends pulumi.CustomResource {
     /**
@@ -130,7 +130,7 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
             resourceInputs["userRoleAssignments"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20220901preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20221012preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20221111preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20230101preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20230401:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20230801preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20231001preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20240201:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20240501preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20240601preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20240701preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20240801preview:ProjectEnvironmentType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20220901preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20221012preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20221111preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20230101preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20230401:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20230801preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20231001preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20240201:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20240501preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20240601preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20240701preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20240801preview:ProjectEnvironmentType" }, { type: "azure-native:devcenter/v20241001preview:ProjectEnvironmentType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectEnvironmentType.__pulumiType, name, resourceInputs, opts);
     }

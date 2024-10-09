@@ -17,14 +17,29 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201.Outputs
     public sealed class AwsCloudProfileResponse
     {
         /// <summary>
+        /// Account id for the AWS account.
+        /// </summary>
+        public readonly string AccountId;
+        /// <summary>
         /// List of AWS accounts which need to be excluded.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedAccounts;
+        /// <summary>
+        /// Boolean value that indicates whether the account is organizational or not. True represents organization account, whereas false represents a single account.
+        /// </summary>
+        public readonly bool? IsOrganizationalAccount;
 
         [OutputConstructor]
-        private AwsCloudProfileResponse(ImmutableArray<string> excludedAccounts)
+        private AwsCloudProfileResponse(
+            string accountId,
+
+            ImmutableArray<string> excludedAccounts,
+
+            bool? isOrganizationalAccount)
         {
+            AccountId = accountId;
             ExcludedAccounts = excludedAccounts;
+            IsOrganizationalAccount = isOrganizationalAccount;
         }
     }
 }

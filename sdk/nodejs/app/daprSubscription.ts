@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Dapr PubSub Event Subscription.
  * Azure REST API version: 2023-08-01-preview.
  *
- * Other available API versions: 2023-11-02-preview, 2024-02-02-preview.
+ * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview.
  */
 export class DaprSubscription extends pulumi.CustomResource {
     /**
@@ -123,7 +123,7 @@ export class DaprSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20230801preview:DaprSubscription" }, { type: "azure-native:app/v20231102preview:DaprSubscription" }, { type: "azure-native:app/v20240202preview:DaprSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20230801preview:DaprSubscription" }, { type: "azure-native:app/v20231102preview:DaprSubscription" }, { type: "azure-native:app/v20240202preview:DaprSubscription" }, { type: "azure-native:app/v20240802preview:DaprSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DaprSubscription.__pulumiType, name, resourceInputs, opts);
     }

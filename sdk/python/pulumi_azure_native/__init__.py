@@ -1954,6 +1954,36 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "app/v20240802preview",
+  "fqn": "pulumi_azure_native.app.v20240802preview",
+  "classes": {
+   "azure-native:app/v20240802preview:AppResiliency": "AppResiliency",
+   "azure-native:app/v20240802preview:Build": "Build",
+   "azure-native:app/v20240802preview:Builder": "Builder",
+   "azure-native:app/v20240802preview:Certificate": "Certificate",
+   "azure-native:app/v20240802preview:ConnectedEnvironment": "ConnectedEnvironment",
+   "azure-native:app/v20240802preview:ConnectedEnvironmentsCertificate": "ConnectedEnvironmentsCertificate",
+   "azure-native:app/v20240802preview:ConnectedEnvironmentsDaprComponent": "ConnectedEnvironmentsDaprComponent",
+   "azure-native:app/v20240802preview:ConnectedEnvironmentsStorage": "ConnectedEnvironmentsStorage",
+   "azure-native:app/v20240802preview:ContainerApp": "ContainerApp",
+   "azure-native:app/v20240802preview:ContainerAppsAuthConfig": "ContainerAppsAuthConfig",
+   "azure-native:app/v20240802preview:ContainerAppsSessionPool": "ContainerAppsSessionPool",
+   "azure-native:app/v20240802preview:ContainerAppsSourceControl": "ContainerAppsSourceControl",
+   "azure-native:app/v20240802preview:DaprComponent": "DaprComponent",
+   "azure-native:app/v20240802preview:DaprComponentResiliencyPolicy": "DaprComponentResiliencyPolicy",
+   "azure-native:app/v20240802preview:DaprSubscription": "DaprSubscription",
+   "azure-native:app/v20240802preview:DotNetComponent": "DotNetComponent",
+   "azure-native:app/v20240802preview:JavaComponent": "JavaComponent",
+   "azure-native:app/v20240802preview:Job": "Job",
+   "azure-native:app/v20240802preview:LogicApp": "LogicApp",
+   "azure-native:app/v20240802preview:ManagedCertificate": "ManagedCertificate",
+   "azure-native:app/v20240802preview:ManagedEnvironment": "ManagedEnvironment",
+   "azure-native:app/v20240802preview:ManagedEnvironmentPrivateEndpointConnection": "ManagedEnvironmentPrivateEndpointConnection",
+   "azure-native:app/v20240802preview:ManagedEnvironmentsStorage": "ManagedEnvironmentsStorage"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "appcomplianceautomation",
   "fqn": "pulumi_azure_native.appcomplianceautomation",
   "classes": {
@@ -7600,6 +7630,7 @@ _utilities.register(
    "azure-native:devcenter:Project": "Project",
    "azure-native:devcenter:ProjectCatalog": "ProjectCatalog",
    "azure-native:devcenter:ProjectEnvironmentType": "ProjectEnvironmentType",
+   "azure-native:devcenter:ProjectPolicy": "ProjectPolicy",
    "azure-native:devcenter:Schedule": "Schedule"
   }
  },
@@ -7771,6 +7802,30 @@ _utilities.register(
    "azure-native:devcenter/v20240801preview:ProjectCatalog": "ProjectCatalog",
    "azure-native:devcenter/v20240801preview:ProjectEnvironmentType": "ProjectEnvironmentType",
    "azure-native:devcenter/v20240801preview:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devcenter/v20241001preview",
+  "fqn": "pulumi_azure_native.devcenter.v20241001preview",
+  "classes": {
+   "azure-native:devcenter/v20241001preview:AttachedNetworkByDevCenter": "AttachedNetworkByDevCenter",
+   "azure-native:devcenter/v20241001preview:Catalog": "Catalog",
+   "azure-native:devcenter/v20241001preview:CurationProfile": "CurationProfile",
+   "azure-native:devcenter/v20241001preview:DevBoxDefinition": "DevBoxDefinition",
+   "azure-native:devcenter/v20241001preview:DevCenter": "DevCenter",
+   "azure-native:devcenter/v20241001preview:EncryptionSet": "EncryptionSet",
+   "azure-native:devcenter/v20241001preview:EnvironmentType": "EnvironmentType",
+   "azure-native:devcenter/v20241001preview:Gallery": "Gallery",
+   "azure-native:devcenter/v20241001preview:NetworkConnection": "NetworkConnection",
+   "azure-native:devcenter/v20241001preview:Plan": "Plan",
+   "azure-native:devcenter/v20241001preview:PlanMember": "PlanMember",
+   "azure-native:devcenter/v20241001preview:Pool": "Pool",
+   "azure-native:devcenter/v20241001preview:Project": "Project",
+   "azure-native:devcenter/v20241001preview:ProjectCatalog": "ProjectCatalog",
+   "azure-native:devcenter/v20241001preview:ProjectEnvironmentType": "ProjectEnvironmentType",
+   "azure-native:devcenter/v20241001preview:ProjectPolicy": "ProjectPolicy",
+   "azure-native:devcenter/v20241001preview:Schedule": "Schedule"
   }
  },
  {
@@ -8799,6 +8854,17 @@ _utilities.register(
    "azure-native:elastic/v20240615preview:MonitoredSubscription": "MonitoredSubscription",
    "azure-native:elastic/v20240615preview:OpenAI": "OpenAI",
    "azure-native:elastic/v20240615preview:TagRule": "TagRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "elastic/v20241001preview",
+  "fqn": "pulumi_azure_native.elastic.v20241001preview",
+  "classes": {
+   "azure-native:elastic/v20241001preview:Monitor": "Monitor",
+   "azure-native:elastic/v20241001preview:MonitoredSubscription": "MonitoredSubscription",
+   "azure-native:elastic/v20241001preview:OpenAI": "OpenAI",
+   "azure-native:elastic/v20241001preview:TagRule": "TagRule"
   }
  },
  {

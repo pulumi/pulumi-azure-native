@@ -142,6 +142,8 @@ def get_managed_environment_private_endpoint_connection(environment_name: Option
     The Private Endpoint Connection resource.
     Azure REST API version: 2024-02-02-preview.
 
+    Other available API versions: 2024-08-02-preview.
+
 
     :param str environment_name: Name of the Managed Environment.
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
@@ -173,6 +175,8 @@ def get_managed_environment_private_endpoint_connection_output(environment_name:
     """
     The Private Endpoint Connection resource.
     Azure REST API version: 2024-02-02-preview.
+
+    Other available API versions: 2024-08-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.

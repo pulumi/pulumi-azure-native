@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The Private Endpoint Connection resource.
  * Azure REST API version: 2024-02-02-preview.
+ *
+ * Other available API versions: 2024-08-02-preview.
  */
 export class ManagedEnvironmentPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -107,7 +109,7 @@ export class ManagedEnvironmentPrivateEndpointConnection extends pulumi.CustomRe
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20240202preview:ManagedEnvironmentPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20240202preview:ManagedEnvironmentPrivateEndpointConnection" }, { type: "azure-native:app/v20240802preview:ManagedEnvironmentPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedEnvironmentPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Workflow properties definition.
  * Azure REST API version: 2024-02-02-preview.
+ *
+ * Other available API versions: 2024-08-02-preview.
  */
 export function listLogicAppWorkflowsConnections(args: ListLogicAppWorkflowsConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<ListLogicAppWorkflowsConnectionsResult> {
 
@@ -68,6 +70,8 @@ export interface ListLogicAppWorkflowsConnectionsResult {
 /**
  * Workflow properties definition.
  * Azure REST API version: 2024-02-02-preview.
+ *
+ * Other available API versions: 2024-08-02-preview.
  */
 export function listLogicAppWorkflowsConnectionsOutput(args: ListLogicAppWorkflowsConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLogicAppWorkflowsConnectionsResult> {
     return pulumi.output(args).apply((a: any) => listLogicAppWorkflowsConnections(a, opts))

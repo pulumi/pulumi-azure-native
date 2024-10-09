@@ -32,8 +32,12 @@ class AwsCloudProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "excludedAccounts":
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "excludedAccounts":
             suggest = "excluded_accounts"
+        elif key == "isOrganizationalAccount":
+            suggest = "is_organizational_account"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AwsCloudProfileResponse. Access the value via the '{suggest}' property getter instead.")
@@ -47,13 +51,30 @@ class AwsCloudProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 excluded_accounts: Optional[Sequence[str]] = None):
+                 account_id: str,
+                 excluded_accounts: Optional[Sequence[str]] = None,
+                 is_organizational_account: Optional[bool] = None):
         """
         cloud profile for AWS.
+        :param str account_id: Account id for the AWS account.
         :param Sequence[str] excluded_accounts: List of AWS accounts which need to be excluded.
+        :param bool is_organizational_account: Boolean value that indicates whether the account is organizational or not. True represents organization account, whereas false represents a single account.
         """
+        pulumi.set(__self__, "account_id", account_id)
         if excluded_accounts is not None:
             pulumi.set(__self__, "excluded_accounts", excluded_accounts)
+        if is_organizational_account is None:
+            is_organizational_account = False
+        if is_organizational_account is not None:
+            pulumi.set(__self__, "is_organizational_account", is_organizational_account)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        Account id for the AWS account.
+        """
+        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="excludedAccounts")
@@ -62,6 +83,14 @@ class AwsCloudProfileResponse(dict):
         List of AWS accounts which need to be excluded.
         """
         return pulumi.get(self, "excluded_accounts")
+
+    @property
+    @pulumi.getter(name="isOrganizationalAccount")
+    def is_organizational_account(self) -> Optional[bool]:
+        """
+        Boolean value that indicates whether the account is organizational or not. True represents organization account, whereas false represents a single account.
+        """
+        return pulumi.get(self, "is_organizational_account")
 
 
 @pulumi.output_type
@@ -140,6 +169,8 @@ class PublicCloudConnectorPropertiesResponse(dict):
             suggest = "aws_cloud_profile"
         elif key == "connectorPrimaryIdentifier":
             suggest = "connector_primary_identifier"
+        elif key == "hostType":
+            suggest = "host_type"
         elif key == "provisioningState":
             suggest = "provisioning_state"
 
@@ -157,15 +188,18 @@ class PublicCloudConnectorPropertiesResponse(dict):
     def __init__(__self__, *,
                  aws_cloud_profile: 'outputs.AwsCloudProfileResponse',
                  connector_primary_identifier: str,
+                 host_type: str,
                  provisioning_state: str):
         """
         Properties of public cloud connectors.
         :param 'AwsCloudProfileResponse' aws_cloud_profile: Cloud profile for AWS.
         :param str connector_primary_identifier: Connector primary identifier.
+        :param str host_type: Host cloud the public cloud connector.
         :param str provisioning_state: The resource provisioning state.
         """
         pulumi.set(__self__, "aws_cloud_profile", aws_cloud_profile)
         pulumi.set(__self__, "connector_primary_identifier", connector_primary_identifier)
+        pulumi.set(__self__, "host_type", host_type)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
@@ -183,6 +217,14 @@ class PublicCloudConnectorPropertiesResponse(dict):
         Connector primary identifier.
         """
         return pulumi.get(self, "connector_primary_identifier")
+
+    @property
+    @pulumi.getter(name="hostType")
+    def host_type(self) -> str:
+        """
+        Host cloud the public cloud connector.
+        """
+        return pulumi.get(self, "host_type")
 
     @property
     @pulumi.getter(name="provisioningState")
