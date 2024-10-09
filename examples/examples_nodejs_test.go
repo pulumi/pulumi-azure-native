@@ -54,9 +54,7 @@ func TestStaticWebsiteDestroyTs(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "static-website"),
-			DebugLogLevel: 9,
-			Verbose:       true,
+			Dir: filepath.Join(getCwd(t), "static-website"),
 		})
 
 	integration.ProgramTest(t, &test)
