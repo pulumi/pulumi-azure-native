@@ -113,10 +113,14 @@ func main() {
 			return err
 		}
 
-		vmIdentity := &compute.VirtualMachineIdentityArgs{Type: compute.ResourceIdentityTypeSystemAssigned}
+		// Those are not required for system-assigned identity, but clientId is required for user-assigned identity
+		// because we need to disambiguate between several identities. Both are also required for the inner program
+		// to create a Key Vault with access policies.
+		var clientId pulumi.StringOutput = pulumi.String(os.Getenv("ARM_CLIENT_ID")).ToStringOutput()
+		var tenantId pulumi.StringOutput = pulumi.String(os.Getenv("ARM_TENANT_ID")).ToStringOutput()
 
+		vmIdentity := &compute.VirtualMachineIdentityArgs{Type: compute.ResourceIdentityTypeSystemAssigned}
 		var umi *managedidentity.UserAssignedIdentity
-		var umiClientId pulumi.StringOutput = pulumi.String("").ToStringOutput()
 		if os.Getenv("PULUMI_TEST_USER_IDENTITY") == "true" {
 			fmt.Printf("go-azure-in-azure: using user-assigned identity\n")
 
@@ -126,7 +130,7 @@ func main() {
 			if err != nil {
 				return err
 			}
-			umiClientId = umi.ClientId
+			clientId = umi.ClientId
 
 			// Create a second user-assigned identity to test multiple identities. With multiple identities, the one to
 			// use needs to be specified via clientId.
@@ -304,12 +308,13 @@ stackname="%s-$rand" && \
 pulumi login --local && \
 pulumi stack init $stackname && \
 pulumi config set azure-native:clientId "%s" -s $stackname && \
+pulumi config set azure-native:tenantId "%s" -s $stackname && \
 pulumi config set rgId "%s" -s $stackname && \
 pulumi config -s $stackname && \
 pulumi up -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi down -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi stack rm --yes $stackname && \
-pulumi logout --local`, innerProgram, clientConf.SubscriptionId, useAutorest, useLegacyAuth, innerProgram, umiClientId, rg.ID())
+pulumi logout --local`, innerProgram, clientConf.SubscriptionId, useAutorest, useLegacyAuth, innerProgram, clientId, tenantId, rg.ID())
 
 		pulumiPreview, err := remote.NewCommand(ctx, "pulumiUpDown", &remote.CommandArgs{
 			Connection: sshConn,

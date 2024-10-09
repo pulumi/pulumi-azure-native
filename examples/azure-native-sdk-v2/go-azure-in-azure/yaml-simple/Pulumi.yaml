@@ -5,14 +5,46 @@ config:
   azure-native:location: northeurope
   rgId:
     type: string
+
+variables:
+  clientConfig:
+    fn::invoke:
+      function: azure-native:authorization:getClientConfig
+
 resources:
   resourceGroup:
     type: azure-native:resources:ResourceGroup
     get:
       id: ${rgId}
-  storageaccount:
-    type: azure-native:storage:StorageAccount
+
+  keyVault:
+    type: azure-native:keyvault:Vault
     properties:
       resourceGroupName: ${resourceGroup.name}
-      kind: "StorageV2"
-      sku: { name: "Standard_LRS" }
+      location: ${resourceGroup.location}
+      properties:
+        sku:
+          family: A
+          name: standard
+        tenantId: ${clientConfig.tenantId}
+        accessPolicies:
+          - tenantId: ${clientConfig.tenantId}
+            objectId: ${clientConfig.objectId}
+            permissions:
+              secrets:
+                - get
+                - list
+                - set
+                - delete
+
+  secret:
+    type: azure-native:keyvault:Secret
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+      vaultName: ${keyVault.name}
+      properties:
+        value: "MySecretValue"  # Replace with your secret value
+
+outputs:
+  keyVaultUri: ${keyVault.properties.vaultUri}
+  secretId: ${secret.id}
