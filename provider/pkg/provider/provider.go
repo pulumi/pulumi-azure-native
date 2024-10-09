@@ -343,7 +343,7 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 
 		var response any
 		if res.GetParameters != nil {
-			response, err = k.azureClient.Get(ctx, id, res.APIVersion)
+			response, err = k.azureClient.Get(ctx, id, res.APIVersion, nil)
 		} else if res.PostParameters != nil {
 			if body == nil {
 				body = map[string]interface{}{}
@@ -495,7 +495,7 @@ func (k *azureNativeProvider) getDefaultLocation(ctx context.Context, olds, news
 
 	// 3c. Retrieve the resource group's properties from ARM API.
 	id := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", k.subscriptionID, rgName)
-	response, err := k.azureClient.Get(ctx, id, apiVersionResources)
+	response, err := k.azureClient.Get(ctx, id, apiVersionResources, nil)
 	if err != nil {
 		logging.V(9).Infof("failed to lookup the location of resource group %q: %v", rgName, err)
 		return nil
@@ -1113,7 +1113,6 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		return nil, err
 	}
 
-	url := id + res.ReadPath
 	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
 
 	var outputs map[string]interface{}
@@ -1131,6 +1130,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		}
 		outputs = response
 	case res.ReadMethod == "HEAD":
+		url := id + res.ReadPath
 		err = k.azureClient.Head(ctx, url, res.APIVersion)
 		response = oldState.Mappable()
 		outputs = crudClient.ResponseBodyToSdkOutputs(response)
