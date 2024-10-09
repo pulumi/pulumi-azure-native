@@ -763,6 +763,83 @@
     "Property": "platformReservedDnsIP"
   },
   {
+    "Module": "app/v20240802preview",
+    "Provider": "App",
+    "ResourceName": "Certificate",
+    "ReferenceName": "Certificate",
+    "Property": "password"
+  },
+  {
+    "Module": "app/v20240802preview",
+    "Provider": "App",
+    "ResourceName": "Certificate",
+    "ReferenceName": "Certificate",
+    "Property": "value"
+  },
+  {
+    "Module": "app/v20240802preview",
+    "Provider": "App",
+    "ResourceName": "ConnectedEnvironment",
+    "ReferenceName": "CustomDomainConfiguration",
+    "Property": "dnsSuffix"
+  },
+  {
+    "Module": "app/v20240802preview",
+    "Provider": "App",
+    "ResourceName": "ConnectedEnvironmentsCertificate",
+    "ReferenceName": "Certificate",
+    "Property": "password"
+  },
+  {
+    "Module": "app/v20240802preview",
+    "Provider": "App",
+    "ResourceName": "ConnectedEnvironmentsCertificate",
+    "ReferenceName": "Certificate",
+    "Property": "value"
+  },
+  {
+    "Module": "app/v20240802preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "CustomDomainConfiguration",
+    "Property": "dnsSuffix"
+  },
+  {
+    "Module": "app/v20240802preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "dockerBridgeCidr"
+  },
+  {
+    "Module": "app/v20240802preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "infrastructureSubnetId"
+  },
+  {
+    "Module": "app/v20240802preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "internal"
+  },
+  {
+    "Module": "app/v20240802preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "platformReservedCidr"
+  },
+  {
+    "Module": "app/v20240802preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "platformReservedDnsIP"
+  },
+  {
     "Module": "appplatform",
     "Provider": "AppPlatform",
     "ResourceName": "Certificate",
@@ -4957,6 +5034,13 @@
   },
   {
     "Module": "elastic/v20240615preview",
+    "Provider": "Elastic",
+    "ResourceName": "Monitor",
+    "ReferenceName": "UserInfo",
+    "Property": "userInfo"
+  },
+  {
+    "Module": "elastic/v20241001preview",
     "Provider": "Elastic",
     "ResourceName": "Monitor",
     "ReferenceName": "UserInfo",
