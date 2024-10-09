@@ -110,6 +110,8 @@ type AzureAPIResource struct {
 	ReadMethod string `json:"readMethod,omitempty"`
 	// Path to append to the resource ID to produce the URL for to read resource state.
 	ReadPath string `json:"readPath,omitempty"`
+	// Extra query parameters and their values to include in read (GET, HEAD) requests.
+	ReadQueryParams map[string]any `json:"readUrlParams,omitempty"`
 	// By default, we populate the `location` property of every resource to the location of its resource
 	// group or the configured value. AutoLocationDisabled can override this default behavior.
 	AutoLocationDisabled bool `json:"autoLocationDisabled,omitempty"`
