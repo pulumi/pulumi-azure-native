@@ -110,20 +110,9 @@ func TestInitRequestHeaders(t *testing.T) {
 	}
 }
 
-func createTestClient(t *testing.T, assertions func(t *testing.T, req *http.Request)) AzureClient {
-	transp := &requestAssertingTransporter{
-		t:          t,
-		assertions: assertions,
-	}
-	opts := arm.ClientOptions{
-		ClientOptions: policy.ClientOptions{
-			Retry:     policy.RetryOptions{MaxRetries: -1}, // speeds up the tests
-			Telemetry: policy.TelemetryOptions{Disabled: true},
-			Transport: transp,
-		},
-		DisableRPRegistration: true,
-	}
-	client, _ := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+func createTestClient(t *testing.T, handler func(t *testing.T, req *http.Request)) AzureClient {
+	client, err := CreateTestClient(t, handler)
+	require.NoError(t, err)
 	return client
 }
 
@@ -135,7 +124,16 @@ func TestRequestQueryParams(t *testing.T) {
 			q := req.URL.Query()
 			assert.Equal(t, "2022-02-02", q.Get("api-version"))
 		})
-		client.Get(context.Background(), resourceId, "2022-02-02")
+		client.Get(context.Background(), resourceId, "2022-02-02", nil)
+	})
+
+	t.Run("GET with query params adds API version to query", func(t *testing.T) {
+		client := createTestClient(t, func(t *testing.T, req *http.Request) {
+			q := req.URL.Query()
+			assert.Equal(t, "2022-02-02", q.Get("api-version"))
+			assert.Equal(t, "bar", q.Get("foo"))
+		})
+		client.Get(context.Background(), resourceId, "2022-02-02", map[string]any{"foo": "bar"})
 	})
 
 	t.Run("DELETE adds API version to query", func(t *testing.T) {
@@ -182,16 +180,6 @@ func TestRequestQueryParams(t *testing.T) {
 	})
 }
 
-type requestAssertingTransporter struct {
-	t          *testing.T
-	assertions func(*testing.T, *http.Request)
-}
-
-func (r *requestAssertingTransporter) Do(req *http.Request) (*http.Response, error) {
-	r.assertions(r.t, req)
-	return nil, nil
-}
-
 func TestErrorStatusCodes(t *testing.T) {
 	t.Run("POST ok", func(t *testing.T) {
 		for _, statusCode := range []int{200, 201} {
@@ -212,7 +200,7 @@ func TestErrorStatusCodes(t *testing.T) {
 
 	t.Run("GET ok", func(t *testing.T) {
 		client := newClientWithPreparedResponses([]*http.Response{{StatusCode: 200}})
-		resp, err := client.Get(context.Background(), "/subscriptions/123", "2022-09-01")
+		resp, err := client.Get(context.Background(), "/subscriptions/123", "2022-09-01", nil)
 		require.NoError(t, err)
 		require.Empty(t, resp)
 	})
@@ -220,7 +208,7 @@ func TestErrorStatusCodes(t *testing.T) {
 	t.Run("GET error", func(t *testing.T) {
 		for _, statusCode := range []int{201, 202, 204, 400, 401, 403, 404, 409, 410, 500, 502, 503, 504} {
 			client := newClientWithPreparedResponses([]*http.Response{{StatusCode: statusCode}})
-			_, err := client.Get(context.Background(), "/subscriptions/123", "2022-09-01")
+			_, err := client.Get(context.Background(), "/subscriptions/123", "2022-09-01", nil)
 			require.Error(t, err, statusCode)
 		}
 	})
