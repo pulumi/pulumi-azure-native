@@ -70,3 +70,8 @@ Override: resources/resources.go `AutoLocationDisabled`.
 
 ### Changing a property should cause a resource replacement but doesn't
 Override: add the property in `pkg/gen/replacements.go`.
+
+### A resource should be read with certain URL parameters
+For instance, for `sqlvirtualmachine:SqlVirtualMachine`, by default GET returns only a subset of properties. To get all properties, we need to add the `$expand=all` parameter.
+
+Override: `pkg/gen/readParams.go`.
