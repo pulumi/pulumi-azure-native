@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestTypeAliasFormatting(t *testing.T) {
@@ -207,5 +208,47 @@ func TestNormalizePattern(t *testing.T) {
 	t.Run("pattern with longer length", func(t *testing.T) {
 		p := openapiParam("^[a-zA-Z0-9-]{3,24}$", 60)
 		assert.Equal(t, "^[a-zA-Z0-9-]{3,60}$", normalizeParamPattern(p))
+	})
+}
+
+func TestPropertyDescriptions(t *testing.T) {
+	t.Run("no description", func(t *testing.T) {
+		s := &spec.Schema{}
+		desc, err := getPropertyDescription(s, nil, false)
+		require.NoError(t, err)
+		assert.Equal(t, "", desc)
+	})
+
+	t.Run("simple description", func(t *testing.T) {
+		s := &spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "A simple description",
+			},
+		}
+		desc, err := getPropertyDescription(s, nil, false)
+		require.NoError(t, err)
+		assert.Equal(t, "A simple description", desc)
+	})
+
+	t.Run("line breaks in description are preserved", func(t *testing.T) {
+		s := &spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "A simple \ndescription",
+			},
+		}
+		desc, err := getPropertyDescription(s, nil, false)
+		require.NoError(t, err)
+		assert.Equal(t, "A simple \ndescription", desc)
+	})
+
+	t.Run("description with weird whitespace", func(t *testing.T) {
+		s := &spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "This \u2028 is not \u2029 allowed",
+			},
+		}
+		desc, err := getPropertyDescription(s, nil, false)
+		require.NoError(t, err)
+		assert.Equal(t, "This  is not  allowed", desc)
 	})
 }
