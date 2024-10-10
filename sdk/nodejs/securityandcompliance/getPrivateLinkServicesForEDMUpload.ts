@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-03-08.
  */
 export function getPrivateLinkServicesForEDMUpload(args: GetPrivateLinkServicesForEDMUploadArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForEDMUploadResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance:getPrivateLinkServicesForEDMUpload", {
         "resourceGroupName": args.resourceGroupName,
@@ -81,7 +80,11 @@ export interface GetPrivateLinkServicesForEDMUploadResult {
  * Azure REST API version: 2021-03-08.
  */
 export function getPrivateLinkServicesForEDMUploadOutput(args: GetPrivateLinkServicesForEDMUploadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForEDMUploadResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForEDMUpload(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityandcompliance:getPrivateLinkServicesForEDMUpload", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetPrivateLinkServicesForEDMUploadOutputArgs {

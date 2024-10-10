@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-05-17-preview.
  */
 export function getCIAMTenant(args: GetCIAMTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetCIAMTenantResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azureactivedirectory:getCIAMTenant", {
         "resourceGroupName": args.resourceGroupName,
@@ -90,7 +89,11 @@ export interface GetCIAMTenantResult {
  * Azure REST API version: 2023-05-17-preview.
  */
 export function getCIAMTenantOutput(args: GetCIAMTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCIAMTenantResult> {
-    return pulumi.output(args).apply((a: any) => getCIAMTenant(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azureactivedirectory:getCIAMTenant", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetCIAMTenantOutputArgs {

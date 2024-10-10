@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get the access keys of the resource.
  */
 export function listWebPubSubKeys(args: ListWebPubSubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebPubSubKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20240801preview:listWebPubSubKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -52,7 +51,11 @@ export interface ListWebPubSubKeysResult {
  * Get the access keys of the resource.
  */
 export function listWebPubSubKeysOutput(args: ListWebPubSubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebPubSubKeysResult> {
-    return pulumi.output(args).apply((a: any) => listWebPubSubKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20240801preview:listWebPubSubKeys", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface ListWebPubSubKeysOutputArgs {

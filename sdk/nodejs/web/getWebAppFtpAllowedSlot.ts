@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
  */
 export function getWebAppFtpAllowedSlot(args: GetWebAppFtpAllowedSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFtpAllowedSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getWebAppFtpAllowedSlot", {
         "name": args.name,
@@ -64,7 +63,12 @@ export interface GetWebAppFtpAllowedSlotResult {
  * Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
  */
 export function getWebAppFtpAllowedSlotOutput(args: GetWebAppFtpAllowedSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFtpAllowedSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppFtpAllowedSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:getWebAppFtpAllowedSlot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface GetWebAppFtpAllowedSlotOutputArgs {

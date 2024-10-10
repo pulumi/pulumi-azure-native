@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-08-31-preview.
  */
 export function getResourceSyncRule(args: GetResourceSyncRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceSyncRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:extendedlocation:getResourceSyncRule", {
         "childResourceName": args.childResourceName,
@@ -86,7 +85,12 @@ export interface GetResourceSyncRuleResult {
  * Azure REST API version: 2021-08-31-preview.
  */
 export function getResourceSyncRuleOutput(args: GetResourceSyncRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSyncRuleResult> {
-    return pulumi.output(args).apply((a: any) => getResourceSyncRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:extendedlocation:getResourceSyncRule", {
+        "childResourceName": args.childResourceName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetResourceSyncRuleOutputArgs {

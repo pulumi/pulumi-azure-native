@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
 export function getCertificateObjectLocalRulestack(args: GetCertificateObjectLocalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateObjectLocalRulestackResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw:getCertificateObjectLocalRulestack", {
         "localRulestackName": args.localRulestackName,
@@ -90,7 +89,12 @@ export interface GetCertificateObjectLocalRulestackResult {
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
 export function getCertificateObjectLocalRulestackOutput(args: GetCertificateObjectLocalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateObjectLocalRulestackResult> {
-    return pulumi.output(args).apply((a: any) => getCertificateObjectLocalRulestack(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw:getCertificateObjectLocalRulestack", {
+        "localRulestackName": args.localRulestackName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCertificateObjectLocalRulestackOutputArgs {

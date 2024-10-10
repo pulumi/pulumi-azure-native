@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified Subscription Level ProfessionalService.
  */
 export function getProfessionalServiceSubscriptionLevel(args: GetProfessionalServiceSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetProfessionalServiceSubscriptionLevelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:professionalservice/v20230701preview:getProfessionalServiceSubscriptionLevel", {
         "resourceGroupName": args.resourceGroupName,
@@ -64,7 +63,12 @@ export interface GetProfessionalServiceSubscriptionLevelResult {
  * Gets information about the specified Subscription Level ProfessionalService.
  */
 export function getProfessionalServiceSubscriptionLevelOutput(args: GetProfessionalServiceSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfessionalServiceSubscriptionLevelResult> {
-    return pulumi.output(args).apply((a: any) => getProfessionalServiceSubscriptionLevel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:professionalservice/v20230701preview:getProfessionalServiceSubscriptionLevel", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+        "subscriptionId": args.subscriptionId,
+    }, opts);
 }
 
 export interface GetProfessionalServiceSubscriptionLevelOutputArgs {

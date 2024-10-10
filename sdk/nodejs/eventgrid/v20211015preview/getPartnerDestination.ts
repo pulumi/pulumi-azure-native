@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get properties of a partner destination.
  */
 export function getPartnerDestination(args: GetPartnerDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerDestinationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20211015preview:getPartnerDestination", {
         "partnerDestinationName": args.partnerDestinationName,
@@ -92,7 +91,11 @@ export interface GetPartnerDestinationResult {
  * Get properties of a partner destination.
  */
 export function getPartnerDestinationOutput(args: GetPartnerDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerDestinationResult> {
-    return pulumi.output(args).apply((a: any) => getPartnerDestination(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20211015preview:getPartnerDestination", {
+        "partnerDestinationName": args.partnerDestinationName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPartnerDestinationOutputArgs {

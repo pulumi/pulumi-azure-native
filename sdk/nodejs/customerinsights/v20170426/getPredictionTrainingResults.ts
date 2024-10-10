@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets training results.
  */
 export function getPredictionTrainingResults(args: GetPredictionTrainingResultsArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionTrainingResultsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getPredictionTrainingResults", {
         "hubName": args.hubName,
@@ -64,7 +63,12 @@ export interface GetPredictionTrainingResultsResult {
  * Gets training results.
  */
 export function getPredictionTrainingResultsOutput(args: GetPredictionTrainingResultsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionTrainingResultsResult> {
-    return pulumi.output(args).apply((a: any) => getPredictionTrainingResults(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getPredictionTrainingResults", {
+        "hubName": args.hubName,
+        "predictionName": args.predictionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPredictionTrainingResultsOutputArgs {

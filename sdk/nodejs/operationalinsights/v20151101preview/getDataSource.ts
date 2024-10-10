@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a datasource instance.
  */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20151101preview:getDataSource", {
         "dataSourceName": args.dataSourceName,
@@ -69,7 +68,12 @@ export interface GetDataSourceResult {
  * Gets a datasource instance.
  */
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
-    return pulumi.output(args).apply((a: any) => getDataSource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20151101preview:getDataSource", {
+        "dataSourceName": args.dataSourceName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetDataSourceOutputArgs {

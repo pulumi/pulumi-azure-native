@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets details from a list of feature names.
  */
 export function listFeatureSubscription(args: ListFeatureSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<ListFeatureSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:purview/v20211201:listFeatureSubscription", {
         "features": args.features,
@@ -40,7 +39,11 @@ export interface ListFeatureSubscriptionResult {
  * Gets details from a list of feature names.
  */
 export function listFeatureSubscriptionOutput(args: ListFeatureSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeatureSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => listFeatureSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:purview/v20211201:listFeatureSubscription", {
+        "features": args.features,
+        "locations": args.locations,
+    }, opts);
 }
 
 export interface ListFeatureSubscriptionOutputArgs {

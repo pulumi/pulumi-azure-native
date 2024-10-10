@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List synchronization details
  */
 export function listShareSubscriptionSynchronizationDetails(args: ListShareSubscriptionSynchronizationDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSubscriptionSynchronizationDetailsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:listShareSubscriptionSynchronizationDetails", {
         "accountName": args.accountName,
@@ -72,7 +71,16 @@ export interface ListShareSubscriptionSynchronizationDetailsResult {
  * List synchronization details
  */
 export function listShareSubscriptionSynchronizationDetailsOutput(args: ListShareSubscriptionSynchronizationDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSubscriptionSynchronizationDetailsResult> {
-    return pulumi.output(args).apply((a: any) => listShareSubscriptionSynchronizationDetails(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:listShareSubscriptionSynchronizationDetails", {
+        "accountName": args.accountName,
+        "filter": args.filter,
+        "orderby": args.orderby,
+        "resourceGroupName": args.resourceGroupName,
+        "shareSubscriptionName": args.shareSubscriptionName,
+        "skipToken": args.skipToken,
+        "synchronizationId": args.synchronizationId,
+    }, opts);
 }
 
 export interface ListShareSubscriptionSynchronizationDetailsOutputArgs {

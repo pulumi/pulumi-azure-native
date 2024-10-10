@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the properties of a specified task.
  */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20190401:getTask", {
         "registryName": args.registryName,
@@ -105,7 +104,12 @@ export interface GetTaskResult {
  * Get the properties of a specified task.
  */
 export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
-    return pulumi.output(args).apply((a: any) => getTask(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20190401:getTask", {
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+        "taskName": args.taskName,
+    }, opts);
 }
 
 export interface GetTaskOutputArgs {

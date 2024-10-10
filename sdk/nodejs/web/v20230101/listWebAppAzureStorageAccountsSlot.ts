@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Description for Gets the Azure storage account configurations of an app.
  */
 export function listWebAppAzureStorageAccountsSlot(args: ListWebAppAzureStorageAccountsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAzureStorageAccountsSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20230101:listWebAppAzureStorageAccountsSlot", {
         "name": args.name,
@@ -64,7 +63,12 @@ export interface ListWebAppAzureStorageAccountsSlotResult {
  * Description for Gets the Azure storage account configurations of an app.
  */
 export function listWebAppAzureStorageAccountsSlotOutput(args: ListWebAppAzureStorageAccountsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAzureStorageAccountsSlotResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppAzureStorageAccountsSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20230101:listWebAppAzureStorageAccountsSlot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface ListWebAppAzureStorageAccountsSlotOutputArgs {

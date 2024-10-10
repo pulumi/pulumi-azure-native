@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List tokens for application.
  */
 export function listApplicationTokens(args: ListApplicationTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListApplicationTokensResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:solutions/v20231201preview:listApplicationTokens", {
         "applicationName": args.applicationName,
@@ -53,7 +52,13 @@ export interface ListApplicationTokensResult {
  * List tokens for application.
  */
 export function listApplicationTokensOutput(args: ListApplicationTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationTokensResult> {
-    return pulumi.output(args).apply((a: any) => listApplicationTokens(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:solutions/v20231201preview:listApplicationTokens", {
+        "applicationName": args.applicationName,
+        "authorizationAudience": args.authorizationAudience,
+        "resourceGroupName": args.resourceGroupName,
+        "userAssignedIdentities": args.userAssignedIdentities,
+    }, opts);
 }
 
 export interface ListApplicationTokensOutputArgs {

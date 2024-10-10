@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
  */
 export function getGuestUsage(args: GetGuestUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestUsageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azureactivedirectory:getGuestUsage", {
         "resourceGroupName": args.resourceGroupName,
@@ -73,7 +72,11 @@ export interface GetGuestUsageResult {
  * Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
  */
 export function getGuestUsageOutput(args: GetGuestUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestUsageResult> {
-    return pulumi.output(args).apply((a: any) => getGuestUsage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azureactivedirectory:getGuestUsage", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetGuestUsageOutputArgs {

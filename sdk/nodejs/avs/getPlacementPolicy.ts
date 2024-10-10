@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export function getPlacementPolicy(args: GetPlacementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs:getPlacementPolicy", {
         "clusterName": args.clusterName,
@@ -71,7 +70,13 @@ export interface GetPlacementPolicyResult {
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export function getPlacementPolicyOutput(args: GetPlacementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getPlacementPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs:getPlacementPolicy", {
+        "clusterName": args.clusterName,
+        "placementPolicyName": args.placementPolicyName,
+        "privateCloudName": args.privateCloudName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPlacementPolicyOutputArgs {

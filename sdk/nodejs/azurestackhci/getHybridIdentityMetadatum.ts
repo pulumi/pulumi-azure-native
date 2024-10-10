@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-12-15-preview.
  */
 export function getHybridIdentityMetadatum(args: GetHybridIdentityMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridIdentityMetadatumResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci:getHybridIdentityMetadatum", {
         "metadataName": args.metadataName,
@@ -78,7 +77,12 @@ export interface GetHybridIdentityMetadatumResult {
  * Azure REST API version: 2022-12-15-preview.
  */
 export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
-    return pulumi.output(args).apply((a: any) => getHybridIdentityMetadatum(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getHybridIdentityMetadatum", {
+        "metadataName": args.metadataName,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualMachineName": args.virtualMachineName,
+    }, opts);
 }
 
 export interface GetHybridIdentityMetadatumOutputArgs {

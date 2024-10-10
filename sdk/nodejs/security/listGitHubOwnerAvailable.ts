@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-01, 2024-05-15-preview.
  */
 export function listGitHubOwnerAvailable(args: ListGitHubOwnerAvailableArgs, opts?: pulumi.InvokeOptions): Promise<ListGitHubOwnerAvailableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:listGitHubOwnerAvailable", {
         "resourceGroupName": args.resourceGroupName,
@@ -53,7 +52,11 @@ export interface ListGitHubOwnerAvailableResult {
  * Other available API versions: 2024-04-01, 2024-05-15-preview.
  */
 export function listGitHubOwnerAvailableOutput(args: ListGitHubOwnerAvailableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGitHubOwnerAvailableResult> {
-    return pulumi.output(args).apply((a: any) => listGitHubOwnerAvailable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security:listGitHubOwnerAvailable", {
+        "resourceGroupName": args.resourceGroupName,
+        "securityConnectorName": args.securityConnectorName,
+    }, opts);
 }
 
 export interface ListGitHubOwnerAvailableOutputArgs {

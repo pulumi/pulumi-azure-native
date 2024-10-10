@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getMarketplaceSubscription(args: GetMarketplaceSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetMarketplaceSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getMarketplaceSubscription", {
         "name": args.name,
@@ -70,7 +69,12 @@ export interface GetMarketplaceSubscriptionResult {
  * Other available API versions: 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getMarketplaceSubscriptionOutput(args: GetMarketplaceSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarketplaceSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getMarketplaceSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getMarketplaceSubscription", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetMarketplaceSubscriptionOutputArgs {

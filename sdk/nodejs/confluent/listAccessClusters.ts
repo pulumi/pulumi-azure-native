@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-02-13.
  */
 export function listAccessClusters(args: ListAccessClustersArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessClustersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:confluent:listAccessClusters", {
         "organizationName": args.organizationName,
@@ -62,7 +61,12 @@ export interface ListAccessClustersResult {
  * Other available API versions: 2024-02-13.
  */
 export function listAccessClustersOutput(args: ListAccessClustersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessClustersResult> {
-    return pulumi.output(args).apply((a: any) => listAccessClusters(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:confluent:listAccessClusters", {
+        "organizationName": args.organizationName,
+        "resourceGroupName": args.resourceGroupName,
+        "searchFilters": args.searchFilters,
+    }, opts);
 }
 
 export interface ListAccessClustersOutputArgs {

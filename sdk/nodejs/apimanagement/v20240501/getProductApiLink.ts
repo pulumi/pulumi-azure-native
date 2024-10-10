@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the API link for the product.
  */
 export function getProductApiLink(args: GetProductApiLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetProductApiLinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getProductApiLink", {
         "apiLinkId": args.apiLinkId,
@@ -62,7 +61,13 @@ export interface GetProductApiLinkResult {
  * Gets the API link for the product.
  */
 export function getProductApiLinkOutput(args: GetProductApiLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductApiLinkResult> {
-    return pulumi.output(args).apply((a: any) => getProductApiLink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getProductApiLink", {
+        "apiLinkId": args.apiLinkId,
+        "productId": args.productId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetProductApiLinkOutputArgs {

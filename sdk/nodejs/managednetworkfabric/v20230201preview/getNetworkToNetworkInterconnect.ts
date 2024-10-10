@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Implements NetworkToNetworkInterconnects GET method.
  */
 export function getNetworkToNetworkInterconnect(args: GetNetworkToNetworkInterconnectArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkToNetworkInterconnectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230201preview:getNetworkToNetworkInterconnect", {
         "networkFabricName": args.networkFabricName,
@@ -88,7 +87,12 @@ export interface GetNetworkToNetworkInterconnectResult {
  * Implements NetworkToNetworkInterconnects GET method.
  */
 export function getNetworkToNetworkInterconnectOutput(args: GetNetworkToNetworkInterconnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkToNetworkInterconnectResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkToNetworkInterconnect(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230201preview:getNetworkToNetworkInterconnect", {
+        "networkFabricName": args.networkFabricName,
+        "networkToNetworkInterconnectName": args.networkToNetworkInterconnectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkToNetworkInterconnectOutputArgs {

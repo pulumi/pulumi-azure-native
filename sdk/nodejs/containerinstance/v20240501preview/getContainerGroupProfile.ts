@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified container group profile in the specified subscription and resource group. The operation returns the properties of container group profile including containers, image registry credentials, restart policy, IP address type, OS type, volumes, current revision number, etc.
  */
 export function getContainerGroupProfile(args: GetContainerGroupProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerGroupProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerinstance/v20240501preview:getContainerGroupProfile", {
         "containerGroupProfileName": args.containerGroupProfileName,
@@ -122,7 +121,11 @@ export interface GetContainerGroupProfileResult {
  * Gets the properties of the specified container group profile in the specified subscription and resource group. The operation returns the properties of container group profile including containers, image registry credentials, restart policy, IP address type, OS type, volumes, current revision number, etc.
  */
 export function getContainerGroupProfileOutput(args: GetContainerGroupProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupProfileResult> {
-    return pulumi.output(args).apply((a: any) => getContainerGroupProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerinstance/v20240501preview:getContainerGroupProfile", {
+        "containerGroupProfileName": args.containerGroupProfileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetContainerGroupProfileOutputArgs {

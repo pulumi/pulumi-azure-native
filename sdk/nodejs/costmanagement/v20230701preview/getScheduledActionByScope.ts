@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the shared scheduled action from the given scope by name.
  */
 export function getScheduledActionByScope(args: GetScheduledActionByScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionByScopeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20230701preview:getScheduledActionByScope", {
         "name": args.name,
@@ -95,7 +94,11 @@ export interface GetScheduledActionByScopeResult {
  * Get the shared scheduled action from the given scope by name.
  */
 export function getScheduledActionByScopeOutput(args: GetScheduledActionByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionByScopeResult> {
-    return pulumi.output(args).apply((a: any) => getScheduledActionByScope(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20230701preview:getScheduledActionByScope", {
+        "name": args.name,
+        "scope": args.scope,
+    }, opts);
 }
 
 export interface GetScheduledActionByScopeOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the workload instance.
  */
 export function getWorkloadInstance(args: GetWorkloadInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20220501preview:getWorkloadInstance", {
         "modernizeProjectName": args.modernizeProjectName,
@@ -70,7 +69,13 @@ export interface GetWorkloadInstanceResult {
  * Gets the details of the workload instance.
  */
 export function getWorkloadInstanceOutput(args: GetWorkloadInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate/v20220501preview:getWorkloadInstance", {
+        "modernizeProjectName": args.modernizeProjectName,
+        "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
+        "workloadInstanceName": args.workloadInstanceName,
+    }, opts);
 }
 
 export interface GetWorkloadInstanceOutputArgs {

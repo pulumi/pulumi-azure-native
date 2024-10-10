@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List effective virtual networks in a network manager.
  */
 export function listEffectiveVirtualNetworkByNetworkManager(args: ListEffectiveVirtualNetworkByNetworkManagerArgs, opts?: pulumi.InvokeOptions): Promise<ListEffectiveVirtualNetworkByNetworkManagerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20220401preview:listEffectiveVirtualNetworkByNetworkManager", {
         "conditionalMembers": args.conditionalMembers,
@@ -62,7 +61,14 @@ export interface ListEffectiveVirtualNetworkByNetworkManagerResult {
  * List effective virtual networks in a network manager.
  */
 export function listEffectiveVirtualNetworkByNetworkManagerOutput(args: ListEffectiveVirtualNetworkByNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveVirtualNetworkByNetworkManagerResult> {
-    return pulumi.output(args).apply((a: any) => listEffectiveVirtualNetworkByNetworkManager(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20220401preview:listEffectiveVirtualNetworkByNetworkManager", {
+        "conditionalMembers": args.conditionalMembers,
+        "networkManagerName": args.networkManagerName,
+        "resourceGroupName": args.resourceGroupName,
+        "skipToken": args.skipToken,
+        "top": args.top,
+    }, opts);
 }
 
 export interface ListEffectiveVirtualNetworkByNetworkManagerOutputArgs {

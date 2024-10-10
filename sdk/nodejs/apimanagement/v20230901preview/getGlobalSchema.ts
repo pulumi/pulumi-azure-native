@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the Schema specified by its identifier.
  */
 export function getGlobalSchema(args: GetGlobalSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalSchemaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:getGlobalSchema", {
         "resourceGroupName": args.resourceGroupName,
@@ -69,7 +68,12 @@ export interface GetGlobalSchemaResult {
  * Gets the details of the Schema specified by its identifier.
  */
 export function getGlobalSchemaOutput(args: GetGlobalSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalSchemaResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalSchema(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getGlobalSchema", {
+        "resourceGroupName": args.resourceGroupName,
+        "schemaId": args.schemaId,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetGlobalSchemaOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves information about a gallery image definition.
  */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20220803:getGalleryImage", {
         "galleryImageName": args.galleryImageName,
@@ -124,7 +123,12 @@ export interface GetGalleryImageResult {
  * Retrieves information about a gallery image definition.
  */
 export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {
-    return pulumi.output(args).apply((a: any) => getGalleryImage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute/v20220803:getGalleryImage", {
+        "galleryImageName": args.galleryImageName,
+        "galleryName": args.galleryName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetGalleryImageOutputArgs {

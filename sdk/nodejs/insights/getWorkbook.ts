@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
  */
 export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getWorkbook", {
         "canFetchContent": args.canFetchContent,
@@ -126,7 +125,12 @@ export interface GetWorkbookResult {
  * Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
  */
 export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookResult> {
-    return pulumi.output(args).apply((a: any) => getWorkbook(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights:getWorkbook", {
+        "canFetchContent": args.canFetchContent,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetWorkbookOutputArgs {

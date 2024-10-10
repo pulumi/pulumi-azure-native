@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-09-01, 2024-08-01-preview.
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:subscription:getAlias", {
         "aliasName": args.aliasName,
@@ -60,7 +59,10 @@ export interface GetAliasResult {
  * Other available API versions: 2020-09-01, 2024-08-01-preview.
  */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
-    return pulumi.output(args).apply((a: any) => getAlias(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:subscription:getAlias", {
+        "aliasName": args.aliasName,
+    }, opts);
 }
 
 export interface GetAliasOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getDnsResolverPolicyVirtualNetworkLink(args: GetDnsResolverPolicyVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResolverPolicyVirtualNetworkLinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getDnsResolverPolicyVirtualNetworkLink", {
         "dnsResolverPolicyName": args.dnsResolverPolicyName,
@@ -82,7 +81,12 @@ export interface GetDnsResolverPolicyVirtualNetworkLinkResult {
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getDnsResolverPolicyVirtualNetworkLinkOutput(args: GetDnsResolverPolicyVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverPolicyVirtualNetworkLinkResult> {
-    return pulumi.output(args).apply((a: any) => getDnsResolverPolicyVirtualNetworkLink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network:getDnsResolverPolicyVirtualNetworkLink", {
+        "dnsResolverPolicyName": args.dnsResolverPolicyName,
+        "dnsResolverPolicyVirtualNetworkLinkName": args.dnsResolverPolicyVirtualNetworkLinkName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDnsResolverPolicyVirtualNetworkLinkOutputArgs {

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-10-01-preview.
  */
 export function getHypervSitesController(args: GetHypervSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetHypervSitesControllerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure:getHypervSitesController", {
         "resourceGroupName": args.resourceGroupName,
@@ -99,7 +98,11 @@ export interface GetHypervSitesControllerResult {
  * Other available API versions: 2023-10-01-preview.
  */
 export function getHypervSitesControllerOutput(args: GetHypervSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervSitesControllerResult> {
-    return pulumi.output(args).apply((a: any) => getHypervSitesController(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:offazure:getHypervSitesController", {
+        "resourceGroupName": args.resourceGroupName,
+        "siteName": args.siteName,
+    }, opts);
 }
 
 export interface GetHypervSitesControllerOutputArgs {

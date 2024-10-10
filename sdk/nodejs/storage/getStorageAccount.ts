@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage:getStorageAccount", {
         "accountName": args.accountName,
@@ -238,7 +237,12 @@ export interface GetStorageAccountResult {
  * Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
-    return pulumi.output(args).apply((a: any) => getStorageAccount(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storage:getStorageAccount", {
+        "accountName": args.accountName,
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetStorageAccountOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getTiTaxiiDataConnector(args: GetTiTaxiiDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetTiTaxiiDataConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20231201preview:getTiTaxiiDataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -109,7 +108,12 @@ export interface GetTiTaxiiDataConnectorResult {
  * Gets a data connector.
  */
 export function getTiTaxiiDataConnectorOutput(args: GetTiTaxiiDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTiTaxiiDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getTiTaxiiDataConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231201preview:getTiTaxiiDataConnector", {
+        "dataConnectorId": args.dataConnectorId,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetTiTaxiiDataConnectorOutputArgs {

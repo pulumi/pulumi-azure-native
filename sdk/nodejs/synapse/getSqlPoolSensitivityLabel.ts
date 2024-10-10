@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-06-01-preview.
  */
 export function getSqlPoolSensitivityLabel(args: GetSqlPoolSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolSensitivityLabelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:getSqlPoolSensitivityLabel", {
         "columnName": args.columnName,
@@ -116,7 +115,16 @@ export interface GetSqlPoolSensitivityLabelResult {
  * Other available API versions: 2021-06-01-preview.
  */
 export function getSqlPoolSensitivityLabelOutput(args: GetSqlPoolSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolSensitivityLabelResult> {
-    return pulumi.output(args).apply((a: any) => getSqlPoolSensitivityLabel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:synapse:getSqlPoolSensitivityLabel", {
+        "columnName": args.columnName,
+        "resourceGroupName": args.resourceGroupName,
+        "schemaName": args.schemaName,
+        "sensitivityLabelSource": args.sensitivityLabelSource,
+        "sqlPoolName": args.sqlPoolName,
+        "tableName": args.tableName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetSqlPoolSensitivityLabelOutputArgs {

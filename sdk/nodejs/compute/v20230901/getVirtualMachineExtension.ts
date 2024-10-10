@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The operation to get the extension.
  */
 export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineExtensionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20230901:getVirtualMachineExtension", {
         "expand": args.expand,
@@ -117,7 +116,13 @@ export interface GetVirtualMachineExtensionResult {
  * The operation to get the extension.
  */
 export function getVirtualMachineExtensionOutput(args: GetVirtualMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineExtensionResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachineExtension(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute/v20230901:getVirtualMachineExtension", {
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+        "vmExtensionName": args.vmExtensionName,
+        "vmName": args.vmName,
+    }, opts);
 }
 
 export interface GetVirtualMachineExtensionOutputArgs {

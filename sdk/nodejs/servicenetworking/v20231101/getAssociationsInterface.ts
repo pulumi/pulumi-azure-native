@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Association
  */
 export function getAssociationsInterface(args: GetAssociationsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationsInterfaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicenetworking/v20231101:getAssociationsInterface", {
         "associationName": args.associationName,
@@ -80,7 +79,12 @@ export interface GetAssociationsInterfaceResult {
  * Get a Association
  */
 export function getAssociationsInterfaceOutput(args: GetAssociationsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationsInterfaceResult> {
-    return pulumi.output(args).apply((a: any) => getAssociationsInterface(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicenetworking/v20231101:getAssociationsInterface", {
+        "associationName": args.associationName,
+        "resourceGroupName": args.resourceGroupName,
+        "trafficControllerName": args.trafficControllerName,
+    }, opts);
 }
 
 export interface GetAssociationsInterfaceOutputArgs {

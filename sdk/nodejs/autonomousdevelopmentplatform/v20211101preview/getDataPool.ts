@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of a Data Pool
  */
 export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDataPoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:autonomousdevelopmentplatform/v20211101preview:getDataPool", {
         "accountName": args.accountName,
@@ -76,7 +75,12 @@ export interface GetDataPoolResult {
  * Gets the properties of a Data Pool
  */
 export function getDataPoolOutput(args: GetDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataPoolResult> {
-    return pulumi.output(args).apply((a: any) => getDataPool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:autonomousdevelopmentplatform/v20211101preview:getDataPool", {
+        "accountName": args.accountName,
+        "dataPoolName": args.dataPoolName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDataPoolOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-06-01.
  */
 export function getRulesEngine(args: GetRulesEngineArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesEngineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getRulesEngine", {
         "frontDoorName": args.frontDoorName,
@@ -66,7 +65,12 @@ export interface GetRulesEngineResult {
  * Azure REST API version: 2021-06-01.
  */
 export function getRulesEngineOutput(args: GetRulesEngineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesEngineResult> {
-    return pulumi.output(args).apply((a: any) => getRulesEngine(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network:getRulesEngine", {
+        "frontDoorName": args.frontDoorName,
+        "resourceGroupName": args.resourceGroupName,
+        "rulesEngineName": args.rulesEngineName,
+    }, opts);
 }
 
 export interface GetRulesEngineOutputArgs {

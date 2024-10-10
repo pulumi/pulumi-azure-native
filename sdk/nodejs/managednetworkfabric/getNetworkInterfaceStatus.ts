@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-02-01-preview.
  */
 export function getNetworkInterfaceStatus(args: GetNetworkInterfaceStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric:getNetworkInterfaceStatus", {
         "networkDeviceName": args.networkDeviceName,
@@ -63,7 +62,12 @@ export interface GetNetworkInterfaceStatusResult {
  * Azure REST API version: 2023-02-01-preview.
  */
 export function getNetworkInterfaceStatusOutput(args: GetNetworkInterfaceStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceStatusResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkInterfaceStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNetworkInterfaceStatus", {
+        "networkDeviceName": args.networkDeviceName,
+        "networkInterfaceName": args.networkInterfaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkInterfaceStatusOutputArgs {

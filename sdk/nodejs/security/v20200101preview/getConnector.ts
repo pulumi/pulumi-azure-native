@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Details of a specific cloud account connector
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20200101preview:getConnector", {
         "connectorName": args.connectorName,
@@ -54,7 +53,10 @@ export interface GetConnectorResult {
  * Details of a specific cloud account connector
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security/v20200101preview:getConnector", {
+        "connectorName": args.connectorName,
+    }, opts);
 }
 
 export interface GetConnectorOutputArgs {

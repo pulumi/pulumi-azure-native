@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-05-01.
  */
 export function listIntegrationAccountAssemblyContentCallbackUrl(args: ListIntegrationAccountAssemblyContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountAssemblyContentCallbackUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic:listIntegrationAccountAssemblyContentCallbackUrl", {
         "assemblyArtifactName": args.assemblyArtifactName,
@@ -70,7 +69,12 @@ export interface ListIntegrationAccountAssemblyContentCallbackUrlResult {
  * Azure REST API version: 2019-05-01.
  */
 export function listIntegrationAccountAssemblyContentCallbackUrlOutput(args: ListIntegrationAccountAssemblyContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountAssemblyContentCallbackUrlResult> {
-    return pulumi.output(args).apply((a: any) => listIntegrationAccountAssemblyContentCallbackUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:logic:listIntegrationAccountAssemblyContentCallbackUrl", {
+        "assemblyArtifactName": args.assemblyArtifactName,
+        "integrationAccountName": args.integrationAccountName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListIntegrationAccountAssemblyContentCallbackUrlOutputArgs {

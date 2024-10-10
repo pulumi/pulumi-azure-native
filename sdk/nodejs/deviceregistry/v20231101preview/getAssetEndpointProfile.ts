@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a AssetEndpointProfile
  */
 export function getAssetEndpointProfile(args: GetAssetEndpointProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetEndpointProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceregistry/v20231101preview:getAssetEndpointProfile", {
         "assetEndpointProfileName": args.assetEndpointProfileName,
@@ -91,7 +90,11 @@ export interface GetAssetEndpointProfileResult {
  * Get a AssetEndpointProfile
  */
 export function getAssetEndpointProfileOutput(args: GetAssetEndpointProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetEndpointProfileResult> {
-    return pulumi.output(args).apply((a: any) => getAssetEndpointProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:deviceregistry/v20231101preview:getAssetEndpointProfile", {
+        "assetEndpointProfileName": args.assetEndpointProfileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAssetEndpointProfileOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Container App SourceControl.
  */
 export function getContainerAppsSourceControl(args: GetContainerAppsSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsSourceControlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20231102preview:getContainerAppsSourceControl", {
         "containerAppName": args.containerAppName,
@@ -78,7 +77,12 @@ export interface GetContainerAppsSourceControlResult {
  * Container App SourceControl.
  */
 export function getContainerAppsSourceControlOutput(args: GetContainerAppsSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppsSourceControlResult> {
-    return pulumi.output(args).apply((a: any) => getContainerAppsSourceControl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app/v20231102preview:getContainerAppsSourceControl", {
+        "containerAppName": args.containerAppName,
+        "resourceGroupName": args.resourceGroupName,
+        "sourceControlName": args.sourceControlName,
+    }, opts);
 }
 
 export interface GetContainerAppsSourceControlOutputArgs {

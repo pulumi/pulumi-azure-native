@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a virtual wan vpn gateway.
  */
 export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20180701:getVpnGateway", {
         "gatewayName": args.gatewayName,
@@ -83,7 +82,11 @@ export interface GetVpnGatewayResult {
  * Retrieves the details of a virtual wan vpn gateway.
  */
 export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getVpnGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20180701:getVpnGateway", {
+        "gatewayName": args.gatewayName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetVpnGatewayOutputArgs {

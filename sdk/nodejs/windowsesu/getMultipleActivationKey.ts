@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-09-16-preview.
  */
 export function getMultipleActivationKey(args: GetMultipleActivationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetMultipleActivationKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:windowsesu:getMultipleActivationKey", {
         "multipleActivationKeyName": args.multipleActivationKeyName,
@@ -87,7 +86,11 @@ export interface GetMultipleActivationKeyResult {
  * Azure REST API version: 2019-09-16-preview.
  */
 export function getMultipleActivationKeyOutput(args: GetMultipleActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultipleActivationKeyResult> {
-    return pulumi.output(args).apply((a: any) => getMultipleActivationKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:windowsesu:getMultipleActivationKey", {
+        "multipleActivationKeyName": args.multipleActivationKeyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMultipleActivationKeyOutputArgs {

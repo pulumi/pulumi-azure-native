@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Registration token of the host pool.
  */
 export function getHostPoolRegistrationToken(args: GetHostPoolRegistrationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolRegistrationTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20230707preview:getHostPoolRegistrationToken", {
         "hostPoolName": args.hostPoolName,
@@ -48,7 +47,11 @@ export interface GetHostPoolRegistrationTokenResult {
  * Registration token of the host pool.
  */
 export function getHostPoolRegistrationTokenOutput(args: GetHostPoolRegistrationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolRegistrationTokenResult> {
-    return pulumi.output(args).apply((a: any) => getHostPoolRegistrationToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20230707preview:getHostPoolRegistrationToken", {
+        "hostPoolName": args.hostPoolName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetHostPoolRegistrationTokenOutputArgs {

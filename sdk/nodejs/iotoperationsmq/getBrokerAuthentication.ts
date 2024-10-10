@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-10-04-preview.
  */
 export function getBrokerAuthentication(args: GetBrokerAuthenticationArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerAuthenticationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsmq:getBrokerAuthentication", {
         "authenticationName": args.authenticationName,
@@ -91,7 +90,13 @@ export interface GetBrokerAuthenticationResult {
  * Azure REST API version: 2023-10-04-preview.
  */
 export function getBrokerAuthenticationOutput(args: GetBrokerAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerAuthenticationResult> {
-    return pulumi.output(args).apply((a: any) => getBrokerAuthentication(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq:getBrokerAuthentication", {
+        "authenticationName": args.authenticationName,
+        "brokerName": args.brokerName,
+        "mqName": args.mqName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBrokerAuthenticationOutputArgs {

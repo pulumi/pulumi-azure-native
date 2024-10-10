@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-06-01-preview.
  */
 export function getEventHubDataConnection(args: GetEventHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubDataConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:getEventHubDataConnection", {
         "dataConnectionName": args.dataConnectionName,
@@ -117,7 +116,14 @@ export interface GetEventHubDataConnectionResult {
  * Azure REST API version: 2021-06-01-preview.
  */
 export function getEventHubDataConnectionOutput(args: GetEventHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubDataConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getEventHubDataConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:synapse:getEventHubDataConnection", {
+        "dataConnectionName": args.dataConnectionName,
+        "databaseName": args.databaseName,
+        "kustoPoolName": args.kustoPoolName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetEventHubDataConnectionOutputArgs {

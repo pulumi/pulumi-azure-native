@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the specified Subscription entity.
  */
 export function getWorkspaceSubscription(args: GetWorkspaceSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getWorkspaceSubscription", {
         "resourceGroupName": args.resourceGroupName,
@@ -110,7 +109,13 @@ export interface GetWorkspaceSubscriptionResult {
  * Gets the specified Subscription entity.
  */
 export function getWorkspaceSubscriptionOutput(args: GetWorkspaceSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspaceSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getWorkspaceSubscription", {
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "sid": args.sid,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 export interface GetWorkspaceSubscriptionOutputArgs {

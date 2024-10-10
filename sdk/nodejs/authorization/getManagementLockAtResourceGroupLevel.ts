@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-01-01.
  */
 export function getManagementLockAtResourceGroupLevel(args: GetManagementLockAtResourceGroupLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceGroupLevelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getManagementLockAtResourceGroupLevel", {
         "lockName": args.lockName,
@@ -73,7 +72,11 @@ export interface GetManagementLockAtResourceGroupLevelResult {
  * Other available API versions: 2015-01-01.
  */
 export function getManagementLockAtResourceGroupLevelOutput(args: GetManagementLockAtResourceGroupLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceGroupLevelResult> {
-    return pulumi.output(args).apply((a: any) => getManagementLockAtResourceGroupLevel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:authorization:getManagementLockAtResourceGroupLevel", {
+        "lockName": args.lockName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetManagementLockAtResourceGroupLevelOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get the specified role assignment.
  */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20171001preview:getRoleAssignment", {
         "roleAssignmentName": args.roleAssignmentName,
@@ -64,7 +63,11 @@ export interface GetRoleAssignmentResult {
  * Get the specified role assignment.
  */
 export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getRoleAssignment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:authorization/v20171001preview:getRoleAssignment", {
+        "roleAssignmentName": args.roleAssignmentName,
+        "scope": args.scope,
+    }, opts);
 }
 
 export interface GetRoleAssignmentOutputArgs {

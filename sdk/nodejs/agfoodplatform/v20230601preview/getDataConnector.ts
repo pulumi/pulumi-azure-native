@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get specific Data Connector resource by DataConnectorName.
  */
 export function getDataConnector(args: GetDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDataConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:agfoodplatform/v20230601preview:getDataConnector", {
         "dataConnectorName": args.dataConnectorName,
@@ -68,7 +67,12 @@ export interface GetDataConnectorResult {
  * Get specific Data Connector resource by DataConnectorName.
  */
 export function getDataConnectorOutput(args: GetDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getDataConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:agfoodplatform/v20230601preview:getDataConnector", {
+        "dataConnectorName": args.dataConnectorName,
+        "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDataConnectorOutputArgs {

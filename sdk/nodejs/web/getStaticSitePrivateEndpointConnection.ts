@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getStaticSitePrivateEndpointConnection(args: GetStaticSitePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSitePrivateEndpointConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:getStaticSitePrivateEndpointConnection", {
         "name": args.name,
@@ -79,7 +78,12 @@ export interface GetStaticSitePrivateEndpointConnectionResult {
  * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
  */
 export function getStaticSitePrivateEndpointConnectionOutput(args: GetStaticSitePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSitePrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getStaticSitePrivateEndpointConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:getStaticSitePrivateEndpointConnection", {
+        "name": args.name,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetStaticSitePrivateEndpointConnectionOutputArgs {

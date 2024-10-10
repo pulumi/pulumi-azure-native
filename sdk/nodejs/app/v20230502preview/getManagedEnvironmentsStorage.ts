@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get storage for a managedEnvironment.
  */
 export function getManagedEnvironmentsStorage(args: GetManagedEnvironmentsStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentsStorageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20230502preview:getManagedEnvironmentsStorage", {
         "environmentName": args.environmentName,
@@ -64,7 +63,12 @@ export interface GetManagedEnvironmentsStorageResult {
  * Get storage for a managedEnvironment.
  */
 export function getManagedEnvironmentsStorageOutput(args: GetManagedEnvironmentsStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentsStorageResult> {
-    return pulumi.output(args).apply((a: any) => getManagedEnvironmentsStorage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app/v20230502preview:getManagedEnvironmentsStorage", {
+        "environmentName": args.environmentName,
+        "resourceGroupName": args.resourceGroupName,
+        "storageName": args.storageName,
+    }, opts);
 }
 
 export interface GetManagedEnvironmentsStorageOutputArgs {

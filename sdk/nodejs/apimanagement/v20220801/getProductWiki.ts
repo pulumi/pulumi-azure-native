@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the Wiki for a Product specified by its identifier.
  */
 export function getProductWiki(args: GetProductWikiArgs, opts?: pulumi.InvokeOptions): Promise<GetProductWikiResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getProductWiki", {
         "productId": args.productId,
@@ -60,7 +59,12 @@ export interface GetProductWikiResult {
  * Gets the details of the Wiki for a Product specified by its identifier.
  */
 export function getProductWikiOutput(args: GetProductWikiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductWikiResult> {
-    return pulumi.output(args).apply((a: any) => getProductWiki(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220801:getProductWiki", {
+        "productId": args.productId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetProductWikiOutputArgs {

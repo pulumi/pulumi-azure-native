@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns a database.
  */
 export function getReadOnlyFollowingDatabase(args: GetReadOnlyFollowingDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadOnlyFollowingDatabaseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getReadOnlyFollowingDatabase", {
         "databaseName": args.databaseName,
@@ -102,7 +101,13 @@ export interface GetReadOnlyFollowingDatabaseResult {
  * Returns a database.
  */
 export function getReadOnlyFollowingDatabaseOutput(args: GetReadOnlyFollowingDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadOnlyFollowingDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getReadOnlyFollowingDatabase(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:getReadOnlyFollowingDatabase", {
+        "databaseName": args.databaseName,
+        "kustoPoolName": args.kustoPoolName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetReadOnlyFollowingDatabaseOutputArgs {

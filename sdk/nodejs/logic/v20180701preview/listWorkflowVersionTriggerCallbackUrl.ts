@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the callback url for a trigger of a workflow version.
  */
 export function listWorkflowVersionTriggerCallbackUrl(args: ListWorkflowVersionTriggerCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowVersionTriggerCallbackUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20180701preview:listWorkflowVersionTriggerCallbackUrl", {
         "keyType": args.keyType,
@@ -83,7 +82,15 @@ export interface ListWorkflowVersionTriggerCallbackUrlResult {
  * Get the callback url for a trigger of a workflow version.
  */
 export function listWorkflowVersionTriggerCallbackUrlOutput(args: ListWorkflowVersionTriggerCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowVersionTriggerCallbackUrlResult> {
-    return pulumi.output(args).apply((a: any) => listWorkflowVersionTriggerCallbackUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:logic/v20180701preview:listWorkflowVersionTriggerCallbackUrl", {
+        "keyType": args.keyType,
+        "notAfter": args.notAfter,
+        "resourceGroupName": args.resourceGroupName,
+        "triggerName": args.triggerName,
+        "versionId": args.versionId,
+        "workflowName": args.workflowName,
+    }, opts);
 }
 
 export interface ListWorkflowVersionTriggerCallbackUrlOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a KPack builder.
  */
 export function getBuildServiceBuilder(args: GetBuildServiceBuilderArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceBuilderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20240101preview:getBuildServiceBuilder", {
         "buildServiceName": args.buildServiceName,
@@ -69,7 +68,13 @@ export interface GetBuildServiceBuilderResult {
  * Get a KPack builder.
  */
 export function getBuildServiceBuilderOutput(args: GetBuildServiceBuilderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceBuilderResult> {
-    return pulumi.output(args).apply((a: any) => getBuildServiceBuilder(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240101preview:getBuildServiceBuilder", {
+        "buildServiceName": args.buildServiceName,
+        "builderName": args.builderName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetBuildServiceBuilderOutputArgs {

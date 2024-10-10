@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves a SQL Server license resource
  */
 export function getSqlServerLicense(args: GetSqlServerLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerLicenseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20240501preview:getSqlServerLicense", {
         "resourceGroupName": args.resourceGroupName,
@@ -67,7 +66,11 @@ export interface GetSqlServerLicenseResult {
  * Retrieves a SQL Server license resource
  */
 export function getSqlServerLicenseOutput(args: GetSqlServerLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerLicenseResult> {
-    return pulumi.output(args).apply((a: any) => getSqlServerLicense(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20240501preview:getSqlServerLicense", {
+        "resourceGroupName": args.resourceGroupName,
+        "sqlServerLicenseName": args.sqlServerLicenseName,
+    }, opts);
 }
 
 export interface GetSqlServerLicenseOutputArgs {

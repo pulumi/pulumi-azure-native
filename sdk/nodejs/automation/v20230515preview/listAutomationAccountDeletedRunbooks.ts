@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve the deleted runbooks for an automation account.
  */
 export function listAutomationAccountDeletedRunbooks(args: ListAutomationAccountDeletedRunbooksArgs, opts?: pulumi.InvokeOptions): Promise<ListAutomationAccountDeletedRunbooksResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20230515preview:listAutomationAccountDeletedRunbooks", {
         "automationAccountName": args.automationAccountName,
@@ -47,7 +46,11 @@ export interface ListAutomationAccountDeletedRunbooksResult {
  * Retrieve the deleted runbooks for an automation account.
  */
 export function listAutomationAccountDeletedRunbooksOutput(args: ListAutomationAccountDeletedRunbooksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAutomationAccountDeletedRunbooksResult> {
-    return pulumi.output(args).apply((a: any) => listAutomationAccountDeletedRunbooks(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:listAutomationAccountDeletedRunbooks", {
+        "automationAccountName": args.automationAccountName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListAutomationAccountDeletedRunbooksOutputArgs {

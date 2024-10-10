@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified security rule.
  */
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20240501preview:getSecurityRule", {
         "networkSecurityGroupName": args.networkSecurityGroupName,
@@ -104,7 +103,12 @@ export interface GetSecurityRuleResult {
  * Gets the specified security rule.
  */
 export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityRuleResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240501preview:getSecurityRule", {
+        "networkSecurityGroupName": args.networkSecurityGroupName,
+        "resourceGroupName": args.resourceGroupName,
+        "securityRuleName": args.securityRuleName,
+    }, opts);
 }
 
 export interface GetSecurityRuleOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get counters
  */
 export function getLocalRuleCounters(args: GetLocalRuleCountersArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRuleCountersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20230901preview:getLocalRuleCounters", {
         "firewallName": args.firewallName,
@@ -86,7 +85,13 @@ export interface GetLocalRuleCountersResult {
  * Get counters
  */
 export function getLocalRuleCountersOutput(args: GetLocalRuleCountersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRuleCountersResult> {
-    return pulumi.output(args).apply((a: any) => getLocalRuleCounters(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20230901preview:getLocalRuleCounters", {
+        "firewallName": args.firewallName,
+        "localRulestackName": args.localRulestackName,
+        "priority": args.priority,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLocalRuleCountersOutputArgs {

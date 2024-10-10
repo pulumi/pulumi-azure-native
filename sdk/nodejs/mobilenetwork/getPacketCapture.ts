@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
  */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork:getPacketCapture", {
         "packetCaptureName": args.packetCaptureName,
@@ -98,7 +97,12 @@ export interface GetPacketCaptureResult {
  * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
  */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
-    return pulumi.output(args).apply((a: any) => getPacketCapture(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork:getPacketCapture", {
+        "packetCaptureName": args.packetCaptureName,
+        "packetCoreControlPlaneName": args.packetCoreControlPlaneName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPacketCaptureOutputArgs {

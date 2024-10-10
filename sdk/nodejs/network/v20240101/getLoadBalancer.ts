@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified load balancer.
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240101:getLoadBalancer", {
         "expand": args.expand,
@@ -112,7 +111,12 @@ export interface GetLoadBalancerResult {
  * Gets the specified load balancer.
  */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
-    return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240101:getLoadBalancer", {
+        "expand": args.expand,
+        "loadBalancerName": args.loadBalancerName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLoadBalancerOutputArgs {

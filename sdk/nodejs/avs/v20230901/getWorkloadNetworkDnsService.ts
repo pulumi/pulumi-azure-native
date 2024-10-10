@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a WorkloadNetworkDnsService
  */
 export function getWorkloadNetworkDnsService(args: GetWorkloadNetworkDnsServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDnsServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20230901:getWorkloadNetworkDnsService", {
         "dnsServiceId": args.dnsServiceId,
@@ -92,7 +91,12 @@ export interface GetWorkloadNetworkDnsServiceResult {
  * Get a WorkloadNetworkDnsService
  */
 export function getWorkloadNetworkDnsServiceOutput(args: GetWorkloadNetworkDnsServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsServiceResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadNetworkDnsService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getWorkloadNetworkDnsService", {
+        "dnsServiceId": args.dnsServiceId,
+        "privateCloudName": args.privateCloudName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWorkloadNetworkDnsServiceOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a azureADMetrics instance with a given name.
  */
 export function getAzureADMetric(args: GetAzureADMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureADMetricResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aadiam/v20200701preview:getAzureADMetric", {
         "azureADMetricsName": args.azureADMetricsName,
@@ -60,7 +59,11 @@ export interface GetAzureADMetricResult {
  * Gets a azureADMetrics instance with a given name.
  */
 export function getAzureADMetricOutput(args: GetAzureADMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureADMetricResult> {
-    return pulumi.output(args).apply((a: any) => getAzureADMetric(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:aadiam/v20200701preview:getAzureADMetric", {
+        "azureADMetricsName": args.azureADMetricsName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAzureADMetricOutputArgs {

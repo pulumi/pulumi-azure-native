@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a Fleet.
  */
 export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20240502preview:getFleet", {
         "fleetName": args.fleetName,
@@ -79,7 +78,11 @@ export interface GetFleetResult {
  * Gets a Fleet.
  */
 export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
-    return pulumi.output(args).apply((a: any) => getFleet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerservice/v20240502preview:getFleet", {
+        "fleetName": args.fleetName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFleetOutputArgs {

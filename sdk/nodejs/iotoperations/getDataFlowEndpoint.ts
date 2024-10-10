@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-07-01-preview.
  */
 export function getDataFlowEndpoint(args: GetDataFlowEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataFlowEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperations:getDataFlowEndpoint", {
         "dataflowEndpointName": args.dataflowEndpointName,
@@ -70,7 +69,12 @@ export interface GetDataFlowEndpointResult {
  * Azure REST API version: 2024-07-01-preview.
  */
 export function getDataFlowEndpointOutput(args: GetDataFlowEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataFlowEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getDataFlowEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:iotoperations:getDataFlowEndpoint", {
+        "dataflowEndpointName": args.dataflowEndpointName,
+        "instanceName": args.instanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDataFlowEndpointOutputArgs {

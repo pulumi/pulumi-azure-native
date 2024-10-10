@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Group
  */
 export function getGroupsOperation(args: GetGroupsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupsOperationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20230501preview:getGroupsOperation", {
         "groupName": args.groupName,
@@ -96,7 +95,12 @@ export interface GetGroupsOperationResult {
  * Get a Group
  */
 export function getGroupsOperationOutput(args: GetGroupsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupsOperationResult> {
-    return pulumi.output(args).apply((a: any) => getGroupsOperation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate/v20230501preview:getGroupsOperation", {
+        "groupName": args.groupName,
+        "projectName": args.projectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetGroupsOperationOutputArgs {

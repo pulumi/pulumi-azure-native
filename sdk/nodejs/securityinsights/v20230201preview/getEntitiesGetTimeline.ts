@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Timeline for an entity.
  */
 export function getEntitiesGetTimeline(args: GetEntitiesGetTimelineArgs, opts?: pulumi.InvokeOptions): Promise<GetEntitiesGetTimelineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230201preview:getEntitiesGetTimeline", {
         "endTime": args.endTime,
@@ -72,7 +71,16 @@ export interface GetEntitiesGetTimelineResult {
  * Timeline for an entity.
  */
 export function getEntitiesGetTimelineOutput(args: GetEntitiesGetTimelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntitiesGetTimelineResult> {
-    return pulumi.output(args).apply((a: any) => getEntitiesGetTimeline(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230201preview:getEntitiesGetTimeline", {
+        "endTime": args.endTime,
+        "entityId": args.entityId,
+        "kinds": args.kinds,
+        "numberOfBucket": args.numberOfBucket,
+        "resourceGroupName": args.resourceGroupName,
+        "startTime": args.startTime,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetEntitiesGetTimelineOutputArgs {

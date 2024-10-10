@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
 export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubAuthorizationRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub:getEventHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -79,7 +78,13 @@ export interface GetEventHubAuthorizationRuleResult {
  * Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
 export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getEventHubAuthorizationRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventhub:getEventHubAuthorizationRule", {
+        "authorizationRuleName": args.authorizationRuleName,
+        "eventHubName": args.eventHubName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEventHubAuthorizationRuleOutputArgs {

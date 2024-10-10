@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the resource and its properties.
  */
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice/v20240101preview:getSignalR", {
         "resourceGroupName": args.resourceGroupName,
@@ -178,7 +177,11 @@ export interface GetSignalRResult {
  * Get the resource and its properties.
  */
 export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRResult> {
-    return pulumi.output(args).apply((a: any) => getSignalR(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:signalrservice/v20240101preview:getSignalR", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetSignalROutputArgs {

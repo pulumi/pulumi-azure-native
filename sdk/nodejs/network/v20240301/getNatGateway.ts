@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified nat gateway in a specified resource group.
  */
 export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:getNatGateway", {
         "expand": args.expand,
@@ -100,7 +99,12 @@ export interface GetNatGatewayResult {
  * Gets the specified nat gateway in a specified resource group.
  */
 export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getNatGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getNatGateway", {
+        "expand": args.expand,
+        "natGatewayName": args.natGatewayName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNatGatewayOutputArgs {

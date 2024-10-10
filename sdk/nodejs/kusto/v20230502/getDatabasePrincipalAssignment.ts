@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a Kusto cluster database principalAssignment.
  */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20230502:getDatabasePrincipalAssignment", {
         "clusterName": args.clusterName,
@@ -90,7 +89,13 @@ export interface GetDatabasePrincipalAssignmentResult {
  * Gets a Kusto cluster database principalAssignment.
  */
 export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getDatabasePrincipalAssignment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kusto/v20230502:getDatabasePrincipalAssignment", {
+        "clusterName": args.clusterName,
+        "databaseName": args.databaseName,
+        "principalAssignmentName": args.principalAssignmentName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDatabasePrincipalAssignmentOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview.
  */
 export function getVolumeGroupIdForLdapUser(args: GetVolumeGroupIdForLdapUserArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupIdForLdapUserResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp:getVolumeGroupIdForLdapUser", {
         "accountName": args.accountName,
@@ -61,7 +60,14 @@ export interface GetVolumeGroupIdForLdapUserResult {
  * Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview.
  */
 export function getVolumeGroupIdForLdapUserOutput(args: GetVolumeGroupIdForLdapUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupIdForLdapUserResult> {
-    return pulumi.output(args).apply((a: any) => getVolumeGroupIdForLdapUser(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:netapp:getVolumeGroupIdForLdapUser", {
+        "accountName": args.accountName,
+        "poolName": args.poolName,
+        "resourceGroupName": args.resourceGroupName,
+        "username": args.username,
+        "volumeName": args.volumeName,
+    }, opts);
 }
 
 export interface GetVolumeGroupIdForLdapUserOutputArgs {

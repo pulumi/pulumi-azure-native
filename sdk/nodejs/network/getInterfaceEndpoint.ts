@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-02-01.
  */
 export function getInterfaceEndpoint(args: GetInterfaceEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetInterfaceEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getInterfaceEndpoint", {
         "expand": args.expand,
@@ -94,7 +93,12 @@ export interface GetInterfaceEndpointResult {
  * Azure REST API version: 2019-02-01.
  */
 export function getInterfaceEndpointOutput(args: GetInterfaceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInterfaceEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getInterfaceEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network:getInterfaceEndpoint", {
+        "expand": args.expand,
+        "interfaceEndpointName": args.interfaceEndpointName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetInterfaceEndpointOutputArgs {

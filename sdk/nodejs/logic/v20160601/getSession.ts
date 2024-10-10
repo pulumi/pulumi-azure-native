@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets an integration account session.
  */
 export function getSession(args: GetSessionArgs, opts?: pulumi.InvokeOptions): Promise<GetSessionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20160601:getSession", {
         "integrationAccountName": args.integrationAccountName,
@@ -73,7 +72,12 @@ export interface GetSessionResult {
  * Gets an integration account session.
  */
 export function getSessionOutput(args: GetSessionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSessionResult> {
-    return pulumi.output(args).apply((a: any) => getSession(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:logic/v20160601:getSession", {
+        "integrationAccountName": args.integrationAccountName,
+        "resourceGroupName": args.resourceGroupName,
+        "sessionName": args.sessionName,
+    }, opts);
 }
 
 export interface GetSessionOutputArgs {

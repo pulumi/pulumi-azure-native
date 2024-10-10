@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-04-01, 2024-01-01.
  */
 export function getHybridConnectionAuthorizationRule(args: GetHybridConnectionAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionAuthorizationRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay:getHybridConnectionAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -79,7 +78,13 @@ export interface GetHybridConnectionAuthorizationRuleResult {
  * Other available API versions: 2017-04-01, 2024-01-01.
  */
 export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getHybridConnectionAuthorizationRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:relay:getHybridConnectionAuthorizationRule", {
+        "authorizationRuleName": args.authorizationRuleName,
+        "hybridConnectionName": args.hybridConnectionName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetHybridConnectionAuthorizationRuleOutputArgs {

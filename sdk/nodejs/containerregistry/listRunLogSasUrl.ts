@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2018-09-01, 2019-04-01.
  */
 export function listRunLogSasUrl(args: ListRunLogSasUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListRunLogSasUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry:listRunLogSasUrl", {
         "registryName": args.registryName,
@@ -55,7 +54,12 @@ export interface ListRunLogSasUrlResult {
  * Other available API versions: 2018-09-01, 2019-04-01.
  */
 export function listRunLogSasUrlOutput(args: ListRunLogSasUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRunLogSasUrlResult> {
-    return pulumi.output(args).apply((a: any) => listRunLogSasUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerregistry:listRunLogSasUrl", {
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+        "runId": args.runId,
+    }, opts);
 }
 
 export interface ListRunLogSasUrlOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified Firewall Policy.
  */
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230501:getFirewallPolicy", {
         "expand": args.expand,
@@ -136,7 +135,12 @@ export interface GetFirewallPolicyResult {
  * Gets the specified Firewall Policy.
  */
 export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getFirewallPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getFirewallPolicy", {
+        "expand": args.expand,
+        "firewallPolicyName": args.firewallPolicyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFirewallPolicyOutputArgs {

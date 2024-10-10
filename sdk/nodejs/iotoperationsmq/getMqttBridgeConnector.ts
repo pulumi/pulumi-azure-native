@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-10-04-preview.
  */
 export function getMqttBridgeConnector(args: GetMqttBridgeConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMqttBridgeConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsmq:getMqttBridgeConnector", {
         "mqName": args.mqName,
@@ -110,7 +109,12 @@ export interface GetMqttBridgeConnectorResult {
  * Azure REST API version: 2023-10-04-preview.
  */
 export function getMqttBridgeConnectorOutput(args: GetMqttBridgeConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMqttBridgeConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getMqttBridgeConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq:getMqttBridgeConnector", {
+        "mqName": args.mqName,
+        "mqttBridgeConnectorName": args.mqttBridgeConnectorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMqttBridgeConnectorOutputArgs {

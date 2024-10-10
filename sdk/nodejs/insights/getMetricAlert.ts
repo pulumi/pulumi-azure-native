@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-03-01.
  */
 export function getMetricAlert(args: GetMetricAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricAlertResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getMetricAlert", {
         "resourceGroupName": args.resourceGroupName,
@@ -113,7 +112,11 @@ export interface GetMetricAlertResult {
  * Azure REST API version: 2018-03-01.
  */
 export function getMetricAlertOutput(args: GetMetricAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricAlertResult> {
-    return pulumi.output(args).apply((a: any) => getMetricAlert(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights:getMetricAlert", {
+        "resourceGroupName": args.resourceGroupName,
+        "ruleName": args.ruleName,
+    }, opts);
 }
 
 export interface GetMetricAlertOutputArgs {

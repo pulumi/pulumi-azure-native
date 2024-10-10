@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the AppComplianceAutomation report and its properties.
  */
 export function getReport(args: GetReportArgs, opts?: pulumi.InvokeOptions): Promise<GetReportResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appcomplianceautomation/v20221116preview:getReport", {
         "reportName": args.reportName,
@@ -54,7 +53,10 @@ export interface GetReportResult {
  * Get the AppComplianceAutomation report and its properties.
  */
 export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportResult> {
-    return pulumi.output(args).apply((a: any) => getReport(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation/v20221116preview:getReport", {
+        "reportName": args.reportName,
+    }, opts);
 }
 
 export interface GetReportOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Base definition for datastore secrets.
  */
 export function listDatastoreSecrets(args: ListDatastoreSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatastoreSecretsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240701preview:listDatastoreSecrets", {
         "expirableSecret": args.expirableSecret,
@@ -55,7 +54,14 @@ export interface ListDatastoreSecretsResult {
  * Base definition for datastore secrets.
  */
 export function listDatastoreSecretsOutput(args: ListDatastoreSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatastoreSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listDatastoreSecrets(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240701preview:listDatastoreSecrets", {
+        "expirableSecret": args.expirableSecret,
+        "expireAfterHours": args.expireAfterHours,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListDatastoreSecretsOutputArgs {

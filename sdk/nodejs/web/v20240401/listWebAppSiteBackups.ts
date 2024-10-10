@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Description for Gets existing backups of an app.
  */
 export function listWebAppSiteBackups(args: ListWebAppSiteBackupsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSiteBackupsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:listWebAppSiteBackups", {
         "name": args.name,
@@ -47,7 +46,11 @@ export interface ListWebAppSiteBackupsResult {
  * Description for Gets existing backups of an app.
  */
 export function listWebAppSiteBackupsOutput(args: ListWebAppSiteBackupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSiteBackupsResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppSiteBackups(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:listWebAppSiteBackups", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListWebAppSiteBackupsOutputArgs {

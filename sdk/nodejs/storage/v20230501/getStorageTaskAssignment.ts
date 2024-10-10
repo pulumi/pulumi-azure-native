@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the storage task assignment properties
  */
 export function getStorageTaskAssignment(args: GetStorageTaskAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTaskAssignmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20230501:getStorageTaskAssignment", {
         "accountName": args.accountName,
@@ -60,7 +59,12 @@ export interface GetStorageTaskAssignmentResult {
  * Get the storage task assignment properties
  */
 export function getStorageTaskAssignmentOutput(args: GetStorageTaskAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTaskAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getStorageTaskAssignment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storage/v20230501:getStorageTaskAssignment", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+        "storageTaskAssignmentName": args.storageTaskAssignmentName,
+    }, opts);
 }
 
 export interface GetStorageTaskAssignmentOutputArgs {

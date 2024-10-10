@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
  */
 export function getContentPackage(args: GetContentPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetContentPackageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getContentPackage", {
         "packageId": args.packageId,
@@ -154,7 +153,12 @@ export interface GetContentPackageResult {
  * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
  */
 export function getContentPackageOutput(args: GetContentPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentPackageResult> {
-    return pulumi.output(args).apply((a: any) => getContentPackage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights:getContentPackage", {
+        "packageId": args.packageId,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetContentPackageOutputArgs {

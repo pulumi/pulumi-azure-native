@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Retrieves the authentication keys for an integration runtime.
  */
 export function listIntegrationRuntimeAuthKeys(args: ListIntegrationRuntimeAuthKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationRuntimeAuthKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:listIntegrationRuntimeAuthKeys", {
         "factoryName": args.factoryName,
@@ -49,7 +48,12 @@ export interface ListIntegrationRuntimeAuthKeysResult {
  * Retrieves the authentication keys for an integration runtime.
  */
 export function listIntegrationRuntimeAuthKeysOutput(args: ListIntegrationRuntimeAuthKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationRuntimeAuthKeysResult> {
-    return pulumi.output(args).apply((a: any) => listIntegrationRuntimeAuthKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:listIntegrationRuntimeAuthKeys", {
+        "factoryName": args.factoryName,
+        "integrationRuntimeName": args.integrationRuntimeName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListIntegrationRuntimeAuthKeysOutputArgs {

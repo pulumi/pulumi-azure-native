@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the details of the management group.
  */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management/v20210401:getManagementGroup", {
         "expand": args.expand,
@@ -77,7 +76,13 @@ export interface GetManagementGroupResult {
  * Get the details of the management group.
  */
 export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
-    return pulumi.output(args).apply((a: any) => getManagementGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:management/v20210401:getManagementGroup", {
+        "expand": args.expand,
+        "filter": args.filter,
+        "groupId": args.groupId,
+        "recurse": args.recurse,
+    }, opts);
 }
 
 export interface GetManagementGroupOutputArgs {

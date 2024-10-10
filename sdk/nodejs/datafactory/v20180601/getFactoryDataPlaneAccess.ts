@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get Data Plane access.
  */
 export function getFactoryDataPlaneAccess(args: GetFactoryDataPlaneAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryDataPlaneAccessResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getFactoryDataPlaneAccess", {
         "accessResourcePath": args.accessResourcePath,
@@ -76,7 +75,16 @@ export interface GetFactoryDataPlaneAccessResult {
  * Get Data Plane access.
  */
 export function getFactoryDataPlaneAccessOutput(args: GetFactoryDataPlaneAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryDataPlaneAccessResult> {
-    return pulumi.output(args).apply((a: any) => getFactoryDataPlaneAccess(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getFactoryDataPlaneAccess", {
+        "accessResourcePath": args.accessResourcePath,
+        "expireTime": args.expireTime,
+        "factoryName": args.factoryName,
+        "permissions": args.permissions,
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+        "startTime": args.startTime,
+    }, opts);
 }
 
 export interface GetFactoryDataPlaneAccessOutputArgs {

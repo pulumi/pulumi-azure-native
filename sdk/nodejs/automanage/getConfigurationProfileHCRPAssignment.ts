@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-05-04.
  */
 export function getConfigurationProfileHCRPAssignment(args: GetConfigurationProfileHCRPAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileHCRPAssignmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automanage:getConfigurationProfileHCRPAssignment", {
         "configurationProfileAssignmentName": args.configurationProfileAssignmentName,
@@ -70,7 +69,12 @@ export interface GetConfigurationProfileHCRPAssignmentResult {
  * Azure REST API version: 2022-05-04.
  */
 export function getConfigurationProfileHCRPAssignmentOutput(args: GetConfigurationProfileHCRPAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileHCRPAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationProfileHCRPAssignment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:automanage:getConfigurationProfileHCRPAssignment", {
+        "configurationProfileAssignmentName": args.configurationProfileAssignmentName,
+        "machineName": args.machineName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetConfigurationProfileHCRPAssignmentOutputArgs {

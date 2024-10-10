@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified hybrid configuration group values.
  */
 export function getConfigurationGroupValue(args: GetConfigurationGroupValueArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationGroupValueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20230901:getConfigurationGroupValue", {
         "configurationGroupValueName": args.configurationGroupValueName,
@@ -67,7 +66,11 @@ export interface GetConfigurationGroupValueResult {
  * Gets information about the specified hybrid configuration group values.
  */
 export function getConfigurationGroupValueOutput(args: GetConfigurationGroupValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationGroupValueResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationGroupValue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20230901:getConfigurationGroupValue", {
+        "configurationGroupValueName": args.configurationGroupValueName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetConfigurationGroupValueOutputArgs {

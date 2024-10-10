@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the sensitivity label of a given column
  */
 export function getManagedDatabaseSensitivityLabel(args: GetManagedDatabaseSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDatabaseSensitivityLabelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230501preview:getManagedDatabaseSensitivityLabel", {
         "columnName": args.columnName,
@@ -111,7 +110,16 @@ export interface GetManagedDatabaseSensitivityLabelResult {
  * Gets the sensitivity label of a given column
  */
 export function getManagedDatabaseSensitivityLabelOutput(args: GetManagedDatabaseSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseSensitivityLabelResult> {
-    return pulumi.output(args).apply((a: any) => getManagedDatabaseSensitivityLabel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20230501preview:getManagedDatabaseSensitivityLabel", {
+        "columnName": args.columnName,
+        "databaseName": args.databaseName,
+        "managedInstanceName": args.managedInstanceName,
+        "resourceGroupName": args.resourceGroupName,
+        "schemaName": args.schemaName,
+        "sensitivityLabelSource": args.sensitivityLabelSource,
+        "tableName": args.tableName,
+    }, opts);
 }
 
 export interface GetManagedDatabaseSensitivityLabelOutputArgs {

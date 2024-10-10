@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the managed OpenShift cluster with a specified resource group and name.
  */
 export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftManagedClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20191027preview:getOpenShiftManagedCluster", {
         "resourceGroupName": args.resourceGroupName,
@@ -111,7 +110,11 @@ export interface GetOpenShiftManagedClusterResult {
  * Gets the details of the managed OpenShift cluster with a specified resource group and name.
  */
 export function getOpenShiftManagedClusterOutput(args: GetOpenShiftManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftManagedClusterResult> {
-    return pulumi.output(args).apply((a: any) => getOpenShiftManagedCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerservice/v20191027preview:getOpenShiftManagedCluster", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetOpenShiftManagedClusterOutputArgs {

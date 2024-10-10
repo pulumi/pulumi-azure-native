@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getPublicCloudConnector(args: GetPublicCloudConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicCloudConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridconnectivity:getPublicCloudConnector", {
         "publicCloudConnector": args.publicCloudConnector,
@@ -69,7 +68,11 @@ export interface GetPublicCloudConnectorResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getPublicCloudConnectorOutput(args: GetPublicCloudConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicCloudConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getPublicCloudConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity:getPublicCloudConnector", {
+        "publicCloudConnector": args.publicCloudConnector,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPublicCloudConnectorOutputArgs {

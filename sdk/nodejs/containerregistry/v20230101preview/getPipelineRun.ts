@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the detailed information for a given pipeline run.
  */
 export function getPipelineRun(args: GetPipelineRunArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineRunResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20230101preview:getPipelineRun", {
         "pipelineRunName": args.pipelineRunName,
@@ -76,7 +75,12 @@ export interface GetPipelineRunResult {
  * Gets the detailed information for a given pipeline run.
  */
 export function getPipelineRunOutput(args: GetPipelineRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineRunResult> {
-    return pulumi.output(args).apply((a: any) => getPipelineRun(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230101preview:getPipelineRun", {
+        "pipelineRunName": args.pipelineRunName,
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPipelineRunOutputArgs {

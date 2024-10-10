@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-10-01-preview.
  */
 export function getProjectPolicy(args: GetProjectPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter:getProjectPolicy", {
         "devCenterName": args.devCenterName,
@@ -74,7 +73,12 @@ export interface GetProjectPolicyResult {
  * Azure REST API version: 2024-10-01-preview.
  */
 export function getProjectPolicyOutput(args: GetProjectPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getProjectPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devcenter:getProjectPolicy", {
+        "devCenterName": args.devCenterName,
+        "projectPolicyName": args.projectPolicyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetProjectPolicyOutputArgs {

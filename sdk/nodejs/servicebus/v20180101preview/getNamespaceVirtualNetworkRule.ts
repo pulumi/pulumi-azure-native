@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets an VirtualNetworkRule for a Namespace by rule name.
  */
 export function getNamespaceVirtualNetworkRule(args: GetNamespaceVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceVirtualNetworkRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", {
         "namespaceName": args.namespaceName,
@@ -57,7 +56,12 @@ export interface GetNamespaceVirtualNetworkRuleResult {
  * Gets an VirtualNetworkRule for a Namespace by rule name.
  */
 export function getNamespaceVirtualNetworkRuleOutput(args: GetNamespaceVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceVirtualNetworkRuleResult> {
-    return pulumi.output(args).apply((a: any) => getNamespaceVirtualNetworkRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", {
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualNetworkRuleName": args.virtualNetworkRuleName,
+    }, opts);
 }
 
 export interface GetNamespaceVirtualNetworkRuleOutputArgs {

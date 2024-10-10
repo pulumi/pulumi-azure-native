@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-10-01-preview.
  */
 export function getEmployee(args: GetEmployeeArgs, opts?: pulumi.InvokeOptions): Promise<GetEmployeeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:contoso:getEmployee", {
         "employeeName": args.employeeName,
@@ -69,7 +68,11 @@ export interface GetEmployeeResult {
  * Azure REST API version: 2021-10-01-preview.
  */
 export function getEmployeeOutput(args: GetEmployeeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmployeeResult> {
-    return pulumi.output(args).apply((a: any) => getEmployee(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:contoso:getEmployee", {
+        "employeeName": args.employeeName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEmployeeOutputArgs {
