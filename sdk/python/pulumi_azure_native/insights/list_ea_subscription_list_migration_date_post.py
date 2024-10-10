@@ -73,12 +73,14 @@ def list_ea_subscription_list_migration_date_post(opts: Optional[pulumi.InvokeOp
     return AwaitableListEASubscriptionListMigrationDatePostResult(
         is_grand_fatherable_subscription=pulumi.get(__ret__, 'is_grand_fatherable_subscription'),
         opted_in_date=pulumi.get(__ret__, 'opted_in_date'))
-
-
-@_utilities.lift_output_func(list_ea_subscription_list_migration_date_post)
 def list_ea_subscription_list_migration_date_post_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEASubscriptionListMigrationDatePostResult]:
     """
     list date to migrate to new pricing model.
     Azure REST API version: 2017-10-01.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:listEASubscriptionListMigrationDatePost', __args__, opts=opts, typ=ListEASubscriptionListMigrationDatePostResult)
+    return __ret__.apply(lambda __response__: ListEASubscriptionListMigrationDatePostResult(
+        is_grand_fatherable_subscription=pulumi.get(__response__, 'is_grand_fatherable_subscription'),
+        opted_in_date=pulumi.get(__response__, 'opted_in_date')))

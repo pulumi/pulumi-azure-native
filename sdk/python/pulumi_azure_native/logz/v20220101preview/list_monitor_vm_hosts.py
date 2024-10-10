@@ -81,9 +81,6 @@ def list_monitor_vm_hosts(monitor_name: Optional[str] = None,
     return AwaitableListMonitorVMHostsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_monitor_vm_hosts)
 def list_monitor_vm_hosts_output(monitor_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMonitorVMHostsResult]:
@@ -94,4 +91,11 @@ def list_monitor_vm_hosts_output(monitor_name: Optional[pulumi.Input[str]] = Non
     :param str monitor_name: Monitor resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['monitorName'] = monitor_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:logz/v20220101preview:listMonitorVMHosts', __args__, opts=opts, typ=ListMonitorVMHostsResult)
+    return __ret__.apply(lambda __response__: ListMonitorVMHostsResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

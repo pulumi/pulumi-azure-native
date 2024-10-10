@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01.
  */
 export function getMigrateProjectsControllerMigrateProject(args: GetMigrateProjectsControllerMigrateProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrateProjectsControllerMigrateProjectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getMigrateProjectsControllerMigrateProject", {
         "migrateProjectName": args.migrateProjectName,
@@ -73,7 +72,11 @@ export interface GetMigrateProjectsControllerMigrateProjectResult {
  * Other available API versions: 2023-01-01.
  */
 export function getMigrateProjectsControllerMigrateProjectOutput(args: GetMigrateProjectsControllerMigrateProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateProjectsControllerMigrateProjectResult> {
-    return pulumi.output(args).apply((a: any) => getMigrateProjectsControllerMigrateProject(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate:getMigrateProjectsControllerMigrateProject", {
+        "migrateProjectName": args.migrateProjectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMigrateProjectsControllerMigrateProjectOutputArgs {

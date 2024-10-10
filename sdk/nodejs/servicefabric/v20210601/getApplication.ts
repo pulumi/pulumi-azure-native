@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Service Fabric application resource created or in the process of being created in the Service Fabric cluster resource.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20210601:getApplication", {
         "applicationName": args.applicationName,
@@ -116,7 +115,12 @@ export interface GetApplicationResult {
  * Get a Service Fabric application resource created or in the process of being created in the Service Fabric cluster resource.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20210601:getApplication", {
+        "applicationName": args.applicationName,
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetApplicationOutputArgs {

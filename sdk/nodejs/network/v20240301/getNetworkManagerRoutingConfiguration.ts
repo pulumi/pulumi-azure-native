@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves a network manager routing configuration.
  */
 export function getNetworkManagerRoutingConfiguration(args: GetNetworkManagerRoutingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkManagerRoutingConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:getNetworkManagerRoutingConfiguration", {
         "configurationName": args.configurationName,
@@ -76,7 +75,12 @@ export interface GetNetworkManagerRoutingConfigurationResult {
  * Retrieves a network manager routing configuration.
  */
 export function getNetworkManagerRoutingConfigurationOutput(args: GetNetworkManagerRoutingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerRoutingConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkManagerRoutingConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getNetworkManagerRoutingConfiguration", {
+        "configurationName": args.configurationName,
+        "networkManagerName": args.networkManagerName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkManagerRoutingConfigurationOutputArgs {

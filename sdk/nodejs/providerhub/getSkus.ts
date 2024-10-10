@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-09-01-preview.
  */
 export function getSkus(args: GetSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub:getSkus", {
         "providerNamespace": args.providerNamespace,
@@ -60,7 +59,12 @@ export interface GetSkusResult {
  * Azure REST API version: 2021-09-01-preview.
  */
 export function getSkusOutput(args: GetSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusResult> {
-    return pulumi.output(args).apply((a: any) => getSkus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:providerhub:getSkus", {
+        "providerNamespace": args.providerNamespace,
+        "resourceType": args.resourceType,
+        "sku": args.sku,
+    }, opts);
 }
 
 export interface GetSkusOutputArgs {

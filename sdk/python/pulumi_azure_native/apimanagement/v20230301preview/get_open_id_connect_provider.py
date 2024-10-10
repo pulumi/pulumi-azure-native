@@ -187,9 +187,6 @@ def get_open_id_connect_provider(opid: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_in_api_documentation=pulumi.get(__ret__, 'use_in_api_documentation'),
         use_in_test_console=pulumi.get(__ret__, 'use_in_test_console'))
-
-
-@_utilities.lift_output_func(get_open_id_connect_provider)
 def get_open_id_connect_provider_output(opid: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         service_name: Optional[pulumi.Input[str]] = None,
@@ -202,4 +199,20 @@ def get_open_id_connect_provider_output(opid: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    ...
+    __args__ = dict()
+    __args__['opid'] = opid
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230301preview:getOpenIdConnectProvider', __args__, opts=opts, typ=GetOpenIdConnectProviderResult)
+    return __ret__.apply(lambda __response__: GetOpenIdConnectProviderResult(
+        client_id=pulumi.get(__response__, 'client_id'),
+        client_secret=pulumi.get(__response__, 'client_secret'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        metadata_endpoint=pulumi.get(__response__, 'metadata_endpoint'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type'),
+        use_in_api_documentation=pulumi.get(__response__, 'use_in_api_documentation'),
+        use_in_test_console=pulumi.get(__response__, 'use_in_test_console')))

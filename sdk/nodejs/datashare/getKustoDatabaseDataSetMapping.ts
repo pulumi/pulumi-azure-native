@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-08-01.
  */
 export function getKustoDatabaseDataSetMapping(args: GetKustoDatabaseDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoDatabaseDataSetMappingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare:getKustoDatabaseDataSetMapping", {
         "accountName": args.accountName,
@@ -92,7 +91,13 @@ export interface GetKustoDatabaseDataSetMappingResult {
  * Azure REST API version: 2021-08-01.
  */
 export function getKustoDatabaseDataSetMappingOutput(args: GetKustoDatabaseDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoDatabaseDataSetMappingResult> {
-    return pulumi.output(args).apply((a: any) => getKustoDatabaseDataSetMapping(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datashare:getKustoDatabaseDataSetMapping", {
+        "accountName": args.accountName,
+        "dataSetMappingName": args.dataSetMappingName,
+        "resourceGroupName": args.resourceGroupName,
+        "shareSubscriptionName": args.shareSubscriptionName,
+    }, opts);
 }
 
 export interface GetKustoDatabaseDataSetMappingOutputArgs {

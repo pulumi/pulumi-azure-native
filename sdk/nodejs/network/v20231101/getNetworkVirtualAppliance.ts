@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified Network Virtual Appliance.
  */
 export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20231101:getNetworkVirtualAppliance", {
         "expand": args.expand,
@@ -148,7 +147,12 @@ export interface GetNetworkVirtualApplianceResult {
  * Gets the specified Network Virtual Appliance.
  */
 export function getNetworkVirtualApplianceOutput(args: GetNetworkVirtualApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkVirtualApplianceResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkVirtualAppliance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getNetworkVirtualAppliance", {
+        "expand": args.expand,
+        "networkVirtualApplianceName": args.networkVirtualApplianceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkVirtualApplianceOutputArgs {

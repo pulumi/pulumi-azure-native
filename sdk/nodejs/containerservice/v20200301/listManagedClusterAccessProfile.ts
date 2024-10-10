@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
  */
 export function listManagedClusterAccessProfile(args: ListManagedClusterAccessProfileArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterAccessProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20200301:listManagedClusterAccessProfile", {
         "resourceGroupName": args.resourceGroupName,
@@ -65,7 +64,12 @@ export interface ListManagedClusterAccessProfileResult {
  * Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
  */
 export function listManagedClusterAccessProfileOutput(args: ListManagedClusterAccessProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterAccessProfileResult> {
-    return pulumi.output(args).apply((a: any) => listManagedClusterAccessProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerservice/v20200301:listManagedClusterAccessProfile", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+        "roleName": args.roleName,
+    }, opts);
 }
 
 export interface ListManagedClusterAccessProfileOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets private store collection
  */
 export function getPrivateStoreCollection(args: GetPrivateStoreCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:marketplace/v20230101:getPrivateStoreCollection", {
         "collectionId": args.collectionId,
@@ -95,7 +94,11 @@ export interface GetPrivateStoreCollectionResult {
  * Gets private store collection
  */
 export function getPrivateStoreCollectionOutput(args: GetPrivateStoreCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateStoreCollection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:marketplace/v20230101:getPrivateStoreCollection", {
+        "collectionId": args.collectionId,
+        "privateStoreId": args.privateStoreId,
+    }, opts);
 }
 
 export interface GetPrivateStoreCollectionOutputArgs {

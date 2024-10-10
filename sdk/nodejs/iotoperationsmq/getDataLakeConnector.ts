@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-10-04-preview.
  */
 export function getDataLakeConnector(args: GetDataLakeConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDataLakeConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsmq:getDataLakeConnector", {
         "dataLakeConnectorName": args.dataLakeConnectorName,
@@ -110,7 +109,12 @@ export interface GetDataLakeConnectorResult {
  * Azure REST API version: 2023-10-04-preview.
  */
 export function getDataLakeConnectorOutput(args: GetDataLakeConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataLakeConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getDataLakeConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq:getDataLakeConnector", {
+        "dataLakeConnectorName": args.dataLakeConnectorName,
+        "mqName": args.mqName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDataLakeConnectorOutputArgs {

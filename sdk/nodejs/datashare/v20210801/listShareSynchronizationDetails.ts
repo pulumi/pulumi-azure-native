@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List synchronization details
  */
 export function listShareSynchronizationDetails(args: ListShareSynchronizationDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSynchronizationDetailsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:listShareSynchronizationDetails", {
         "accountName": args.accountName,
@@ -112,7 +111,24 @@ export interface ListShareSynchronizationDetailsResult {
  * List synchronization details
  */
 export function listShareSynchronizationDetailsOutput(args: ListShareSynchronizationDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSynchronizationDetailsResult> {
-    return pulumi.output(args).apply((a: any) => listShareSynchronizationDetails(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:listShareSynchronizationDetails", {
+        "accountName": args.accountName,
+        "consumerEmail": args.consumerEmail,
+        "consumerName": args.consumerName,
+        "consumerTenantName": args.consumerTenantName,
+        "durationMs": args.durationMs,
+        "endTime": args.endTime,
+        "filter": args.filter,
+        "message": args.message,
+        "orderby": args.orderby,
+        "resourceGroupName": args.resourceGroupName,
+        "shareName": args.shareName,
+        "skipToken": args.skipToken,
+        "startTime": args.startTime,
+        "status": args.status,
+        "synchronizationId": args.synchronizationId,
+    }, opts);
 }
 
 export interface ListShareSynchronizationDetailsOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get details of a certificate profile.
  */
 export function getCertificateProfile(args: GetCertificateProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:codesigning/v20240930preview:getCertificateProfile", {
         "accountName": args.accountName,
@@ -96,7 +95,12 @@ export interface GetCertificateProfileResult {
  * Get details of a certificate profile.
  */
 export function getCertificateProfileOutput(args: GetCertificateProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateProfileResult> {
-    return pulumi.output(args).apply((a: any) => getCertificateProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:codesigning/v20240930preview:getCertificateProfile", {
+        "accountName": args.accountName,
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCertificateProfileOutputArgs {

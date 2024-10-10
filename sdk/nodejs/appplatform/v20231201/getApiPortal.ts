@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the API portal and its properties.
  */
 export function getApiPortal(args: GetApiPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetApiPortalResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20231201:getApiPortal", {
         "apiPortalName": args.apiPortalName,
@@ -68,7 +67,12 @@ export interface GetApiPortalResult {
  * Get the API portal and its properties.
  */
 export function getApiPortalOutput(args: GetApiPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPortalResult> {
-    return pulumi.output(args).apply((a: any) => getApiPortal(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231201:getApiPortal", {
+        "apiPortalName": args.apiPortalName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetApiPortalOutputArgs {

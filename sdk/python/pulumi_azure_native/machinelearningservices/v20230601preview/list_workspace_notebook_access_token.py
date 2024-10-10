@@ -130,9 +130,6 @@ def list_workspace_notebook_access_token(resource_group_name: Optional[str] = No
         refresh_token=pulumi.get(__ret__, 'refresh_token'),
         scope=pulumi.get(__ret__, 'scope'),
         token_type=pulumi.get(__ret__, 'token_type'))
-
-
-@_utilities.lift_output_func(list_workspace_notebook_access_token)
 def list_workspace_notebook_access_token_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceNotebookAccessTokenResult]:
@@ -142,4 +139,17 @@ def list_workspace_notebook_access_token_output(resource_group_name: Optional[pu
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20230601preview:listWorkspaceNotebookAccessToken', __args__, opts=opts, typ=ListWorkspaceNotebookAccessTokenResult)
+    return __ret__.apply(lambda __response__: ListWorkspaceNotebookAccessTokenResult(
+        access_token=pulumi.get(__response__, 'access_token'),
+        expires_in=pulumi.get(__response__, 'expires_in'),
+        host_name=pulumi.get(__response__, 'host_name'),
+        notebook_resource_id=pulumi.get(__response__, 'notebook_resource_id'),
+        public_dns=pulumi.get(__response__, 'public_dns'),
+        refresh_token=pulumi.get(__response__, 'refresh_token'),
+        scope=pulumi.get(__response__, 'scope'),
+        token_type=pulumi.get(__response__, 'token_type')))

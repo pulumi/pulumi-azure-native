@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-02-01.
  */
 export function listBotSecrets(args: ListBotSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotSecretsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthbot:listBotSecrets", {
         "botName": args.botName,
@@ -49,7 +48,11 @@ export interface ListBotSecretsResult {
  * Other available API versions: 2024-02-01.
  */
 export function listBotSecretsOutput(args: ListBotSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listBotSecrets(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:healthbot:listBotSecrets", {
+        "botName": args.botName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListBotSecretsOutputArgs {

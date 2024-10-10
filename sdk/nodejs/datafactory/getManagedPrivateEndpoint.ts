@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-06-01.
  */
 export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrivateEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory:getManagedPrivateEndpoint", {
         "factoryName": args.factoryName,
@@ -71,7 +70,13 @@ export interface GetManagedPrivateEndpointResult {
  * Azure REST API version: 2018-06-01.
  */
 export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getManagedPrivateEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory:getManagedPrivateEndpoint", {
+        "factoryName": args.factoryName,
+        "managedPrivateEndpointName": args.managedPrivateEndpointName,
+        "managedVirtualNetworkName": args.managedVirtualNetworkName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetManagedPrivateEndpointOutputArgs {

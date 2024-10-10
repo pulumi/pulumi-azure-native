@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-05-15.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab:getSecret", {
         "expand": args.expand,
@@ -89,7 +88,14 @@ export interface GetSecretResult {
  * Other available API versions: 2016-05-15.
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
-    return pulumi.output(args).apply((a: any) => getSecret(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devtestlab:getSecret", {
+        "expand": args.expand,
+        "labName": args.labName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "userName": args.userName,
+    }, opts);
 }
 
 export interface GetSecretOutputArgs {

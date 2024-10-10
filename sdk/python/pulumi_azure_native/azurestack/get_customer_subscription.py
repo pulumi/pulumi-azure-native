@@ -125,9 +125,6 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_customer_subscription)
 def get_customer_subscription_output(customer_subscription_name: Optional[pulumi.Input[str]] = None,
                                      registration_name: Optional[pulumi.Input[str]] = None,
                                      resource_group: Optional[pulumi.Input[str]] = None,
@@ -143,4 +140,15 @@ def get_customer_subscription_output(customer_subscription_name: Optional[pulumi
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['customerSubscriptionName'] = customer_subscription_name
+    __args__['registrationName'] = registration_name
+    __args__['resourceGroup'] = resource_group
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack:getCustomerSubscription', __args__, opts=opts, typ=GetCustomerSubscriptionResult)
+    return __ret__.apply(lambda __response__: GetCustomerSubscriptionResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an existing attestation at resource group scope.
  */
 export function getAttestationAtResourceGroup(args: GetAttestationAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtResourceGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights/v20220901:getAttestationAtResourceGroup", {
         "attestationName": args.attestationName,
@@ -99,7 +98,11 @@ export interface GetAttestationAtResourceGroupResult {
  * Gets an existing attestation at resource group scope.
  */
 export function getAttestationAtResourceGroupOutput(args: GetAttestationAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtResourceGroupResult> {
-    return pulumi.output(args).apply((a: any) => getAttestationAtResourceGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:policyinsights/v20220901:getAttestationAtResourceGroup", {
+        "attestationName": args.attestationName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAttestationAtResourceGroupOutputArgs {

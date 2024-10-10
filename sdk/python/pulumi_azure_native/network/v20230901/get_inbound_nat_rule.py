@@ -269,9 +269,6 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
         protocol=pulumi.get(__ret__, 'protocol'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_inbound_nat_rule)
 def get_inbound_nat_rule_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                 inbound_nat_rule_name: Optional[pulumi.Input[str]] = None,
                                 load_balancer_name: Optional[pulumi.Input[str]] = None,
@@ -286,4 +283,27 @@ def get_inbound_nat_rule_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['inboundNatRuleName'] = inbound_nat_rule_name
+    __args__['loadBalancerName'] = load_balancer_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230901:getInboundNatRule', __args__, opts=opts, typ=GetInboundNatRuleResult)
+    return __ret__.apply(lambda __response__: GetInboundNatRuleResult(
+        backend_address_pool=pulumi.get(__response__, 'backend_address_pool'),
+        backend_ip_configuration=pulumi.get(__response__, 'backend_ip_configuration'),
+        backend_port=pulumi.get(__response__, 'backend_port'),
+        enable_floating_ip=pulumi.get(__response__, 'enable_floating_ip'),
+        enable_tcp_reset=pulumi.get(__response__, 'enable_tcp_reset'),
+        etag=pulumi.get(__response__, 'etag'),
+        frontend_ip_configuration=pulumi.get(__response__, 'frontend_ip_configuration'),
+        frontend_port=pulumi.get(__response__, 'frontend_port'),
+        frontend_port_range_end=pulumi.get(__response__, 'frontend_port_range_end'),
+        frontend_port_range_start=pulumi.get(__response__, 'frontend_port_range_start'),
+        id=pulumi.get(__response__, 'id'),
+        idle_timeout_in_minutes=pulumi.get(__response__, 'idle_timeout_in_minutes'),
+        name=pulumi.get(__response__, 'name'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type')))

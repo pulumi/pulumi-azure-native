@@ -331,9 +331,6 @@ def get_authorization_server(authsid: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_in_api_documentation=pulumi.get(__ret__, 'use_in_api_documentation'),
         use_in_test_console=pulumi.get(__ret__, 'use_in_test_console'))
-
-
-@_utilities.lift_output_func(get_authorization_server)
 def get_authorization_server_output(authsid: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     service_name: Optional[pulumi.Input[str]] = None,
@@ -346,4 +343,31 @@ def get_authorization_server_output(authsid: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    ...
+    __args__ = dict()
+    __args__['authsid'] = authsid
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:getAuthorizationServer', __args__, opts=opts, typ=GetAuthorizationServerResult)
+    return __ret__.apply(lambda __response__: GetAuthorizationServerResult(
+        authorization_endpoint=pulumi.get(__response__, 'authorization_endpoint'),
+        authorization_methods=pulumi.get(__response__, 'authorization_methods'),
+        bearer_token_sending_methods=pulumi.get(__response__, 'bearer_token_sending_methods'),
+        client_authentication_method=pulumi.get(__response__, 'client_authentication_method'),
+        client_id=pulumi.get(__response__, 'client_id'),
+        client_registration_endpoint=pulumi.get(__response__, 'client_registration_endpoint'),
+        client_secret=pulumi.get(__response__, 'client_secret'),
+        default_scope=pulumi.get(__response__, 'default_scope'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        grant_types=pulumi.get(__response__, 'grant_types'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_owner_password=pulumi.get(__response__, 'resource_owner_password'),
+        resource_owner_username=pulumi.get(__response__, 'resource_owner_username'),
+        support_state=pulumi.get(__response__, 'support_state'),
+        token_body_parameters=pulumi.get(__response__, 'token_body_parameters'),
+        token_endpoint=pulumi.get(__response__, 'token_endpoint'),
+        type=pulumi.get(__response__, 'type'),
+        use_in_api_documentation=pulumi.get(__response__, 'use_in_api_documentation'),
+        use_in_test_console=pulumi.get(__response__, 'use_in_test_console')))

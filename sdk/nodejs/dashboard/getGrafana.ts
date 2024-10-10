@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-09-01-preview, 2022-10-01-preview, 2023-09-01.
  */
 export function getGrafana(args: GetGrafanaArgs, opts?: pulumi.InvokeOptions): Promise<GetGrafanaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dashboard:getGrafana", {
         "resourceGroupName": args.resourceGroupName,
@@ -81,7 +80,11 @@ export interface GetGrafanaResult {
  * Other available API versions: 2021-09-01-preview, 2022-10-01-preview, 2023-09-01.
  */
 export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrafanaResult> {
-    return pulumi.output(args).apply((a: any) => getGrafana(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:dashboard:getGrafana", {
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetGrafanaOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get the full endpoint URL for a nested event subscription for domain topic.
  */
 export function getDomainTopicEventSubscriptionFullUrl(args: GetDomainTopicEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicEventSubscriptionFullUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20230601preview:getDomainTopicEventSubscriptionFullUrl", {
         "domainName": args.domainName,
@@ -50,7 +49,13 @@ export interface GetDomainTopicEventSubscriptionFullUrlResult {
  * Get the full endpoint URL for a nested event subscription for domain topic.
  */
 export function getDomainTopicEventSubscriptionFullUrlOutput(args: GetDomainTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicEventSubscriptionFullUrlResult> {
-    return pulumi.output(args).apply((a: any) => getDomainTopicEventSubscriptionFullUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20230601preview:getDomainTopicEventSubscriptionFullUrl", {
+        "domainName": args.domainName,
+        "eventSubscriptionName": args.eventSubscriptionName,
+        "resourceGroupName": args.resourceGroupName,
+        "topicName": args.topicName,
+    }, opts);
 }
 
 export interface GetDomainTopicEventSubscriptionFullUrlOutputArgs {

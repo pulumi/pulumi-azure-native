@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get a specific application for the requested scope by applicationId
  */
 export function getSecurityConnectorApplication(args: GetSecurityConnectorApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConnectorApplicationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20220701preview:getSecurityConnectorApplication", {
         "applicationId": args.applicationId,
@@ -65,7 +64,12 @@ export interface GetSecurityConnectorApplicationResult {
  * Get a specific application for the requested scope by applicationId
  */
 export function getSecurityConnectorApplicationOutput(args: GetSecurityConnectorApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorApplicationResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityConnectorApplication(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security/v20220701preview:getSecurityConnectorApplication", {
+        "applicationId": args.applicationId,
+        "resourceGroupName": args.resourceGroupName,
+        "securityConnectorName": args.securityConnectorName,
+    }, opts);
 }
 
 export interface GetSecurityConnectorApplicationOutputArgs {

@@ -472,9 +472,6 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
         uuid=pulumi.get(__ret__, 'uuid'),
         v_center_id=pulumi.get(__ret__, 'v_center_id'),
         vm_id=pulumi.get(__ret__, 'vm_id'))
-
-
-@_utilities.lift_output_func(get_virtual_machine)
 def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                virtual_machine_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
@@ -485,4 +482,41 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The Resource Group Name.
     :param str virtual_machine_name: Name of the virtual machine resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualMachineName'] = virtual_machine_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere/v20220715preview:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
+    return __ret__.apply(lambda __response__: GetVirtualMachineResult(
+        custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        firmware_type=pulumi.get(__response__, 'firmware_type'),
+        folder_path=pulumi.get(__response__, 'folder_path'),
+        guest_agent_profile=pulumi.get(__response__, 'guest_agent_profile'),
+        hardware_profile=pulumi.get(__response__, 'hardware_profile'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        instance_uuid=pulumi.get(__response__, 'instance_uuid'),
+        inventory_item_id=pulumi.get(__response__, 'inventory_item_id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        mo_name=pulumi.get(__response__, 'mo_name'),
+        mo_ref_id=pulumi.get(__response__, 'mo_ref_id'),
+        name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
+        os_profile=pulumi.get(__response__, 'os_profile'),
+        placement_profile=pulumi.get(__response__, 'placement_profile'),
+        power_state=pulumi.get(__response__, 'power_state'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_pool_id=pulumi.get(__response__, 'resource_pool_id'),
+        security_profile=pulumi.get(__response__, 'security_profile'),
+        smbios_uuid=pulumi.get(__response__, 'smbios_uuid'),
+        statuses=pulumi.get(__response__, 'statuses'),
+        storage_profile=pulumi.get(__response__, 'storage_profile'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        template_id=pulumi.get(__response__, 'template_id'),
+        type=pulumi.get(__response__, 'type'),
+        uuid=pulumi.get(__response__, 'uuid'),
+        v_center_id=pulumi.get(__response__, 'v_center_id'),
+        vm_id=pulumi.get(__response__, 'vm_id')))

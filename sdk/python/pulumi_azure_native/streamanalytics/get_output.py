@@ -178,9 +178,6 @@ def get_output(job_name: Optional[str] = None,
         size_window=pulumi.get(__ret__, 'size_window'),
         time_window=pulumi.get(__ret__, 'time_window'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_output)
 def get_output_output(job_name: Optional[pulumi.Input[str]] = None,
                       output_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -196,4 +193,19 @@ def get_output_output(job_name: Optional[pulumi.Input[str]] = None,
     :param str output_name: The name of the output.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['jobName'] = job_name
+    __args__['outputName'] = output_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:streamanalytics:getOutput', __args__, opts=opts, typ=GetOutputResult)
+    return __ret__.apply(lambda __response__: GetOutputResult(
+        datasource=pulumi.get(__response__, 'datasource'),
+        diagnostics=pulumi.get(__response__, 'diagnostics'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        serialization=pulumi.get(__response__, 'serialization'),
+        size_window=pulumi.get(__response__, 'size_window'),
+        time_window=pulumi.get(__response__, 'time_window'),
+        type=pulumi.get(__response__, 'type')))

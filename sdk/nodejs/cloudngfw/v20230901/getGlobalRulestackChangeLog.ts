@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get changelog
  */
 export function getGlobalRulestackChangeLog(args: GetGlobalRulestackChangeLogArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalRulestackChangeLogResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20230901:getGlobalRulestackChangeLog", {
         "globalRulestackName": args.globalRulestackName,
@@ -43,7 +42,10 @@ export interface GetGlobalRulestackChangeLogResult {
  * Get changelog
  */
 export function getGlobalRulestackChangeLogOutput(args: GetGlobalRulestackChangeLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalRulestackChangeLogResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalRulestackChangeLog(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20230901:getGlobalRulestackChangeLog", {
+        "globalRulestackName": args.globalRulestackName,
+    }, opts);
 }
 
 export interface GetGlobalRulestackChangeLogOutputArgs {

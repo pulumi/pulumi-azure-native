@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Resource representation of a IacProfile.
  */
 export function getIacProfile(args: GetIacProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetIacProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devhub/v20240801preview:getIacProfile", {
         "iacProfileName": args.iacProfileName,
@@ -113,7 +112,11 @@ export interface GetIacProfileResult {
  * Resource representation of a IacProfile.
  */
 export function getIacProfileOutput(args: GetIacProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIacProfileResult> {
-    return pulumi.output(args).apply((a: any) => getIacProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devhub/v20240801preview:getIacProfile", {
+        "iacProfileName": args.iacProfileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIacProfileOutputArgs {

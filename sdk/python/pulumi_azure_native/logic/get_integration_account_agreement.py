@@ -243,9 +243,6 @@ def get_integration_account_agreement(agreement_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_integration_account_agreement)
 def get_integration_account_agreement_output(agreement_name: Optional[pulumi.Input[str]] = None,
                                              integration_account_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -261,4 +258,24 @@ def get_integration_account_agreement_output(agreement_name: Optional[pulumi.Inp
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['agreementName'] = agreement_name
+    __args__['integrationAccountName'] = integration_account_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getIntegrationAccountAgreement', __args__, opts=opts, typ=GetIntegrationAccountAgreementResult)
+    return __ret__.apply(lambda __response__: GetIntegrationAccountAgreementResult(
+        agreement_type=pulumi.get(__response__, 'agreement_type'),
+        changed_time=pulumi.get(__response__, 'changed_time'),
+        content=pulumi.get(__response__, 'content'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        guest_identity=pulumi.get(__response__, 'guest_identity'),
+        guest_partner=pulumi.get(__response__, 'guest_partner'),
+        host_identity=pulumi.get(__response__, 'host_identity'),
+        host_partner=pulumi.get(__response__, 'host_partner'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

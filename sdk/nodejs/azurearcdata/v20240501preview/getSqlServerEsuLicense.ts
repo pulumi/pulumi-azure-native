@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves a SQL Server ESU license resource
  */
 export function getSqlServerEsuLicense(args: GetSqlServerEsuLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerEsuLicenseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20240501preview:getSqlServerEsuLicense", {
         "resourceGroupName": args.resourceGroupName,
@@ -67,7 +66,11 @@ export interface GetSqlServerEsuLicenseResult {
  * Retrieves a SQL Server ESU license resource
  */
 export function getSqlServerEsuLicenseOutput(args: GetSqlServerEsuLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerEsuLicenseResult> {
-    return pulumi.output(args).apply((a: any) => getSqlServerEsuLicense(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20240501preview:getSqlServerEsuLicense", {
+        "resourceGroupName": args.resourceGroupName,
+        "sqlServerEsuLicenseName": args.sqlServerEsuLicenseName,
+    }, opts);
 }
 
 export interface GetSqlServerEsuLicenseOutputArgs {

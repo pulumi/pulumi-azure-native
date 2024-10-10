@@ -90,9 +90,6 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
     return AwaitableListRemediationDeploymentsAtManagementGroupResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_remediation_deployments_at_management_group)
 def list_remediation_deployments_at_management_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                                             management_groups_namespace: Optional[pulumi.Input[str]] = None,
                                                             remediation_name: Optional[pulumi.Input[str]] = None,
@@ -110,4 +107,13 @@ def list_remediation_deployments_at_management_group_output(management_group_id:
     :param str remediation_name: The name of the remediation.
     :param int top: Maximum number of records to return.
     """
-    ...
+    __args__ = dict()
+    __args__['managementGroupId'] = management_group_id
+    __args__['managementGroupsNamespace'] = management_groups_namespace
+    __args__['remediationName'] = remediation_name
+    __args__['top'] = top
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights:listRemediationDeploymentsAtManagementGroup', __args__, opts=opts, typ=ListRemediationDeploymentsAtManagementGroupResult)
+    return __ret__.apply(lambda __response__: ListRemediationDeploymentsAtManagementGroupResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

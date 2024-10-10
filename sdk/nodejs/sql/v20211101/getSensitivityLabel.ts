@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the sensitivity label of a given column
  */
 export function getSensitivityLabel(args: GetSensitivityLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetSensitivityLabelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getSensitivityLabel", {
         "columnName": args.columnName,
@@ -110,7 +109,16 @@ export interface GetSensitivityLabelResult {
  * Gets the sensitivity label of a given column
  */
 export function getSensitivityLabelOutput(args: GetSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitivityLabelResult> {
-    return pulumi.output(args).apply((a: any) => getSensitivityLabel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getSensitivityLabel", {
+        "columnName": args.columnName,
+        "databaseName": args.databaseName,
+        "resourceGroupName": args.resourceGroupName,
+        "schemaName": args.schemaName,
+        "sensitivityLabelSource": args.sensitivityLabelSource,
+        "serverName": args.serverName,
+        "tableName": args.tableName,
+    }, opts);
 }
 
 export interface GetSensitivityLabelOutputArgs {

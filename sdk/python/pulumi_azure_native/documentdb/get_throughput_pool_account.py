@@ -165,9 +165,6 @@ def get_throughput_pool_account(resource_group_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_throughput_pool_account)
 def get_throughput_pool_account_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        throughput_pool_account_name: Optional[pulumi.Input[str]] = None,
                                        throughput_pool_name: Optional[pulumi.Input[str]] = None,
@@ -183,4 +180,18 @@ def get_throughput_pool_account_output(resource_group_name: Optional[pulumi.Inpu
     :param str throughput_pool_account_name: Cosmos DB global database account in a Throughput Pool
     :param str throughput_pool_name: Cosmos DB Throughput Pool name.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['throughputPoolAccountName'] = throughput_pool_account_name
+    __args__['throughputPoolName'] = throughput_pool_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb:getThroughputPoolAccount', __args__, opts=opts, typ=GetThroughputPoolAccountResult)
+    return __ret__.apply(lambda __response__: GetThroughputPoolAccountResult(
+        account_instance_id=pulumi.get(__response__, 'account_instance_id'),
+        account_location=pulumi.get(__response__, 'account_location'),
+        account_resource_identifier=pulumi.get(__response__, 'account_resource_identifier'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

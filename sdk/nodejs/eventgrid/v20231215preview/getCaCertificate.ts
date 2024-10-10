@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get properties of a CA certificate.
  */
 export function getCaCertificate(args: GetCaCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCaCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20231215preview:getCaCertificate", {
         "caCertificateName": args.caCertificateName,
@@ -80,7 +79,12 @@ export interface GetCaCertificateResult {
  * Get properties of a CA certificate.
  */
 export function getCaCertificateOutput(args: GetCaCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCaCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getCaCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getCaCertificate", {
+        "caCertificateName": args.caCertificateName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCaCertificateOutputArgs {

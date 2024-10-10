@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the console for the user.
  */
 export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal/v20181001:getConsole", {
         "consoleName": args.consoleName,
@@ -38,7 +37,10 @@ export interface GetConsoleResult {
  * Gets the console for the user.
  */
 export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {
-    return pulumi.output(args).apply((a: any) => getConsole(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:portal/v20181001:getConsole", {
+        "consoleName": args.consoleName,
+    }, opts);
 }
 
 export interface GetConsoleOutputArgs {

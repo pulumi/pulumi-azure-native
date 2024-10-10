@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2014-04-01.
  */
 export function getDatabaseThreatDetectionPolicy(args: GetDatabaseThreatDetectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseThreatDetectionPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql:getDatabaseThreatDetectionPolicy", {
         "databaseName": args.databaseName,
@@ -96,7 +95,13 @@ export interface GetDatabaseThreatDetectionPolicyResult {
  * Azure REST API version: 2014-04-01.
  */
 export function getDatabaseThreatDetectionPolicyOutput(args: GetDatabaseThreatDetectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseThreatDetectionPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getDatabaseThreatDetectionPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql:getDatabaseThreatDetectionPolicy", {
+        "databaseName": args.databaseName,
+        "resourceGroupName": args.resourceGroupName,
+        "securityAlertPolicyName": args.securityAlertPolicyName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetDatabaseThreatDetectionPolicyOutputArgs {

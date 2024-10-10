@@ -263,9 +263,6 @@ def get_virtual_machine_instance(resource_uri: Optional[str] = None,
         storage_profile=pulumi.get(__ret__, 'storage_profile'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_virtual_machine_instance)
 def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineInstanceResult]:
     """
@@ -277,4 +274,24 @@ def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceUri'] = resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getVirtualMachineInstance', __args__, opts=opts, typ=GetVirtualMachineInstanceResult)
+    return __ret__.apply(lambda __response__: GetVirtualMachineInstanceResult(
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        hardware_profile=pulumi.get(__response__, 'hardware_profile'),
+        id=pulumi.get(__response__, 'id'),
+        infrastructure_profile=pulumi.get(__response__, 'infrastructure_profile'),
+        name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
+        os_profile=pulumi.get(__response__, 'os_profile'),
+        placement_profile=pulumi.get(__response__, 'placement_profile'),
+        power_state=pulumi.get(__response__, 'power_state'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_uid=pulumi.get(__response__, 'resource_uid'),
+        security_profile=pulumi.get(__response__, 'security_profile'),
+        statuses=pulumi.get(__response__, 'statuses'),
+        storage_profile=pulumi.get(__response__, 'storage_profile'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

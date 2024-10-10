@@ -175,9 +175,6 @@ def get_ca_certificate(ca_certificate_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_ca_certificate)
 def get_ca_certificate_output(ca_certificate_name: Optional[pulumi.Input[str]] = None,
                               namespace_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_ca_certificate_output(ca_certificate_name: Optional[pulumi.Input[str]] =
     :param str namespace_name: Name of the namespace.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['caCertificateName'] = ca_certificate_name
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20230601preview:getCaCertificate', __args__, opts=opts, typ=GetCaCertificateResult)
+    return __ret__.apply(lambda __response__: GetCaCertificateResult(
+        description=pulumi.get(__response__, 'description'),
+        encoded_certificate=pulumi.get(__response__, 'encoded_certificate'),
+        expiry_time_in_utc=pulumi.get(__response__, 'expiry_time_in_utc'),
+        id=pulumi.get(__response__, 'id'),
+        issue_time_in_utc=pulumi.get(__response__, 'issue_time_in_utc'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

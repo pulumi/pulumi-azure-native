@@ -143,9 +143,6 @@ def get_configuration_profile(profile_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_configuration_profile)
 def get_configuration_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileResult]:
     """
@@ -154,4 +151,15 @@ def get_configuration_profile_output(profile_name: Optional[pulumi.Input[str]] =
 
     :param str profile_name: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
     """
-    ...
+    __args__ = dict()
+    __args__['profileName'] = profile_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:changeanalysis/v20200401preview:getConfigurationProfile', __args__, opts=opts, typ=GetConfigurationProfileResult)
+    return __ret__.apply(lambda __response__: GetConfigurationProfileResult(
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

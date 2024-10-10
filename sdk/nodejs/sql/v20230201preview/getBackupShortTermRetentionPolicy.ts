@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a database's short term retention policy.
  */
 export function getBackupShortTermRetentionPolicy(args: GetBackupShortTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupShortTermRetentionPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230201preview:getBackupShortTermRetentionPolicy", {
         "databaseName": args.databaseName,
@@ -66,7 +65,13 @@ export interface GetBackupShortTermRetentionPolicyResult {
  * Gets a database's short term retention policy.
  */
 export function getBackupShortTermRetentionPolicyOutput(args: GetBackupShortTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupShortTermRetentionPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBackupShortTermRetentionPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20230201preview:getBackupShortTermRetentionPolicy", {
+        "databaseName": args.databaseName,
+        "policyName": args.policyName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetBackupShortTermRetentionPolicyOutputArgs {

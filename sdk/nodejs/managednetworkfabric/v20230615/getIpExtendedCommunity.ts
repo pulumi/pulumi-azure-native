@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Implements IP Extended Community GET method.
  */
 export function getIpExtendedCommunity(args: GetIpExtendedCommunityArgs, opts?: pulumi.InvokeOptions): Promise<GetIpExtendedCommunityResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230615:getIpExtendedCommunity", {
         "ipExtendedCommunityName": args.ipExtendedCommunityName,
@@ -83,7 +82,11 @@ export interface GetIpExtendedCommunityResult {
  * Implements IP Extended Community GET method.
  */
 export function getIpExtendedCommunityOutput(args: GetIpExtendedCommunityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpExtendedCommunityResult> {
-    return pulumi.output(args).apply((a: any) => getIpExtendedCommunity(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getIpExtendedCommunity", {
+        "ipExtendedCommunityName": args.ipExtendedCommunityName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIpExtendedCommunityOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a data flow.
  */
 export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetDataFlowResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getDataFlow", {
         "dataFlowName": args.dataFlowName,
@@ -64,7 +63,12 @@ export interface GetDataFlowResult {
  * Gets a data flow.
  */
 export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataFlowResult> {
-    return pulumi.output(args).apply((a: any) => getDataFlow(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getDataFlow", {
+        "dataFlowName": args.dataFlowName,
+        "factoryName": args.factoryName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDataFlowOutputArgs {

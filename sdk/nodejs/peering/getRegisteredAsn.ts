@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-10-01.
  */
 export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredAsnResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering:getRegisteredAsn", {
         "peeringName": args.peeringName,
@@ -67,7 +66,12 @@ export interface GetRegisteredAsnResult {
  * Azure REST API version: 2022-10-01.
  */
 export function getRegisteredAsnOutput(args: GetRegisteredAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredAsnResult> {
-    return pulumi.output(args).apply((a: any) => getRegisteredAsn(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:peering:getRegisteredAsn", {
+        "peeringName": args.peeringName,
+        "registeredAsnName": args.registeredAsnName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRegisteredAsnOutputArgs {

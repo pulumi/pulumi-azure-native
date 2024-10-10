@@ -674,9 +674,6 @@ def get_assessments_operation(assessment_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'),
         vm_uptime=pulumi.get(__ret__, 'vm_uptime'))
-
-
-@_utilities.lift_output_func(get_assessments_operation)
 def get_assessments_operation_output(assessment_name: Optional[pulumi.Input[str]] = None,
                                      group_name: Optional[pulumi.Input[str]] = None,
                                      project_name: Optional[pulumi.Input[str]] = None,
@@ -694,4 +691,57 @@ def get_assessments_operation_output(assessment_name: Optional[pulumi.Input[str]
     :param str project_name: Assessment Project Name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['assessmentName'] = assessment_name
+    __args__['groupName'] = group_name
+    __args__['projectName'] = project_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getAssessmentsOperation', __args__, opts=opts, typ=GetAssessmentsOperationResult)
+    return __ret__.apply(lambda __response__: GetAssessmentsOperationResult(
+        assessment_error_summary=pulumi.get(__response__, 'assessment_error_summary'),
+        assessment_type=pulumi.get(__response__, 'assessment_type'),
+        azure_disk_types=pulumi.get(__response__, 'azure_disk_types'),
+        azure_hybrid_use_benefit=pulumi.get(__response__, 'azure_hybrid_use_benefit'),
+        azure_location=pulumi.get(__response__, 'azure_location'),
+        azure_offer_code=pulumi.get(__response__, 'azure_offer_code'),
+        azure_pricing_tier=pulumi.get(__response__, 'azure_pricing_tier'),
+        azure_storage_redundancy=pulumi.get(__response__, 'azure_storage_redundancy'),
+        azure_vm_families=pulumi.get(__response__, 'azure_vm_families'),
+        confidence_rating_in_percentage=pulumi.get(__response__, 'confidence_rating_in_percentage'),
+        cost_components=pulumi.get(__response__, 'cost_components'),
+        created_timestamp=pulumi.get(__response__, 'created_timestamp'),
+        currency=pulumi.get(__response__, 'currency'),
+        discount_percentage=pulumi.get(__response__, 'discount_percentage'),
+        distribution_by_os_name=pulumi.get(__response__, 'distribution_by_os_name'),
+        distribution_by_service_pack_insight=pulumi.get(__response__, 'distribution_by_service_pack_insight'),
+        distribution_by_support_status=pulumi.get(__response__, 'distribution_by_support_status'),
+        ea_subscription_id=pulumi.get(__response__, 'ea_subscription_id'),
+        group_type=pulumi.get(__response__, 'group_type'),
+        id=pulumi.get(__response__, 'id'),
+        linux_azure_hybrid_use_benefit=pulumi.get(__response__, 'linux_azure_hybrid_use_benefit'),
+        monthly_bandwidth_cost=pulumi.get(__response__, 'monthly_bandwidth_cost'),
+        monthly_compute_cost=pulumi.get(__response__, 'monthly_compute_cost'),
+        monthly_premium_storage_cost=pulumi.get(__response__, 'monthly_premium_storage_cost'),
+        monthly_standard_ssd_storage_cost=pulumi.get(__response__, 'monthly_standard_ssd_storage_cost'),
+        monthly_storage_cost=pulumi.get(__response__, 'monthly_storage_cost'),
+        monthly_ultra_storage_cost=pulumi.get(__response__, 'monthly_ultra_storage_cost'),
+        name=pulumi.get(__response__, 'name'),
+        number_of_machines=pulumi.get(__response__, 'number_of_machines'),
+        percentile=pulumi.get(__response__, 'percentile'),
+        perf_data_end_time=pulumi.get(__response__, 'perf_data_end_time'),
+        perf_data_start_time=pulumi.get(__response__, 'perf_data_start_time'),
+        prices_timestamp=pulumi.get(__response__, 'prices_timestamp'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        reserved_instance=pulumi.get(__response__, 'reserved_instance'),
+        scaling_factor=pulumi.get(__response__, 'scaling_factor'),
+        schema_version=pulumi.get(__response__, 'schema_version'),
+        sizing_criterion=pulumi.get(__response__, 'sizing_criterion'),
+        stage=pulumi.get(__response__, 'stage'),
+        status=pulumi.get(__response__, 'status'),
+        suitability_summary=pulumi.get(__response__, 'suitability_summary'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        time_range=pulumi.get(__response__, 'time_range'),
+        type=pulumi.get(__response__, 'type'),
+        updated_timestamp=pulumi.get(__response__, 'updated_timestamp'),
+        vm_uptime=pulumi.get(__response__, 'vm_uptime')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified virtual network tap.
  */
 export function getVirtualNetworkTap(args: GetVirtualNetworkTapArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkTapResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230401:getVirtualNetworkTap", {
         "resourceGroupName": args.resourceGroupName,
@@ -87,7 +86,11 @@ export interface GetVirtualNetworkTapResult {
  * Gets information about the specified virtual network tap.
  */
 export function getVirtualNetworkTapOutput(args: GetVirtualNetworkTapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkTapResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkTap(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230401:getVirtualNetworkTap", {
+        "resourceGroupName": args.resourceGroupName,
+        "tapName": args.tapName,
+    }, opts);
 }
 
 export interface GetVirtualNetworkTapOutputArgs {

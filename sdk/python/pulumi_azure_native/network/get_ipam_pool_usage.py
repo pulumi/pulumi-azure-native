@@ -176,9 +176,6 @@ def get_ipam_pool_usage(network_manager_name: Optional[str] = None,
         number_of_reserved_ip_addresses=pulumi.get(__ret__, 'number_of_reserved_ip_addresses'),
         reserved_address_prefixes=pulumi.get(__ret__, 'reserved_address_prefixes'),
         total_number_of_ip_addresses=pulumi.get(__ret__, 'total_number_of_ip_addresses'))
-
-
-@_utilities.lift_output_func(get_ipam_pool_usage)
 def get_ipam_pool_usage_output(network_manager_name: Optional[pulumi.Input[str]] = None,
                                pool_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -192,4 +189,19 @@ def get_ipam_pool_usage_output(network_manager_name: Optional[pulumi.Input[str]]
     :param str pool_name: Pool resource name.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['networkManagerName'] = network_manager_name
+    __args__['poolName'] = pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getIpamPoolUsage', __args__, opts=opts, typ=GetIpamPoolUsageResult)
+    return __ret__.apply(lambda __response__: GetIpamPoolUsageResult(
+        address_prefixes=pulumi.get(__response__, 'address_prefixes'),
+        allocated_address_prefixes=pulumi.get(__response__, 'allocated_address_prefixes'),
+        available_address_prefixes=pulumi.get(__response__, 'available_address_prefixes'),
+        child_pools=pulumi.get(__response__, 'child_pools'),
+        number_of_allocated_ip_addresses=pulumi.get(__response__, 'number_of_allocated_ip_addresses'),
+        number_of_available_ip_addresses=pulumi.get(__response__, 'number_of_available_ip_addresses'),
+        number_of_reserved_ip_addresses=pulumi.get(__response__, 'number_of_reserved_ip_addresses'),
+        reserved_address_prefixes=pulumi.get(__response__, 'reserved_address_prefixes'),
+        total_number_of_ip_addresses=pulumi.get(__response__, 'total_number_of_ip_addresses')))

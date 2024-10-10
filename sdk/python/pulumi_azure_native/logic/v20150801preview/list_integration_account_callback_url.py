@@ -67,9 +67,6 @@ def list_integration_account_callback_url(integration_account_name: Optional[str
 
     return AwaitableListIntegrationAccountCallbackUrlResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_integration_account_callback_url)
 def list_integration_account_callback_url_output(integration_account_name: Optional[pulumi.Input[str]] = None,
                                                  not_after: Optional[pulumi.Input[Optional[str]]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -82,4 +79,11 @@ def list_integration_account_callback_url_output(integration_account_name: Optio
     :param str not_after: The expiry time.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['integrationAccountName'] = integration_account_name
+    __args__['notAfter'] = not_after
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20150801preview:listIntegrationAccountCallbackUrl', __args__, opts=opts, typ=ListIntegrationAccountCallbackUrlResult)
+    return __ret__.apply(lambda __response__: ListIntegrationAccountCallbackUrlResult(
+        value=pulumi.get(__response__, 'value')))

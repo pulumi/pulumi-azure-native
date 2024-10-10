@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Lists all applicable schedules
  */
 export function listScheduleApplicable(args: ListScheduleApplicableArgs, opts?: pulumi.InvokeOptions): Promise<ListScheduleApplicableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:listScheduleApplicable", {
         "labName": args.labName,
@@ -52,7 +51,12 @@ export interface ListScheduleApplicableResult {
  * Lists all applicable schedules
  */
 export function listScheduleApplicableOutput(args: ListScheduleApplicableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListScheduleApplicableResult> {
-    return pulumi.output(args).apply((a: any) => listScheduleApplicable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:listScheduleApplicable", {
+        "labName": args.labName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListScheduleApplicableOutputArgs {

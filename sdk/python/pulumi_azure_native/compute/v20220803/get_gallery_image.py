@@ -318,9 +318,6 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
         release_note_uri=pulumi.get(__ret__, 'release_note_uri'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_gallery_image)
 def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = None,
                              gallery_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -333,4 +330,30 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
     :param str gallery_name: The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['galleryImageName'] = gallery_image_name
+    __args__['galleryName'] = gallery_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20220803:getGalleryImage', __args__, opts=opts, typ=GetGalleryImageResult)
+    return __ret__.apply(lambda __response__: GetGalleryImageResult(
+        architecture=pulumi.get(__response__, 'architecture'),
+        description=pulumi.get(__response__, 'description'),
+        disallowed=pulumi.get(__response__, 'disallowed'),
+        end_of_life_date=pulumi.get(__response__, 'end_of_life_date'),
+        eula=pulumi.get(__response__, 'eula'),
+        features=pulumi.get(__response__, 'features'),
+        hyper_v_generation=pulumi.get(__response__, 'hyper_v_generation'),
+        id=pulumi.get(__response__, 'id'),
+        identifier=pulumi.get(__response__, 'identifier'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        os_state=pulumi.get(__response__, 'os_state'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        privacy_statement_uri=pulumi.get(__response__, 'privacy_statement_uri'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        purchase_plan=pulumi.get(__response__, 'purchase_plan'),
+        recommended=pulumi.get(__response__, 'recommended'),
+        release_note_uri=pulumi.get(__response__, 'release_note_uri'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

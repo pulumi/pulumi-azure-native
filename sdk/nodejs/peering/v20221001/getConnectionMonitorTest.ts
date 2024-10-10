@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
  */
 export function getConnectionMonitorTest(args: GetConnectionMonitorTestArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorTestResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20221001:getConnectionMonitorTest", {
         "connectionMonitorTestName": args.connectionMonitorTestName,
@@ -81,7 +80,12 @@ export interface GetConnectionMonitorTestResult {
  * Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
  */
 export function getConnectionMonitorTestOutput(args: GetConnectionMonitorTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorTestResult> {
-    return pulumi.output(args).apply((a: any) => getConnectionMonitorTest(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:peering/v20221001:getConnectionMonitorTest", {
+        "connectionMonitorTestName": args.connectionMonitorTestName,
+        "peeringServiceName": args.peeringServiceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetConnectionMonitorTestOutputArgs {

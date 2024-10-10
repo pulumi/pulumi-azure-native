@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-05-01.
  */
 export function getProactiveDetectionConfiguration(args: GetProactiveDetectionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetProactiveDetectionConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getProactiveDetectionConfiguration", {
         "configurationId": args.configurationId,
@@ -86,7 +85,12 @@ export interface GetProactiveDetectionConfigurationResult {
  * Other available API versions: 2015-05-01.
  */
 export function getProactiveDetectionConfigurationOutput(args: GetProactiveDetectionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProactiveDetectionConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getProactiveDetectionConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights:getProactiveDetectionConfiguration", {
+        "configurationId": args.configurationId,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetProactiveDetectionConfigurationOutputArgs {

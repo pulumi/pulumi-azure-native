@@ -217,9 +217,6 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         table_level_sharing_properties=pulumi.get(__ret__, 'table_level_sharing_properties'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_attached_database_configuration)
 def get_attached_database_configuration_output(attached_database_configuration_name: Optional[pulumi.Input[str]] = None,
                                                cluster_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -235,4 +232,22 @@ def get_attached_database_configuration_output(attached_database_configuration_n
     :param str cluster_name: The name of the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['attachedDatabaseConfigurationName'] = attached_database_configuration_name
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:kusto:getAttachedDatabaseConfiguration', __args__, opts=opts, typ=GetAttachedDatabaseConfigurationResult)
+    return __ret__.apply(lambda __response__: GetAttachedDatabaseConfigurationResult(
+        attached_database_names=pulumi.get(__response__, 'attached_database_names'),
+        cluster_resource_id=pulumi.get(__response__, 'cluster_resource_id'),
+        database_name=pulumi.get(__response__, 'database_name'),
+        database_name_override=pulumi.get(__response__, 'database_name_override'),
+        database_name_prefix=pulumi.get(__response__, 'database_name_prefix'),
+        default_principals_modification_kind=pulumi.get(__response__, 'default_principals_modification_kind'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        table_level_sharing_properties=pulumi.get(__response__, 'table_level_sharing_properties'),
+        type=pulumi.get(__response__, 'type')))

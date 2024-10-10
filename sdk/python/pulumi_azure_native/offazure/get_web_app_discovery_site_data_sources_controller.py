@@ -142,9 +142,6 @@ def get_web_app_discovery_site_data_sources_controller(discovery_site_data_sourc
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_web_app_discovery_site_data_sources_controller)
 def get_web_app_discovery_site_data_sources_controller_output(discovery_site_data_source_name: Optional[pulumi.Input[str]] = None,
                                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                                               site_name: Optional[pulumi.Input[str]] = None,
@@ -162,4 +159,17 @@ def get_web_app_discovery_site_data_sources_controller_output(discovery_site_dat
     :param str site_name: Site name
     :param str web_app_site_name: Web app site name.
     """
-    ...
+    __args__ = dict()
+    __args__['discoverySiteDataSourceName'] = discovery_site_data_source_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['siteName'] = site_name
+    __args__['webAppSiteName'] = web_app_site_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:offazure:getWebAppDiscoverySiteDataSourcesController', __args__, opts=opts, typ=GetWebAppDiscoverySiteDataSourcesControllerResult)
+    return __ret__.apply(lambda __response__: GetWebAppDiscoverySiteDataSourcesControllerResult(
+        discovery_site_id=pulumi.get(__response__, 'discovery_site_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

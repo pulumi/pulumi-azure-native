@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Description for Get site extension information by its ID for a web site, or a deployment slot.
  */
 export function getWebAppSiteExtension(args: GetWebAppSiteExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20230101:getWebAppSiteExtension", {
         "name": args.name,
@@ -134,7 +133,12 @@ export interface GetWebAppSiteExtensionResult {
  * Description for Get site extension information by its ID for a web site, or a deployment slot.
  */
 export function getWebAppSiteExtensionOutput(args: GetWebAppSiteExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteExtensionResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppSiteExtension(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20230101:getWebAppSiteExtension", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "siteExtensionId": args.siteExtensionId,
+    }, opts);
 }
 
 export interface GetWebAppSiteExtensionOutputArgs {

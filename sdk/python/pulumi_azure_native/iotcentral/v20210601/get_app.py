@@ -211,9 +211,6 @@ def get_app(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template=pulumi.get(__ret__, 'template'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_app)
 def get_app_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    resource_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
@@ -224,4 +221,21 @@ def get_app_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.
     :param str resource_name: The ARM resource name of the IoT Central application.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:iotcentral/v20210601:getApp', __args__, opts=opts, typ=GetAppResult)
+    return __ret__.apply(lambda __response__: GetAppResult(
+        application_id=pulumi.get(__response__, 'application_id'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        sku=pulumi.get(__response__, 'sku'),
+        state=pulumi.get(__response__, 'state'),
+        subdomain=pulumi.get(__response__, 'subdomain'),
+        tags=pulumi.get(__response__, 'tags'),
+        template=pulumi.get(__response__, 'template'),
+        type=pulumi.get(__response__, 'type')))

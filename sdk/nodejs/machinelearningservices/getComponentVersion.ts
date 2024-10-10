@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getComponentVersion(args: GetComponentVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getComponentVersion", {
         "name": args.name,
@@ -75,7 +74,13 @@ export interface GetComponentVersionResult {
  * Other available API versions: 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getComponentVersionOutput(args: GetComponentVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentVersionResult> {
-    return pulumi.output(args).apply((a: any) => getComponentVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getComponentVersion", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "version": args.version,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetComponentVersionOutputArgs {

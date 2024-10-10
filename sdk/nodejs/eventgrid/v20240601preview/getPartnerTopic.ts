@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get properties of a partner topic.
  */
 export function getPartnerTopic(args: GetPartnerTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20240601preview:getPartnerTopic", {
         "partnerTopicName": args.partnerTopicName,
@@ -101,7 +100,11 @@ export interface GetPartnerTopicResult {
  * Get properties of a partner topic.
  */
 export function getPartnerTopicOutput(args: GetPartnerTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicResult> {
-    return pulumi.output(args).apply((a: any) => getPartnerTopic(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getPartnerTopic", {
+        "partnerTopicName": args.partnerTopicName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPartnerTopicOutputArgs {

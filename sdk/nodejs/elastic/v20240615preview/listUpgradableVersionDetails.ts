@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Stack Versions that this version can upgrade to
  */
 export function listUpgradableVersionDetails(args: ListUpgradableVersionDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListUpgradableVersionDetailsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic/v20240615preview:listUpgradableVersionDetails", {
         "monitorName": args.monitorName,
@@ -44,7 +43,11 @@ export interface ListUpgradableVersionDetailsResult {
  * Stack Versions that this version can upgrade to
  */
 export function listUpgradableVersionDetailsOutput(args: ListUpgradableVersionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUpgradableVersionDetailsResult> {
-    return pulumi.output(args).apply((a: any) => listUpgradableVersionDetails(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:elastic/v20240615preview:listUpgradableVersionDetails", {
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListUpgradableVersionDetailsOutputArgs {

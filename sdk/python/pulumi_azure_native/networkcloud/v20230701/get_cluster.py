@@ -443,9 +443,6 @@ def get_cluster(cluster_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         workload_resource_ids=pulumi.get(__ret__, 'workload_resource_ids'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -456,4 +453,39 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20230701:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        aggregator_or_single_rack_definition=pulumi.get(__response__, 'aggregator_or_single_rack_definition'),
+        analytics_workspace_id=pulumi.get(__response__, 'analytics_workspace_id'),
+        available_upgrade_versions=pulumi.get(__response__, 'available_upgrade_versions'),
+        cluster_capacity=pulumi.get(__response__, 'cluster_capacity'),
+        cluster_connection_status=pulumi.get(__response__, 'cluster_connection_status'),
+        cluster_extended_location=pulumi.get(__response__, 'cluster_extended_location'),
+        cluster_location=pulumi.get(__response__, 'cluster_location'),
+        cluster_manager_connection_status=pulumi.get(__response__, 'cluster_manager_connection_status'),
+        cluster_manager_id=pulumi.get(__response__, 'cluster_manager_id'),
+        cluster_service_principal=pulumi.get(__response__, 'cluster_service_principal'),
+        cluster_type=pulumi.get(__response__, 'cluster_type'),
+        cluster_version=pulumi.get(__response__, 'cluster_version'),
+        compute_deployment_threshold=pulumi.get(__response__, 'compute_deployment_threshold'),
+        compute_rack_definitions=pulumi.get(__response__, 'compute_rack_definitions'),
+        detailed_status=pulumi.get(__response__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        hybrid_aks_extended_location=pulumi.get(__response__, 'hybrid_aks_extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        managed_resource_group_configuration=pulumi.get(__response__, 'managed_resource_group_configuration'),
+        manual_action_count=pulumi.get(__response__, 'manual_action_count'),
+        name=pulumi.get(__response__, 'name'),
+        network_fabric_id=pulumi.get(__response__, 'network_fabric_id'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        support_expiry_date=pulumi.get(__response__, 'support_expiry_date'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        workload_resource_ids=pulumi.get(__response__, 'workload_resource_ids')))

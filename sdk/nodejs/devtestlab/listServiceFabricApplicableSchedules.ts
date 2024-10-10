@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-09-15.
  */
 export function listServiceFabricApplicableSchedules(args: ListServiceFabricApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceFabricApplicableSchedulesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab:listServiceFabricApplicableSchedules", {
         "labName": args.labName,
@@ -79,7 +78,13 @@ export interface ListServiceFabricApplicableSchedulesResult {
  * Azure REST API version: 2018-09-15.
  */
 export function listServiceFabricApplicableSchedulesOutput(args: ListServiceFabricApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceFabricApplicableSchedulesResult> {
-    return pulumi.output(args).apply((a: any) => listServiceFabricApplicableSchedules(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devtestlab:listServiceFabricApplicableSchedules", {
+        "labName": args.labName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "userName": args.userName,
+    }, opts);
 }
 
 export interface ListServiceFabricApplicableSchedulesOutputArgs {

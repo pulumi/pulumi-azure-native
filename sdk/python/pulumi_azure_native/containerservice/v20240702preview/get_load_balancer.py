@@ -188,9 +188,6 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
         service_namespace_selector=pulumi.get(__ret__, 'service_namespace_selector'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_load_balancer)
 def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              resource_name: Optional[pulumi.Input[str]] = None,
@@ -203,4 +200,20 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
     """
-    ...
+    __args__ = dict()
+    __args__['loadBalancerName'] = load_balancer_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20240702preview:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
+    return __ret__.apply(lambda __response__: GetLoadBalancerResult(
+        allow_service_placement=pulumi.get(__response__, 'allow_service_placement'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        node_selector=pulumi.get(__response__, 'node_selector'),
+        primary_agent_pool_name=pulumi.get(__response__, 'primary_agent_pool_name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        service_label_selector=pulumi.get(__response__, 'service_label_selector'),
+        service_namespace_selector=pulumi.get(__response__, 'service_namespace_selector'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

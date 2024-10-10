@@ -156,9 +156,6 @@ def get_modernize_project(modernize_project_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_modernize_project)
 def get_modernize_project_output(modernize_project_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -171,4 +168,18 @@ def get_modernize_project_output(modernize_project_name: Optional[pulumi.Input[s
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     :param str subscription_id: Azure Subscription Id in which project was created.
     """
-    ...
+    __args__ = dict()
+    __args__['modernizeProjectName'] = modernize_project_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['subscriptionId'] = subscription_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20220501preview:getModernizeProject', __args__, opts=opts, typ=GetModernizeProjectResult)
+    return __ret__.apply(lambda __response__: GetModernizeProjectResult(
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

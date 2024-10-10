@@ -165,9 +165,6 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration(name: Option
         provisioning_details=pulumi.get(__ret__, 'provisioning_details'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_app_service_environment_ase_custom_dns_suffix_configuration)
 def get_app_service_environment_ase_custom_dns_suffix_configuration_output(name: Optional[pulumi.Input[str]] = None,
                                                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult]:
@@ -178,4 +175,18 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration_output(name:
     :param str name: Name of the App Service Environment.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration', __args__, opts=opts, typ=GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult)
+    return __ret__.apply(lambda __response__: GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult(
+        certificate_url=pulumi.get(__response__, 'certificate_url'),
+        dns_suffix=pulumi.get(__response__, 'dns_suffix'),
+        id=pulumi.get(__response__, 'id'),
+        key_vault_reference_identity=pulumi.get(__response__, 'key_vault_reference_identity'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_details=pulumi.get(__response__, 'provisioning_details'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type')))

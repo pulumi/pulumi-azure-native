@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List labs for the user.
  */
 export function listGlobalUserLabs(args: ListGlobalUserLabsArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalUserLabsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices/v20181015:listGlobalUserLabs", {
         "userName": args.userName,
@@ -38,7 +37,10 @@ export interface ListGlobalUserLabsResult {
  * List labs for the user.
  */
 export function listGlobalUserLabsOutput(args: ListGlobalUserLabsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalUserLabsResult> {
-    return pulumi.output(args).apply((a: any) => listGlobalUserLabs(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:labservices/v20181015:listGlobalUserLabs", {
+        "userName": args.userName,
+    }, opts);
 }
 
 export interface ListGlobalUserLabsOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get specific backup for a given server.
  */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20240301preview:getBackup", {
         "backupName": args.backupName,
@@ -72,7 +71,12 @@ export interface GetBackupResult {
  * Get specific backup for a given server.
  */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {
-    return pulumi.output(args).apply((a: any) => getBackup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20240301preview:getBackup", {
+        "backupName": args.backupName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetBackupOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get an app attach package.
  */
 export function getAppAttachPackage(args: GetAppAttachPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetAppAttachPackageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20240408preview:getAppAttachPackage", {
         "appAttachPackageName": args.appAttachPackageName,
@@ -67,7 +66,11 @@ export interface GetAppAttachPackageResult {
  * Get an app attach package.
  */
 export function getAppAttachPackageOutput(args: GetAppAttachPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppAttachPackageResult> {
-    return pulumi.output(args).apply((a: any) => getAppAttachPackage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20240408preview:getAppAttachPackage", {
+        "appAttachPackageName": args.appAttachPackageName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAppAttachPackageOutputArgs {

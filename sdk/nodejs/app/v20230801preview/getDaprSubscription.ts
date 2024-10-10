@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Dapr PubSub Event Subscription.
  */
 export function getDaprSubscription(args: GetDaprSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDaprSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20230801preview:getDaprSubscription", {
         "environmentName": args.environmentName,
@@ -88,7 +87,12 @@ export interface GetDaprSubscriptionResult {
  * Dapr PubSub Event Subscription.
  */
 export function getDaprSubscriptionOutput(args: GetDaprSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaprSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getDaprSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app/v20230801preview:getDaprSubscription", {
+        "environmentName": args.environmentName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDaprSubscriptionOutputArgs {

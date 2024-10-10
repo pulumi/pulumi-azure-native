@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Lists consent links of a connection.
  */
 export function listConnectionConsentLinks(args: ListConnectionConsentLinksArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionConsentLinksResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20150801preview:listConnectionConsentLinks", {
         "connectionName": args.connectionName,
@@ -78,7 +77,18 @@ export interface ListConnectionConsentLinksResult {
  * Lists consent links of a connection.
  */
 export function listConnectionConsentLinksOutput(args: ListConnectionConsentLinksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionConsentLinksResult> {
-    return pulumi.output(args).apply((a: any) => listConnectionConsentLinks(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20150801preview:listConnectionConsentLinks", {
+        "connectionName": args.connectionName,
+        "id": args.id,
+        "kind": args.kind,
+        "location": args.location,
+        "name": args.name,
+        "parameters": args.parameters,
+        "resourceGroupName": args.resourceGroupName,
+        "tags": args.tags,
+        "type": args.type,
+    }, opts);
 }
 
 export interface ListConnectionConsentLinksOutputArgs {

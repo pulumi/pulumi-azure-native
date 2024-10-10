@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01-preview, 2023-10-01.
  */
 export function getAvailabilityGroupListener(args: GetAvailabilityGroupListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityGroupListenerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", {
         "availabilityGroupListenerName": args.availabilityGroupListenerName,
@@ -99,7 +98,13 @@ export interface GetAvailabilityGroupListenerResult {
  * Other available API versions: 2023-01-01-preview, 2023-10-01.
  */
 export function getAvailabilityGroupListenerOutput(args: GetAvailabilityGroupListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityGroupListenerResult> {
-    return pulumi.output(args).apply((a: any) => getAvailabilityGroupListener(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", {
+        "availabilityGroupListenerName": args.availabilityGroupListenerName,
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+        "sqlVirtualMachineGroupName": args.sqlVirtualMachineGroupName,
+    }, opts);
 }
 
 export interface GetAvailabilityGroupListenerOutputArgs {

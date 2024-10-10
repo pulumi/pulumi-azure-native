@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves information about a gallery Application Version.
  */
 export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20230703:getGalleryApplicationVersion", {
         "expand": args.expand,
@@ -90,7 +89,14 @@ export interface GetGalleryApplicationVersionResult {
  * Retrieves information about a gallery Application Version.
  */
 export function getGalleryApplicationVersionOutput(args: GetGalleryApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationVersionResult> {
-    return pulumi.output(args).apply((a: any) => getGalleryApplicationVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute/v20230703:getGalleryApplicationVersion", {
+        "expand": args.expand,
+        "galleryApplicationName": args.galleryApplicationName,
+        "galleryApplicationVersionName": args.galleryApplicationVersionName,
+        "galleryName": args.galleryName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetGalleryApplicationVersionOutputArgs {

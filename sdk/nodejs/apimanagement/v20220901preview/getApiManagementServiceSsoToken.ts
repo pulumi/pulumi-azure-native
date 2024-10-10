@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
  */
 export function getApiManagementServiceSsoToken(args: GetApiManagementServiceSsoTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceSsoTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220901preview:getApiManagementServiceSsoToken", {
         "resourceGroupName": args.resourceGroupName,
@@ -40,7 +39,11 @@ export interface GetApiManagementServiceSsoTokenResult {
  * Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
  */
 export function getApiManagementServiceSsoTokenOutput(args: GetApiManagementServiceSsoTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceSsoTokenResult> {
-    return pulumi.output(args).apply((a: any) => getApiManagementServiceSsoToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220901preview:getApiManagementServiceSsoToken", {
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetApiManagementServiceSsoTokenOutputArgs {

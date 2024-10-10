@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified Security Partner Provider.
  */
 export function getSecurityPartnerProvider(args: GetSecurityPartnerProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPartnerProviderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:getSecurityPartnerProvider", {
         "resourceGroupName": args.resourceGroupName,
@@ -79,7 +78,11 @@ export interface GetSecurityPartnerProviderResult {
  * Gets the specified Security Partner Provider.
  */
 export function getSecurityPartnerProviderOutput(args: GetSecurityPartnerProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPartnerProviderResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityPartnerProvider(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getSecurityPartnerProvider", {
+        "resourceGroupName": args.resourceGroupName,
+        "securityPartnerProviderName": args.securityPartnerProviderName,
+    }, opts);
 }
 
 export interface GetSecurityPartnerProviderOutputArgs {

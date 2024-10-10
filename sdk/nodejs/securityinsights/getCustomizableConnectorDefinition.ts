@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getCustomizableConnectorDefinition(args: GetCustomizableConnectorDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomizableConnectorDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getCustomizableConnectorDefinition", {
         "dataConnectorDefinitionName": args.dataConnectorDefinitionName,
@@ -87,7 +86,12 @@ export interface GetCustomizableConnectorDefinitionResult {
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getCustomizableConnectorDefinitionOutput(args: GetCustomizableConnectorDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizableConnectorDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getCustomizableConnectorDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights:getCustomizableConnectorDefinition", {
+        "dataConnectorDefinitionName": args.dataConnectorDefinitionName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetCustomizableConnectorDefinitionOutputArgs {

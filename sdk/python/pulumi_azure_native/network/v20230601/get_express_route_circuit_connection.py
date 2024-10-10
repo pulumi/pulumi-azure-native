@@ -204,9 +204,6 @@ def get_express_route_circuit_connection(circuit_name: Optional[str] = None,
         peer_express_route_circuit_peering=pulumi.get(__ret__, 'peer_express_route_circuit_peering'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_express_route_circuit_connection)
 def get_express_route_circuit_connection_output(circuit_name: Optional[pulumi.Input[str]] = None,
                                                 connection_name: Optional[pulumi.Input[str]] = None,
                                                 peering_name: Optional[pulumi.Input[str]] = None,
@@ -221,4 +218,22 @@ def get_express_route_circuit_connection_output(circuit_name: Optional[pulumi.In
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['circuitName'] = circuit_name
+    __args__['connectionName'] = connection_name
+    __args__['peeringName'] = peering_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getExpressRouteCircuitConnection', __args__, opts=opts, typ=GetExpressRouteCircuitConnectionResult)
+    return __ret__.apply(lambda __response__: GetExpressRouteCircuitConnectionResult(
+        address_prefix=pulumi.get(__response__, 'address_prefix'),
+        authorization_key=pulumi.get(__response__, 'authorization_key'),
+        circuit_connection_status=pulumi.get(__response__, 'circuit_connection_status'),
+        etag=pulumi.get(__response__, 'etag'),
+        express_route_circuit_peering=pulumi.get(__response__, 'express_route_circuit_peering'),
+        id=pulumi.get(__response__, 'id'),
+        ipv6_circuit_connection_config=pulumi.get(__response__, 'ipv6_circuit_connection_config'),
+        name=pulumi.get(__response__, 'name'),
+        peer_express_route_circuit_peering=pulumi.get(__response__, 'peer_express_route_circuit_peering'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type')))

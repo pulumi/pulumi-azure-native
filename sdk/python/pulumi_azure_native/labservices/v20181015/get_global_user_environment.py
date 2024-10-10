@@ -71,9 +71,6 @@ def get_global_user_environment(environment_id: Optional[str] = None,
 
     return AwaitableGetGlobalUserEnvironmentResult(
         environment=pulumi.get(__ret__, 'environment'))
-
-
-@_utilities.lift_output_func(get_global_user_environment)
 def get_global_user_environment_output(environment_id: Optional[pulumi.Input[str]] = None,
                                        expand: Optional[pulumi.Input[Optional[str]]] = None,
                                        user_name: Optional[pulumi.Input[str]] = None,
@@ -86,4 +83,11 @@ def get_global_user_environment_output(environment_id: Optional[pulumi.Input[str
     :param str expand: Specify the $expand query. Example: 'properties($expand=environment)'
     :param str user_name: The name of the user.
     """
-    ...
+    __args__ = dict()
+    __args__['environmentId'] = environment_id
+    __args__['expand'] = expand
+    __args__['userName'] = user_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices/v20181015:getGlobalUserEnvironment', __args__, opts=opts, typ=GetGlobalUserEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetGlobalUserEnvironmentResult(
+        environment=pulumi.get(__response__, 'environment')))

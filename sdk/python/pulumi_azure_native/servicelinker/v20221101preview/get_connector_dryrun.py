@@ -165,9 +165,6 @@ def get_connector_dryrun(dryrun_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_connector_dryrun)
 def get_connector_dryrun_output(dryrun_name: Optional[pulumi.Input[str]] = None,
                                 location: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -182,4 +179,19 @@ def get_connector_dryrun_output(dryrun_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str subscription_id: The ID of the target subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['dryrunName'] = dryrun_name
+    __args__['location'] = location
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['subscriptionId'] = subscription_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicelinker/v20221101preview:getConnectorDryrun', __args__, opts=opts, typ=GetConnectorDryrunResult)
+    return __ret__.apply(lambda __response__: GetConnectorDryrunResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        operation_previews=pulumi.get(__response__, 'operation_previews'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        prerequisite_results=pulumi.get(__response__, 'prerequisite_results'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

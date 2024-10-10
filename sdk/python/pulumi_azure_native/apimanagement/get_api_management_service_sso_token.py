@@ -70,9 +70,6 @@ def get_api_management_service_sso_token(resource_group_name: Optional[str] = No
 
     return AwaitableGetApiManagementServiceSsoTokenResult(
         redirect_uri=pulumi.get(__ret__, 'redirect_uri'))
-
-
-@_utilities.lift_output_func(get_api_management_service_sso_token)
 def get_api_management_service_sso_token_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 service_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceSsoTokenResult]:
@@ -86,4 +83,10 @@ def get_api_management_service_sso_token_output(resource_group_name: Optional[pu
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getApiManagementServiceSsoToken', __args__, opts=opts, typ=GetApiManagementServiceSsoTokenResult)
+    return __ret__.apply(lambda __response__: GetApiManagementServiceSsoTokenResult(
+        redirect_uri=pulumi.get(__response__, 'redirect_uri')))

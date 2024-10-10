@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get an resource upload URL for build service, which may be artifacts or source archive.
  */
 export function getBuildServiceResourceUploadUrl(args: GetBuildServiceResourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceResourceUploadUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20240501preview:getBuildServiceResourceUploadUrl", {
         "buildServiceName": args.buildServiceName,
@@ -49,7 +48,12 @@ export interface GetBuildServiceResourceUploadUrlResult {
  * Get an resource upload URL for build service, which may be artifacts or source archive.
  */
 export function getBuildServiceResourceUploadUrlOutput(args: GetBuildServiceResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceResourceUploadUrlResult> {
-    return pulumi.output(args).apply((a: any) => getBuildServiceResourceUploadUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240501preview:getBuildServiceResourceUploadUrl", {
+        "buildServiceName": args.buildServiceName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetBuildServiceResourceUploadUrlOutputArgs {

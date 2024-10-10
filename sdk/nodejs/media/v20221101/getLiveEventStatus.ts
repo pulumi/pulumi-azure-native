@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets status telemetry of a live event.
  */
 export function getLiveEventStatus(args: GetLiveEventStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20221101:getLiveEventStatus", {
         "accountName": args.accountName,
@@ -48,7 +47,12 @@ export interface GetLiveEventStatusResult {
  * Gets status telemetry of a live event.
  */
 export function getLiveEventStatusOutput(args: GetLiveEventStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventStatusResult> {
-    return pulumi.output(args).apply((a: any) => getLiveEventStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:media/v20221101:getLiveEventStatus", {
+        "accountName": args.accountName,
+        "liveEventName": args.liveEventName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLiveEventStatusOutputArgs {

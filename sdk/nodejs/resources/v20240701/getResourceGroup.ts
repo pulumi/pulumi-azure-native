@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a resource group.
  */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20240701:getResourceGroup", {
         "resourceGroupName": args.resourceGroupName,
@@ -62,7 +61,10 @@ export interface GetResourceGroupResult {
  * Gets a resource group.
  */
 export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
-    return pulumi.output(args).apply((a: any) => getResourceGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:resources/v20240701:getResourceGroup", {
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetResourceGroupOutputArgs {

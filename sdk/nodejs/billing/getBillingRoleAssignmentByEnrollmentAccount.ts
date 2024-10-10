@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-01.
  */
 export function getBillingRoleAssignmentByEnrollmentAccount(args: GetBillingRoleAssignmentByEnrollmentAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingRoleAssignmentByEnrollmentAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:billing:getBillingRoleAssignmentByEnrollmentAccount", {
         "billingAccountName": args.billingAccountName,
@@ -99,7 +98,12 @@ export interface GetBillingRoleAssignmentByEnrollmentAccountResult {
  * Other available API versions: 2024-04-01.
  */
 export function getBillingRoleAssignmentByEnrollmentAccountOutput(args: GetBillingRoleAssignmentByEnrollmentAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingRoleAssignmentByEnrollmentAccountResult> {
-    return pulumi.output(args).apply((a: any) => getBillingRoleAssignmentByEnrollmentAccount(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:billing:getBillingRoleAssignmentByEnrollmentAccount", {
+        "billingAccountName": args.billingAccountName,
+        "billingRoleAssignmentName": args.billingRoleAssignmentName,
+        "enrollmentAccountName": args.enrollmentAccountName,
+    }, opts);
 }
 
 export interface GetBillingRoleAssignmentByEnrollmentAccountOutputArgs {

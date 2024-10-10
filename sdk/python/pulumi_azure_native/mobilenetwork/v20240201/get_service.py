@@ -188,9 +188,6 @@ def get_service(mobile_network_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
@@ -203,4 +200,20 @@ def get_service_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the service. You must not use any of the following reserved strings - `default`, `requested` or `service`
     """
-    ...
+    __args__ = dict()
+    __args__['mobileNetworkName'] = mobile_network_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork/v20240201:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        pcc_rules=pulumi.get(__response__, 'pcc_rules'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        service_precedence=pulumi.get(__response__, 'service_precedence'),
+        service_qos_policy=pulumi.get(__response__, 'service_qos_policy'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

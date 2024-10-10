@@ -302,9 +302,6 @@ def get_front_door(front_door_name: Optional[str] = None,
         rules_engines=pulumi.get(__ret__, 'rules_engines'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_front_door)
 def get_front_door_output(front_door_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontDoorResult]:
@@ -315,4 +312,28 @@ def get_front_door_output(front_door_name: Optional[pulumi.Input[str]] = None,
     :param str front_door_name: Name of the Front Door which is globally unique.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['frontDoorName'] = front_door_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20210601:getFrontDoor', __args__, opts=opts, typ=GetFrontDoorResult)
+    return __ret__.apply(lambda __response__: GetFrontDoorResult(
+        backend_pools=pulumi.get(__response__, 'backend_pools'),
+        backend_pools_settings=pulumi.get(__response__, 'backend_pools_settings'),
+        cname=pulumi.get(__response__, 'cname'),
+        enabled_state=pulumi.get(__response__, 'enabled_state'),
+        extended_properties=pulumi.get(__response__, 'extended_properties'),
+        friendly_name=pulumi.get(__response__, 'friendly_name'),
+        frontdoor_id=pulumi.get(__response__, 'frontdoor_id'),
+        frontend_endpoints=pulumi.get(__response__, 'frontend_endpoints'),
+        health_probe_settings=pulumi.get(__response__, 'health_probe_settings'),
+        id=pulumi.get(__response__, 'id'),
+        load_balancing_settings=pulumi.get(__response__, 'load_balancing_settings'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_state=pulumi.get(__response__, 'resource_state'),
+        routing_rules=pulumi.get(__response__, 'routing_rules'),
+        rules_engines=pulumi.get(__response__, 'rules_engines'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

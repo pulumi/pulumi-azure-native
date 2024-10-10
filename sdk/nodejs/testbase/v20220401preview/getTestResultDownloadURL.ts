@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the download URL of the test result.
  */
 export function getTestResultDownloadURL(args: GetTestResultDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultDownloadURLResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20220401preview:getTestResultDownloadURL", {
         "packageName": args.packageName,
@@ -54,7 +53,13 @@ export interface GetTestResultDownloadURLResult {
  * Gets the download URL of the test result.
  */
 export function getTestResultDownloadURLOutput(args: GetTestResultDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultDownloadURLResult> {
-    return pulumi.output(args).apply((a: any) => getTestResultDownloadURL(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getTestResultDownloadURL", {
+        "packageName": args.packageName,
+        "resourceGroupName": args.resourceGroupName,
+        "testBaseAccountName": args.testBaseAccountName,
+        "testResultName": args.testResultName,
+    }, opts);
 }
 
 export interface GetTestResultDownloadURLOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get specified scope connection created by this Network Manager.
  */
 export function getScopeConnection(args: GetScopeConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230201:getScopeConnection", {
         "networkManagerName": args.networkManagerName,
@@ -76,7 +75,12 @@ export interface GetScopeConnectionResult {
  * Get specified scope connection created by this Network Manager.
  */
 export function getScopeConnectionOutput(args: GetScopeConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getScopeConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getScopeConnection", {
+        "networkManagerName": args.networkManagerName,
+        "resourceGroupName": args.resourceGroupName,
+        "scopeConnectionName": args.scopeConnectionName,
+    }, opts);
 }
 
 export interface GetScopeConnectionOutputArgs {

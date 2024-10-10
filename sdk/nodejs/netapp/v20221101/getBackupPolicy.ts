@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a particular backup Policy
  */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20221101:getBackupPolicy", {
         "accountName": args.accountName,
@@ -104,7 +103,12 @@ export interface GetBackupPolicyResult {
  * Get a particular backup Policy
  */
 export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBackupPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:netapp/v20221101:getBackupPolicy", {
+        "accountName": args.accountName,
+        "backupPolicyName": args.backupPolicyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBackupPolicyOutputArgs {

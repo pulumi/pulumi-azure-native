@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified contact Profile in a specified resource group.
  */
 export function getContactProfile(args: GetContactProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetContactProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:orbital/v20221101:getContactProfile", {
         "contactProfileName": args.contactProfileName,
@@ -91,7 +90,11 @@ export interface GetContactProfileResult {
  * Gets the specified contact Profile in a specified resource group.
  */
 export function getContactProfileOutput(args: GetContactProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactProfileResult> {
-    return pulumi.output(args).apply((a: any) => getContactProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:orbital/v20221101:getContactProfile", {
+        "contactProfileName": args.contactProfileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetContactProfileOutputArgs {

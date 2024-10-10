@@ -149,9 +149,6 @@ def get_firewall_rule(cluster_name: Optional[str] = None,
         start_ip_address=pulumi.get(__ret__, 'start_ip_address'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_firewall_rule)
 def get_firewall_rule_output(cluster_name: Optional[pulumi.Input[str]] = None,
                              firewall_rule_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -164,4 +161,17 @@ def get_firewall_rule_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str firewall_rule_name: The name of the cluster firewall rule.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['firewallRuleName'] = firewall_rule_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20221108:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult)
+    return __ret__.apply(lambda __response__: GetFirewallRuleResult(
+        end_ip_address=pulumi.get(__response__, 'end_ip_address'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        start_ip_address=pulumi.get(__response__, 'start_ip_address'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

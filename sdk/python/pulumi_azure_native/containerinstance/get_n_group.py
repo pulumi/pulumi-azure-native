@@ -199,9 +199,6 @@ def get_n_group(ngroups_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_n_group)
 def get_n_group_output(ngroups_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNGroupResult]:
@@ -213,4 +210,20 @@ def get_n_group_output(ngroups_name: Optional[pulumi.Input[str]] = None,
     :param str ngroups_name: The N Groups name.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['ngroupsName'] = ngroups_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:containerinstance:getNGroup', __args__, opts=opts, typ=GetNGroupResult)
+    return __ret__.apply(lambda __response__: GetNGroupResult(
+        container_group_profiles=pulumi.get(__response__, 'container_group_profiles'),
+        elastic_profile=pulumi.get(__response__, 'elastic_profile'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        zones=pulumi.get(__response__, 'zones')))

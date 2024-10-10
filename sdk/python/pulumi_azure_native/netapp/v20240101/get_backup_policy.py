@@ -253,9 +253,6 @@ def get_backup_policy(account_name: Optional[str] = None,
         volume_backups=pulumi.get(__ret__, 'volume_backups'),
         volumes_assigned=pulumi.get(__ret__, 'volumes_assigned'),
         weekly_backups_to_keep=pulumi.get(__ret__, 'weekly_backups_to_keep'))
-
-
-@_utilities.lift_output_func(get_backup_policy)
 def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                              backup_policy_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -268,4 +265,25 @@ def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str backup_policy_name: Backup policy Name which uniquely identify backup policy.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['backupPolicyName'] = backup_policy_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20240101:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult)
+    return __ret__.apply(lambda __response__: GetBackupPolicyResult(
+        backup_policy_id=pulumi.get(__response__, 'backup_policy_id'),
+        daily_backups_to_keep=pulumi.get(__response__, 'daily_backups_to_keep'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        monthly_backups_to_keep=pulumi.get(__response__, 'monthly_backups_to_keep'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        volume_backups=pulumi.get(__response__, 'volume_backups'),
+        volumes_assigned=pulumi.get(__response__, 'volumes_assigned'),
+        weekly_backups_to_keep=pulumi.get(__response__, 'weekly_backups_to_keep')))

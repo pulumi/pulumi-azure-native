@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get information about a configuration profile version
  */
 export function getConfigurationProfilesVersion(args: GetConfigurationProfilesVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfilesVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automanage/v20220504:getConfigurationProfilesVersion", {
         "configurationProfileName": args.configurationProfileName,
@@ -72,7 +71,12 @@ export interface GetConfigurationProfilesVersionResult {
  * Get information about a configuration profile version
  */
 export function getConfigurationProfilesVersionOutput(args: GetConfigurationProfilesVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilesVersionResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationProfilesVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:automanage/v20220504:getConfigurationProfilesVersion", {
+        "configurationProfileName": args.configurationProfileName,
+        "resourceGroupName": args.resourceGroupName,
+        "versionName": args.versionName,
+    }, opts);
 }
 
 export interface GetConfigurationProfilesVersionOutputArgs {

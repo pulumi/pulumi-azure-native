@@ -207,9 +207,6 @@ def get_deployment(api_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_deployment)
 def get_deployment_output(api_name: Optional[pulumi.Input[str]] = None,
                           deployment_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -226,4 +223,23 @@ def get_deployment_output(api_name: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of Azure API Center service.
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['apiName'] = api_name
+    __args__['deploymentName'] = deployment_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter/v20240315preview:getDeployment', __args__, opts=opts, typ=GetDeploymentResult)
+    return __ret__.apply(lambda __response__: GetDeploymentResult(
+        custom_properties=pulumi.get(__response__, 'custom_properties'),
+        definition_id=pulumi.get(__response__, 'definition_id'),
+        description=pulumi.get(__response__, 'description'),
+        environment_id=pulumi.get(__response__, 'environment_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        server=pulumi.get(__response__, 'server'),
+        state=pulumi.get(__response__, 'state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        title=pulumi.get(__response__, 'title'),
+        type=pulumi.get(__response__, 'type')))

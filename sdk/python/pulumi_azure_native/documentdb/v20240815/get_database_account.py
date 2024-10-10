@@ -666,9 +666,6 @@ def get_database_account(account_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_network_rules=pulumi.get(__ret__, 'virtual_network_rules'),
         write_locations=pulumi.get(__ret__, 'write_locations'))
-
-
-@_utilities.lift_output_func(get_database_account)
 def get_database_account_output(account_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseAccountResult]:
@@ -679,4 +676,56 @@ def get_database_account_output(account_name: Optional[pulumi.Input[str]] = None
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20240815:getDatabaseAccount', __args__, opts=opts, typ=GetDatabaseAccountResult)
+    return __ret__.apply(lambda __response__: GetDatabaseAccountResult(
+        analytical_storage_configuration=pulumi.get(__response__, 'analytical_storage_configuration'),
+        api_properties=pulumi.get(__response__, 'api_properties'),
+        backup_policy=pulumi.get(__response__, 'backup_policy'),
+        capabilities=pulumi.get(__response__, 'capabilities'),
+        capacity=pulumi.get(__response__, 'capacity'),
+        connector_offer=pulumi.get(__response__, 'connector_offer'),
+        consistency_policy=pulumi.get(__response__, 'consistency_policy'),
+        cors=pulumi.get(__response__, 'cors'),
+        create_mode=pulumi.get(__response__, 'create_mode'),
+        customer_managed_key_status=pulumi.get(__response__, 'customer_managed_key_status'),
+        database_account_offer_type=pulumi.get(__response__, 'database_account_offer_type'),
+        default_identity=pulumi.get(__response__, 'default_identity'),
+        disable_key_based_metadata_write_access=pulumi.get(__response__, 'disable_key_based_metadata_write_access'),
+        disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
+        document_endpoint=pulumi.get(__response__, 'document_endpoint'),
+        enable_analytical_storage=pulumi.get(__response__, 'enable_analytical_storage'),
+        enable_automatic_failover=pulumi.get(__response__, 'enable_automatic_failover'),
+        enable_burst_capacity=pulumi.get(__response__, 'enable_burst_capacity'),
+        enable_cassandra_connector=pulumi.get(__response__, 'enable_cassandra_connector'),
+        enable_free_tier=pulumi.get(__response__, 'enable_free_tier'),
+        enable_multiple_write_locations=pulumi.get(__response__, 'enable_multiple_write_locations'),
+        enable_partition_merge=pulumi.get(__response__, 'enable_partition_merge'),
+        failover_policies=pulumi.get(__response__, 'failover_policies'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        ip_rules=pulumi.get(__response__, 'ip_rules'),
+        is_virtual_network_filter_enabled=pulumi.get(__response__, 'is_virtual_network_filter_enabled'),
+        key_vault_key_uri=pulumi.get(__response__, 'key_vault_key_uri'),
+        keys_metadata=pulumi.get(__response__, 'keys_metadata'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        locations=pulumi.get(__response__, 'locations'),
+        minimal_tls_version=pulumi.get(__response__, 'minimal_tls_version'),
+        name=pulumi.get(__response__, 'name'),
+        network_acl_bypass=pulumi.get(__response__, 'network_acl_bypass'),
+        network_acl_bypass_resource_ids=pulumi.get(__response__, 'network_acl_bypass_resource_ids'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        read_locations=pulumi.get(__response__, 'read_locations'),
+        restore_parameters=pulumi.get(__response__, 'restore_parameters'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_network_rules=pulumi.get(__response__, 'virtual_network_rules'),
+        write_locations=pulumi.get(__response__, 'write_locations')))

@@ -139,9 +139,6 @@ def get_sync_group(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         unique_id=pulumi.get(__ret__, 'unique_id'))
-
-
-@_utilities.lift_output_func(get_sync_group)
 def get_sync_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                           storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                           sync_group_name: Optional[pulumi.Input[str]] = None,
@@ -157,4 +154,16 @@ def get_sync_group_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['storageSyncServiceName'] = storage_sync_service_name
+    __args__['syncGroupName'] = sync_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storagesync:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult)
+    return __ret__.apply(lambda __response__: GetSyncGroupResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        sync_group_status=pulumi.get(__response__, 'sync_group_status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        unique_id=pulumi.get(__response__, 'unique_id')))

@@ -701,9 +701,6 @@ def get_database(database_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_free_limit=pulumi.get(__ret__, 'use_free_limit'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-
-
-@_utilities.lift_output_func(get_database)
 def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         expand: Optional[pulumi.Input[Optional[str]]] = None,
                         filter: Optional[pulumi.Input[Optional[str]]] = None,
@@ -720,4 +717,59 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    ...
+    __args__ = dict()
+    __args__['databaseName'] = database_name
+    __args__['expand'] = expand
+    __args__['filter'] = filter
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230801preview:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
+    return __ret__.apply(lambda __response__: GetDatabaseResult(
+        auto_pause_delay=pulumi.get(__response__, 'auto_pause_delay'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        catalog_collation=pulumi.get(__response__, 'catalog_collation'),
+        collation=pulumi.get(__response__, 'collation'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        current_backup_storage_redundancy=pulumi.get(__response__, 'current_backup_storage_redundancy'),
+        current_service_objective_name=pulumi.get(__response__, 'current_service_objective_name'),
+        current_sku=pulumi.get(__response__, 'current_sku'),
+        database_id=pulumi.get(__response__, 'database_id'),
+        default_secondary_location=pulumi.get(__response__, 'default_secondary_location'),
+        earliest_restore_date=pulumi.get(__response__, 'earliest_restore_date'),
+        elastic_pool_id=pulumi.get(__response__, 'elastic_pool_id'),
+        encryption_protector=pulumi.get(__response__, 'encryption_protector'),
+        encryption_protector_auto_rotation=pulumi.get(__response__, 'encryption_protector_auto_rotation'),
+        failover_group_id=pulumi.get(__response__, 'failover_group_id'),
+        federated_client_id=pulumi.get(__response__, 'federated_client_id'),
+        free_limit_exhaustion_behavior=pulumi.get(__response__, 'free_limit_exhaustion_behavior'),
+        high_availability_replica_count=pulumi.get(__response__, 'high_availability_replica_count'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        is_infra_encryption_enabled=pulumi.get(__response__, 'is_infra_encryption_enabled'),
+        is_ledger_on=pulumi.get(__response__, 'is_ledger_on'),
+        keys=pulumi.get(__response__, 'keys'),
+        kind=pulumi.get(__response__, 'kind'),
+        license_type=pulumi.get(__response__, 'license_type'),
+        location=pulumi.get(__response__, 'location'),
+        maintenance_configuration_id=pulumi.get(__response__, 'maintenance_configuration_id'),
+        managed_by=pulumi.get(__response__, 'managed_by'),
+        manual_cutover=pulumi.get(__response__, 'manual_cutover'),
+        max_log_size_bytes=pulumi.get(__response__, 'max_log_size_bytes'),
+        max_size_bytes=pulumi.get(__response__, 'max_size_bytes'),
+        min_capacity=pulumi.get(__response__, 'min_capacity'),
+        name=pulumi.get(__response__, 'name'),
+        paused_date=pulumi.get(__response__, 'paused_date'),
+        perform_cutover=pulumi.get(__response__, 'perform_cutover'),
+        preferred_enclave_type=pulumi.get(__response__, 'preferred_enclave_type'),
+        read_scale=pulumi.get(__response__, 'read_scale'),
+        requested_backup_storage_redundancy=pulumi.get(__response__, 'requested_backup_storage_redundancy'),
+        requested_service_objective_name=pulumi.get(__response__, 'requested_service_objective_name'),
+        resumed_date=pulumi.get(__response__, 'resumed_date'),
+        secondary_type=pulumi.get(__response__, 'secondary_type'),
+        sku=pulumi.get(__response__, 'sku'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        use_free_limit=pulumi.get(__response__, 'use_free_limit'),
+        zone_redundant=pulumi.get(__response__, 'zone_redundant')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a VirtualHub.
  */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20231101:getVirtualHub", {
         "resourceGroupName": args.resourceGroupName,
@@ -155,7 +154,11 @@ export interface GetVirtualHubResult {
  * Retrieves the details of a VirtualHub.
  */
 export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualHub(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getVirtualHub", {
+        "resourceGroupName": args.resourceGroupName,
+        "virtualHubName": args.virtualHubName,
+    }, opts);
 }
 
 export interface GetVirtualHubOutputArgs {

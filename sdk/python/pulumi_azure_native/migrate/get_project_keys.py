@@ -81,9 +81,6 @@ def get_project_keys(project_name: Optional[str] = None,
     return AwaitableGetProjectKeysResult(
         workspace_id=pulumi.get(__ret__, 'workspace_id'),
         workspace_key=pulumi.get(__ret__, 'workspace_key'))
-
-
-@_utilities.lift_output_func(get_project_keys)
 def get_project_keys_output(project_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectKeysResult]:
@@ -95,4 +92,11 @@ def get_project_keys_output(project_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
-    ...
+    __args__ = dict()
+    __args__['projectName'] = project_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getProjectKeys', __args__, opts=opts, typ=GetProjectKeysResult)
+    return __ret__.apply(lambda __response__: GetProjectKeysResult(
+        workspace_id=pulumi.get(__response__, 'workspace_id'),
+        workspace_key=pulumi.get(__response__, 'workspace_key')))

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
  */
 export function listClusterLanguageExtensions(args: ListClusterLanguageExtensionsArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterLanguageExtensionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto:listClusterLanguageExtensions", {
         "clusterName": args.clusterName,
@@ -49,7 +48,11 @@ export interface ListClusterLanguageExtensionsResult {
  * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
  */
 export function listClusterLanguageExtensionsOutput(args: ListClusterLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterLanguageExtensionsResult> {
-    return pulumi.output(args).apply((a: any) => listClusterLanguageExtensions(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kusto:listClusterLanguageExtensions", {
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListClusterLanguageExtensionsOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
  */
 export function getControllerDetails(args: GetControllerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerDetailsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:delegatednetwork:getControllerDetails", {
         "resourceGroupName": args.resourceGroupName,
@@ -82,7 +81,11 @@ export interface GetControllerDetailsResult {
  * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
  */
 export function getControllerDetailsOutput(args: GetControllerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerDetailsResult> {
-    return pulumi.output(args).apply((a: any) => getControllerDetails(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:delegatednetwork:getControllerDetails", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetControllerDetailsOutputArgs {

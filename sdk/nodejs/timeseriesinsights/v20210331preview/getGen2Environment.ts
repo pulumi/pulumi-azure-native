@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the environment with the specified name in the specified subscription and resource group.
  */
 export function getGen2Environment(args: GetGen2EnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGen2EnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20210331preview:getGen2Environment", {
         "environmentName": args.environmentName,
@@ -113,7 +112,12 @@ export interface GetGen2EnvironmentResult {
  * Gets the environment with the specified name in the specified subscription and resource group.
  */
 export function getGen2EnvironmentOutput(args: GetGen2EnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGen2EnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getGen2Environment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights/v20210331preview:getGen2Environment", {
+        "environmentName": args.environmentName,
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetGen2EnvironmentOutputArgs {

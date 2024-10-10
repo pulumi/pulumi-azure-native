@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-08-01.
  */
 export function getScheduledTrigger(args: GetScheduledTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledTriggerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare:getScheduledTrigger", {
         "accountName": args.accountName,
@@ -100,7 +99,13 @@ export interface GetScheduledTriggerResult {
  * Azure REST API version: 2021-08-01.
  */
 export function getScheduledTriggerOutput(args: GetScheduledTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledTriggerResult> {
-    return pulumi.output(args).apply((a: any) => getScheduledTrigger(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datashare:getScheduledTrigger", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+        "shareSubscriptionName": args.shareSubscriptionName,
+        "triggerName": args.triggerName,
+    }, opts);
 }
 
 export interface GetScheduledTriggerOutputArgs {

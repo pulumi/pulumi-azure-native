@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Implements datastore GET method.
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20230301preview:getDatastore", {
         "datastoreName": args.datastoreName,
@@ -111,7 +110,11 @@ export interface GetDatastoreResult {
  * Implements datastore GET method.
  */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
-    return pulumi.output(args).apply((a: any) => getDatastore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere/v20230301preview:getDatastore", {
+        "datastoreName": args.datastoreName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDatastoreOutputArgs {

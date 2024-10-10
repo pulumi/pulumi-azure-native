@@ -136,9 +136,6 @@ def get_integration_account_assembly(assembly_artifact_name: Optional[str] = Non
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_integration_account_assembly)
 def get_integration_account_assembly_output(assembly_artifact_name: Optional[pulumi.Input[str]] = None,
                                             integration_account_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,4 +148,16 @@ def get_integration_account_assembly_output(assembly_artifact_name: Optional[pul
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['assemblyArtifactName'] = assembly_artifact_name
+    __args__['integrationAccountName'] = integration_account_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20190501:getIntegrationAccountAssembly', __args__, opts=opts, typ=GetIntegrationAccountAssemblyResult)
+    return __ret__.apply(lambda __response__: GetIntegrationAccountAssemblyResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

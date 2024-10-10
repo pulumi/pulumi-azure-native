@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a database's long term retention policy.
  */
 export function getBackupLongTermRetentionPolicy(args: GetBackupLongTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupLongTermRetentionPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20170301preview:getBackupLongTermRetentionPolicy", {
         "databaseName": args.databaseName,
@@ -74,7 +73,13 @@ export interface GetBackupLongTermRetentionPolicyResult {
  * Gets a database's long term retention policy.
  */
 export function getBackupLongTermRetentionPolicyOutput(args: GetBackupLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupLongTermRetentionPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBackupLongTermRetentionPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20170301preview:getBackupLongTermRetentionPolicy", {
+        "databaseName": args.databaseName,
+        "policyName": args.policyName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetBackupLongTermRetentionPolicyOutputArgs {

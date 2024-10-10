@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List of RP resources which supports pagination.
  */
 export function listGitHubOwnerAvailable(args: ListGitHubOwnerAvailableArgs, opts?: pulumi.InvokeOptions): Promise<ListGitHubOwnerAvailableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20240515preview:listGitHubOwnerAvailable", {
         "resourceGroupName": args.resourceGroupName,
@@ -47,7 +46,11 @@ export interface ListGitHubOwnerAvailableResult {
  * List of RP resources which supports pagination.
  */
 export function listGitHubOwnerAvailableOutput(args: ListGitHubOwnerAvailableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGitHubOwnerAvailableResult> {
-    return pulumi.output(args).apply((a: any) => listGitHubOwnerAvailable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security/v20240515preview:listGitHubOwnerAvailable", {
+        "resourceGroupName": args.resourceGroupName,
+        "securityConnectorName": args.securityConnectorName,
+    }, opts);
 }
 
 export interface ListGitHubOwnerAvailableOutputArgs {

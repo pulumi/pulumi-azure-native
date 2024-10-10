@@ -318,9 +318,6 @@ def get_prediction(hub_name: Optional[str] = None,
         system_generated_entities=pulumi.get(__ret__, 'system_generated_entities'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_prediction)
 def get_prediction_output(hub_name: Optional[pulumi.Input[str]] = None,
                           prediction_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -333,4 +330,30 @@ def get_prediction_output(hub_name: Optional[pulumi.Input[str]] = None,
     :param str prediction_name: The name of the Prediction.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['hubName'] = hub_name
+    __args__['predictionName'] = prediction_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights/v20170426:getPrediction', __args__, opts=opts, typ=GetPredictionResult)
+    return __ret__.apply(lambda __response__: GetPredictionResult(
+        auto_analyze=pulumi.get(__response__, 'auto_analyze'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        grades=pulumi.get(__response__, 'grades'),
+        id=pulumi.get(__response__, 'id'),
+        involved_interaction_types=pulumi.get(__response__, 'involved_interaction_types'),
+        involved_kpi_types=pulumi.get(__response__, 'involved_kpi_types'),
+        involved_relationships=pulumi.get(__response__, 'involved_relationships'),
+        mappings=pulumi.get(__response__, 'mappings'),
+        name=pulumi.get(__response__, 'name'),
+        negative_outcome_expression=pulumi.get(__response__, 'negative_outcome_expression'),
+        positive_outcome_expression=pulumi.get(__response__, 'positive_outcome_expression'),
+        prediction_name=pulumi.get(__response__, 'prediction_name'),
+        primary_profile_type=pulumi.get(__response__, 'primary_profile_type'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        scope_expression=pulumi.get(__response__, 'scope_expression'),
+        score_label=pulumi.get(__response__, 'score_label'),
+        system_generated_entities=pulumi.get(__response__, 'system_generated_entities'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type')))

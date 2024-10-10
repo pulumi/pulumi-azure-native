@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a management lock at the subscription level.
  */
 export function getManagementLockAtSubscriptionLevel(args: GetManagementLockAtSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtSubscriptionLevelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20200501:getManagementLockAtSubscriptionLevel", {
         "lockName": args.lockName,
@@ -62,7 +61,10 @@ export interface GetManagementLockAtSubscriptionLevelResult {
  * Gets a management lock at the subscription level.
  */
 export function getManagementLockAtSubscriptionLevelOutput(args: GetManagementLockAtSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtSubscriptionLevelResult> {
-    return pulumi.output(args).apply((a: any) => getManagementLockAtSubscriptionLevel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:authorization/v20200501:getManagementLockAtSubscriptionLevel", {
+        "lockName": args.lockName,
+    }, opts);
 }
 
 export interface GetManagementLockAtSubscriptionLevelOutputArgs {

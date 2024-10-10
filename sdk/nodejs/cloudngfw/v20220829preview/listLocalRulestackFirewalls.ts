@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * List of Firewalls associated with Rulestack
  */
 export function listLocalRulestackFirewalls(args: ListLocalRulestackFirewallsArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalRulestackFirewallsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20220829preview:listLocalRulestackFirewalls", {
         "localRulestackName": args.localRulestackName,
@@ -44,7 +43,11 @@ export interface ListLocalRulestackFirewallsResult {
  * List of Firewalls associated with Rulestack
  */
 export function listLocalRulestackFirewallsOutput(args: ListLocalRulestackFirewallsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalRulestackFirewallsResult> {
-    return pulumi.output(args).apply((a: any) => listLocalRulestackFirewalls(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829preview:listLocalRulestackFirewalls", {
+        "localRulestackName": args.localRulestackName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListLocalRulestackFirewallsOutputArgs {

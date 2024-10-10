@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
  */
 export function getManagedClusterService(args: GetManagedClusterServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20240201preview:getManagedClusterService", {
         "applicationName": args.applicationName,
@@ -77,7 +76,13 @@ export interface GetManagedClusterServiceResult {
  * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
  */
 export function getManagedClusterServiceOutput(args: GetManagedClusterServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterServiceResult> {
-    return pulumi.output(args).apply((a: any) => getManagedClusterService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20240201preview:getManagedClusterService", {
+        "applicationName": args.applicationName,
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetManagedClusterServiceOutputArgs {

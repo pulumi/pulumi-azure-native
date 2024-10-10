@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get properties of a domain topic.
  */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20240601preview:getDomainTopic", {
         "domainName": args.domainName,
@@ -64,7 +63,12 @@ export interface GetDomainTopicResult {
  * Get properties of a domain topic.
  */
 export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {
-    return pulumi.output(args).apply((a: any) => getDomainTopic(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getDomainTopic", {
+        "domainName": args.domainName,
+        "domainTopicName": args.domainTopicName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDomainTopicOutputArgs {

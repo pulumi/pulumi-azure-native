@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
  */
 export function getAlertsSuppressionRule(args: GetAlertsSuppressionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertsSuppressionRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20190101preview:getAlertsSuppressionRule", {
         "alertsSuppressionRuleName": args.alertsSuppressionRuleName,
@@ -74,7 +73,10 @@ export interface GetAlertsSuppressionRuleResult {
  * Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
  */
 export function getAlertsSuppressionRuleOutput(args: GetAlertsSuppressionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertsSuppressionRuleResult> {
-    return pulumi.output(args).apply((a: any) => getAlertsSuppressionRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security/v20190101preview:getAlertsSuppressionRule", {
+        "alertsSuppressionRuleName": args.alertsSuppressionRuleName,
+    }, opts);
 }
 
 export interface GetAlertsSuppressionRuleOutputArgs {

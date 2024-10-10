@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a CertificateObjectGlobalRulestackResource
  */
 export function getCertificateObjectGlobalRulestack(args: GetCertificateObjectGlobalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateObjectGlobalRulestackResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20240207preview:getCertificateObjectGlobalRulestack", {
         "globalRulestackName": args.globalRulestackName,
@@ -79,7 +78,11 @@ export interface GetCertificateObjectGlobalRulestackResult {
  * Get a CertificateObjectGlobalRulestackResource
  */
 export function getCertificateObjectGlobalRulestackOutput(args: GetCertificateObjectGlobalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateObjectGlobalRulestackResult> {
-    return pulumi.output(args).apply((a: any) => getCertificateObjectGlobalRulestack(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240207preview:getCertificateObjectGlobalRulestack", {
+        "globalRulestackName": args.globalRulestackName,
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetCertificateObjectGlobalRulestackOutputArgs {

@@ -237,9 +237,6 @@ def get_jit_request(jit_request_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         updated_by=pulumi.get(__ret__, 'updated_by'))
-
-
-@_utilities.lift_output_func(get_jit_request)
 def get_jit_request_output(jit_request_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJitRequestResult]:
@@ -250,4 +247,23 @@ def get_jit_request_output(jit_request_name: Optional[pulumi.Input[str]] = None,
     :param str jit_request_name: The name of the JIT request.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['jitRequestName'] = jit_request_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:solutions/v20231201preview:getJitRequest', __args__, opts=opts, typ=GetJitRequestResult)
+    return __ret__.apply(lambda __response__: GetJitRequestResult(
+        application_resource_id=pulumi.get(__response__, 'application_resource_id'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        id=pulumi.get(__response__, 'id'),
+        jit_authorization_policies=pulumi.get(__response__, 'jit_authorization_policies'),
+        jit_request_state=pulumi.get(__response__, 'jit_request_state'),
+        jit_scheduling_policy=pulumi.get(__response__, 'jit_scheduling_policy'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        publisher_tenant_id=pulumi.get(__response__, 'publisher_tenant_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        updated_by=pulumi.get(__response__, 'updated_by')))

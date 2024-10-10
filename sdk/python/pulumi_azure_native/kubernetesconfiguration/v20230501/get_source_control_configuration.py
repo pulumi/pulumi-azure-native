@@ -285,9 +285,6 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
         ssh_known_hosts_contents=pulumi.get(__ret__, 'ssh_known_hosts_contents'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_source_control_configuration)
 def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                             cluster_resource_name: Optional[pulumi.Input[str]] = None,
                                             cluster_rp: Optional[pulumi.Input[str]] = None,
@@ -304,4 +301,29 @@ def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str source_control_configuration_name: Name of the Source Control Configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['clusterResourceName'] = cluster_resource_name
+    __args__['clusterRp'] = cluster_rp
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sourceControlConfigurationName'] = source_control_configuration_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesconfiguration/v20230501:getSourceControlConfiguration', __args__, opts=opts, typ=GetSourceControlConfigurationResult)
+    return __ret__.apply(lambda __response__: GetSourceControlConfigurationResult(
+        compliance_status=pulumi.get(__response__, 'compliance_status'),
+        configuration_protected_settings=pulumi.get(__response__, 'configuration_protected_settings'),
+        enable_helm_operator=pulumi.get(__response__, 'enable_helm_operator'),
+        helm_operator_properties=pulumi.get(__response__, 'helm_operator_properties'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        operator_instance_name=pulumi.get(__response__, 'operator_instance_name'),
+        operator_namespace=pulumi.get(__response__, 'operator_namespace'),
+        operator_params=pulumi.get(__response__, 'operator_params'),
+        operator_scope=pulumi.get(__response__, 'operator_scope'),
+        operator_type=pulumi.get(__response__, 'operator_type'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        repository_public_key=pulumi.get(__response__, 'repository_public_key'),
+        repository_url=pulumi.get(__response__, 'repository_url'),
+        ssh_known_hosts_contents=pulumi.get(__response__, 'ssh_known_hosts_contents'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

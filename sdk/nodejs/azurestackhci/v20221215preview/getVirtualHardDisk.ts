@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a virtual hard disk
  */
 export function getVirtualHardDisk(args: GetVirtualHardDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHardDiskResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20221215preview:getVirtualHardDisk", {
         "resourceGroupName": args.resourceGroupName,
@@ -98,7 +97,11 @@ export interface GetVirtualHardDiskResult {
  * Gets a virtual hard disk
  */
 export function getVirtualHardDiskOutput(args: GetVirtualHardDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHardDiskResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualHardDisk(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20221215preview:getVirtualHardDisk", {
+        "resourceGroupName": args.resourceGroupName,
+        "virtualHardDiskName": args.virtualHardDiskName,
+    }, opts);
 }
 
 export interface GetVirtualHardDiskOutputArgs {

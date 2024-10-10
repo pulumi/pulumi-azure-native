@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-09-01-preview.
  */
 export function getSchemaRegistry(args: GetSchemaRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceregistry:getSchemaRegistry", {
         "resourceGroupName": args.resourceGroupName,
@@ -93,7 +92,11 @@ export interface GetSchemaRegistryResult {
  * Azure REST API version: 2024-09-01-preview.
  */
 export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryResult> {
-    return pulumi.output(args).apply((a: any) => getSchemaRegistry(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:deviceregistry:getSchemaRegistry", {
+        "resourceGroupName": args.resourceGroupName,
+        "schemaRegistryName": args.schemaRegistryName,
+    }, opts);
 }
 
 export interface GetSchemaRegistryOutputArgs {

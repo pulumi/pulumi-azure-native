@@ -239,9 +239,6 @@ def get_nsp_link(link_name: Optional[str] = None,
         remote_perimeter_location=pulumi.get(__ret__, 'remote_perimeter_location'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_nsp_link)
 def get_nsp_link_output(link_name: Optional[pulumi.Input[str]] = None,
                         network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -254,4 +251,24 @@ def get_nsp_link_output(link_name: Optional[pulumi.Input[str]] = None,
     :param str network_security_perimeter_name: The name of the network security perimeter.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['linkName'] = link_name
+    __args__['networkSecurityPerimeterName'] = network_security_perimeter_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230801preview:getNspLink', __args__, opts=opts, typ=GetNspLinkResult)
+    return __ret__.apply(lambda __response__: GetNspLinkResult(
+        auto_approved_remote_perimeter_resource_id=pulumi.get(__response__, 'auto_approved_remote_perimeter_resource_id'),
+        description=pulumi.get(__response__, 'description'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        local_inbound_profiles=pulumi.get(__response__, 'local_inbound_profiles'),
+        local_outbound_profiles=pulumi.get(__response__, 'local_outbound_profiles'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        remote_inbound_profiles=pulumi.get(__response__, 'remote_inbound_profiles'),
+        remote_outbound_profiles=pulumi.get(__response__, 'remote_outbound_profiles'),
+        remote_perimeter_guid=pulumi.get(__response__, 'remote_perimeter_guid'),
+        remote_perimeter_location=pulumi.get(__response__, 'remote_perimeter_location'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type')))

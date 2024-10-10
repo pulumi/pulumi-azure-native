@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-09-01-preview.
  */
 export function getCustomResourceProvider(args: GetCustomResourceProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomResourceProviderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customproviders:getCustomResourceProvider", {
         "resourceGroupName": args.resourceGroupName,
@@ -77,7 +76,11 @@ export interface GetCustomResourceProviderResult {
  * Azure REST API version: 2018-09-01-preview.
  */
 export function getCustomResourceProviderOutput(args: GetCustomResourceProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomResourceProviderResult> {
-    return pulumi.output(args).apply((a: any) => getCustomResourceProvider(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:customproviders:getCustomResourceProvider", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceProviderName": args.resourceProviderName,
+    }, opts);
 }
 
 export interface GetCustomResourceProviderOutputArgs {

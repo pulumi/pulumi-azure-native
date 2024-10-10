@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Description for Returns whether Scm basic auth is allowed on the site or not.
  */
 export function getWebAppScmAllowed(args: GetWebAppScmAllowedArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppScmAllowedResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:getWebAppScmAllowed", {
         "name": args.name,
@@ -56,7 +55,11 @@ export interface GetWebAppScmAllowedResult {
  * Description for Returns whether Scm basic auth is allowed on the site or not.
  */
 export function getWebAppScmAllowedOutput(args: GetWebAppScmAllowedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppScmAllowedResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppScmAllowed(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getWebAppScmAllowed", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWebAppScmAllowedOutputArgs {

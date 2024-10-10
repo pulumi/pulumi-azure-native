@@ -255,9 +255,6 @@ def get_io_t_hub_event_source(environment_name: Optional[str] = None,
         time=pulumi.get(__ret__, 'time'),
         timestamp_property_name=pulumi.get(__ret__, 'timestamp_property_name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_io_t_hub_event_source)
 def get_io_t_hub_event_source_output(environment_name: Optional[pulumi.Input[str]] = None,
                                      event_source_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -271,4 +268,25 @@ def get_io_t_hub_event_source_output(environment_name: Optional[pulumi.Input[str
     :param str event_source_name: The name of the Time Series Insights event source associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['environmentName'] = environment_name
+    __args__['eventSourceName'] = event_source_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:timeseriesinsights:getIoTHubEventSource', __args__, opts=opts, typ=GetIoTHubEventSourceResult)
+    return __ret__.apply(lambda __response__: GetIoTHubEventSourceResult(
+        consumer_group_name=pulumi.get(__response__, 'consumer_group_name'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        event_source_resource_id=pulumi.get(__response__, 'event_source_resource_id'),
+        id=pulumi.get(__response__, 'id'),
+        iot_hub_name=pulumi.get(__response__, 'iot_hub_name'),
+        key_name=pulumi.get(__response__, 'key_name'),
+        kind=pulumi.get(__response__, 'kind'),
+        local_timestamp=pulumi.get(__response__, 'local_timestamp'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        tags=pulumi.get(__response__, 'tags'),
+        time=pulumi.get(__response__, 'time'),
+        timestamp_property_name=pulumi.get(__response__, 'timestamp_property_name'),
+        type=pulumi.get(__response__, 'type')))

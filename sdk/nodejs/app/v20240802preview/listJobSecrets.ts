@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Container Apps Job Secrets Collection ARM resource.
  */
 export function listJobSecrets(args: ListJobSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListJobSecretsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20240802preview:listJobSecrets", {
         "jobName": args.jobName,
@@ -43,7 +42,11 @@ export interface ListJobSecretsResult {
  * Container Apps Job Secrets Collection ARM resource.
  */
 export function listJobSecretsOutput(args: ListJobSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listJobSecrets(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app/v20240802preview:listJobSecrets", {
+        "jobName": args.jobName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListJobSecretsOutputArgs {

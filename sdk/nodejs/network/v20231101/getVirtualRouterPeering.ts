@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the specified Virtual Router Peering.
  */
 export function getVirtualRouterPeering(args: GetVirtualRouterPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterPeeringResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20231101:getVirtualRouterPeering", {
         "peeringName": args.peeringName,
@@ -69,7 +68,12 @@ export interface GetVirtualRouterPeeringResult {
  * Gets the specified Virtual Router Peering.
  */
 export function getVirtualRouterPeeringOutput(args: GetVirtualRouterPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterPeeringResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualRouterPeering(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getVirtualRouterPeering", {
+        "peeringName": args.peeringName,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualRouterName": args.virtualRouterName,
+    }, opts);
 }
 
 export interface GetVirtualRouterPeeringOutputArgs {

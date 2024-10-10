@@ -344,9 +344,6 @@ def get_kpi(hub_name: Optional[str] = None,
         thres_holds=pulumi.get(__ret__, 'thres_holds'),
         type=pulumi.get(__ret__, 'type'),
         unit=pulumi.get(__ret__, 'unit'))
-
-
-@_utilities.lift_output_func(get_kpi)
 def get_kpi_output(hub_name: Optional[pulumi.Input[str]] = None,
                    kpi_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -359,4 +356,32 @@ def get_kpi_output(hub_name: Optional[pulumi.Input[str]] = None,
     :param str kpi_name: The name of the KPI.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['hubName'] = hub_name
+    __args__['kpiName'] = kpi_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights/v20170426:getKpi', __args__, opts=opts, typ=GetKpiResult)
+    return __ret__.apply(lambda __response__: GetKpiResult(
+        aliases=pulumi.get(__response__, 'aliases'),
+        calculation_window=pulumi.get(__response__, 'calculation_window'),
+        calculation_window_field_name=pulumi.get(__response__, 'calculation_window_field_name'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        entity_type=pulumi.get(__response__, 'entity_type'),
+        entity_type_name=pulumi.get(__response__, 'entity_type_name'),
+        expression=pulumi.get(__response__, 'expression'),
+        extracts=pulumi.get(__response__, 'extracts'),
+        filter=pulumi.get(__response__, 'filter'),
+        function=pulumi.get(__response__, 'function'),
+        group_by=pulumi.get(__response__, 'group_by'),
+        group_by_metadata=pulumi.get(__response__, 'group_by_metadata'),
+        id=pulumi.get(__response__, 'id'),
+        kpi_name=pulumi.get(__response__, 'kpi_name'),
+        name=pulumi.get(__response__, 'name'),
+        participant_profiles_metadata=pulumi.get(__response__, 'participant_profiles_metadata'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        thres_holds=pulumi.get(__response__, 'thres_holds'),
+        type=pulumi.get(__response__, 'type'),
+        unit=pulumi.get(__response__, 'unit')))

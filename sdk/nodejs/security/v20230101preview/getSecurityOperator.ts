@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a specific security operator for the requested scope.
  */
 export function getSecurityOperator(args: GetSecurityOperatorArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityOperatorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20230101preview:getSecurityOperator", {
         "pricingName": args.pricingName,
@@ -55,7 +54,11 @@ export interface GetSecurityOperatorResult {
  * Get a specific security operator for the requested scope.
  */
 export function getSecurityOperatorOutput(args: GetSecurityOperatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityOperatorResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityOperator(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security/v20230101preview:getSecurityOperator", {
+        "pricingName": args.pricingName,
+        "securityOperatorName": args.securityOperatorName,
+    }, opts);
 }
 
 export interface GetSecurityOperatorOutputArgs {

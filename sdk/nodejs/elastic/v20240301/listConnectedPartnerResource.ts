@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  *  List of all active elastic deployments.
  */
 export function listConnectedPartnerResource(args: ListConnectedPartnerResourceArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectedPartnerResourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic/v20240301:listConnectedPartnerResource", {
         "monitorName": args.monitorName,
@@ -47,7 +46,11 @@ export interface ListConnectedPartnerResourceResult {
  *  List of all active elastic deployments.
  */
 export function listConnectedPartnerResourceOutput(args: ListConnectedPartnerResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedPartnerResourceResult> {
-    return pulumi.output(args).apply((a: any) => listConnectedPartnerResource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:elastic/v20240301:listConnectedPartnerResource", {
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListConnectedPartnerResourceOutputArgs {

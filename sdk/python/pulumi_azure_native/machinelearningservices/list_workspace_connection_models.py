@@ -79,9 +79,6 @@ def list_workspace_connection_models(resource_group_name: Optional[str] = None,
     return AwaitableListWorkspaceConnectionModelsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_workspace_connection_models)
 def list_workspace_connection_models_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             workspace_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceConnectionModelsResult]:
@@ -93,4 +90,11 @@ def list_workspace_connection_models_output(resource_group_name: Optional[pulumi
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Azure Machine Learning Workspace Name
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:listWorkspaceConnectionModels', __args__, opts=opts, typ=ListWorkspaceConnectionModelsResult)
+    return __ret__.apply(lambda __response__: ListWorkspaceConnectionModelsResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a PreRulesResource
  */
 export function getPreRule(args: GetPreRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetPreRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20220829:getPreRule", {
         "globalRulestackName": args.globalRulestackName,
@@ -132,7 +131,11 @@ export interface GetPreRuleResult {
  * Get a PreRulesResource
  */
 export function getPreRuleOutput(args: GetPreRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPreRuleResult> {
-    return pulumi.output(args).apply((a: any) => getPreRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829:getPreRule", {
+        "globalRulestackName": args.globalRulestackName,
+        "priority": args.priority,
+    }, opts);
 }
 
 export interface GetPreRuleOutputArgs {

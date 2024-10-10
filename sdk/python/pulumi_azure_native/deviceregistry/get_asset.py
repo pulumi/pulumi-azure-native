@@ -448,9 +448,6 @@ def get_asset(asset_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_asset)
 def get_asset_output(asset_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetResult]:
@@ -464,4 +461,39 @@ def get_asset_output(asset_name: Optional[pulumi.Input[str]] = None,
     :param str asset_name: Asset name parameter.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['assetName'] = asset_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry:getAsset', __args__, opts=opts, typ=GetAssetResult)
+    return __ret__.apply(lambda __response__: GetAssetResult(
+        asset_endpoint_profile_uri=pulumi.get(__response__, 'asset_endpoint_profile_uri'),
+        asset_type=pulumi.get(__response__, 'asset_type'),
+        attributes=pulumi.get(__response__, 'attributes'),
+        data_points=pulumi.get(__response__, 'data_points'),
+        default_data_points_configuration=pulumi.get(__response__, 'default_data_points_configuration'),
+        default_events_configuration=pulumi.get(__response__, 'default_events_configuration'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        documentation_uri=pulumi.get(__response__, 'documentation_uri'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        events=pulumi.get(__response__, 'events'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        external_asset_id=pulumi.get(__response__, 'external_asset_id'),
+        hardware_revision=pulumi.get(__response__, 'hardware_revision'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        manufacturer=pulumi.get(__response__, 'manufacturer'),
+        manufacturer_uri=pulumi.get(__response__, 'manufacturer_uri'),
+        model=pulumi.get(__response__, 'model'),
+        name=pulumi.get(__response__, 'name'),
+        product_code=pulumi.get(__response__, 'product_code'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        serial_number=pulumi.get(__response__, 'serial_number'),
+        software_revision=pulumi.get(__response__, 'software_revision'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        uuid=pulumi.get(__response__, 'uuid'),
+        version=pulumi.get(__response__, 'version')))

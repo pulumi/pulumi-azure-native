@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified address.
  */
 export function getAddressByName(args: GetAddressByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAddressByNameResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edgeorder/v20211201:getAddressByName", {
         "addressName": args.addressName,
@@ -75,7 +74,11 @@ export interface GetAddressByNameResult {
  * Gets information about the specified address.
  */
 export function getAddressByNameOutput(args: GetAddressByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddressByNameResult> {
-    return pulumi.output(args).apply((a: any) => getAddressByName(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:edgeorder/v20211201:getAddressByName", {
+        "addressName": args.addressName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAddressByNameOutputArgs {

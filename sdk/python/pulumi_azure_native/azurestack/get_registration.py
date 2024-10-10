@@ -174,9 +174,6 @@ def get_registration(registration_name: Optional[str] = None,
         object_id=pulumi.get(__ret__, 'object_id'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_registration)
 def get_registration_output(registration_name: Optional[pulumi.Input[str]] = None,
                             resource_group: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationResult]:
@@ -190,4 +187,18 @@ def get_registration_output(registration_name: Optional[pulumi.Input[str]] = Non
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['registrationName'] = registration_name
+    __args__['resourceGroup'] = resource_group
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack:getRegistration', __args__, opts=opts, typ=GetRegistrationResult)
+    return __ret__.apply(lambda __response__: GetRegistrationResult(
+        billing_model=pulumi.get(__response__, 'billing_model'),
+        cloud_id=pulumi.get(__response__, 'cloud_id'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        object_id=pulumi.get(__response__, 'object_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

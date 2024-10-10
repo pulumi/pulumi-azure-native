@@ -78,9 +78,6 @@ def list_site_identifiers_assigned_to_host_name(name: Optional[str] = None,
     return AwaitableListSiteIdentifiersAssignedToHostNameResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_site_identifiers_assigned_to_host_name)
 def list_site_identifiers_assigned_to_host_name_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteIdentifiersAssignedToHostNameResult]:
     """
@@ -89,4 +86,10 @@ def list_site_identifiers_assigned_to_host_name_output(name: Optional[pulumi.Inp
 
     :param str name: Name of the object.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20210115:listSiteIdentifiersAssignedToHostName', __args__, opts=opts, typ=ListSiteIdentifiersAssignedToHostNameResult)
+    return __ret__.apply(lambda __response__: ListSiteIdentifiersAssignedToHostNameResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

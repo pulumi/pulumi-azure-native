@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a comment for a given incident.
  */
 export function getIncidentComment(args: GetIncidentCommentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentCommentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230201:getIncidentComment", {
         "incidentCommentId": args.incidentCommentId,
@@ -85,7 +84,13 @@ export interface GetIncidentCommentResult {
  * Gets a comment for a given incident.
  */
 export function getIncidentCommentOutput(args: GetIncidentCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentCommentResult> {
-    return pulumi.output(args).apply((a: any) => getIncidentComment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230201:getIncidentComment", {
+        "incidentCommentId": args.incidentCommentId,
+        "incidentId": args.incidentId,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetIncidentCommentOutputArgs {

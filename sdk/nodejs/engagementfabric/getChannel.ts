@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-09-01-preview.
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:engagementfabric:getChannel", {
         "accountName": args.accountName,
@@ -67,7 +66,12 @@ export interface GetChannelResult {
  * Azure REST API version: 2018-09-01-preview.
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
-    return pulumi.output(args).apply((a: any) => getChannel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:engagementfabric:getChannel", {
+        "accountName": args.accountName,
+        "channelName": args.channelName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetChannelOutputArgs {

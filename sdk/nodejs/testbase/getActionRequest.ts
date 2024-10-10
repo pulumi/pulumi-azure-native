@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-11-01-preview.
  */
 export function getActionRequest(args: GetActionRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetActionRequestResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase:getActionRequest", {
         "actionRequestName": args.actionRequestName,
@@ -64,7 +63,12 @@ export interface GetActionRequestResult {
  * Azure REST API version: 2023-11-01-preview.
  */
 export function getActionRequestOutput(args: GetActionRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionRequestResult> {
-    return pulumi.output(args).apply((a: any) => getActionRequest(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:testbase:getActionRequest", {
+        "actionRequestName": args.actionRequestName,
+        "resourceGroupName": args.resourceGroupName,
+        "testBaseAccountName": args.testBaseAccountName,
+    }, opts);
 }
 
 export interface GetActionRequestOutputArgs {

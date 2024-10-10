@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns the specified authorization rule.
  */
 export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicAuthorizationRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicebus/v20230101preview:getTopicAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -73,7 +72,13 @@ export interface GetTopicAuthorizationRuleResult {
  * Returns the specified authorization rule.
  */
 export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getTopicAuthorizationRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicebus/v20230101preview:getTopicAuthorizationRule", {
+        "authorizationRuleName": args.authorizationRuleName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+        "topicName": args.topicName,
+    }, opts);
 }
 
 export interface GetTopicAuthorizationRuleOutputArgs {

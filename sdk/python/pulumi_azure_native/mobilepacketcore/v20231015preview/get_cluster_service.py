@@ -211,9 +211,6 @@ def get_cluster_service(cluster_service_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_cluster_service)
 def get_cluster_service_output(cluster_service_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterServiceResult]:
@@ -224,4 +221,21 @@ def get_cluster_service_output(cluster_service_name: Optional[pulumi.Input[str]]
     :param str cluster_service_name: The name of the Cluster Service
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterServiceName'] = cluster_service_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:mobilepacketcore/v20231015preview:getClusterService', __args__, opts=opts, typ=GetClusterServiceResult)
+    return __ret__.apply(lambda __response__: GetClusterServiceResult(
+        cluster_type_specific_data=pulumi.get(__response__, 'cluster_type_specific_data'),
+        component_parameters=pulumi.get(__response__, 'component_parameters'),
+        deployment_type=pulumi.get(__response__, 'deployment_type'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        operational_status=pulumi.get(__response__, 'operational_status'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        release_version=pulumi.get(__response__, 'release_version'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

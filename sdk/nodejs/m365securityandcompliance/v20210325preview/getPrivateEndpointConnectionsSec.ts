@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified private endpoint connection associated with the service.
  */
 export function getPrivateEndpointConnectionsSec(args: GetPrivateEndpointConnectionsSecArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsSecResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsSec", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
@@ -72,7 +71,12 @@ export interface GetPrivateEndpointConnectionsSecResult {
  * Gets the specified private endpoint connection associated with the service.
  */
 export function getPrivateEndpointConnectionsSecOutput(args: GetPrivateEndpointConnectionsSecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsSecResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsSec(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsSec", {
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetPrivateEndpointConnectionsSecOutputArgs {

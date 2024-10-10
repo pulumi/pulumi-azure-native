@@ -136,9 +136,6 @@ def list_logic_app_workflows_connections(container_app_name: Optional[str] = Non
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(list_logic_app_workflows_connections)
 def list_logic_app_workflows_connections_output(container_app_name: Optional[pulumi.Input[str]] = None,
                                                 logic_app_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,4 +148,16 @@ def list_logic_app_workflows_connections_output(container_app_name: Optional[pul
     :param str logic_app_name: Name of the Logic App, the extension resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['containerAppName'] = container_app_name
+    __args__['logicAppName'] = logic_app_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20240802preview:listLogicAppWorkflowsConnections', __args__, opts=opts, typ=ListLogicAppWorkflowsConnectionsResult)
+    return __ret__.apply(lambda __response__: ListLogicAppWorkflowsConnectionsResult(
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        type=pulumi.get(__response__, 'type')))

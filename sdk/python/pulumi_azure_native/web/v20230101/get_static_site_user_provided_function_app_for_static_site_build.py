@@ -151,9 +151,6 @@ def get_static_site_user_provided_function_app_for_static_site_build(environment
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_static_site_user_provided_function_app_for_static_site_build)
 def get_static_site_user_provided_function_app_for_static_site_build_output(environment_name: Optional[pulumi.Input[str]] = None,
                                                                             function_app_name: Optional[pulumi.Input[str]] = None,
                                                                             name: Optional[pulumi.Input[str]] = None,
@@ -168,4 +165,18 @@ def get_static_site_user_provided_function_app_for_static_site_build_output(envi
     :param str name: Name of the static site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['environmentName'] = environment_name
+    __args__['functionAppName'] = function_app_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:getStaticSiteUserProvidedFunctionAppForStaticSiteBuild', __args__, opts=opts, typ=GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult)
+    return __ret__.apply(lambda __response__: GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult(
+        created_on=pulumi.get(__response__, 'created_on'),
+        function_app_region=pulumi.get(__response__, 'function_app_region'),
+        function_app_resource_id=pulumi.get(__response__, 'function_app_resource_id'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type')))

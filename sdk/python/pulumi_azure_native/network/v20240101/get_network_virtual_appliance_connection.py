@@ -162,9 +162,6 @@ def get_network_virtual_appliance_connection(connection_name: Optional[str] = No
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
         tunnel_identifier=pulumi.get(__ret__, 'tunnel_identifier'))
-
-
-@_utilities.lift_output_func(get_network_virtual_appliance_connection)
 def get_network_virtual_appliance_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                                                     network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -177,4 +174,18 @@ def get_network_virtual_appliance_connection_output(connection_name: Optional[pu
     :param str network_virtual_appliance_name: The name of the Network Virtual Appliance.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['connectionName'] = connection_name
+    __args__['networkVirtualApplianceName'] = network_virtual_appliance_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240101:getNetworkVirtualApplianceConnection', __args__, opts=opts, typ=GetNetworkVirtualApplianceConnectionResult)
+    return __ret__.apply(lambda __response__: GetNetworkVirtualApplianceConnectionResult(
+        asn=pulumi.get(__response__, 'asn'),
+        bgp_peer_address=pulumi.get(__response__, 'bgp_peer_address'),
+        enable_internet_security=pulumi.get(__response__, 'enable_internet_security'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        routing_configuration=pulumi.get(__response__, 'routing_configuration'),
+        tunnel_identifier=pulumi.get(__response__, 'tunnel_identifier')))

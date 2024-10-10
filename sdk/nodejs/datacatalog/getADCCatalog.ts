@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2016-03-30.
  */
 export function getADCCatalog(args: GetADCCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetADCCatalogResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datacatalog:getADCCatalog", {
         "catalogName": args.catalogName,
@@ -89,7 +88,11 @@ export interface GetADCCatalogResult {
  * Azure REST API version: 2016-03-30.
  */
 export function getADCCatalogOutput(args: GetADCCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADCCatalogResult> {
-    return pulumi.output(args).apply((a: any) => getADCCatalog(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datacatalog:getADCCatalog", {
+        "catalogName": args.catalogName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetADCCatalogOutputArgs {

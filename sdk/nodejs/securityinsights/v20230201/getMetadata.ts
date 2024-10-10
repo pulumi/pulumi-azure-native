@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Metadata.
  */
 export function getMetadata(args: GetMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230201:getMetadata", {
         "metadataName": args.metadataName,
@@ -140,7 +139,12 @@ export interface GetMetadataResult {
  * Get a Metadata.
  */
 export function getMetadataOutput(args: GetMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataResult> {
-    return pulumi.output(args).apply((a: any) => getMetadata(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230201:getMetadata", {
+        "metadataName": args.metadataName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetMetadataOutputArgs {

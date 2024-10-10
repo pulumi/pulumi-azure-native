@@ -186,9 +186,6 @@ def get_hub(hub_name: Optional[str] = None,
         tenant_features=pulumi.get(__ret__, 'tenant_features'),
         type=pulumi.get(__ret__, 'type'),
         web_endpoint=pulumi.get(__ret__, 'web_endpoint'))
-
-
-@_utilities.lift_output_func(get_hub)
 def get_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHubResult]:
@@ -200,4 +197,19 @@ def get_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
     :param str hub_name: The name of the hub.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['hubName'] = hub_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getHub', __args__, opts=opts, typ=GetHubResult)
+    return __ret__.apply(lambda __response__: GetHubResult(
+        api_endpoint=pulumi.get(__response__, 'api_endpoint'),
+        hub_billing_info=pulumi.get(__response__, 'hub_billing_info'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        tags=pulumi.get(__response__, 'tags'),
+        tenant_features=pulumi.get(__response__, 'tenant_features'),
+        type=pulumi.get(__response__, 'type'),
+        web_endpoint=pulumi.get(__response__, 'web_endpoint')))

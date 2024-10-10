@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-10-01-preview.
  */
 export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetOutputResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:streamanalytics:getOutput", {
         "jobName": args.jobName,
@@ -86,7 +85,12 @@ export interface GetOutputResult {
  * Other available API versions: 2021-10-01-preview.
  */
 export function getOutputOutput(args: GetOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutputResult> {
-    return pulumi.output(args).apply((a: any) => getOutput(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:streamanalytics:getOutput", {
+        "jobName": args.jobName,
+        "outputName": args.outputName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetOutputOutputArgs {

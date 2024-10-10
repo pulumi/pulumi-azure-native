@@ -84,9 +84,6 @@ def list_dns_forwarding_ruleset_by_virtual_network(resource_group_name: Optional
     return AwaitableListDnsForwardingRulesetByVirtualNetworkResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_dns_forwarding_ruleset_by_virtual_network)
 def list_dns_forwarding_ruleset_by_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                           top: Optional[pulumi.Input[Optional[int]]] = None,
                                                           virtual_network_name: Optional[pulumi.Input[str]] = None,
@@ -99,4 +96,12 @@ def list_dns_forwarding_ruleset_by_virtual_network_output(resource_group_name: O
     :param int top: The maximum number of results to return. If not specified, returns up to 100 results.
     :param str virtual_network_name: The name of the virtual network.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['top'] = top
+    __args__['virtualNetworkName'] = virtual_network_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230701preview:listDnsForwardingRulesetByVirtualNetwork', __args__, opts=opts, typ=ListDnsForwardingRulesetByVirtualNetworkResult)
+    return __ret__.apply(lambda __response__: ListDnsForwardingRulesetByVirtualNetworkResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

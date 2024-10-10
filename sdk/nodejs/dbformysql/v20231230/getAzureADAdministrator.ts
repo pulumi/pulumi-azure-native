@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about an azure ad administrator.
  */
 export function getAzureADAdministrator(args: GetAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureADAdministratorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformysql/v20231230:getAzureADAdministrator", {
         "administratorName": args.administratorName,
@@ -80,7 +79,12 @@ export interface GetAzureADAdministratorResult {
  * Gets information about an azure ad administrator.
  */
 export function getAzureADAdministratorOutput(args: GetAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureADAdministratorResult> {
-    return pulumi.output(args).apply((a: any) => getAzureADAdministrator(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:dbformysql/v20231230:getAzureADAdministrator", {
+        "administratorName": args.administratorName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetAzureADAdministratorOutputArgs {

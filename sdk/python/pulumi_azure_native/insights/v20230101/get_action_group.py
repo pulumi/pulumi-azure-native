@@ -289,9 +289,6 @@ def get_action_group(action_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         voice_receivers=pulumi.get(__ret__, 'voice_receivers'),
         webhook_receivers=pulumi.get(__ret__, 'webhook_receivers'))
-
-
-@_utilities.lift_output_func(get_action_group)
 def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionGroupResult]:
@@ -302,4 +299,27 @@ def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = Non
     :param str action_group_name: The name of the action group.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['actionGroupName'] = action_group_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20230101:getActionGroup', __args__, opts=opts, typ=GetActionGroupResult)
+    return __ret__.apply(lambda __response__: GetActionGroupResult(
+        arm_role_receivers=pulumi.get(__response__, 'arm_role_receivers'),
+        automation_runbook_receivers=pulumi.get(__response__, 'automation_runbook_receivers'),
+        azure_app_push_receivers=pulumi.get(__response__, 'azure_app_push_receivers'),
+        azure_function_receivers=pulumi.get(__response__, 'azure_function_receivers'),
+        email_receivers=pulumi.get(__response__, 'email_receivers'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        event_hub_receivers=pulumi.get(__response__, 'event_hub_receivers'),
+        group_short_name=pulumi.get(__response__, 'group_short_name'),
+        id=pulumi.get(__response__, 'id'),
+        itsm_receivers=pulumi.get(__response__, 'itsm_receivers'),
+        location=pulumi.get(__response__, 'location'),
+        logic_app_receivers=pulumi.get(__response__, 'logic_app_receivers'),
+        name=pulumi.get(__response__, 'name'),
+        sms_receivers=pulumi.get(__response__, 'sms_receivers'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        voice_receivers=pulumi.get(__response__, 'voice_receivers'),
+        webhook_receivers=pulumi.get(__response__, 'webhook_receivers')))

@@ -122,9 +122,6 @@ def list_storage_account_service_sas(account_name: Optional[str] = None,
 
     return AwaitableListStorageAccountServiceSASResult(
         service_sas_token=pulumi.get(__ret__, 'service_sas_token'))
-
-
-@_utilities.lift_output_func(list_storage_account_service_sas)
 def list_storage_account_service_sas_output(account_name: Optional[pulumi.Input[str]] = None,
                                             cache_control: Optional[pulumi.Input[Optional[str]]] = None,
                                             canonicalized_resource: Optional[pulumi.Input[str]] = None,
@@ -171,4 +168,28 @@ def list_storage_account_service_sas_output(account_name: Optional[pulumi.Input[
     :param str shared_access_expiry_time: The time at which the shared access signature becomes invalid.
     :param str shared_access_start_time: The time at which the SAS becomes valid.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['cacheControl'] = cache_control
+    __args__['canonicalizedResource'] = canonicalized_resource
+    __args__['contentDisposition'] = content_disposition
+    __args__['contentEncoding'] = content_encoding
+    __args__['contentLanguage'] = content_language
+    __args__['contentType'] = content_type
+    __args__['iPAddressOrRange'] = i_p_address_or_range
+    __args__['identifier'] = identifier
+    __args__['keyToSign'] = key_to_sign
+    __args__['partitionKeyEnd'] = partition_key_end
+    __args__['partitionKeyStart'] = partition_key_start
+    __args__['permissions'] = permissions
+    __args__['protocols'] = protocols
+    __args__['resource'] = resource
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['rowKeyEnd'] = row_key_end
+    __args__['rowKeyStart'] = row_key_start
+    __args__['sharedAccessExpiryTime'] = shared_access_expiry_time
+    __args__['sharedAccessStartTime'] = shared_access_start_time
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230101:listStorageAccountServiceSAS', __args__, opts=opts, typ=ListStorageAccountServiceSASResult)
+    return __ret__.apply(lambda __response__: ListStorageAccountServiceSASResult(
+        service_sas_token=pulumi.get(__response__, 'service_sas_token')))

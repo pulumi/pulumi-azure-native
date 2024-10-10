@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-03-01-beta.
  */
 export function listSaasSubscriptionLevelAccessToken(args: ListSaasSubscriptionLevelAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListSaasSubscriptionLevelAccessTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:saas:listSaasSubscriptionLevelAccessToken", {
         "resourceGroupName": args.resourceGroupName,
@@ -46,7 +45,11 @@ export interface ListSaasSubscriptionLevelAccessTokenResult {
  * Azure REST API version: 2018-03-01-beta.
  */
 export function listSaasSubscriptionLevelAccessTokenOutput(args: ListSaasSubscriptionLevelAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSaasSubscriptionLevelAccessTokenResult> {
-    return pulumi.output(args).apply((a: any) => listSaasSubscriptionLevelAccessToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:saas:listSaasSubscriptionLevelAccessToken", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface ListSaasSubscriptionLevelAccessTokenOutputArgs {

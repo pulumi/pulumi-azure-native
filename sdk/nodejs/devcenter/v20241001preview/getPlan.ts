@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a devcenter plan.
  */
 export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20241001preview:getPlan", {
         "planName": args.planName,
@@ -71,7 +70,11 @@ export interface GetPlanResult {
  * Gets a devcenter plan.
  */
 export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
-    return pulumi.output(args).apply((a: any) => getPlan(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20241001preview:getPlan", {
+        "planName": args.planName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPlanOutputArgs {

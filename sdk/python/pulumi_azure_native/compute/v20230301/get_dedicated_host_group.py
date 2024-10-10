@@ -201,9 +201,6 @@ def get_dedicated_host_group(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_dedicated_host_group)
 def get_dedicated_host_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                     host_group_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -216,4 +213,21 @@ def get_dedicated_host_group_output(expand: Optional[pulumi.Input[Optional[str]]
     :param str host_group_name: The name of the dedicated host group.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['hostGroupName'] = host_group_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230301:getDedicatedHostGroup', __args__, opts=opts, typ=GetDedicatedHostGroupResult)
+    return __ret__.apply(lambda __response__: GetDedicatedHostGroupResult(
+        additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),
+        hosts=pulumi.get(__response__, 'hosts'),
+        id=pulumi.get(__response__, 'id'),
+        instance_view=pulumi.get(__response__, 'instance_view'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        platform_fault_domain_count=pulumi.get(__response__, 'platform_fault_domain_count'),
+        support_automatic_placement=pulumi.get(__response__, 'support_automatic_placement'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        zones=pulumi.get(__response__, 'zones')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve a hybrid runbook worker.
  */
 export function getHybridRunbookWorker(args: GetHybridRunbookWorkerArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridRunbookWorkerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20230515preview:getHybridRunbookWorker", {
         "automationAccountName": args.automationAccountName,
@@ -97,7 +96,13 @@ export interface GetHybridRunbookWorkerResult {
  * Retrieve a hybrid runbook worker.
  */
 export function getHybridRunbookWorkerOutput(args: GetHybridRunbookWorkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridRunbookWorkerResult> {
-    return pulumi.output(args).apply((a: any) => getHybridRunbookWorker(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getHybridRunbookWorker", {
+        "automationAccountName": args.automationAccountName,
+        "hybridRunbookWorkerGroupName": args.hybridRunbookWorkerGroupName,
+        "hybridRunbookWorkerId": args.hybridRunbookWorkerId,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetHybridRunbookWorkerOutputArgs {

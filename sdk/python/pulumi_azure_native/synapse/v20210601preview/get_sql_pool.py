@@ -253,9 +253,6 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
         storage_account_type=pulumi.get(__ret__, 'storage_account_type'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_sql_pool)
 def get_sql_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         sql_pool_name: Optional[pulumi.Input[str]] = None,
                         workspace_name: Optional[pulumi.Input[str]] = None,
@@ -268,4 +265,25 @@ def get_sql_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str sql_pool_name: SQL pool name
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sqlPoolName'] = sql_pool_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601preview:getSqlPool', __args__, opts=opts, typ=GetSqlPoolResult)
+    return __ret__.apply(lambda __response__: GetSqlPoolResult(
+        collation=pulumi.get(__response__, 'collation'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        max_size_bytes=pulumi.get(__response__, 'max_size_bytes'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        recoverable_database_id=pulumi.get(__response__, 'recoverable_database_id'),
+        restore_point_in_time=pulumi.get(__response__, 'restore_point_in_time'),
+        sku=pulumi.get(__response__, 'sku'),
+        source_database_deletion_date=pulumi.get(__response__, 'source_database_deletion_date'),
+        status=pulumi.get(__response__, 'status'),
+        storage_account_type=pulumi.get(__response__, 'storage_account_type'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

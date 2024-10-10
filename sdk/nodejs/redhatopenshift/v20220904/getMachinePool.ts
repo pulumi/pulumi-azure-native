@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The operation returns properties of a MachinePool.
  */
 export function getMachinePool(args: GetMachinePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetMachinePoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20220904:getMachinePool", {
         "childResourceName": args.childResourceName,
@@ -61,7 +60,12 @@ export interface GetMachinePoolResult {
  * The operation returns properties of a MachinePool.
  */
 export function getMachinePoolOutput(args: GetMachinePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachinePoolResult> {
-    return pulumi.output(args).apply((a: any) => getMachinePool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:redhatopenshift/v20220904:getMachinePool", {
+        "childResourceName": args.childResourceName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetMachinePoolOutputArgs {

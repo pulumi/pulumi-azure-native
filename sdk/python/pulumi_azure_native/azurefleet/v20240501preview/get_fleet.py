@@ -263,9 +263,6 @@ def get_fleet(fleet_name: Optional[str] = None,
         unique_id=pulumi.get(__ret__, 'unique_id'),
         vm_sizes_profile=pulumi.get(__ret__, 'vm_sizes_profile'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_fleet)
 def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
@@ -276,4 +273,25 @@ def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
     :param str fleet_name: The name of the Compute Fleet
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['fleetName'] = fleet_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurefleet/v20240501preview:getFleet', __args__, opts=opts, typ=GetFleetResult)
+    return __ret__.apply(lambda __response__: GetFleetResult(
+        compute_profile=pulumi.get(__response__, 'compute_profile'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        plan=pulumi.get(__response__, 'plan'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        regular_priority_profile=pulumi.get(__response__, 'regular_priority_profile'),
+        spot_priority_profile=pulumi.get(__response__, 'spot_priority_profile'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_created=pulumi.get(__response__, 'time_created'),
+        type=pulumi.get(__response__, 'type'),
+        unique_id=pulumi.get(__response__, 'unique_id'),
+        vm_sizes_profile=pulumi.get(__response__, 'vm_sizes_profile'),
+        zones=pulumi.get(__response__, 'zones')))

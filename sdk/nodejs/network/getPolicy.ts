@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-06-01, 2024-02-01.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getPolicy", {
         "policyName": args.policyName,
@@ -102,7 +101,11 @@ export interface GetPolicyResult {
  * Other available API versions: 2021-06-01, 2024-02-01.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network:getPolicy", {
+        "policyName": args.policyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPolicyOutputArgs {

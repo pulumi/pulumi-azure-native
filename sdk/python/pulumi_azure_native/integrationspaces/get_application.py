@@ -176,9 +176,6 @@ def get_application(application_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tracking_data_stores=pulumi.get(__ret__, 'tracking_data_stores'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_application)
 def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            space_name: Optional[pulumi.Input[str]] = None,
@@ -192,4 +189,19 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str space_name: The name of the space
     """
-    ...
+    __args__ = dict()
+    __args__['applicationName'] = application_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['spaceName'] = space_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:integrationspaces:getApplication', __args__, opts=opts, typ=GetApplicationResult)
+    return __ret__.apply(lambda __response__: GetApplicationResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        tracking_data_stores=pulumi.get(__response__, 'tracking_data_stores'),
+        type=pulumi.get(__response__, 'type')))

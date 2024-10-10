@@ -123,9 +123,6 @@ def list_web_app_connection_strings_slot(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(list_web_app_connection_strings_slot)
 def list_web_app_connection_strings_slot_output(name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 slot: Optional[pulumi.Input[str]] = None,
@@ -138,4 +135,15 @@ def list_web_app_connection_strings_slot_output(name: Optional[pulumi.Input[str]
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the connection settings for the production slot.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['slot'] = slot
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:listWebAppConnectionStringsSlot', __args__, opts=opts, typ=ListWebAppConnectionStringsSlotResult)
+    return __ret__.apply(lambda __response__: ListWebAppConnectionStringsSlotResult(
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        type=pulumi.get(__response__, 'type')))

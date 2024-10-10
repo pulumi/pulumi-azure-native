@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified virtual network gateway connection by resource group.
  */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230501:getVirtualNetworkGatewayConnection", {
         "resourceGroupName": args.resourceGroupName,
@@ -171,7 +170,11 @@ export interface GetVirtualNetworkGatewayConnectionResult {
  * Gets the specified virtual network gateway connection by resource group.
  */
 export function getVirtualNetworkGatewayConnectionOutput(args: GetVirtualNetworkGatewayConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getVirtualNetworkGatewayConnection", {
+        "resourceGroupName": args.resourceGroupName,
+        "virtualNetworkGatewayConnectionName": args.virtualNetworkGatewayConnectionName,
+    }, opts);
 }
 
 export interface GetVirtualNetworkGatewayConnectionOutputArgs {

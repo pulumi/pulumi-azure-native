@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-11-01.
  */
 export function getLiveEventStreamEvents(args: GetLiveEventStreamEventsArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventStreamEventsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:getLiveEventStreamEvents", {
         "accountName": args.accountName,
@@ -50,7 +49,12 @@ export interface GetLiveEventStreamEventsResult {
  * Azure REST API version: 2022-11-01.
  */
 export function getLiveEventStreamEventsOutput(args: GetLiveEventStreamEventsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventStreamEventsResult> {
-    return pulumi.output(args).apply((a: any) => getLiveEventStreamEvents(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:media:getLiveEventStreamEvents", {
+        "accountName": args.accountName,
+        "liveEventName": args.liveEventName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLiveEventStreamEventsOutputArgs {

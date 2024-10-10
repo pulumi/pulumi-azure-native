@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the event source with the specified name in the specified environment.
  */
 export function getIoTHubEventSource(args: GetIoTHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTHubEventSourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20210630preview:getIoTHubEventSource", {
         "environmentName": args.environmentName,
@@ -105,7 +104,12 @@ export interface GetIoTHubEventSourceResult {
  * Gets the event source with the specified name in the specified environment.
  */
 export function getIoTHubEventSourceOutput(args: GetIoTHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTHubEventSourceResult> {
-    return pulumi.output(args).apply((a: any) => getIoTHubEventSource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights/v20210630preview:getIoTHubEventSource", {
+        "environmentName": args.environmentName,
+        "eventSourceName": args.eventSourceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIoTHubEventSourceOutputArgs {

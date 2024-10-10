@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getBillingHubServiceUsage(args: GetBillingHubServiceUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingHubServiceUsageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20220401preview:getBillingHubServiceUsage", {
         "endTimeStamp": args.endTimeStamp,
@@ -43,7 +42,15 @@ export interface GetBillingHubServiceUsageResult {
     readonly totalUsedFreeHours?: number;
 }
 export function getBillingHubServiceUsageOutput(args: GetBillingHubServiceUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingHubServiceUsageResult> {
-    return pulumi.output(args).apply((a: any) => getBillingHubServiceUsage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getBillingHubServiceUsage", {
+        "endTimeStamp": args.endTimeStamp,
+        "pageIndex": args.pageIndex,
+        "pageSize": args.pageSize,
+        "resourceGroupName": args.resourceGroupName,
+        "startTimeStamp": args.startTimeStamp,
+        "testBaseAccountName": args.testBaseAccountName,
+    }, opts);
 }
 
 export interface GetBillingHubServiceUsageOutputArgs {

@@ -96,9 +96,6 @@ def get_offer_access_token(offer_id: Optional[str] = None,
         access_token=pulumi.get(__ret__, 'access_token'),
         disk_id=pulumi.get(__ret__, 'disk_id'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_offer_access_token)
 def get_offer_access_token_output(offer_id: Optional[pulumi.Input[str]] = None,
                                   request_id: Optional[pulumi.Input[str]] = None,
                                   resource_uri: Optional[pulumi.Input[str]] = None,
@@ -111,4 +108,13 @@ def get_offer_access_token_output(offer_id: Optional[pulumi.Input[str]] = None,
     :param str request_id: The name of the publisher.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['offerId'] = offer_id
+    __args__['requestId'] = request_id
+    __args__['resourceUri'] = resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:edgemarketplace/v20230801:getOfferAccessToken', __args__, opts=opts, typ=GetOfferAccessTokenResult)
+    return __ret__.apply(lambda __response__: GetOfferAccessTokenResult(
+        access_token=pulumi.get(__response__, 'access_token'),
+        disk_id=pulumi.get(__response__, 'disk_id'),
+        status=pulumi.get(__response__, 'status')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Response of a list operation.
  */
 export function listMonitorApiKeys(args: ListMonitorApiKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorApiKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datadog/v20230101:listMonitorApiKeys", {
         "monitorName": args.monitorName,
@@ -47,7 +46,11 @@ export interface ListMonitorApiKeysResult {
  * Response of a list operation.
  */
 export function listMonitorApiKeysOutput(args: ListMonitorApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorApiKeysResult> {
-    return pulumi.output(args).apply((a: any) => listMonitorApiKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datadog/v20230101:listMonitorApiKeys", {
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListMonitorApiKeysOutputArgs {

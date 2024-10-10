@@ -159,9 +159,6 @@ def get_web_app_diagnostic_logs_configuration(name: Optional[str] = None,
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_web_app_diagnostic_logs_configuration)
 def get_web_app_diagnostic_logs_configuration_output(name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDiagnosticLogsConfigurationResult]:
@@ -172,4 +169,17 @@ def get_web_app_diagnostic_logs_configuration_output(name: Optional[pulumi.Input
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:getWebAppDiagnosticLogsConfiguration', __args__, opts=opts, typ=GetWebAppDiagnosticLogsConfigurationResult)
+    return __ret__.apply(lambda __response__: GetWebAppDiagnosticLogsConfigurationResult(
+        application_logs=pulumi.get(__response__, 'application_logs'),
+        detailed_error_messages=pulumi.get(__response__, 'detailed_error_messages'),
+        failed_requests_tracing=pulumi.get(__response__, 'failed_requests_tracing'),
+        http_logs=pulumi.get(__response__, 'http_logs'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type')))

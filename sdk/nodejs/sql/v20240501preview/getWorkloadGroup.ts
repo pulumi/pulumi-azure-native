@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a workload group
  */
 export function getWorkloadGroup(args: GetWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20240501preview:getWorkloadGroup", {
         "databaseName": args.databaseName,
@@ -82,7 +81,13 @@ export interface GetWorkloadGroupResult {
  * Gets a workload group
  */
 export function getWorkloadGroupOutput(args: GetWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadGroupResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20240501preview:getWorkloadGroup", {
+        "databaseName": args.databaseName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+        "workloadGroupName": args.workloadGroupName,
+    }, opts);
 }
 
 export interface GetWorkloadGroupOutputArgs {

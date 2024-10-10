@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01-preview.
  */
 export function getHybridIdentityMetadata(args: GetHybridIdentityMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridIdentityMetadataResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm:getHybridIdentityMetadata", {
         "metadataName": args.metadataName,
@@ -82,7 +81,12 @@ export interface GetHybridIdentityMetadataResult {
  * Other available API versions: 2023-04-01-preview.
  */
 export function getHybridIdentityMetadataOutput(args: GetHybridIdentityMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadataResult> {
-    return pulumi.output(args).apply((a: any) => getHybridIdentityMetadata(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:scvmm:getHybridIdentityMetadata", {
+        "metadataName": args.metadataName,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualMachineName": args.virtualMachineName,
+    }, opts);
 }
 
 export interface GetHybridIdentityMetadataOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
 export function getWebAppHybridConnectionSlot(args: GetWebAppHybridConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:getWebAppHybridConnectionSlot", {
         "name": args.name,
@@ -107,7 +106,14 @@ export interface GetWebAppHybridConnectionSlotResult {
  * Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
 export function getWebAppHybridConnectionSlotOutput(args: GetWebAppHybridConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHybridConnectionSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppHybridConnectionSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:getWebAppHybridConnectionSlot", {
+        "name": args.name,
+        "namespaceName": args.namespaceName,
+        "relayName": args.relayName,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface GetWebAppHybridConnectionSlotOutputArgs {

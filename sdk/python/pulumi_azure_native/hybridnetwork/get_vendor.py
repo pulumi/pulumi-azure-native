@@ -131,9 +131,6 @@ def get_vendor(vendor_name: Optional[str] = None,
         skus=pulumi.get(__ret__, 'skus'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_vendor)
 def get_vendor_output(vendor_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorResult]:
     """
@@ -143,4 +140,14 @@ def get_vendor_output(vendor_name: Optional[pulumi.Input[str]] = None,
 
     :param str vendor_name: The name of the vendor.
     """
-    ...
+    __args__ = dict()
+    __args__['vendorName'] = vendor_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:getVendor', __args__, opts=opts, typ=GetVendorResult)
+    return __ret__.apply(lambda __response__: GetVendorResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        skus=pulumi.get(__response__, 'skus'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

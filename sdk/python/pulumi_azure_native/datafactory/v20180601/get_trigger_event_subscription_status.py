@@ -83,9 +83,6 @@ def get_trigger_event_subscription_status(factory_name: Optional[str] = None,
     return AwaitableGetTriggerEventSubscriptionStatusResult(
         status=pulumi.get(__ret__, 'status'),
         trigger_name=pulumi.get(__ret__, 'trigger_name'))
-
-
-@_utilities.lift_output_func(get_trigger_event_subscription_status)
 def get_trigger_event_subscription_status_output(factory_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  trigger_name: Optional[pulumi.Input[str]] = None,
@@ -98,4 +95,12 @@ def get_trigger_event_subscription_status_output(factory_name: Optional[pulumi.I
     :param str resource_group_name: The resource group name.
     :param str trigger_name: The trigger name.
     """
-    ...
+    __args__ = dict()
+    __args__['factoryName'] = factory_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['triggerName'] = trigger_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory/v20180601:getTriggerEventSubscriptionStatus', __args__, opts=opts, typ=GetTriggerEventSubscriptionStatusResult)
+    return __ret__.apply(lambda __response__: GetTriggerEventSubscriptionStatusResult(
+        status=pulumi.get(__response__, 'status'),
+        trigger_name=pulumi.get(__response__, 'trigger_name')))

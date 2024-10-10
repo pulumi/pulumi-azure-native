@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Definition of generic ARM proxy resource.
  */
 export function getDataCollectionRuleAssociation(args: GetDataCollectionRuleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20220601:getDataCollectionRuleAssociation", {
         "associationName": args.associationName,
@@ -79,7 +78,11 @@ export interface GetDataCollectionRuleAssociationResult {
  * Definition of generic ARM proxy resource.
  */
 export function getDataCollectionRuleAssociationOutput(args: GetDataCollectionRuleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getDataCollectionRuleAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights/v20220601:getDataCollectionRuleAssociation", {
+        "associationName": args.associationName,
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetDataCollectionRuleAssociationOutputArgs {

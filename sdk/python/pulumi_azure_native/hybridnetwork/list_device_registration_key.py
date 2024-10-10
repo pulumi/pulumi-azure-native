@@ -68,9 +68,6 @@ def list_device_registration_key(device_name: Optional[str] = None,
 
     return AwaitableListDeviceRegistrationKeyResult(
         registration_key=pulumi.get(__ret__, 'registration_key'))
-
-
-@_utilities.lift_output_func(list_device_registration_key)
 def list_device_registration_key_output(device_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeviceRegistrationKeyResult]:
@@ -82,4 +79,10 @@ def list_device_registration_key_output(device_name: Optional[pulumi.Input[str]]
     :param str device_name: The name of the device resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['deviceName'] = device_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:listDeviceRegistrationKey', __args__, opts=opts, typ=ListDeviceRegistrationKeyResult)
+    return __ret__.apply(lambda __response__: ListDeviceRegistrationKeyResult(
+        registration_key=pulumi.get(__response__, 'registration_key')))

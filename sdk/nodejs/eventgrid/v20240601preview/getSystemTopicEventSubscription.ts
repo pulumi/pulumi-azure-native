@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get an event subscription.
  */
 export function getSystemTopicEventSubscription(args: GetSystemTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20240601preview:getSystemTopicEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,
@@ -108,7 +107,12 @@ export interface GetSystemTopicEventSubscriptionResult {
  * Get an event subscription.
  */
 export function getSystemTopicEventSubscriptionOutput(args: GetSystemTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicEventSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getSystemTopicEventSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getSystemTopicEventSubscription", {
+        "eventSubscriptionName": args.eventSubscriptionName,
+        "resourceGroupName": args.resourceGroupName,
+        "systemTopicName": args.systemTopicName,
+    }, opts);
 }
 
 export interface GetSystemTopicEventSubscriptionOutputArgs {

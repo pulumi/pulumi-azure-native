@@ -227,9 +227,6 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_capacity_details)
 def get_capacity_details_output(dedicated_capacity_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityDetailsResult]:
@@ -243,4 +240,22 @@ def get_capacity_details_output(dedicated_capacity_name: Optional[pulumi.Input[s
     :param str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
     :param str resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
     """
-    ...
+    __args__ = dict()
+    __args__['dedicatedCapacityName'] = dedicated_capacity_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:powerbidedicated:getCapacityDetails', __args__, opts=opts, typ=GetCapacityDetailsResult)
+    return __ret__.apply(lambda __response__: GetCapacityDetailsResult(
+        administration=pulumi.get(__response__, 'administration'),
+        friendly_name=pulumi.get(__response__, 'friendly_name'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        mode=pulumi.get(__response__, 'mode'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sku=pulumi.get(__response__, 'sku'),
+        state=pulumi.get(__response__, 'state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type')))

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-01, 2024-05-01-preview.
  */
 export function getSqlServerDatabase(args: GetSqlServerDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerDatabaseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata:getSqlServerDatabase", {
         "databaseName": args.databaseName,
@@ -78,7 +77,12 @@ export interface GetSqlServerDatabaseResult {
  * Other available API versions: 2024-01-01, 2024-05-01-preview.
  */
 export function getSqlServerDatabaseOutput(args: GetSqlServerDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getSqlServerDatabase(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurearcdata:getSqlServerDatabase", {
+        "databaseName": args.databaseName,
+        "resourceGroupName": args.resourceGroupName,
+        "sqlServerInstanceName": args.sqlServerInstanceName,
+    }, opts);
 }
 
 export interface GetSqlServerDatabaseOutputArgs {

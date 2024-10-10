@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getVolume", {
         "resourceGroupName": args.resourceGroupName,
@@ -83,7 +82,11 @@ export interface GetVolumeResult {
  * Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh/v20180901preview:getVolume", {
+        "resourceGroupName": args.resourceGroupName,
+        "volumeResourceName": args.volumeResourceName,
+    }, opts);
 }
 
 export interface GetVolumeOutputArgs {

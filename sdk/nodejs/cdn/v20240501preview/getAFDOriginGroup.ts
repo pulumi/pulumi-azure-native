@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an existing origin group within a profile.
  */
 export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20240501preview:getAFDOriginGroup", {
         "originGroupName": args.originGroupName,
@@ -85,7 +84,12 @@ export interface GetAFDOriginGroupResult {
  * Gets an existing origin group within a profile.
  */
 export function getAFDOriginGroupOutput(args: GetAFDOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginGroupResult> {
-    return pulumi.output(args).apply((a: any) => getAFDOriginGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cdn/v20240501preview:getAFDOriginGroup", {
+        "originGroupName": args.originGroupName,
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAFDOriginGroupOutputArgs {

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getFileServiceProperties(args: GetFileServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServicePropertiesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage:getFileServiceProperties", {
         "accountName": args.accountName,
@@ -78,7 +77,12 @@ export interface GetFileServicePropertiesResult {
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getFileServicePropertiesOutput(args: GetFileServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileServicePropertiesResult> {
-    return pulumi.output(args).apply((a: any) => getFileServiceProperties(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storage:getFileServiceProperties", {
+        "accountName": args.accountName,
+        "fileServicesName": args.fileServicesName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFileServicePropertiesOutputArgs {

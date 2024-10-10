@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-10-01-preview.
  */
 export function getImportSitesController(args: GetImportSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetImportSitesControllerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure:getImportSitesController", {
         "resourceGroupName": args.resourceGroupName,
@@ -85,7 +84,11 @@ export interface GetImportSitesControllerResult {
  * Other available API versions: 2023-10-01-preview.
  */
 export function getImportSitesControllerOutput(args: GetImportSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportSitesControllerResult> {
-    return pulumi.output(args).apply((a: any) => getImportSitesController(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:offazure:getImportSitesController", {
+        "resourceGroupName": args.resourceGroupName,
+        "siteName": args.siteName,
+    }, opts);
 }
 
 export interface GetImportSitesControllerOutputArgs {

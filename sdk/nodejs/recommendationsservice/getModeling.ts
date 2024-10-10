@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-03-01-preview.
  */
 export function getModeling(args: GetModelingArgs, opts?: pulumi.InvokeOptions): Promise<GetModelingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recommendationsservice:getModeling", {
         "accountName": args.accountName,
@@ -78,7 +77,12 @@ export interface GetModelingResult {
  * Other available API versions: 2022-03-01-preview.
  */
 export function getModelingOutput(args: GetModelingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelingResult> {
-    return pulumi.output(args).apply((a: any) => getModeling(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:recommendationsservice:getModeling", {
+        "accountName": args.accountName,
+        "modelingName": args.modelingName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetModelingOutputArgs {

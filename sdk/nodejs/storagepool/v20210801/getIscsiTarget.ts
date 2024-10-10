@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get an iSCSI Target.
  */
 export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiTargetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagepool/v20210801:getIscsiTarget", {
         "diskPoolName": args.diskPoolName,
@@ -104,7 +103,12 @@ export interface GetIscsiTargetResult {
  * Get an iSCSI Target.
  */
 export function getIscsiTargetOutput(args: GetIscsiTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiTargetResult> {
-    return pulumi.output(args).apply((a: any) => getIscsiTarget(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storagepool/v20210801:getIscsiTarget", {
+        "diskPoolName": args.diskPoolName,
+        "iscsiTargetName": args.iscsiTargetName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIscsiTargetOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a specific gateway under a subscription and in a specific resource group
  */
 export function getConnectionGateway(args: GetConnectionGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20160601:getConnectionGateway", {
         "connectionGatewayName": args.connectionGatewayName,
@@ -69,7 +68,12 @@ export interface GetConnectionGatewayResult {
  * Gets a specific gateway under a subscription and in a specific resource group
  */
 export function getConnectionGatewayOutput(args: GetConnectionGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getConnectionGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20160601:getConnectionGateway", {
+        "connectionGatewayName": args.connectionGatewayName,
+        "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
+    }, opts);
 }
 
 export interface GetConnectionGatewayOutputArgs {

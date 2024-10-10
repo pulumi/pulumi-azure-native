@@ -449,9 +449,6 @@ def get_pool(account_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_accounts=pulumi.get(__ret__, 'user_accounts'),
         vm_size=pulumi.get(__ret__, 'vm_size'))
-
-
-@_utilities.lift_output_func(get_pool)
 def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     pool_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -464,4 +461,42 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str pool_name: The pool name. This must be unique within the account.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['poolName'] = pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:batch/v20230501:getPool', __args__, opts=opts, typ=GetPoolResult)
+    return __ret__.apply(lambda __response__: GetPoolResult(
+        allocation_state=pulumi.get(__response__, 'allocation_state'),
+        allocation_state_transition_time=pulumi.get(__response__, 'allocation_state_transition_time'),
+        application_licenses=pulumi.get(__response__, 'application_licenses'),
+        application_packages=pulumi.get(__response__, 'application_packages'),
+        auto_scale_run=pulumi.get(__response__, 'auto_scale_run'),
+        certificates=pulumi.get(__response__, 'certificates'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        current_dedicated_nodes=pulumi.get(__response__, 'current_dedicated_nodes'),
+        current_low_priority_nodes=pulumi.get(__response__, 'current_low_priority_nodes'),
+        current_node_communication_mode=pulumi.get(__response__, 'current_node_communication_mode'),
+        deployment_configuration=pulumi.get(__response__, 'deployment_configuration'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        inter_node_communication=pulumi.get(__response__, 'inter_node_communication'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        mount_configuration=pulumi.get(__response__, 'mount_configuration'),
+        name=pulumi.get(__response__, 'name'),
+        network_configuration=pulumi.get(__response__, 'network_configuration'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        provisioning_state_transition_time=pulumi.get(__response__, 'provisioning_state_transition_time'),
+        resize_operation_status=pulumi.get(__response__, 'resize_operation_status'),
+        scale_settings=pulumi.get(__response__, 'scale_settings'),
+        start_task=pulumi.get(__response__, 'start_task'),
+        target_node_communication_mode=pulumi.get(__response__, 'target_node_communication_mode'),
+        task_scheduling_policy=pulumi.get(__response__, 'task_scheduling_policy'),
+        task_slots_per_node=pulumi.get(__response__, 'task_slots_per_node'),
+        type=pulumi.get(__response__, 'type'),
+        user_accounts=pulumi.get(__response__, 'user_accounts'),
+        vm_size=pulumi.get(__response__, 'vm_size')))

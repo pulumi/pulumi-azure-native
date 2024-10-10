@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get properties of the provided the Kubernetes cluster feature.
  */
 export function getKubernetesClusterFeature(args: GetKubernetesClusterFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterFeatureResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20240601preview:getKubernetesClusterFeature", {
         "featureName": args.featureName,
@@ -93,7 +92,12 @@ export interface GetKubernetesClusterFeatureResult {
  * Get properties of the provided the Kubernetes cluster feature.
  */
 export function getKubernetesClusterFeatureOutput(args: GetKubernetesClusterFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesClusterFeatureResult> {
-    return pulumi.output(args).apply((a: any) => getKubernetesClusterFeature(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240601preview:getKubernetesClusterFeature", {
+        "featureName": args.featureName,
+        "kubernetesClusterName": args.kubernetesClusterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetKubernetesClusterFeatureOutputArgs {

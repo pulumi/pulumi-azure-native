@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
  */
 export function getPrivateLinkServicesForM365ComplianceCenter(args: GetPrivateLinkServicesForM365ComplianceCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForM365ComplianceCenterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:m365securityandcompliance/v20210325preview:getPrivateLinkServicesForM365ComplianceCenter", {
         "resourceGroupName": args.resourceGroupName,
@@ -79,7 +78,11 @@ export interface GetPrivateLinkServicesForM365ComplianceCenterResult {
  * Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
  */
 export function getPrivateLinkServicesForM365ComplianceCenterOutput(args: GetPrivateLinkServicesForM365ComplianceCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForM365ComplianceCenterResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForM365ComplianceCenter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:m365securityandcompliance/v20210325preview:getPrivateLinkServicesForM365ComplianceCenter", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetPrivateLinkServicesForM365ComplianceCenterOutputArgs {

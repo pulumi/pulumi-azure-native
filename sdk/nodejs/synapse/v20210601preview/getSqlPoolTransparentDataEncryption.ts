@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get a SQL pool's transparent data encryption configuration.
  */
 export function getSqlPoolTransparentDataEncryption(args: GetSqlPoolTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolTransparentDataEncryptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getSqlPoolTransparentDataEncryption", {
         "resourceGroupName": args.resourceGroupName,
@@ -66,7 +65,13 @@ export interface GetSqlPoolTransparentDataEncryptionResult {
  * Get a SQL pool's transparent data encryption configuration.
  */
 export function getSqlPoolTransparentDataEncryptionOutput(args: GetSqlPoolTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolTransparentDataEncryptionResult> {
-    return pulumi.output(args).apply((a: any) => getSqlPoolTransparentDataEncryption(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:getSqlPoolTransparentDataEncryption", {
+        "resourceGroupName": args.resourceGroupName,
+        "sqlPoolName": args.sqlPoolName,
+        "transparentDataEncryptionName": args.transparentDataEncryptionName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetSqlPoolTransparentDataEncryptionOutputArgs {

@@ -183,9 +183,6 @@ def get_log_profile(log_profile_name: Optional[str] = None,
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_log_profile)
 def get_log_profile_output(log_profile_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogProfileResult]:
     """
@@ -195,4 +192,18 @@ def get_log_profile_output(log_profile_name: Optional[pulumi.Input[str]] = None,
 
     :param str log_profile_name: The name of the log profile.
     """
-    ...
+    __args__ = dict()
+    __args__['logProfileName'] = log_profile_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getLogProfile', __args__, opts=opts, typ=GetLogProfileResult)
+    return __ret__.apply(lambda __response__: GetLogProfileResult(
+        categories=pulumi.get(__response__, 'categories'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        locations=pulumi.get(__response__, 'locations'),
+        name=pulumi.get(__response__, 'name'),
+        retention_policy=pulumi.get(__response__, 'retention_policy'),
+        service_bus_rule_id=pulumi.get(__response__, 'service_bus_rule_id'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

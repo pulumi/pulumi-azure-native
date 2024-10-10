@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the download URL of the test execution console log file.
  */
 export function getTestResultConsoleLogDownloadURL(args: GetTestResultConsoleLogDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultConsoleLogDownloadURLResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20231101preview:getTestResultConsoleLogDownloadURL", {
         "logFileName": args.logFileName,
@@ -59,7 +58,14 @@ export interface GetTestResultConsoleLogDownloadURLResult {
  * Gets the download URL of the test execution console log file.
  */
 export function getTestResultConsoleLogDownloadURLOutput(args: GetTestResultConsoleLogDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultConsoleLogDownloadURLResult> {
-    return pulumi.output(args).apply((a: any) => getTestResultConsoleLogDownloadURL(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getTestResultConsoleLogDownloadURL", {
+        "logFileName": args.logFileName,
+        "packageName": args.packageName,
+        "resourceGroupName": args.resourceGroupName,
+        "testBaseAccountName": args.testBaseAccountName,
+        "testResultName": args.testResultName,
+    }, opts);
 }
 
 export interface GetTestResultConsoleLogDownloadURLOutputArgs {

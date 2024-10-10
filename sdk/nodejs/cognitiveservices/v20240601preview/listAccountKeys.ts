@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Lists the account keys for the specified Cognitive Services account.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20240601preview:listAccountKeys", {
         "accountName": args.accountName,
@@ -44,7 +43,11 @@ export interface ListAccountKeysResult {
  * Lists the account keys for the specified Cognitive Services account.
  */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
-    return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20240601preview:listAccountKeys", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListAccountKeysOutputArgs {

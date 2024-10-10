@@ -177,9 +177,6 @@ def get_permission_binding(namespace_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         topic_space_name=pulumi.get(__ret__, 'topic_space_name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_permission_binding)
 def get_permission_binding_output(namespace_name: Optional[pulumi.Input[str]] = None,
                                   permission_binding_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -192,4 +189,19 @@ def get_permission_binding_output(namespace_name: Optional[pulumi.Input[str]] = 
     :param str permission_binding_name: Name of the permission binding.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['namespaceName'] = namespace_name
+    __args__['permissionBindingName'] = permission_binding_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20231215preview:getPermissionBinding', __args__, opts=opts, typ=GetPermissionBindingResult)
+    return __ret__.apply(lambda __response__: GetPermissionBindingResult(
+        client_group_name=pulumi.get(__response__, 'client_group_name'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        permission=pulumi.get(__response__, 'permission'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        topic_space_name=pulumi.get(__response__, 'topic_space_name'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Log Profile for Firewall
  */
 export function getFirewallLogProfile(args: GetFirewallLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallLogProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20220829preview:getFirewallLogProfile", {
         "firewallName": args.firewallName,
@@ -67,7 +66,11 @@ export interface GetFirewallLogProfileResult {
  * Log Profile for Firewall
  */
 export function getFirewallLogProfileOutput(args: GetFirewallLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallLogProfileResult> {
-    return pulumi.output(args).apply((a: any) => getFirewallLogProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829preview:getFirewallLogProfile", {
+        "firewallName": args.firewallName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFirewallLogProfileOutputArgs {

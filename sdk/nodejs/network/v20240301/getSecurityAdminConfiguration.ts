@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves a network manager security admin configuration.
  */
 export function getSecurityAdminConfiguration(args: GetSecurityAdminConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityAdminConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:getSecurityAdminConfiguration", {
         "configurationName": args.configurationName,
@@ -80,7 +79,12 @@ export interface GetSecurityAdminConfigurationResult {
  * Retrieves a network manager security admin configuration.
  */
 export function getSecurityAdminConfigurationOutput(args: GetSecurityAdminConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityAdminConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityAdminConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getSecurityAdminConfiguration", {
+        "configurationName": args.configurationName,
+        "networkManagerName": args.networkManagerName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSecurityAdminConfigurationOutputArgs {

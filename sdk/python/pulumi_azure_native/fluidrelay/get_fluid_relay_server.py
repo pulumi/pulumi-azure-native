@@ -214,9 +214,6 @@ def get_fluid_relay_server(fluid_relay_server_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_fluid_relay_server)
 def get_fluid_relay_server_output(fluid_relay_server_name: Optional[pulumi.Input[str]] = None,
                                   resource_group: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFluidRelayServerResult]:
@@ -230,4 +227,21 @@ def get_fluid_relay_server_output(fluid_relay_server_name: Optional[pulumi.Input
     :param str fluid_relay_server_name: The Fluid Relay server resource name.
     :param str resource_group: The resource group containing the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['fluidRelayServerName'] = fluid_relay_server_name
+    __args__['resourceGroup'] = resource_group
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:fluidrelay:getFluidRelayServer', __args__, opts=opts, typ=GetFluidRelayServerResult)
+    return __ret__.apply(lambda __response__: GetFluidRelayServerResult(
+        encryption=pulumi.get(__response__, 'encryption'),
+        fluid_relay_endpoints=pulumi.get(__response__, 'fluid_relay_endpoints'),
+        frs_tenant_id=pulumi.get(__response__, 'frs_tenant_id'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        storagesku=pulumi.get(__response__, 'storagesku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

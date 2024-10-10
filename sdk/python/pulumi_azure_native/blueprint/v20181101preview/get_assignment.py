@@ -237,9 +237,6 @@ def get_assignment(assignment_name: Optional[str] = None,
         scope=pulumi.get(__ret__, 'scope'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_assignment)
 def get_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
                           resource_scope: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssignmentResult]:
@@ -250,4 +247,23 @@ def get_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
     :param str assignment_name: Name of the blueprint assignment.
     :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
     """
-    ...
+    __args__ = dict()
+    __args__['assignmentName'] = assignment_name
+    __args__['resourceScope'] = resource_scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:blueprint/v20181101preview:getAssignment', __args__, opts=opts, typ=GetAssignmentResult)
+    return __ret__.apply(lambda __response__: GetAssignmentResult(
+        blueprint_id=pulumi.get(__response__, 'blueprint_id'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        locks=pulumi.get(__response__, 'locks'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_groups=pulumi.get(__response__, 'resource_groups'),
+        scope=pulumi.get(__response__, 'scope'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type')))

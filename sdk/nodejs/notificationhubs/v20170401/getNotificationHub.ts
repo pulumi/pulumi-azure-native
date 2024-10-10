@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Lists the notification hubs associated with a namespace.
  */
 export function getNotificationHub(args: GetNotificationHubArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20170401:getNotificationHub", {
         "namespaceName": args.namespaceName,
@@ -100,7 +99,12 @@ export interface GetNotificationHubResult {
  * Lists the notification hubs associated with a namespace.
  */
 export function getNotificationHubOutput(args: GetNotificationHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubResult> {
-    return pulumi.output(args).apply((a: any) => getNotificationHub(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20170401:getNotificationHub", {
+        "namespaceName": args.namespaceName,
+        "notificationHubName": args.notificationHubName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNotificationHubOutputArgs {

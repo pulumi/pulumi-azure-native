@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves information about the model view or the instance view of a virtual machine.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20240301:getVirtualMachine", {
         "expand": args.expand,
@@ -200,7 +199,12 @@ export interface GetVirtualMachineResult {
  * Retrieves information about the model view or the instance view of a virtual machine.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute/v20240301:getVirtualMachine", {
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+        "vmName": args.vmName,
+    }, opts);
 }
 
 export interface GetVirtualMachineOutputArgs {

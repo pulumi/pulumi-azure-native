@@ -160,9 +160,6 @@ def get_image_definition(image_definition_name: Optional[str] = None,
         security_type=pulumi.get(__ret__, 'security_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_image_definition)
 def get_image_definition_output(image_definition_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 test_base_account_name: Optional[pulumi.Input[str]] = None,
@@ -176,4 +173,18 @@ def get_image_definition_output(image_definition_name: Optional[pulumi.Input[str
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
-    ...
+    __args__ = dict()
+    __args__['imageDefinitionName'] = image_definition_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['testBaseAccountName'] = test_base_account_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getImageDefinition', __args__, opts=opts, typ=GetImageDefinitionResult)
+    return __ret__.apply(lambda __response__: GetImageDefinitionResult(
+        architecture=pulumi.get(__response__, 'architecture'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        os_state=pulumi.get(__response__, 'os_state'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        security_type=pulumi.get(__response__, 'security_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

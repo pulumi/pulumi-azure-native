@@ -175,9 +175,6 @@ def get_configuration_policy_group(configuration_policy_group_name: Optional[str
         priority=pulumi.get(__ret__, 'priority'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_configuration_policy_group)
 def get_configuration_policy_group_output(configuration_policy_group_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_configuration_policy_group_output(configuration_policy_group_name: Optio
     :param str resource_group_name: The resource group name of the VpnServerConfiguration.
     :param str vpn_server_configuration_name: The name of the VpnServerConfiguration.
     """
-    ...
+    __args__ = dict()
+    __args__['configurationPolicyGroupName'] = configuration_policy_group_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vpnServerConfigurationName'] = vpn_server_configuration_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20231101:getConfigurationPolicyGroup', __args__, opts=opts, typ=GetConfigurationPolicyGroupResult)
+    return __ret__.apply(lambda __response__: GetConfigurationPolicyGroupResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        is_default=pulumi.get(__response__, 'is_default'),
+        name=pulumi.get(__response__, 'name'),
+        p2_s_connection_configurations=pulumi.get(__response__, 'p2_s_connection_configurations'),
+        policy_members=pulumi.get(__response__, 'policy_members'),
+        priority=pulumi.get(__response__, 'priority'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type')))

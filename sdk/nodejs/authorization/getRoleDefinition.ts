@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-05-01-preview.
  */
 export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getRoleDefinition", {
         "roleDefinitionId": args.roleDefinitionId,
@@ -89,7 +88,11 @@ export interface GetRoleDefinitionResult {
  * Azure REST API version: 2022-05-01-preview.
  */
 export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getRoleDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:authorization:getRoleDefinition", {
+        "roleDefinitionId": args.roleDefinitionId,
+        "scope": args.scope,
+    }, opts);
 }
 
 export interface GetRoleDefinitionOutputArgs {

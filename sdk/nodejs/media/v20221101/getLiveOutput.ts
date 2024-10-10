@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a live output.
  */
 export function getLiveOutput(args: GetLiveOutputArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveOutputResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20221101:getLiveOutput", {
         "accountName": args.accountName,
@@ -109,7 +108,13 @@ export interface GetLiveOutputResult {
  * Gets a live output.
  */
 export function getLiveOutputOutput(args: GetLiveOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveOutputResult> {
-    return pulumi.output(args).apply((a: any) => getLiveOutput(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:media/v20221101:getLiveOutput", {
+        "accountName": args.accountName,
+        "liveEventName": args.liveEventName,
+        "liveOutputName": args.liveOutputName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLiveOutputOutputArgs {

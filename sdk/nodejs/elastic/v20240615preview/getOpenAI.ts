@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Capture properties of Open AI resource Integration.
  */
 export function getOpenAI(args: GetOpenAIArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenAIResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic/v20240615preview:getOpenAI", {
         "integrationName": args.integrationName,
@@ -60,7 +59,12 @@ export interface GetOpenAIResult {
  * Capture properties of Open AI resource Integration.
  */
 export function getOpenAIOutput(args: GetOpenAIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenAIResult> {
-    return pulumi.output(args).apply((a: any) => getOpenAI(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:elastic/v20240615preview:getOpenAI", {
+        "integrationName": args.integrationName,
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetOpenAIOutputArgs {

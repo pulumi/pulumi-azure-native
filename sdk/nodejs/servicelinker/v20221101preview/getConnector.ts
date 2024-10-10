@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns Connector resource for a given name.
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicelinker/v20221101preview:getConnector", {
         "connectorName": args.connectorName,
@@ -101,7 +100,13 @@ export interface GetConnectorResult {
  * Returns Connector resource for a given name.
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicelinker/v20221101preview:getConnector", {
+        "connectorName": args.connectorName,
+        "location": args.location,
+        "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
+    }, opts);
 }
 
 export interface GetConnectorOutputArgs {

@@ -305,9 +305,6 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
         test_configurations=pulumi.get(__ret__, 'test_configurations'),
         test_groups=pulumi.get(__ret__, 'test_groups'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_connection_monitor)
 def get_connection_monitor_output(connection_monitor_name: Optional[pulumi.Input[str]] = None,
                                   network_watcher_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -320,4 +317,29 @@ def get_connection_monitor_output(connection_monitor_name: Optional[pulumi.Input
     :param str network_watcher_name: The name of the Network Watcher resource.
     :param str resource_group_name: The name of the resource group containing Network Watcher.
     """
-    ...
+    __args__ = dict()
+    __args__['connectionMonitorName'] = connection_monitor_name
+    __args__['networkWatcherName'] = network_watcher_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getConnectionMonitor', __args__, opts=opts, typ=GetConnectionMonitorResult)
+    return __ret__.apply(lambda __response__: GetConnectionMonitorResult(
+        auto_start=pulumi.get(__response__, 'auto_start'),
+        connection_monitor_type=pulumi.get(__response__, 'connection_monitor_type'),
+        destination=pulumi.get(__response__, 'destination'),
+        endpoints=pulumi.get(__response__, 'endpoints'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        monitoring_interval_in_seconds=pulumi.get(__response__, 'monitoring_interval_in_seconds'),
+        monitoring_status=pulumi.get(__response__, 'monitoring_status'),
+        name=pulumi.get(__response__, 'name'),
+        notes=pulumi.get(__response__, 'notes'),
+        outputs=pulumi.get(__response__, 'outputs'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        source=pulumi.get(__response__, 'source'),
+        start_time=pulumi.get(__response__, 'start_time'),
+        tags=pulumi.get(__response__, 'tags'),
+        test_configurations=pulumi.get(__response__, 'test_configurations'),
+        test_groups=pulumi.get(__response__, 'test_groups'),
+        type=pulumi.get(__response__, 'type')))

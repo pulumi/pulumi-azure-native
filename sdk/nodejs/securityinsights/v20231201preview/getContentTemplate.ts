@@ -14,7 +14,6 @@ import * as utilities from "../../utilities";
  * - properties/dependantTemplates
  */
 export function getContentTemplate(args: GetContentTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetContentTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20231201preview:getContentTemplate", {
         "resourceGroupName": args.resourceGroupName,
@@ -178,7 +177,12 @@ export interface GetContentTemplateResult {
  * - properties/dependantTemplates
  */
 export function getContentTemplateOutput(args: GetContentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getContentTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231201preview:getContentTemplate", {
+        "resourceGroupName": args.resourceGroupName,
+        "templateId": args.templateId,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetContentTemplateOutputArgs {

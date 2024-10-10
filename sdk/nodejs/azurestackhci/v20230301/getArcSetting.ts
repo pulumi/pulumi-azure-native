@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get ArcSetting resource details of HCI Cluster.
  */
 export function getArcSetting(args: GetArcSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetArcSettingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20230301:getArcSetting", {
         "arcSettingName": args.arcSettingName,
@@ -100,7 +99,12 @@ export interface GetArcSettingResult {
  * Get ArcSetting resource details of HCI Cluster.
  */
 export function getArcSettingOutput(args: GetArcSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcSettingResult> {
-    return pulumi.output(args).apply((a: any) => getArcSetting(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20230301:getArcSetting", {
+        "arcSettingName": args.arcSettingName,
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetArcSettingOutputArgs {

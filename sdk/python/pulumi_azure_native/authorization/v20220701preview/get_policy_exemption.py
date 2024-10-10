@@ -224,9 +224,6 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
         resource_selectors=pulumi.get(__ret__, 'resource_selectors'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_policy_exemption)
 def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[str]] = None,
                                 scope: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyExemptionResult]:
@@ -237,4 +234,22 @@ def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[str
     :param str policy_exemption_name: The name of the policy exemption to delete.
     :param str scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     """
-    ...
+    __args__ = dict()
+    __args__['policyExemptionName'] = policy_exemption_name
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20220701preview:getPolicyExemption', __args__, opts=opts, typ=GetPolicyExemptionResult)
+    return __ret__.apply(lambda __response__: GetPolicyExemptionResult(
+        assignment_scope_validation=pulumi.get(__response__, 'assignment_scope_validation'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        exemption_category=pulumi.get(__response__, 'exemption_category'),
+        expires_on=pulumi.get(__response__, 'expires_on'),
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        policy_assignment_id=pulumi.get(__response__, 'policy_assignment_id'),
+        policy_definition_reference_ids=pulumi.get(__response__, 'policy_definition_reference_ids'),
+        resource_selectors=pulumi.get(__response__, 'resource_selectors'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

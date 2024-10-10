@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns a list of language extensions that can run within KQL queries.
  */
 export function listClusterLanguageExtensions(args: ListClusterLanguageExtensionsArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterLanguageExtensionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20220707:listClusterLanguageExtensions", {
         "clusterName": args.clusterName,
@@ -43,7 +42,11 @@ export interface ListClusterLanguageExtensionsResult {
  * Returns a list of language extensions that can run within KQL queries.
  */
 export function listClusterLanguageExtensionsOutput(args: ListClusterLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterLanguageExtensionsResult> {
-    return pulumi.output(args).apply((a: any) => listClusterLanguageExtensions(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kusto/v20220707:listClusterLanguageExtensions", {
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListClusterLanguageExtensionsOutputArgs {

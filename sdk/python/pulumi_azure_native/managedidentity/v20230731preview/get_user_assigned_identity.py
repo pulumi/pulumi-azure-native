@@ -172,9 +172,6 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_user_assigned_identity)
 def get_user_assigned_identity_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                       resource_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserAssignedIdentityResult]:
@@ -185,4 +182,18 @@ def get_user_assigned_identity_output(resource_group_name: Optional[pulumi.Input
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
     :param str resource_name: The name of the identity resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:managedidentity/v20230731preview:getUserAssignedIdentity', __args__, opts=opts, typ=GetUserAssignedIdentityResult)
+    return __ret__.apply(lambda __response__: GetUserAssignedIdentityResult(
+        client_id=pulumi.get(__response__, 'client_id'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        principal_id=pulumi.get(__response__, 'principal_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type')))

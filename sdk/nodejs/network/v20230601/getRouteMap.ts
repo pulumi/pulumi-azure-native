@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a RouteMap.
  */
 export function getRouteMap(args: GetRouteMapArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteMapResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230601:getRouteMap", {
         "resourceGroupName": args.resourceGroupName,
@@ -76,7 +75,12 @@ export interface GetRouteMapResult {
  * Retrieves the details of a RouteMap.
  */
 export function getRouteMapOutput(args: GetRouteMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteMapResult> {
-    return pulumi.output(args).apply((a: any) => getRouteMap(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230601:getRouteMap", {
+        "resourceGroupName": args.resourceGroupName,
+        "routeMapName": args.routeMapName,
+        "virtualHubName": args.virtualHubName,
+    }, opts);
 }
 
 export interface GetRouteMapOutputArgs {

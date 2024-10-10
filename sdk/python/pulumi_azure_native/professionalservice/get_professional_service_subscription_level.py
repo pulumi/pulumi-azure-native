@@ -124,9 +124,6 @@ def get_professional_service_subscription_level(resource_group_name: Optional[st
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_professional_service_subscription_level)
 def get_professional_service_subscription_level_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                        resource_name: Optional[pulumi.Input[str]] = None,
                                                        subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -140,4 +137,15 @@ def get_professional_service_subscription_level_output(resource_group_name: Opti
     :param str resource_name: The name of the resource.
     :param str subscription_id: The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    __args__['subscriptionId'] = subscription_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:professionalservice:getProfessionalServiceSubscriptionLevel', __args__, opts=opts, typ=GetProfessionalServiceSubscriptionLevelResult)
+    return __ret__.apply(lambda __response__: GetProfessionalServiceSubscriptionLevelResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

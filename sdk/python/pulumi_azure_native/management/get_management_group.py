@@ -156,9 +156,6 @@ def get_management_group(expand: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_management_group)
 def get_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                 filter: Optional[pulumi.Input[Optional[str]]] = None,
                                 group_id: Optional[pulumi.Input[str]] = None,
@@ -177,4 +174,18 @@ def get_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     :param str group_id: Management Group ID.
     :param bool recurse: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['filter'] = filter
+    __args__['groupId'] = group_id
+    __args__['recurse'] = recurse
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:management:getManagementGroup', __args__, opts=opts, typ=GetManagementGroupResult)
+    return __ret__.apply(lambda __response__: GetManagementGroupResult(
+        children=pulumi.get(__response__, 'children'),
+        details=pulumi.get(__response__, 'details'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the custom resource provider manifest.
  */
 export function getCustomResourceProvider(args: GetCustomResourceProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomResourceProviderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customproviders/v20180901preview:getCustomResourceProvider", {
         "resourceGroupName": args.resourceGroupName,
@@ -75,7 +74,11 @@ export interface GetCustomResourceProviderResult {
  * Gets the custom resource provider manifest.
  */
 export function getCustomResourceProviderOutput(args: GetCustomResourceProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomResourceProviderResult> {
-    return pulumi.output(args).apply((a: any) => getCustomResourceProvider(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:customproviders/v20180901preview:getCustomResourceProvider", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceProviderName": args.resourceProviderName,
+    }, opts);
 }
 
 export interface GetCustomResourceProviderOutputArgs {

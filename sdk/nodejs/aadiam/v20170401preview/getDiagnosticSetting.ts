@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the active diagnostic setting for AadIam.
  */
 export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticSettingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aadiam/v20170401preview:getDiagnosticSetting", {
         "name": args.name,
@@ -70,7 +69,10 @@ export interface GetDiagnosticSettingResult {
  * Gets the active diagnostic setting for AadIam.
  */
 export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticSettingResult> {
-    return pulumi.output(args).apply((a: any) => getDiagnosticSetting(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:aadiam/v20170401preview:getDiagnosticSetting", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetDiagnosticSettingOutputArgs {

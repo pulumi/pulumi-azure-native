@@ -198,9 +198,6 @@ def get_custom_assessment_automation(custom_assessment_automation_name: Optional
         supported_cloud=pulumi.get(__ret__, 'supported_cloud'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_custom_assessment_automation)
 def get_custom_assessment_automation_output(custom_assessment_automation_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomAssessmentAutomationResult]:
@@ -211,4 +208,20 @@ def get_custom_assessment_automation_output(custom_assessment_automation_name: O
     :param str custom_assessment_automation_name: Name of the Custom Assessment Automation.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['customAssessmentAutomationName'] = custom_assessment_automation_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20210701preview:getCustomAssessmentAutomation', __args__, opts=opts, typ=GetCustomAssessmentAutomationResult)
+    return __ret__.apply(lambda __response__: GetCustomAssessmentAutomationResult(
+        assessment_key=pulumi.get(__response__, 'assessment_key'),
+        compressed_query=pulumi.get(__response__, 'compressed_query'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        remediation_description=pulumi.get(__response__, 'remediation_description'),
+        severity=pulumi.get(__response__, 'severity'),
+        supported_cloud=pulumi.get(__response__, 'supported_cloud'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

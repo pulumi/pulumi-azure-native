@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Description for Gets the application settings of an app.
  */
 export function listWebAppApplicationSettings(args: ListWebAppApplicationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppApplicationSettingsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20231201:listWebAppApplicationSettings", {
         "name": args.name,
@@ -56,7 +55,11 @@ export interface ListWebAppApplicationSettingsResult {
  * Description for Gets the application settings of an app.
  */
 export function listWebAppApplicationSettingsOutput(args: ListWebAppApplicationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppApplicationSettingsResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppApplicationSettings(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20231201:listWebAppApplicationSettings", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListWebAppApplicationSettingsOutputArgs {

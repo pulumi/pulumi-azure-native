@@ -380,9 +380,6 @@ def get_incident(incident_id: Optional[str] = None,
         team_information=pulumi.get(__ret__, 'team_information'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_incident)
 def get_incident_output(incident_id: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         workspace_name: Optional[pulumi.Input[str]] = None,
@@ -395,4 +392,35 @@ def get_incident_output(incident_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['incidentId'] = incident_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240401preview:getIncident', __args__, opts=opts, typ=GetIncidentResult)
+    return __ret__.apply(lambda __response__: GetIncidentResult(
+        additional_data=pulumi.get(__response__, 'additional_data'),
+        classification=pulumi.get(__response__, 'classification'),
+        classification_comment=pulumi.get(__response__, 'classification_comment'),
+        classification_reason=pulumi.get(__response__, 'classification_reason'),
+        created_time_utc=pulumi.get(__response__, 'created_time_utc'),
+        description=pulumi.get(__response__, 'description'),
+        etag=pulumi.get(__response__, 'etag'),
+        first_activity_time_utc=pulumi.get(__response__, 'first_activity_time_utc'),
+        id=pulumi.get(__response__, 'id'),
+        incident_number=pulumi.get(__response__, 'incident_number'),
+        incident_url=pulumi.get(__response__, 'incident_url'),
+        labels=pulumi.get(__response__, 'labels'),
+        last_activity_time_utc=pulumi.get(__response__, 'last_activity_time_utc'),
+        last_modified_time_utc=pulumi.get(__response__, 'last_modified_time_utc'),
+        name=pulumi.get(__response__, 'name'),
+        owner=pulumi.get(__response__, 'owner'),
+        provider_incident_id=pulumi.get(__response__, 'provider_incident_id'),
+        provider_name=pulumi.get(__response__, 'provider_name'),
+        related_analytic_rule_ids=pulumi.get(__response__, 'related_analytic_rule_ids'),
+        severity=pulumi.get(__response__, 'severity'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        team_information=pulumi.get(__response__, 'team_information'),
+        title=pulumi.get(__response__, 'title'),
+        type=pulumi.get(__response__, 'type')))

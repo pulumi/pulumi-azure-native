@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2020-05-01, 2023-11-01, 2024-02-01, 2024-07-01.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch:getPool", {
         "accountName": args.accountName,
@@ -153,7 +152,12 @@ export interface GetPoolResult {
  * Other available API versions: 2020-05-01, 2023-11-01, 2024-02-01, 2024-07-01.
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
-    return pulumi.output(args).apply((a: any) => getPool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:batch:getPool", {
+        "accountName": args.accountName,
+        "poolName": args.poolName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPoolOutputArgs {

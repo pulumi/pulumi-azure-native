@@ -248,9 +248,6 @@ def get_attestation_at_subscription(attestation_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_attestation_at_subscription)
 def get_attestation_at_subscription_output(attestation_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttestationAtSubscriptionResult]:
     """
@@ -260,4 +257,23 @@ def get_attestation_at_subscription_output(attestation_name: Optional[pulumi.Inp
 
     :param str attestation_name: The name of the attestation.
     """
-    ...
+    __args__ = dict()
+    __args__['attestationName'] = attestation_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights:getAttestationAtSubscription', __args__, opts=opts, typ=GetAttestationAtSubscriptionResult)
+    return __ret__.apply(lambda __response__: GetAttestationAtSubscriptionResult(
+        assessment_date=pulumi.get(__response__, 'assessment_date'),
+        comments=pulumi.get(__response__, 'comments'),
+        compliance_state=pulumi.get(__response__, 'compliance_state'),
+        evidence=pulumi.get(__response__, 'evidence'),
+        expires_on=pulumi.get(__response__, 'expires_on'),
+        id=pulumi.get(__response__, 'id'),
+        last_compliance_state_change_at=pulumi.get(__response__, 'last_compliance_state_change_at'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        owner=pulumi.get(__response__, 'owner'),
+        policy_assignment_id=pulumi.get(__response__, 'policy_assignment_id'),
+        policy_definition_reference_id=pulumi.get(__response__, 'policy_definition_reference_id'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

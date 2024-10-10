@@ -189,9 +189,6 @@ def list_task_run_details(registry_name: Optional[str] = None,
         run_result=pulumi.get(__ret__, 'run_result'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(list_task_run_details)
 def list_task_run_details_output(registry_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  task_run_name: Optional[pulumi.Input[str]] = None,
@@ -204,4 +201,20 @@ def list_task_run_details_output(registry_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str task_run_name: The name of the task run.
     """
-    ...
+    __args__ = dict()
+    __args__['registryName'] = registry_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['taskRunName'] = task_run_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20190601preview:listTaskRunDetails', __args__, opts=opts, typ=ListTaskRunDetailsResult)
+    return __ret__.apply(lambda __response__: ListTaskRunDetailsResult(
+        force_update_tag=pulumi.get(__response__, 'force_update_tag'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        run_request=pulumi.get(__response__, 'run_request'),
+        run_result=pulumi.get(__response__, 'run_result'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get counters
  */
 export function getPostRuleCounters(args: GetPostRuleCountersArgs, opts?: pulumi.InvokeOptions): Promise<GetPostRuleCountersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20240119preview:getPostRuleCounters", {
         "firewallName": args.firewallName,
@@ -81,7 +80,12 @@ export interface GetPostRuleCountersResult {
  * Get counters
  */
 export function getPostRuleCountersOutput(args: GetPostRuleCountersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostRuleCountersResult> {
-    return pulumi.output(args).apply((a: any) => getPostRuleCounters(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240119preview:getPostRuleCounters", {
+        "firewallName": args.firewallName,
+        "globalRulestackName": args.globalRulestackName,
+        "priority": args.priority,
+    }, opts);
 }
 
 export interface GetPostRuleCountersOutputArgs {

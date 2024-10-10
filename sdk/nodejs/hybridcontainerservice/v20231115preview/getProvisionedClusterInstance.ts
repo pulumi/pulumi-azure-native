@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the Hybrid AKS provisioned cluster instance
  */
 export function getProvisionedClusterInstance(args: GetProvisionedClusterInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetProvisionedClusterInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20231115preview:getProvisionedClusterInstance", {
         "connectedClusterResourceUri": args.connectedClusterResourceUri,
@@ -58,7 +57,10 @@ export interface GetProvisionedClusterInstanceResult {
  * Gets the Hybrid AKS provisioned cluster instance
  */
 export function getProvisionedClusterInstanceOutput(args: GetProvisionedClusterInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisionedClusterInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getProvisionedClusterInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20231115preview:getProvisionedClusterInstance", {
+        "connectedClusterResourceUri": args.connectedClusterResourceUri,
+    }, opts);
 }
 
 export interface GetProvisionedClusterInstanceOutputArgs {

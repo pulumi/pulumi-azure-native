@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a WorkloadNetworkPublicIP
  */
 export function getWorkloadNetworkPublicIP(args: GetWorkloadNetworkPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkPublicIPResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20230901:getWorkloadNetworkPublicIP", {
         "privateCloudName": args.privateCloudName,
@@ -76,7 +75,12 @@ export interface GetWorkloadNetworkPublicIPResult {
  * Get a WorkloadNetworkPublicIP
  */
 export function getWorkloadNetworkPublicIPOutput(args: GetWorkloadNetworkPublicIPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkPublicIPResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadNetworkPublicIP(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getWorkloadNetworkPublicIP", {
+        "privateCloudName": args.privateCloudName,
+        "publicIPId": args.publicIPId,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWorkloadNetworkPublicIPOutputArgs {

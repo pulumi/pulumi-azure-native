@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Lists policy resources that reference the policy fragment.
  */
 export function listWorkspacePolicyFragmentReferences(args: ListWorkspacePolicyFragmentReferencesArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspacePolicyFragmentReferencesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230301preview:listWorkspacePolicyFragmentReferences", {
         "id": args.id,
@@ -71,7 +70,15 @@ export interface ListWorkspacePolicyFragmentReferencesResult {
  * Lists policy resources that reference the policy fragment.
  */
 export function listWorkspacePolicyFragmentReferencesOutput(args: ListWorkspacePolicyFragmentReferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspacePolicyFragmentReferencesResult> {
-    return pulumi.output(args).apply((a: any) => listWorkspacePolicyFragmentReferences(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:listWorkspacePolicyFragmentReferences", {
+        "id": args.id,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "skip": args.skip,
+        "top": args.top,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 export interface ListWorkspacePolicyFragmentReferencesOutputArgs {

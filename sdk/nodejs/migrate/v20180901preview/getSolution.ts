@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Solution REST Resource.
  */
 export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20180901preview:getSolution", {
         "migrateProjectName": args.migrateProjectName,
@@ -64,7 +63,12 @@ export interface GetSolutionResult {
  * Solution REST Resource.
  */
 export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
-    return pulumi.output(args).apply((a: any) => getSolution(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate/v20180901preview:getSolution", {
+        "migrateProjectName": args.migrateProjectName,
+        "resourceGroupName": args.resourceGroupName,
+        "solutionName": args.solutionName,
+    }, opts);
 }
 
 export interface GetSolutionOutputArgs {

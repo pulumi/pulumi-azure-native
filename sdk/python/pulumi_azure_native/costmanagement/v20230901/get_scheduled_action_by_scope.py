@@ -237,9 +237,6 @@ def get_scheduled_action_by_scope(name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         view_id=pulumi.get(__ret__, 'view_id'))
-
-
-@_utilities.lift_output_func(get_scheduled_action_by_scope)
 def get_scheduled_action_by_scope_output(name: Optional[pulumi.Input[str]] = None,
                                          scope: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledActionByScopeResult]:
@@ -250,4 +247,23 @@ def get_scheduled_action_by_scope_output(name: Optional[pulumi.Input[str]] = Non
     :param str name: Scheduled action name.
     :param str scope: The scope associated with scheduled action operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope. Note: Insight Alerts are only available on subscription scope.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20230901:getScheduledActionByScope', __args__, opts=opts, typ=GetScheduledActionByScopeResult)
+    return __ret__.apply(lambda __response__: GetScheduledActionByScopeResult(
+        display_name=pulumi.get(__response__, 'display_name'),
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        file_destination=pulumi.get(__response__, 'file_destination'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        notification=pulumi.get(__response__, 'notification'),
+        notification_email=pulumi.get(__response__, 'notification_email'),
+        schedule=pulumi.get(__response__, 'schedule'),
+        scope=pulumi.get(__response__, 'scope'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        view_id=pulumi.get(__response__, 'view_id')))

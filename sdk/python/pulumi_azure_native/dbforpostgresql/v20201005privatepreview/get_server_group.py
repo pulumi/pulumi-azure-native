@@ -367,9 +367,6 @@ def get_server_group(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_server_group)
 def get_server_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             server_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerGroupResult]:
@@ -380,4 +377,33 @@ def get_server_group_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_group_name: The name of the server group.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverGroupName'] = server_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup', __args__, opts=opts, typ=GetServerGroupResult)
+    return __ret__.apply(lambda __response__: GetServerGroupResult(
+        administrator_login=pulumi.get(__response__, 'administrator_login'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        backup_retention_days=pulumi.get(__response__, 'backup_retention_days'),
+        citus_version=pulumi.get(__response__, 'citus_version'),
+        delegated_subnet_arguments=pulumi.get(__response__, 'delegated_subnet_arguments'),
+        earliest_restore_time=pulumi.get(__response__, 'earliest_restore_time'),
+        enable_mx=pulumi.get(__response__, 'enable_mx'),
+        enable_shards_on_coordinator=pulumi.get(__response__, 'enable_shards_on_coordinator'),
+        enable_zfs=pulumi.get(__response__, 'enable_zfs'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
+        name=pulumi.get(__response__, 'name'),
+        postgresql_version=pulumi.get(__response__, 'postgresql_version'),
+        private_dns_zone_arguments=pulumi.get(__response__, 'private_dns_zone_arguments'),
+        read_replicas=pulumi.get(__response__, 'read_replicas'),
+        resource_provider_type=pulumi.get(__response__, 'resource_provider_type'),
+        server_role_groups=pulumi.get(__response__, 'server_role_groups'),
+        source_server_group=pulumi.get(__response__, 'source_server_group'),
+        standby_availability_zone=pulumi.get(__response__, 'standby_availability_zone'),
+        state=pulumi.get(__response__, 'state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

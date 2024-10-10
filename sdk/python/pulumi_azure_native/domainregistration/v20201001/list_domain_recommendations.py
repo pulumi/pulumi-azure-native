@@ -81,9 +81,6 @@ def list_domain_recommendations(keywords: Optional[str] = None,
     return AwaitableListDomainRecommendationsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_domain_recommendations)
 def list_domain_recommendations_output(keywords: Optional[pulumi.Input[Optional[str]]] = None,
                                        max_domain_recommendations: Optional[pulumi.Input[Optional[int]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainRecommendationsResult]:
@@ -94,4 +91,11 @@ def list_domain_recommendations_output(keywords: Optional[pulumi.Input[Optional[
     :param str keywords: Keywords to be used for generating domain recommendations.
     :param int max_domain_recommendations: Maximum number of recommendations.
     """
-    ...
+    __args__ = dict()
+    __args__['keywords'] = keywords
+    __args__['maxDomainRecommendations'] = max_domain_recommendations
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:domainregistration/v20201001:listDomainRecommendations', __args__, opts=opts, typ=ListDomainRecommendationsResult)
+    return __ret__.apply(lambda __response__: ListDomainRecommendationsResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

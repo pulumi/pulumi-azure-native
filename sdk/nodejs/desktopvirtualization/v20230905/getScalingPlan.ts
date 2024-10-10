@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a scaling plan.
  */
 export function getScalingPlan(args: GetScalingPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20230905:getScalingPlan", {
         "resourceGroupName": args.resourceGroupName,
@@ -110,7 +109,11 @@ export interface GetScalingPlanResult {
  * Get a scaling plan.
  */
 export function getScalingPlanOutput(args: GetScalingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanResult> {
-    return pulumi.output(args).apply((a: any) => getScalingPlan(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20230905:getScalingPlan", {
+        "resourceGroupName": args.resourceGroupName,
+        "scalingPlanName": args.scalingPlanName,
+    }, opts);
 }
 
 export interface GetScalingPlanOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20230701preview:getRoute", {
         "endpointName": args.endpointName,
@@ -118,7 +117,13 @@ export interface GetRouteResult {
  * Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
-    return pulumi.output(args).apply((a: any) => getRoute(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cdn/v20230701preview:getRoute", {
+        "endpointName": args.endpointName,
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+        "routeName": args.routeName,
+    }, opts);
 }
 
 export interface GetRouteOutputArgs {

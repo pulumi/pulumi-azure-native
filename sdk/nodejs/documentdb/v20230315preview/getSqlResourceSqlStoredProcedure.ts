@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
  */
 export function getSqlResourceSqlStoredProcedure(args: GetSqlResourceSqlStoredProcedureArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlStoredProcedureResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20230315preview:getSqlResourceSqlStoredProcedure", {
         "accountName": args.accountName,
@@ -79,7 +78,14 @@ export interface GetSqlResourceSqlStoredProcedureResult {
  * Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
  */
 export function getSqlResourceSqlStoredProcedureOutput(args: GetSqlResourceSqlStoredProcedureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlStoredProcedureResult> {
-    return pulumi.output(args).apply((a: any) => getSqlResourceSqlStoredProcedure(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20230315preview:getSqlResourceSqlStoredProcedure", {
+        "accountName": args.accountName,
+        "containerName": args.containerName,
+        "databaseName": args.databaseName,
+        "resourceGroupName": args.resourceGroupName,
+        "storedProcedureName": args.storedProcedureName,
+    }, opts);
 }
 
 export interface GetSqlResourceSqlStoredProcedureOutputArgs {

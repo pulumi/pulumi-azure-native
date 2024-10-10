@@ -134,9 +134,6 @@ def get_associated_tenant(associated_tenant_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_associated_tenant)
 def get_associated_tenant_output(associated_tenant_name: Optional[pulumi.Input[str]] = None,
                                  billing_account_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssociatedTenantResult]:
@@ -148,4 +145,15 @@ def get_associated_tenant_output(associated_tenant_name: Optional[pulumi.Input[s
     :param str associated_tenant_name: The ID that uniquely identifies a tenant.
     :param str billing_account_name: The ID that uniquely identifies a billing account.
     """
-    ...
+    __args__ = dict()
+    __args__['associatedTenantName'] = associated_tenant_name
+    __args__['billingAccountName'] = billing_account_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:billing:getAssociatedTenant', __args__, opts=opts, typ=GetAssociatedTenantResult)
+    return __ret__.apply(lambda __response__: GetAssociatedTenantResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

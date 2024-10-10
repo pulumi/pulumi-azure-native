@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-02-01-preview.
  */
 export function listFeaturesetVersionFeatures(args: ListFeaturesetVersionFeaturesArgs, opts?: pulumi.InvokeOptions): Promise<ListFeaturesetVersionFeaturesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:listFeaturesetVersionFeatures", {
         "name": args.name,
@@ -69,7 +68,15 @@ export interface ListFeaturesetVersionFeaturesResult {
  * Azure REST API version: 2023-02-01-preview.
  */
 export function listFeaturesetVersionFeaturesOutput(args: ListFeaturesetVersionFeaturesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeaturesetVersionFeaturesResult> {
-    return pulumi.output(args).apply((a: any) => listFeaturesetVersionFeatures(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listFeaturesetVersionFeatures", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "skip": args.skip,
+        "tags": args.tags,
+        "version": args.version,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListFeaturesetVersionFeaturesOutputArgs {

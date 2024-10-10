@@ -204,9 +204,6 @@ def get_export(expand: Optional[str] = None,
         run_history=pulumi.get(__ret__, 'run_history'),
         schedule=pulumi.get(__ret__, 'schedule'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_export)
 def get_export_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       export_name: Optional[pulumi.Input[str]] = None,
                       scope: Optional[pulumi.Input[str]] = None,
@@ -222,4 +219,21 @@ def get_export_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str export_name: Export Name.
     :param str scope: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['exportName'] = export_name
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getExport', __args__, opts=opts, typ=GetExportResult)
+    return __ret__.apply(lambda __response__: GetExportResult(
+        definition=pulumi.get(__response__, 'definition'),
+        delivery_info=pulumi.get(__response__, 'delivery_info'),
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        format=pulumi.get(__response__, 'format'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        next_run_time_estimate=pulumi.get(__response__, 'next_run_time_estimate'),
+        partition_data=pulumi.get(__response__, 'partition_data'),
+        run_history=pulumi.get(__response__, 'run_history'),
+        schedule=pulumi.get(__response__, 'schedule'),
+        type=pulumi.get(__response__, 'type')))

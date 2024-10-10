@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get bare metal machine key set of the provided cluster.
  */
 export function getBareMetalMachineKeySet(args: GetBareMetalMachineKeySetArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineKeySetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20230701:getBareMetalMachineKeySet", {
         "bareMetalMachineKeySetName": args.bareMetalMachineKeySetName,
@@ -113,7 +112,12 @@ export interface GetBareMetalMachineKeySetResult {
  * Get bare metal machine key set of the provided cluster.
  */
 export function getBareMetalMachineKeySetOutput(args: GetBareMetalMachineKeySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineKeySetResult> {
-    return pulumi.output(args).apply((a: any) => getBareMetalMachineKeySet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20230701:getBareMetalMachineKeySet", {
+        "bareMetalMachineKeySetName": args.bareMetalMachineKeySetName,
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBareMetalMachineKeySetOutputArgs {

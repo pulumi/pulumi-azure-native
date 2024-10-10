@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * List storage account keys of a workspace.
  */
 export function listWorkspaceStorageAccountKeys(args: ListWorkspaceStorageAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceStorageAccountKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230401preview:listWorkspaceStorageAccountKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -34,7 +33,11 @@ export interface ListWorkspaceStorageAccountKeysResult {
  * List storage account keys of a workspace.
  */
 export function listWorkspaceStorageAccountKeysOutput(args: ListWorkspaceStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceStorageAccountKeysResult> {
-    return pulumi.output(args).apply((a: any) => listWorkspaceStorageAccountKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230401preview:listWorkspaceStorageAccountKeys", {
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListWorkspaceStorageAccountKeysOutputArgs {

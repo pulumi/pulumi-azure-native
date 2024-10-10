@@ -212,9 +212,6 @@ def get_autoscale_setting(autoscale_setting_name: Optional[str] = None,
         target_resource_location=pulumi.get(__ret__, 'target_resource_location'),
         target_resource_uri=pulumi.get(__ret__, 'target_resource_uri'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_autoscale_setting)
 def get_autoscale_setting_output(autoscale_setting_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoscaleSettingResult]:
@@ -226,4 +223,21 @@ def get_autoscale_setting_output(autoscale_setting_name: Optional[pulumi.Input[s
     :param str autoscale_setting_name: The autoscale setting name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['autoscaleSettingName'] = autoscale_setting_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getAutoscaleSetting', __args__, opts=opts, typ=GetAutoscaleSettingResult)
+    return __ret__.apply(lambda __response__: GetAutoscaleSettingResult(
+        enabled=pulumi.get(__response__, 'enabled'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        notifications=pulumi.get(__response__, 'notifications'),
+        predictive_autoscale_policy=pulumi.get(__response__, 'predictive_autoscale_policy'),
+        profiles=pulumi.get(__response__, 'profiles'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_resource_location=pulumi.get(__response__, 'target_resource_location'),
+        target_resource_uri=pulumi.get(__response__, 'target_resource_uri'),
+        type=pulumi.get(__response__, 'type')))

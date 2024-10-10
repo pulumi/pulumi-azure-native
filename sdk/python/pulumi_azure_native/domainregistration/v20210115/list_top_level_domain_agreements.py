@@ -84,9 +84,6 @@ def list_top_level_domain_agreements(for_transfer: Optional[bool] = None,
     return AwaitableListTopLevelDomainAgreementsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_top_level_domain_agreements)
 def list_top_level_domain_agreements_output(for_transfer: Optional[pulumi.Input[Optional[bool]]] = None,
                                             include_privacy: Optional[pulumi.Input[Optional[bool]]] = None,
                                             name: Optional[pulumi.Input[str]] = None,
@@ -99,4 +96,12 @@ def list_top_level_domain_agreements_output(for_transfer: Optional[pulumi.Input[
     :param bool include_privacy: If <code>true</code>, then the list of agreements will include agreements for domain privacy as well; otherwise, <code>false</code>.
     :param str name: Name of the top-level domain.
     """
-    ...
+    __args__ = dict()
+    __args__['forTransfer'] = for_transfer
+    __args__['includePrivacy'] = include_privacy
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:domainregistration/v20210115:listTopLevelDomainAgreements', __args__, opts=opts, typ=ListTopLevelDomainAgreementsResult)
+    return __ret__.apply(lambda __response__: ListTopLevelDomainAgreementsResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

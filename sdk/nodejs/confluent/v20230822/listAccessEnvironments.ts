@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List environments success response
  */
 export function listAccessEnvironments(args: ListAccessEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessEnvironmentsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:confluent/v20230822:listAccessEnvironments", {
         "organizationName": args.organizationName,
@@ -56,7 +55,12 @@ export interface ListAccessEnvironmentsResult {
  * List environments success response
  */
 export function listAccessEnvironmentsOutput(args: ListAccessEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessEnvironmentsResult> {
-    return pulumi.output(args).apply((a: any) => listAccessEnvironments(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:confluent/v20230822:listAccessEnvironments", {
+        "organizationName": args.organizationName,
+        "resourceGroupName": args.resourceGroupName,
+        "searchFilters": args.searchFilters,
+    }, opts);
 }
 
 export interface ListAccessEnvironmentsOutputArgs {

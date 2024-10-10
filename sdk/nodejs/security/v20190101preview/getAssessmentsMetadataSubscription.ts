@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get metadata information on an assessment type in a specific subscription
  */
 export function getAssessmentsMetadataSubscription(args: GetAssessmentsMetadataSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentsMetadataSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20190101preview:getAssessmentsMetadataSubscription", {
         "assessmentMetadataName": args.assessmentMetadataName,
@@ -81,7 +80,10 @@ export interface GetAssessmentsMetadataSubscriptionResult {
  * Get metadata information on an assessment type in a specific subscription
  */
 export function getAssessmentsMetadataSubscriptionOutput(args: GetAssessmentsMetadataSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentsMetadataSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getAssessmentsMetadataSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security/v20190101preview:getAssessmentsMetadataSubscription", {
+        "assessmentMetadataName": args.assessmentMetadataName,
+    }, opts);
 }
 
 export interface GetAssessmentsMetadataSubscriptionOutputArgs {

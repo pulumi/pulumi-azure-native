@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a job agent.
  */
 export function getJobAgent(args: GetJobAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetJobAgentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20221101preview:getJobAgent", {
         "jobAgentName": args.jobAgentName,
@@ -76,7 +75,12 @@ export interface GetJobAgentResult {
  * Gets a job agent.
  */
 export function getJobAgentOutput(args: GetJobAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobAgentResult> {
-    return pulumi.output(args).apply((a: any) => getJobAgent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20221101preview:getJobAgent", {
+        "jobAgentName": args.jobAgentName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetJobAgentOutputArgs {

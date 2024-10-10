@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified Batch account.
  */
 export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:batch/v20220101:getBatchAccount", {
         "accountName": args.accountName,
@@ -117,7 +116,11 @@ export interface GetBatchAccountResult {
  * Gets information about the specified Batch account.
  */
 export function getBatchAccountOutput(args: GetBatchAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchAccountResult> {
-    return pulumi.output(args).apply((a: any) => getBatchAccount(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:batch/v20220101:getBatchAccount", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBatchAccountOutputArgs {

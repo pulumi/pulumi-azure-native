@@ -393,9 +393,6 @@ def get_application(application_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         updated_by=pulumi.get(__ret__, 'updated_by'))
-
-
-@_utilities.lift_output_func(get_application)
 def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
@@ -406,4 +403,35 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     :param str application_name: The name of the managed application.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationName'] = application_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:solutions/v20231201preview:getApplication', __args__, opts=opts, typ=GetApplicationResult)
+    return __ret__.apply(lambda __response__: GetApplicationResult(
+        application_definition_id=pulumi.get(__response__, 'application_definition_id'),
+        artifacts=pulumi.get(__response__, 'artifacts'),
+        authorizations=pulumi.get(__response__, 'authorizations'),
+        billing_details=pulumi.get(__response__, 'billing_details'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        customer_support=pulumi.get(__response__, 'customer_support'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        jit_access_policy=pulumi.get(__response__, 'jit_access_policy'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        managed_by=pulumi.get(__response__, 'managed_by'),
+        managed_resource_group_id=pulumi.get(__response__, 'managed_resource_group_id'),
+        management_mode=pulumi.get(__response__, 'management_mode'),
+        name=pulumi.get(__response__, 'name'),
+        outputs=pulumi.get(__response__, 'outputs'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        plan=pulumi.get(__response__, 'plan'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        publisher_tenant_id=pulumi.get(__response__, 'publisher_tenant_id'),
+        sku=pulumi.get(__response__, 'sku'),
+        support_urls=pulumi.get(__response__, 'support_urls'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        updated_by=pulumi.get(__response__, 'updated_by')))

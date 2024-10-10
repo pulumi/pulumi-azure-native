@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the detailed information for a given task run that includes all secrets.
  */
 export function listTaskRunDetails(args: ListTaskRunDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListTaskRunDetailsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20190601preview:listTaskRunDetails", {
         "registryName": args.registryName,
@@ -85,7 +84,12 @@ export interface ListTaskRunDetailsResult {
  * Gets the detailed information for a given task run that includes all secrets.
  */
 export function listTaskRunDetailsOutput(args: ListTaskRunDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTaskRunDetailsResult> {
-    return pulumi.output(args).apply((a: any) => listTaskRunDetails(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20190601preview:listTaskRunDetails", {
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+        "taskRunName": args.taskRunName,
+    }, opts);
 }
 
 export interface ListTaskRunDetailsOutputArgs {

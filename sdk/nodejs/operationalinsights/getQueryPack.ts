@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-09-01-preview.
  */
 export function getQueryPack(args: GetQueryPackArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryPackResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights:getQueryPack", {
         "queryPackName": args.queryPackName,
@@ -78,7 +77,11 @@ export interface GetQueryPackResult {
  * Other available API versions: 2019-09-01-preview.
  */
 export function getQueryPackOutput(args: GetQueryPackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryPackResult> {
-    return pulumi.output(args).apply((a: any) => getQueryPack(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getQueryPack", {
+        "queryPackName": args.queryPackName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetQueryPackOutputArgs {

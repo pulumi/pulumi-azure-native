@@ -215,9 +215,6 @@ def get_read_write_database(cluster_name: Optional[str] = None,
         statistics=pulumi.get(__ret__, 'statistics'),
         suspension_details=pulumi.get(__ret__, 'suspension_details'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_read_write_database)
 def get_read_write_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                    database_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -230,4 +227,22 @@ def get_read_write_database_output(cluster_name: Optional[pulumi.Input[str]] = N
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['databaseName'] = database_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20230502:getReadWriteDatabase', __args__, opts=opts, typ=GetReadWriteDatabaseResult)
+    return __ret__.apply(lambda __response__: GetReadWriteDatabaseResult(
+        hot_cache_period=pulumi.get(__response__, 'hot_cache_period'),
+        id=pulumi.get(__response__, 'id'),
+        is_followed=pulumi.get(__response__, 'is_followed'),
+        key_vault_properties=pulumi.get(__response__, 'key_vault_properties'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        soft_delete_period=pulumi.get(__response__, 'soft_delete_period'),
+        statistics=pulumi.get(__response__, 'statistics'),
+        suspension_details=pulumi.get(__response__, 'suspension_details'),
+        type=pulumi.get(__response__, 'type')))

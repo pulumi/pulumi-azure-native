@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets an read-write access token for application insights diagnostic service data.
  */
 export function getDiagnosticServiceTokenReadWrite(args: GetDiagnosticServiceTokenReadWriteArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticServiceTokenReadWriteResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadWrite", {
         "resourceUri": args.resourceUri,
@@ -35,7 +34,10 @@ export interface GetDiagnosticServiceTokenReadWriteResult {
  * Gets an read-write access token for application insights diagnostic service data.
  */
 export function getDiagnosticServiceTokenReadWriteOutput(args: GetDiagnosticServiceTokenReadWriteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticServiceTokenReadWriteResult> {
-    return pulumi.output(args).apply((a: any) => getDiagnosticServiceTokenReadWrite(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadWrite", {
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetDiagnosticServiceTokenReadWriteOutputArgs {

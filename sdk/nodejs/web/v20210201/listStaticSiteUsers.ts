@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the list of users of a static site.
  */
 export function listStaticSiteUsers(args: ListStaticSiteUsersArgs, opts?: pulumi.InvokeOptions): Promise<ListStaticSiteUsersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210201:listStaticSiteUsers", {
         "authprovider": args.authprovider,
@@ -52,7 +51,12 @@ export interface ListStaticSiteUsersResult {
  * Gets the list of users of a static site.
  */
 export function listStaticSiteUsersOutput(args: ListStaticSiteUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteUsersResult> {
-    return pulumi.output(args).apply((a: any) => listStaticSiteUsers(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20210201:listStaticSiteUsers", {
+        "authprovider": args.authprovider,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListStaticSiteUsersOutputArgs {

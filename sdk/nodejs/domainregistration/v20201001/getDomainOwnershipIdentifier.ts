@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get ownership identifier for domain
  */
 export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainOwnershipIdentifierResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:domainregistration/v20201001:getDomainOwnershipIdentifier", {
         "domainName": args.domainName,
@@ -68,7 +67,12 @@ export interface GetDomainOwnershipIdentifierResult {
  * Get ownership identifier for domain
  */
 export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
-    return pulumi.output(args).apply((a: any) => getDomainOwnershipIdentifier(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:domainregistration/v20201001:getDomainOwnershipIdentifier", {
+        "domainName": args.domainName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDomainOwnershipIdentifierOutputArgs {

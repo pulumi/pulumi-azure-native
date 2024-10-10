@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
  */
 export function getADCCatalog(args: GetADCCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetADCCatalogResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datacatalog/v20160330:getADCCatalog", {
         "catalogName": args.catalogName,
@@ -87,7 +86,11 @@ export interface GetADCCatalogResult {
  * The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
  */
 export function getADCCatalogOutput(args: GetADCCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADCCatalogResult> {
-    return pulumi.output(args).apply((a: any) => getADCCatalog(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datacatalog/v20160330:getADCCatalog", {
+        "catalogName": args.catalogName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetADCCatalogOutputArgs {

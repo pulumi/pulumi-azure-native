@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List user roles associated with the data product.
  */
 export function listDataProductRolesAssignments(args: ListDataProductRolesAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<ListDataProductRolesAssignmentsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkanalytics/v20231115:listDataProductRolesAssignments", {
         "dataProductName": args.dataProductName,
@@ -47,7 +46,11 @@ export interface ListDataProductRolesAssignmentsResult {
  * List user roles associated with the data product.
  */
 export function listDataProductRolesAssignmentsOutput(args: ListDataProductRolesAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDataProductRolesAssignmentsResult> {
-    return pulumi.output(args).apply((a: any) => listDataProductRolesAssignments(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:networkanalytics/v20231115:listDataProductRolesAssignments", {
+        "dataProductName": args.dataProductName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListDataProductRolesAssignmentsOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getKeyValue(args: GetKeyValueArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyValueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appconfiguration:getKeyValue", {
         "configStoreName": args.configStoreName,
@@ -95,7 +94,12 @@ export interface GetKeyValueResult {
  * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getKeyValueOutput(args: GetKeyValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyValueResult> {
-    return pulumi.output(args).apply((a: any) => getKeyValue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appconfiguration:getKeyValue", {
+        "configStoreName": args.configStoreName,
+        "keyValueName": args.keyValueName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetKeyValueOutputArgs {

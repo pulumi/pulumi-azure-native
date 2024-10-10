@@ -421,9 +421,6 @@ def get_database(database_name: Optional[str] = None,
         transparent_data_encryption=pulumi.get(__ret__, 'transparent_data_encryption'),
         type=pulumi.get(__ret__, 'type'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-
-
-@_utilities.lift_output_func(get_database)
 def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         expand: Optional[pulumi.Input[Optional[str]]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -438,4 +435,37 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    ...
+    __args__ = dict()
+    __args__['databaseName'] = database_name
+    __args__['expand'] = expand
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20140401:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
+    return __ret__.apply(lambda __response__: GetDatabaseResult(
+        collation=pulumi.get(__response__, 'collation'),
+        containment_state=pulumi.get(__response__, 'containment_state'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        current_service_objective_id=pulumi.get(__response__, 'current_service_objective_id'),
+        database_id=pulumi.get(__response__, 'database_id'),
+        default_secondary_location=pulumi.get(__response__, 'default_secondary_location'),
+        earliest_restore_date=pulumi.get(__response__, 'earliest_restore_date'),
+        edition=pulumi.get(__response__, 'edition'),
+        elastic_pool_name=pulumi.get(__response__, 'elastic_pool_name'),
+        failover_group_id=pulumi.get(__response__, 'failover_group_id'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        max_size_bytes=pulumi.get(__response__, 'max_size_bytes'),
+        name=pulumi.get(__response__, 'name'),
+        read_scale=pulumi.get(__response__, 'read_scale'),
+        recommended_index=pulumi.get(__response__, 'recommended_index'),
+        requested_service_objective_id=pulumi.get(__response__, 'requested_service_objective_id'),
+        requested_service_objective_name=pulumi.get(__response__, 'requested_service_objective_name'),
+        service_level_objective=pulumi.get(__response__, 'service_level_objective'),
+        service_tier_advisors=pulumi.get(__response__, 'service_tier_advisors'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        transparent_data_encryption=pulumi.get(__response__, 'transparent_data_encryption'),
+        type=pulumi.get(__response__, 'type'),
+        zone_redundant=pulumi.get(__response__, 'zone_redundant')))

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets entity type (profile or interaction) image upload URL.
  */
 export function getImageUploadUrlForEntityType(args: GetImageUploadUrlForEntityTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetImageUploadUrlForEntityTypeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getImageUploadUrlForEntityType", {
         "entityType": args.entityType,
@@ -63,7 +62,14 @@ export interface GetImageUploadUrlForEntityTypeResult {
  * Gets entity type (profile or interaction) image upload URL.
  */
 export function getImageUploadUrlForEntityTypeOutput(args: GetImageUploadUrlForEntityTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageUploadUrlForEntityTypeResult> {
-    return pulumi.output(args).apply((a: any) => getImageUploadUrlForEntityType(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getImageUploadUrlForEntityType", {
+        "entityType": args.entityType,
+        "entityTypeName": args.entityTypeName,
+        "hubName": args.hubName,
+        "relativePath": args.relativePath,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetImageUploadUrlForEntityTypeOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-01-01.
  */
 export function getPrivateEndpointConnectionProxyController(args: GetPrivateEndpointConnectionProxyControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionProxyControllerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getPrivateEndpointConnectionProxyController", {
         "migrateProjectName": args.migrateProjectName,
@@ -58,7 +57,12 @@ export interface GetPrivateEndpointConnectionProxyControllerResult {
  * Azure REST API version: 2023-01-01.
  */
 export function getPrivateEndpointConnectionProxyControllerOutput(args: GetPrivateEndpointConnectionProxyControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionProxyControllerResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionProxyController(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate:getPrivateEndpointConnectionProxyController", {
+        "migrateProjectName": args.migrateProjectName,
+        "pecProxyName": args.pecProxyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPrivateEndpointConnectionProxyControllerOutputArgs {

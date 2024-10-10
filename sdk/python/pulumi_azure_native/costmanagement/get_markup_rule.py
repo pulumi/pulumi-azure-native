@@ -176,9 +176,6 @@ def get_markup_rule(billing_account_id: Optional[str] = None,
         percentage=pulumi.get(__ret__, 'percentage'),
         start_date=pulumi.get(__ret__, 'start_date'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_markup_rule)
 def get_markup_rule_output(billing_account_id: Optional[pulumi.Input[str]] = None,
                            billing_profile_id: Optional[pulumi.Input[str]] = None,
                            name: Optional[pulumi.Input[str]] = None,
@@ -192,4 +189,19 @@ def get_markup_rule_output(billing_account_id: Optional[pulumi.Input[str]] = Non
     :param str billing_profile_id: BillingProfile ID
     :param str name: Markup rule name.
     """
-    ...
+    __args__ = dict()
+    __args__['billingAccountId'] = billing_account_id
+    __args__['billingProfileId'] = billing_profile_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getMarkupRule', __args__, opts=opts, typ=GetMarkupRuleResult)
+    return __ret__.apply(lambda __response__: GetMarkupRuleResult(
+        customer_details=pulumi.get(__response__, 'customer_details'),
+        description=pulumi.get(__response__, 'description'),
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        end_date=pulumi.get(__response__, 'end_date'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        percentage=pulumi.get(__response__, 'percentage'),
+        start_date=pulumi.get(__response__, 'start_date'),
+        type=pulumi.get(__response__, 'type')))

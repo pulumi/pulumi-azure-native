@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-10-01-preview, 2024-04-01.
  */
 export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(args: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs, opts?: pulumi.InvokeOptions): Promise<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", {
         "billingAccountName": args.billingAccountName,
@@ -48,7 +47,10 @@ export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission
  * Other available API versions: 2019-10-01-preview, 2024-04-01.
  */
 export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutput(args: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> {
-    return pulumi.output(args).apply((a: any) => listBillingAccountInvoiceSectionsByCreateSubscriptionPermission(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", {
+        "billingAccountName": args.billingAccountName,
+    }, opts);
 }
 
 export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs {

@@ -141,9 +141,6 @@ def list_web_app_hybrid_connection_keys_slot(name: Optional[str] = None,
         send_key_name=pulumi.get(__ret__, 'send_key_name'),
         send_key_value=pulumi.get(__ret__, 'send_key_value'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(list_web_app_hybrid_connection_keys_slot)
 def list_web_app_hybrid_connection_keys_slot_output(name: Optional[pulumi.Input[str]] = None,
                                                     namespace_name: Optional[pulumi.Input[str]] = None,
                                                     relay_name: Optional[pulumi.Input[str]] = None,
@@ -160,4 +157,18 @@ def list_web_app_hybrid_connection_keys_slot_output(name: Optional[pulumi.Input[
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: The name of the slot for the web app.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['namespaceName'] = namespace_name
+    __args__['relayName'] = relay_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['slot'] = slot
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20181101:listWebAppHybridConnectionKeysSlot', __args__, opts=opts, typ=ListWebAppHybridConnectionKeysSlotResult)
+    return __ret__.apply(lambda __response__: ListWebAppHybridConnectionKeysSlotResult(
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        send_key_name=pulumi.get(__response__, 'send_key_name'),
+        send_key_value=pulumi.get(__response__, 'send_key_value'),
+        type=pulumi.get(__response__, 'type')))

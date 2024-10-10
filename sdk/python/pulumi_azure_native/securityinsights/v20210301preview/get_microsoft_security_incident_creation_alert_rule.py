@@ -257,9 +257,6 @@ def get_microsoft_security_incident_creation_alert_rule(operational_insights_res
         severities_filter=pulumi.get(__ret__, 'severities_filter'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_microsoft_security_incident_creation_alert_rule)
 def get_microsoft_security_incident_creation_alert_rule_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                rule_id: Optional[pulumi.Input[str]] = None,
@@ -274,4 +271,26 @@ def get_microsoft_security_incident_creation_alert_rule_output(operational_insig
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['ruleId'] = rule_id
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20210301preview:getMicrosoftSecurityIncidentCreationAlertRule', __args__, opts=opts, typ=GetMicrosoftSecurityIncidentCreationAlertRuleResult)
+    return __ret__.apply(lambda __response__: GetMicrosoftSecurityIncidentCreationAlertRuleResult(
+        alert_rule_template_name=pulumi.get(__response__, 'alert_rule_template_name'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        display_names_exclude_filter=pulumi.get(__response__, 'display_names_exclude_filter'),
+        display_names_filter=pulumi.get(__response__, 'display_names_filter'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        last_modified_utc=pulumi.get(__response__, 'last_modified_utc'),
+        name=pulumi.get(__response__, 'name'),
+        product_filter=pulumi.get(__response__, 'product_filter'),
+        severities_filter=pulumi.get(__response__, 'severities_filter'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

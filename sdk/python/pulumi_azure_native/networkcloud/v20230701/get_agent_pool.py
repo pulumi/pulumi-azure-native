@@ -328,9 +328,6 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         upgrade_settings=pulumi.get(__ret__, 'upgrade_settings'),
         vm_sku_name=pulumi.get(__ret__, 'vm_sku_name'))
-
-
-@_utilities.lift_output_func(get_agent_pool)
 def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           kubernetes_cluster_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -343,4 +340,31 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     :param str kubernetes_cluster_name: The name of the Kubernetes cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['agentPoolName'] = agent_pool_name
+    __args__['kubernetesClusterName'] = kubernetes_cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20230701:getAgentPool', __args__, opts=opts, typ=GetAgentPoolResult)
+    return __ret__.apply(lambda __response__: GetAgentPoolResult(
+        administrator_configuration=pulumi.get(__response__, 'administrator_configuration'),
+        agent_options=pulumi.get(__response__, 'agent_options'),
+        attached_network_configuration=pulumi.get(__response__, 'attached_network_configuration'),
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        count=pulumi.get(__response__, 'count'),
+        detailed_status=pulumi.get(__response__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
+        labels=pulumi.get(__response__, 'labels'),
+        location=pulumi.get(__response__, 'location'),
+        mode=pulumi.get(__response__, 'mode'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        taints=pulumi.get(__response__, 'taints'),
+        type=pulumi.get(__response__, 'type'),
+        upgrade_settings=pulumi.get(__response__, 'upgrade_settings'),
+        vm_sku_name=pulumi.get(__response__, 'vm_sku_name')))

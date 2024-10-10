@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Lists the keys for a Media Service.
  */
 export function listMediaServiceKeys(args: ListMediaServiceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaServiceKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20151001:listMediaServiceKeys", {
         "mediaServiceName": args.mediaServiceName,
@@ -56,7 +55,11 @@ export interface ListMediaServiceKeysResult {
  * Lists the keys for a Media Service.
  */
 export function listMediaServiceKeysOutput(args: ListMediaServiceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMediaServiceKeysResult> {
-    return pulumi.output(args).apply((a: any) => listMediaServiceKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:media/v20151001:listMediaServiceKeys", {
+        "mediaServiceName": args.mediaServiceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListMediaServiceKeysOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified peering for the express route circuit.
  */
 export function getExpressRouteCircuitPeering(args: GetExpressRouteCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitPeeringResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230601:getExpressRouteCircuitPeering", {
         "circuitName": args.circuitName,
@@ -140,7 +139,12 @@ export interface GetExpressRouteCircuitPeeringResult {
  * Gets the specified peering for the express route circuit.
  */
 export function getExpressRouteCircuitPeeringOutput(args: GetExpressRouteCircuitPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitPeeringResult> {
-    return pulumi.output(args).apply((a: any) => getExpressRouteCircuitPeering(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230601:getExpressRouteCircuitPeering", {
+        "circuitName": args.circuitName,
+        "peeringName": args.peeringName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetExpressRouteCircuitPeeringOutputArgs {

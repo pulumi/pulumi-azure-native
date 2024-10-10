@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a specific trigger by name.
  */
 export function getFileEventTrigger(args: GetFileEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileEventTriggerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20231201:getFileEventTrigger", {
         "deviceName": args.deviceName,
@@ -77,7 +76,12 @@ export interface GetFileEventTriggerResult {
  * Get a specific trigger by name.
  */
 export function getFileEventTriggerOutput(args: GetFileEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileEventTriggerResult> {
-    return pulumi.output(args).apply((a: any) => getFileEventTrigger(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20231201:getFileEventTrigger", {
+        "deviceName": args.deviceName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFileEventTriggerOutputArgs {

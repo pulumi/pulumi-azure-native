@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-11-01-preview.
  */
 export function listVideoContentToken(args: ListVideoContentTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListVideoContentTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer:listVideoContentToken", {
         "accountName": args.accountName,
@@ -51,7 +50,12 @@ export interface ListVideoContentTokenResult {
  * Azure REST API version: 2021-11-01-preview.
  */
 export function listVideoContentTokenOutput(args: ListVideoContentTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVideoContentTokenResult> {
-    return pulumi.output(args).apply((a: any) => listVideoContentToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:videoanalyzer:listVideoContentToken", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+        "videoName": args.videoName,
+    }, opts);
 }
 
 export interface ListVideoContentTokenOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Response of a list operation.
  */
 export function listMonitoredResource(args: ListMonitoredResourceArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitoredResourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic/v20240501preview:listMonitoredResource", {
         "monitorName": args.monitorName,
@@ -47,7 +46,11 @@ export interface ListMonitoredResourceResult {
  * Response of a list operation.
  */
 export function listMonitoredResourceOutput(args: ListMonitoredResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitoredResourceResult> {
-    return pulumi.output(args).apply((a: any) => listMonitoredResource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:elastic/v20240501preview:listMonitoredResource", {
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListMonitoredResourceOutputArgs {

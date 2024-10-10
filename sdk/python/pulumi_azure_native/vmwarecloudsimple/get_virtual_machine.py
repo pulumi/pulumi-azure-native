@@ -407,9 +407,6 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
         v_sphere_networks=pulumi.get(__ret__, 'v_sphere_networks'),
         vm_id=pulumi.get(__ret__, 'vm_id'),
         vmwaretools=pulumi.get(__ret__, 'vmwaretools'))
-
-
-@_utilities.lift_output_func(get_virtual_machine)
 def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                virtual_machine_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
@@ -421,4 +418,36 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group
     :param str virtual_machine_name: virtual machine name
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualMachineName'] = virtual_machine_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:vmwarecloudsimple:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
+    return __ret__.apply(lambda __response__: GetVirtualMachineResult(
+        amount_of_ram=pulumi.get(__response__, 'amount_of_ram'),
+        controllers=pulumi.get(__response__, 'controllers'),
+        customization=pulumi.get(__response__, 'customization'),
+        disks=pulumi.get(__response__, 'disks'),
+        dnsname=pulumi.get(__response__, 'dnsname'),
+        expose_to_guest_vm=pulumi.get(__response__, 'expose_to_guest_vm'),
+        folder=pulumi.get(__response__, 'folder'),
+        guest_os=pulumi.get(__response__, 'guest_os'),
+        guest_os_type=pulumi.get(__response__, 'guest_os_type'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        nics=pulumi.get(__response__, 'nics'),
+        number_of_cores=pulumi.get(__response__, 'number_of_cores'),
+        password=pulumi.get(__response__, 'password'),
+        private_cloud_id=pulumi.get(__response__, 'private_cloud_id'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_ip=pulumi.get(__response__, 'public_ip'),
+        resource_pool=pulumi.get(__response__, 'resource_pool'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        template_id=pulumi.get(__response__, 'template_id'),
+        type=pulumi.get(__response__, 'type'),
+        username=pulumi.get(__response__, 'username'),
+        v_sphere_networks=pulumi.get(__response__, 'v_sphere_networks'),
+        vm_id=pulumi.get(__response__, 'vm_id'),
+        vmwaretools=pulumi.get(__response__, 'vmwaretools')))

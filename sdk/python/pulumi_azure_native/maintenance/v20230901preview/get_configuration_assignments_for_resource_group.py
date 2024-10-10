@@ -159,9 +159,6 @@ def get_configuration_assignments_for_resource_group(configuration_assignment_na
         resource_id=pulumi.get(__ret__, 'resource_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_configuration_assignments_for_resource_group)
 def get_configuration_assignments_for_resource_group_output(configuration_assignment_name: Optional[pulumi.Input[str]] = None,
                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAssignmentsForResourceGroupResult]:
@@ -172,4 +169,17 @@ def get_configuration_assignments_for_resource_group_output(configuration_assign
     :param str configuration_assignment_name: Configuration assignment name
     :param str resource_group_name: Resource group name
     """
-    ...
+    __args__ = dict()
+    __args__['configurationAssignmentName'] = configuration_assignment_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:maintenance/v20230901preview:getConfigurationAssignmentsForResourceGroup', __args__, opts=opts, typ=GetConfigurationAssignmentsForResourceGroupResult)
+    return __ret__.apply(lambda __response__: GetConfigurationAssignmentsForResourceGroupResult(
+        filter=pulumi.get(__response__, 'filter'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        maintenance_configuration_id=pulumi.get(__response__, 'maintenance_configuration_id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

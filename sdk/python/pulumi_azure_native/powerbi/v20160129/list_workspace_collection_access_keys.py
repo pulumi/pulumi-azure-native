@@ -77,9 +77,6 @@ def list_workspace_collection_access_keys(resource_group_name: Optional[str] = N
     return AwaitableListWorkspaceCollectionAccessKeysResult(
         key1=pulumi.get(__ret__, 'key1'),
         key2=pulumi.get(__ret__, 'key2'))
-
-
-@_utilities.lift_output_func(list_workspace_collection_access_keys)
 def list_workspace_collection_access_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  workspace_collection_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceCollectionAccessKeysResult]:
@@ -90,4 +87,11 @@ def list_workspace_collection_access_keys_output(resource_group_name: Optional[p
     :param str resource_group_name: Azure resource group
     :param str workspace_collection_name: Power BI Embedded Workspace Collection name
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceCollectionName'] = workspace_collection_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:powerbi/v20160129:listWorkspaceCollectionAccessKeys', __args__, opts=opts, typ=ListWorkspaceCollectionAccessKeysResult)
+    return __ret__.apply(lambda __response__: ListWorkspaceCollectionAccessKeysResult(
+        key1=pulumi.get(__response__, 'key1'),
+        key2=pulumi.get(__response__, 'key2')))

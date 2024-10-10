@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Returns whether FTP is allowed on the site or not.
  */
 export function getWebAppFtpAllowedSlot(args: GetWebAppFtpAllowedSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFtpAllowedSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20210101:getWebAppFtpAllowedSlot", {
         "name": args.name,
@@ -58,7 +57,12 @@ export interface GetWebAppFtpAllowedSlotResult {
  * Returns whether FTP is allowed on the site or not.
  */
 export function getWebAppFtpAllowedSlotOutput(args: GetWebAppFtpAllowedSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFtpAllowedSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppFtpAllowedSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20210101:getWebAppFtpAllowedSlot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface GetWebAppFtpAllowedSlotOutputArgs {

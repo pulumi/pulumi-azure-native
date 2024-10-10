@@ -344,9 +344,6 @@ def get_vpn_connection(connection_name: Optional[str] = None,
         use_policy_based_traffic_selectors=pulumi.get(__ret__, 'use_policy_based_traffic_selectors'),
         vpn_connection_protocol_type=pulumi.get(__ret__, 'vpn_connection_protocol_type'),
         vpn_link_connections=pulumi.get(__ret__, 'vpn_link_connections'))
-
-
-@_utilities.lift_output_func(get_vpn_connection)
 def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                               gateway_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -359,4 +356,32 @@ def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
     :param str gateway_name: The name of the gateway.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
-    ...
+    __args__ = dict()
+    __args__['connectionName'] = connection_name
+    __args__['gatewayName'] = gateway_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:getVpnConnection', __args__, opts=opts, typ=GetVpnConnectionResult)
+    return __ret__.apply(lambda __response__: GetVpnConnectionResult(
+        connection_bandwidth=pulumi.get(__response__, 'connection_bandwidth'),
+        connection_status=pulumi.get(__response__, 'connection_status'),
+        dpd_timeout_seconds=pulumi.get(__response__, 'dpd_timeout_seconds'),
+        egress_bytes_transferred=pulumi.get(__response__, 'egress_bytes_transferred'),
+        enable_bgp=pulumi.get(__response__, 'enable_bgp'),
+        enable_internet_security=pulumi.get(__response__, 'enable_internet_security'),
+        enable_rate_limiting=pulumi.get(__response__, 'enable_rate_limiting'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        ingress_bytes_transferred=pulumi.get(__response__, 'ingress_bytes_transferred'),
+        ipsec_policies=pulumi.get(__response__, 'ipsec_policies'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        remote_vpn_site=pulumi.get(__response__, 'remote_vpn_site'),
+        routing_configuration=pulumi.get(__response__, 'routing_configuration'),
+        routing_weight=pulumi.get(__response__, 'routing_weight'),
+        shared_key=pulumi.get(__response__, 'shared_key'),
+        traffic_selector_policies=pulumi.get(__response__, 'traffic_selector_policies'),
+        use_local_azure_ip_address=pulumi.get(__response__, 'use_local_azure_ip_address'),
+        use_policy_based_traffic_selectors=pulumi.get(__response__, 'use_policy_based_traffic_selectors'),
+        vpn_connection_protocol_type=pulumi.get(__response__, 'vpn_connection_protocol_type'),
+        vpn_link_connections=pulumi.get(__response__, 'vpn_link_connections')))

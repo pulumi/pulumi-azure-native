@@ -12,7 +12,6 @@ import * as utilities from "../../utilities";
  * call the GetItemOperationResult API.
  */
 export function getProtectedItem(args: GetProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectedItemResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20230401:getProtectedItem", {
         "containerName": args.containerName,
@@ -89,7 +88,15 @@ export interface GetProtectedItemResult {
  * call the GetItemOperationResult API.
  */
 export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectedItemResult> {
-    return pulumi.output(args).apply((a: any) => getProtectedItem(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230401:getProtectedItem", {
+        "containerName": args.containerName,
+        "fabricName": args.fabricName,
+        "filter": args.filter,
+        "protectedItemName": args.protectedItemName,
+        "resourceGroupName": args.resourceGroupName,
+        "vaultName": args.vaultName,
+    }, opts);
 }
 
 export interface GetProtectedItemOutputArgs {

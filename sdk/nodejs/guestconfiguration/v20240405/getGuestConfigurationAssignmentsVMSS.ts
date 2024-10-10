@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get information about a guest configuration assignment for VMSS
  */
 export function getGuestConfigurationAssignmentsVMSS(args: GetGuestConfigurationAssignmentsVMSSArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationAssignmentsVMSSResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:guestconfiguration/v20240405:getGuestConfigurationAssignmentsVMSS", {
         "name": args.name,
@@ -68,7 +67,12 @@ export interface GetGuestConfigurationAssignmentsVMSSResult {
  * Get information about a guest configuration assignment for VMSS
  */
 export function getGuestConfigurationAssignmentsVMSSOutput(args: GetGuestConfigurationAssignmentsVMSSOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationAssignmentsVMSSResult> {
-    return pulumi.output(args).apply((a: any) => getGuestConfigurationAssignmentsVMSS(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:guestconfiguration/v20240405:getGuestConfigurationAssignmentsVMSS", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "vmssName": args.vmssName,
+    }, opts);
 }
 
 export interface GetGuestConfigurationAssignmentsVMSSOutputArgs {

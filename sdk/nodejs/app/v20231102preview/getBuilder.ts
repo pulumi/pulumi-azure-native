@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a BuilderResource
  */
 export function getBuilder(args: GetBuilderArgs, opts?: pulumi.InvokeOptions): Promise<GetBuilderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20231102preview:getBuilder", {
         "builderName": args.builderName,
@@ -79,7 +78,11 @@ export interface GetBuilderResult {
  * Get a BuilderResource
  */
 export function getBuilderOutput(args: GetBuilderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuilderResult> {
-    return pulumi.output(args).apply((a: any) => getBuilder(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app/v20231102preview:getBuilder", {
+        "builderName": args.builderName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBuilderOutputArgs {

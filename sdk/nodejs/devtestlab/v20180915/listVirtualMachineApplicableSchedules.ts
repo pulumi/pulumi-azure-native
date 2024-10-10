@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Lists the applicable start/stop schedules, if any.
  */
 export function listVirtualMachineApplicableSchedules(args: ListVirtualMachineApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListVirtualMachineApplicableSchedulesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:listVirtualMachineApplicableSchedules", {
         "labName": args.labName,
@@ -72,7 +71,12 @@ export interface ListVirtualMachineApplicableSchedulesResult {
  * Lists the applicable start/stop schedules, if any.
  */
 export function listVirtualMachineApplicableSchedulesOutput(args: ListVirtualMachineApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVirtualMachineApplicableSchedulesResult> {
-    return pulumi.output(args).apply((a: any) => listVirtualMachineApplicableSchedules(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:listVirtualMachineApplicableSchedules", {
+        "labName": args.labName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListVirtualMachineApplicableSchedulesOutputArgs {

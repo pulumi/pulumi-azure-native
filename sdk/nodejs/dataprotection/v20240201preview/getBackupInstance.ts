@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a backup instance with name in a backup vault
  */
 export function getBackupInstance(args: GetBackupInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dataprotection/v20240201preview:getBackupInstance", {
         "backupInstanceName": args.backupInstanceName,
@@ -68,7 +67,12 @@ export interface GetBackupInstanceResult {
  * Gets a backup instance with name in a backup vault
  */
 export function getBackupInstanceOutput(args: GetBackupInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getBackupInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:dataprotection/v20240201preview:getBackupInstance", {
+        "backupInstanceName": args.backupInstanceName,
+        "resourceGroupName": args.resourceGroupName,
+        "vaultName": args.vaultName,
+    }, opts);
 }
 
 export interface GetBackupInstanceOutputArgs {

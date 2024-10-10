@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-03-01-preview.
  */
 export function listSpatialAnchorsAccountKeys(args: ListSpatialAnchorsAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSpatialAnchorsAccountKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mixedreality:listSpatialAnchorsAccountKeys", {
         "accountName": args.accountName,
@@ -50,7 +49,11 @@ export interface ListSpatialAnchorsAccountKeysResult {
  * Other available API versions: 2021-03-01-preview.
  */
 export function listSpatialAnchorsAccountKeysOutput(args: ListSpatialAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSpatialAnchorsAccountKeysResult> {
-    return pulumi.output(args).apply((a: any) => listSpatialAnchorsAccountKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:mixedreality:listSpatialAnchorsAccountKeys", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListSpatialAnchorsAccountKeysOutputArgs {

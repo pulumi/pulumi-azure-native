@@ -253,9 +253,6 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[str]
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_orchestrator_instance_service_details)
 def get_orchestrator_instance_service_details_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      resource_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrchestratorInstanceServiceDetailsResult]:
@@ -269,4 +266,24 @@ def get_orchestrator_instance_service_details_output(resource_group_name: Option
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:delegatednetwork:getOrchestratorInstanceServiceDetails', __args__, opts=opts, typ=GetOrchestratorInstanceServiceDetailsResult)
+    return __ret__.apply(lambda __response__: GetOrchestratorInstanceServiceDetailsResult(
+        api_server_endpoint=pulumi.get(__response__, 'api_server_endpoint'),
+        cluster_root_ca=pulumi.get(__response__, 'cluster_root_ca'),
+        controller_details=pulumi.get(__response__, 'controller_details'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        orchestrator_app_id=pulumi.get(__response__, 'orchestrator_app_id'),
+        orchestrator_tenant_id=pulumi.get(__response__, 'orchestrator_tenant_id'),
+        private_link_resource_id=pulumi.get(__response__, 'private_link_resource_id'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

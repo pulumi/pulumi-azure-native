@@ -290,9 +290,6 @@ def get_aml_filesystem(aml_filesystem_name: Optional[str] = None,
         throughput_provisioned_m_bps=pulumi.get(__ret__, 'throughput_provisioned_m_bps'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_aml_filesystem)
 def get_aml_filesystem_output(aml_filesystem_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmlFilesystemResult]:
@@ -304,4 +301,27 @@ def get_aml_filesystem_output(aml_filesystem_name: Optional[pulumi.Input[str]] =
     :param str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['amlFilesystemName'] = aml_filesystem_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storagecache:getAmlFilesystem', __args__, opts=opts, typ=GetAmlFilesystemResult)
+    return __ret__.apply(lambda __response__: GetAmlFilesystemResult(
+        client_info=pulumi.get(__response__, 'client_info'),
+        encryption_settings=pulumi.get(__response__, 'encryption_settings'),
+        filesystem_subnet=pulumi.get(__response__, 'filesystem_subnet'),
+        health=pulumi.get(__response__, 'health'),
+        hsm=pulumi.get(__response__, 'hsm'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sku=pulumi.get(__response__, 'sku'),
+        storage_capacity_ti_b=pulumi.get(__response__, 'storage_capacity_ti_b'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        throughput_provisioned_m_bps=pulumi.get(__response__, 'throughput_provisioned_m_bps'),
+        type=pulumi.get(__response__, 'type'),
+        zones=pulumi.get(__response__, 'zones')))

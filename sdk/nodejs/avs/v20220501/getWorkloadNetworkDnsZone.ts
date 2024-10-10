@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * NSX DNS Zone
  */
 export function getWorkloadNetworkDnsZone(args: GetWorkloadNetworkDnsZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDnsZoneResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20220501:getWorkloadNetworkDnsZone", {
         "dnsZoneId": args.dnsZoneId,
@@ -81,7 +80,12 @@ export interface GetWorkloadNetworkDnsZoneResult {
  * NSX DNS Zone
  */
 export function getWorkloadNetworkDnsZoneOutput(args: GetWorkloadNetworkDnsZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsZoneResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadNetworkDnsZone(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs/v20220501:getWorkloadNetworkDnsZone", {
+        "dnsZoneId": args.dnsZoneId,
+        "privateCloudName": args.privateCloudName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWorkloadNetworkDnsZoneOutputArgs {

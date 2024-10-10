@@ -299,9 +299,6 @@ def get_default_admin_rule(configuration_name: Optional[str] = None,
         sources=pulumi.get(__ret__, 'sources'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_default_admin_rule)
 def get_default_admin_rule_output(configuration_name: Optional[pulumi.Input[str]] = None,
                                   network_manager_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -318,4 +315,30 @@ def get_default_admin_rule_output(configuration_name: Optional[pulumi.Input[str]
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
     :param str rule_name: The name of the rule.
     """
-    ...
+    __args__ = dict()
+    __args__['configurationName'] = configuration_name
+    __args__['networkManagerName'] = network_manager_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['ruleCollectionName'] = rule_collection_name
+    __args__['ruleName'] = rule_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getDefaultAdminRule', __args__, opts=opts, typ=GetDefaultAdminRuleResult)
+    return __ret__.apply(lambda __response__: GetDefaultAdminRuleResult(
+        access=pulumi.get(__response__, 'access'),
+        description=pulumi.get(__response__, 'description'),
+        destination_port_ranges=pulumi.get(__response__, 'destination_port_ranges'),
+        destinations=pulumi.get(__response__, 'destinations'),
+        direction=pulumi.get(__response__, 'direction'),
+        etag=pulumi.get(__response__, 'etag'),
+        flag=pulumi.get(__response__, 'flag'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        priority=pulumi.get(__response__, 'priority'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        source_port_ranges=pulumi.get(__response__, 'source_port_ranges'),
+        sources=pulumi.get(__response__, 'sources'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

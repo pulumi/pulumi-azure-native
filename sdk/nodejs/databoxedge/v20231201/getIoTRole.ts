@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a specific role by name.
  */
 export function getIoTRole(args: GetIoTRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTRoleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20231201:getIoTRole", {
         "deviceName": args.deviceName,
@@ -97,7 +96,12 @@ export interface GetIoTRoleResult {
  * Gets a specific role by name.
  */
 export function getIoTRoleOutput(args: GetIoTRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTRoleResult> {
-    return pulumi.output(args).apply((a: any) => getIoTRole(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20231201:getIoTRole", {
+        "deviceName": args.deviceName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIoTRoleOutputArgs {

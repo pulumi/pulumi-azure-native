@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Lists SKUs available to the project
  */
 export function listSkusByProject(args: ListSkusByProjectArgs, opts?: pulumi.InvokeOptions): Promise<ListSkusByProjectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20241001preview:listSkusByProject", {
         "projectName": args.projectName,
@@ -47,7 +46,11 @@ export interface ListSkusByProjectResult {
  * Lists SKUs available to the project
  */
 export function listSkusByProjectOutput(args: ListSkusByProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSkusByProjectResult> {
-    return pulumi.output(args).apply((a: any) => listSkusByProject(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20241001preview:listSkusByProject", {
+        "projectName": args.projectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListSkusByProjectOutputArgs {

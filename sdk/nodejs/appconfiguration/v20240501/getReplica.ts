@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified replica.
  */
 export function getReplica(args: GetReplicaArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20240501:getReplica", {
         "configStoreName": args.configStoreName,
@@ -72,7 +71,12 @@ export interface GetReplicaResult {
  * Gets the properties of the specified replica.
  */
 export function getReplicaOutput(args: GetReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicaResult> {
-    return pulumi.output(args).apply((a: any) => getReplica(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appconfiguration/v20240501:getReplica", {
+        "configStoreName": args.configStoreName,
+        "replicaName": args.replicaName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetReplicaOutputArgs {

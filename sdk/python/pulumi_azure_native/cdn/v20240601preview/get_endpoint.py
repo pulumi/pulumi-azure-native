@@ -396,9 +396,6 @@ def get_endpoint(endpoint_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         url_signing_keys=pulumi.get(__ret__, 'url_signing_keys'),
         web_application_firewall_policy_link=pulumi.get(__ret__, 'web_application_firewall_policy_link'))
-
-
-@_utilities.lift_output_func(get_endpoint)
 def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         profile_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -411,4 +408,36 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['endpointName'] = endpoint_name
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20240601preview:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
+    return __ret__.apply(lambda __response__: GetEndpointResult(
+        content_types_to_compress=pulumi.get(__response__, 'content_types_to_compress'),
+        custom_domains=pulumi.get(__response__, 'custom_domains'),
+        default_origin_group=pulumi.get(__response__, 'default_origin_group'),
+        delivery_policy=pulumi.get(__response__, 'delivery_policy'),
+        geo_filters=pulumi.get(__response__, 'geo_filters'),
+        host_name=pulumi.get(__response__, 'host_name'),
+        id=pulumi.get(__response__, 'id'),
+        is_compression_enabled=pulumi.get(__response__, 'is_compression_enabled'),
+        is_http_allowed=pulumi.get(__response__, 'is_http_allowed'),
+        is_https_allowed=pulumi.get(__response__, 'is_https_allowed'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        optimization_type=pulumi.get(__response__, 'optimization_type'),
+        origin_groups=pulumi.get(__response__, 'origin_groups'),
+        origin_host_header=pulumi.get(__response__, 'origin_host_header'),
+        origin_path=pulumi.get(__response__, 'origin_path'),
+        origins=pulumi.get(__response__, 'origins'),
+        probe_path=pulumi.get(__response__, 'probe_path'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        query_string_caching_behavior=pulumi.get(__response__, 'query_string_caching_behavior'),
+        resource_state=pulumi.get(__response__, 'resource_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        url_signing_keys=pulumi.get(__response__, 'url_signing_keys'),
+        web_application_firewall_policy_link=pulumi.get(__response__, 'web_application_firewall_policy_link')))

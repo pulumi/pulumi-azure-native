@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the Api Version Set specified by its identifier.
  */
 export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230301preview:getApiVersionSet", {
         "resourceGroupName": args.resourceGroupName,
@@ -73,7 +72,12 @@ export interface GetApiVersionSetResult {
  * Gets the details of the Api Version Set specified by its identifier.
  */
 export function getApiVersionSetOutput(args: GetApiVersionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiVersionSetResult> {
-    return pulumi.output(args).apply((a: any) => getApiVersionSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getApiVersionSet", {
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "versionSetId": args.versionSetId,
+    }, opts);
 }
 
 export interface GetApiVersionSetOutputArgs {

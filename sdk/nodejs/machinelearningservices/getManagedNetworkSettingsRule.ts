@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getManagedNetworkSettingsRule(args: GetManagedNetworkSettingsRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedNetworkSettingsRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getManagedNetworkSettingsRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -70,7 +69,12 @@ export interface GetManagedNetworkSettingsRuleResult {
  * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getManagedNetworkSettingsRuleOutput(args: GetManagedNetworkSettingsRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkSettingsRuleResult> {
-    return pulumi.output(args).apply((a: any) => getManagedNetworkSettingsRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getManagedNetworkSettingsRule", {
+        "resourceGroupName": args.resourceGroupName,
+        "ruleName": args.ruleName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetManagedNetworkSettingsRuleOutputArgs {

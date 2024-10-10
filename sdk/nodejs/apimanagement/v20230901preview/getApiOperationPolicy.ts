@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get the policy configuration at the API Operation level.
  */
 export function getApiOperationPolicy(args: GetApiOperationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiOperationPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:getApiOperationPolicy", {
         "apiId": args.apiId,
@@ -76,7 +75,15 @@ export interface GetApiOperationPolicyResult {
  * Get the policy configuration at the API Operation level.
  */
 export function getApiOperationPolicyOutput(args: GetApiOperationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiOperationPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getApiOperationPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getApiOperationPolicy", {
+        "apiId": args.apiId,
+        "format": args.format,
+        "operationId": args.operationId,
+        "policyId": args.policyId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetApiOperationPolicyOutputArgs {

@@ -300,9 +300,6 @@ def get_extended_database_blob_auditing_policy(blob_auditing_policy_name: Option
         storage_account_subscription_id=pulumi.get(__ret__, 'storage_account_subscription_id'),
         storage_endpoint=pulumi.get(__ret__, 'storage_endpoint'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_extended_database_blob_auditing_policy)
 def get_extended_database_blob_auditing_policy_output(blob_auditing_policy_name: Optional[pulumi.Input[str]] = None,
                                                       database_name: Optional[pulumi.Input[str]] = None,
                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -317,4 +314,24 @@ def get_extended_database_blob_auditing_policy_output(blob_auditing_policy_name:
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    ...
+    __args__ = dict()
+    __args__['blobAuditingPolicyName'] = blob_auditing_policy_name
+    __args__['databaseName'] = database_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230801preview:getExtendedDatabaseBlobAuditingPolicy', __args__, opts=opts, typ=GetExtendedDatabaseBlobAuditingPolicyResult)
+    return __ret__.apply(lambda __response__: GetExtendedDatabaseBlobAuditingPolicyResult(
+        audit_actions_and_groups=pulumi.get(__response__, 'audit_actions_and_groups'),
+        id=pulumi.get(__response__, 'id'),
+        is_azure_monitor_target_enabled=pulumi.get(__response__, 'is_azure_monitor_target_enabled'),
+        is_managed_identity_in_use=pulumi.get(__response__, 'is_managed_identity_in_use'),
+        is_storage_secondary_key_in_use=pulumi.get(__response__, 'is_storage_secondary_key_in_use'),
+        name=pulumi.get(__response__, 'name'),
+        predicate_expression=pulumi.get(__response__, 'predicate_expression'),
+        queue_delay_ms=pulumi.get(__response__, 'queue_delay_ms'),
+        retention_days=pulumi.get(__response__, 'retention_days'),
+        state=pulumi.get(__response__, 'state'),
+        storage_account_subscription_id=pulumi.get(__response__, 'storage_account_subscription_id'),
+        storage_endpoint=pulumi.get(__response__, 'storage_endpoint'),
+        type=pulumi.get(__response__, 'type')))

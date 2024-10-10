@@ -85,9 +85,6 @@ def list_streaming_locator_paths(account_name: Optional[str] = None,
     return AwaitableListStreamingLocatorPathsResult(
         download_paths=pulumi.get(__ret__, 'download_paths'),
         streaming_paths=pulumi.get(__ret__, 'streaming_paths'))
-
-
-@_utilities.lift_output_func(list_streaming_locator_paths)
 def list_streaming_locator_paths_output(account_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         streaming_locator_name: Optional[pulumi.Input[str]] = None,
@@ -101,4 +98,12 @@ def list_streaming_locator_paths_output(account_name: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str streaming_locator_name: The Streaming Locator name.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['streamingLocatorName'] = streaming_locator_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:media:listStreamingLocatorPaths', __args__, opts=opts, typ=ListStreamingLocatorPathsResult)
+    return __ret__.apply(lambda __response__: ListStreamingLocatorPathsResult(
+        download_paths=pulumi.get(__response__, 'download_paths'),
+        streaming_paths=pulumi.get(__response__, 'streaming_paths')))

@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  */
 export function listPaloAltoNetworksCloudngfwCloudManagerTenants(args?: ListPaloAltoNetworksCloudngfwCloudManagerTenantsArgs, opts?: pulumi.InvokeOptions): Promise<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwCloudManagerTenants", {
     }, opts);
@@ -33,5 +32,8 @@ export interface ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult {
  * Azure REST API version: 2024-02-07-preview.
  */
 export function listPaloAltoNetworksCloudngfwCloudManagerTenantsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult> {
-    return pulumi.output(listPaloAltoNetworksCloudngfwCloudManagerTenants(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwCloudManagerTenants", {
+    }, opts);
 }
+

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List of countries for Rulestack
  */
 export function listLocalRulestackCountries(args: ListLocalRulestackCountriesArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalRulestackCountriesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20240119preview:listLocalRulestackCountries", {
         "localRulestackName": args.localRulestackName,
@@ -51,7 +50,13 @@ export interface ListLocalRulestackCountriesResult {
  * List of countries for Rulestack
  */
 export function listLocalRulestackCountriesOutput(args: ListLocalRulestackCountriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalRulestackCountriesResult> {
-    return pulumi.output(args).apply((a: any) => listLocalRulestackCountries(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240119preview:listLocalRulestackCountries", {
+        "localRulestackName": args.localRulestackName,
+        "resourceGroupName": args.resourceGroupName,
+        "skip": args.skip,
+        "top": args.top,
+    }, opts);
 }
 
 export interface ListLocalRulestackCountriesOutputArgs {

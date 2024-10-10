@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a KafkaTopicMapResource
  */
 export function getKafkaConnectorTopicMap(args: GetKafkaConnectorTopicMapArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaConnectorTopicMapResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsmq/v20231004preview:getKafkaConnectorTopicMap", {
         "kafkaConnectorName": args.kafkaConnectorName,
@@ -109,7 +108,13 @@ export interface GetKafkaConnectorTopicMapResult {
  * Get a KafkaTopicMapResource
  */
 export function getKafkaConnectorTopicMapOutput(args: GetKafkaConnectorTopicMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaConnectorTopicMapResult> {
-    return pulumi.output(args).apply((a: any) => getKafkaConnectorTopicMap(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq/v20231004preview:getKafkaConnectorTopicMap", {
+        "kafkaConnectorName": args.kafkaConnectorName,
+        "mqName": args.mqName,
+        "resourceGroupName": args.resourceGroupName,
+        "topicMapName": args.topicMapName,
+    }, opts);
 }
 
 export interface GetKafkaConnectorTopicMapOutputArgs {

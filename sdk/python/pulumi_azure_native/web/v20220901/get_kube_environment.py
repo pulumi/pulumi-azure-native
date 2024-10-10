@@ -277,9 +277,6 @@ def get_kube_environment(name: Optional[str] = None,
         static_ip=pulumi.get(__ret__, 'static_ip'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_kube_environment)
 def get_kube_environment_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubeEnvironmentResult]:
@@ -290,4 +287,26 @@ def get_kube_environment_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the Kubernetes Environment.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:getKubeEnvironment', __args__, opts=opts, typ=GetKubeEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetKubeEnvironmentResult(
+        aks_resource_id=pulumi.get(__response__, 'aks_resource_id'),
+        app_logs_configuration=pulumi.get(__response__, 'app_logs_configuration'),
+        arc_configuration=pulumi.get(__response__, 'arc_configuration'),
+        container_apps_configuration=pulumi.get(__response__, 'container_apps_configuration'),
+        default_domain=pulumi.get(__response__, 'default_domain'),
+        deployment_errors=pulumi.get(__response__, 'deployment_errors'),
+        environment_type=pulumi.get(__response__, 'environment_type'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        internal_load_balancer_enabled=pulumi.get(__response__, 'internal_load_balancer_enabled'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        static_ip=pulumi.get(__response__, 'static_ip'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

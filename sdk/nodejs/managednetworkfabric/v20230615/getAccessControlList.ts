@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Implements Access Control List GET method.
  */
 export function getAccessControlList(args: GetAccessControlListArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessControlListResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230615:getAccessControlList", {
         "accessControlListName": args.accessControlListName,
@@ -103,7 +102,11 @@ export interface GetAccessControlListResult {
  * Implements Access Control List GET method.
  */
 export function getAccessControlListOutput(args: GetAccessControlListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlListResult> {
-    return pulumi.output(args).apply((a: any) => getAccessControlList(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getAccessControlList", {
+        "accessControlListName": args.accessControlListName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAccessControlListOutputArgs {

@@ -356,9 +356,6 @@ def get_managed_environment(environment_name: Optional[str] = None,
         vnet_configuration=pulumi.get(__ret__, 'vnet_configuration'),
         workload_profiles=pulumi.get(__ret__, 'workload_profiles'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-
-
-@_utilities.lift_output_func(get_managed_environment)
 def get_managed_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentResult]:
@@ -369,4 +366,32 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[str]]
     :param str environment_name: Name of the Environment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['environmentName'] = environment_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20230401preview:getManagedEnvironment', __args__, opts=opts, typ=GetManagedEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetManagedEnvironmentResult(
+        app_logs_configuration=pulumi.get(__response__, 'app_logs_configuration'),
+        custom_domain_configuration=pulumi.get(__response__, 'custom_domain_configuration'),
+        dapr_ai_connection_string=pulumi.get(__response__, 'dapr_ai_connection_string'),
+        dapr_ai_instrumentation_key=pulumi.get(__response__, 'dapr_ai_instrumentation_key'),
+        dapr_configuration=pulumi.get(__response__, 'dapr_configuration'),
+        default_domain=pulumi.get(__response__, 'default_domain'),
+        deployment_errors=pulumi.get(__response__, 'deployment_errors'),
+        event_stream_endpoint=pulumi.get(__response__, 'event_stream_endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        infrastructure_resource_group=pulumi.get(__response__, 'infrastructure_resource_group'),
+        keda_configuration=pulumi.get(__response__, 'keda_configuration'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        peer_authentication=pulumi.get(__response__, 'peer_authentication'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        static_ip=pulumi.get(__response__, 'static_ip'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        vnet_configuration=pulumi.get(__response__, 'vnet_configuration'),
+        workload_profiles=pulumi.get(__response__, 'workload_profiles'),
+        zone_redundant=pulumi.get(__response__, 'zone_redundant')))

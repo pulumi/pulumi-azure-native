@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a Kusto pool.
  */
 export function getKustoPool(args: GetKustoPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getKustoPool", {
         "kustoPoolName": args.kustoPoolName,
@@ -116,7 +115,12 @@ export interface GetKustoPoolResult {
  * Gets a Kusto pool.
  */
 export function getKustoPoolOutput(args: GetKustoPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolResult> {
-    return pulumi.output(args).apply((a: any) => getKustoPool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:getKustoPool", {
+        "kustoPoolName": args.kustoPoolName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetKustoPoolOutputArgs {

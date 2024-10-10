@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * List of AppIds for GlobalRulestack ApiVersion
  */
 export function listGlobalRulestackAppIds(args: ListGlobalRulestackAppIdsArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalRulestackAppIdsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20231010preview:listGlobalRulestackAppIds", {
         "appIdVersion": args.appIdVersion,
@@ -44,7 +43,14 @@ export interface ListGlobalRulestackAppIdsResult {
  * List of AppIds for GlobalRulestack ApiVersion
  */
 export function listGlobalRulestackAppIdsOutput(args: ListGlobalRulestackAppIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalRulestackAppIdsResult> {
-    return pulumi.output(args).apply((a: any) => listGlobalRulestackAppIds(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20231010preview:listGlobalRulestackAppIds", {
+        "appIdVersion": args.appIdVersion,
+        "appPrefix": args.appPrefix,
+        "globalRulestackName": args.globalRulestackName,
+        "skip": args.skip,
+        "top": args.top,
+    }, opts);
 }
 
 export interface ListGlobalRulestackAppIdsOutputArgs {

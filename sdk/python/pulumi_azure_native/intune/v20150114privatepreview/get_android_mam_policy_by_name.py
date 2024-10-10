@@ -322,9 +322,6 @@ def get_android_mam_policy_by_name(host_name: Optional[str] = None,
         screen_capture=pulumi.get(__ret__, 'screen_capture'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_android_mam_policy_by_name)
 def get_android_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]] = None,
                                           policy_name: Optional[pulumi.Input[str]] = None,
                                           select: Optional[pulumi.Input[Optional[str]]] = None,
@@ -337,4 +334,35 @@ def get_android_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]]
     :param str policy_name: Unique name for the policy
     :param str select: select specific fields in entity.
     """
-    ...
+    __args__ = dict()
+    __args__['hostName'] = host_name
+    __args__['policyName'] = policy_name
+    __args__['select'] = select
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:intune/v20150114privatepreview:getAndroidMAMPolicyByName', __args__, opts=opts, typ=GetAndroidMAMPolicyByNameResult)
+    return __ret__.apply(lambda __response__: GetAndroidMAMPolicyByNameResult(
+        access_recheck_offline_timeout=pulumi.get(__response__, 'access_recheck_offline_timeout'),
+        access_recheck_online_timeout=pulumi.get(__response__, 'access_recheck_online_timeout'),
+        app_sharing_from_level=pulumi.get(__response__, 'app_sharing_from_level'),
+        app_sharing_to_level=pulumi.get(__response__, 'app_sharing_to_level'),
+        authentication=pulumi.get(__response__, 'authentication'),
+        clipboard_sharing_level=pulumi.get(__response__, 'clipboard_sharing_level'),
+        data_backup=pulumi.get(__response__, 'data_backup'),
+        description=pulumi.get(__response__, 'description'),
+        device_compliance=pulumi.get(__response__, 'device_compliance'),
+        file_encryption=pulumi.get(__response__, 'file_encryption'),
+        file_sharing_save_as=pulumi.get(__response__, 'file_sharing_save_as'),
+        friendly_name=pulumi.get(__response__, 'friendly_name'),
+        group_status=pulumi.get(__response__, 'group_status'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        location=pulumi.get(__response__, 'location'),
+        managed_browser=pulumi.get(__response__, 'managed_browser'),
+        name=pulumi.get(__response__, 'name'),
+        num_of_apps=pulumi.get(__response__, 'num_of_apps'),
+        offline_wipe_timeout=pulumi.get(__response__, 'offline_wipe_timeout'),
+        pin=pulumi.get(__response__, 'pin'),
+        pin_num_retry=pulumi.get(__response__, 'pin_num_retry'),
+        screen_capture=pulumi.get(__response__, 'screen_capture'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The operation that retrieves information about a capacity reservation group.
  */
 export function getCapacityReservationGroup(args: GetCapacityReservationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20230301:getCapacityReservationGroup", {
         "capacityReservationGroupName": args.capacityReservationGroupName,
@@ -80,7 +79,12 @@ export interface GetCapacityReservationGroupResult {
  * The operation that retrieves information about a capacity reservation group.
  */
 export function getCapacityReservationGroupOutput(args: GetCapacityReservationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationGroupResult> {
-    return pulumi.output(args).apply((a: any) => getCapacityReservationGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute/v20230301:getCapacityReservationGroup", {
+        "capacityReservationGroupName": args.capacityReservationGroupName,
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCapacityReservationGroupOutputArgs {

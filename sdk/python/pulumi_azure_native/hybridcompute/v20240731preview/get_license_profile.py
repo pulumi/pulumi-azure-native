@@ -344,9 +344,6 @@ def get_license_profile(license_profile_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_license_profile)
 def get_license_profile_output(license_profile_name: Optional[pulumi.Input[str]] = None,
                                machine_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -359,4 +356,32 @@ def get_license_profile_output(license_profile_name: Optional[pulumi.Input[str]]
     :param str machine_name: The name of the hybrid machine.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['licenseProfileName'] = license_profile_name
+    __args__['machineName'] = machine_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcompute/v20240731preview:getLicenseProfile', __args__, opts=opts, typ=GetLicenseProfileResult)
+    return __ret__.apply(lambda __response__: GetLicenseProfileResult(
+        assigned_license=pulumi.get(__response__, 'assigned_license'),
+        assigned_license_immutable_id=pulumi.get(__response__, 'assigned_license_immutable_id'),
+        billing_end_date=pulumi.get(__response__, 'billing_end_date'),
+        billing_start_date=pulumi.get(__response__, 'billing_start_date'),
+        disenrollment_date=pulumi.get(__response__, 'disenrollment_date'),
+        enrollment_date=pulumi.get(__response__, 'enrollment_date'),
+        error=pulumi.get(__response__, 'error'),
+        esu_eligibility=pulumi.get(__response__, 'esu_eligibility'),
+        esu_key_state=pulumi.get(__response__, 'esu_key_state'),
+        esu_keys=pulumi.get(__response__, 'esu_keys'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        product_features=pulumi.get(__response__, 'product_features'),
+        product_type=pulumi.get(__response__, 'product_type'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        server_type=pulumi.get(__response__, 'server_type'),
+        software_assurance_customer=pulumi.get(__response__, 'software_assurance_customer'),
+        subscription_status=pulumi.get(__response__, 'subscription_status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

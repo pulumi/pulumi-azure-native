@@ -166,9 +166,6 @@ def get_cloud_edge_management_role(device_name: Optional[str] = None,
         role_status=pulumi.get(__ret__, 'role_status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_cloud_edge_management_role)
 def get_cloud_edge_management_role_output(device_name: Optional[pulumi.Input[str]] = None,
                                           name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -182,4 +179,18 @@ def get_cloud_edge_management_role_output(device_name: Optional[pulumi.Input[str
     :param str name: The role name.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['deviceName'] = device_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getCloudEdgeManagementRole', __args__, opts=opts, typ=GetCloudEdgeManagementRoleResult)
+    return __ret__.apply(lambda __response__: GetCloudEdgeManagementRoleResult(
+        edge_profile=pulumi.get(__response__, 'edge_profile'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        local_management_status=pulumi.get(__response__, 'local_management_status'),
+        name=pulumi.get(__response__, 'name'),
+        role_status=pulumi.get(__response__, 'role_status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

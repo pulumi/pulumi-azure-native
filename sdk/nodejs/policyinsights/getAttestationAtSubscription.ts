@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-09-01.
  */
 export function getAttestationAtSubscription(args: GetAttestationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights:getAttestationAtSubscription", {
         "attestationName": args.attestationName,
@@ -96,7 +95,10 @@ export interface GetAttestationAtSubscriptionResult {
  * Azure REST API version: 2022-09-01.
  */
 export function getAttestationAtSubscriptionOutput(args: GetAttestationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getAttestationAtSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:policyinsights:getAttestationAtSubscription", {
+        "attestationName": args.attestationName,
+    }, opts);
 }
 
 export interface GetAttestationAtSubscriptionOutputArgs {

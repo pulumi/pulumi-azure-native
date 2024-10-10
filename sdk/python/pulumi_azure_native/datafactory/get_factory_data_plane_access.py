@@ -110,9 +110,6 @@ def get_factory_data_plane_access(access_resource_path: Optional[str] = None,
         access_token=pulumi.get(__ret__, 'access_token'),
         data_plane_url=pulumi.get(__ret__, 'data_plane_url'),
         policy=pulumi.get(__ret__, 'policy'))
-
-
-@_utilities.lift_output_func(get_factory_data_plane_access)
 def get_factory_data_plane_access_output(access_resource_path: Optional[pulumi.Input[Optional[str]]] = None,
                                          expire_time: Optional[pulumi.Input[Optional[str]]] = None,
                                          factory_name: Optional[pulumi.Input[str]] = None,
@@ -134,4 +131,17 @@ def get_factory_data_plane_access_output(access_resource_path: Optional[pulumi.I
     :param str resource_group_name: The resource group name.
     :param str start_time: Start time for the token. If not specified the current time will be used.
     """
-    ...
+    __args__ = dict()
+    __args__['accessResourcePath'] = access_resource_path
+    __args__['expireTime'] = expire_time
+    __args__['factoryName'] = factory_name
+    __args__['permissions'] = permissions
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['startTime'] = start_time
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory:getFactoryDataPlaneAccess', __args__, opts=opts, typ=GetFactoryDataPlaneAccessResult)
+    return __ret__.apply(lambda __response__: GetFactoryDataPlaneAccessResult(
+        access_token=pulumi.get(__response__, 'access_token'),
+        data_plane_url=pulumi.get(__response__, 'data_plane_url'),
+        policy=pulumi.get(__response__, 'policy')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Instance of Verifier Workspace.
  */
 export function getVerifierWorkspace(args: GetVerifierWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetVerifierWorkspaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240101preview:getVerifierWorkspace", {
         "networkManagerName": args.networkManagerName,
@@ -72,7 +71,12 @@ export interface GetVerifierWorkspaceResult {
  * Instance of Verifier Workspace.
  */
 export function getVerifierWorkspaceOutput(args: GetVerifierWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVerifierWorkspaceResult> {
-    return pulumi.output(args).apply((a: any) => getVerifierWorkspace(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240101preview:getVerifierWorkspace", {
+        "networkManagerName": args.networkManagerName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetVerifierWorkspaceOutputArgs {

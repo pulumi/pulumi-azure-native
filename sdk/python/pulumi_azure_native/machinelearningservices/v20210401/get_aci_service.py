@@ -178,9 +178,6 @@ def get_aci_service(expand: Optional[bool] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_aci_service)
 def get_aci_service_output(expand: Optional[pulumi.Input[Optional[bool]]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            service_name: Optional[pulumi.Input[str]] = None,
@@ -195,4 +192,20 @@ def get_aci_service_output(expand: Optional[pulumi.Input[Optional[bool]]] = None
     :param str service_name: Name of the Azure Machine Learning service.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20210401:getACIService', __args__, opts=opts, typ=GetACIServiceResult)
+    return __ret__.apply(lambda __response__: GetACIServiceResult(
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a specific security standard for the requested scope by standardId
  */
 export function getSecurityStandard(args: GetSecurityStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityStandardResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20240801:getSecurityStandard", {
         "scope": args.scope,
@@ -79,7 +78,11 @@ export interface GetSecurityStandardResult {
  * Get a specific security standard for the requested scope by standardId
  */
 export function getSecurityStandardOutput(args: GetSecurityStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityStandardResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityStandard(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security/v20240801:getSecurityStandard", {
+        "scope": args.scope,
+        "standardId": args.standardId,
+    }, opts);
 }
 
 export interface GetSecurityStandardOutputArgs {

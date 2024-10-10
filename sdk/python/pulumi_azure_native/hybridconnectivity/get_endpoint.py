@@ -201,9 +201,6 @@ def get_endpoint(endpoint_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_endpoint)
 def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         resource_uri: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
@@ -217,4 +214,20 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str endpoint_name: The endpoint name.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
-    ...
+    __args__ = dict()
+    __args__['endpointName'] = endpoint_name
+    __args__['resourceUri'] = resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
+    return __ret__.apply(lambda __response__: GetEndpointResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        created_by_type=pulumi.get(__response__, 'created_by_type'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_at=pulumi.get(__response__, 'last_modified_at'),
+        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
+        last_modified_by_type=pulumi.get(__response__, 'last_modified_by_type'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

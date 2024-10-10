@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-08-01-preview.
  */
 export function getVariableAtManagementGroup(args: GetVariableAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableAtManagementGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getVariableAtManagementGroup", {
         "managementGroupId": args.managementGroupId,
@@ -61,7 +60,11 @@ export interface GetVariableAtManagementGroupResult {
  * Azure REST API version: 2022-08-01-preview.
  */
 export function getVariableAtManagementGroupOutput(args: GetVariableAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableAtManagementGroupResult> {
-    return pulumi.output(args).apply((a: any) => getVariableAtManagementGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:authorization:getVariableAtManagementGroup", {
+        "managementGroupId": args.managementGroupId,
+        "variableName": args.variableName,
+    }, opts);
 }
 
 export interface GetVariableAtManagementGroupOutputArgs {

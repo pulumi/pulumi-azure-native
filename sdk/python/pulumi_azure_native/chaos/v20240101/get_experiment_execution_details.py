@@ -175,9 +175,6 @@ def get_experiment_execution_details(execution_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         stopped_at=pulumi.get(__ret__, 'stopped_at'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_experiment_execution_details)
 def get_experiment_execution_details_output(execution_id: Optional[pulumi.Input[str]] = None,
                                             experiment_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_experiment_execution_details_output(execution_id: Optional[pulumi.Input[
     :param str experiment_name: String that represents a Experiment resource name.
     :param str resource_group_name: String that represents an Azure resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['executionId'] = execution_id
+    __args__['experimentName'] = experiment_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:chaos/v20240101:getExperimentExecutionDetails', __args__, opts=opts, typ=GetExperimentExecutionDetailsResult)
+    return __ret__.apply(lambda __response__: GetExperimentExecutionDetailsResult(
+        failure_reason=pulumi.get(__response__, 'failure_reason'),
+        id=pulumi.get(__response__, 'id'),
+        last_action_at=pulumi.get(__response__, 'last_action_at'),
+        name=pulumi.get(__response__, 'name'),
+        run_information=pulumi.get(__response__, 'run_information'),
+        started_at=pulumi.get(__response__, 'started_at'),
+        status=pulumi.get(__response__, 'status'),
+        stopped_at=pulumi.get(__response__, 'stopped_at'),
+        type=pulumi.get(__response__, 'type')))

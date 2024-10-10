@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  */
 export function listPaloAltoNetworksCloudngfwSupportInfo(args?: ListPaloAltoNetworksCloudngfwSupportInfoArgs, opts?: pulumi.InvokeOptions): Promise<ListPaloAltoNetworksCloudngfwSupportInfoResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwSupportInfo", {
     }, opts);
@@ -93,5 +92,8 @@ export interface ListPaloAltoNetworksCloudngfwSupportInfoResult {
  * Other available API versions: 2024-01-19-preview.
  */
 export function listPaloAltoNetworksCloudngfwSupportInfoOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> {
-    return pulumi.output(listPaloAltoNetworksCloudngfwSupportInfo(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwSupportInfo", {
+    }, opts);
 }
+

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a linked service instance.
  */
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200801:getLinkedService", {
         "linkedServiceName": args.linkedServiceName,
@@ -69,7 +68,12 @@ export interface GetLinkedServiceResult {
  * Gets a linked service instance.
  */
 export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
-    return pulumi.output(args).apply((a: any) => getLinkedService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20200801:getLinkedService", {
+        "linkedServiceName": args.linkedServiceName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetLinkedServiceOutputArgs {

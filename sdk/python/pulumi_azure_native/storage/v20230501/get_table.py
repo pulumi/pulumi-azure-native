@@ -123,9 +123,6 @@ def get_table(account_name: Optional[str] = None,
         signed_identifiers=pulumi.get(__ret__, 'signed_identifiers'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_table)
 def get_table_output(account_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      table_name: Optional[pulumi.Input[str]] = None,
@@ -138,4 +135,15 @@ def get_table_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str table_name: A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tableName'] = table_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230501:getTable', __args__, opts=opts, typ=GetTableResult)
+    return __ret__.apply(lambda __response__: GetTableResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        signed_identifiers=pulumi.get(__response__, 'signed_identifiers'),
+        table_name=pulumi.get(__response__, 'table_name'),
+        type=pulumi.get(__response__, 'type')))

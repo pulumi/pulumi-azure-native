@@ -198,9 +198,6 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=pulumi.get(__ret__, 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_afd_origin_group)
 def get_afd_origin_group_output(origin_group_name: Optional[pulumi.Input[str]] = None,
                                 profile_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -213,4 +210,21 @@ def get_afd_origin_group_output(origin_group_name: Optional[pulumi.Input[str]] =
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['originGroupName'] = origin_group_name
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20240901:getAFDOriginGroup', __args__, opts=opts, typ=GetAFDOriginGroupResult)
+    return __ret__.apply(lambda __response__: GetAFDOriginGroupResult(
+        deployment_status=pulumi.get(__response__, 'deployment_status'),
+        health_probe_settings=pulumi.get(__response__, 'health_probe_settings'),
+        id=pulumi.get(__response__, 'id'),
+        load_balancing_settings=pulumi.get(__response__, 'load_balancing_settings'),
+        name=pulumi.get(__response__, 'name'),
+        profile_name=pulumi.get(__response__, 'profile_name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        session_affinity_state=pulumi.get(__response__, 'session_affinity_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=pulumi.get(__response__, 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes'),
+        type=pulumi.get(__response__, 'type')))

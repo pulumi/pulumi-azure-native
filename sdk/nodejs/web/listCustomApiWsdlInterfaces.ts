@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2016-06-01.
  */
 export function listCustomApiWsdlInterfaces(args: ListCustomApiWsdlInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<ListCustomApiWsdlInterfacesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web:listCustomApiWsdlInterfaces", {
         "content": args.content,
@@ -65,7 +64,15 @@ export interface ListCustomApiWsdlInterfacesResult {
  * Azure REST API version: 2016-06-01.
  */
 export function listCustomApiWsdlInterfacesOutput(args: ListCustomApiWsdlInterfacesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCustomApiWsdlInterfacesResult> {
-    return pulumi.output(args).apply((a: any) => listCustomApiWsdlInterfaces(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web:listCustomApiWsdlInterfaces", {
+        "content": args.content,
+        "importMethod": args.importMethod,
+        "location": args.location,
+        "service": args.service,
+        "subscriptionId": args.subscriptionId,
+        "url": args.url,
+    }, opts);
 }
 
 export interface ListCustomApiWsdlInterfacesOutputArgs {

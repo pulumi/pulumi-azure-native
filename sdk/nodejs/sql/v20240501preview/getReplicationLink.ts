@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a replication link.
  */
 export function getReplicationLink(args: GetReplicationLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationLinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20240501preview:getReplicationLink", {
         "databaseName": args.databaseName,
@@ -106,7 +105,13 @@ export interface GetReplicationLinkResult {
  * Gets a replication link.
  */
 export function getReplicationLinkOutput(args: GetReplicationLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationLinkResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationLink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20240501preview:getReplicationLink", {
+        "databaseName": args.databaseName,
+        "linkId": args.linkId,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetReplicationLinkOutputArgs {

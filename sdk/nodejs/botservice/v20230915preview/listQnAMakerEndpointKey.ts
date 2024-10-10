@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
  */
 export function listQnAMakerEndpointKey(args?: ListQnAMakerEndpointKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListQnAMakerEndpointKeyResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice/v20230915preview:listQnAMakerEndpointKey", {
         "authkey": args.authkey,
@@ -53,7 +52,12 @@ export interface ListQnAMakerEndpointKeyResult {
  * Lists the QnA Maker endpoint keys
  */
 export function listQnAMakerEndpointKeyOutput(args?: ListQnAMakerEndpointKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQnAMakerEndpointKeyResult> {
-    return pulumi.output(args).apply((a: any) => listQnAMakerEndpointKey(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:botservice/v20230915preview:listQnAMakerEndpointKey", {
+        "authkey": args.authkey,
+        "hostname": args.hostname,
+    }, opts);
 }
 
 export interface ListQnAMakerEndpointKeyOutputArgs {

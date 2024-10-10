@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-06-01-preview.
  */
 export function getAFDTargetGroup(args: GetAFDTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDTargetGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn:getAFDTargetGroup", {
         "profileName": args.profileName,
@@ -71,7 +70,12 @@ export interface GetAFDTargetGroupResult {
  * Azure REST API version: 2024-06-01-preview.
  */
 export function getAFDTargetGroupOutput(args: GetAFDTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDTargetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getAFDTargetGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cdn:getAFDTargetGroup", {
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+        "targetGroupName": args.targetGroupName,
+    }, opts);
 }
 
 export interface GetAFDTargetGroupOutputArgs {

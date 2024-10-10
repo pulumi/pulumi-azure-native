@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an existing origin group within an endpoint.
  */
 export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20240201:getOriginGroup", {
         "endpointName": args.endpointName,
@@ -89,7 +88,13 @@ export interface GetOriginGroupResult {
  * Gets an existing origin group within an endpoint.
  */
 export function getOriginGroupOutput(args: GetOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginGroupResult> {
-    return pulumi.output(args).apply((a: any) => getOriginGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cdn/v20240201:getOriginGroup", {
+        "endpointName": args.endpointName,
+        "originGroupName": args.originGroupName,
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetOriginGroupOutputArgs {

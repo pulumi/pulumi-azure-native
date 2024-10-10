@@ -103,9 +103,6 @@ def get_image_upload_url_for_entity_type(entity_type: Optional[str] = None,
         content_url=pulumi.get(__ret__, 'content_url'),
         image_exists=pulumi.get(__ret__, 'image_exists'),
         relative_path=pulumi.get(__ret__, 'relative_path'))
-
-
-@_utilities.lift_output_func(get_image_upload_url_for_entity_type)
 def get_image_upload_url_for_entity_type_output(entity_type: Optional[pulumi.Input[Optional[str]]] = None,
                                                 entity_type_name: Optional[pulumi.Input[Optional[str]]] = None,
                                                 hub_name: Optional[pulumi.Input[str]] = None,
@@ -123,4 +120,15 @@ def get_image_upload_url_for_entity_type_output(entity_type: Optional[pulumi.Inp
     :param str relative_path: Relative path of the image.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['entityType'] = entity_type
+    __args__['entityTypeName'] = entity_type_name
+    __args__['hubName'] = hub_name
+    __args__['relativePath'] = relative_path
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getImageUploadUrlForEntityType', __args__, opts=opts, typ=GetImageUploadUrlForEntityTypeResult)
+    return __ret__.apply(lambda __response__: GetImageUploadUrlForEntityTypeResult(
+        content_url=pulumi.get(__response__, 'content_url'),
+        image_exists=pulumi.get(__response__, 'image_exists'),
+        relative_path=pulumi.get(__response__, 'relative_path')))

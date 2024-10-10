@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a msixpackage.
  */
 export function getMSIXPackage(args: GetMSIXPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetMSIXPackageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20231101preview:getMSIXPackage", {
         "hostPoolName": args.hostPoolName,
@@ -104,7 +103,12 @@ export interface GetMSIXPackageResult {
  * Get a msixpackage.
  */
 export function getMSIXPackageOutput(args: GetMSIXPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSIXPackageResult> {
-    return pulumi.output(args).apply((a: any) => getMSIXPackage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20231101preview:getMSIXPackage", {
+        "hostPoolName": args.hostPoolName,
+        "msixPackageFullName": args.msixPackageFullName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMSIXPackageOutputArgs {

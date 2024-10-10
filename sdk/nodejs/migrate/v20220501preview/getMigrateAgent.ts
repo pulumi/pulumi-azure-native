@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the modernizeProject agent.
  */
 export function getMigrateAgent(args: GetMigrateAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrateAgentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20220501preview:getMigrateAgent", {
         "agentName": args.agentName,
@@ -70,7 +69,13 @@ export interface GetMigrateAgentResult {
  * Gets the details of the modernizeProject agent.
  */
 export function getMigrateAgentOutput(args: GetMigrateAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateAgentResult> {
-    return pulumi.output(args).apply((a: any) => getMigrateAgent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate/v20220501preview:getMigrateAgent", {
+        "agentName": args.agentName,
+        "modernizeProjectName": args.modernizeProjectName,
+        "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
+    }, opts);
 }
 
 export interface GetMigrateAgentOutputArgs {

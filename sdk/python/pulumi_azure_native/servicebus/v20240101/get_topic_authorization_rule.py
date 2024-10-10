@@ -139,9 +139,6 @@ def get_topic_authorization_rule(authorization_rule_name: Optional[str] = None,
         rights=pulumi.get(__ret__, 'rights'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_topic_authorization_rule)
 def get_topic_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
                                         namespace_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -156,4 +153,17 @@ def get_topic_authorization_rule_output(authorization_rule_name: Optional[pulumi
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str topic_name: The topic name.
     """
-    ...
+    __args__ = dict()
+    __args__['authorizationRuleName'] = authorization_rule_name
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['topicName'] = topic_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus/v20240101:getTopicAuthorizationRule', __args__, opts=opts, typ=GetTopicAuthorizationRuleResult)
+    return __ret__.apply(lambda __response__: GetTopicAuthorizationRuleResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        rights=pulumi.get(__response__, 'rights'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

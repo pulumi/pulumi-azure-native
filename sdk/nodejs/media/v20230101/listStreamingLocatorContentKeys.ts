@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List Content Keys used by this Streaming Locator
  */
 export function listStreamingLocatorContentKeys(args: ListStreamingLocatorContentKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorContentKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20230101:listStreamingLocatorContentKeys", {
         "accountName": args.accountName,
@@ -48,7 +47,12 @@ export interface ListStreamingLocatorContentKeysResult {
  * List Content Keys used by this Streaming Locator
  */
 export function listStreamingLocatorContentKeysOutput(args: ListStreamingLocatorContentKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStreamingLocatorContentKeysResult> {
-    return pulumi.output(args).apply((a: any) => listStreamingLocatorContentKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:media/v20230101:listStreamingLocatorContentKeys", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+        "streamingLocatorName": args.streamingLocatorName,
+    }, opts);
 }
 
 export interface ListStreamingLocatorContentKeysOutputArgs {

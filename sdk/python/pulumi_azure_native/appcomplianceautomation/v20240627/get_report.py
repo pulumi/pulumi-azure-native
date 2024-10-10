@@ -287,9 +287,6 @@ def get_report(report_name: Optional[str] = None,
         time_zone=pulumi.get(__ret__, 'time_zone'),
         trigger_time=pulumi.get(__ret__, 'trigger_time'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_report)
 def get_report_output(report_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportResult]:
     """
@@ -298,4 +295,26 @@ def get_report_output(report_name: Optional[pulumi.Input[str]] = None,
 
     :param str report_name: Report Name.
     """
-    ...
+    __args__ = dict()
+    __args__['reportName'] = report_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation/v20240627:getReport', __args__, opts=opts, typ=GetReportResult)
+    return __ret__.apply(lambda __response__: GetReportResult(
+        cert_records=pulumi.get(__response__, 'cert_records'),
+        compliance_status=pulumi.get(__response__, 'compliance_status'),
+        errors=pulumi.get(__response__, 'errors'),
+        id=pulumi.get(__response__, 'id'),
+        last_trigger_time=pulumi.get(__response__, 'last_trigger_time'),
+        name=pulumi.get(__response__, 'name'),
+        next_trigger_time=pulumi.get(__response__, 'next_trigger_time'),
+        offer_guid=pulumi.get(__response__, 'offer_guid'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resources=pulumi.get(__response__, 'resources'),
+        status=pulumi.get(__response__, 'status'),
+        storage_info=pulumi.get(__response__, 'storage_info'),
+        subscriptions=pulumi.get(__response__, 'subscriptions'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        time_zone=pulumi.get(__response__, 'time_zone'),
+        trigger_time=pulumi.get(__response__, 'trigger_time'),
+        type=pulumi.get(__response__, 'type')))

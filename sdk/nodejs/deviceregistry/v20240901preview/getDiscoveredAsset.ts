@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a DiscoveredAsset
  */
 export function getDiscoveredAsset(args: GetDiscoveredAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiscoveredAssetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceregistry/v20240901preview:getDiscoveredAsset", {
         "discoveredAssetName": args.discoveredAssetName,
@@ -135,7 +134,11 @@ export interface GetDiscoveredAssetResult {
  * Get a DiscoveredAsset
  */
 export function getDiscoveredAssetOutput(args: GetDiscoveredAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiscoveredAssetResult> {
-    return pulumi.output(args).apply((a: any) => getDiscoveredAsset(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:deviceregistry/v20240901preview:getDiscoveredAsset", {
+        "discoveredAssetName": args.discoveredAssetName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDiscoveredAssetOutputArgs {

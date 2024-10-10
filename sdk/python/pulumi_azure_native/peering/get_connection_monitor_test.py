@@ -188,9 +188,6 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[str] = No
         source_agent=pulumi.get(__ret__, 'source_agent'),
         test_frequency_in_sec=pulumi.get(__ret__, 'test_frequency_in_sec'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_connection_monitor_test)
 def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pulumi.Input[str]] = None,
                                        peering_service_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -204,4 +201,20 @@ def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pu
     :param str peering_service_name: The name of the peering service.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['connectionMonitorTestName'] = connection_monitor_test_name
+    __args__['peeringServiceName'] = peering_service_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:peering:getConnectionMonitorTest', __args__, opts=opts, typ=GetConnectionMonitorTestResult)
+    return __ret__.apply(lambda __response__: GetConnectionMonitorTestResult(
+        destination=pulumi.get(__response__, 'destination'),
+        destination_port=pulumi.get(__response__, 'destination_port'),
+        id=pulumi.get(__response__, 'id'),
+        is_test_successful=pulumi.get(__response__, 'is_test_successful'),
+        name=pulumi.get(__response__, 'name'),
+        path=pulumi.get(__response__, 'path'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        source_agent=pulumi.get(__response__, 'source_agent'),
+        test_frequency_in_sec=pulumi.get(__response__, 'test_frequency_in_sec'),
+        type=pulumi.get(__response__, 'type')))

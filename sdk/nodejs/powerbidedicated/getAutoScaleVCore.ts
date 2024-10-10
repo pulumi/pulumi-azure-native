@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-01-01.
  */
 export function getAutoScaleVCore(args: GetAutoScaleVCoreArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoScaleVCoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:powerbidedicated:getAutoScaleVCore", {
         "resourceGroupName": args.resourceGroupName,
@@ -81,7 +80,11 @@ export interface GetAutoScaleVCoreResult {
  * Azure REST API version: 2021-01-01.
  */
 export function getAutoScaleVCoreOutput(args: GetAutoScaleVCoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoScaleVCoreResult> {
-    return pulumi.output(args).apply((a: any) => getAutoScaleVCore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:powerbidedicated:getAutoScaleVCore", {
+        "resourceGroupName": args.resourceGroupName,
+        "vcoreName": args.vcoreName,
+    }, opts);
 }
 
 export interface GetAutoScaleVCoreOutputArgs {

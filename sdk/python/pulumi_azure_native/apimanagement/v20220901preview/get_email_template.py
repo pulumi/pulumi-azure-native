@@ -175,9 +175,6 @@ def get_email_template(resource_group_name: Optional[str] = None,
         subject=pulumi.get(__ret__, 'subject'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_email_template)
 def get_email_template_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               service_name: Optional[pulumi.Input[str]] = None,
                               template_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_email_template_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str service_name: The name of the API Management service.
     :param str template_name: Email Template Name Identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['templateName'] = template_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20220901preview:getEmailTemplate', __args__, opts=opts, typ=GetEmailTemplateResult)
+    return __ret__.apply(lambda __response__: GetEmailTemplateResult(
+        body=pulumi.get(__response__, 'body'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        is_default=pulumi.get(__response__, 'is_default'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        subject=pulumi.get(__response__, 'subject'),
+        title=pulumi.get(__response__, 'title'),
+        type=pulumi.get(__response__, 'type')))

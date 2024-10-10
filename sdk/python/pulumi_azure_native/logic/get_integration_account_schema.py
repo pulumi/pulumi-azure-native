@@ -256,9 +256,6 @@ def get_integration_account_schema(integration_account_name: Optional[str] = Non
         tags=pulumi.get(__ret__, 'tags'),
         target_namespace=pulumi.get(__ret__, 'target_namespace'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_integration_account_schema)
 def get_integration_account_schema_output(integration_account_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           schema_name: Optional[pulumi.Input[str]] = None,
@@ -274,4 +271,25 @@ def get_integration_account_schema_output(integration_account_name: Optional[pul
     :param str resource_group_name: The resource group name.
     :param str schema_name: The integration account schema name.
     """
-    ...
+    __args__ = dict()
+    __args__['integrationAccountName'] = integration_account_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['schemaName'] = schema_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getIntegrationAccountSchema', __args__, opts=opts, typ=GetIntegrationAccountSchemaResult)
+    return __ret__.apply(lambda __response__: GetIntegrationAccountSchemaResult(
+        changed_time=pulumi.get(__response__, 'changed_time'),
+        content=pulumi.get(__response__, 'content'),
+        content_link=pulumi.get(__response__, 'content_link'),
+        content_type=pulumi.get(__response__, 'content_type'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        document_name=pulumi.get(__response__, 'document_name'),
+        file_name=pulumi.get(__response__, 'file_name'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        schema_type=pulumi.get(__response__, 'schema_type'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_namespace=pulumi.get(__response__, 'target_namespace'),
+        type=pulumi.get(__response__, 'type')))

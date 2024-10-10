@@ -367,9 +367,6 @@ def get_kubernetes_cluster(kubernetes_cluster_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_kubernetes_cluster)
 def get_kubernetes_cluster_output(kubernetes_cluster_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesClusterResult]:
@@ -383,4 +380,33 @@ def get_kubernetes_cluster_output(kubernetes_cluster_name: Optional[pulumi.Input
     :param str kubernetes_cluster_name: The name of the Kubernetes cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['kubernetesClusterName'] = kubernetes_cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud:getKubernetesCluster', __args__, opts=opts, typ=GetKubernetesClusterResult)
+    return __ret__.apply(lambda __response__: GetKubernetesClusterResult(
+        aad_configuration=pulumi.get(__response__, 'aad_configuration'),
+        administrator_configuration=pulumi.get(__response__, 'administrator_configuration'),
+        attached_network_ids=pulumi.get(__response__, 'attached_network_ids'),
+        available_upgrades=pulumi.get(__response__, 'available_upgrades'),
+        cluster_id=pulumi.get(__response__, 'cluster_id'),
+        connected_cluster_id=pulumi.get(__response__, 'connected_cluster_id'),
+        control_plane_kubernetes_version=pulumi.get(__response__, 'control_plane_kubernetes_version'),
+        control_plane_node_configuration=pulumi.get(__response__, 'control_plane_node_configuration'),
+        detailed_status=pulumi.get(__response__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        feature_statuses=pulumi.get(__response__, 'feature_statuses'),
+        id=pulumi.get(__response__, 'id'),
+        initial_agent_pool_configurations=pulumi.get(__response__, 'initial_agent_pool_configurations'),
+        kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
+        location=pulumi.get(__response__, 'location'),
+        managed_resource_group_configuration=pulumi.get(__response__, 'managed_resource_group_configuration'),
+        name=pulumi.get(__response__, 'name'),
+        network_configuration=pulumi.get(__response__, 'network_configuration'),
+        nodes=pulumi.get(__response__, 'nodes'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

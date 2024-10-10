@@ -110,9 +110,6 @@ def get_namespace_virtual_network_rule(namespace_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
-
-
-@_utilities.lift_output_func(get_namespace_virtual_network_rule)
 def get_namespace_virtual_network_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
@@ -126,4 +123,14 @@ def get_namespace_virtual_network_rule_output(namespace_name: Optional[pulumi.In
     :param str resource_group_name: Name of the resource group within the azure subscription.
     :param str virtual_network_rule_name: The Virtual Network Rule name.
     """
-    ...
+    __args__ = dict()
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualNetworkRuleName'] = virtual_network_rule_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub:getNamespaceVirtualNetworkRule', __args__, opts=opts, typ=GetNamespaceVirtualNetworkRuleResult)
+    return __ret__.apply(lambda __response__: GetNamespaceVirtualNetworkRuleResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_network_subnet_id=pulumi.get(__response__, 'virtual_network_subnet_id')))

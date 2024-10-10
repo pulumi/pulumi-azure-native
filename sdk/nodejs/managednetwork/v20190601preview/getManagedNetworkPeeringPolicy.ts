@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
  */
 export function getManagedNetworkPeeringPolicy(args: GetManagedNetworkPeeringPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedNetworkPeeringPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy", {
         "managedNetworkName": args.managedNetworkName,
@@ -64,7 +63,12 @@ export interface GetManagedNetworkPeeringPolicyResult {
  * The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
  */
 export function getManagedNetworkPeeringPolicyOutput(args: GetManagedNetworkPeeringPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkPeeringPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getManagedNetworkPeeringPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy", {
+        "managedNetworkName": args.managedNetworkName,
+        "managedNetworkPeeringPolicyName": args.managedNetworkPeeringPolicyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetManagedNetworkPeeringPolicyOutputArgs {

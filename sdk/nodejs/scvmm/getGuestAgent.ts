@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
  */
 export function getGuestAgent(args: GetGuestAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestAgentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm:getGuestAgent", {
         "guestAgentName": args.guestAgentName,
@@ -94,7 +93,12 @@ export interface GetGuestAgentResult {
  * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
  */
 export function getGuestAgentOutput(args: GetGuestAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestAgentResult> {
-    return pulumi.output(args).apply((a: any) => getGuestAgent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:scvmm:getGuestAgent", {
+        "guestAgentName": args.guestAgentName,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualMachineName": args.virtualMachineName,
+    }, opts);
 }
 
 export interface GetGuestAgentOutputArgs {

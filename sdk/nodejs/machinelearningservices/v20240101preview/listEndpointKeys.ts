@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function listEndpointKeys(args: ListEndpointKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240101preview:listEndpointKeys", {
         "endpointName": args.endpointName,
@@ -39,7 +38,12 @@ export interface ListEndpointKeysResult {
     readonly keys?: outputs.machinelearningservices.v20240101preview.AccountApiKeysResponse;
 }
 export function listEndpointKeysOutput(args: ListEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointKeysResult> {
-    return pulumi.output(args).apply((a: any) => listEndpointKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240101preview:listEndpointKeys", {
+        "endpointName": args.endpointName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListEndpointKeysOutputArgs {

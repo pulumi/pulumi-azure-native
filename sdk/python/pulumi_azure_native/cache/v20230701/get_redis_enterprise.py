@@ -224,9 +224,6 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_redis_enterprise)
 def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRedisEnterpriseResult]:
@@ -237,4 +234,22 @@ def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[str]] = None
     :param str cluster_name: The name of the RedisEnterprise cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cache/v20230701:getRedisEnterprise', __args__, opts=opts, typ=GetRedisEnterpriseResult)
+    return __ret__.apply(lambda __response__: GetRedisEnterpriseResult(
+        host_name=pulumi.get(__response__, 'host_name'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        minimum_tls_version=pulumi.get(__response__, 'minimum_tls_version'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        redis_version=pulumi.get(__response__, 'redis_version'),
+        resource_state=pulumi.get(__response__, 'resource_state'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        zones=pulumi.get(__response__, 'zones')))

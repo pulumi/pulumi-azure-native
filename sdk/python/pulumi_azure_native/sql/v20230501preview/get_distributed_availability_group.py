@@ -240,9 +240,6 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
         replication_mode=pulumi.get(__ret__, 'replication_mode'),
         seeding_mode=pulumi.get(__ret__, 'seeding_mode'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_distributed_availability_group)
 def get_distributed_availability_group_output(distributed_availability_group_name: Optional[pulumi.Input[str]] = None,
                                               managed_instance_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -255,4 +252,24 @@ def get_distributed_availability_group_output(distributed_availability_group_nam
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
-    ...
+    __args__ = dict()
+    __args__['distributedAvailabilityGroupName'] = distributed_availability_group_name
+    __args__['managedInstanceName'] = managed_instance_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230501preview:getDistributedAvailabilityGroup', __args__, opts=opts, typ=GetDistributedAvailabilityGroupResult)
+    return __ret__.apply(lambda __response__: GetDistributedAvailabilityGroupResult(
+        databases=pulumi.get(__response__, 'databases'),
+        distributed_availability_group_id=pulumi.get(__response__, 'distributed_availability_group_id'),
+        distributed_availability_group_name=pulumi.get(__response__, 'distributed_availability_group_name'),
+        failover_mode=pulumi.get(__response__, 'failover_mode'),
+        id=pulumi.get(__response__, 'id'),
+        instance_availability_group_name=pulumi.get(__response__, 'instance_availability_group_name'),
+        instance_link_role=pulumi.get(__response__, 'instance_link_role'),
+        name=pulumi.get(__response__, 'name'),
+        partner_availability_group_name=pulumi.get(__response__, 'partner_availability_group_name'),
+        partner_endpoint=pulumi.get(__response__, 'partner_endpoint'),
+        partner_link_role=pulumi.get(__response__, 'partner_link_role'),
+        replication_mode=pulumi.get(__response__, 'replication_mode'),
+        seeding_mode=pulumi.get(__response__, 'seeding_mode'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The list of the EngagementFabric account keys
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:engagementfabric/v20180901preview:listAccountKeys", {
         "accountName": args.accountName,
@@ -43,7 +42,11 @@ export interface ListAccountKeysResult {
  * The list of the EngagementFabric account keys
  */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
-    return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:engagementfabric/v20180901preview:listAccountKeys", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListAccountKeysOutputArgs {

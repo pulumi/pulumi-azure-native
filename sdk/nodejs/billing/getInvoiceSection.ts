@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-04-01.
  */
 export function getInvoiceSection(args: GetInvoiceSectionArgs, opts?: pulumi.InvokeOptions): Promise<GetInvoiceSectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:billing:getInvoiceSection", {
         "billingAccountName": args.billingAccountName,
@@ -70,7 +69,12 @@ export interface GetInvoiceSectionResult {
  * Azure REST API version: 2024-04-01.
  */
 export function getInvoiceSectionOutput(args: GetInvoiceSectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvoiceSectionResult> {
-    return pulumi.output(args).apply((a: any) => getInvoiceSection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:billing:getInvoiceSection", {
+        "billingAccountName": args.billingAccountName,
+        "billingProfileName": args.billingProfileName,
+        "invoiceSectionName": args.invoiceSectionName,
+    }, opts);
 }
 
 export interface GetInvoiceSectionOutputArgs {

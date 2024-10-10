@@ -225,9 +225,6 @@ def get_enterprise_policy(enterprise_policy_name: Optional[str] = None,
         system_id=pulumi.get(__ret__, 'system_id'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_enterprise_policy)
 def get_enterprise_policy_output(enterprise_policy_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterprisePolicyResult]:
@@ -239,4 +236,22 @@ def get_enterprise_policy_output(enterprise_policy_name: Optional[pulumi.Input[s
     :param str enterprise_policy_name: The EnterprisePolicy name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['enterprisePolicyName'] = enterprise_policy_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:powerplatform:getEnterprisePolicy', __args__, opts=opts, typ=GetEnterprisePolicyResult)
+    return __ret__.apply(lambda __response__: GetEnterprisePolicyResult(
+        encryption=pulumi.get(__response__, 'encryption'),
+        health_status=pulumi.get(__response__, 'health_status'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        lockbox=pulumi.get(__response__, 'lockbox'),
+        name=pulumi.get(__response__, 'name'),
+        network_injection=pulumi.get(__response__, 'network_injection'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        system_id=pulumi.get(__response__, 'system_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

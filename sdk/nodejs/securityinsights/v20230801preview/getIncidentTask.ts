@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an incident task.
  */
 export function getIncidentTask(args: GetIncidentTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentTaskResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230801preview:getIncidentTask", {
         "incidentId": args.incidentId,
@@ -91,7 +90,13 @@ export interface GetIncidentTaskResult {
  * Gets an incident task.
  */
 export function getIncidentTaskOutput(args: GetIncidentTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentTaskResult> {
-    return pulumi.output(args).apply((a: any) => getIncidentTask(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230801preview:getIncidentTask", {
+        "incidentId": args.incidentId,
+        "incidentTaskId": args.incidentTaskId,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetIncidentTaskOutputArgs {

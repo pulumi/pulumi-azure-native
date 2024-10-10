@@ -178,9 +178,6 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[str] =
         private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_private_link_service_private_endpoint_connection)
 def get_private_link_service_private_endpoint_connection_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                                                 pe_connection_name: Optional[pulumi.Input[str]] = None,
                                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -195,4 +192,20 @@ def get_private_link_service_private_endpoint_connection_output(expand: Optional
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the private link service.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['peConnectionName'] = pe_connection_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:getPrivateLinkServicePrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateLinkServicePrivateEndpointConnectionResult)
+    return __ret__.apply(lambda __response__: GetPrivateLinkServicePrivateEndpointConnectionResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        link_identifier=pulumi.get(__response__, 'link_identifier'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint=pulumi.get(__response__, 'private_endpoint'),
+        private_endpoint_location=pulumi.get(__response__, 'private_endpoint_location'),
+        private_link_service_connection_state=pulumi.get(__response__, 'private_link_service_connection_state'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type')))

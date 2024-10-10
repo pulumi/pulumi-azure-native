@@ -65,9 +65,6 @@ def get_report_scoping_questions(report_name: Optional[str] = None,
 
     return AwaitableGetReportScopingQuestionsResult(
         questions=pulumi.get(__ret__, 'questions'))
-
-
-@_utilities.lift_output_func(get_report_scoping_questions)
 def get_report_scoping_questions_output(report_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportScopingQuestionsResult]:
     """
@@ -76,4 +73,9 @@ def get_report_scoping_questions_output(report_name: Optional[pulumi.Input[str]]
 
     :param str report_name: Report Name.
     """
-    ...
+    __args__ = dict()
+    __args__['reportName'] = report_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation/v20240627:getReportScopingQuestions', __args__, opts=opts, typ=GetReportScopingQuestionsResult)
+    return __ret__.apply(lambda __response__: GetReportScopingQuestionsResult(
+        questions=pulumi.get(__response__, 'questions')))

@@ -188,9 +188,6 @@ def get_forwarding_rule(dns_forwarding_ruleset_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         target_dns_servers=pulumi.get(__ret__, 'target_dns_servers'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_forwarding_rule)
 def get_forwarding_rule_output(dns_forwarding_ruleset_name: Optional[pulumi.Input[str]] = None,
                                forwarding_rule_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -203,4 +200,20 @@ def get_forwarding_rule_output(dns_forwarding_ruleset_name: Optional[pulumi.Inpu
     :param str forwarding_rule_name: The name of the forwarding rule.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['dnsForwardingRulesetName'] = dns_forwarding_ruleset_name
+    __args__['forwardingRuleName'] = forwarding_rule_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230701preview:getForwardingRule', __args__, opts=opts, typ=GetForwardingRuleResult)
+    return __ret__.apply(lambda __response__: GetForwardingRuleResult(
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        etag=pulumi.get(__response__, 'etag'),
+        forwarding_rule_state=pulumi.get(__response__, 'forwarding_rule_state'),
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        target_dns_servers=pulumi.get(__response__, 'target_dns_servers'),
+        type=pulumi.get(__response__, 'type')))

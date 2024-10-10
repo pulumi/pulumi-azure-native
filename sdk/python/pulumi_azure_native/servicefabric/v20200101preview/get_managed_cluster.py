@@ -354,9 +354,6 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_managed_cluster)
 def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterResult]:
@@ -367,4 +364,32 @@ def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20200101preview:getManagedCluster', __args__, opts=opts, typ=GetManagedClusterResult)
+    return __ret__.apply(lambda __response__: GetManagedClusterResult(
+        addon_features=pulumi.get(__response__, 'addon_features'),
+        admin_password=pulumi.get(__response__, 'admin_password'),
+        admin_user_name=pulumi.get(__response__, 'admin_user_name'),
+        azure_active_directory=pulumi.get(__response__, 'azure_active_directory'),
+        client_connection_port=pulumi.get(__response__, 'client_connection_port'),
+        clients=pulumi.get(__response__, 'clients'),
+        cluster_certificate_thumbprint=pulumi.get(__response__, 'cluster_certificate_thumbprint'),
+        cluster_code_version=pulumi.get(__response__, 'cluster_code_version'),
+        cluster_id=pulumi.get(__response__, 'cluster_id'),
+        cluster_state=pulumi.get(__response__, 'cluster_state'),
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        etag=pulumi.get(__response__, 'etag'),
+        fabric_settings=pulumi.get(__response__, 'fabric_settings'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        http_gateway_connection_port=pulumi.get(__response__, 'http_gateway_connection_port'),
+        id=pulumi.get(__response__, 'id'),
+        load_balancing_rules=pulumi.get(__response__, 'load_balancing_rules'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

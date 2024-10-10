@@ -81,9 +81,6 @@ def list_remediation_deployments_at_subscription(remediation_name: Optional[str]
     return AwaitableListRemediationDeploymentsAtSubscriptionResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_remediation_deployments_at_subscription)
 def list_remediation_deployments_at_subscription_output(remediation_name: Optional[pulumi.Input[str]] = None,
                                                         top: Optional[pulumi.Input[Optional[int]]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemediationDeploymentsAtSubscriptionResult]:
@@ -94,4 +91,11 @@ def list_remediation_deployments_at_subscription_output(remediation_name: Option
     :param str remediation_name: The name of the remediation.
     :param int top: Maximum number of records to return.
     """
-    ...
+    __args__ = dict()
+    __args__['remediationName'] = remediation_name
+    __args__['top'] = top
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights/v20211001:listRemediationDeploymentsAtSubscription', __args__, opts=opts, typ=ListRemediationDeploymentsAtSubscriptionResult)
+    return __ret__.apply(lambda __response__: ListRemediationDeploymentsAtSubscriptionResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

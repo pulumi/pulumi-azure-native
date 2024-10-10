@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a virtual machine from a VM scale set.
  */
 export function getVirtualMachineScaleSetVM(args: GetVirtualMachineScaleSetVMArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20240701:getVirtualMachineScaleSetVM", {
         "expand": args.expand,
@@ -169,7 +168,13 @@ export interface GetVirtualMachineScaleSetVMResult {
  * Gets a virtual machine from a VM scale set.
  */
 export function getVirtualMachineScaleSetVMOutput(args: GetVirtualMachineScaleSetVMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVM(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute/v20240701:getVirtualMachineScaleSetVM", {
+        "expand": args.expand,
+        "instanceId": args.instanceId,
+        "resourceGroupName": args.resourceGroupName,
+        "vmScaleSetName": args.vmScaleSetName,
+    }, opts);
 }
 
 export interface GetVirtualMachineScaleSetVMOutputArgs {

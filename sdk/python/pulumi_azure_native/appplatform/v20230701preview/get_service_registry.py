@@ -123,9 +123,6 @@ def get_service_registry(resource_group_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_service_registry)
 def get_service_registry_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                 service_name: Optional[pulumi.Input[str]] = None,
                                 service_registry_name: Optional[pulumi.Input[str]] = None,
@@ -138,4 +135,15 @@ def get_service_registry_output(resource_group_name: Optional[pulumi.Input[str]]
     :param str service_name: The name of the Service resource.
     :param str service_registry_name: The name of Service Registry.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['serviceRegistryName'] = service_registry_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20230701preview:getServiceRegistry', __args__, opts=opts, typ=GetServiceRegistryResult)
+    return __ret__.apply(lambda __response__: GetServiceRegistryResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

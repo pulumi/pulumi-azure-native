@@ -125,9 +125,6 @@ def list_tenant_access_secrets(access_name: Optional[str] = None,
         primary_key=pulumi.get(__ret__, 'primary_key'),
         principal_id=pulumi.get(__ret__, 'principal_id'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-
-
-@_utilities.lift_output_func(list_tenant_access_secrets)
 def list_tenant_access_secrets_output(access_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       service_name: Optional[pulumi.Input[str]] = None,
@@ -143,4 +140,15 @@ def list_tenant_access_secrets_output(access_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    ...
+    __args__ = dict()
+    __args__['accessName'] = access_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:listTenantAccessSecrets', __args__, opts=opts, typ=ListTenantAccessSecretsResult)
+    return __ret__.apply(lambda __response__: ListTenantAccessSecretsResult(
+        enabled=pulumi.get(__response__, 'enabled'),
+        id=pulumi.get(__response__, 'id'),
+        primary_key=pulumi.get(__response__, 'primary_key'),
+        principal_id=pulumi.get(__response__, 'principal_id'),
+        secondary_key=pulumi.get(__response__, 'secondary_key')))

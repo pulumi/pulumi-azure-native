@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the download URL of a package.
  */
 export function getPackageDownloadURL(args: GetPackageDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageDownloadURLResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20220401preview:getPackageDownloadURL", {
         "packageName": args.packageName,
@@ -49,7 +48,12 @@ export interface GetPackageDownloadURLResult {
  * Gets the download URL of a package.
  */
 export function getPackageDownloadURLOutput(args: GetPackageDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageDownloadURLResult> {
-    return pulumi.output(args).apply((a: any) => getPackageDownloadURL(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getPackageDownloadURL", {
+        "packageName": args.packageName,
+        "resourceGroupName": args.resourceGroupName,
+        "testBaseAccountName": args.testBaseAccountName,
+    }, opts);
 }
 
 export interface GetPackageDownloadURLOutputArgs {

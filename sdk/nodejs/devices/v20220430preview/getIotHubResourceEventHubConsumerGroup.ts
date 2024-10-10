@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
  */
 export function getIotHubResourceEventHubConsumerGroup(args: GetIotHubResourceEventHubConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceEventHubConsumerGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20220430preview:getIotHubResourceEventHubConsumerGroup", {
         "eventHubEndpointName": args.eventHubEndpointName,
@@ -66,7 +65,13 @@ export interface GetIotHubResourceEventHubConsumerGroupResult {
  * Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
  */
 export function getIotHubResourceEventHubConsumerGroupOutput(args: GetIotHubResourceEventHubConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceEventHubConsumerGroupResult> {
-    return pulumi.output(args).apply((a: any) => getIotHubResourceEventHubConsumerGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devices/v20220430preview:getIotHubResourceEventHubConsumerGroup", {
+        "eventHubEndpointName": args.eventHubEndpointName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetIotHubResourceEventHubConsumerGroupOutputArgs {

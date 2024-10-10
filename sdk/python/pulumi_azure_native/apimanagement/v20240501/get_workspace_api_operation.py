@@ -207,9 +207,6 @@ def get_workspace_api_operation(api_id: Optional[str] = None,
         template_parameters=pulumi.get(__ret__, 'template_parameters'),
         type=pulumi.get(__ret__, 'type'),
         url_template=pulumi.get(__ret__, 'url_template'))
-
-
-@_utilities.lift_output_func(get_workspace_api_operation)
 def get_workspace_api_operation_output(api_id: Optional[pulumi.Input[str]] = None,
                                        operation_id: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -226,4 +223,23 @@ def get_workspace_api_operation_output(api_id: Optional[pulumi.Input[str]] = Non
     :param str service_name: The name of the API Management service.
     :param str workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
     """
-    ...
+    __args__ = dict()
+    __args__['apiId'] = api_id
+    __args__['operationId'] = operation_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240501:getWorkspaceApiOperation', __args__, opts=opts, typ=GetWorkspaceApiOperationResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceApiOperationResult(
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        method=pulumi.get(__response__, 'method'),
+        name=pulumi.get(__response__, 'name'),
+        policies=pulumi.get(__response__, 'policies'),
+        request=pulumi.get(__response__, 'request'),
+        responses=pulumi.get(__response__, 'responses'),
+        template_parameters=pulumi.get(__response__, 'template_parameters'),
+        type=pulumi.get(__response__, 'type'),
+        url_template=pulumi.get(__response__, 'url_template')))

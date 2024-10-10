@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the Azure AD for customers tenant resource.
  */
 export function getCIAMTenant(args: GetCIAMTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetCIAMTenantResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azureactivedirectory/v20230517preview:getCIAMTenant", {
         "resourceGroupName": args.resourceGroupName,
@@ -88,7 +87,11 @@ export interface GetCIAMTenantResult {
  * Get the Azure AD for customers tenant resource.
  */
 export function getCIAMTenantOutput(args: GetCIAMTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCIAMTenantResult> {
-    return pulumi.output(args).apply((a: any) => getCIAMTenant(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azureactivedirectory/v20230517preview:getCIAMTenant", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetCIAMTenantOutputArgs {

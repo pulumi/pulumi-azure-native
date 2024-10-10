@@ -357,9 +357,6 @@ def get_blob_container(account_name: Optional[str] = None,
         remaining_retention_days=pulumi.get(__ret__, 'remaining_retention_days'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_blob_container)
 def get_blob_container_output(account_name: Optional[pulumi.Input[str]] = None,
                               container_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -372,4 +369,33 @@ def get_blob_container_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['containerName'] = container_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230101:getBlobContainer', __args__, opts=opts, typ=GetBlobContainerResult)
+    return __ret__.apply(lambda __response__: GetBlobContainerResult(
+        default_encryption_scope=pulumi.get(__response__, 'default_encryption_scope'),
+        deleted=pulumi.get(__response__, 'deleted'),
+        deleted_time=pulumi.get(__response__, 'deleted_time'),
+        deny_encryption_scope_override=pulumi.get(__response__, 'deny_encryption_scope_override'),
+        enable_nfs_v3_all_squash=pulumi.get(__response__, 'enable_nfs_v3_all_squash'),
+        enable_nfs_v3_root_squash=pulumi.get(__response__, 'enable_nfs_v3_root_squash'),
+        etag=pulumi.get(__response__, 'etag'),
+        has_immutability_policy=pulumi.get(__response__, 'has_immutability_policy'),
+        has_legal_hold=pulumi.get(__response__, 'has_legal_hold'),
+        id=pulumi.get(__response__, 'id'),
+        immutability_policy=pulumi.get(__response__, 'immutability_policy'),
+        immutable_storage_with_versioning=pulumi.get(__response__, 'immutable_storage_with_versioning'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        lease_duration=pulumi.get(__response__, 'lease_duration'),
+        lease_state=pulumi.get(__response__, 'lease_state'),
+        lease_status=pulumi.get(__response__, 'lease_status'),
+        legal_hold=pulumi.get(__response__, 'legal_hold'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        public_access=pulumi.get(__response__, 'public_access'),
+        remaining_retention_days=pulumi.get(__response__, 'remaining_retention_days'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

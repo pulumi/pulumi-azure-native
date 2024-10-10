@@ -250,9 +250,6 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'),
         vpn_gateway_scale_unit=pulumi.get(__ret__, 'vpn_gateway_scale_unit'))
-
-
-@_utilities.lift_output_func(get_vpn_gateway)
 def get_vpn_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnGatewayResult]:
@@ -263,4 +260,24 @@ def get_vpn_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     :param str gateway_name: The name of the gateway.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
-    ...
+    __args__ = dict()
+    __args__['gatewayName'] = gateway_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getVpnGateway', __args__, opts=opts, typ=GetVpnGatewayResult)
+    return __ret__.apply(lambda __response__: GetVpnGatewayResult(
+        bgp_settings=pulumi.get(__response__, 'bgp_settings'),
+        connections=pulumi.get(__response__, 'connections'),
+        enable_bgp_route_translation_for_nat=pulumi.get(__response__, 'enable_bgp_route_translation_for_nat'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
+        is_routing_preference_internet=pulumi.get(__response__, 'is_routing_preference_internet'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        nat_rules=pulumi.get(__response__, 'nat_rules'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_hub=pulumi.get(__response__, 'virtual_hub'),
+        vpn_gateway_scale_unit=pulumi.get(__response__, 'vpn_gateway_scale_unit')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The logical network resource definition.
  */
 export function getLogicalNetwork(args: GetLogicalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetLogicalNetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20230901preview:getLogicalNetwork", {
         "logicalNetworkName": args.logicalNetworkName,
@@ -87,7 +86,11 @@ export interface GetLogicalNetworkResult {
  * The logical network resource definition.
  */
 export function getLogicalNetworkOutput(args: GetLogicalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogicalNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getLogicalNetwork(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20230901preview:getLogicalNetwork", {
+        "logicalNetworkName": args.logicalNetworkName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLogicalNetworkOutputArgs {

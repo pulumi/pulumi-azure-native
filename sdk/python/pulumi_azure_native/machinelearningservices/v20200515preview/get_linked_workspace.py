@@ -110,9 +110,6 @@ def get_linked_workspace(link_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_linked_workspace)
 def get_linked_workspace_output(link_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 workspace_name: Optional[pulumi.Input[str]] = None,
@@ -125,4 +122,14 @@ def get_linked_workspace_output(link_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['linkName'] = link_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20200515preview:getLinkedWorkspace', __args__, opts=opts, typ=GetLinkedWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetLinkedWorkspaceResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        type=pulumi.get(__response__, 'type')))

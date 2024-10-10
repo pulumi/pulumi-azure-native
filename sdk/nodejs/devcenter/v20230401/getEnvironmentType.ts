@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an environment type.
  */
 export function getEnvironmentType(args: GetEnvironmentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentTypeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20230401:getEnvironmentType", {
         "devCenterName": args.devCenterName,
@@ -68,7 +67,12 @@ export interface GetEnvironmentTypeResult {
  * Gets an environment type.
  */
 export function getEnvironmentTypeOutput(args: GetEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentTypeResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironmentType(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20230401:getEnvironmentType", {
+        "devCenterName": args.devCenterName,
+        "environmentTypeName": args.environmentTypeName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEnvironmentTypeOutputArgs {

@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getResourceGuard(args: GetResourceGuardArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dataprotection/v20221101preview:getResourceGuard", {
         "resourceGroupName": args.resourceGroupName,
@@ -66,7 +65,11 @@ export interface GetResourceGuardResult {
     readonly type: string;
 }
 export function getResourceGuardOutput(args: GetResourceGuardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardResult> {
-    return pulumi.output(args).apply((a: any) => getResourceGuard(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:dataprotection/v20221101preview:getResourceGuard", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceGuardsName": args.resourceGuardsName,
+    }, opts);
 }
 
 export interface GetResourceGuardOutputArgs {

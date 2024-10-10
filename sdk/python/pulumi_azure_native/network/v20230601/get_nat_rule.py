@@ -201,9 +201,6 @@ def get_nat_rule(gateway_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_nat_rule)
 def get_nat_rule_output(gateway_name: Optional[pulumi.Input[str]] = None,
                         nat_rule_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -216,4 +213,21 @@ def get_nat_rule_output(gateway_name: Optional[pulumi.Input[str]] = None,
     :param str nat_rule_name: The name of the nat rule.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
-    ...
+    __args__ = dict()
+    __args__['gatewayName'] = gateway_name
+    __args__['natRuleName'] = nat_rule_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getNatRule', __args__, opts=opts, typ=GetNatRuleResult)
+    return __ret__.apply(lambda __response__: GetNatRuleResult(
+        egress_vpn_site_link_connections=pulumi.get(__response__, 'egress_vpn_site_link_connections'),
+        etag=pulumi.get(__response__, 'etag'),
+        external_mappings=pulumi.get(__response__, 'external_mappings'),
+        id=pulumi.get(__response__, 'id'),
+        ingress_vpn_site_link_connections=pulumi.get(__response__, 'ingress_vpn_site_link_connections'),
+        internal_mappings=pulumi.get(__response__, 'internal_mappings'),
+        ip_configuration_id=pulumi.get(__response__, 'ip_configuration_id'),
+        mode=pulumi.get(__response__, 'mode'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type')))

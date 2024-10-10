@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
  */
 export function getMongoDBResourceMongoDBDatabase(args: GetMongoDBResourceMongoDBDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoDBDatabaseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20230915preview:getMongoDBResourceMongoDBDatabase", {
         "accountName": args.accountName,
@@ -70,7 +69,12 @@ export interface GetMongoDBResourceMongoDBDatabaseResult {
  * Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
  */
 export function getMongoDBResourceMongoDBDatabaseOutput(args: GetMongoDBResourceMongoDBDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoDBDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoDBDatabase(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20230915preview:getMongoDBResourceMongoDBDatabase", {
+        "accountName": args.accountName,
+        "databaseName": args.databaseName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMongoDBResourceMongoDBDatabaseOutputArgs {

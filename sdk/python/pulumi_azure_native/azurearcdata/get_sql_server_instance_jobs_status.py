@@ -75,9 +75,6 @@ def get_sql_server_instance_jobs_status(feature_name: Optional[str] = None,
 
     return AwaitableGetSqlServerInstanceJobsStatusResult(
         jobs_status=pulumi.get(__ret__, 'jobs_status'))
-
-
-@_utilities.lift_output_func(get_sql_server_instance_jobs_status)
 def get_sql_server_instance_jobs_status_output(feature_name: Optional[pulumi.Input[Optional[str]]] = None,
                                                job_type: Optional[pulumi.Input[Optional[str]]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -93,4 +90,12 @@ def get_sql_server_instance_jobs_status_output(feature_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the Azure resource group
     :param str sql_server_instance_name: Name of SQL Server Instance
     """
-    ...
+    __args__ = dict()
+    __args__['featureName'] = feature_name
+    __args__['jobType'] = job_type
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sqlServerInstanceName'] = sql_server_instance_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata:getSqlServerInstanceJobsStatus', __args__, opts=opts, typ=GetSqlServerInstanceJobsStatusResult)
+    return __ret__.apply(lambda __response__: GetSqlServerInstanceJobsStatusResult(
+        jobs_status=pulumi.get(__response__, 'jobs_status')))

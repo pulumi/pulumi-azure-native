@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-09-01-preview.
  */
 export function getAssociation(args: GetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customproviders:getAssociation", {
         "associationName": args.associationName,
@@ -58,7 +57,11 @@ export interface GetAssociationResult {
  * Azure REST API version: 2018-09-01-preview.
  */
 export function getAssociationOutput(args: GetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:customproviders:getAssociation", {
+        "associationName": args.associationName,
+        "scope": args.scope,
+    }, opts);
 }
 
 export interface GetAssociationOutputArgs {

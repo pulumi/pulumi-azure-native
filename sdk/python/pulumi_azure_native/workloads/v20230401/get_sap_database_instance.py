@@ -253,9 +253,6 @@ def get_sap_database_instance(database_instance_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_details=pulumi.get(__ret__, 'vm_details'))
-
-
-@_utilities.lift_output_func(get_sap_database_instance)
 def get_sap_database_instance_output(database_instance_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
@@ -268,4 +265,25 @@ def get_sap_database_instance_output(database_instance_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
-    ...
+    __args__ = dict()
+    __args__['databaseInstanceName'] = database_instance_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sapVirtualInstanceName'] = sap_virtual_instance_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20230401:getSAPDatabaseInstance', __args__, opts=opts, typ=GetSAPDatabaseInstanceResult)
+    return __ret__.apply(lambda __response__: GetSAPDatabaseInstanceResult(
+        database_sid=pulumi.get(__response__, 'database_sid'),
+        database_type=pulumi.get(__response__, 'database_type'),
+        errors=pulumi.get(__response__, 'errors'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address=pulumi.get(__response__, 'ip_address'),
+        load_balancer_details=pulumi.get(__response__, 'load_balancer_details'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
+        subnet=pulumi.get(__response__, 'subnet'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        vm_details=pulumi.get(__response__, 'vm_details')))

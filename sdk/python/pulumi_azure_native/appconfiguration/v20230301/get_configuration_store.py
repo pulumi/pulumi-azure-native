@@ -276,9 +276,6 @@ def get_configuration_store(config_store_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_configuration_store)
 def get_configuration_store_output(config_store_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationStoreResult]:
@@ -289,4 +286,26 @@ def get_configuration_store_output(config_store_name: Optional[pulumi.Input[str]
     :param str config_store_name: The name of the configuration store.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['configStoreName'] = config_store_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:appconfiguration/v20230301:getConfigurationStore', __args__, opts=opts, typ=GetConfigurationStoreResult)
+    return __ret__.apply(lambda __response__: GetConfigurationStoreResult(
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
+        enable_purge_protection=pulumi.get(__response__, 'enable_purge_protection'),
+        encryption=pulumi.get(__response__, 'encryption'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        sku=pulumi.get(__response__, 'sku'),
+        soft_delete_retention_in_days=pulumi.get(__response__, 'soft_delete_retention_in_days'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

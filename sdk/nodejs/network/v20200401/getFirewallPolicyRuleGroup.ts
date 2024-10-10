@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified FirewallPolicyRuleGroup.
  */
 export function getFirewallPolicyRuleGroup(args: GetFirewallPolicyRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyRuleGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20200401:getFirewallPolicyRuleGroup", {
         "firewallPolicyName": args.firewallPolicyName,
@@ -72,7 +71,12 @@ export interface GetFirewallPolicyRuleGroupResult {
  * Gets the specified FirewallPolicyRuleGroup.
  */
 export function getFirewallPolicyRuleGroupOutput(args: GetFirewallPolicyRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyRuleGroupResult> {
-    return pulumi.output(args).apply((a: any) => getFirewallPolicyRuleGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20200401:getFirewallPolicyRuleGroup", {
+        "firewallPolicyName": args.firewallPolicyName,
+        "resourceGroupName": args.resourceGroupName,
+        "ruleGroupName": args.ruleGroupName,
+    }, opts);
 }
 
 export interface GetFirewallPolicyRuleGroupOutputArgs {

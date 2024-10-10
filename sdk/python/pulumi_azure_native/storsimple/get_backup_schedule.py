@@ -195,9 +195,6 @@ def get_backup_schedule(backup_policy_name: Optional[str] = None,
         schedule_status=pulumi.get(__ret__, 'schedule_status'),
         start_time=pulumi.get(__ret__, 'start_time'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_backup_schedule)
 def get_backup_schedule_output(backup_policy_name: Optional[pulumi.Input[str]] = None,
                                backup_schedule_name: Optional[pulumi.Input[str]] = None,
                                device_name: Optional[pulumi.Input[str]] = None,
@@ -215,4 +212,22 @@ def get_backup_schedule_output(backup_policy_name: Optional[pulumi.Input[str]] =
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    ...
+    __args__ = dict()
+    __args__['backupPolicyName'] = backup_policy_name
+    __args__['backupScheduleName'] = backup_schedule_name
+    __args__['deviceName'] = device_name
+    __args__['managerName'] = manager_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getBackupSchedule', __args__, opts=opts, typ=GetBackupScheduleResult)
+    return __ret__.apply(lambda __response__: GetBackupScheduleResult(
+        backup_type=pulumi.get(__response__, 'backup_type'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        last_successful_run=pulumi.get(__response__, 'last_successful_run'),
+        name=pulumi.get(__response__, 'name'),
+        retention_count=pulumi.get(__response__, 'retention_count'),
+        schedule_recurrence=pulumi.get(__response__, 'schedule_recurrence'),
+        schedule_status=pulumi.get(__response__, 'schedule_status'),
+        start_time=pulumi.get(__response__, 'start_time'),
+        type=pulumi.get(__response__, 'type')))

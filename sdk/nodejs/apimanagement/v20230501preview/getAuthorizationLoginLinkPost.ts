@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets authorization login links.
  */
 export function getAuthorizationLoginLinkPost(args: GetAuthorizationLoginLinkPostArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationLoginLinkPostResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230501preview:getAuthorizationLoginLinkPost", {
         "authorizationId": args.authorizationId,
@@ -55,7 +54,14 @@ export interface GetAuthorizationLoginLinkPostResult {
  * Gets authorization login links.
  */
 export function getAuthorizationLoginLinkPostOutput(args: GetAuthorizationLoginLinkPostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationLoginLinkPostResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorizationLoginLinkPost(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getAuthorizationLoginLinkPost", {
+        "authorizationId": args.authorizationId,
+        "authorizationProviderId": args.authorizationProviderId,
+        "postLoginRedirectUrl": args.postLoginRedirectUrl,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetAuthorizationLoginLinkPostOutputArgs {

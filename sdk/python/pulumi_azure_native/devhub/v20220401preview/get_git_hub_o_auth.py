@@ -80,9 +80,6 @@ def get_git_hub_o_auth(location: Optional[str] = None,
     return AwaitableGetGitHubOAuthResult(
         auth_url=pulumi.get(__ret__, 'auth_url'),
         token=pulumi.get(__ret__, 'token'))
-
-
-@_utilities.lift_output_func(get_git_hub_o_auth)
 def get_git_hub_o_auth_output(location: Optional[pulumi.Input[str]] = None,
                               redirect_url: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGitHubOAuthResult]:
@@ -93,4 +90,11 @@ def get_git_hub_o_auth_output(location: Optional[pulumi.Input[str]] = None,
     :param str location: The name of Azure region.
     :param str redirect_url: The URL the client will redirect to on successful authentication. If empty, no redirect will occur.
     """
-    ...
+    __args__ = dict()
+    __args__['location'] = location
+    __args__['redirectUrl'] = redirect_url
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devhub/v20220401preview:getGitHubOAuth', __args__, opts=opts, typ=GetGitHubOAuthResult)
+    return __ret__.apply(lambda __response__: GetGitHubOAuthResult(
+        auth_url=pulumi.get(__response__, 'auth_url'),
+        token=pulumi.get(__response__, 'token')))

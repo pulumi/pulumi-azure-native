@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a specific curation profile.
  */
 export function getCurationProfile(args: GetCurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetCurationProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20241001preview:getCurationProfile", {
         "curationProfileName": args.curationProfileName,
@@ -72,7 +71,12 @@ export interface GetCurationProfileResult {
  * Gets a specific curation profile.
  */
 export function getCurationProfileOutput(args: GetCurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCurationProfileResult> {
-    return pulumi.output(args).apply((a: any) => getCurationProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20241001preview:getCurationProfile", {
+        "curationProfileName": args.curationProfileName,
+        "devCenterName": args.devCenterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCurationProfileOutputArgs {

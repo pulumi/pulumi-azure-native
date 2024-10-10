@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the Authentication/Authorization settings of an app.
  */
 export function listWebAppAuthSettingsSlot(args: ListWebAppAuthSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAuthSettingsSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:listWebAppAuthSettingsSlot", {
         "name": args.name,
@@ -263,7 +262,12 @@ export interface ListWebAppAuthSettingsSlotResult {
  * Gets the Authentication/Authorization settings of an app.
  */
 export function listWebAppAuthSettingsSlotOutput(args: ListWebAppAuthSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAuthSettingsSlotResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppAuthSettingsSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:listWebAppAuthSettingsSlot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface ListWebAppAuthSettingsSlotOutputArgs {

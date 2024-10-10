@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the specified authorization from the specified express route circuit.
  */
 export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuitAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitAuthorizationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230901:getExpressRouteCircuitAuthorization", {
         "authorizationName": args.authorizationName,
@@ -69,7 +68,12 @@ export interface GetExpressRouteCircuitAuthorizationResult {
  * Gets the specified authorization from the specified express route circuit.
  */
 export function getExpressRouteCircuitAuthorizationOutput(args: GetExpressRouteCircuitAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitAuthorizationResult> {
-    return pulumi.output(args).apply((a: any) => getExpressRouteCircuitAuthorization(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230901:getExpressRouteCircuitAuthorization", {
+        "authorizationName": args.authorizationName,
+        "circuitName": args.circuitName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetExpressRouteCircuitAuthorizationOutputArgs {

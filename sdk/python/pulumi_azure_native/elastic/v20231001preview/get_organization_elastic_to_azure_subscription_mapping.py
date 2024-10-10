@@ -60,11 +60,12 @@ def get_organization_elastic_to_azure_subscription_mapping(opts: Optional[pulumi
 
     return AwaitableGetOrganizationElasticToAzureSubscriptionMappingResult(
         properties=pulumi.get(__ret__, 'properties'))
-
-
-@_utilities.lift_output_func(get_organization_elastic_to_azure_subscription_mapping)
 def get_organization_elastic_to_azure_subscription_mapping_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationElasticToAzureSubscriptionMappingResult]:
     """
     Get Elastic Organization To Azure Subscription Mapping details for the logged-in user.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:elastic/v20231001preview:getOrganizationElasticToAzureSubscriptionMapping', __args__, opts=opts, typ=GetOrganizationElasticToAzureSubscriptionMappingResult)
+    return __ret__.apply(lambda __response__: GetOrganizationElasticToAzureSubscriptionMappingResult(
+        properties=pulumi.get(__response__, 'properties')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets details about the specified dedicated capacity.
  */
 export function getCapacityDetails(args: GetCapacityDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityDetailsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:powerbidedicated/v20210101:getCapacityDetails", {
         "dedicatedCapacityName": args.dedicatedCapacityName,
@@ -91,7 +90,11 @@ export interface GetCapacityDetailsResult {
  * Gets details about the specified dedicated capacity.
  */
 export function getCapacityDetailsOutput(args: GetCapacityDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityDetailsResult> {
-    return pulumi.output(args).apply((a: any) => getCapacityDetails(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:powerbidedicated/v20210101:getCapacityDetails", {
+        "dedicatedCapacityName": args.dedicatedCapacityName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCapacityDetailsOutputArgs {

@@ -266,9 +266,6 @@ def get_vpn_site(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_wan=pulumi.get(__ret__, 'virtual_wan'),
         vpn_site_links=pulumi.get(__ret__, 'vpn_site_links'))
-
-
-@_utilities.lift_output_func(get_vpn_site)
 def get_vpn_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         vpn_site_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnSiteResult]:
@@ -282,4 +279,25 @@ def get_vpn_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name of the VpnSite.
     :param str vpn_site_name: The name of the VpnSite being retrieved.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vpnSiteName'] = vpn_site_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVpnSite', __args__, opts=opts, typ=GetVpnSiteResult)
+    return __ret__.apply(lambda __response__: GetVpnSiteResult(
+        address_space=pulumi.get(__response__, 'address_space'),
+        bgp_properties=pulumi.get(__response__, 'bgp_properties'),
+        device_properties=pulumi.get(__response__, 'device_properties'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address=pulumi.get(__response__, 'ip_address'),
+        is_security_site=pulumi.get(__response__, 'is_security_site'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        o365_policy=pulumi.get(__response__, 'o365_policy'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        site_key=pulumi.get(__response__, 'site_key'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_wan=pulumi.get(__response__, 'virtual_wan'),
+        vpn_site_links=pulumi.get(__response__, 'vpn_site_links')))

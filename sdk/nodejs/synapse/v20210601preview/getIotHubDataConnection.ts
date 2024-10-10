@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns a data connection.
  */
 export function getIotHubDataConnection(args: GetIotHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubDataConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getIotHubDataConnection", {
         "dataConnectionName": args.dataConnectionName,
@@ -111,7 +110,14 @@ export interface GetIotHubDataConnectionResult {
  * Returns a data connection.
  */
 export function getIotHubDataConnectionOutput(args: GetIotHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubDataConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getIotHubDataConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:getIotHubDataConnection", {
+        "dataConnectionName": args.dataConnectionName,
+        "databaseName": args.databaseName,
+        "kustoPoolName": args.kustoPoolName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetIotHubDataConnectionOutputArgs {

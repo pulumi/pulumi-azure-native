@@ -85,9 +85,6 @@ def list_artifact_store_network_fabric_controller_private_end_points(artifact_st
     return AwaitableListArtifactStoreNetworkFabricControllerPrivateEndPointsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_artifact_store_network_fabric_controller_private_end_points)
 def list_artifact_store_network_fabric_controller_private_end_points_output(artifact_store_name: Optional[pulumi.Input[str]] = None,
                                                                             publisher_name: Optional[pulumi.Input[str]] = None,
                                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -101,4 +98,12 @@ def list_artifact_store_network_fabric_controller_private_end_points_output(arti
     :param str publisher_name: The name of the publisher.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['artifactStoreName'] = artifact_store_name
+    __args__['publisherName'] = publisher_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:listArtifactStoreNetworkFabricControllerPrivateEndPoints', __args__, opts=opts, typ=ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult)
+    return __ret__.apply(lambda __response__: ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

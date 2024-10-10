@@ -669,9 +669,6 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         vnet_subnet_id=pulumi.get(__ret__, 'vnet_subnet_id'),
         windows_profile=pulumi.get(__ret__, 'windows_profile'),
         workload_runtime=pulumi.get(__ret__, 'workload_runtime'))
-
-
-@_utilities.lift_output_func(get_agent_pool)
 def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           resource_name: Optional[pulumi.Input[str]] = None,
@@ -684,4 +681,57 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
     """
-    ...
+    __args__ = dict()
+    __args__['agentPoolName'] = agent_pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20240801:getAgentPool', __args__, opts=opts, typ=GetAgentPoolResult)
+    return __ret__.apply(lambda __response__: GetAgentPoolResult(
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        capacity_reservation_group_id=pulumi.get(__response__, 'capacity_reservation_group_id'),
+        count=pulumi.get(__response__, 'count'),
+        creation_data=pulumi.get(__response__, 'creation_data'),
+        current_orchestrator_version=pulumi.get(__response__, 'current_orchestrator_version'),
+        enable_auto_scaling=pulumi.get(__response__, 'enable_auto_scaling'),
+        enable_encryption_at_host=pulumi.get(__response__, 'enable_encryption_at_host'),
+        enable_fips=pulumi.get(__response__, 'enable_fips'),
+        enable_node_public_ip=pulumi.get(__response__, 'enable_node_public_ip'),
+        enable_ultra_ssd=pulumi.get(__response__, 'enable_ultra_ssd'),
+        gpu_instance_profile=pulumi.get(__response__, 'gpu_instance_profile'),
+        host_group_id=pulumi.get(__response__, 'host_group_id'),
+        id=pulumi.get(__response__, 'id'),
+        kubelet_config=pulumi.get(__response__, 'kubelet_config'),
+        kubelet_disk_type=pulumi.get(__response__, 'kubelet_disk_type'),
+        linux_os_config=pulumi.get(__response__, 'linux_os_config'),
+        max_count=pulumi.get(__response__, 'max_count'),
+        max_pods=pulumi.get(__response__, 'max_pods'),
+        min_count=pulumi.get(__response__, 'min_count'),
+        mode=pulumi.get(__response__, 'mode'),
+        name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
+        node_image_version=pulumi.get(__response__, 'node_image_version'),
+        node_labels=pulumi.get(__response__, 'node_labels'),
+        node_public_ip_prefix_id=pulumi.get(__response__, 'node_public_ip_prefix_id'),
+        node_taints=pulumi.get(__response__, 'node_taints'),
+        orchestrator_version=pulumi.get(__response__, 'orchestrator_version'),
+        os_disk_size_gb=pulumi.get(__response__, 'os_disk_size_gb'),
+        os_disk_type=pulumi.get(__response__, 'os_disk_type'),
+        os_sku=pulumi.get(__response__, 'os_sku'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        pod_subnet_id=pulumi.get(__response__, 'pod_subnet_id'),
+        power_state=pulumi.get(__response__, 'power_state'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        proximity_placement_group_id=pulumi.get(__response__, 'proximity_placement_group_id'),
+        scale_down_mode=pulumi.get(__response__, 'scale_down_mode'),
+        scale_set_eviction_policy=pulumi.get(__response__, 'scale_set_eviction_policy'),
+        scale_set_priority=pulumi.get(__response__, 'scale_set_priority'),
+        security_profile=pulumi.get(__response__, 'security_profile'),
+        spot_max_price=pulumi.get(__response__, 'spot_max_price'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        upgrade_settings=pulumi.get(__response__, 'upgrade_settings'),
+        vm_size=pulumi.get(__response__, 'vm_size'),
+        vnet_subnet_id=pulumi.get(__response__, 'vnet_subnet_id'),
+        windows_profile=pulumi.get(__response__, 'windows_profile'),
+        workload_runtime=pulumi.get(__response__, 'workload_runtime')))

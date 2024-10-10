@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified networkServiceDesign group.
  */
 export function getNetworkServiceDesignGroup(args: GetNetworkServiceDesignGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkServiceDesignGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20240415:getNetworkServiceDesignGroup", {
         "networkServiceDesignGroupName": args.networkServiceDesignGroupName,
@@ -72,7 +71,12 @@ export interface GetNetworkServiceDesignGroupResult {
  * Gets information about the specified networkServiceDesign group.
  */
 export function getNetworkServiceDesignGroupOutput(args: GetNetworkServiceDesignGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkServiceDesignGroupResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkServiceDesignGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20240415:getNetworkServiceDesignGroup", {
+        "networkServiceDesignGroupName": args.networkServiceDesignGroupName,
+        "publisherName": args.publisherName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkServiceDesignGroupOutputArgs {

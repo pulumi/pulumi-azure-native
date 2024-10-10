@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified token.
  */
 export function getToken(args: GetTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20230801preview:getToken", {
         "registryName": args.registryName,
@@ -80,7 +79,12 @@ export interface GetTokenResult {
  * Gets the properties of the specified token.
  */
 export function getTokenOutput(args: GetTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTokenResult> {
-    return pulumi.output(args).apply((a: any) => getToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230801preview:getToken", {
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+        "tokenName": args.tokenName,
+    }, opts);
 }
 
 export interface GetTokenOutputArgs {

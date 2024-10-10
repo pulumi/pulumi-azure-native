@@ -211,9 +211,6 @@ def get_virtual_network_tap(resource_group_name: Optional[str] = None,
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_virtual_network_tap)
 def get_virtual_network_tap_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                    tap_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkTapResult]:
@@ -224,4 +221,21 @@ def get_virtual_network_tap_output(resource_group_name: Optional[pulumi.Input[st
     :param str resource_group_name: The name of the resource group.
     :param str tap_name: The name of virtual network tap.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tapName'] = tap_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240101:getVirtualNetworkTap', __args__, opts=opts, typ=GetVirtualNetworkTapResult)
+    return __ret__.apply(lambda __response__: GetVirtualNetworkTapResult(
+        destination_load_balancer_front_end_ip_configuration=pulumi.get(__response__, 'destination_load_balancer_front_end_ip_configuration'),
+        destination_network_interface_ip_configuration=pulumi.get(__response__, 'destination_network_interface_ip_configuration'),
+        destination_port=pulumi.get(__response__, 'destination_port'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_interface_tap_configurations=pulumi.get(__response__, 'network_interface_tap_configurations'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

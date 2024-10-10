@@ -357,9 +357,6 @@ def get_application_definition(application_definition_name: Optional[str] = None
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_application_definition)
 def get_application_definition_output(application_definition_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationDefinitionResult]:
@@ -373,4 +370,32 @@ def get_application_definition_output(application_definition_name: Optional[pulu
     :param str application_definition_name: The name of the managed application definition.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationDefinitionName'] = application_definition_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:solutions:getApplicationDefinition', __args__, opts=opts, typ=GetApplicationDefinitionResult)
+    return __ret__.apply(lambda __response__: GetApplicationDefinitionResult(
+        artifacts=pulumi.get(__response__, 'artifacts'),
+        authorizations=pulumi.get(__response__, 'authorizations'),
+        create_ui_definition=pulumi.get(__response__, 'create_ui_definition'),
+        deployment_policy=pulumi.get(__response__, 'deployment_policy'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        is_enabled=pulumi.get(__response__, 'is_enabled'),
+        location=pulumi.get(__response__, 'location'),
+        lock_level=pulumi.get(__response__, 'lock_level'),
+        locking_policy=pulumi.get(__response__, 'locking_policy'),
+        main_template=pulumi.get(__response__, 'main_template'),
+        managed_by=pulumi.get(__response__, 'managed_by'),
+        management_policy=pulumi.get(__response__, 'management_policy'),
+        name=pulumi.get(__response__, 'name'),
+        notification_policy=pulumi.get(__response__, 'notification_policy'),
+        package_file_uri=pulumi.get(__response__, 'package_file_uri'),
+        policies=pulumi.get(__response__, 'policies'),
+        sku=pulumi.get(__response__, 'sku'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

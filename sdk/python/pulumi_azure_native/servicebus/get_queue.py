@@ -412,9 +412,6 @@ def get_queue(namespace_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_queue)
 def get_queue_output(namespace_name: Optional[pulumi.Input[str]] = None,
                      queue_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -430,4 +427,37 @@ def get_queue_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str queue_name: The queue name.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['namespaceName'] = namespace_name
+    __args__['queueName'] = queue_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus:getQueue', __args__, opts=opts, typ=GetQueueResult)
+    return __ret__.apply(lambda __response__: GetQueueResult(
+        accessed_at=pulumi.get(__response__, 'accessed_at'),
+        auto_delete_on_idle=pulumi.get(__response__, 'auto_delete_on_idle'),
+        count_details=pulumi.get(__response__, 'count_details'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        dead_lettering_on_message_expiration=pulumi.get(__response__, 'dead_lettering_on_message_expiration'),
+        default_message_time_to_live=pulumi.get(__response__, 'default_message_time_to_live'),
+        duplicate_detection_history_time_window=pulumi.get(__response__, 'duplicate_detection_history_time_window'),
+        enable_batched_operations=pulumi.get(__response__, 'enable_batched_operations'),
+        enable_express=pulumi.get(__response__, 'enable_express'),
+        enable_partitioning=pulumi.get(__response__, 'enable_partitioning'),
+        forward_dead_lettered_messages_to=pulumi.get(__response__, 'forward_dead_lettered_messages_to'),
+        forward_to=pulumi.get(__response__, 'forward_to'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        lock_duration=pulumi.get(__response__, 'lock_duration'),
+        max_delivery_count=pulumi.get(__response__, 'max_delivery_count'),
+        max_message_size_in_kilobytes=pulumi.get(__response__, 'max_message_size_in_kilobytes'),
+        max_size_in_megabytes=pulumi.get(__response__, 'max_size_in_megabytes'),
+        message_count=pulumi.get(__response__, 'message_count'),
+        name=pulumi.get(__response__, 'name'),
+        requires_duplicate_detection=pulumi.get(__response__, 'requires_duplicate_detection'),
+        requires_session=pulumi.get(__response__, 'requires_session'),
+        size_in_bytes=pulumi.get(__response__, 'size_in_bytes'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

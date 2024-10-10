@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details about the service to the resource.
  */
 export function getServiceConfiguration(args: GetServiceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridconnectivity/v20241201:getServiceConfiguration", {
         "endpointName": args.endpointName,
@@ -100,7 +99,12 @@ export interface GetServiceConfigurationResult {
  * Gets the details about the service to the resource.
  */
 export function getServiceConfigurationOutput(args: GetServiceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getServiceConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity/v20241201:getServiceConfiguration", {
+        "endpointName": args.endpointName,
+        "resourceUri": args.resourceUri,
+        "serviceConfigurationName": args.serviceConfigurationName,
+    }, opts);
 }
 
 export interface GetServiceConfigurationOutputArgs {

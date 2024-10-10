@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a database's security alert policy.
  */
 export function getDatabaseSecurityAlertPolicy(args: GetDatabaseSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseSecurityAlertPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230801preview:getDatabaseSecurityAlertPolicy", {
         "databaseName": args.databaseName,
@@ -97,7 +96,13 @@ export interface GetDatabaseSecurityAlertPolicyResult {
  * Gets a database's security alert policy.
  */
 export function getDatabaseSecurityAlertPolicyOutput(args: GetDatabaseSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseSecurityAlertPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getDatabaseSecurityAlertPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getDatabaseSecurityAlertPolicy", {
+        "databaseName": args.databaseName,
+        "resourceGroupName": args.resourceGroupName,
+        "securityAlertPolicyName": args.securityAlertPolicyName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetDatabaseSecurityAlertPolicyOutputArgs {

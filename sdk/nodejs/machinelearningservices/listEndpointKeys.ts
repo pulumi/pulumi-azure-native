@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-01-preview, 2024-07-01-preview.
  */
 export function listEndpointKeys(args: ListEndpointKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:listEndpointKeys", {
         "endpointName": args.endpointName,
@@ -49,7 +48,12 @@ export interface ListEndpointKeysResult {
  * Other available API versions: 2024-04-01-preview, 2024-07-01-preview.
  */
 export function listEndpointKeysOutput(args: ListEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointKeysResult> {
-    return pulumi.output(args).apply((a: any) => listEndpointKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listEndpointKeys", {
+        "endpointName": args.endpointName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListEndpointKeysOutputArgs {

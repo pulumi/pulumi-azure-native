@@ -56,11 +56,12 @@ def get_custom_domain_verification_id(opts: Optional[pulumi.InvokeOptions] = Non
 
     return AwaitableGetCustomDomainVerificationIdResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_custom_domain_verification_id)
 def get_custom_domain_verification_id_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDomainVerificationIdResult]:
     """
     Get the verification id of a subscription used for verifying custom domains
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20230801preview:getCustomDomainVerificationId', __args__, opts=opts, typ=GetCustomDomainVerificationIdResult)
+    return __ret__.apply(lambda __response__: GetCustomDomainVerificationIdResult(
+        value=pulumi.get(__response__, 'value')))

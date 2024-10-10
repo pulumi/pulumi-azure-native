@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the details of a Track in the Asset
  */
 export function getTrack(args: GetTrackArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20230101:getTrack", {
         "accountName": args.accountName,
@@ -69,7 +68,13 @@ export interface GetTrackResult {
  * Get the details of a Track in the Asset
  */
 export function getTrackOutput(args: GetTrackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackResult> {
-    return pulumi.output(args).apply((a: any) => getTrack(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:media/v20230101:getTrack", {
+        "accountName": args.accountName,
+        "assetName": args.assetName,
+        "resourceGroupName": args.resourceGroupName,
+        "trackName": args.trackName,
+    }, opts);
 }
 
 export interface GetTrackOutputArgs {

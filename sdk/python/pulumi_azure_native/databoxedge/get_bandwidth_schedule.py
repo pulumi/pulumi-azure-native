@@ -165,9 +165,6 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
         stop=pulumi.get(__ret__, 'stop'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_bandwidth_schedule)
 def get_bandwidth_schedule_output(device_name: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -183,4 +180,18 @@ def get_bandwidth_schedule_output(device_name: Optional[pulumi.Input[str]] = Non
     :param str name: The bandwidth schedule name.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['deviceName'] = device_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getBandwidthSchedule', __args__, opts=opts, typ=GetBandwidthScheduleResult)
+    return __ret__.apply(lambda __response__: GetBandwidthScheduleResult(
+        days=pulumi.get(__response__, 'days'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        rate_in_mbps=pulumi.get(__response__, 'rate_in_mbps'),
+        start=pulumi.get(__response__, 'start'),
+        stop=pulumi.get(__response__, 'stop'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns the properties of an Azure Stack registration.
  */
 export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestack/v20200601preview:getRegistration", {
         "registrationName": args.registrationName,
@@ -83,7 +82,11 @@ export interface GetRegistrationResult {
  * Returns the properties of an Azure Stack registration.
  */
 export function getRegistrationOutput(args: GetRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationResult> {
-    return pulumi.output(args).apply((a: any) => getRegistration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestack/v20200601preview:getRegistration", {
+        "registrationName": args.registrationName,
+        "resourceGroup": args.resourceGroup,
+    }, opts);
 }
 
 export interface GetRegistrationOutputArgs {

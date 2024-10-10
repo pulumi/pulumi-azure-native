@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified FHIR Service.
  */
 export function getFhirService(args: GetFhirServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetFhirServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20231201:getFhirService", {
         "fhirServiceName": args.fhirServiceName,
@@ -128,7 +127,12 @@ export interface GetFhirServiceResult {
  * Gets the properties of the specified FHIR Service.
  */
 export function getFhirServiceOutput(args: GetFhirServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFhirServiceResult> {
-    return pulumi.output(args).apply((a: any) => getFhirService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:healthcareapis/v20231201:getFhirService", {
+        "fhirServiceName": args.fhirServiceName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetFhirServiceOutputArgs {

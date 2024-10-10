@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified publisher.
  */
 export function getPublisher(args: GetPublisherArgs, opts?: pulumi.InvokeOptions): Promise<GetPublisherResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20230901:getPublisher", {
         "publisherName": args.publisherName,
@@ -71,7 +70,11 @@ export interface GetPublisherResult {
  * Gets information about the specified publisher.
  */
 export function getPublisherOutput(args: GetPublisherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublisherResult> {
-    return pulumi.output(args).apply((a: any) => getPublisher(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20230901:getPublisher", {
+        "publisherName": args.publisherName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPublisherOutputArgs {

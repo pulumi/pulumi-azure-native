@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-10-01.
  */
 export function getAzureCliScript(args: GetAzureCliScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureCliScriptResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources:getAzureCliScript", {
         "resourceGroupName": args.resourceGroupName,
@@ -134,7 +133,11 @@ export interface GetAzureCliScriptResult {
  * Azure REST API version: 2020-10-01.
  */
 export function getAzureCliScriptOutput(args: GetAzureCliScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureCliScriptResult> {
-    return pulumi.output(args).apply((a: any) => getAzureCliScript(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:resources:getAzureCliScript", {
+        "resourceGroupName": args.resourceGroupName,
+        "scriptName": args.scriptName,
+    }, opts);
 }
 
 export interface GetAzureCliScriptOutputArgs {

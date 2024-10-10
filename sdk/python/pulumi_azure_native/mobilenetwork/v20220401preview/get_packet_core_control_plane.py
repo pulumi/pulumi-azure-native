@@ -341,9 +341,6 @@ def get_packet_core_control_plane(packet_core_control_plane_name: Optional[str] 
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_packet_core_control_plane)
 def get_packet_core_control_plane_output(packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPacketCoreControlPlaneResult]:
@@ -354,4 +351,31 @@ def get_packet_core_control_plane_output(packet_core_control_plane_name: Optiona
     :param str packet_core_control_plane_name: The name of the packet core control plane.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['packetCoreControlPlaneName'] = packet_core_control_plane_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork/v20220401preview:getPacketCoreControlPlane', __args__, opts=opts, typ=GetPacketCoreControlPlaneResult)
+    return __ret__.apply(lambda __response__: GetPacketCoreControlPlaneResult(
+        control_plane_access_interface=pulumi.get(__response__, 'control_plane_access_interface'),
+        core_network_technology=pulumi.get(__response__, 'core_network_technology'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        created_by_type=pulumi.get(__response__, 'created_by_type'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        interop_settings=pulumi.get(__response__, 'interop_settings'),
+        last_modified_at=pulumi.get(__response__, 'last_modified_at'),
+        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
+        last_modified_by_type=pulumi.get(__response__, 'last_modified_by_type'),
+        local_diagnostics_access=pulumi.get(__response__, 'local_diagnostics_access'),
+        location=pulumi.get(__response__, 'location'),
+        mobile_network=pulumi.get(__response__, 'mobile_network'),
+        name=pulumi.get(__response__, 'name'),
+        platform=pulumi.get(__response__, 'platform'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-07-01.
  */
 export function getP2sVpnServerConfiguration(args: GetP2sVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnServerConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getP2sVpnServerConfiguration", {
         "p2SVpnServerConfigurationName": args.p2SVpnServerConfigurationName,
@@ -98,7 +97,12 @@ export interface GetP2sVpnServerConfigurationResult {
  * Azure REST API version: 2019-07-01.
  */
 export function getP2sVpnServerConfigurationOutput(args: GetP2sVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnServerConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getP2sVpnServerConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network:getP2sVpnServerConfiguration", {
+        "p2SVpnServerConfigurationName": args.p2SVpnServerConfigurationName,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualWanName": args.virtualWanName,
+    }, opts);
 }
 
 export interface GetP2sVpnServerConfigurationOutputArgs {

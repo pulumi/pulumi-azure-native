@@ -629,9 +629,6 @@ def get_app_service_environment(name: Optional[str] = None,
         vnet_resource_group_name=pulumi.get(__ret__, 'vnet_resource_group_name'),
         vnet_subnet_name=pulumi.get(__ret__, 'vnet_subnet_name'),
         worker_pools=pulumi.get(__ret__, 'worker_pools'))
-
-
-@_utilities.lift_output_func(get_app_service_environment)
 def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentResult]:
@@ -642,4 +639,53 @@ def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the App Service Environment.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:getAppServiceEnvironment', __args__, opts=opts, typ=GetAppServiceEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetAppServiceEnvironmentResult(
+        allowed_multi_sizes=pulumi.get(__response__, 'allowed_multi_sizes'),
+        allowed_worker_sizes=pulumi.get(__response__, 'allowed_worker_sizes'),
+        api_management_account_id=pulumi.get(__response__, 'api_management_account_id'),
+        cluster_settings=pulumi.get(__response__, 'cluster_settings'),
+        database_edition=pulumi.get(__response__, 'database_edition'),
+        database_service_objective=pulumi.get(__response__, 'database_service_objective'),
+        default_front_end_scale_factor=pulumi.get(__response__, 'default_front_end_scale_factor'),
+        dns_suffix=pulumi.get(__response__, 'dns_suffix'),
+        dynamic_cache_enabled=pulumi.get(__response__, 'dynamic_cache_enabled'),
+        environment_capacities=pulumi.get(__response__, 'environment_capacities'),
+        environment_is_healthy=pulumi.get(__response__, 'environment_is_healthy'),
+        environment_status=pulumi.get(__response__, 'environment_status'),
+        front_end_scale_factor=pulumi.get(__response__, 'front_end_scale_factor'),
+        has_linux_workers=pulumi.get(__response__, 'has_linux_workers'),
+        id=pulumi.get(__response__, 'id'),
+        internal_load_balancing_mode=pulumi.get(__response__, 'internal_load_balancing_mode'),
+        ipssl_address_count=pulumi.get(__response__, 'ipssl_address_count'),
+        kind=pulumi.get(__response__, 'kind'),
+        last_action=pulumi.get(__response__, 'last_action'),
+        last_action_result=pulumi.get(__response__, 'last_action_result'),
+        location=pulumi.get(__response__, 'location'),
+        maximum_number_of_machines=pulumi.get(__response__, 'maximum_number_of_machines'),
+        multi_role_count=pulumi.get(__response__, 'multi_role_count'),
+        multi_size=pulumi.get(__response__, 'multi_size'),
+        name=pulumi.get(__response__, 'name'),
+        network_access_control_list=pulumi.get(__response__, 'network_access_control_list'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_group=pulumi.get(__response__, 'resource_group'),
+        ssl_cert_key_vault_id=pulumi.get(__response__, 'ssl_cert_key_vault_id'),
+        ssl_cert_key_vault_secret_name=pulumi.get(__response__, 'ssl_cert_key_vault_secret_name'),
+        status=pulumi.get(__response__, 'status'),
+        subscription_id=pulumi.get(__response__, 'subscription_id'),
+        suspended=pulumi.get(__response__, 'suspended'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        upgrade_domains=pulumi.get(__response__, 'upgrade_domains'),
+        user_whitelisted_ip_ranges=pulumi.get(__response__, 'user_whitelisted_ip_ranges'),
+        vip_mappings=pulumi.get(__response__, 'vip_mappings'),
+        virtual_network=pulumi.get(__response__, 'virtual_network'),
+        vnet_name=pulumi.get(__response__, 'vnet_name'),
+        vnet_resource_group_name=pulumi.get(__response__, 'vnet_resource_group_name'),
+        vnet_subnet_name=pulumi.get(__response__, 'vnet_subnet_name'),
+        worker_pools=pulumi.get(__response__, 'worker_pools')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve a Remote Rendering Account.
  */
 export function getRemoteRenderingAccount(args: GetRemoteRenderingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteRenderingAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mixedreality/v20210301preview:getRemoteRenderingAccount", {
         "accountName": args.accountName,
@@ -91,7 +90,11 @@ export interface GetRemoteRenderingAccountResult {
  * Retrieve a Remote Rendering Account.
  */
 export function getRemoteRenderingAccountOutput(args: GetRemoteRenderingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteRenderingAccountResult> {
-    return pulumi.output(args).apply((a: any) => getRemoteRenderingAccount(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:mixedreality/v20210301preview:getRemoteRenderingAccount", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRemoteRenderingAccountOutputArgs {

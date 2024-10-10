@@ -164,9 +164,6 @@ def list_web_app_site_push_settings_slot(name: Optional[str] = None,
         tag_whitelist_json=pulumi.get(__ret__, 'tag_whitelist_json'),
         tags_requiring_auth=pulumi.get(__ret__, 'tags_requiring_auth'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(list_web_app_site_push_settings_slot)
 def list_web_app_site_push_settings_slot_output(name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 slot: Optional[pulumi.Input[str]] = None,
@@ -179,4 +176,18 @@ def list_web_app_site_push_settings_slot_output(name: Optional[pulumi.Input[str]
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of web app slot. If not specified then will default to production slot.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['slot'] = slot
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:listWebAppSitePushSettingsSlot', __args__, opts=opts, typ=ListWebAppSitePushSettingsSlotResult)
+    return __ret__.apply(lambda __response__: ListWebAppSitePushSettingsSlotResult(
+        dynamic_tags_json=pulumi.get(__response__, 'dynamic_tags_json'),
+        id=pulumi.get(__response__, 'id'),
+        is_push_enabled=pulumi.get(__response__, 'is_push_enabled'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        tag_whitelist_json=pulumi.get(__response__, 'tag_whitelist_json'),
+        tags_requiring_auth=pulumi.get(__response__, 'tags_requiring_auth'),
+        type=pulumi.get(__response__, 'type')))

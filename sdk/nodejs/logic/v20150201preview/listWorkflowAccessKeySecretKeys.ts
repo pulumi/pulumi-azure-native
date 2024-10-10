@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Lists secret keys.
  */
 export function listWorkflowAccessKeySecretKeys(args: ListWorkflowAccessKeySecretKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowAccessKeySecretKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20150201preview:listWorkflowAccessKeySecretKeys", {
         "accessKeyName": args.accessKeyName,
@@ -46,7 +45,12 @@ export interface ListWorkflowAccessKeySecretKeysResult {
  * Lists secret keys.
  */
 export function listWorkflowAccessKeySecretKeysOutput(args: ListWorkflowAccessKeySecretKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowAccessKeySecretKeysResult> {
-    return pulumi.output(args).apply((a: any) => listWorkflowAccessKeySecretKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:logic/v20150201preview:listWorkflowAccessKeySecretKeys", {
+        "accessKeyName": args.accessKeyName,
+        "resourceGroupName": args.resourceGroupName,
+        "workflowName": args.workflowName,
+    }, opts);
 }
 
 export interface ListWorkflowAccessKeySecretKeysOutputArgs {

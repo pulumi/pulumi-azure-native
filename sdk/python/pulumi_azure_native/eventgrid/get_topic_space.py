@@ -156,9 +156,6 @@ def get_topic_space(namespace_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         topic_templates=pulumi.get(__ret__, 'topic_templates'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_topic_space)
 def get_topic_space_output(namespace_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            topic_space_name: Optional[pulumi.Input[str]] = None,
@@ -174,4 +171,17 @@ def get_topic_space_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_space_name: Name of the Topic space.
     """
-    ...
+    __args__ = dict()
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['topicSpaceName'] = topic_space_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getTopicSpace', __args__, opts=opts, typ=GetTopicSpaceResult)
+    return __ret__.apply(lambda __response__: GetTopicSpaceResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        topic_templates=pulumi.get(__response__, 'topic_templates'),
+        type=pulumi.get(__response__, 'type')))

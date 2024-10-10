@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-15.
  */
 export function getArtifactManifest(args: GetArtifactManifestArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactManifestResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:getArtifactManifest", {
         "artifactManifestName": args.artifactManifestName,
@@ -83,7 +82,13 @@ export interface GetArtifactManifestResult {
  * Other available API versions: 2024-04-15.
  */
 export function getArtifactManifestOutput(args: GetArtifactManifestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactManifestResult> {
-    return pulumi.output(args).apply((a: any) => getArtifactManifest(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getArtifactManifest", {
+        "artifactManifestName": args.artifactManifestName,
+        "artifactStoreName": args.artifactStoreName,
+        "publisherName": args.publisherName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetArtifactManifestOutputArgs {

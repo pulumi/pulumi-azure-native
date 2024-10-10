@@ -71,9 +71,6 @@ def get_solution_config(migrate_project_name: Optional[str] = None,
 
     return AwaitableGetSolutionConfigResult(
         publisher_sas_uri=pulumi.get(__ret__, 'publisher_sas_uri'))
-
-
-@_utilities.lift_output_func(get_solution_config)
 def get_solution_config_output(migrate_project_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                solution_name: Optional[pulumi.Input[str]] = None,
@@ -87,4 +84,11 @@ def get_solution_config_output(migrate_project_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: Name of the Azure Resource Group that migrate project is part of.
     :param str solution_name: Unique name of a migration solution within a migrate project.
     """
-    ...
+    __args__ = dict()
+    __args__['migrateProjectName'] = migrate_project_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['solutionName'] = solution_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getSolutionConfig', __args__, opts=opts, typ=GetSolutionConfigResult)
+    return __ret__.apply(lambda __response__: GetSolutionConfigResult(
+        publisher_sas_uri=pulumi.get(__response__, 'publisher_sas_uri')))

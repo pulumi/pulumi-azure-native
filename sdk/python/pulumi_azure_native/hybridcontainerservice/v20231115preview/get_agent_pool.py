@@ -250,9 +250,6 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_size=pulumi.get(__ret__, 'vm_size'))
-
-
-@_utilities.lift_output_func(get_agent_pool)
 def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentPoolResult]:
@@ -263,4 +260,24 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     :param str agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster
     :param str connected_cluster_resource_uri: The fully qualified Azure Resource manager identifier of the connected cluster resource.
     """
-    ...
+    __args__ = dict()
+    __args__['agentPoolName'] = agent_pool_name
+    __args__['connectedClusterResourceUri'] = connected_cluster_resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice/v20231115preview:getAgentPool', __args__, opts=opts, typ=GetAgentPoolResult)
+    return __ret__.apply(lambda __response__: GetAgentPoolResult(
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        count=pulumi.get(__response__, 'count'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        node_image_version=pulumi.get(__response__, 'node_image_version'),
+        os_sku=pulumi.get(__response__, 'os_sku'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        vm_size=pulumi.get(__response__, 'vm_size')))

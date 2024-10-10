@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a Global parameter
  */
 export function getGlobalParameter(args: GetGlobalParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalParameterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getGlobalParameter", {
         "factoryName": args.factoryName,
@@ -64,7 +63,12 @@ export interface GetGlobalParameterResult {
  * Gets a Global parameter
  */
 export function getGlobalParameterOutput(args: GetGlobalParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalParameterResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalParameter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getGlobalParameter", {
+        "factoryName": args.factoryName,
+        "globalParameterName": args.globalParameterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetGlobalParameterOutputArgs {

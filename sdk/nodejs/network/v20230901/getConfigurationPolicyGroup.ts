@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a ConfigurationPolicyGroup.
  */
 export function getConfigurationPolicyGroup(args: GetConfigurationPolicyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationPolicyGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230901:getConfigurationPolicyGroup", {
         "configurationPolicyGroupName": args.configurationPolicyGroupName,
@@ -80,7 +79,12 @@ export interface GetConfigurationPolicyGroupResult {
  * Retrieves the details of a ConfigurationPolicyGroup.
  */
 export function getConfigurationPolicyGroupOutput(args: GetConfigurationPolicyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationPolicyGroupResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationPolicyGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230901:getConfigurationPolicyGroup", {
+        "configurationPolicyGroupName": args.configurationPolicyGroupName,
+        "resourceGroupName": args.resourceGroupName,
+        "vpnServerConfigurationName": args.vpnServerConfigurationName,
+    }, opts);
 }
 
 export interface GetConfigurationPolicyGroupOutputArgs {

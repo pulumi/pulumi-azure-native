@@ -279,9 +279,6 @@ def get_afd_origin(origin_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         weight=pulumi.get(__ret__, 'weight'))
-
-
-@_utilities.lift_output_func(get_afd_origin)
 def get_afd_origin_output(origin_group_name: Optional[pulumi.Input[str]] = None,
                           origin_name: Optional[pulumi.Input[str]] = None,
                           profile_name: Optional[pulumi.Input[str]] = None,
@@ -296,4 +293,28 @@ def get_afd_origin_output(origin_group_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['originGroupName'] = origin_group_name
+    __args__['originName'] = origin_name
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20230501:getAFDOrigin', __args__, opts=opts, typ=GetAFDOriginResult)
+    return __ret__.apply(lambda __response__: GetAFDOriginResult(
+        azure_origin=pulumi.get(__response__, 'azure_origin'),
+        deployment_status=pulumi.get(__response__, 'deployment_status'),
+        enabled_state=pulumi.get(__response__, 'enabled_state'),
+        enforce_certificate_name_check=pulumi.get(__response__, 'enforce_certificate_name_check'),
+        host_name=pulumi.get(__response__, 'host_name'),
+        http_port=pulumi.get(__response__, 'http_port'),
+        https_port=pulumi.get(__response__, 'https_port'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        origin_group_name=pulumi.get(__response__, 'origin_group_name'),
+        origin_host_header=pulumi.get(__response__, 'origin_host_header'),
+        priority=pulumi.get(__response__, 'priority'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        shared_private_link_resource=pulumi.get(__response__, 'shared_private_link_resource'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        weight=pulumi.get(__response__, 'weight')))

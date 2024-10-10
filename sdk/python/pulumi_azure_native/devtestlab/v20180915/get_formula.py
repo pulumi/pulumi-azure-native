@@ -230,9 +230,6 @@ def get_formula(expand: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
         vm=pulumi.get(__ret__, 'vm'))
-
-
-@_utilities.lift_output_func(get_formula)
 def get_formula_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        lab_name: Optional[pulumi.Input[str]] = None,
                        name: Optional[pulumi.Input[str]] = None,
@@ -247,4 +244,24 @@ def get_formula_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: The name of the formula.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['labName'] = lab_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getFormula', __args__, opts=opts, typ=GetFormulaResult)
+    return __ret__.apply(lambda __response__: GetFormulaResult(
+        author=pulumi.get(__response__, 'author'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        description=pulumi.get(__response__, 'description'),
+        formula_content=pulumi.get(__response__, 'formula_content'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        unique_identifier=pulumi.get(__response__, 'unique_identifier'),
+        vm=pulumi.get(__response__, 'vm')))

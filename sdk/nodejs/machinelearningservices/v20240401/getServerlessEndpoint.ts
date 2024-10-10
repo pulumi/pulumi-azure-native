@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getServerlessEndpoint(args: GetServerlessEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240401:getServerlessEndpoint", {
         "name": args.name,
@@ -75,7 +74,12 @@ export interface GetServerlessEndpointResult {
     readonly type: string;
 }
 export function getServerlessEndpointOutput(args: GetServerlessEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getServerlessEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401:getServerlessEndpoint", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetServerlessEndpointOutputArgs {

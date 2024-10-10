@@ -311,9 +311,6 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-
-
-@_utilities.lift_output_func(get_elastic_pool)
 def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             server_name: Optional[pulumi.Input[str]] = None,
@@ -326,4 +323,29 @@ def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    ...
+    __args__ = dict()
+    __args__['elasticPoolName'] = elastic_pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230801preview:getElasticPool', __args__, opts=opts, typ=GetElasticPoolResult)
+    return __ret__.apply(lambda __response__: GetElasticPoolResult(
+        auto_pause_delay=pulumi.get(__response__, 'auto_pause_delay'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        high_availability_replica_count=pulumi.get(__response__, 'high_availability_replica_count'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        license_type=pulumi.get(__response__, 'license_type'),
+        location=pulumi.get(__response__, 'location'),
+        maintenance_configuration_id=pulumi.get(__response__, 'maintenance_configuration_id'),
+        max_size_bytes=pulumi.get(__response__, 'max_size_bytes'),
+        min_capacity=pulumi.get(__response__, 'min_capacity'),
+        name=pulumi.get(__response__, 'name'),
+        per_database_settings=pulumi.get(__response__, 'per_database_settings'),
+        preferred_enclave_type=pulumi.get(__response__, 'preferred_enclave_type'),
+        sku=pulumi.get(__response__, 'sku'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        zone_redundant=pulumi.get(__response__, 'zone_redundant')))

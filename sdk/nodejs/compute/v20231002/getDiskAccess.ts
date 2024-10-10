@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about a disk access resource.
  */
 export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20231002:getDiskAccess", {
         "diskAccessName": args.diskAccessName,
@@ -75,7 +74,11 @@ export interface GetDiskAccessResult {
  * Gets information about a disk access resource.
  */
 export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessResult> {
-    return pulumi.output(args).apply((a: any) => getDiskAccess(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute/v20231002:getDiskAccess", {
+        "diskAccessName": args.diskAccessName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDiskAccessOutputArgs {

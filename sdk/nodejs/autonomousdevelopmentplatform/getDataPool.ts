@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-11-01-preview.
  */
 export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDataPoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:autonomousdevelopmentplatform:getDataPool", {
         "accountName": args.accountName,
@@ -78,7 +77,12 @@ export interface GetDataPoolResult {
  * Azure REST API version: 2021-11-01-preview.
  */
 export function getDataPoolOutput(args: GetDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataPoolResult> {
-    return pulumi.output(args).apply((a: any) => getDataPool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:autonomousdevelopmentplatform:getDataPool", {
+        "accountName": args.accountName,
+        "dataPoolName": args.dataPoolName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDataPoolOutputArgs {

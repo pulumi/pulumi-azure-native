@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get properties of a partner configuration.
  */
 export function getPartnerConfiguration(args: GetPartnerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20231215preview:getPartnerConfiguration", {
         "resourceGroupName": args.resourceGroupName,
@@ -66,7 +65,10 @@ export interface GetPartnerConfigurationResult {
  * Get properties of a partner configuration.
  */
 export function getPartnerConfigurationOutput(args: GetPartnerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getPartnerConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getPartnerConfiguration", {
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPartnerConfigurationOutputArgs {

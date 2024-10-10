@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a single workbook by its resourceName.
  */
 export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20210308:getWorkbook", {
         "resourceGroupName": args.resourceGroupName,
@@ -115,7 +114,11 @@ export interface GetWorkbookResult {
  * Get a single workbook by its resourceName.
  */
 export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookResult> {
-    return pulumi.output(args).apply((a: any) => getWorkbook(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights/v20210308:getWorkbook", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetWorkbookOutputArgs {

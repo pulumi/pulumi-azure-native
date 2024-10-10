@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-02-13.
  */
 export function listAccessServiceAccounts(args: ListAccessServiceAccountsArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessServiceAccountsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:confluent:listAccessServiceAccounts", {
         "organizationName": args.organizationName,
@@ -62,7 +61,12 @@ export interface ListAccessServiceAccountsResult {
  * Other available API versions: 2024-02-13.
  */
 export function listAccessServiceAccountsOutput(args: ListAccessServiceAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessServiceAccountsResult> {
-    return pulumi.output(args).apply((a: any) => listAccessServiceAccounts(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:confluent:listAccessServiceAccounts", {
+        "organizationName": args.organizationName,
+        "resourceGroupName": args.resourceGroupName,
+        "searchFilters": args.searchFilters,
+    }, opts);
 }
 
 export interface ListAccessServiceAccountsOutputArgs {

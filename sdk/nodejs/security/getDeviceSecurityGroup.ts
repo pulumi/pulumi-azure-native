@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-08-01.
  */
 export function getDeviceSecurityGroup(args: GetDeviceSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceSecurityGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getDeviceSecurityGroup", {
         "deviceSecurityGroupName": args.deviceSecurityGroupName,
@@ -69,7 +68,11 @@ export interface GetDeviceSecurityGroupResult {
  * Azure REST API version: 2019-08-01.
  */
 export function getDeviceSecurityGroupOutput(args: GetDeviceSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceSecurityGroupResult> {
-    return pulumi.output(args).apply((a: any) => getDeviceSecurityGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security:getDeviceSecurityGroup", {
+        "deviceSecurityGroupName": args.deviceSecurityGroupName,
+        "resourceId": args.resourceId,
+    }, opts);
 }
 
 export interface GetDeviceSecurityGroupOutputArgs {

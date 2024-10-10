@@ -136,9 +136,6 @@ def get_gallery(dev_center_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_gallery)
 def get_gallery_output(dev_center_name: Optional[pulumi.Input[str]] = None,
                        gallery_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,4 +148,16 @@ def get_gallery_output(dev_center_name: Optional[pulumi.Input[str]] = None,
     :param str gallery_name: The name of the gallery.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['devCenterName'] = dev_center_name
+    __args__['galleryName'] = gallery_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20231001preview:getGallery', __args__, opts=opts, typ=GetGalleryResult)
+    return __ret__.apply(lambda __response__: GetGalleryResult(
+        gallery_resource_id=pulumi.get(__response__, 'gallery_resource_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

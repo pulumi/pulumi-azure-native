@@ -112,9 +112,6 @@ def get_transparent_data_encryption(database_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_transparent_data_encryption)
 def get_transparent_data_encryption_output(database_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            server_name: Optional[pulumi.Input[str]] = None,
@@ -129,4 +126,15 @@ def get_transparent_data_encryption_output(database_name: Optional[pulumi.Input[
     :param str server_name: The name of the server.
     :param str tde_name: The name of the transparent data encryption configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['databaseName'] = database_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    __args__['tdeName'] = tde_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20211101:getTransparentDataEncryption', __args__, opts=opts, typ=GetTransparentDataEncryptionResult)
+    return __ret__.apply(lambda __response__: GetTransparentDataEncryptionResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        state=pulumi.get(__response__, 'state'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-11-01-preview.
  */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights:getDataSource", {
         "dataSourceName": args.dataSourceName,
@@ -75,7 +74,12 @@ export interface GetDataSourceResult {
  * Other available API versions: 2015-11-01-preview.
  */
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
-    return pulumi.output(args).apply((a: any) => getDataSource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getDataSource", {
+        "dataSourceName": args.dataSourceName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetDataSourceOutputArgs {

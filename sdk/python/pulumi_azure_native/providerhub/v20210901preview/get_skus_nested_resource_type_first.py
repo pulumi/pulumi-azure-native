@@ -120,9 +120,6 @@ def get_skus_nested_resource_type_first(nested_resource_type_first: Optional[str
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_skus_nested_resource_type_first)
 def get_skus_nested_resource_type_first_output(nested_resource_type_first: Optional[pulumi.Input[str]] = None,
                                                provider_namespace: Optional[pulumi.Input[str]] = None,
                                                resource_type: Optional[pulumi.Input[str]] = None,
@@ -137,4 +134,16 @@ def get_skus_nested_resource_type_first_output(nested_resource_type_first: Optio
     :param str resource_type: The resource type.
     :param str sku: The SKU.
     """
-    ...
+    __args__ = dict()
+    __args__['nestedResourceTypeFirst'] = nested_resource_type_first
+    __args__['providerNamespace'] = provider_namespace
+    __args__['resourceType'] = resource_type
+    __args__['sku'] = sku
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:providerhub/v20210901preview:getSkusNestedResourceTypeFirst', __args__, opts=opts, typ=GetSkusNestedResourceTypeFirstResult)
+    return __ret__.apply(lambda __response__: GetSkusNestedResourceTypeFirstResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-02-01.
  */
 export function getVNetPeering(args: GetVNetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVNetPeeringResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databricks:getVNetPeering", {
         "peeringName": args.peeringName,
@@ -98,7 +97,12 @@ export interface GetVNetPeeringResult {
  * Azure REST API version: 2023-02-01.
  */
 export function getVNetPeeringOutput(args: GetVNetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVNetPeeringResult> {
-    return pulumi.output(args).apply((a: any) => getVNetPeering(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:databricks:getVNetPeering", {
+        "peeringName": args.peeringName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetVNetPeeringOutputArgs {

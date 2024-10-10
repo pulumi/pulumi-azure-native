@@ -290,9 +290,6 @@ def get_metric_alert(resource_group_name: Optional[str] = None,
         target_resource_type=pulumi.get(__ret__, 'target_resource_type'),
         type=pulumi.get(__ret__, 'type'),
         window_size=pulumi.get(__ret__, 'window_size'))
-
-
-@_utilities.lift_output_func(get_metric_alert)
 def get_metric_alert_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             rule_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricAlertResult]:
@@ -304,4 +301,27 @@ def get_metric_alert_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['ruleName'] = rule_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getMetricAlert', __args__, opts=opts, typ=GetMetricAlertResult)
+    return __ret__.apply(lambda __response__: GetMetricAlertResult(
+        actions=pulumi.get(__response__, 'actions'),
+        auto_mitigate=pulumi.get(__response__, 'auto_mitigate'),
+        criteria=pulumi.get(__response__, 'criteria'),
+        description=pulumi.get(__response__, 'description'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        evaluation_frequency=pulumi.get(__response__, 'evaluation_frequency'),
+        id=pulumi.get(__response__, 'id'),
+        is_migrated=pulumi.get(__response__, 'is_migrated'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        scopes=pulumi.get(__response__, 'scopes'),
+        severity=pulumi.get(__response__, 'severity'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_resource_region=pulumi.get(__response__, 'target_resource_region'),
+        target_resource_type=pulumi.get(__response__, 'target_resource_type'),
+        type=pulumi.get(__response__, 'type'),
+        window_size=pulumi.get(__response__, 'window_size')))

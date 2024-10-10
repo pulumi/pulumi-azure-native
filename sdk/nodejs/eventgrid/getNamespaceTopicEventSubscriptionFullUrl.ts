@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-06-01-preview.
  */
 export function getNamespaceTopicEventSubscriptionFullUrl(args: GetNamespaceTopicEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicEventSubscriptionFullUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid:getNamespaceTopicEventSubscriptionFullUrl", {
         "eventSubscriptionName": args.eventSubscriptionName,
@@ -52,7 +51,13 @@ export interface GetNamespaceTopicEventSubscriptionFullUrlResult {
  * Azure REST API version: 2024-06-01-preview.
  */
 export function getNamespaceTopicEventSubscriptionFullUrlOutput(args: GetNamespaceTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceTopicEventSubscriptionFullUrlResult> {
-    return pulumi.output(args).apply((a: any) => getNamespaceTopicEventSubscriptionFullUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid:getNamespaceTopicEventSubscriptionFullUrl", {
+        "eventSubscriptionName": args.eventSubscriptionName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+        "topicName": args.topicName,
+    }, opts);
 }
 
 export interface GetNamespaceTopicEventSubscriptionFullUrlOutputArgs {

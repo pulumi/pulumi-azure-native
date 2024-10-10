@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the list of advanced security objects
  */
 export function listGlobalRulestackAdvancedSecurityObjects(args: ListGlobalRulestackAdvancedSecurityObjectsArgs, opts?: pulumi.InvokeOptions): Promise<ListGlobalRulestackAdvancedSecurityObjectsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20240207preview:listGlobalRulestackAdvancedSecurityObjects", {
         "globalRulestackName": args.globalRulestackName,
@@ -48,7 +47,13 @@ export interface ListGlobalRulestackAdvancedSecurityObjectsResult {
  * Get the list of advanced security objects
  */
 export function listGlobalRulestackAdvancedSecurityObjectsOutput(args: ListGlobalRulestackAdvancedSecurityObjectsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalRulestackAdvancedSecurityObjectsResult> {
-    return pulumi.output(args).apply((a: any) => listGlobalRulestackAdvancedSecurityObjects(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240207preview:listGlobalRulestackAdvancedSecurityObjects", {
+        "globalRulestackName": args.globalRulestackName,
+        "skip": args.skip,
+        "top": args.top,
+        "type": args.type,
+    }, opts);
 }
 
 export interface ListGlobalRulestackAdvancedSecurityObjectsOutputArgs {

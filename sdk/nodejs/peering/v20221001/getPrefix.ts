@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
  */
 export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:peering/v20221001:getPrefix", {
         "expand": args.expand,
@@ -89,7 +88,13 @@ export interface GetPrefixResult {
  * Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
  */
 export function getPrefixOutput(args: GetPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixResult> {
-    return pulumi.output(args).apply((a: any) => getPrefix(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:peering/v20221001:getPrefix", {
+        "expand": args.expand,
+        "peeringServiceName": args.peeringServiceName,
+        "prefixName": args.prefixName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPrefixOutputArgs {

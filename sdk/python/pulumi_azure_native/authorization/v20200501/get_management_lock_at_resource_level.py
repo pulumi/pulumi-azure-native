@@ -158,9 +158,6 @@ def get_management_lock_at_resource_level(lock_name: Optional[str] = None,
         owners=pulumi.get(__ret__, 'owners'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_management_lock_at_resource_level)
 def get_management_lock_at_resource_level_output(lock_name: Optional[pulumi.Input[str]] = None,
                                                  parent_resource_path: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -179,4 +176,20 @@ def get_management_lock_at_resource_level_output(lock_name: Optional[pulumi.Inpu
     :param str resource_provider_namespace: The namespace of the resource provider.
     :param str resource_type: The type of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['lockName'] = lock_name
+    __args__['parentResourcePath'] = parent_resource_path
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    __args__['resourceProviderNamespace'] = resource_provider_namespace
+    __args__['resourceType'] = resource_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20200501:getManagementLockAtResourceLevel', __args__, opts=opts, typ=GetManagementLockAtResourceLevelResult)
+    return __ret__.apply(lambda __response__: GetManagementLockAtResourceLevelResult(
+        id=pulumi.get(__response__, 'id'),
+        level=pulumi.get(__response__, 'level'),
+        name=pulumi.get(__response__, 'name'),
+        notes=pulumi.get(__response__, 'notes'),
+        owners=pulumi.get(__response__, 'owners'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

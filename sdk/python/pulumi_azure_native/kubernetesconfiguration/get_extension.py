@@ -340,9 +340,6 @@ def get_extension(cluster_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_extension)
 def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          cluster_resource_name: Optional[pulumi.Input[str]] = None,
                          cluster_rp: Optional[pulumi.Input[str]] = None,
@@ -362,4 +359,33 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str extension_name: Name of the Extension.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['clusterResourceName'] = cluster_resource_name
+    __args__['clusterRp'] = cluster_rp
+    __args__['extensionName'] = extension_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesconfiguration:getExtension', __args__, opts=opts, typ=GetExtensionResult)
+    return __ret__.apply(lambda __response__: GetExtensionResult(
+        aks_assigned_identity=pulumi.get(__response__, 'aks_assigned_identity'),
+        auto_upgrade_minor_version=pulumi.get(__response__, 'auto_upgrade_minor_version'),
+        configuration_protected_settings=pulumi.get(__response__, 'configuration_protected_settings'),
+        configuration_settings=pulumi.get(__response__, 'configuration_settings'),
+        current_version=pulumi.get(__response__, 'current_version'),
+        custom_location_settings=pulumi.get(__response__, 'custom_location_settings'),
+        error_info=pulumi.get(__response__, 'error_info'),
+        extension_type=pulumi.get(__response__, 'extension_type'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        is_system_extension=pulumi.get(__response__, 'is_system_extension'),
+        name=pulumi.get(__response__, 'name'),
+        package_uri=pulumi.get(__response__, 'package_uri'),
+        plan=pulumi.get(__response__, 'plan'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        release_train=pulumi.get(__response__, 'release_train'),
+        scope=pulumi.get(__response__, 'scope'),
+        statuses=pulumi.get(__response__, 'statuses'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

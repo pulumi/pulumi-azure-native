@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns a EnterpriseKnowledgeGraph service specified by the parameters.
  */
 export function getEnterpriseKnowledgeGraph(args: GetEnterpriseKnowledgeGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseKnowledgeGraphResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", {
         "resourceGroupName": args.resourceGroupName,
@@ -67,7 +66,11 @@ export interface GetEnterpriseKnowledgeGraphResult {
  * Returns a EnterpriseKnowledgeGraph service specified by the parameters.
  */
 export function getEnterpriseKnowledgeGraphOutput(args: GetEnterpriseKnowledgeGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseKnowledgeGraphResult> {
-    return pulumi.output(args).apply((a: any) => getEnterpriseKnowledgeGraph(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetEnterpriseKnowledgeGraphOutputArgs {

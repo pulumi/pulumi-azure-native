@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a cost allocation rule by rule name and billing account or enterprise enrollment.
  */
 export function getCostAllocationRule(args: GetCostAllocationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetCostAllocationRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20200301preview:getCostAllocationRule", {
         "billingAccountId": args.billingAccountId,
@@ -55,7 +54,11 @@ export interface GetCostAllocationRuleResult {
  * Get a cost allocation rule by rule name and billing account or enterprise enrollment.
  */
 export function getCostAllocationRuleOutput(args: GetCostAllocationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostAllocationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getCostAllocationRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20200301preview:getCostAllocationRule", {
+        "billingAccountId": args.billingAccountId,
+        "ruleName": args.ruleName,
+    }, opts);
 }
 
 export interface GetCostAllocationRuleOutputArgs {

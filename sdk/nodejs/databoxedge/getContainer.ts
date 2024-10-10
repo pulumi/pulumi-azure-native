@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge:getContainer", {
         "containerName": args.containerName,
@@ -87,7 +86,13 @@ export interface GetContainerResult {
  * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
-    return pulumi.output(args).apply((a: any) => getContainer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:databoxedge:getContainer", {
+        "containerName": args.containerName,
+        "deviceName": args.deviceName,
+        "resourceGroupName": args.resourceGroupName,
+        "storageAccountName": args.storageAccountName,
+    }, opts);
 }
 
 export interface GetContainerOutputArgs {

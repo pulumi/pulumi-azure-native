@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a devcenter encryption set.
  */
 export function getEncryptionSet(args: GetEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20241001preview:getEncryptionSet", {
         "devCenterName": args.devCenterName,
@@ -84,7 +83,12 @@ export interface GetEncryptionSetResult {
  * Gets a devcenter encryption set.
  */
 export function getEncryptionSetOutput(args: GetEncryptionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionSetResult> {
-    return pulumi.output(args).apply((a: any) => getEncryptionSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20241001preview:getEncryptionSet", {
+        "devCenterName": args.devCenterName,
+        "encryptionSetName": args.encryptionSetName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEncryptionSetOutputArgs {

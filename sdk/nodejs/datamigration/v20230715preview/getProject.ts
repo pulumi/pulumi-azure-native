@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20230715preview:getProject", {
         "groupName": args.groupName,
@@ -86,7 +85,12 @@ export interface GetProjectResult {
  * The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    return pulumi.output(args).apply((a: any) => getProject(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datamigration/v20230715preview:getProject", {
+        "groupName": args.groupName,
+        "projectName": args.projectName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetProjectOutputArgs {

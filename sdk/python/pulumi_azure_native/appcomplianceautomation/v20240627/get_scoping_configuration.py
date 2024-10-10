@@ -133,9 +133,6 @@ def get_scoping_configuration(report_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_scoping_configuration)
 def get_scoping_configuration_output(report_name: Optional[pulumi.Input[str]] = None,
                                      scoping_configuration_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopingConfigurationResult]:
@@ -146,4 +143,15 @@ def get_scoping_configuration_output(report_name: Optional[pulumi.Input[str]] = 
     :param str report_name: Report Name.
     :param str scoping_configuration_name: The scoping configuration of the specific report.
     """
-    ...
+    __args__ = dict()
+    __args__['reportName'] = report_name
+    __args__['scopingConfigurationName'] = scoping_configuration_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation/v20240627:getScopingConfiguration', __args__, opts=opts, typ=GetScopingConfigurationResult)
+    return __ret__.apply(lambda __response__: GetScopingConfigurationResult(
+        answers=pulumi.get(__response__, 'answers'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

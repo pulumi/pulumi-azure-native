@@ -124,9 +124,6 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_registration_assignment)
 def get_registration_assignment_output(expand_registration_definition: Optional[pulumi.Input[Optional[bool]]] = None,
                                        registration_assignment_id: Optional[pulumi.Input[str]] = None,
                                        scope: Optional[pulumi.Input[str]] = None,
@@ -140,4 +137,15 @@ def get_registration_assignment_output(expand_registration_definition: Optional[
     :param str registration_assignment_id: The GUID of the registration assignment.
     :param str scope: The scope of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['expandRegistrationDefinition'] = expand_registration_definition
+    __args__['registrationAssignmentId'] = registration_assignment_id
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:managedservices:getRegistrationAssignment', __args__, opts=opts, typ=GetRegistrationAssignmentResult)
+    return __ret__.apply(lambda __response__: GetRegistrationAssignmentResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

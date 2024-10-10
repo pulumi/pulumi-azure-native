@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getCapacityReservationGroup(args: GetCapacityReservationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240401preview:getCapacityReservationGroup", {
         "groupId": args.groupId,
@@ -70,7 +69,11 @@ export interface GetCapacityReservationGroupResult {
     readonly type: string;
 }
 export function getCapacityReservationGroupOutput(args: GetCapacityReservationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationGroupResult> {
-    return pulumi.output(args).apply((a: any) => getCapacityReservationGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401preview:getCapacityReservationGroup", {
+        "groupId": args.groupId,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCapacityReservationGroupOutputArgs {

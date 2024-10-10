@@ -194,9 +194,6 @@ def get_volume_quota_rule(account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_volume_quota_rule)
 def get_volume_quota_rule_output(account_name: Optional[pulumi.Input[str]] = None,
                                  pool_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -213,4 +210,22 @@ def get_volume_quota_rule_output(account_name: Optional[pulumi.Input[str]] = Non
     :param str volume_name: The name of the volume
     :param str volume_quota_rule_name: The name of volume quota rule
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['poolName'] = pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['volumeName'] = volume_name
+    __args__['volumeQuotaRuleName'] = volume_quota_rule_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20221101:getVolumeQuotaRule', __args__, opts=opts, typ=GetVolumeQuotaRuleResult)
+    return __ret__.apply(lambda __response__: GetVolumeQuotaRuleResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        quota_size_in_ki_bs=pulumi.get(__response__, 'quota_size_in_ki_bs'),
+        quota_target=pulumi.get(__response__, 'quota_target'),
+        quota_type=pulumi.get(__response__, 'quota_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

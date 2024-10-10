@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Connection Setting registration for a Bot Service
  */
 export function listBotConnectionWithSecrets(args: ListBotConnectionWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotConnectionWithSecretsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice/v20230915preview:listBotConnectionWithSecrets", {
         "connectionName": args.connectionName,
@@ -84,7 +83,12 @@ export interface ListBotConnectionWithSecretsResult {
  * Get a Connection Setting registration for a Bot Service
  */
 export function listBotConnectionWithSecretsOutput(args: ListBotConnectionWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotConnectionWithSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listBotConnectionWithSecrets(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:botservice/v20230915preview:listBotConnectionWithSecrets", {
+        "connectionName": args.connectionName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface ListBotConnectionWithSecretsOutputArgs {

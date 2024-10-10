@@ -240,9 +240,6 @@ def get_key(key_name: Optional[str] = None,
         rotation_policy=pulumi.get(__ret__, 'rotation_policy'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_key)
 def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    vault_name: Optional[pulumi.Input[str]] = None,
@@ -258,4 +255,24 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group which contains the specified key vault.
     :param str vault_name: The name of the vault which contains the key to be retrieved.
     """
-    ...
+    __args__ = dict()
+    __args__['keyName'] = key_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vaultName'] = vault_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:keyvault:getKey', __args__, opts=opts, typ=GetKeyResult)
+    return __ret__.apply(lambda __response__: GetKeyResult(
+        attributes=pulumi.get(__response__, 'attributes'),
+        curve_name=pulumi.get(__response__, 'curve_name'),
+        id=pulumi.get(__response__, 'id'),
+        key_ops=pulumi.get(__response__, 'key_ops'),
+        key_size=pulumi.get(__response__, 'key_size'),
+        key_uri=pulumi.get(__response__, 'key_uri'),
+        key_uri_with_version=pulumi.get(__response__, 'key_uri_with_version'),
+        kty=pulumi.get(__response__, 'kty'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        release_policy=pulumi.get(__response__, 'release_policy'),
+        rotation_policy=pulumi.get(__response__, 'rotation_policy'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

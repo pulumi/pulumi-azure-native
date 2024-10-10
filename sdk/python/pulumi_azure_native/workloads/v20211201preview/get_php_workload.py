@@ -354,9 +354,6 @@ def get_php_workload(php_workload_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         web_nodes_profile=pulumi.get(__ret__, 'web_nodes_profile'))
-
-
-@_utilities.lift_output_func(get_php_workload)
 def get_php_workload_output(php_workload_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPhpWorkloadResult]:
@@ -367,4 +364,32 @@ def get_php_workload_output(php_workload_name: Optional[pulumi.Input[str]] = Non
     :param str php_workload_name: Php workload name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['phpWorkloadName'] = php_workload_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20211201preview:getPhpWorkload', __args__, opts=opts, typ=GetPhpWorkloadResult)
+    return __ret__.apply(lambda __response__: GetPhpWorkloadResult(
+        admin_user_profile=pulumi.get(__response__, 'admin_user_profile'),
+        app_location=pulumi.get(__response__, 'app_location'),
+        backup_profile=pulumi.get(__response__, 'backup_profile'),
+        cache_profile=pulumi.get(__response__, 'cache_profile'),
+        controller_profile=pulumi.get(__response__, 'controller_profile'),
+        database_profile=pulumi.get(__response__, 'database_profile'),
+        fileshare_profile=pulumi.get(__response__, 'fileshare_profile'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        managed_resource_group_configuration=pulumi.get(__response__, 'managed_resource_group_configuration'),
+        name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
+        php_profile=pulumi.get(__response__, 'php_profile'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        search_profile=pulumi.get(__response__, 'search_profile'),
+        site_profile=pulumi.get(__response__, 'site_profile'),
+        sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        web_nodes_profile=pulumi.get(__response__, 'web_nodes_profile')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an order item.
  */
 export function getOrderItemByName(args: GetOrderItemByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderItemByNameResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edgeorder/v20211201:getOrderItemByName", {
         "expand": args.expand,
@@ -84,7 +83,12 @@ export interface GetOrderItemByNameResult {
  * Gets an order item.
  */
 export function getOrderItemByNameOutput(args: GetOrderItemByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderItemByNameResult> {
-    return pulumi.output(args).apply((a: any) => getOrderItemByName(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:edgeorder/v20211201:getOrderItemByName", {
+        "expand": args.expand,
+        "orderItemName": args.orderItemName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetOrderItemByNameOutputArgs {

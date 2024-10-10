@@ -149,9 +149,6 @@ def get_hcx_enterprise_site(hcx_enterprise_site_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_hcx_enterprise_site)
 def get_hcx_enterprise_site_output(hcx_enterprise_site_name: Optional[pulumi.Input[str]] = None,
                                    private_cloud_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -164,4 +161,17 @@ def get_hcx_enterprise_site_output(hcx_enterprise_site_name: Optional[pulumi.Inp
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['hcxEnterpriseSiteName'] = hcx_enterprise_site_name
+    __args__['privateCloudName'] = private_cloud_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20230901:getHcxEnterpriseSite', __args__, opts=opts, typ=GetHcxEnterpriseSiteResult)
+    return __ret__.apply(lambda __response__: GetHcxEnterpriseSiteResult(
+        activation_key=pulumi.get(__response__, 'activation_key'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

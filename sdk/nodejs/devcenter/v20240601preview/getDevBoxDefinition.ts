@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a Dev Box definition
  */
 export function getDevBoxDefinition(args: GetDevBoxDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDevBoxDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter/v20240601preview:getDevBoxDefinition", {
         "devBoxDefinitionName": args.devBoxDefinitionName,
@@ -104,7 +103,12 @@ export interface GetDevBoxDefinitionResult {
  * Gets a Dev Box definition
  */
 export function getDevBoxDefinitionOutput(args: GetDevBoxDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevBoxDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getDevBoxDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240601preview:getDevBoxDefinition", {
+        "devBoxDefinitionName": args.devBoxDefinitionName,
+        "devCenterName": args.devCenterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDevBoxDefinitionOutputArgs {

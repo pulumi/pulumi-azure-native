@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-05-01-preview.
  */
 export function getWebAppCollectorOperation(args: GetWebAppCollectorOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppCollectorOperationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getWebAppCollectorOperation", {
         "collectorName": args.collectorName,
@@ -86,7 +85,12 @@ export interface GetWebAppCollectorOperationResult {
  * Other available API versions: 2023-05-01-preview.
  */
 export function getWebAppCollectorOperationOutput(args: GetWebAppCollectorOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppCollectorOperationResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppCollectorOperation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate:getWebAppCollectorOperation", {
+        "collectorName": args.collectorName,
+        "projectName": args.projectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWebAppCollectorOperationOutputArgs {

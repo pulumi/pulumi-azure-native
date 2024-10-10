@@ -135,9 +135,6 @@ def get_integration_runtime_connection_info(factory_name: Optional[str] = None,
         public_key=pulumi.get(__ret__, 'public_key'),
         service_token=pulumi.get(__ret__, 'service_token'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_integration_runtime_connection_info)
 def get_integration_runtime_connection_info_output(factory_name: Optional[pulumi.Input[str]] = None,
                                                    integration_runtime_name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -150,4 +147,16 @@ def get_integration_runtime_connection_info_output(factory_name: Optional[pulumi
     :param str integration_runtime_name: The integration runtime name.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['factoryName'] = factory_name
+    __args__['integrationRuntimeName'] = integration_runtime_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory/v20180601:getIntegrationRuntimeConnectionInfo', __args__, opts=opts, typ=GetIntegrationRuntimeConnectionInfoResult)
+    return __ret__.apply(lambda __response__: GetIntegrationRuntimeConnectionInfoResult(
+        host_service_uri=pulumi.get(__response__, 'host_service_uri'),
+        identity_cert_thumbprint=pulumi.get(__response__, 'identity_cert_thumbprint'),
+        is_identity_cert_exprired=pulumi.get(__response__, 'is_identity_cert_exprired'),
+        public_key=pulumi.get(__response__, 'public_key'),
+        service_token=pulumi.get(__response__, 'service_token'),
+        version=pulumi.get(__response__, 'version')))

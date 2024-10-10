@@ -68,9 +68,6 @@ def list_key_by_automation_account(automation_account_name: Optional[str] = None
 
     return AwaitableListKeyByAutomationAccountResult(
         keys=pulumi.get(__ret__, 'keys'))
-
-
-@_utilities.lift_output_func(list_key_by_automation_account)
 def list_key_by_automation_account_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKeyByAutomationAccountResult]:
@@ -84,4 +81,10 @@ def list_key_by_automation_account_output(automation_account_name: Optional[pulu
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['automationAccountName'] = automation_account_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:automation:listKeyByAutomationAccount', __args__, opts=opts, typ=ListKeyByAutomationAccountResult)
+    return __ret__.apply(lambda __response__: ListKeyByAutomationAccountResult(
+        keys=pulumi.get(__response__, 'keys')))

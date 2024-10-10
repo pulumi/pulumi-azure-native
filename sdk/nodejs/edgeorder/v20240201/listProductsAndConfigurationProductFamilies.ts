@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List product families for the given subscription.
  */
 export function listProductsAndConfigurationProductFamilies(args: ListProductsAndConfigurationProductFamiliesArgs, opts?: pulumi.InvokeOptions): Promise<ListProductsAndConfigurationProductFamiliesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edgeorder/v20240201:listProductsAndConfigurationProductFamilies", {
         "customerSubscriptionDetails": args.customerSubscriptionDetails,
@@ -57,7 +56,13 @@ export interface ListProductsAndConfigurationProductFamiliesResult {
  * List product families for the given subscription.
  */
 export function listProductsAndConfigurationProductFamiliesOutput(args: ListProductsAndConfigurationProductFamiliesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductsAndConfigurationProductFamiliesResult> {
-    return pulumi.output(args).apply((a: any) => listProductsAndConfigurationProductFamilies(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:edgeorder/v20240201:listProductsAndConfigurationProductFamilies", {
+        "customerSubscriptionDetails": args.customerSubscriptionDetails,
+        "expand": args.expand,
+        "filterableProperties": args.filterableProperties,
+        "skipToken": args.skipToken,
+    }, opts);
 }
 
 export interface ListProductsAndConfigurationProductFamiliesOutputArgs {

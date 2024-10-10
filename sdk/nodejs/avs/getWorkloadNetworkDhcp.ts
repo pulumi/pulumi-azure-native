@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
  */
 export function getWorkloadNetworkDhcp(args: GetWorkloadNetworkDhcpArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDhcpResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs:getWorkloadNetworkDhcp", {
         "dhcpId": args.dhcpId,
@@ -66,7 +65,12 @@ export interface GetWorkloadNetworkDhcpResult {
  * Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
  */
 export function getWorkloadNetworkDhcpOutput(args: GetWorkloadNetworkDhcpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDhcpResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadNetworkDhcp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs:getWorkloadNetworkDhcp", {
+        "dhcpId": args.dhcpId,
+        "privateCloudName": args.privateCloudName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWorkloadNetworkDhcpOutputArgs {

@@ -159,9 +159,6 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
         role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
         scope=pulumi.get(__ret__, 'scope'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_role_management_policy_assignment)
 def get_role_management_policy_assignment_output(role_management_policy_assignment_name: Optional[pulumi.Input[str]] = None,
                                                  scope: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleManagementPolicyAssignmentResult]:
@@ -172,4 +169,17 @@ def get_role_management_policy_assignment_output(role_management_policy_assignme
     :param str role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to get.
     :param str scope: The scope of the role management policy.
     """
-    ...
+    __args__ = dict()
+    __args__['roleManagementPolicyAssignmentName'] = role_management_policy_assignment_name
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20240901preview:getRoleManagementPolicyAssignment', __args__, opts=opts, typ=GetRoleManagementPolicyAssignmentResult)
+    return __ret__.apply(lambda __response__: GetRoleManagementPolicyAssignmentResult(
+        effective_rules=pulumi.get(__response__, 'effective_rules'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        policy_assignment_properties=pulumi.get(__response__, 'policy_assignment_properties'),
+        policy_id=pulumi.get(__response__, 'policy_id'),
+        role_definition_id=pulumi.get(__response__, 'role_definition_id'),
+        scope=pulumi.get(__response__, 'scope'),
+        type=pulumi.get(__response__, 'type')))

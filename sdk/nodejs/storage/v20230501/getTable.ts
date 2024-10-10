@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the table with the specified table name, under the specified account if it exists.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20230501:getTable", {
         "accountName": args.accountName,
@@ -64,7 +63,12 @@ export interface GetTableResult {
  * Gets the table with the specified table name, under the specified account if it exists.
  */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
-    return pulumi.output(args).apply((a: any) => getTable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storage/v20230501:getTable", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+        "tableName": args.tableName,
+    }, opts);
 }
 
 export interface GetTableOutputArgs {

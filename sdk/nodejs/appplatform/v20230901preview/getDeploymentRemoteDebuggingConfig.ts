@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get remote debugging config.
  */
 export function getDeploymentRemoteDebuggingConfig(args: GetDeploymentRemoteDebuggingConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentRemoteDebuggingConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20230901preview:getDeploymentRemoteDebuggingConfig", {
         "appName": args.appName,
@@ -54,7 +53,13 @@ export interface GetDeploymentRemoteDebuggingConfigResult {
  * Get remote debugging config.
  */
 export function getDeploymentRemoteDebuggingConfigOutput(args: GetDeploymentRemoteDebuggingConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentRemoteDebuggingConfigResult> {
-    return pulumi.output(args).apply((a: any) => getDeploymentRemoteDebuggingConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230901preview:getDeploymentRemoteDebuggingConfig", {
+        "appName": args.appName,
+        "deploymentName": args.deploymentName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetDeploymentRemoteDebuggingConfigOutputArgs {

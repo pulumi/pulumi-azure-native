@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getQueueServiceProperties(args: GetQueueServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueServicePropertiesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage:getQueueServiceProperties", {
         "accountName": args.accountName,
@@ -66,7 +65,12 @@ export interface GetQueueServicePropertiesResult {
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function getQueueServicePropertiesOutput(args: GetQueueServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueServicePropertiesResult> {
-    return pulumi.output(args).apply((a: any) => getQueueServiceProperties(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storage:getQueueServiceProperties", {
+        "accountName": args.accountName,
+        "queueServiceName": args.queueServiceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetQueueServicePropertiesOutputArgs {

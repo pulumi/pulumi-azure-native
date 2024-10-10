@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified Private Endpoint.
  */
 export function getPrivateEndpoint(args: GetPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:streamanalytics/v20200301:getPrivateEndpoint", {
         "clusterName": args.clusterName,
@@ -68,7 +67,12 @@ export interface GetPrivateEndpointResult {
  * Gets information about the specified Private Endpoint.
  */
 export function getPrivateEndpointOutput(args: GetPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:streamanalytics/v20200301:getPrivateEndpoint", {
+        "clusterName": args.clusterName,
+        "privateEndpointName": args.privateEndpointName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPrivateEndpointOutputArgs {

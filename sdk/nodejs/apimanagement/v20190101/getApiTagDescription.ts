@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get Tag description in scope of API
  */
 export function getApiTagDescription(args: GetApiTagDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiTagDescriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20190101:getApiTagDescription", {
         "apiId": args.apiId,
@@ -74,7 +73,13 @@ export interface GetApiTagDescriptionResult {
  * Get Tag description in scope of API
  */
 export function getApiTagDescriptionOutput(args: GetApiTagDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiTagDescriptionResult> {
-    return pulumi.output(args).apply((a: any) => getApiTagDescription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20190101:getApiTagDescription", {
+        "apiId": args.apiId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "tagId": args.tagId,
+    }, opts);
 }
 
 export interface GetApiTagDescriptionOutputArgs {

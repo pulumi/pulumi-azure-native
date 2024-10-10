@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getVpnLinkConnectionIkeSas(args: GetVpnLinkConnectionIkeSasArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnLinkConnectionIkeSasResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getVpnLinkConnectionIkeSas", {
         "connectionName": args.connectionName,
@@ -50,7 +49,13 @@ export interface GetVpnLinkConnectionIkeSasResult {
  * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export function getVpnLinkConnectionIkeSasOutput(args: GetVpnLinkConnectionIkeSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnLinkConnectionIkeSasResult> {
-    return pulumi.output(args).apply((a: any) => getVpnLinkConnectionIkeSas(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network:getVpnLinkConnectionIkeSas", {
+        "connectionName": args.connectionName,
+        "gatewayName": args.gatewayName,
+        "linkConnectionName": args.linkConnectionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetVpnLinkConnectionIkeSasOutputArgs {

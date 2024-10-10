@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a list of repositories metadata.
  */
 export function listSourceControlRepositories(args: ListSourceControlRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<ListSourceControlRepositoriesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210301preview:listSourceControlRepositories", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
@@ -52,7 +51,12 @@ export interface ListSourceControlRepositoriesResult {
  * Gets a list of repositories metadata.
  */
 export function listSourceControlRepositoriesOutput(args: ListSourceControlRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSourceControlRepositoriesResult> {
-    return pulumi.output(args).apply((a: any) => listSourceControlRepositories(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210301preview:listSourceControlRepositories", {
+        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListSourceControlRepositoriesOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-04-01-preview.
  */
 export function listWorkspaceConnectionModels(args: ListWorkspaceConnectionModelsArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceConnectionModelsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:listWorkspaceConnectionModels", {
         "resourceGroupName": args.resourceGroupName,
@@ -46,7 +45,11 @@ export interface ListWorkspaceConnectionModelsResult {
  * Azure REST API version: 2024-04-01-preview.
  */
 export function listWorkspaceConnectionModelsOutput(args: ListWorkspaceConnectionModelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceConnectionModelsResult> {
-    return pulumi.output(args).apply((a: any) => listWorkspaceConnectionModels(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listWorkspaceConnectionModels", {
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListWorkspaceConnectionModelsOutputArgs {

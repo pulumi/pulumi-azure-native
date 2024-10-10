@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-12-01, 2023-12-01-preview.
  */
 export function getApplicationDefinition(args: GetApplicationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:solutions:getApplicationDefinition", {
         "applicationDefinitionName": args.applicationDefinitionName,
@@ -137,7 +136,11 @@ export interface GetApplicationDefinitionResult {
  * Other available API versions: 2017-12-01, 2023-12-01-preview.
  */
 export function getApplicationDefinitionOutput(args: GetApplicationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:solutions:getApplicationDefinition", {
+        "applicationDefinitionName": args.applicationDefinitionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetApplicationDefinitionOutputArgs {

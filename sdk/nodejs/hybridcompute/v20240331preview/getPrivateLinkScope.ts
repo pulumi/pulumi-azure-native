@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns a Azure Arc PrivateLinkScope.
  */
 export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute/v20240331preview:getPrivateLinkScope", {
         "resourceGroupName": args.resourceGroupName,
@@ -67,7 +66,11 @@ export interface GetPrivateLinkScopeResult {
  * Returns a Azure Arc PrivateLinkScope.
  */
 export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopeResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkScope(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridcompute/v20240331preview:getPrivateLinkScope", {
+        "resourceGroupName": args.resourceGroupName,
+        "scopeName": args.scopeName,
+    }, opts);
 }
 
 export interface GetPrivateLinkScopeOutputArgs {

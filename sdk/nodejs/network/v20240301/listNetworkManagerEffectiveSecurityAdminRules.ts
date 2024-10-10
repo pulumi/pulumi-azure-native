@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List all effective security admin rules applied on a virtual network.
  */
 export function listNetworkManagerEffectiveSecurityAdminRules(args: ListNetworkManagerEffectiveSecurityAdminRulesArgs, opts?: pulumi.InvokeOptions): Promise<ListNetworkManagerEffectiveSecurityAdminRulesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:listNetworkManagerEffectiveSecurityAdminRules", {
         "resourceGroupName": args.resourceGroupName,
@@ -57,7 +56,13 @@ export interface ListNetworkManagerEffectiveSecurityAdminRulesResult {
  * List all effective security admin rules applied on a virtual network.
  */
 export function listNetworkManagerEffectiveSecurityAdminRulesOutput(args: ListNetworkManagerEffectiveSecurityAdminRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerEffectiveSecurityAdminRulesResult> {
-    return pulumi.output(args).apply((a: any) => listNetworkManagerEffectiveSecurityAdminRules(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:listNetworkManagerEffectiveSecurityAdminRules", {
+        "resourceGroupName": args.resourceGroupName,
+        "skipToken": args.skipToken,
+        "top": args.top,
+        "virtualNetworkName": args.virtualNetworkName,
+    }, opts);
 }
 
 export interface ListNetworkManagerEffectiveSecurityAdminRulesOutputArgs {

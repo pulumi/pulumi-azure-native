@@ -215,9 +215,6 @@ def get_experiment(experiment_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_experiment)
 def get_experiment_output(experiment_name: Optional[pulumi.Input[str]] = None,
                           profile_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -231,4 +228,22 @@ def get_experiment_output(experiment_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: The Profile identifier associated with the Tenant and Partner
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['experimentName'] = experiment_name
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getExperiment', __args__, opts=opts, typ=GetExperimentResult)
+    return __ret__.apply(lambda __response__: GetExperimentResult(
+        description=pulumi.get(__response__, 'description'),
+        enabled_state=pulumi.get(__response__, 'enabled_state'),
+        endpoint_a=pulumi.get(__response__, 'endpoint_a'),
+        endpoint_b=pulumi.get(__response__, 'endpoint_b'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_state=pulumi.get(__response__, 'resource_state'),
+        script_file_uri=pulumi.get(__response__, 'script_file_uri'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

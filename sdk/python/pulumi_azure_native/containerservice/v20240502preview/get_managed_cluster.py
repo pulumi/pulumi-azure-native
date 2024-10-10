@@ -822,9 +822,6 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         upgrade_settings=pulumi.get(__ret__, 'upgrade_settings'),
         windows_profile=pulumi.get(__ret__, 'windows_profile'),
         workload_auto_scaler_profile=pulumi.get(__ret__, 'workload_auto_scaler_profile'))
-
-
-@_utilities.lift_output_func(get_managed_cluster)
 def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                resource_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterResult]:
@@ -835,4 +832,68 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20240502preview:getManagedCluster', __args__, opts=opts, typ=GetManagedClusterResult)
+    return __ret__.apply(lambda __response__: GetManagedClusterResult(
+        aad_profile=pulumi.get(__response__, 'aad_profile'),
+        addon_profiles=pulumi.get(__response__, 'addon_profiles'),
+        agent_pool_profiles=pulumi.get(__response__, 'agent_pool_profiles'),
+        ai_toolchain_operator_profile=pulumi.get(__response__, 'ai_toolchain_operator_profile'),
+        api_server_access_profile=pulumi.get(__response__, 'api_server_access_profile'),
+        auto_scaler_profile=pulumi.get(__response__, 'auto_scaler_profile'),
+        auto_upgrade_profile=pulumi.get(__response__, 'auto_upgrade_profile'),
+        azure_monitor_profile=pulumi.get(__response__, 'azure_monitor_profile'),
+        azure_portal_fqdn=pulumi.get(__response__, 'azure_portal_fqdn'),
+        bootstrap_profile=pulumi.get(__response__, 'bootstrap_profile'),
+        creation_data=pulumi.get(__response__, 'creation_data'),
+        current_kubernetes_version=pulumi.get(__response__, 'current_kubernetes_version'),
+        disable_local_accounts=pulumi.get(__response__, 'disable_local_accounts'),
+        disk_encryption_set_id=pulumi.get(__response__, 'disk_encryption_set_id'),
+        dns_prefix=pulumi.get(__response__, 'dns_prefix'),
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        enable_namespace_resources=pulumi.get(__response__, 'enable_namespace_resources'),
+        enable_pod_security_policy=pulumi.get(__response__, 'enable_pod_security_policy'),
+        enable_rbac=pulumi.get(__response__, 'enable_rbac'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        fqdn_subdomain=pulumi.get(__response__, 'fqdn_subdomain'),
+        http_proxy_config=pulumi.get(__response__, 'http_proxy_config'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        identity_profile=pulumi.get(__response__, 'identity_profile'),
+        ingress_profile=pulumi.get(__response__, 'ingress_profile'),
+        kind=pulumi.get(__response__, 'kind'),
+        kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
+        linux_profile=pulumi.get(__response__, 'linux_profile'),
+        location=pulumi.get(__response__, 'location'),
+        max_agent_pools=pulumi.get(__response__, 'max_agent_pools'),
+        metrics_profile=pulumi.get(__response__, 'metrics_profile'),
+        name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
+        node_provisioning_profile=pulumi.get(__response__, 'node_provisioning_profile'),
+        node_resource_group=pulumi.get(__response__, 'node_resource_group'),
+        node_resource_group_profile=pulumi.get(__response__, 'node_resource_group_profile'),
+        oidc_issuer_profile=pulumi.get(__response__, 'oidc_issuer_profile'),
+        pod_identity_profile=pulumi.get(__response__, 'pod_identity_profile'),
+        power_state=pulumi.get(__response__, 'power_state'),
+        private_fqdn=pulumi.get(__response__, 'private_fqdn'),
+        private_link_resources=pulumi.get(__response__, 'private_link_resources'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        resource_uid=pulumi.get(__response__, 'resource_uid'),
+        safeguards_profile=pulumi.get(__response__, 'safeguards_profile'),
+        security_profile=pulumi.get(__response__, 'security_profile'),
+        service_mesh_profile=pulumi.get(__response__, 'service_mesh_profile'),
+        service_principal_profile=pulumi.get(__response__, 'service_principal_profile'),
+        sku=pulumi.get(__response__, 'sku'),
+        storage_profile=pulumi.get(__response__, 'storage_profile'),
+        support_plan=pulumi.get(__response__, 'support_plan'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        upgrade_settings=pulumi.get(__response__, 'upgrade_settings'),
+        windows_profile=pulumi.get(__response__, 'windows_profile'),
+        workload_auto_scaler_profile=pulumi.get(__response__, 'workload_auto_scaler_profile')))

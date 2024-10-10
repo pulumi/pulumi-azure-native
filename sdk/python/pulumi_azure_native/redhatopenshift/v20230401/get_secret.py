@@ -123,9 +123,6 @@ def get_secret(child_resource_name: Optional[str] = None,
         secret_resources=pulumi.get(__ret__, 'secret_resources'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_secret)
 def get_secret_output(child_resource_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       resource_name: Optional[pulumi.Input[str]] = None,
@@ -138,4 +135,15 @@ def get_secret_output(child_resource_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the OpenShift cluster resource.
     """
-    ...
+    __args__ = dict()
+    __args__['childResourceName'] = child_resource_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:redhatopenshift/v20230401:getSecret', __args__, opts=opts, typ=GetSecretResult)
+    return __ret__.apply(lambda __response__: GetSecretResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        secret_resources=pulumi.get(__response__, 'secret_resources'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

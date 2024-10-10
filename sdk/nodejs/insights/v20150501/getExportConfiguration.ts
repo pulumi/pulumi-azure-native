@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get the Continuous Export configuration for this export id.
  */
 export function getExportConfiguration(args: GetExportConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetExportConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20150501:getExportConfiguration", {
         "exportId": args.exportId,
@@ -117,7 +116,12 @@ export interface GetExportConfigurationResult {
  * Get the Continuous Export configuration for this export id.
  */
 export function getExportConfigurationOutput(args: GetExportConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getExportConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights/v20150501:getExportConfiguration", {
+        "exportId": args.exportId,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetExportConfigurationOutputArgs {

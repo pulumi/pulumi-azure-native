@@ -224,9 +224,6 @@ def get_policy_definition_at_management_group(management_group_id: Optional[str]
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'),
         versions=pulumi.get(__ret__, 'versions'))
-
-
-@_utilities.lift_output_func(get_policy_definition_at_management_group)
 def get_policy_definition_at_management_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                                      policy_definition_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyDefinitionAtManagementGroupResult]:
@@ -237,4 +234,22 @@ def get_policy_definition_at_management_group_output(management_group_id: Option
     :param str management_group_id: The ID of the management group.
     :param str policy_definition_name: The name of the policy definition to get.
     """
-    ...
+    __args__ = dict()
+    __args__['managementGroupId'] = management_group_id
+    __args__['policyDefinitionName'] = policy_definition_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20240501:getPolicyDefinitionAtManagementGroup', __args__, opts=opts, typ=GetPolicyDefinitionAtManagementGroupResult)
+    return __ret__.apply(lambda __response__: GetPolicyDefinitionAtManagementGroupResult(
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        mode=pulumi.get(__response__, 'mode'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        policy_rule=pulumi.get(__response__, 'policy_rule'),
+        policy_type=pulumi.get(__response__, 'policy_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version'),
+        versions=pulumi.get(__response__, 'versions')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns a database.
  */
 export function getReadWriteDatabase(args: GetReadWriteDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadWriteDatabaseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getReadWriteDatabase", {
         "databaseName": args.databaseName,
@@ -94,7 +93,13 @@ export interface GetReadWriteDatabaseResult {
  * Returns a database.
  */
 export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadWriteDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getReadWriteDatabase(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:getReadWriteDatabase", {
+        "databaseName": args.databaseName,
+        "kustoPoolName": args.kustoPoolName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetReadWriteDatabaseOutputArgs {

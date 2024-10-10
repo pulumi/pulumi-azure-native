@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2015-11-01-preview.
  */
 export function getMachineGroup(args: GetMachineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights:getMachineGroup", {
         "endTime": args.endTime,
@@ -93,7 +92,14 @@ export interface GetMachineGroupResult {
  * Azure REST API version: 2015-11-01-preview.
  */
 export function getMachineGroupOutput(args: GetMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineGroupResult> {
-    return pulumi.output(args).apply((a: any) => getMachineGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getMachineGroup", {
+        "endTime": args.endTime,
+        "machineGroupName": args.machineGroupName,
+        "resourceGroupName": args.resourceGroupName,
+        "startTime": args.startTime,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetMachineGroupOutputArgs {

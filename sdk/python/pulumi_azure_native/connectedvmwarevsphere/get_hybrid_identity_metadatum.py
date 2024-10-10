@@ -165,9 +165,6 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         vm_id=pulumi.get(__ret__, 'vm_id'))
-
-
-@_utilities.lift_output_func(get_hybrid_identity_metadatum)
 def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          virtual_machine_name: Optional[pulumi.Input[str]] = None,
@@ -183,4 +180,18 @@ def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[st
     :param str resource_group_name: The Resource Group Name.
     :param str virtual_machine_name: Name of the vm.
     """
-    ...
+    __args__ = dict()
+    __args__['metadataName'] = metadata_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualMachineName'] = virtual_machine_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getHybridIdentityMetadatum', __args__, opts=opts, typ=GetHybridIdentityMetadatumResult)
+    return __ret__.apply(lambda __response__: GetHybridIdentityMetadatumResult(
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_key=pulumi.get(__response__, 'public_key'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        vm_id=pulumi.get(__response__, 'vm_id')))

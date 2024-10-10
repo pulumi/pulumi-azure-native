@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-06-15.
  */
 export function getInternalNetwork(args: GetInternalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetInternalNetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric:getInternalNetwork", {
         "internalNetworkName": args.internalNetworkName,
@@ -126,7 +125,12 @@ export interface GetInternalNetworkResult {
  * Other available API versions: 2023-06-15.
  */
 export function getInternalNetworkOutput(args: GetInternalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternalNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getInternalNetwork(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getInternalNetwork", {
+        "internalNetworkName": args.internalNetworkName,
+        "l3IsolationDomainName": args.l3IsolationDomainName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetInternalNetworkOutputArgs {

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
 export function getSchemaRegistry(args: GetSchemaRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub:getSchemaRegistry", {
         "namespaceName": args.namespaceName,
@@ -88,7 +87,12 @@ export interface GetSchemaRegistryResult {
  * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
 export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryResult> {
-    return pulumi.output(args).apply((a: any) => getSchemaRegistry(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventhub:getSchemaRegistry", {
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+        "schemaGroupName": args.schemaGroupName,
+    }, opts);
 }
 
 export interface GetSchemaRegistryOutputArgs {

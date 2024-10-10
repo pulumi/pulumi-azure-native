@@ -273,9 +273,6 @@ def get_l2_network(l2_network_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'))
-
-
-@_utilities.lift_output_func(get_l2_network)
 def get_l2_network_output(l2_network_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL2NetworkResult]:
@@ -286,4 +283,26 @@ def get_l2_network_output(l2_network_name: Optional[pulumi.Input[str]] = None,
     :param str l2_network_name: The name of the L2 network.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['l2NetworkName'] = l2_network_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20240701:getL2Network', __args__, opts=opts, typ=GetL2NetworkResult)
+    return __ret__.apply(lambda __response__: GetL2NetworkResult(
+        associated_resource_ids=pulumi.get(__response__, 'associated_resource_ids'),
+        cluster_id=pulumi.get(__response__, 'cluster_id'),
+        detailed_status=pulumi.get(__response__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        hybrid_aks_clusters_associated_ids=pulumi.get(__response__, 'hybrid_aks_clusters_associated_ids'),
+        hybrid_aks_plugin_type=pulumi.get(__response__, 'hybrid_aks_plugin_type'),
+        id=pulumi.get(__response__, 'id'),
+        interface_name=pulumi.get(__response__, 'interface_name'),
+        l2_isolation_domain_id=pulumi.get(__response__, 'l2_isolation_domain_id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_machines_associated_ids=pulumi.get(__response__, 'virtual_machines_associated_ids')))

@@ -12,7 +12,6 @@ import * as utilities from "../../utilities";
  */
 export function getSubscriptionTarDirectory(args?: GetSubscriptionTarDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionTarDirectoryResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:subscription/v20240801preview:getSubscriptionTarDirectory", {
         "subscriptionId": args.subscriptionId,
@@ -51,7 +50,11 @@ export interface GetSubscriptionTarDirectoryResult {
  * The operation to view Initiator Subscription Changed Request
  */
 export function getSubscriptionTarDirectoryOutput(args?: GetSubscriptionTarDirectoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionTarDirectoryResult> {
-    return pulumi.output(args).apply((a: any) => getSubscriptionTarDirectory(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:subscription/v20240801preview:getSubscriptionTarDirectory", {
+        "subscriptionId": args.subscriptionId,
+    }, opts);
 }
 
 export interface GetSubscriptionTarDirectoryOutputArgs {

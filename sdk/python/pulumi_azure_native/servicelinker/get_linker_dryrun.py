@@ -162,9 +162,6 @@ def get_linker_dryrun(dryrun_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_linker_dryrun)
 def get_linker_dryrun_output(dryrun_name: Optional[pulumi.Input[str]] = None,
                              resource_uri: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkerDryrunResult]:
@@ -178,4 +175,17 @@ def get_linker_dryrun_output(dryrun_name: Optional[pulumi.Input[str]] = None,
     :param str dryrun_name: The name of dryrun.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
-    ...
+    __args__ = dict()
+    __args__['dryrunName'] = dryrun_name
+    __args__['resourceUri'] = resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicelinker:getLinkerDryrun', __args__, opts=opts, typ=GetLinkerDryrunResult)
+    return __ret__.apply(lambda __response__: GetLinkerDryrunResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        operation_previews=pulumi.get(__response__, 'operation_previews'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        prerequisite_results=pulumi.get(__response__, 'prerequisite_results'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

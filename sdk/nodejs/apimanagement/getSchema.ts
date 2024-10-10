@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-04-01-preview.
  */
 export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getSchema", {
         "resourceGroupName": args.resourceGroupName,
@@ -67,7 +66,12 @@ export interface GetSchemaResult {
  * Azure REST API version: 2021-04-01-preview.
  */
 export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
-    return pulumi.output(args).apply((a: any) => getSchema(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getSchema", {
+        "resourceGroupName": args.resourceGroupName,
+        "schemaId": args.schemaId,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetSchemaOutputArgs {

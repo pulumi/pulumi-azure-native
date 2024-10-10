@@ -477,9 +477,6 @@ def get_content_template(resource_group_name: Optional[str] = None,
         threat_analysis_techniques=pulumi.get(__ret__, 'threat_analysis_techniques'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_content_template)
 def get_content_template_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                 template_id: Optional[pulumi.Input[str]] = None,
                                 workspace_name: Optional[pulumi.Input[str]] = None,
@@ -495,4 +492,42 @@ def get_content_template_output(resource_group_name: Optional[pulumi.Input[str]]
     :param str template_id: template Id
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['templateId'] = template_id
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240101preview:getContentTemplate', __args__, opts=opts, typ=GetContentTemplateResult)
+    return __ret__.apply(lambda __response__: GetContentTemplateResult(
+        author=pulumi.get(__response__, 'author'),
+        categories=pulumi.get(__response__, 'categories'),
+        content_id=pulumi.get(__response__, 'content_id'),
+        content_kind=pulumi.get(__response__, 'content_kind'),
+        content_product_id=pulumi.get(__response__, 'content_product_id'),
+        content_schema_version=pulumi.get(__response__, 'content_schema_version'),
+        custom_version=pulumi.get(__response__, 'custom_version'),
+        dependant_templates=pulumi.get(__response__, 'dependant_templates'),
+        dependencies=pulumi.get(__response__, 'dependencies'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        etag=pulumi.get(__response__, 'etag'),
+        first_publish_date=pulumi.get(__response__, 'first_publish_date'),
+        icon=pulumi.get(__response__, 'icon'),
+        id=pulumi.get(__response__, 'id'),
+        is_deprecated=pulumi.get(__response__, 'is_deprecated'),
+        last_publish_date=pulumi.get(__response__, 'last_publish_date'),
+        main_template=pulumi.get(__response__, 'main_template'),
+        name=pulumi.get(__response__, 'name'),
+        package_id=pulumi.get(__response__, 'package_id'),
+        package_kind=pulumi.get(__response__, 'package_kind'),
+        package_name=pulumi.get(__response__, 'package_name'),
+        package_version=pulumi.get(__response__, 'package_version'),
+        preview_images=pulumi.get(__response__, 'preview_images'),
+        preview_images_dark=pulumi.get(__response__, 'preview_images_dark'),
+        providers=pulumi.get(__response__, 'providers'),
+        source=pulumi.get(__response__, 'source'),
+        support=pulumi.get(__response__, 'support'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        threat_analysis_tactics=pulumi.get(__response__, 'threat_analysis_tactics'),
+        threat_analysis_techniques=pulumi.get(__response__, 'threat_analysis_techniques'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

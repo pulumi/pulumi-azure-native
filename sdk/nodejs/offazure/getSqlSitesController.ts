@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-10-01-preview.
  */
 export function getSqlSitesController(args: GetSqlSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlSitesControllerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazure:getSqlSitesController", {
         "resourceGroupName": args.resourceGroupName,
@@ -84,7 +83,12 @@ export interface GetSqlSitesControllerResult {
  * Other available API versions: 2023-10-01-preview.
  */
 export function getSqlSitesControllerOutput(args: GetSqlSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlSitesControllerResult> {
-    return pulumi.output(args).apply((a: any) => getSqlSitesController(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:offazure:getSqlSitesController", {
+        "resourceGroupName": args.resourceGroupName,
+        "siteName": args.siteName,
+        "sqlSiteName": args.sqlSiteName,
+    }, opts);
 }
 
 export interface GetSqlSitesControllerOutputArgs {

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-01.
  */
 export function listCatalogDevices(args: ListCatalogDevicesArgs, opts?: pulumi.InvokeOptions): Promise<ListCatalogDevicesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuresphere:listCatalogDevices", {
         "catalogName": args.catalogName,
@@ -73,7 +72,15 @@ export interface ListCatalogDevicesResult {
  * Other available API versions: 2024-04-01.
  */
 export function listCatalogDevicesOutput(args: ListCatalogDevicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCatalogDevicesResult> {
-    return pulumi.output(args).apply((a: any) => listCatalogDevices(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuresphere:listCatalogDevices", {
+        "catalogName": args.catalogName,
+        "filter": args.filter,
+        "maxpagesize": args.maxpagesize,
+        "resourceGroupName": args.resourceGroupName,
+        "skip": args.skip,
+        "top": args.top,
+    }, opts);
 }
 
 export interface ListCatalogDevicesOutputArgs {

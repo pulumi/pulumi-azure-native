@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
  */
 export function getServerTrustCertificate(args: GetServerTrustCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTrustCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20230501preview:getServerTrustCertificate", {
         "certificateName": args.certificateName,
@@ -65,7 +64,12 @@ export interface GetServerTrustCertificateResult {
  * Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
  */
 export function getServerTrustCertificateOutput(args: GetServerTrustCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTrustCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getServerTrustCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20230501preview:getServerTrustCertificate", {
+        "certificateName": args.certificateName,
+        "managedInstanceName": args.managedInstanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetServerTrustCertificateOutputArgs {

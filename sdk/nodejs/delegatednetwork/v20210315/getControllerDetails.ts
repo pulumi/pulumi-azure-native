@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets details about the specified dnc controller.
  */
 export function getControllerDetails(args: GetControllerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerDetailsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:delegatednetwork/v20210315:getControllerDetails", {
         "resourceGroupName": args.resourceGroupName,
@@ -76,7 +75,11 @@ export interface GetControllerDetailsResult {
  * Gets details about the specified dnc controller.
  */
 export function getControllerDetailsOutput(args: GetControllerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerDetailsResult> {
-    return pulumi.output(args).apply((a: any) => getControllerDetails(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:delegatednetwork/v20210315:getControllerDetails", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetControllerDetailsOutputArgs {

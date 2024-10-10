@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified networkFunctionDefinition group.
  */
 export function getNetworkFunctionDefinitionGroup(args: GetNetworkFunctionDefinitionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFunctionDefinitionGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20240415:getNetworkFunctionDefinitionGroup", {
         "networkFunctionDefinitionGroupName": args.networkFunctionDefinitionGroupName,
@@ -72,7 +71,12 @@ export interface GetNetworkFunctionDefinitionGroupResult {
  * Gets information about the specified networkFunctionDefinition group.
  */
 export function getNetworkFunctionDefinitionGroupOutput(args: GetNetworkFunctionDefinitionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFunctionDefinitionGroupResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkFunctionDefinitionGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20240415:getNetworkFunctionDefinitionGroup", {
+        "networkFunctionDefinitionGroupName": args.networkFunctionDefinitionGroupName,
+        "publisherName": args.publisherName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkFunctionDefinitionGroupOutputArgs {

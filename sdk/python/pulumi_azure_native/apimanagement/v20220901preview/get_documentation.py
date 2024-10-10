@@ -122,9 +122,6 @@ def get_documentation(documentation_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_documentation)
 def get_documentation_output(documentation_id: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              service_name: Optional[pulumi.Input[str]] = None,
@@ -137,4 +134,15 @@ def get_documentation_output(documentation_id: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    ...
+    __args__ = dict()
+    __args__['documentationId'] = documentation_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20220901preview:getDocumentation', __args__, opts=opts, typ=GetDocumentationResult)
+    return __ret__.apply(lambda __response__: GetDocumentationResult(
+        content=pulumi.get(__response__, 'content'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        title=pulumi.get(__response__, 'title'),
+        type=pulumi.get(__response__, 'type')))

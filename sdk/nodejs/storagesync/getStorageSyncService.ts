@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-06-05-preview, 2019-10-01, 2022-09-01.
  */
 export function getStorageSyncService(args: GetStorageSyncServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSyncServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagesync:getStorageSyncService", {
         "resourceGroupName": args.resourceGroupName,
@@ -97,7 +96,11 @@ export interface GetStorageSyncServiceResult {
  * Other available API versions: 2017-06-05-preview, 2019-10-01, 2022-09-01.
  */
 export function getStorageSyncServiceOutput(args: GetStorageSyncServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSyncServiceResult> {
-    return pulumi.output(args).apply((a: any) => getStorageSyncService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storagesync:getStorageSyncService", {
+        "resourceGroupName": args.resourceGroupName,
+        "storageSyncServiceName": args.storageSyncServiceName,
+    }, opts);
 }
 
 export interface GetStorageSyncServiceOutputArgs {

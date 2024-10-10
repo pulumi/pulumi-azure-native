@@ -76,9 +76,6 @@ def list_bot_connection_service_providers(opts: Optional[pulumi.InvokeOptions] =
     return AwaitableListBotConnectionServiceProvidersResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_bot_connection_service_providers)
 def list_bot_connection_service_providers_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBotConnectionServiceProvidersResult]:
     """
     Lists the available Service Providers for creating Connection Settings
@@ -86,4 +83,9 @@ def list_bot_connection_service_providers_output(opts: Optional[pulumi.InvokeOpt
 
     Other available API versions: 2017-12-01, 2018-07-12, 2020-06-02, 2021-03-01, 2021-05-01-preview, 2022-06-15-preview, 2023-09-15-preview.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:botservice:listBotConnectionServiceProviders', __args__, opts=opts, typ=ListBotConnectionServiceProvidersResult)
+    return __ret__.apply(lambda __response__: ListBotConnectionServiceProvidersResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

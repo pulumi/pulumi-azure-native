@@ -256,9 +256,6 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         target_iqn=pulumi.get(__ret__, 'target_iqn'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_iscsi_target)
 def get_iscsi_target_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
                             iscsi_target_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -274,4 +271,25 @@ def get_iscsi_target_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
     :param str iscsi_target_name: The name of the iSCSI Target.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['diskPoolName'] = disk_pool_name
+    __args__['iscsiTargetName'] = iscsi_target_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storagepool:getIscsiTarget', __args__, opts=opts, typ=GetIscsiTargetResult)
+    return __ret__.apply(lambda __response__: GetIscsiTargetResult(
+        acl_mode=pulumi.get(__response__, 'acl_mode'),
+        endpoints=pulumi.get(__response__, 'endpoints'),
+        id=pulumi.get(__response__, 'id'),
+        luns=pulumi.get(__response__, 'luns'),
+        managed_by=pulumi.get(__response__, 'managed_by'),
+        managed_by_extended=pulumi.get(__response__, 'managed_by_extended'),
+        name=pulumi.get(__response__, 'name'),
+        port=pulumi.get(__response__, 'port'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sessions=pulumi.get(__response__, 'sessions'),
+        static_acls=pulumi.get(__response__, 'static_acls'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        target_iqn=pulumi.get(__response__, 'target_iqn'),
+        type=pulumi.get(__response__, 'type')))

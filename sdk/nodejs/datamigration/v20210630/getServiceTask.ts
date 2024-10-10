@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
  */
 export function getServiceTask(args: GetServiceTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTaskResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20210630:getServiceTask", {
         "expand": args.expand,
@@ -73,7 +72,13 @@ export interface GetServiceTaskResult {
  * The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
  */
 export function getServiceTaskOutput(args: GetServiceTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTaskResult> {
-    return pulumi.output(args).apply((a: any) => getServiceTask(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datamigration/v20210630:getServiceTask", {
+        "expand": args.expand,
+        "groupName": args.groupName,
+        "serviceName": args.serviceName,
+        "taskName": args.taskName,
+    }, opts);
 }
 
 export interface GetServiceTaskOutputArgs {

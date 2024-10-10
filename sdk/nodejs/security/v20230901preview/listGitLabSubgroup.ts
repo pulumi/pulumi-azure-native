@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List of RP resources which supports pagination.
  */
 export function listGitLabSubgroup(args: ListGitLabSubgroupArgs, opts?: pulumi.InvokeOptions): Promise<ListGitLabSubgroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20230901preview:listGitLabSubgroup", {
         "groupFQName": args.groupFQName,
@@ -52,7 +51,12 @@ export interface ListGitLabSubgroupResult {
  * List of RP resources which supports pagination.
  */
 export function listGitLabSubgroupOutput(args: ListGitLabSubgroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGitLabSubgroupResult> {
-    return pulumi.output(args).apply((a: any) => listGitLabSubgroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security/v20230901preview:listGitLabSubgroup", {
+        "groupFQName": args.groupFQName,
+        "resourceGroupName": args.resourceGroupName,
+        "securityConnectorName": args.securityConnectorName,
+    }, opts);
 }
 
 export interface ListGitLabSubgroupOutputArgs {

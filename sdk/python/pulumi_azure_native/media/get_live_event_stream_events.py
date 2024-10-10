@@ -72,9 +72,6 @@ def get_live_event_stream_events(account_name: Optional[str] = None,
 
     return AwaitableGetLiveEventStreamEventsResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_live_event_stream_events)
 def get_live_event_stream_events_output(account_name: Optional[pulumi.Input[str]] = None,
                                         live_event_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -88,4 +85,11 @@ def get_live_event_stream_events_output(account_name: Optional[pulumi.Input[str]
     :param str live_event_name: The name of the live event, maximum length is 32.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['liveEventName'] = live_event_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:media:getLiveEventStreamEvents', __args__, opts=opts, typ=GetLiveEventStreamEventsResult)
+    return __ret__.apply(lambda __response__: GetLiveEventStreamEventsResult(
+        value=pulumi.get(__response__, 'value')))

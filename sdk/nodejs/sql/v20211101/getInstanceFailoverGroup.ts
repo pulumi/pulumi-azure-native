@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a failover group.
  */
 export function getInstanceFailoverGroup(args: GetInstanceFailoverGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceFailoverGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getInstanceFailoverGroup", {
         "failoverGroupName": args.failoverGroupName,
@@ -80,7 +79,12 @@ export interface GetInstanceFailoverGroupResult {
  * Gets a failover group.
  */
 export function getInstanceFailoverGroupOutput(args: GetInstanceFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceFailoverGroupResult> {
-    return pulumi.output(args).apply((a: any) => getInstanceFailoverGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getInstanceFailoverGroup", {
+        "failoverGroupName": args.failoverGroupName,
+        "locationName": args.locationName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetInstanceFailoverGroupOutputArgs {

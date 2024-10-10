@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The virtual network resource definition.
  */
 export function getVirtualnetworkRetrieve(args: GetVirtualnetworkRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualnetworkRetrieveResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getVirtualnetworkRetrieve", {
         "resourceGroupName": args.resourceGroupName,
@@ -81,7 +80,11 @@ export interface GetVirtualnetworkRetrieveResult {
  * The virtual network resource definition.
  */
 export function getVirtualnetworkRetrieveOutput(args: GetVirtualnetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualnetworkRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualnetworkRetrieve(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20210901preview:getVirtualnetworkRetrieve", {
+        "resourceGroupName": args.resourceGroupName,
+        "virtualnetworksName": args.virtualnetworksName,
+    }, opts);
 }
 
 export interface GetVirtualnetworkRetrieveOutputArgs {

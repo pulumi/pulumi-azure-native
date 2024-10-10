@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns an Application Insights component.
  */
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20200202preview:getComponent", {
         "resourceGroupName": args.resourceGroupName,
@@ -163,7 +162,11 @@ export interface GetComponentResult {
  * Returns an Application Insights component.
  */
 export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
-    return pulumi.output(args).apply((a: any) => getComponent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights/v20200202preview:getComponent", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetComponentOutputArgs {

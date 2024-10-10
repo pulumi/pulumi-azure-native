@@ -129,9 +129,6 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
         require_authorization_for_group_creation=pulumi.get(__ret__, 'require_authorization_for_group_creation'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_hierarchy_setting)
 def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHierarchySettingResult]:
     """
@@ -140,4 +137,14 @@ def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[str]] = None,
 
     :param str group_id: Management Group ID.
     """
-    ...
+    __args__ = dict()
+    __args__['groupId'] = group_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:management/v20230401:getHierarchySetting', __args__, opts=opts, typ=GetHierarchySettingResult)
+    return __ret__.apply(lambda __response__: GetHierarchySettingResult(
+        default_management_group=pulumi.get(__response__, 'default_management_group'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        require_authorization_for_group_creation=pulumi.get(__response__, 'require_authorization_for_group_creation'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type')))

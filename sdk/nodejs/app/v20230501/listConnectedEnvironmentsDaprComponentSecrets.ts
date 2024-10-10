@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Dapr component Secrets Collection for ListSecrets Action.
  */
 export function listConnectedEnvironmentsDaprComponentSecrets(args: ListConnectedEnvironmentsDaprComponentSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectedEnvironmentsDaprComponentSecretsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20230501:listConnectedEnvironmentsDaprComponentSecrets", {
         "componentName": args.componentName,
@@ -48,7 +47,12 @@ export interface ListConnectedEnvironmentsDaprComponentSecretsResult {
  * Dapr component Secrets Collection for ListSecrets Action.
  */
 export function listConnectedEnvironmentsDaprComponentSecretsOutput(args: ListConnectedEnvironmentsDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedEnvironmentsDaprComponentSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listConnectedEnvironmentsDaprComponentSecrets(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app/v20230501:listConnectedEnvironmentsDaprComponentSecrets", {
+        "componentName": args.componentName,
+        "connectedEnvironmentName": args.connectedEnvironmentName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListConnectedEnvironmentsDaprComponentSecretsOutputArgs {

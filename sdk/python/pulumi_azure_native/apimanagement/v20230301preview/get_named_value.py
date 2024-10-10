@@ -162,9 +162,6 @@ def get_named_value(named_value_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_named_value)
 def get_named_value_output(named_value_id: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            service_name: Optional[pulumi.Input[str]] = None,
@@ -177,4 +174,18 @@ def get_named_value_output(named_value_id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    ...
+    __args__ = dict()
+    __args__['namedValueId'] = named_value_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230301preview:getNamedValue', __args__, opts=opts, typ=GetNamedValueResult)
+    return __ret__.apply(lambda __response__: GetNamedValueResult(
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        key_vault=pulumi.get(__response__, 'key_vault'),
+        name=pulumi.get(__response__, 'name'),
+        secret=pulumi.get(__response__, 'secret'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        value=pulumi.get(__response__, 'value')))

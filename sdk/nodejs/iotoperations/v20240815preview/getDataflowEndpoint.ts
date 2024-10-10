@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a DataflowEndpointResource
  */
 export function getDataflowEndpoint(args: GetDataflowEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataflowEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperations/v20240815preview:getDataflowEndpoint", {
         "dataflowEndpointName": args.dataflowEndpointName,
@@ -68,7 +67,12 @@ export interface GetDataflowEndpointResult {
  * Get a DataflowEndpointResource
  */
 export function getDataflowEndpointOutput(args: GetDataflowEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataflowEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getDataflowEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:iotoperations/v20240815preview:getDataflowEndpoint", {
+        "dataflowEndpointName": args.dataflowEndpointName,
+        "instanceName": args.instanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDataflowEndpointOutputArgs {

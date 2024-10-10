@@ -584,9 +584,6 @@ def get_virtual_machine(expand: Optional[str] = None,
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
         user_name=pulumi.get(__ret__, 'user_name'),
         virtual_machine_creation_source=pulumi.get(__ret__, 'virtual_machine_creation_source'))
-
-
-@_utilities.lift_output_func(get_virtual_machine)
 def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                lab_name: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
@@ -604,4 +601,51 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str name: The name of the virtual machine.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['labName'] = lab_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
+    return __ret__.apply(lambda __response__: GetVirtualMachineResult(
+        allow_claim=pulumi.get(__response__, 'allow_claim'),
+        applicable_schedule=pulumi.get(__response__, 'applicable_schedule'),
+        artifact_deployment_status=pulumi.get(__response__, 'artifact_deployment_status'),
+        artifacts=pulumi.get(__response__, 'artifacts'),
+        compute_id=pulumi.get(__response__, 'compute_id'),
+        compute_vm=pulumi.get(__response__, 'compute_vm'),
+        created_by_user=pulumi.get(__response__, 'created_by_user'),
+        created_by_user_id=pulumi.get(__response__, 'created_by_user_id'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        custom_image_id=pulumi.get(__response__, 'custom_image_id'),
+        data_disk_parameters=pulumi.get(__response__, 'data_disk_parameters'),
+        disallow_public_ip_address=pulumi.get(__response__, 'disallow_public_ip_address'),
+        environment_id=pulumi.get(__response__, 'environment_id'),
+        expiration_date=pulumi.get(__response__, 'expiration_date'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        gallery_image_reference=pulumi.get(__response__, 'gallery_image_reference'),
+        id=pulumi.get(__response__, 'id'),
+        is_authentication_with_ssh_key=pulumi.get(__response__, 'is_authentication_with_ssh_key'),
+        lab_subnet_name=pulumi.get(__response__, 'lab_subnet_name'),
+        lab_virtual_network_id=pulumi.get(__response__, 'lab_virtual_network_id'),
+        last_known_power_state=pulumi.get(__response__, 'last_known_power_state'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_interface=pulumi.get(__response__, 'network_interface'),
+        notes=pulumi.get(__response__, 'notes'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        owner_object_id=pulumi.get(__response__, 'owner_object_id'),
+        owner_user_principal_name=pulumi.get(__response__, 'owner_user_principal_name'),
+        password=pulumi.get(__response__, 'password'),
+        plan_id=pulumi.get(__response__, 'plan_id'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        schedule_parameters=pulumi.get(__response__, 'schedule_parameters'),
+        size=pulumi.get(__response__, 'size'),
+        ssh_key=pulumi.get(__response__, 'ssh_key'),
+        storage_type=pulumi.get(__response__, 'storage_type'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        unique_identifier=pulumi.get(__response__, 'unique_identifier'),
+        user_name=pulumi.get(__response__, 'user_name'),
+        virtual_machine_creation_source=pulumi.get(__response__, 'virtual_machine_creation_source')))

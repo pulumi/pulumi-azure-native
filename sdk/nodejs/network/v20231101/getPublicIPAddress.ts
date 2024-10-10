@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified public IP address in a specified resource group.
  */
 export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPAddressResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20231101:getPublicIPAddress", {
         "expand": args.expand,
@@ -144,7 +143,12 @@ export interface GetPublicIPAddressResult {
  * Gets the specified public IP address in a specified resource group.
  */
 export function getPublicIPAddressOutput(args: GetPublicIPAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPAddressResult> {
-    return pulumi.output(args).apply((a: any) => getPublicIPAddress(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getPublicIPAddress", {
+        "expand": args.expand,
+        "publicIpAddressName": args.publicIpAddressName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPublicIPAddressOutputArgs {

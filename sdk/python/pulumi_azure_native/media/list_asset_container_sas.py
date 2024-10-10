@@ -78,9 +78,6 @@ def list_asset_container_sas(account_name: Optional[str] = None,
 
     return AwaitableListAssetContainerSasResult(
         asset_container_sas_urls=pulumi.get(__ret__, 'asset_container_sas_urls'))
-
-
-@_utilities.lift_output_func(list_asset_container_sas)
 def list_asset_container_sas_output(account_name: Optional[pulumi.Input[str]] = None,
                                     asset_name: Optional[pulumi.Input[str]] = None,
                                     expiry_time: Optional[pulumi.Input[Optional[str]]] = None,
@@ -98,4 +95,13 @@ def list_asset_container_sas_output(account_name: Optional[pulumi.Input[str]] = 
     :param Union[str, 'AssetContainerPermission'] permissions: The permissions to set on the SAS URL.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['assetName'] = asset_name
+    __args__['expiryTime'] = expiry_time
+    __args__['permissions'] = permissions
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:media:listAssetContainerSas', __args__, opts=opts, typ=ListAssetContainerSasResult)
+    return __ret__.apply(lambda __response__: ListAssetContainerSasResult(
+        asset_container_sas_urls=pulumi.get(__response__, 'asset_container_sas_urls')))

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get the upload location for the user to be able to upload the source.
  */
 export function listRegistryBuildSourceUploadUrl(args: ListRegistryBuildSourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListRegistryBuildSourceUploadUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20190401:listRegistryBuildSourceUploadUrl", {
         "registryName": args.registryName,
@@ -44,7 +43,11 @@ export interface ListRegistryBuildSourceUploadUrlResult {
  * Get the upload location for the user to be able to upload the source.
  */
 export function listRegistryBuildSourceUploadUrlOutput(args: ListRegistryBuildSourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryBuildSourceUploadUrlResult> {
-    return pulumi.output(args).apply((a: any) => listRegistryBuildSourceUploadUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20190401:listRegistryBuildSourceUploadUrl", {
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListRegistryBuildSourceUploadUrlOutputArgs {

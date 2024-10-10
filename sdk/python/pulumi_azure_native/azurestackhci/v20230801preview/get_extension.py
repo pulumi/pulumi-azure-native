@@ -256,9 +256,6 @@ def get_extension(arc_setting_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
-
-
-@_utilities.lift_output_func(get_extension)
 def get_extension_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                          cluster_name: Optional[pulumi.Input[str]] = None,
                          extension_name: Optional[pulumi.Input[str]] = None,
@@ -273,4 +270,26 @@ def get_extension_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
     :param str extension_name: The name of the machine extension.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['arcSettingName'] = arc_setting_name
+    __args__['clusterName'] = cluster_name
+    __args__['extensionName'] = extension_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20230801preview:getExtension', __args__, opts=opts, typ=GetExtensionResult)
+    return __ret__.apply(lambda __response__: GetExtensionResult(
+        aggregate_state=pulumi.get(__response__, 'aggregate_state'),
+        auto_upgrade_minor_version=pulumi.get(__response__, 'auto_upgrade_minor_version'),
+        enable_automatic_upgrade=pulumi.get(__response__, 'enable_automatic_upgrade'),
+        force_update_tag=pulumi.get(__response__, 'force_update_tag'),
+        id=pulumi.get(__response__, 'id'),
+        managed_by=pulumi.get(__response__, 'managed_by'),
+        name=pulumi.get(__response__, 'name'),
+        per_node_extension_details=pulumi.get(__response__, 'per_node_extension_details'),
+        protected_settings=pulumi.get(__response__, 'protected_settings'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        publisher=pulumi.get(__response__, 'publisher'),
+        settings=pulumi.get(__response__, 'settings'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        type_handler_version=pulumi.get(__response__, 'type_handler_version')))

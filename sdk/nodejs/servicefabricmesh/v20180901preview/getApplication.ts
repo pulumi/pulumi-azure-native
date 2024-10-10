@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the information about the application resource with the given name. The information include the description and other properties of the application.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh/v20180901preview:getApplication", {
         "applicationResourceName": args.applicationResourceName,
@@ -99,7 +98,11 @@ export interface GetApplicationResult {
  * Gets the information about the application resource with the given name. The information include the description and other properties of the application.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh/v20180901preview:getApplication", {
+        "applicationResourceName": args.applicationResourceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetApplicationOutputArgs {

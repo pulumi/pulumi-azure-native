@@ -240,9 +240,6 @@ def get_webhook(automation_account_name: Optional[str] = None,
         runbook=pulumi.get(__ret__, 'runbook'),
         type=pulumi.get(__ret__, 'type'),
         uri=pulumi.get(__ret__, 'uri'))
-
-
-@_utilities.lift_output_func(get_webhook)
 def get_webhook_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        webhook_name: Optional[pulumi.Input[str]] = None,
@@ -255,4 +252,24 @@ def get_webhook_output(automation_account_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: Name of an Azure Resource group.
     :param str webhook_name: The webhook name.
     """
-    ...
+    __args__ = dict()
+    __args__['automationAccountName'] = automation_account_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['webhookName'] = webhook_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20151031:getWebhook', __args__, opts=opts, typ=GetWebhookResult)
+    return __ret__.apply(lambda __response__: GetWebhookResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        description=pulumi.get(__response__, 'description'),
+        expiry_time=pulumi.get(__response__, 'expiry_time'),
+        id=pulumi.get(__response__, 'id'),
+        is_enabled=pulumi.get(__response__, 'is_enabled'),
+        last_invoked_time=pulumi.get(__response__, 'last_invoked_time'),
+        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        run_on=pulumi.get(__response__, 'run_on'),
+        runbook=pulumi.get(__response__, 'runbook'),
+        type=pulumi.get(__response__, 'type'),
+        uri=pulumi.get(__response__, 'uri')))

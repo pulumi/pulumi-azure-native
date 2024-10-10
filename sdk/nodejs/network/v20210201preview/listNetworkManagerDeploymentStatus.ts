@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Post to List of Network Manager Deployment Status.
  */
 export function listNetworkManagerDeploymentStatus(args: ListNetworkManagerDeploymentStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListNetworkManagerDeploymentStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201preview:listNetworkManagerDeploymentStatus", {
         "deploymentTypes": args.deploymentTypes,
@@ -62,7 +61,14 @@ export interface ListNetworkManagerDeploymentStatusResult {
  * Post to List of Network Manager Deployment Status.
  */
 export function listNetworkManagerDeploymentStatusOutput(args: ListNetworkManagerDeploymentStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerDeploymentStatusResult> {
-    return pulumi.output(args).apply((a: any) => listNetworkManagerDeploymentStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20210201preview:listNetworkManagerDeploymentStatus", {
+        "deploymentTypes": args.deploymentTypes,
+        "networkManagerName": args.networkManagerName,
+        "regions": args.regions,
+        "resourceGroupName": args.resourceGroupName,
+        "skipToken": args.skipToken,
+    }, opts);
 }
 
 export interface ListNetworkManagerDeploymentStatusOutputArgs {

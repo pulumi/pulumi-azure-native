@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
 export function getFirewallSupportInfo(args: GetFirewallSupportInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallSupportInfoResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw:getFirewallSupportInfo", {
         "email": args.email,
@@ -95,7 +94,12 @@ export interface GetFirewallSupportInfoResult {
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
 export function getFirewallSupportInfoOutput(args: GetFirewallSupportInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallSupportInfoResult> {
-    return pulumi.output(args).apply((a: any) => getFirewallSupportInfo(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw:getFirewallSupportInfo", {
+        "email": args.email,
+        "firewallName": args.firewallName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFirewallSupportInfoOutputArgs {

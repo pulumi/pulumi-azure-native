@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-02-01.
  */
 export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managementpartner:getPartner", {
         "partnerId": args.partnerId,
@@ -77,7 +76,10 @@ export interface GetPartnerResult {
  * Azure REST API version: 2018-02-01.
  */
 export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerResult> {
-    return pulumi.output(args).apply((a: any) => getPartner(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managementpartner:getPartner", {
+        "partnerId": args.partnerId,
+    }, opts);
 }
 
 export interface GetPartnerOutputArgs {

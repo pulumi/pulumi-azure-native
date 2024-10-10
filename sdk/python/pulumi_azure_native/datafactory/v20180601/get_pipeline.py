@@ -227,9 +227,6 @@ def get_pipeline(factory_name: Optional[str] = None,
         run_dimensions=pulumi.get(__ret__, 'run_dimensions'),
         type=pulumi.get(__ret__, 'type'),
         variables=pulumi.get(__ret__, 'variables'))
-
-
-@_utilities.lift_output_func(get_pipeline)
 def get_pipeline_output(factory_name: Optional[pulumi.Input[str]] = None,
                         pipeline_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -242,4 +239,23 @@ def get_pipeline_output(factory_name: Optional[pulumi.Input[str]] = None,
     :param str pipeline_name: The pipeline name.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['factoryName'] = factory_name
+    __args__['pipelineName'] = pipeline_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory/v20180601:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
+    return __ret__.apply(lambda __response__: GetPipelineResult(
+        activities=pulumi.get(__response__, 'activities'),
+        annotations=pulumi.get(__response__, 'annotations'),
+        concurrency=pulumi.get(__response__, 'concurrency'),
+        description=pulumi.get(__response__, 'description'),
+        etag=pulumi.get(__response__, 'etag'),
+        folder=pulumi.get(__response__, 'folder'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        policy=pulumi.get(__response__, 'policy'),
+        run_dimensions=pulumi.get(__response__, 'run_dimensions'),
+        type=pulumi.get(__response__, 'type'),
+        variables=pulumi.get(__response__, 'variables')))

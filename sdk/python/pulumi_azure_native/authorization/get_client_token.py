@@ -64,9 +64,6 @@ def get_client_token(endpoint: Optional[str] = None,
 
     return AwaitableGetClientTokenResult(
         token=pulumi.get(__ret__, 'token'))
-
-
-@_utilities.lift_output_func(get_client_token)
 def get_client_token_output(endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientTokenResult]:
     """
@@ -75,4 +72,9 @@ def get_client_token_output(endpoint: Optional[pulumi.Input[Optional[str]]] = No
 
     :param str endpoint: Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.
     """
-    ...
+    __args__ = dict()
+    __args__['endpoint'] = endpoint
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getClientToken', __args__, opts=opts, typ=GetClientTokenResult)
+    return __ret__.apply(lambda __response__: GetClientTokenResult(
+        token=pulumi.get(__response__, 'token')))

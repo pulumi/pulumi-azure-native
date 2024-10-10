@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of an Appliance with a specified resource group and name.
  */
 export function getAppliance(args: GetApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplianceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resourceconnector/v20221027:getAppliance", {
         "resourceGroupName": args.resourceGroupName,
@@ -91,7 +90,11 @@ export interface GetApplianceResult {
  * Gets the details of an Appliance with a specified resource group and name.
  */
 export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceResult> {
-    return pulumi.output(args).apply((a: any) => getAppliance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:resourceconnector/v20221027:getAppliance", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetApplianceOutputArgs {

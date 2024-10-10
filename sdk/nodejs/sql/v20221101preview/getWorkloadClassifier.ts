@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a workload classifier
  */
 export function getWorkloadClassifier(args: GetWorkloadClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadClassifierResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20221101preview:getWorkloadClassifier", {
         "databaseName": args.databaseName,
@@ -87,7 +86,14 @@ export interface GetWorkloadClassifierResult {
  * Gets a workload classifier
  */
 export function getWorkloadClassifierOutput(args: GetWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadClassifierResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadClassifier(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20221101preview:getWorkloadClassifier", {
+        "databaseName": args.databaseName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+        "workloadClassifierName": args.workloadClassifierName,
+        "workloadGroupName": args.workloadGroupName,
+    }, opts);
 }
 
 export interface GetWorkloadClassifierOutputArgs {

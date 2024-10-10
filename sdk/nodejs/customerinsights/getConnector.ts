@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-04-26.
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights:getConnector", {
         "connectorName": args.connectorName,
@@ -99,7 +98,12 @@ export interface GetConnectorResult {
  * Azure REST API version: 2017-04-26.
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:customerinsights:getConnector", {
+        "connectorName": args.connectorName,
+        "hubName": args.hubName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetConnectorOutputArgs {

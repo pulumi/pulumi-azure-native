@@ -344,9 +344,6 @@ def get_update(cluster_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_update)
 def get_update_output(cluster_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       update_name: Optional[pulumi.Input[str]] = None,
@@ -359,4 +356,32 @@ def get_update_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str update_name: The name of the Update
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['updateName'] = update_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20240215preview:getUpdate', __args__, opts=opts, typ=GetUpdateResult)
+    return __ret__.apply(lambda __response__: GetUpdateResult(
+        additional_properties=pulumi.get(__response__, 'additional_properties'),
+        availability_type=pulumi.get(__response__, 'availability_type'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        health_check_date=pulumi.get(__response__, 'health_check_date'),
+        id=pulumi.get(__response__, 'id'),
+        installed_date=pulumi.get(__response__, 'installed_date'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        notify_message=pulumi.get(__response__, 'notify_message'),
+        package_path=pulumi.get(__response__, 'package_path'),
+        package_size_in_mb=pulumi.get(__response__, 'package_size_in_mb'),
+        package_type=pulumi.get(__response__, 'package_type'),
+        prerequisites=pulumi.get(__response__, 'prerequisites'),
+        progress_percentage=pulumi.get(__response__, 'progress_percentage'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        publisher=pulumi.get(__response__, 'publisher'),
+        release_link=pulumi.get(__response__, 'release_link'),
+        state=pulumi.get(__response__, 'state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Description for Gets the Push settings associated with web app.
  */
 export function listWebAppSitePushSettingsSlot(args: ListWebAppSitePushSettingsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSitePushSettingsSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220901:listWebAppSitePushSettingsSlot", {
         "name": args.name,
@@ -76,7 +75,12 @@ export interface ListWebAppSitePushSettingsSlotResult {
  * Description for Gets the Push settings associated with web app.
  */
 export function listWebAppSitePushSettingsSlotOutput(args: ListWebAppSitePushSettingsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSitePushSettingsSlotResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppSitePushSettingsSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20220901:listWebAppSitePushSettingsSlot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface ListWebAppSitePushSettingsSlotOutputArgs {

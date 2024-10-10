@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified scope map.
  */
 export function getScopeMap(args: GetScopeMapArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeMapResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20230601preview:getScopeMap", {
         "registryName": args.registryName,
@@ -78,7 +77,12 @@ export interface GetScopeMapResult {
  * Gets the properties of the specified scope map.
  */
 export function getScopeMapOutput(args: GetScopeMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeMapResult> {
-    return pulumi.output(args).apply((a: any) => getScopeMap(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230601preview:getScopeMap", {
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+        "scopeMapName": args.scopeMapName,
+    }, opts);
 }
 
 export interface GetScopeMapOutputArgs {

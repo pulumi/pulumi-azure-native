@@ -191,9 +191,6 @@ def get_hybrid_runbook_worker(automation_account_name: Optional[str] = None,
         vm_resource_id=pulumi.get(__ret__, 'vm_resource_id'),
         worker_name=pulumi.get(__ret__, 'worker_name'),
         worker_type=pulumi.get(__ret__, 'worker_type'))
-
-
-@_utilities.lift_output_func(get_hybrid_runbook_worker)
 def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                      hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None,
                                      hybrid_runbook_worker_id: Optional[pulumi.Input[str]] = None,
@@ -208,4 +205,21 @@ def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.In
     :param str hybrid_runbook_worker_id: The hybrid runbook worker id
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['automationAccountName'] = automation_account_name
+    __args__['hybridRunbookWorkerGroupName'] = hybrid_runbook_worker_group_name
+    __args__['hybridRunbookWorkerId'] = hybrid_runbook_worker_id
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20231101:getHybridRunbookWorker', __args__, opts=opts, typ=GetHybridRunbookWorkerResult)
+    return __ret__.apply(lambda __response__: GetHybridRunbookWorkerResult(
+        id=pulumi.get(__response__, 'id'),
+        ip=pulumi.get(__response__, 'ip'),
+        last_seen_date_time=pulumi.get(__response__, 'last_seen_date_time'),
+        name=pulumi.get(__response__, 'name'),
+        registered_date_time=pulumi.get(__response__, 'registered_date_time'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        vm_resource_id=pulumi.get(__response__, 'vm_resource_id'),
+        worker_name=pulumi.get(__response__, 'worker_name'),
+        worker_type=pulumi.get(__response__, 'worker_type')))

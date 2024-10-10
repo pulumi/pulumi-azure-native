@@ -92,9 +92,6 @@ def get_sap_sizing_recommendations(app_location: Optional[str] = None,
 
     return AwaitableGetSAPSizingRecommendationsResult(
         deployment_type=pulumi.get(__ret__, 'deployment_type'))
-
-
-@_utilities.lift_output_func(get_sap_sizing_recommendations)
 def get_sap_sizing_recommendations_output(app_location: Optional[pulumi.Input[str]] = None,
                                           database_type: Optional[pulumi.Input[Union[str, 'SAPDatabaseType']]] = None,
                                           db_memory: Optional[pulumi.Input[float]] = None,
@@ -121,4 +118,18 @@ def get_sap_sizing_recommendations_output(app_location: Optional[pulumi.Input[st
     :param Union[str, 'SAPProductType'] sap_product: Defines the SAP Product type.
     :param float saps: The SAP Application Performance Standard measurement.
     """
-    ...
+    __args__ = dict()
+    __args__['appLocation'] = app_location
+    __args__['databaseType'] = database_type
+    __args__['dbMemory'] = db_memory
+    __args__['dbScaleMethod'] = db_scale_method
+    __args__['deploymentType'] = deployment_type
+    __args__['environment'] = environment
+    __args__['highAvailabilityType'] = high_availability_type
+    __args__['location'] = location
+    __args__['sapProduct'] = sap_product
+    __args__['saps'] = saps
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20211201preview:getSAPSizingRecommendations', __args__, opts=opts, typ=GetSAPSizingRecommendationsResult)
+    return __ret__.apply(lambda __response__: GetSAPSizingRecommendationsResult(
+        deployment_type=pulumi.get(__response__, 'deployment_type')))

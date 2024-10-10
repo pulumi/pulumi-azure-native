@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Image
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuresphere/v20240401:getImage", {
         "catalogName": args.catalogName,
@@ -96,7 +95,12 @@ export interface GetImageResult {
  * Get a Image
  */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
-    return pulumi.output(args).apply((a: any) => getImage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuresphere/v20240401:getImage", {
+        "catalogName": args.catalogName,
+        "imageName": args.imageName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetImageOutputArgs {

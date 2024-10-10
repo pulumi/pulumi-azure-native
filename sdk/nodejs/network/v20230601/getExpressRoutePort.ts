@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the requested ExpressRoutePort resource.
  */
 export function getExpressRoutePort(args: GetExpressRoutePortArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRoutePortResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230601:getExpressRoutePort", {
         "expressRoutePortName": args.expressRoutePortName,
@@ -115,7 +114,11 @@ export interface GetExpressRoutePortResult {
  * Retrieves the requested ExpressRoutePort resource.
  */
 export function getExpressRoutePortOutput(args: GetExpressRoutePortOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRoutePortResult> {
-    return pulumi.output(args).apply((a: any) => getExpressRoutePort(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230601:getExpressRoutePort", {
+        "expressRoutePortName": args.expressRoutePortName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetExpressRoutePortOutputArgs {

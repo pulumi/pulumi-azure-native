@@ -83,9 +83,6 @@ def list_upgradable_version_details(monitor_name: Optional[str] = None,
     return AwaitableListUpgradableVersionDetailsResult(
         current_version=pulumi.get(__ret__, 'current_version'),
         upgradable_versions=pulumi.get(__ret__, 'upgradable_versions'))
-
-
-@_utilities.lift_output_func(list_upgradable_version_details)
 def list_upgradable_version_details_output(monitor_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListUpgradableVersionDetailsResult]:
@@ -99,4 +96,11 @@ def list_upgradable_version_details_output(monitor_name: Optional[pulumi.Input[s
     :param str monitor_name: Monitor resource name
     :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['monitorName'] = monitor_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:elastic:listUpgradableVersionDetails', __args__, opts=opts, typ=ListUpgradableVersionDetailsResult)
+    return __ret__.apply(lambda __response__: ListUpgradableVersionDetailsResult(
+        current_version=pulumi.get(__response__, 'current_version'),
+        upgradable_versions=pulumi.get(__response__, 'upgradable_versions')))

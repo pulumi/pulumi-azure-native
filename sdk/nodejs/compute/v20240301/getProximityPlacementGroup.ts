@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves information about a proximity placement group .
  */
 export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProximityPlacementGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20240301:getProximityPlacementGroup", {
         "includeColocationStatus": args.includeColocationStatus,
@@ -92,7 +91,12 @@ export interface GetProximityPlacementGroupResult {
  * Retrieves information about a proximity placement group .
  */
 export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProximityPlacementGroupResult> {
-    return pulumi.output(args).apply((a: any) => getProximityPlacementGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute/v20240301:getProximityPlacementGroup", {
+        "includeColocationStatus": args.includeColocationStatus,
+        "proximityPlacementGroupName": args.proximityPlacementGroupName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetProximityPlacementGroupOutputArgs {

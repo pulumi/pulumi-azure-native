@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the backup connection resource of virtual instance for SAP.
  */
 export function getACSSBackupConnection(args: GetACSSBackupConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetACSSBackupConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20231001preview:getACSSBackupConnection", {
         "backupName": args.backupName,
@@ -80,7 +79,12 @@ export interface GetACSSBackupConnectionResult {
  * Gets the backup connection resource of virtual instance for SAP.
  */
 export function getACSSBackupConnectionOutput(args: GetACSSBackupConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetACSSBackupConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getACSSBackupConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:workloads/v20231001preview:getACSSBackupConnection", {
+        "backupName": args.backupName,
+        "connectorName": args.connectorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetACSSBackupConnectionOutputArgs {

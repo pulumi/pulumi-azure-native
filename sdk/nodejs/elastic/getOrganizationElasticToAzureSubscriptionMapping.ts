@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  */
 export function getOrganizationElasticToAzureSubscriptionMapping(args?: GetOrganizationElasticToAzureSubscriptionMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationElasticToAzureSubscriptionMappingResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic:getOrganizationElasticToAzureSubscriptionMapping", {
     }, opts);
@@ -40,5 +39,8 @@ export interface GetOrganizationElasticToAzureSubscriptionMappingResult {
  * Other available API versions: 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
  */
 export function getOrganizationElasticToAzureSubscriptionMappingOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationElasticToAzureSubscriptionMappingResult> {
-    return pulumi.output(getOrganizationElasticToAzureSubscriptionMapping(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:elastic:getOrganizationElasticToAzureSubscriptionMapping", {
+    }, opts);
 }
+

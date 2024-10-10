@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-06-01.
  */
 export function getExposureControlFeatureValueByFactory(args: GetExposureControlFeatureValueByFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetExposureControlFeatureValueByFactoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory:getExposureControlFeatureValueByFactory", {
         "factoryName": args.factoryName,
@@ -56,7 +55,13 @@ export interface GetExposureControlFeatureValueByFactoryResult {
  * Azure REST API version: 2018-06-01.
  */
 export function getExposureControlFeatureValueByFactoryOutput(args: GetExposureControlFeatureValueByFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExposureControlFeatureValueByFactoryResult> {
-    return pulumi.output(args).apply((a: any) => getExposureControlFeatureValueByFactory(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory:getExposureControlFeatureValueByFactory", {
+        "factoryName": args.factoryName,
+        "featureName": args.featureName,
+        "featureType": args.featureType,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetExposureControlFeatureValueByFactoryOutputArgs {

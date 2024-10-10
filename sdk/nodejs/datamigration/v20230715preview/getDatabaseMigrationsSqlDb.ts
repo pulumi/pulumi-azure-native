@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve the Database Migration resource.
  */
 export function getDatabaseMigrationsSqlDb(args: GetDatabaseMigrationsSqlDbArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseMigrationsSqlDbResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datamigration/v20230715preview:getDatabaseMigrationsSqlDb", {
         "expand": args.expand,
@@ -62,7 +61,14 @@ export interface GetDatabaseMigrationsSqlDbResult {
  * Retrieve the Database Migration resource.
  */
 export function getDatabaseMigrationsSqlDbOutput(args: GetDatabaseMigrationsSqlDbOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseMigrationsSqlDbResult> {
-    return pulumi.output(args).apply((a: any) => getDatabaseMigrationsSqlDb(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datamigration/v20230715preview:getDatabaseMigrationsSqlDb", {
+        "expand": args.expand,
+        "migrationOperationId": args.migrationOperationId,
+        "resourceGroupName": args.resourceGroupName,
+        "sqlDbInstanceName": args.sqlDbInstanceName,
+        "targetDbName": args.targetDbName,
+    }, opts);
 }
 
 export interface GetDatabaseMigrationsSqlDbOutputArgs {

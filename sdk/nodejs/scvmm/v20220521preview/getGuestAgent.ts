@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Implements GuestAgent GET method.
  */
 export function getGuestAgent(args: GetGuestAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestAgentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm/v20220521preview:getGuestAgent", {
         "guestAgentName": args.guestAgentName,
@@ -88,7 +87,12 @@ export interface GetGuestAgentResult {
  * Implements GuestAgent GET method.
  */
 export function getGuestAgentOutput(args: GetGuestAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestAgentResult> {
-    return pulumi.output(args).apply((a: any) => getGuestAgent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:scvmm/v20220521preview:getGuestAgent", {
+        "guestAgentName": args.guestAgentName,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualMachineName": args.virtualMachineName,
+    }, opts);
 }
 
 export interface GetGuestAgentOutputArgs {

@@ -266,9 +266,6 @@ def get_diagnostic_service(diagnostic_service_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_diagnostic_service)
 def get_diagnostic_service_output(diagnostic_service_name: Optional[pulumi.Input[str]] = None,
                                   mq_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -281,4 +278,26 @@ def get_diagnostic_service_output(diagnostic_service_name: Optional[pulumi.Input
     :param str mq_name: Name of MQ resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['diagnosticServiceName'] = diagnostic_service_name
+    __args__['mqName'] = mq_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq/v20231004preview:getDiagnosticService', __args__, opts=opts, typ=GetDiagnosticServiceResult)
+    return __ret__.apply(lambda __response__: GetDiagnosticServiceResult(
+        data_export_frequency_seconds=pulumi.get(__response__, 'data_export_frequency_seconds'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        image=pulumi.get(__response__, 'image'),
+        location=pulumi.get(__response__, 'location'),
+        log_format=pulumi.get(__response__, 'log_format'),
+        log_level=pulumi.get(__response__, 'log_level'),
+        max_data_storage_size=pulumi.get(__response__, 'max_data_storage_size'),
+        metrics_port=pulumi.get(__response__, 'metrics_port'),
+        name=pulumi.get(__response__, 'name'),
+        open_telemetry_traces_collector_addr=pulumi.get(__response__, 'open_telemetry_traces_collector_addr'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        stale_data_timeout_seconds=pulumi.get(__response__, 'stale_data_timeout_seconds'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

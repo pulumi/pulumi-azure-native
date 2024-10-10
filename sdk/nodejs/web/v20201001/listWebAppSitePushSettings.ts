@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the Push settings associated with web app.
  */
 export function listWebAppSitePushSettings(args: ListWebAppSitePushSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSitePushSettingsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:listWebAppSitePushSettings", {
         "name": args.name,
@@ -78,7 +77,11 @@ export interface ListWebAppSitePushSettingsResult {
  * Gets the Push settings associated with web app.
  */
 export function listWebAppSitePushSettingsOutput(args: ListWebAppSitePushSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSitePushSettingsResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppSitePushSettings(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:listWebAppSitePushSettings", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListWebAppSitePushSettingsOutputArgs {

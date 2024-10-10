@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
 export function getPython3Package(args: GetPython3PackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPython3PackageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation:getPython3Package", {
         "automationAccountName": args.automationAccountName,
@@ -118,7 +117,12 @@ export interface GetPython3PackageResult {
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
 export function getPython3PackageOutput(args: GetPython3PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython3PackageResult> {
-    return pulumi.output(args).apply((a: any) => getPython3Package(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:automation:getPython3Package", {
+        "automationAccountName": args.automationAccountName,
+        "packageName": args.packageName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPython3PackageOutputArgs {

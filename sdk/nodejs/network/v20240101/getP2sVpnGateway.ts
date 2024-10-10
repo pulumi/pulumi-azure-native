@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a virtual wan p2s vpn gateway.
  */
 export function getP2sVpnGateway(args: GetP2sVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240101:getP2sVpnGateway", {
         "gatewayName": args.gatewayName,
@@ -95,7 +94,11 @@ export interface GetP2sVpnGatewayResult {
  * Retrieves the details of a virtual wan p2s vpn gateway.
  */
 export function getP2sVpnGatewayOutput(args: GetP2sVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getP2sVpnGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240101:getP2sVpnGateway", {
+        "gatewayName": args.gatewayName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetP2sVpnGatewayOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-06-01-preview.
  */
 export function getGroupQuotaSubscription(args: GetGroupQuotaSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupQuotaSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:quota:getGroupQuotaSubscription", {
         "groupQuotaName": args.groupQuotaName,
@@ -58,7 +57,11 @@ export interface GetGroupQuotaSubscriptionResult {
  * Azure REST API version: 2023-06-01-preview.
  */
 export function getGroupQuotaSubscriptionOutput(args: GetGroupQuotaSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupQuotaSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getGroupQuotaSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:quota:getGroupQuotaSubscription", {
+        "groupQuotaName": args.groupQuotaName,
+        "managementGroupId": args.managementGroupId,
+    }, opts);
 }
 
 export interface GetGroupQuotaSubscriptionOutputArgs {

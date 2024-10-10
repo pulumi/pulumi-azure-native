@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-08-15.
  */
 export function getSandboxCustomImage(args: GetSandboxCustomImageArgs, opts?: pulumi.InvokeOptions): Promise<GetSandboxCustomImageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto:getSandboxCustomImage", {
         "clusterName": args.clusterName,
@@ -71,7 +70,12 @@ export interface GetSandboxCustomImageResult {
  * Azure REST API version: 2023-08-15.
  */
 export function getSandboxCustomImageOutput(args: GetSandboxCustomImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSandboxCustomImageResult> {
-    return pulumi.output(args).apply((a: any) => getSandboxCustomImage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kusto:getSandboxCustomImage", {
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+        "sandboxCustomImageName": args.sandboxCustomImageName,
+    }, opts);
 }
 
 export interface GetSandboxCustomImageOutputArgs {

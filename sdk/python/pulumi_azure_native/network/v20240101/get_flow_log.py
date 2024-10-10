@@ -253,9 +253,6 @@ def get_flow_log(flow_log_name: Optional[str] = None,
         target_resource_guid=pulumi.get(__ret__, 'target_resource_guid'),
         target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_flow_log)
 def get_flow_log_output(flow_log_name: Optional[pulumi.Input[str]] = None,
                         network_watcher_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -268,4 +265,25 @@ def get_flow_log_output(flow_log_name: Optional[pulumi.Input[str]] = None,
     :param str network_watcher_name: The name of the network watcher.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['flowLogName'] = flow_log_name
+    __args__['networkWatcherName'] = network_watcher_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240101:getFlowLog', __args__, opts=opts, typ=GetFlowLogResult)
+    return __ret__.apply(lambda __response__: GetFlowLogResult(
+        enabled=pulumi.get(__response__, 'enabled'),
+        etag=pulumi.get(__response__, 'etag'),
+        flow_analytics_configuration=pulumi.get(__response__, 'flow_analytics_configuration'),
+        format=pulumi.get(__response__, 'format'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        retention_policy=pulumi.get(__response__, 'retention_policy'),
+        storage_id=pulumi.get(__response__, 'storage_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_resource_guid=pulumi.get(__response__, 'target_resource_guid'),
+        target_resource_id=pulumi.get(__response__, 'target_resource_id'),
+        type=pulumi.get(__response__, 'type')))

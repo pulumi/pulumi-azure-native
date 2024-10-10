@@ -76,9 +76,6 @@ def list_list_tenant_configuration_violation(opts: Optional[pulumi.InvokeOptions
     return AwaitableListListTenantConfigurationViolationResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_list_tenant_configuration_violation)
 def list_list_tenant_configuration_violation_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListListTenantConfigurationViolationResult]:
     """
     Gets list of items that violate tenant's configuration.
@@ -86,4 +83,9 @@ def list_list_tenant_configuration_violation_output(opts: Optional[pulumi.Invoke
 
     Other available API versions: 2022-12-01-preview.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:portal:listListTenantConfigurationViolation', __args__, opts=opts, typ=ListListTenantConfigurationViolationResult)
+    return __ret__.apply(lambda __response__: ListListTenantConfigurationViolationResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

@@ -299,9 +299,6 @@ def get_view(view_name: Optional[str] = None,
         time_period=pulumi.get(__ret__, 'time_period'),
         timeframe=pulumi.get(__ret__, 'timeframe'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_view)
 def get_view_output(view_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
     """
@@ -310,4 +307,27 @@ def get_view_output(view_name: Optional[pulumi.Input[str]] = None,
 
     :param str view_name: View name
     """
-    ...
+    __args__ = dict()
+    __args__['viewName'] = view_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20231101:getView', __args__, opts=opts, typ=GetViewResult)
+    return __ret__.apply(lambda __response__: GetViewResult(
+        accumulated=pulumi.get(__response__, 'accumulated'),
+        chart=pulumi.get(__response__, 'chart'),
+        created_on=pulumi.get(__response__, 'created_on'),
+        currency=pulumi.get(__response__, 'currency'),
+        data_set=pulumi.get(__response__, 'data_set'),
+        date_range=pulumi.get(__response__, 'date_range'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        id=pulumi.get(__response__, 'id'),
+        include_monetary_commitment=pulumi.get(__response__, 'include_monetary_commitment'),
+        kpis=pulumi.get(__response__, 'kpis'),
+        metric=pulumi.get(__response__, 'metric'),
+        modified_on=pulumi.get(__response__, 'modified_on'),
+        name=pulumi.get(__response__, 'name'),
+        pivots=pulumi.get(__response__, 'pivots'),
+        scope=pulumi.get(__response__, 'scope'),
+        time_period=pulumi.get(__response__, 'time_period'),
+        timeframe=pulumi.get(__response__, 'timeframe'),
+        type=pulumi.get(__response__, 'type')))

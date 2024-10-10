@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the operation link for the tag.
  */
 export function getWorkspaceTagOperationLink(args: GetWorkspaceTagOperationLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceTagOperationLinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getWorkspaceTagOperationLink", {
         "operationLinkId": args.operationLinkId,
@@ -67,7 +66,14 @@ export interface GetWorkspaceTagOperationLinkResult {
  * Gets the operation link for the tag.
  */
 export function getWorkspaceTagOperationLinkOutput(args: GetWorkspaceTagOperationLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceTagOperationLinkResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspaceTagOperationLink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getWorkspaceTagOperationLink", {
+        "operationLinkId": args.operationLinkId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "tagId": args.tagId,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 export interface GetWorkspaceTagOperationLinkOutputArgs {

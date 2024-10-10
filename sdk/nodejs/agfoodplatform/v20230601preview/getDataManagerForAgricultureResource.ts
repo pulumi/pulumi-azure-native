@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get DataManagerForAgriculture resource.
  */
 export function getDataManagerForAgricultureResource(args: GetDataManagerForAgricultureResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataManagerForAgricultureResourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:agfoodplatform/v20230601preview:getDataManagerForAgricultureResource", {
         "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,
@@ -87,7 +86,11 @@ export interface GetDataManagerForAgricultureResourceResult {
  * Get DataManagerForAgriculture resource.
  */
 export function getDataManagerForAgricultureResourceOutput(args: GetDataManagerForAgricultureResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataManagerForAgricultureResourceResult> {
-    return pulumi.output(args).apply((a: any) => getDataManagerForAgricultureResource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:agfoodplatform/v20230601preview:getDataManagerForAgricultureResource", {
+        "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDataManagerForAgricultureResourceOutputArgs {

@@ -263,9 +263,6 @@ def get_server_details(resource_group_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_server_details)
 def get_server_details_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               server_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerDetailsResult]:
@@ -276,4 +273,25 @@ def get_server_details_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
     :param str server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:analysisservices/v20170801:getServerDetails', __args__, opts=opts, typ=GetServerDetailsResult)
+    return __ret__.apply(lambda __response__: GetServerDetailsResult(
+        as_administrators=pulumi.get(__response__, 'as_administrators'),
+        backup_blob_container_uri=pulumi.get(__response__, 'backup_blob_container_uri'),
+        gateway_details=pulumi.get(__response__, 'gateway_details'),
+        id=pulumi.get(__response__, 'id'),
+        ip_v4_firewall_settings=pulumi.get(__response__, 'ip_v4_firewall_settings'),
+        location=pulumi.get(__response__, 'location'),
+        managed_mode=pulumi.get(__response__, 'managed_mode'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        querypool_connection_mode=pulumi.get(__response__, 'querypool_connection_mode'),
+        server_full_name=pulumi.get(__response__, 'server_full_name'),
+        server_monitor_mode=pulumi.get(__response__, 'server_monitor_mode'),
+        sku=pulumi.get(__response__, 'sku'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

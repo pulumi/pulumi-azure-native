@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
 export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineExtensionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getVirtualMachineExtension", {
         "expand": args.expand,
@@ -123,7 +122,13 @@ export interface GetVirtualMachineExtensionResult {
  * Other available API versions: 2021-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
 export function getVirtualMachineExtensionOutput(args: GetVirtualMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineExtensionResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachineExtension(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute:getVirtualMachineExtension", {
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+        "vmExtensionName": args.vmExtensionName,
+        "vmName": args.vmName,
+    }, opts);
 }
 
 export interface GetVirtualMachineExtensionOutputArgs {

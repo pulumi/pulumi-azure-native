@@ -139,9 +139,6 @@ def list_endpoint_credentials(endpoint_name: Optional[str] = None,
         namespace_name=pulumi.get(__ret__, 'namespace_name'),
         namespace_name_suffix=pulumi.get(__ret__, 'namespace_name_suffix'),
         service_configuration_token=pulumi.get(__ret__, 'service_configuration_token'))
-
-
-@_utilities.lift_output_func(list_endpoint_credentials)
 def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                      expiresin: Optional[pulumi.Input[Optional[int]]] = None,
                                      resource_uri: Optional[pulumi.Input[str]] = None,
@@ -156,4 +153,17 @@ def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[str]] 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token 
     """
-    ...
+    __args__ = dict()
+    __args__['endpointName'] = endpoint_name
+    __args__['expiresin'] = expiresin
+    __args__['resourceUri'] = resource_uri
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity/v20230315:listEndpointCredentials', __args__, opts=opts, typ=ListEndpointCredentialsResult)
+    return __ret__.apply(lambda __response__: ListEndpointCredentialsResult(
+        access_key=pulumi.get(__response__, 'access_key'),
+        expires_on=pulumi.get(__response__, 'expires_on'),
+        hybrid_connection_name=pulumi.get(__response__, 'hybrid_connection_name'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        namespace_name_suffix=pulumi.get(__response__, 'namespace_name_suffix'),
+        service_configuration_token=pulumi.get(__response__, 'service_configuration_token')))

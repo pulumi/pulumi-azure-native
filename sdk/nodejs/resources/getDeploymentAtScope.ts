@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
  */
 export function getDeploymentAtScope(args: GetDeploymentAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtScopeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources:getDeploymentAtScope", {
         "deploymentName": args.deploymentName,
@@ -69,7 +68,11 @@ export interface GetDeploymentAtScopeResult {
  * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
  */
 export function getDeploymentAtScopeOutput(args: GetDeploymentAtScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtScopeResult> {
-    return pulumi.output(args).apply((a: any) => getDeploymentAtScope(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:resources:getDeploymentAtScope", {
+        "deploymentName": args.deploymentName,
+        "scope": args.scope,
+    }, opts);
 }
 
 export interface GetDeploymentAtScopeOutputArgs {

@@ -68,9 +68,6 @@ def list_managed_cluster_user_credentials(resource_group_name: Optional[str] = N
 
     return AwaitableListManagedClusterUserCredentialsResult(
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
-
-
-@_utilities.lift_output_func(list_managed_cluster_user_credentials)
 def list_managed_cluster_user_credentials_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  resource_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterUserCredentialsResult]:
@@ -81,4 +78,10 @@ def list_managed_cluster_user_credentials_output(resource_group_name: Optional[p
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20190601:listManagedClusterUserCredentials', __args__, opts=opts, typ=ListManagedClusterUserCredentialsResult)
+    return __ret__.apply(lambda __response__: ListManagedClusterUserCredentialsResult(
+        kubeconfigs=pulumi.get(__response__, 'kubeconfigs')))

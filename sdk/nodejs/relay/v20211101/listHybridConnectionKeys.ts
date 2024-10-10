@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Primary and secondary connection strings to the hybrid connection.
  */
 export function listHybridConnectionKeys(args: ListHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListHybridConnectionKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:relay/v20211101:listHybridConnectionKeys", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -66,7 +65,13 @@ export interface ListHybridConnectionKeysResult {
  * Primary and secondary connection strings to the hybrid connection.
  */
 export function listHybridConnectionKeysOutput(args: ListHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHybridConnectionKeysResult> {
-    return pulumi.output(args).apply((a: any) => listHybridConnectionKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:relay/v20211101:listHybridConnectionKeys", {
+        "authorizationRuleName": args.authorizationRuleName,
+        "hybridConnectionName": args.hybridConnectionName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListHybridConnectionKeysOutputArgs {

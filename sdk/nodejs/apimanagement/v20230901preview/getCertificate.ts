@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the certificate specified by its identifier.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:getCertificate", {
         "certificateId": args.certificateId,
@@ -72,7 +71,12 @@ export interface GetCertificateResult {
  * Gets the details of the certificate specified by its identifier.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getCertificate", {
+        "certificateId": args.certificateId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetCertificateOutputArgs {

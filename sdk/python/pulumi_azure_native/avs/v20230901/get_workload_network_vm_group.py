@@ -175,9 +175,6 @@ def get_workload_network_vm_group(private_cloud_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_workload_network_vm_group)
 def get_workload_network_vm_group_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          vm_group_id: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_workload_network_vm_group_output(private_cloud_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vm_group_id: ID of the VM group.
     """
-    ...
+    __args__ = dict()
+    __args__['privateCloudName'] = private_cloud_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vmGroupId'] = vm_group_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20230901:getWorkloadNetworkVMGroup', __args__, opts=opts, typ=GetWorkloadNetworkVMGroupResult)
+    return __ret__.apply(lambda __response__: GetWorkloadNetworkVMGroupResult(
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        members=pulumi.get(__response__, 'members'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        revision=pulumi.get(__response__, 'revision'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-04-15-preview.
  */
 export function listApplianceClusterCustomerUserCredential(args: ListApplianceClusterCustomerUserCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListApplianceClusterCustomerUserCredentialResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resourceconnector:listApplianceClusterCustomerUserCredential", {
         "resourceGroupName": args.resourceGroupName,
@@ -49,7 +48,11 @@ export interface ListApplianceClusterCustomerUserCredentialResult {
  * Azure REST API version: 2022-04-15-preview.
  */
 export function listApplianceClusterCustomerUserCredentialOutput(args: ListApplianceClusterCustomerUserCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceClusterCustomerUserCredentialResult> {
-    return pulumi.output(args).apply((a: any) => listApplianceClusterCustomerUserCredential(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:resourceconnector:listApplianceClusterCustomerUserCredential", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface ListApplianceClusterCustomerUserCredentialOutputArgs {

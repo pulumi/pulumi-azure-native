@@ -152,9 +152,6 @@ def list_virtual_machine_applicable_schedules(lab_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(list_virtual_machine_applicable_schedules)
 def list_virtual_machine_applicable_schedules_output(lab_name: Optional[pulumi.Input[str]] = None,
                                                      name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -170,4 +167,17 @@ def list_virtual_machine_applicable_schedules_output(lab_name: Optional[pulumi.I
     :param str name: The name of the virtual machine.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['labName'] = lab_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:listVirtualMachineApplicableSchedules', __args__, opts=opts, typ=ListVirtualMachineApplicableSchedulesResult)
+    return __ret__.apply(lambda __response__: ListVirtualMachineApplicableSchedulesResult(
+        id=pulumi.get(__response__, 'id'),
+        lab_vms_shutdown=pulumi.get(__response__, 'lab_vms_shutdown'),
+        lab_vms_startup=pulumi.get(__response__, 'lab_vms_startup'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

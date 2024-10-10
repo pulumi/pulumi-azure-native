@@ -201,9 +201,6 @@ def get_route_table(expand: Optional[str] = None,
         subnets=pulumi.get(__ret__, 'subnets'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_route_table)
 def get_route_table_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            route_table_name: Optional[pulumi.Input[str]] = None,
@@ -216,4 +213,21 @@ def get_route_table_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str route_table_name: The name of the route table.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['routeTableName'] = route_table_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult)
+    return __ret__.apply(lambda __response__: GetRouteTableResult(
+        disable_bgp_route_propagation=pulumi.get(__response__, 'disable_bgp_route_propagation'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        routes=pulumi.get(__response__, 'routes'),
+        subnets=pulumi.get(__response__, 'subnets'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

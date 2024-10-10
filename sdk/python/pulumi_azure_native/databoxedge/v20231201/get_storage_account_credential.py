@@ -214,9 +214,6 @@ def get_storage_account_credential(device_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         user_name=pulumi.get(__ret__, 'user_name'))
-
-
-@_utilities.lift_output_func(get_storage_account_credential)
 def get_storage_account_credential_output(device_name: Optional[pulumi.Input[str]] = None,
                                           name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -229,4 +226,22 @@ def get_storage_account_credential_output(device_name: Optional[pulumi.Input[str
     :param str name: The storage account credential name.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['deviceName'] = device_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20231201:getStorageAccountCredential', __args__, opts=opts, typ=GetStorageAccountCredentialResult)
+    return __ret__.apply(lambda __response__: GetStorageAccountCredentialResult(
+        account_key=pulumi.get(__response__, 'account_key'),
+        account_type=pulumi.get(__response__, 'account_type'),
+        alias=pulumi.get(__response__, 'alias'),
+        blob_domain_name=pulumi.get(__response__, 'blob_domain_name'),
+        connection_string=pulumi.get(__response__, 'connection_string'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        ssl_status=pulumi.get(__response__, 'ssl_status'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        user_name=pulumi.get(__response__, 'user_name')))

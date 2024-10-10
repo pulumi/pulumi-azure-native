@@ -161,9 +161,6 @@ def get_static_site_linked_backend(linked_backend_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         region=pulumi.get(__ret__, 'region'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_static_site_linked_backend)
 def get_static_site_linked_backend_output(linked_backend_name: Optional[pulumi.Input[str]] = None,
                                           name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -176,4 +173,18 @@ def get_static_site_linked_backend_output(linked_backend_name: Optional[pulumi.I
     :param str name: Name of the static site
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['linkedBackendName'] = linked_backend_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:getStaticSiteLinkedBackend', __args__, opts=opts, typ=GetStaticSiteLinkedBackendResult)
+    return __ret__.apply(lambda __response__: GetStaticSiteLinkedBackendResult(
+        backend_resource_id=pulumi.get(__response__, 'backend_resource_id'),
+        created_on=pulumi.get(__response__, 'created_on'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        region=pulumi.get(__response__, 'region'),
+        type=pulumi.get(__response__, 'type')))

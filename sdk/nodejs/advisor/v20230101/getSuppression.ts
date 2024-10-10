@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Obtains the details of a suppression.
  */
 export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:advisor/v20230101:getSuppression", {
         "name": args.name,
@@ -72,7 +71,12 @@ export interface GetSuppressionResult {
  * Obtains the details of a suppression.
  */
 export function getSuppressionOutput(args: GetSuppressionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuppressionResult> {
-    return pulumi.output(args).apply((a: any) => getSuppression(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:advisor/v20230101:getSuppression", {
+        "name": args.name,
+        "recommendationId": args.recommendationId,
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetSuppressionOutputArgs {

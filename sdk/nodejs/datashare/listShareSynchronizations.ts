@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-08-01.
  */
 export function listShareSynchronizations(args: ListShareSynchronizationsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSynchronizationsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare:listShareSynchronizations", {
         "accountName": args.accountName,
@@ -69,7 +68,15 @@ export interface ListShareSynchronizationsResult {
  * Azure REST API version: 2021-08-01.
  */
 export function listShareSynchronizationsOutput(args: ListShareSynchronizationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSynchronizationsResult> {
-    return pulumi.output(args).apply((a: any) => listShareSynchronizations(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datashare:listShareSynchronizations", {
+        "accountName": args.accountName,
+        "filter": args.filter,
+        "orderby": args.orderby,
+        "resourceGroupName": args.resourceGroupName,
+        "shareName": args.shareName,
+        "skipToken": args.skipToken,
+    }, opts);
 }
 
 export interface ListShareSynchronizationsOutputArgs {

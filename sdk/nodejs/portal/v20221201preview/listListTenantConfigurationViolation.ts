@@ -12,7 +12,6 @@ import * as utilities from "../../utilities";
  */
 export function listListTenantConfigurationViolation(args?: ListListTenantConfigurationViolationArgs, opts?: pulumi.InvokeOptions): Promise<ListListTenantConfigurationViolationResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal/v20221201preview:listListTenantConfigurationViolation", {
     }, opts);
@@ -38,5 +37,8 @@ export interface ListListTenantConfigurationViolationResult {
  * Gets list of items that violate tenant's configuration.
  */
 export function listListTenantConfigurationViolationOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListListTenantConfigurationViolationResult> {
-    return pulumi.output(listListTenantConfigurationViolation(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:portal/v20221201preview:listListTenantConfigurationViolation", {
+    }, opts);
 }
+

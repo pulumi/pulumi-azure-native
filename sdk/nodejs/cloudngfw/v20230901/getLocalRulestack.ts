@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a LocalRulestackResource
  */
 export function getLocalRulestack(args: GetLocalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRulestackResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20230901:getLocalRulestack", {
         "localRulestackName": args.localRulestackName,
@@ -103,7 +102,11 @@ export interface GetLocalRulestackResult {
  * Get a LocalRulestackResource
  */
 export function getLocalRulestackOutput(args: GetLocalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRulestackResult> {
-    return pulumi.output(args).apply((a: any) => getLocalRulestack(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20230901:getLocalRulestack", {
+        "localRulestackName": args.localRulestackName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLocalRulestackOutputArgs {

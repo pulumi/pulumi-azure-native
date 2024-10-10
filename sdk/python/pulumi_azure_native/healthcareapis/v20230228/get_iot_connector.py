@@ -201,9 +201,6 @@ def get_iot_connector(iot_connector_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_iot_connector)
 def get_iot_connector_output(iot_connector_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              workspace_name: Optional[pulumi.Input[str]] = None,
@@ -216,4 +213,21 @@ def get_iot_connector_output(iot_connector_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
-    ...
+    __args__ = dict()
+    __args__['iotConnectorName'] = iot_connector_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:healthcareapis/v20230228:getIotConnector', __args__, opts=opts, typ=GetIotConnectorResult)
+    return __ret__.apply(lambda __response__: GetIotConnectorResult(
+        device_mapping=pulumi.get(__response__, 'device_mapping'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        ingestion_endpoint_configuration=pulumi.get(__response__, 'ingestion_endpoint_configuration'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

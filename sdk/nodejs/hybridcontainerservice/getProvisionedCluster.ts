@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-05-01-preview.
  */
 export function getProvisionedCluster(args: GetProvisionedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetProvisionedClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice:getProvisionedCluster", {
         "resourceGroupName": args.resourceGroupName,
@@ -75,7 +74,11 @@ export interface GetProvisionedClusterResult {
  * Other available API versions: 2022-05-01-preview.
  */
 export function getProvisionedClusterOutput(args: GetProvisionedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisionedClusterResult> {
-    return pulumi.output(args).apply((a: any) => getProvisionedCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice:getProvisionedCluster", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetProvisionedClusterOutputArgs {

@@ -152,9 +152,6 @@ def get_action(action_id: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         workflow_id=pulumi.get(__ret__, 'workflow_id'))
-
-
-@_utilities.lift_output_func(get_action)
 def get_action_output(action_id: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       rule_id: Optional[pulumi.Input[str]] = None,
@@ -169,4 +166,18 @@ def get_action_output(action_id: Optional[pulumi.Input[str]] = None,
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['actionId'] = action_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['ruleId'] = rule_id
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20231001preview:getAction', __args__, opts=opts, typ=GetActionResult)
+    return __ret__.apply(lambda __response__: GetActionResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        logic_app_resource_id=pulumi.get(__response__, 'logic_app_resource_id'),
+        name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        workflow_id=pulumi.get(__response__, 'workflow_id')))

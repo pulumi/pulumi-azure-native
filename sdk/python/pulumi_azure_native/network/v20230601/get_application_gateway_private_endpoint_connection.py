@@ -162,9 +162,6 @@ def get_application_gateway_private_endpoint_connection(application_gateway_name
         private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_application_gateway_private_endpoint_connection)
 def get_application_gateway_private_endpoint_connection_output(application_gateway_name: Optional[pulumi.Input[str]] = None,
                                                                connection_name: Optional[pulumi.Input[str]] = None,
                                                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -177,4 +174,18 @@ def get_application_gateway_private_endpoint_connection_output(application_gatew
     :param str connection_name: The name of the application gateway private endpoint connection.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationGatewayName'] = application_gateway_name
+    __args__['connectionName'] = connection_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getApplicationGatewayPrivateEndpointConnection', __args__, opts=opts, typ=GetApplicationGatewayPrivateEndpointConnectionResult)
+    return __ret__.apply(lambda __response__: GetApplicationGatewayPrivateEndpointConnectionResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        link_identifier=pulumi.get(__response__, 'link_identifier'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint=pulumi.get(__response__, 'private_endpoint'),
+        private_link_service_connection_state=pulumi.get(__response__, 'private_link_service_connection_state'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type')))

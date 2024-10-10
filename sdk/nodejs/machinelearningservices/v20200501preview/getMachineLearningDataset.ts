@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Dataset by name.
  */
 export function getMachineLearningDataset(args: GetMachineLearningDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningDatasetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200501preview:getMachineLearningDataset", {
         "datasetName": args.datasetName,
@@ -76,7 +75,12 @@ export interface GetMachineLearningDatasetResult {
  * Get a Dataset by name.
  */
 export function getMachineLearningDatasetOutput(args: GetMachineLearningDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatasetResult> {
-    return pulumi.output(args).apply((a: any) => getMachineLearningDataset(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20200501preview:getMachineLearningDataset", {
+        "datasetName": args.datasetName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetMachineLearningDatasetOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * This method gets the data store/repository by name.
  */
 export function getDataStore(args: GetDataStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDataStoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybriddata/v20190601:getDataStore", {
         "dataManagerName": args.dataManagerName,
@@ -76,7 +75,12 @@ export interface GetDataStoreResult {
  * This method gets the data store/repository by name.
  */
 export function getDataStoreOutput(args: GetDataStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataStoreResult> {
-    return pulumi.output(args).apply((a: any) => getDataStore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybriddata/v20190601:getDataStore", {
+        "dataManagerName": args.dataManagerName,
+        "dataStoreName": args.dataStoreName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDataStoreOutputArgs {

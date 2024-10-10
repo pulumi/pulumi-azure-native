@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-05-01-preview.
  */
 export function getBusinessCaseOperationReportDownloadUrl(args: GetBusinessCaseOperationReportDownloadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessCaseOperationReportDownloadUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getBusinessCaseOperationReportDownloadUrl", {
         "businessCaseName": args.businessCaseName,
@@ -55,7 +54,12 @@ export interface GetBusinessCaseOperationReportDownloadUrlResult {
  * Other available API versions: 2023-05-01-preview.
  */
 export function getBusinessCaseOperationReportDownloadUrlOutput(args: GetBusinessCaseOperationReportDownloadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessCaseOperationReportDownloadUrlResult> {
-    return pulumi.output(args).apply((a: any) => getBusinessCaseOperationReportDownloadUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate:getBusinessCaseOperationReportDownloadUrl", {
+        "businessCaseName": args.businessCaseName,
+        "projectName": args.projectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBusinessCaseOperationReportDownloadUrlOutputArgs {

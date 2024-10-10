@@ -12,7 +12,6 @@ import * as utilities from "../../utilities";
  * call the GetItemOperationResult API.
  */
 export function getProtectionIntent(args: GetProtectionIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionIntentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20230801:getProtectionIntent", {
         "fabricName": args.fabricName,
@@ -79,7 +78,13 @@ export interface GetProtectionIntentResult {
  * call the GetItemOperationResult API.
  */
 export function getProtectionIntentOutput(args: GetProtectionIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionIntentResult> {
-    return pulumi.output(args).apply((a: any) => getProtectionIntent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230801:getProtectionIntent", {
+        "fabricName": args.fabricName,
+        "intentObjectName": args.intentObjectName,
+        "resourceGroupName": args.resourceGroupName,
+        "vaultName": args.vaultName,
+    }, opts);
 }
 
 export interface GetProtectionIntentOutputArgs {

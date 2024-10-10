@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about a mongo cluster.
  */
 export function getMongoCluster(args: GetMongoClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20240301preview:getMongoCluster", {
         "mongoClusterName": args.mongoClusterName,
@@ -67,7 +66,11 @@ export interface GetMongoClusterResult {
  * Gets information about a mongo cluster.
  */
 export function getMongoClusterOutput(args: GetMongoClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoClusterResult> {
-    return pulumi.output(args).apply((a: any) => getMongoCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240301preview:getMongoCluster", {
+        "mongoClusterName": args.mongoClusterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMongoClusterOutputArgs {

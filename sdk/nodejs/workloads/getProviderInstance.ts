@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-10-01-preview, 2023-12-01-preview.
  */
 export function getProviderInstance(args: GetProviderInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads:getProviderInstance", {
         "monitorName": args.monitorName,
@@ -82,7 +81,12 @@ export interface GetProviderInstanceResult {
  * Other available API versions: 2023-10-01-preview, 2023-12-01-preview.
  */
 export function getProviderInstanceOutput(args: GetProviderInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getProviderInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:workloads:getProviderInstance", {
+        "monitorName": args.monitorName,
+        "providerInstanceName": args.providerInstanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetProviderInstanceOutputArgs {

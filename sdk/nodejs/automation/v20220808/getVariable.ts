@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Retrieve the variable identified by variable name.
  */
 export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20220808:getVariable", {
         "automationAccountName": args.automationAccountName,
@@ -73,7 +72,12 @@ export interface GetVariableResult {
  * Retrieve the variable identified by variable name.
  */
 export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
-    return pulumi.output(args).apply((a: any) => getVariable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:automation/v20220808:getVariable", {
+        "automationAccountName": args.automationAccountName,
+        "resourceGroupName": args.resourceGroupName,
+        "variableName": args.variableName,
+    }, opts);
 }
 
 export interface GetVariableOutputArgs {

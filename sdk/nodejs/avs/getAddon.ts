@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs:getAddon", {
         "addonName": args.addonName,
@@ -66,7 +65,12 @@ export interface GetAddonResult {
  * Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
  */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
-    return pulumi.output(args).apply((a: any) => getAddon(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs:getAddon", {
+        "addonName": args.addonName,
+        "privateCloudName": args.privateCloudName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAddonOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an integration account RosettaNetProcessConfiguration.
  */
 export function getRosettaNetProcessConfiguration(args: GetRosettaNetProcessConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRosettaNetProcessConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20160601:getRosettaNetProcessConfiguration", {
         "integrationAccountName": args.integrationAccountName,
@@ -104,7 +103,12 @@ export interface GetRosettaNetProcessConfigurationResult {
  * Gets an integration account RosettaNetProcessConfiguration.
  */
 export function getRosettaNetProcessConfigurationOutput(args: GetRosettaNetProcessConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRosettaNetProcessConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getRosettaNetProcessConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:logic/v20160601:getRosettaNetProcessConfiguration", {
+        "integrationAccountName": args.integrationAccountName,
+        "resourceGroupName": args.resourceGroupName,
+        "rosettaNetProcessConfigurationName": args.rosettaNetProcessConfigurationName,
+    }, opts);
 }
 
 export interface GetRosettaNetProcessConfigurationOutputArgs {

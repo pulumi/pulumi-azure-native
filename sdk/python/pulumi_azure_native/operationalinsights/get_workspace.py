@@ -331,9 +331,6 @@ def get_workspace(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         workspace_capping=pulumi.get(__ret__, 'workspace_capping'))
-
-
-@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
@@ -347,4 +344,30 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        created_date=pulumi.get(__response__, 'created_date'),
+        customer_id=pulumi.get(__response__, 'customer_id'),
+        default_data_collection_rule_resource_id=pulumi.get(__response__, 'default_data_collection_rule_resource_id'),
+        etag=pulumi.get(__response__, 'etag'),
+        features=pulumi.get(__response__, 'features'),
+        force_cmk_for_query=pulumi.get(__response__, 'force_cmk_for_query'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        modified_date=pulumi.get(__response__, 'modified_date'),
+        name=pulumi.get(__response__, 'name'),
+        private_link_scoped_resources=pulumi.get(__response__, 'private_link_scoped_resources'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access_for_ingestion=pulumi.get(__response__, 'public_network_access_for_ingestion'),
+        public_network_access_for_query=pulumi.get(__response__, 'public_network_access_for_query'),
+        retention_in_days=pulumi.get(__response__, 'retention_in_days'),
+        sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        workspace_capping=pulumi.get(__response__, 'workspace_capping')))

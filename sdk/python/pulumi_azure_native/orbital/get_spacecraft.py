@@ -201,9 +201,6 @@ def get_spacecraft(resource_group_name: Optional[str] = None,
         tle_line1=pulumi.get(__ret__, 'tle_line1'),
         tle_line2=pulumi.get(__ret__, 'tle_line2'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_spacecraft)
 def get_spacecraft_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                           spacecraft_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpacecraftResult]:
@@ -217,4 +214,20 @@ def get_spacecraft_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str spacecraft_name: Spacecraft ID.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['spacecraftName'] = spacecraft_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:orbital:getSpacecraft', __args__, opts=opts, typ=GetSpacecraftResult)
+    return __ret__.apply(lambda __response__: GetSpacecraftResult(
+        id=pulumi.get(__response__, 'id'),
+        links=pulumi.get(__response__, 'links'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        norad_id=pulumi.get(__response__, 'norad_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        title_line=pulumi.get(__response__, 'title_line'),
+        tle_line1=pulumi.get(__response__, 'tle_line1'),
+        tle_line2=pulumi.get(__response__, 'tle_line2'),
+        type=pulumi.get(__response__, 'type')))

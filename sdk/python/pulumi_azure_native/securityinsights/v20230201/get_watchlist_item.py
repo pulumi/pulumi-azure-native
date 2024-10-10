@@ -256,9 +256,6 @@ def get_watchlist_item(resource_group_name: Optional[str] = None,
         updated_by=pulumi.get(__ret__, 'updated_by'),
         watchlist_item_id=pulumi.get(__ret__, 'watchlist_item_id'),
         watchlist_item_type=pulumi.get(__ret__, 'watchlist_item_type'))
-
-
-@_utilities.lift_output_func(get_watchlist_item)
 def get_watchlist_item_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               watchlist_alias: Optional[pulumi.Input[str]] = None,
                               watchlist_item_id: Optional[pulumi.Input[str]] = None,
@@ -273,4 +270,26 @@ def get_watchlist_item_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str watchlist_item_id: The watchlist item id (GUID)
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['watchlistAlias'] = watchlist_alias
+    __args__['watchlistItemId'] = watchlist_item_id
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20230201:getWatchlistItem', __args__, opts=opts, typ=GetWatchlistItemResult)
+    return __ret__.apply(lambda __response__: GetWatchlistItemResult(
+        created=pulumi.get(__response__, 'created'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        entity_mapping=pulumi.get(__response__, 'entity_mapping'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        is_deleted=pulumi.get(__response__, 'is_deleted'),
+        items_key_value=pulumi.get(__response__, 'items_key_value'),
+        name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type'),
+        updated=pulumi.get(__response__, 'updated'),
+        updated_by=pulumi.get(__response__, 'updated_by'),
+        watchlist_item_id=pulumi.get(__response__, 'watchlist_item_id'),
+        watchlist_item_type=pulumi.get(__response__, 'watchlist_item_type')))

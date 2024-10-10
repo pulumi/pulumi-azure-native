@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * DC Access code in the case of Self Managed Shipping.
  */
 export function listOrderDCAccessCode(args: ListOrderDCAccessCodeArgs, opts?: pulumi.InvokeOptions): Promise<ListOrderDCAccessCodeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20231201:listOrderDCAccessCode", {
         "deviceName": args.deviceName,
@@ -40,7 +39,11 @@ export interface ListOrderDCAccessCodeResult {
  * DC Access code in the case of Self Managed Shipping.
  */
 export function listOrderDCAccessCodeOutput(args: ListOrderDCAccessCodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOrderDCAccessCodeResult> {
-    return pulumi.output(args).apply((a: any) => listOrderDCAccessCode(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20231201:listOrderDCAccessCode", {
+        "deviceName": args.deviceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListOrderDCAccessCodeOutputArgs {

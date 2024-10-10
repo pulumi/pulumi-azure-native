@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a KPI in the hub.
  */
 export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<GetKpiResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getKpi", {
         "hubName": args.hubName,
@@ -132,7 +131,12 @@ export interface GetKpiResult {
  * Gets a KPI in the hub.
  */
 export function getKpiOutput(args: GetKpiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKpiResult> {
-    return pulumi.output(args).apply((a: any) => getKpi(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getKpi", {
+        "hubName": args.hubName,
+        "kpiName": args.kpiName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetKpiOutputArgs {

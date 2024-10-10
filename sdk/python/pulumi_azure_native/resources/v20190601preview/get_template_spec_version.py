@@ -175,9 +175,6 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template=pulumi.get(__ret__, 'template'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_template_spec_version)
 def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                      template_spec_name: Optional[pulumi.Input[str]] = None,
                                      template_spec_version: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[
     :param str template_spec_name: Name of the Template Spec.
     :param str template_spec_version: The version of the Template Spec.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['templateSpecName'] = template_spec_name
+    __args__['templateSpecVersion'] = template_spec_version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:resources/v20190601preview:getTemplateSpecVersion', __args__, opts=opts, typ=GetTemplateSpecVersionResult)
+    return __ret__.apply(lambda __response__: GetTemplateSpecVersionResult(
+        artifacts=pulumi.get(__response__, 'artifacts'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        template=pulumi.get(__response__, 'template'),
+        type=pulumi.get(__response__, 'type')))

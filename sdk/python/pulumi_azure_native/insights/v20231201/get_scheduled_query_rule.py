@@ -419,9 +419,6 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
         target_resource_types=pulumi.get(__ret__, 'target_resource_types'),
         type=pulumi.get(__ret__, 'type'),
         window_size=pulumi.get(__ret__, 'window_size'))
-
-
-@_utilities.lift_output_func(get_scheduled_query_rule)
 def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     rule_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryRuleResult]:
@@ -432,4 +429,37 @@ def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['ruleName'] = rule_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20231201:getScheduledQueryRule', __args__, opts=opts, typ=GetScheduledQueryRuleResult)
+    return __ret__.apply(lambda __response__: GetScheduledQueryRuleResult(
+        actions=pulumi.get(__response__, 'actions'),
+        auto_mitigate=pulumi.get(__response__, 'auto_mitigate'),
+        check_workspace_alerts_storage_configured=pulumi.get(__response__, 'check_workspace_alerts_storage_configured'),
+        created_with_api_version=pulumi.get(__response__, 'created_with_api_version'),
+        criteria=pulumi.get(__response__, 'criteria'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        etag=pulumi.get(__response__, 'etag'),
+        evaluation_frequency=pulumi.get(__response__, 'evaluation_frequency'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        is_legacy_log_analytics_rule=pulumi.get(__response__, 'is_legacy_log_analytics_rule'),
+        is_workspace_alerts_storage_configured=pulumi.get(__response__, 'is_workspace_alerts_storage_configured'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        mute_actions_duration=pulumi.get(__response__, 'mute_actions_duration'),
+        name=pulumi.get(__response__, 'name'),
+        override_query_time_range=pulumi.get(__response__, 'override_query_time_range'),
+        resolve_configuration=pulumi.get(__response__, 'resolve_configuration'),
+        scopes=pulumi.get(__response__, 'scopes'),
+        severity=pulumi.get(__response__, 'severity'),
+        skip_query_validation=pulumi.get(__response__, 'skip_query_validation'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_resource_types=pulumi.get(__response__, 'target_resource_types'),
+        type=pulumi.get(__response__, 'type'),
+        window_size=pulumi.get(__response__, 'window_size')))

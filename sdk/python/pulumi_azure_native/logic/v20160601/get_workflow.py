@@ -250,9 +250,6 @@ def get_workflow(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_workflow)
 def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         workflow_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowResult]:
@@ -263,4 +260,24 @@ def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str workflow_name: The workflow name.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workflowName'] = workflow_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20160601:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult)
+    return __ret__.apply(lambda __response__: GetWorkflowResult(
+        access_endpoint=pulumi.get(__response__, 'access_endpoint'),
+        changed_time=pulumi.get(__response__, 'changed_time'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        definition=pulumi.get(__response__, 'definition'),
+        id=pulumi.get(__response__, 'id'),
+        integration_account=pulumi.get(__response__, 'integration_account'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sku=pulumi.get(__response__, 'sku'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

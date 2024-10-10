@@ -227,9 +227,6 @@ def get_blob_service_properties(account_name: Optional[str] = None,
         restore_policy=pulumi.get(__ret__, 'restore_policy'),
         sku=pulumi.get(__ret__, 'sku'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_blob_service_properties)
 def get_blob_service_properties_output(account_name: Optional[pulumi.Input[str]] = None,
                                        blob_services_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -242,4 +239,23 @@ def get_blob_service_properties_output(account_name: Optional[pulumi.Input[str]]
     :param str blob_services_name: The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['blobServicesName'] = blob_services_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230401:getBlobServiceProperties', __args__, opts=opts, typ=GetBlobServicePropertiesResult)
+    return __ret__.apply(lambda __response__: GetBlobServicePropertiesResult(
+        automatic_snapshot_policy_enabled=pulumi.get(__response__, 'automatic_snapshot_policy_enabled'),
+        change_feed=pulumi.get(__response__, 'change_feed'),
+        container_delete_retention_policy=pulumi.get(__response__, 'container_delete_retention_policy'),
+        cors=pulumi.get(__response__, 'cors'),
+        default_service_version=pulumi.get(__response__, 'default_service_version'),
+        delete_retention_policy=pulumi.get(__response__, 'delete_retention_policy'),
+        id=pulumi.get(__response__, 'id'),
+        is_versioning_enabled=pulumi.get(__response__, 'is_versioning_enabled'),
+        last_access_time_tracking_policy=pulumi.get(__response__, 'last_access_time_tracking_policy'),
+        name=pulumi.get(__response__, 'name'),
+        restore_policy=pulumi.get(__response__, 'restore_policy'),
+        sku=pulumi.get(__response__, 'sku'),
+        type=pulumi.get(__response__, 'type')))

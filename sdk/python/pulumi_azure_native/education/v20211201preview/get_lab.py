@@ -243,9 +243,6 @@ def get_lab(billing_account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_lab)
 def get_lab_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                    billing_profile_name: Optional[pulumi.Input[str]] = None,
                    include_budget: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -260,4 +257,25 @@ def get_lab_output(billing_account_name: Optional[pulumi.Input[str]] = None,
     :param bool include_budget: May be used to include budget information.
     :param str invoice_section_name: The ID that uniquely identifies an invoice section.
     """
-    ...
+    __args__ = dict()
+    __args__['billingAccountName'] = billing_account_name
+    __args__['billingProfileName'] = billing_profile_name
+    __args__['includeBudget'] = include_budget
+    __args__['invoiceSectionName'] = invoice_section_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:education/v20211201preview:getLab', __args__, opts=opts, typ=GetLabResult)
+    return __ret__.apply(lambda __response__: GetLabResult(
+        budget_per_student=pulumi.get(__response__, 'budget_per_student'),
+        currency=pulumi.get(__response__, 'currency'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        effective_date=pulumi.get(__response__, 'effective_date'),
+        expiration_date=pulumi.get(__response__, 'expiration_date'),
+        id=pulumi.get(__response__, 'id'),
+        invitation_code=pulumi.get(__response__, 'invitation_code'),
+        max_student_count=pulumi.get(__response__, 'max_student_count'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        value=pulumi.get(__response__, 'value')))

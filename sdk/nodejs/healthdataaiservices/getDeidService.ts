@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-02-28-preview.
  */
 export function getDeidService(args: GetDeidServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeidServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthdataaiservices:getDeidService", {
         "deidServiceName": args.deidServiceName,
@@ -73,7 +72,11 @@ export interface GetDeidServiceResult {
  * Azure REST API version: 2024-02-28-preview.
  */
 export function getDeidServiceOutput(args: GetDeidServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeidServiceResult> {
-    return pulumi.output(args).apply((a: any) => getDeidService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:healthdataaiservices:getDeidService", {
+        "deidServiceName": args.deidServiceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDeidServiceOutputArgs {

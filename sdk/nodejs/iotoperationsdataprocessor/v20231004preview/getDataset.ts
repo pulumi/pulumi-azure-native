@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Dataset
  */
 export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsdataprocessor/v20231004preview:getDataset", {
         "datasetName": args.datasetName,
@@ -96,7 +95,12 @@ export interface GetDatasetResult {
  * Get a Dataset
  */
 export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
-    return pulumi.output(args).apply((a: any) => getDataset(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:iotoperationsdataprocessor/v20231004preview:getDataset", {
+        "datasetName": args.datasetName,
+        "instanceName": args.instanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDatasetOutputArgs {

@@ -369,9 +369,6 @@ def get_web_app_site_extension(name: Optional[str] = None,
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_web_app_site_extension)
 def get_web_app_site_extension_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       site_extension_id: Optional[pulumi.Input[str]] = None,
@@ -387,4 +384,34 @@ def get_web_app_site_extension_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str site_extension_id: Site extension name.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['siteExtensionId'] = site_extension_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppSiteExtension', __args__, opts=opts, typ=GetWebAppSiteExtensionResult)
+    return __ret__.apply(lambda __response__: GetWebAppSiteExtensionResult(
+        authors=pulumi.get(__response__, 'authors'),
+        comment=pulumi.get(__response__, 'comment'),
+        description=pulumi.get(__response__, 'description'),
+        download_count=pulumi.get(__response__, 'download_count'),
+        extension_id=pulumi.get(__response__, 'extension_id'),
+        extension_type=pulumi.get(__response__, 'extension_type'),
+        extension_url=pulumi.get(__response__, 'extension_url'),
+        feed_url=pulumi.get(__response__, 'feed_url'),
+        icon_url=pulumi.get(__response__, 'icon_url'),
+        id=pulumi.get(__response__, 'id'),
+        installed_date_time=pulumi.get(__response__, 'installed_date_time'),
+        installer_command_line_params=pulumi.get(__response__, 'installer_command_line_params'),
+        kind=pulumi.get(__response__, 'kind'),
+        license_url=pulumi.get(__response__, 'license_url'),
+        local_is_latest_version=pulumi.get(__response__, 'local_is_latest_version'),
+        local_path=pulumi.get(__response__, 'local_path'),
+        name=pulumi.get(__response__, 'name'),
+        project_url=pulumi.get(__response__, 'project_url'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        published_date_time=pulumi.get(__response__, 'published_date_time'),
+        summary=pulumi.get(__response__, 'summary'),
+        title=pulumi.get(__response__, 'title'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

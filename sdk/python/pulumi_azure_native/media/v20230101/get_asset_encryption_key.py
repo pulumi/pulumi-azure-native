@@ -84,9 +84,6 @@ def get_asset_encryption_key(account_name: Optional[str] = None,
     return AwaitableGetAssetEncryptionKeyResult(
         asset_file_encryption_metadata=pulumi.get(__ret__, 'asset_file_encryption_metadata'),
         key=pulumi.get(__ret__, 'key'))
-
-
-@_utilities.lift_output_func(get_asset_encryption_key)
 def get_asset_encryption_key_output(account_name: Optional[pulumi.Input[str]] = None,
                                     asset_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -99,4 +96,12 @@ def get_asset_encryption_key_output(account_name: Optional[pulumi.Input[str]] = 
     :param str asset_name: The Asset name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['assetName'] = asset_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:media/v20230101:getAssetEncryptionKey', __args__, opts=opts, typ=GetAssetEncryptionKeyResult)
+    return __ret__.apply(lambda __response__: GetAssetEncryptionKeyResult(
+        asset_file_encryption_metadata=pulumi.get(__response__, 'asset_file_encryption_metadata'),
+        key=pulumi.get(__response__, 'key')))

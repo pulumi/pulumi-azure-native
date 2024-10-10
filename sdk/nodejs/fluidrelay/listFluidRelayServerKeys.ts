@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-06-01.
  */
 export function listFluidRelayServerKeys(args: ListFluidRelayServerKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListFluidRelayServerKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:fluidrelay:listFluidRelayServerKeys", {
         "fluidRelayServerName": args.fluidRelayServerName,
@@ -46,7 +45,11 @@ export interface ListFluidRelayServerKeysResult {
  * Azure REST API version: 2022-06-01.
  */
 export function listFluidRelayServerKeysOutput(args: ListFluidRelayServerKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFluidRelayServerKeysResult> {
-    return pulumi.output(args).apply((a: any) => listFluidRelayServerKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:fluidrelay:listFluidRelayServerKeys", {
+        "fluidRelayServerName": args.fluidRelayServerName,
+        "resourceGroup": args.resourceGroup,
+    }, opts);
 }
 
 export interface ListFluidRelayServerKeysOutputArgs {

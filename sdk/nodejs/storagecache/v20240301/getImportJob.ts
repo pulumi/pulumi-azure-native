@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns an import job.
  */
 export function getImportJob(args: GetImportJobArgs, opts?: pulumi.InvokeOptions): Promise<GetImportJobResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagecache/v20240301:getImportJob", {
         "amlFilesystemName": args.amlFilesystemName,
@@ -124,7 +123,12 @@ export interface GetImportJobResult {
  * Returns an import job.
  */
 export function getImportJobOutput(args: GetImportJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportJobResult> {
-    return pulumi.output(args).apply((a: any) => getImportJob(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storagecache/v20240301:getImportJob", {
+        "amlFilesystemName": args.amlFilesystemName,
+        "importJobName": args.importJobName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetImportJobOutputArgs {

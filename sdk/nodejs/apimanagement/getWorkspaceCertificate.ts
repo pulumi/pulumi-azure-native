@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-05-01.
  */
 export function getWorkspaceCertificate(args: GetWorkspaceCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getWorkspaceCertificate", {
         "certificateId": args.certificateId,
@@ -83,7 +82,13 @@ export interface GetWorkspaceCertificateResult {
  * Other available API versions: 2024-05-01.
  */
 export function getWorkspaceCertificateOutput(args: GetWorkspaceCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspaceCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceCertificate", {
+        "certificateId": args.certificateId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 export interface GetWorkspaceCertificateOutputArgs {

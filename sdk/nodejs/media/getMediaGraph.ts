@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-02-01-preview.
  */
 export function getMediaGraph(args: GetMediaGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaGraphResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media:getMediaGraph", {
         "accountName": args.accountName,
@@ -82,7 +81,12 @@ export interface GetMediaGraphResult {
  * Azure REST API version: 2020-02-01-preview.
  */
 export function getMediaGraphOutput(args: GetMediaGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaGraphResult> {
-    return pulumi.output(args).apply((a: any) => getMediaGraph(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:media:getMediaGraph", {
+        "accountName": args.accountName,
+        "mediaGraphName": args.mediaGraphName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMediaGraphOutputArgs {

@@ -227,9 +227,6 @@ def get_vpn_connection(connection_name: Optional[str] = None,
         remote_vpn_site=pulumi.get(__ret__, 'remote_vpn_site'),
         routing_weight=pulumi.get(__ret__, 'routing_weight'),
         shared_key=pulumi.get(__ret__, 'shared_key'))
-
-
-@_utilities.lift_output_func(get_vpn_connection)
 def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                               gateway_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -242,4 +239,23 @@ def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
     :param str gateway_name: The name of the gateway.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
-    ...
+    __args__ = dict()
+    __args__['connectionName'] = connection_name
+    __args__['gatewayName'] = gateway_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20180701:getVpnConnection', __args__, opts=opts, typ=GetVpnConnectionResult)
+    return __ret__.apply(lambda __response__: GetVpnConnectionResult(
+        connection_bandwidth_in_mbps=pulumi.get(__response__, 'connection_bandwidth_in_mbps'),
+        connection_status=pulumi.get(__response__, 'connection_status'),
+        egress_bytes_transferred=pulumi.get(__response__, 'egress_bytes_transferred'),
+        enable_bgp=pulumi.get(__response__, 'enable_bgp'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        ingress_bytes_transferred=pulumi.get(__response__, 'ingress_bytes_transferred'),
+        ipsec_policies=pulumi.get(__response__, 'ipsec_policies'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        remote_vpn_site=pulumi.get(__response__, 'remote_vpn_site'),
+        routing_weight=pulumi.get(__response__, 'routing_weight'),
+        shared_key=pulumi.get(__response__, 'shared_key')))

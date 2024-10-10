@@ -279,9 +279,6 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
         source_port_ranges=pulumi.get(__ret__, 'source_port_ranges'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_dscp_configuration)
 def get_dscp_configuration_output(dscp_configuration_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDscpConfigurationResult]:
@@ -295,4 +292,26 @@ def get_dscp_configuration_output(dscp_configuration_name: Optional[pulumi.Input
     :param str dscp_configuration_name: The name of the resource.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['dscpConfigurationName'] = dscp_configuration_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getDscpConfiguration', __args__, opts=opts, typ=GetDscpConfigurationResult)
+    return __ret__.apply(lambda __response__: GetDscpConfigurationResult(
+        associated_network_interfaces=pulumi.get(__response__, 'associated_network_interfaces'),
+        destination_ip_ranges=pulumi.get(__response__, 'destination_ip_ranges'),
+        destination_port_ranges=pulumi.get(__response__, 'destination_port_ranges'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        markings=pulumi.get(__response__, 'markings'),
+        name=pulumi.get(__response__, 'name'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        qos_collection_id=pulumi.get(__response__, 'qos_collection_id'),
+        qos_definition_collection=pulumi.get(__response__, 'qos_definition_collection'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        source_ip_ranges=pulumi.get(__response__, 'source_ip_ranges'),
+        source_port_ranges=pulumi.get(__response__, 'source_port_ranges'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

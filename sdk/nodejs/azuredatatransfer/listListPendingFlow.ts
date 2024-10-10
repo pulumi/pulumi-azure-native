@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11.
  */
 export function listListPendingFlow(args: ListListPendingFlowArgs, opts?: pulumi.InvokeOptions): Promise<ListListPendingFlowResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer:listListPendingFlow", {
         "connectionName": args.connectionName,
@@ -53,7 +52,11 @@ export interface ListListPendingFlowResult {
  * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11.
  */
 export function listListPendingFlowOutput(args: ListListPendingFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListPendingFlowResult> {
-    return pulumi.output(args).apply((a: any) => listListPendingFlow(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:listListPendingFlow", {
+        "connectionName": args.connectionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListListPendingFlowOutputArgs {

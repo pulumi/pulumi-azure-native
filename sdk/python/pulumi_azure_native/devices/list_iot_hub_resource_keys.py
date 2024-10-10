@@ -84,9 +84,6 @@ def list_iot_hub_resource_keys(resource_group_name: Optional[str] = None,
     return AwaitableListIotHubResourceKeysResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_iot_hub_resource_keys)
 def list_iot_hub_resource_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                       resource_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotHubResourceKeysResult]:
@@ -100,4 +97,11 @@ def list_iot_hub_resource_keys_output(resource_group_name: Optional[pulumi.Input
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devices:listIotHubResourceKeys', __args__, opts=opts, typ=ListIotHubResourceKeysResult)
+    return __ret__.apply(lambda __response__: ListIotHubResourceKeysResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

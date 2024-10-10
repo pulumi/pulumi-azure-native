@@ -221,9 +221,6 @@ def get_multiple_activation_key(multiple_activation_key_name: Optional[str] = No
         support_type=pulumi.get(__ret__, 'support_type'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_multiple_activation_key)
 def get_multiple_activation_key_output(multiple_activation_key_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultipleActivationKeyResult]:
@@ -235,4 +232,22 @@ def get_multiple_activation_key_output(multiple_activation_key_name: Optional[pu
     :param str multiple_activation_key_name: The name of the MAK key.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['multipleActivationKeyName'] = multiple_activation_key_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:windowsesu:getMultipleActivationKey', __args__, opts=opts, typ=GetMultipleActivationKeyResult)
+    return __ret__.apply(lambda __response__: GetMultipleActivationKeyResult(
+        agreement_number=pulumi.get(__response__, 'agreement_number'),
+        expiration_date=pulumi.get(__response__, 'expiration_date'),
+        id=pulumi.get(__response__, 'id'),
+        installed_server_number=pulumi.get(__response__, 'installed_server_number'),
+        is_eligible=pulumi.get(__response__, 'is_eligible'),
+        location=pulumi.get(__response__, 'location'),
+        multiple_activation_key=pulumi.get(__response__, 'multiple_activation_key'),
+        name=pulumi.get(__response__, 'name'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        support_type=pulumi.get(__response__, 'support_type'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

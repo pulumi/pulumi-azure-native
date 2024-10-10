@@ -250,9 +250,6 @@ def get_network_function(network_function_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         user_description=pulumi.get(__ret__, 'user_description'))
-
-
-@_utilities.lift_output_func(get_network_function)
 def get_network_function_output(network_function_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkFunctionResult]:
@@ -263,4 +260,24 @@ def get_network_function_output(network_function_name: Optional[pulumi.Input[str
     :param str network_function_name: The name of the network function
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['networkFunctionName'] = network_function_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:mobilepacketcore/v20230515preview:getNetworkFunction', __args__, opts=opts, typ=GetNetworkFunctionResult)
+    return __ret__.apply(lambda __response__: GetNetworkFunctionResult(
+        capacity=pulumi.get(__response__, 'capacity'),
+        deployment_notes=pulumi.get(__response__, 'deployment_notes'),
+        id=pulumi.get(__response__, 'id'),
+        infrastructure_element_count=pulumi.get(__response__, 'infrastructure_element_count'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_function_administrative_state=pulumi.get(__response__, 'network_function_administrative_state'),
+        network_function_operational_status=pulumi.get(__response__, 'network_function_operational_status'),
+        network_function_type=pulumi.get(__response__, 'network_function_type'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        user_description=pulumi.get(__response__, 'user_description')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the event source with the specified name in the specified environment.
  */
 export function getEventHubEventSource(args: GetEventHubEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubEventSourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20210630preview:getEventHubEventSource", {
         "environmentName": args.environmentName,
@@ -109,7 +108,12 @@ export interface GetEventHubEventSourceResult {
  * Gets the event source with the specified name in the specified environment.
  */
 export function getEventHubEventSourceOutput(args: GetEventHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubEventSourceResult> {
-    return pulumi.output(args).apply((a: any) => getEventHubEventSource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights/v20210630preview:getEventHubEventSource", {
+        "environmentName": args.environmentName,
+        "eventSourceName": args.eventSourceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEventHubEventSourceOutputArgs {

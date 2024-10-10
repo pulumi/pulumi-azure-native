@@ -214,9 +214,6 @@ def get_organization(organization_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         user_detail=pulumi.get(__ret__, 'user_detail'))
-
-
-@_utilities.lift_output_func(get_organization)
 def get_organization_output(organization_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
@@ -230,4 +227,21 @@ def get_organization_output(organization_name: Optional[pulumi.Input[str]] = Non
     :param str organization_name: Organization resource name
     :param str resource_group_name: Resource group name
     """
-    ...
+    __args__ = dict()
+    __args__['organizationName'] = organization_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:confluent:getOrganization', __args__, opts=opts, typ=GetOrganizationResult)
+    return __ret__.apply(lambda __response__: GetOrganizationResult(
+        created_time=pulumi.get(__response__, 'created_time'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        offer_detail=pulumi.get(__response__, 'offer_detail'),
+        organization_id=pulumi.get(__response__, 'organization_id'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sso_url=pulumi.get(__response__, 'sso_url'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        user_detail=pulumi.get(__response__, 'user_detail')))

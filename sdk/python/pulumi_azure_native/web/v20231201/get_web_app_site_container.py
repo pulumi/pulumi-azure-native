@@ -266,9 +266,6 @@ def get_web_app_site_container(container_name: Optional[str] = None,
         user_managed_identity_client_id=pulumi.get(__ret__, 'user_managed_identity_client_id'),
         user_name=pulumi.get(__ret__, 'user_name'),
         volume_mounts=pulumi.get(__ret__, 'volume_mounts'))
-
-
-@_utilities.lift_output_func(get_web_app_site_container)
 def get_web_app_site_container_output(container_name: Optional[pulumi.Input[str]] = None,
                                       name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -281,4 +278,26 @@ def get_web_app_site_container_output(container_name: Optional[pulumi.Input[str]
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['containerName'] = container_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:getWebAppSiteContainer', __args__, opts=opts, typ=GetWebAppSiteContainerResult)
+    return __ret__.apply(lambda __response__: GetWebAppSiteContainerResult(
+        auth_type=pulumi.get(__response__, 'auth_type'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        environment_variables=pulumi.get(__response__, 'environment_variables'),
+        id=pulumi.get(__response__, 'id'),
+        image=pulumi.get(__response__, 'image'),
+        is_main=pulumi.get(__response__, 'is_main'),
+        kind=pulumi.get(__response__, 'kind'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        name=pulumi.get(__response__, 'name'),
+        password_secret=pulumi.get(__response__, 'password_secret'),
+        start_up_command=pulumi.get(__response__, 'start_up_command'),
+        target_port=pulumi.get(__response__, 'target_port'),
+        type=pulumi.get(__response__, 'type'),
+        user_managed_identity_client_id=pulumi.get(__response__, 'user_managed_identity_client_id'),
+        user_name=pulumi.get(__response__, 'user_name'),
+        volume_mounts=pulumi.get(__response__, 'volume_mounts')))

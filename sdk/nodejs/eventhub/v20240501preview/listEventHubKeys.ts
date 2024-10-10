@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the ACS and SAS connection strings for the Event Hub.
  */
 export function listEventHubKeys(args: ListEventHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListEventHubKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20240501preview:listEventHubKeys", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -74,7 +73,13 @@ export interface ListEventHubKeysResult {
  * Gets the ACS and SAS connection strings for the Event Hub.
  */
 export function listEventHubKeysOutput(args: ListEventHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEventHubKeysResult> {
-    return pulumi.output(args).apply((a: any) => listEventHubKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventhub/v20240501preview:listEventHubKeys", {
+        "authorizationRuleName": args.authorizationRuleName,
+        "eventHubName": args.eventHubName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListEventHubKeysOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get configuration assignment for resource..
  */
 export function getConfigurationAssignment(args: GetConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssignmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maintenance/v20230901preview:getConfigurationAssignment", {
         "configurationAssignmentName": args.configurationAssignmentName,
@@ -86,7 +85,14 @@ export interface GetConfigurationAssignmentResult {
  * Get configuration assignment for resource..
  */
 export function getConfigurationAssignmentOutput(args: GetConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationAssignment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:maintenance/v20230901preview:getConfigurationAssignment", {
+        "configurationAssignmentName": args.configurationAssignmentName,
+        "providerName": args.providerName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+        "resourceType": args.resourceType,
+    }, opts);
 }
 
 export interface GetConfigurationAssignmentOutputArgs {

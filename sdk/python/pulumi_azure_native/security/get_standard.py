@@ -238,9 +238,6 @@ def get_standard(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_standard)
 def get_standard_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         standard_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardResult]:
@@ -252,4 +249,23 @@ def get_standard_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str standard_id: The Security Standard key - unique key for the standard type
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['standardId'] = standard_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:security:getStandard', __args__, opts=opts, typ=GetStandardResult)
+    return __ret__.apply(lambda __response__: GetStandardResult(
+        category=pulumi.get(__response__, 'category'),
+        components=pulumi.get(__response__, 'components'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        standard_type=pulumi.get(__response__, 'standard_type'),
+        supported_clouds=pulumi.get(__response__, 'supported_clouds'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

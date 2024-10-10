@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified custom blocklist Item associated with the custom blocklist.
  */
 export function getRaiBlocklistItem(args: GetRaiBlocklistItemArgs, opts?: pulumi.InvokeOptions): Promise<GetRaiBlocklistItemResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20231001preview:getRaiBlocklistItem", {
         "accountName": args.accountName,
@@ -77,7 +76,13 @@ export interface GetRaiBlocklistItemResult {
  * Gets the specified custom blocklist Item associated with the custom blocklist.
  */
 export function getRaiBlocklistItemOutput(args: GetRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiBlocklistItemResult> {
-    return pulumi.output(args).apply((a: any) => getRaiBlocklistItem(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20231001preview:getRaiBlocklistItem", {
+        "accountName": args.accountName,
+        "raiBlocklistItemName": args.raiBlocklistItemName,
+        "raiBlocklistName": args.raiBlocklistName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRaiBlocklistItemOutputArgs {

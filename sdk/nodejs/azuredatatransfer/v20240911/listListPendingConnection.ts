@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Lists all pending connections for a connection.
  */
 export function listListPendingConnection(args: ListListPendingConnectionArgs, opts?: pulumi.InvokeOptions): Promise<ListListPendingConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer/v20240911:listListPendingConnection", {
         "connectionName": args.connectionName,
@@ -47,7 +46,11 @@ export interface ListListPendingConnectionResult {
  * Lists all pending connections for a connection.
  */
 export function listListPendingConnectionOutput(args: ListListPendingConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListPendingConnectionResult> {
-    return pulumi.output(args).apply((a: any) => listListPendingConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20240911:listListPendingConnection", {
+        "connectionName": args.connectionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListListPendingConnectionOutputArgs {

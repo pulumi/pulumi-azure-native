@@ -201,9 +201,6 @@ def get_user(resource_group_name: Optional[str] = None,
         registration_date=pulumi.get(__ret__, 'registration_date'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                     service_name: Optional[pulumi.Input[str]] = None,
                     user_id: Optional[pulumi.Input[str]] = None,
@@ -216,4 +213,21 @@ def get_user_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of the API Management service.
     :param str user_id: User identifier. Must be unique in the current API Management service instance.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['userId'] = user_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        email=pulumi.get(__response__, 'email'),
+        first_name=pulumi.get(__response__, 'first_name'),
+        groups=pulumi.get(__response__, 'groups'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        last_name=pulumi.get(__response__, 'last_name'),
+        name=pulumi.get(__response__, 'name'),
+        note=pulumi.get(__response__, 'note'),
+        registration_date=pulumi.get(__response__, 'registration_date'),
+        state=pulumi.get(__response__, 'state'),
+        type=pulumi.get(__response__, 'type')))

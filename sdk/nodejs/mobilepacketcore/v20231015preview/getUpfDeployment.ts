@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a UpfDeploymentResource
  */
 export function getUpfDeployment(args: GetUpfDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetUpfDeploymentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilepacketcore/v20231015preview:getUpfDeployment", {
         "resourceGroupName": args.resourceGroupName,
@@ -87,7 +86,11 @@ export interface GetUpfDeploymentResult {
  * Get a UpfDeploymentResource
  */
 export function getUpfDeploymentOutput(args: GetUpfDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpfDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getUpfDeployment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:mobilepacketcore/v20231015preview:getUpfDeployment", {
+        "resourceGroupName": args.resourceGroupName,
+        "upfDeploymentName": args.upfDeploymentName,
+    }, opts);
 }
 
 export interface GetUpfDeploymentOutputArgs {

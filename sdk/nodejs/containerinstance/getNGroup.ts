@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-09-01-preview.
  */
 export function getNGroup(args: GetNGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerinstance:getNGroup", {
         "ngroupsName": args.ngroupsName,
@@ -85,7 +84,11 @@ export interface GetNGroupResult {
  * Azure REST API version: 2024-09-01-preview.
  */
 export function getNGroupOutput(args: GetNGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNGroupResult> {
-    return pulumi.output(args).apply((a: any) => getNGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerinstance:getNGroup", {
+        "ngroupsName": args.ngroupsName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNGroupOutputArgs {

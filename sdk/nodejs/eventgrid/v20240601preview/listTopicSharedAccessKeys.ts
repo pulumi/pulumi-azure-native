@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * List the two keys used to publish to a topic.
  */
 export function listTopicSharedAccessKeys(args: ListTopicSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTopicSharedAccessKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20240601preview:listTopicSharedAccessKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -44,7 +43,11 @@ export interface ListTopicSharedAccessKeysResult {
  * List the two keys used to publish to a topic.
  */
 export function listTopicSharedAccessKeysOutput(args: ListTopicSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopicSharedAccessKeysResult> {
-    return pulumi.output(args).apply((a: any) => listTopicSharedAccessKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:listTopicSharedAccessKeys", {
+        "resourceGroupName": args.resourceGroupName,
+        "topicName": args.topicName,
+    }, opts);
 }
 
 export interface ListTopicSharedAccessKeysOutputArgs {

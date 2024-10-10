@@ -254,9 +254,6 @@ def list_task_details(registry_name: Optional[str] = None,
         timeout=pulumi.get(__ret__, 'timeout'),
         trigger=pulumi.get(__ret__, 'trigger'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(list_task_details)
 def list_task_details_output(registry_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              task_name: Optional[pulumi.Input[str]] = None,
@@ -269,4 +266,25 @@ def list_task_details_output(registry_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str task_name: The name of the container registry task.
     """
-    ...
+    __args__ = dict()
+    __args__['registryName'] = registry_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['taskName'] = task_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20190401:listTaskDetails', __args__, opts=opts, typ=ListTaskDetailsResult)
+    return __ret__.apply(lambda __response__: ListTaskDetailsResult(
+        agent_configuration=pulumi.get(__response__, 'agent_configuration'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        credentials=pulumi.get(__response__, 'credentials'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        platform=pulumi.get(__response__, 'platform'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
+        step=pulumi.get(__response__, 'step'),
+        tags=pulumi.get(__response__, 'tags'),
+        timeout=pulumi.get(__response__, 'timeout'),
+        trigger=pulumi.get(__response__, 'trigger'),
+        type=pulumi.get(__response__, 'type')))

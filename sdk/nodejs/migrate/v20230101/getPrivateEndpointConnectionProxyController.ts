@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the of private link proxy resources from a migrate project and private link proxy resource.
  */
 export function getPrivateEndpointConnectionProxyController(args: GetPrivateEndpointConnectionProxyControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionProxyControllerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20230101:getPrivateEndpointConnectionProxyController", {
         "migrateProjectName": args.migrateProjectName,
@@ -56,7 +55,12 @@ export interface GetPrivateEndpointConnectionProxyControllerResult {
  * Get the of private link proxy resources from a migrate project and private link proxy resource.
  */
 export function getPrivateEndpointConnectionProxyControllerOutput(args: GetPrivateEndpointConnectionProxyControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionProxyControllerResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionProxyController(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate/v20230101:getPrivateEndpointConnectionProxyController", {
+        "migrateProjectName": args.migrateProjectName,
+        "pecProxyName": args.pecProxyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPrivateEndpointConnectionProxyControllerOutputArgs {

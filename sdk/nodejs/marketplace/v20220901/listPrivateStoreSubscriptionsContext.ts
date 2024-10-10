@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * List all the subscriptions in the private store context
  */
 export function listPrivateStoreSubscriptionsContext(args: ListPrivateStoreSubscriptionsContextArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateStoreSubscriptionsContextResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:marketplace/v20220901:listPrivateStoreSubscriptionsContext", {
         "privateStoreId": args.privateStoreId,
@@ -32,7 +31,10 @@ export interface ListPrivateStoreSubscriptionsContextResult {
  * List all the subscriptions in the private store context
  */
 export function listPrivateStoreSubscriptionsContextOutput(args: ListPrivateStoreSubscriptionsContextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreSubscriptionsContextResult> {
-    return pulumi.output(args).apply((a: any) => listPrivateStoreSubscriptionsContext(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:marketplace/v20220901:listPrivateStoreSubscriptionsContext", {
+        "privateStoreId": args.privateStoreId,
+    }, opts);
 }
 
 export interface ListPrivateStoreSubscriptionsContextOutputArgs {

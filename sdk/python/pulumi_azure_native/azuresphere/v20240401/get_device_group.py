@@ -204,9 +204,6 @@ def get_device_group(catalog_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         update_policy=pulumi.get(__ret__, 'update_policy'))
-
-
-@_utilities.lift_output_func(get_device_group)
 def get_device_group_output(catalog_name: Optional[pulumi.Input[str]] = None,
                             device_group_name: Optional[pulumi.Input[str]] = None,
                             product_name: Optional[pulumi.Input[str]] = None,
@@ -221,4 +218,22 @@ def get_device_group_output(catalog_name: Optional[pulumi.Input[str]] = None,
     :param str product_name: Name of product.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['catalogName'] = catalog_name
+    __args__['deviceGroupName'] = device_group_name
+    __args__['productName'] = product_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azuresphere/v20240401:getDeviceGroup', __args__, opts=opts, typ=GetDeviceGroupResult)
+    return __ret__.apply(lambda __response__: GetDeviceGroupResult(
+        allow_crash_dumps_collection=pulumi.get(__response__, 'allow_crash_dumps_collection'),
+        description=pulumi.get(__response__, 'description'),
+        has_deployment=pulumi.get(__response__, 'has_deployment'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        os_feed_type=pulumi.get(__response__, 'os_feed_type'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        regional_data_boundary=pulumi.get(__response__, 'regional_data_boundary'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        update_policy=pulumi.get(__response__, 'update_policy')))

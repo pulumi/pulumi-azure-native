@@ -189,9 +189,6 @@ def get_streaming_policy(account_name: Optional[str] = None,
         no_encryption=pulumi.get(__ret__, 'no_encryption'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_streaming_policy)
 def get_streaming_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 streaming_policy_name: Optional[pulumi.Input[str]] = None,
@@ -205,4 +202,20 @@ def get_streaming_policy_output(account_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str streaming_policy_name: The Streaming Policy name.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['streamingPolicyName'] = streaming_policy_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:media:getStreamingPolicy', __args__, opts=opts, typ=GetStreamingPolicyResult)
+    return __ret__.apply(lambda __response__: GetStreamingPolicyResult(
+        common_encryption_cbcs=pulumi.get(__response__, 'common_encryption_cbcs'),
+        common_encryption_cenc=pulumi.get(__response__, 'common_encryption_cenc'),
+        created=pulumi.get(__response__, 'created'),
+        default_content_key_policy_name=pulumi.get(__response__, 'default_content_key_policy_name'),
+        envelope_encryption=pulumi.get(__response__, 'envelope_encryption'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        no_encryption=pulumi.get(__response__, 'no_encryption'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -198,9 +198,6 @@ def get_subscription_diagnostic_setting(name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-
-
-@_utilities.lift_output_func(get_subscription_diagnostic_setting)
 def get_subscription_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionDiagnosticSettingResult]:
     """
@@ -212,4 +209,19 @@ def get_subscription_diagnostic_setting_output(name: Optional[pulumi.Input[str]]
 
     :param str name: The name of the diagnostic setting.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getSubscriptionDiagnosticSetting', __args__, opts=opts, typ=GetSubscriptionDiagnosticSettingResult)
+    return __ret__.apply(lambda __response__: GetSubscriptionDiagnosticSettingResult(
+        event_hub_authorization_rule_id=pulumi.get(__response__, 'event_hub_authorization_rule_id'),
+        event_hub_name=pulumi.get(__response__, 'event_hub_name'),
+        id=pulumi.get(__response__, 'id'),
+        logs=pulumi.get(__response__, 'logs'),
+        marketplace_partner_id=pulumi.get(__response__, 'marketplace_partner_id'),
+        name=pulumi.get(__response__, 'name'),
+        service_bus_rule_id=pulumi.get(__response__, 'service_bus_rule_id'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        workspace_id=pulumi.get(__response__, 'workspace_id')))

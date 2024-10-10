@@ -98,9 +98,6 @@ def list_appliance_keys(artifact_type: Optional[str] = None,
         artifact_profiles=pulumi.get(__ret__, 'artifact_profiles'),
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'),
         ssh_keys=pulumi.get(__ret__, 'ssh_keys'))
-
-
-@_utilities.lift_output_func(list_appliance_keys)
 def list_appliance_keys_output(artifact_type: Optional[pulumi.Input[Optional[str]]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                resource_name: Optional[pulumi.Input[str]] = None,
@@ -114,4 +111,13 @@ def list_appliance_keys_output(artifact_type: Optional[pulumi.Input[Optional[str
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Appliances name.
     """
-    ...
+    __args__ = dict()
+    __args__['artifactType'] = artifact_type
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:resourceconnector:listApplianceKeys', __args__, opts=opts, typ=ListApplianceKeysResult)
+    return __ret__.apply(lambda __response__: ListApplianceKeysResult(
+        artifact_profiles=pulumi.get(__response__, 'artifact_profiles'),
+        kubeconfigs=pulumi.get(__response__, 'kubeconfigs'),
+        ssh_keys=pulumi.get(__response__, 'ssh_keys')))

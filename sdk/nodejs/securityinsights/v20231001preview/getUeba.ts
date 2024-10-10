@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a setting.
  */
 export function getUeba(args: GetUebaArgs, opts?: pulumi.InvokeOptions): Promise<GetUebaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20231001preview:getUeba", {
         "resourceGroupName": args.resourceGroupName,
@@ -73,7 +72,12 @@ export interface GetUebaResult {
  * Gets a setting.
  */
 export function getUebaOutput(args: GetUebaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUebaResult> {
-    return pulumi.output(args).apply((a: any) => getUeba(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231001preview:getUeba", {
+        "resourceGroupName": args.resourceGroupName,
+        "settingsName": args.settingsName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetUebaOutputArgs {

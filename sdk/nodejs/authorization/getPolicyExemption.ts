@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-07-01-preview.
  */
 export function getPolicyExemption(args: GetPolicyExemptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyExemptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getPolicyExemption", {
         "policyExemptionName": args.policyExemptionName,
@@ -93,7 +92,11 @@ export interface GetPolicyExemptionResult {
  * Azure REST API version: 2022-07-01-preview.
  */
 export function getPolicyExemptionOutput(args: GetPolicyExemptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyExemptionResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyExemption(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:authorization:getPolicyExemption", {
+        "policyExemptionName": args.policyExemptionName,
+        "scope": args.scope,
+    }, opts);
 }
 
 export interface GetPolicyExemptionOutputArgs {

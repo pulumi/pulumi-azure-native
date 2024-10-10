@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve the module identified by module name.
  */
 export function getPowerShell72Module(args: GetPowerShell72ModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetPowerShell72ModuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20231101:getPowerShell72Module", {
         "automationAccountName": args.automationAccountName,
@@ -108,7 +107,12 @@ export interface GetPowerShell72ModuleResult {
  * Retrieve the module identified by module name.
  */
 export function getPowerShell72ModuleOutput(args: GetPowerShell72ModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPowerShell72ModuleResult> {
-    return pulumi.output(args).apply((a: any) => getPowerShell72Module(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:automation/v20231101:getPowerShell72Module", {
+        "automationAccountName": args.automationAccountName,
+        "moduleName": args.moduleName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPowerShell72ModuleOutputArgs {

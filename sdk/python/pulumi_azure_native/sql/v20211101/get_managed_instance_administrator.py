@@ -147,9 +147,6 @@ def get_managed_instance_administrator(administrator_name: Optional[str] = None,
         sid=pulumi.get(__ret__, 'sid'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_managed_instance_administrator)
 def get_managed_instance_administrator_output(administrator_name: Optional[pulumi.Input[str]] = None,
                                               managed_instance_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -161,4 +158,17 @@ def get_managed_instance_administrator_output(administrator_name: Optional[pulum
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
-    ...
+    __args__ = dict()
+    __args__['administratorName'] = administrator_name
+    __args__['managedInstanceName'] = managed_instance_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20211101:getManagedInstanceAdministrator', __args__, opts=opts, typ=GetManagedInstanceAdministratorResult)
+    return __ret__.apply(lambda __response__: GetManagedInstanceAdministratorResult(
+        administrator_type=pulumi.get(__response__, 'administrator_type'),
+        id=pulumi.get(__response__, 'id'),
+        login=pulumi.get(__response__, 'login'),
+        name=pulumi.get(__response__, 'name'),
+        sid=pulumi.get(__response__, 'sid'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type')))

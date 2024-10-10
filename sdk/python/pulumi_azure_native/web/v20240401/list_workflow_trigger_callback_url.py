@@ -139,9 +139,6 @@ def list_workflow_trigger_callback_url(name: Optional[str] = None,
         relative_path=pulumi.get(__ret__, 'relative_path'),
         relative_path_parameters=pulumi.get(__ret__, 'relative_path_parameters'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_workflow_trigger_callback_url)
 def list_workflow_trigger_callback_url_output(name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               trigger_name: Optional[pulumi.Input[str]] = None,
@@ -156,4 +153,17 @@ def list_workflow_trigger_callback_url_output(name: Optional[pulumi.Input[str]] 
     :param str trigger_name: The workflow trigger name.
     :param str workflow_name: The workflow name.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['triggerName'] = trigger_name
+    __args__['workflowName'] = workflow_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:listWorkflowTriggerCallbackUrl', __args__, opts=opts, typ=ListWorkflowTriggerCallbackUrlResult)
+    return __ret__.apply(lambda __response__: ListWorkflowTriggerCallbackUrlResult(
+        base_path=pulumi.get(__response__, 'base_path'),
+        method=pulumi.get(__response__, 'method'),
+        queries=pulumi.get(__response__, 'queries'),
+        relative_path=pulumi.get(__response__, 'relative_path'),
+        relative_path_parameters=pulumi.get(__response__, 'relative_path_parameters'),
+        value=pulumi.get(__response__, 'value')))

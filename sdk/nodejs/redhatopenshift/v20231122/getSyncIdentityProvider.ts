@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The operation returns properties of a SyncIdentityProvider.
  */
 export function getSyncIdentityProvider(args: GetSyncIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncIdentityProviderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:redhatopenshift/v20231122:getSyncIdentityProvider", {
         "childResourceName": args.childResourceName,
@@ -61,7 +60,12 @@ export interface GetSyncIdentityProviderResult {
  * The operation returns properties of a SyncIdentityProvider.
  */
 export function getSyncIdentityProviderOutput(args: GetSyncIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncIdentityProviderResult> {
-    return pulumi.output(args).apply((a: any) => getSyncIdentityProvider(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:redhatopenshift/v20231122:getSyncIdentityProvider", {
+        "childResourceName": args.childResourceName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetSyncIdentityProviderOutputArgs {

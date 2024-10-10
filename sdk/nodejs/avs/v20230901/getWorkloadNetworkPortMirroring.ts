@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a WorkloadNetworkPortMirroring
  */
 export function getWorkloadNetworkPortMirroring(args: GetWorkloadNetworkPortMirroringArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkPortMirroringResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20230901:getWorkloadNetworkPortMirroring", {
         "portMirroringId": args.portMirroringId,
@@ -88,7 +87,12 @@ export interface GetWorkloadNetworkPortMirroringResult {
  * Get a WorkloadNetworkPortMirroring
  */
 export function getWorkloadNetworkPortMirroringOutput(args: GetWorkloadNetworkPortMirroringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkPortMirroringResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadNetworkPortMirroring(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getWorkloadNetworkPortMirroring", {
+        "portMirroringId": args.portMirroringId,
+        "privateCloudName": args.privateCloudName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWorkloadNetworkPortMirroringOutputArgs {

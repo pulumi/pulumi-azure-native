@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get a trigger's event subscription status.
  */
 export function getTriggerEventSubscriptionStatus(args: GetTriggerEventSubscriptionStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerEventSubscriptionStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getTriggerEventSubscriptionStatus", {
         "factoryName": args.factoryName,
@@ -49,7 +48,12 @@ export interface GetTriggerEventSubscriptionStatusResult {
  * Get a trigger's event subscription status.
  */
 export function getTriggerEventSubscriptionStatusOutput(args: GetTriggerEventSubscriptionStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerEventSubscriptionStatusResult> {
-    return pulumi.output(args).apply((a: any) => getTriggerEventSubscriptionStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getTriggerEventSubscriptionStatus", {
+        "factoryName": args.factoryName,
+        "resourceGroupName": args.resourceGroupName,
+        "triggerName": args.triggerName,
+    }, opts);
 }
 
 export interface GetTriggerEventSubscriptionStatusOutputArgs {

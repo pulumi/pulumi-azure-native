@@ -211,9 +211,6 @@ def get_workspace(resource_group_name: Optional[str] = None,
         source=pulumi.get(__ret__, 'source'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
@@ -224,4 +221,21 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The resource group name of the workspace.
     :param str workspace_name: Name of the Log Analytics Workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights/v20151101preview:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        customer_id=pulumi.get(__response__, 'customer_id'),
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        portal_url=pulumi.get(__response__, 'portal_url'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        retention_in_days=pulumi.get(__response__, 'retention_in_days'),
+        sku=pulumi.get(__response__, 'sku'),
+        source=pulumi.get(__response__, 'source'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

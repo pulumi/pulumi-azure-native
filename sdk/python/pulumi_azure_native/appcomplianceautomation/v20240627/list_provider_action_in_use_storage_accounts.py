@@ -65,9 +65,6 @@ def list_provider_action_in_use_storage_accounts(subscription_ids: Optional[Sequ
 
     return AwaitableListProviderActionInUseStorageAccountsResult(
         storage_account_list=pulumi.get(__ret__, 'storage_account_list'))
-
-
-@_utilities.lift_output_func(list_provider_action_in_use_storage_accounts)
 def list_provider_action_in_use_storage_accounts_output(subscription_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProviderActionInUseStorageAccountsResult]:
     """
@@ -76,4 +73,9 @@ def list_provider_action_in_use_storage_accounts_output(subscription_ids: Option
 
     :param Sequence[str] subscription_ids: List of subscription ids to be query. If the list is null or empty, the API will query all the subscriptions of the user.
     """
-    ...
+    __args__ = dict()
+    __args__['subscriptionIds'] = subscription_ids
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation/v20240627:listProviderActionInUseStorageAccounts', __args__, opts=opts, typ=ListProviderActionInUseStorageAccountsResult)
+    return __ret__.apply(lambda __response__: ListProviderActionInUseStorageAccountsResult(
+        storage_account_list=pulumi.get(__response__, 'storage_account_list')))

@@ -205,9 +205,6 @@ def get_io_t_addon(addon_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_io_t_addon)
 def get_io_t_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                           device_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -222,4 +219,22 @@ def get_io_t_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str role_name: The role name.
     """
-    ...
+    __args__ = dict()
+    __args__['addonName'] = addon_name
+    __args__['deviceName'] = device_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['roleName'] = role_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20220301:getIoTAddon', __args__, opts=opts, typ=GetIoTAddonResult)
+    return __ret__.apply(lambda __response__: GetIoTAddonResult(
+        host_platform=pulumi.get(__response__, 'host_platform'),
+        host_platform_type=pulumi.get(__response__, 'host_platform_type'),
+        id=pulumi.get(__response__, 'id'),
+        io_t_device_details=pulumi.get(__response__, 'io_t_device_details'),
+        io_t_edge_device_details=pulumi.get(__response__, 'io_t_edge_device_details'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

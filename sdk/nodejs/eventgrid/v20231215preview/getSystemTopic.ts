@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get properties of a system topic.
  */
 export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20231215preview:getSystemTopic", {
         "resourceGroupName": args.resourceGroupName,
@@ -83,7 +82,11 @@ export interface GetSystemTopicResult {
  * Get properties of a system topic.
  */
 export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicResult> {
-    return pulumi.output(args).apply((a: any) => getSystemTopic(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getSystemTopic", {
+        "resourceGroupName": args.resourceGroupName,
+        "systemTopicName": args.systemTopicName,
+    }, opts);
 }
 
 export interface GetSystemTopicOutputArgs {

@@ -250,9 +250,6 @@ def get_vmm_server(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_vmm_server)
 def get_vmm_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                           vmm_server_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVmmServerResult]:
@@ -263,4 +260,24 @@ def get_vmm_server_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vmm_server_name: Name of the VmmServer.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vmmServerName'] = vmm_server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm/v20240601:getVmmServer', __args__, opts=opts, typ=GetVmmServerResult)
+    return __ret__.apply(lambda __response__: GetVmmServerResult(
+        connection_status=pulumi.get(__response__, 'connection_status'),
+        credentials=pulumi.get(__response__, 'credentials'),
+        error_message=pulumi.get(__response__, 'error_message'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        port=pulumi.get(__response__, 'port'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        uuid=pulumi.get(__response__, 'uuid'),
+        version=pulumi.get(__response__, 'version')))

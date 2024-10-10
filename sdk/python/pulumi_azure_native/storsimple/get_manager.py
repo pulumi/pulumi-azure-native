@@ -175,9 +175,6 @@ def get_manager(manager_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_manager)
 def get_manager_output(manager_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagerResult]:
@@ -191,4 +188,18 @@ def get_manager_output(manager_name: Optional[pulumi.Input[str]] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    ...
+    __args__ = dict()
+    __args__['managerName'] = manager_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getManager', __args__, opts=opts, typ=GetManagerResult)
+    return __ret__.apply(lambda __response__: GetManagerResult(
+        cis_intrinsic_settings=pulumi.get(__response__, 'cis_intrinsic_settings'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

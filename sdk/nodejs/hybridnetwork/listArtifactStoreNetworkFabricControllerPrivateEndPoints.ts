@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-04-15.
  */
 export function listArtifactStoreNetworkFabricControllerPrivateEndPoints(args: ListArtifactStoreNetworkFabricControllerPrivateEndPointsArgs, opts?: pulumi.InvokeOptions): Promise<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:listArtifactStoreNetworkFabricControllerPrivateEndPoints", {
         "artifactStoreName": args.artifactStoreName,
@@ -54,7 +53,12 @@ export interface ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult 
  * Azure REST API version: 2024-04-15.
  */
 export function listArtifactStoreNetworkFabricControllerPrivateEndPointsOutput(args: ListArtifactStoreNetworkFabricControllerPrivateEndPointsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> {
-    return pulumi.output(args).apply((a: any) => listArtifactStoreNetworkFabricControllerPrivateEndPoints(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:listArtifactStoreNetworkFabricControllerPrivateEndPoints", {
+        "artifactStoreName": args.artifactStoreName,
+        "publisherName": args.publisherName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListArtifactStoreNetworkFabricControllerPrivateEndPointsOutputArgs {

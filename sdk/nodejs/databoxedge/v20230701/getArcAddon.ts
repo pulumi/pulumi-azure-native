@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a specific addon by name.
  */
 export function getArcAddon(args: GetArcAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetArcAddonResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20230701:getArcAddon", {
         "addonName": args.addonName,
@@ -102,7 +101,13 @@ export interface GetArcAddonResult {
  * Gets a specific addon by name.
  */
 export function getArcAddonOutput(args: GetArcAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcAddonResult> {
-    return pulumi.output(args).apply((a: any) => getArcAddon(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230701:getArcAddon", {
+        "addonName": args.addonName,
+        "deviceName": args.deviceName,
+        "resourceGroupName": args.resourceGroupName,
+        "roleName": args.roleName,
+    }, opts);
 }
 
 export interface GetArcAddonOutputArgs {

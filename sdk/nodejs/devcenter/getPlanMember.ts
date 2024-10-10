@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
 export function getPlanMember(args: GetPlanMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanMemberResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter:getPlanMember", {
         "memberName": args.memberName,
@@ -82,7 +81,12 @@ export interface GetPlanMemberResult {
  * Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
 export function getPlanMemberOutput(args: GetPlanMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanMemberResult> {
-    return pulumi.output(args).apply((a: any) => getPlanMember(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devcenter:getPlanMember", {
+        "memberName": args.memberName,
+        "planName": args.planName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPlanMemberOutputArgs {

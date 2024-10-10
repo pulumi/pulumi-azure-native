@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a Storage Mover resource.
  */
 export function getStorageMover(args: GetStorageMoverArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageMoverResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagemover/v20240701:getStorageMover", {
         "resourceGroupName": args.resourceGroupName,
@@ -71,7 +70,11 @@ export interface GetStorageMoverResult {
  * Gets a Storage Mover resource.
  */
 export function getStorageMoverOutput(args: GetStorageMoverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageMoverResult> {
-    return pulumi.output(args).apply((a: any) => getStorageMover(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storagemover/v20240701:getStorageMover", {
+        "resourceGroupName": args.resourceGroupName,
+        "storageMoverName": args.storageMoverName,
+    }, opts);
 }
 
 export interface GetStorageMoverOutputArgs {

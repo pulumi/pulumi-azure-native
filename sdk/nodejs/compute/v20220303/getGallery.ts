@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves information about a Shared Image Gallery.
  */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20220303:getGallery", {
         "expand": args.expand,
@@ -93,7 +92,13 @@ export interface GetGalleryResult {
  * Retrieves information about a Shared Image Gallery.
  */
 export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryResult> {
-    return pulumi.output(args).apply((a: any) => getGallery(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute/v20220303:getGallery", {
+        "expand": args.expand,
+        "galleryName": args.galleryName,
+        "resourceGroupName": args.resourceGroupName,
+        "select": args.select,
+    }, opts);
 }
 
 export interface GetGalleryOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../../utilities";
  * operation. Status of the operation can be fetched using GetPolicyOperationResult API.
  */
 export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20230801:getProtectionPolicy", {
         "policyName": args.policyName,
@@ -74,7 +73,12 @@ export interface GetProtectionPolicyResult {
  * operation. Status of the operation can be fetched using GetPolicyOperationResult API.
  */
 export function getProtectionPolicyOutput(args: GetProtectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getProtectionPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230801:getProtectionPolicy", {
+        "policyName": args.policyName,
+        "resourceGroupName": args.resourceGroupName,
+        "vaultName": args.vaultName,
+    }, opts);
 }
 
 export interface GetProtectionPolicyOutputArgs {

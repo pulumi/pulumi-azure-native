@@ -263,9 +263,6 @@ def get_bmc_key_set(bmc_key_set_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_list=pulumi.get(__ret__, 'user_list'),
         user_list_status=pulumi.get(__ret__, 'user_list_status'))
-
-
-@_utilities.lift_output_func(get_bmc_key_set)
 def get_bmc_key_set_output(bmc_key_set_name: Optional[pulumi.Input[str]] = None,
                            cluster_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -278,4 +275,26 @@ def get_bmc_key_set_output(bmc_key_set_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['bmcKeySetName'] = bmc_key_set_name
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20230701:getBmcKeySet', __args__, opts=opts, typ=GetBmcKeySetResult)
+    return __ret__.apply(lambda __response__: GetBmcKeySetResult(
+        azure_group_id=pulumi.get(__response__, 'azure_group_id'),
+        detailed_status=pulumi.get(__response__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        expiration=pulumi.get(__response__, 'expiration'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        last_validation=pulumi.get(__response__, 'last_validation'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        privilege_level=pulumi.get(__response__, 'privilege_level'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        user_list=pulumi.get(__response__, 'user_list'),
+        user_list_status=pulumi.get(__response__, 'user_list_status')))

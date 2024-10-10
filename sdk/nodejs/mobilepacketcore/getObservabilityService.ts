@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-10-15-preview.
  */
 export function getObservabilityService(args: GetObservabilityServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetObservabilityServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilepacketcore:getObservabilityService", {
         "observabilityServiceName": args.observabilityServiceName,
@@ -85,7 +84,11 @@ export interface GetObservabilityServiceResult {
  * Azure REST API version: 2023-10-15-preview.
  */
 export function getObservabilityServiceOutput(args: GetObservabilityServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObservabilityServiceResult> {
-    return pulumi.output(args).apply((a: any) => getObservabilityService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:mobilepacketcore:getObservabilityService", {
+        "observabilityServiceName": args.observabilityServiceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetObservabilityServiceOutputArgs {

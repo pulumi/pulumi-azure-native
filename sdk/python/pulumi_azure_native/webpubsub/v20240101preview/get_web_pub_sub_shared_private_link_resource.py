@@ -175,9 +175,6 @@ def get_web_pub_sub_shared_private_link_resource(resource_group_name: Optional[s
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_web_pub_sub_shared_private_link_resource)
 def get_web_pub_sub_shared_private_link_resource_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         resource_name: Optional[pulumi.Input[str]] = None,
                                                         shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_web_pub_sub_shared_private_link_resource_output(resource_group_name: Opt
     :param str resource_name: The name of the resource.
     :param str shared_private_link_resource_name: The name of the shared private link resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    __args__['sharedPrivateLinkResourceName'] = shared_private_link_resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:webpubsub/v20240101preview:getWebPubSubSharedPrivateLinkResource', __args__, opts=opts, typ=GetWebPubSubSharedPrivateLinkResourceResult)
+    return __ret__.apply(lambda __response__: GetWebPubSubSharedPrivateLinkResourceResult(
+        group_id=pulumi.get(__response__, 'group_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        private_link_resource_id=pulumi.get(__response__, 'private_link_resource_id'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        request_message=pulumi.get(__response__, 'request_message'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

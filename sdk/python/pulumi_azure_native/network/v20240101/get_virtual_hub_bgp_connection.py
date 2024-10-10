@@ -175,9 +175,6 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
         peer_ip=pulumi.get(__ret__, 'peer_ip'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_virtual_hub_bgp_connection)
 def get_virtual_hub_bgp_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           virtual_hub_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_virtual_hub_bgp_connection_output(connection_name: Optional[pulumi.Input
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
-    ...
+    __args__ = dict()
+    __args__['connectionName'] = connection_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualHubName'] = virtual_hub_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240101:getVirtualHubBgpConnection', __args__, opts=opts, typ=GetVirtualHubBgpConnectionResult)
+    return __ret__.apply(lambda __response__: GetVirtualHubBgpConnectionResult(
+        connection_state=pulumi.get(__response__, 'connection_state'),
+        etag=pulumi.get(__response__, 'etag'),
+        hub_virtual_network_connection=pulumi.get(__response__, 'hub_virtual_network_connection'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        peer_asn=pulumi.get(__response__, 'peer_asn'),
+        peer_ip=pulumi.get(__response__, 'peer_ip'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type')))

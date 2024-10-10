@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  */
 export function getProviderActionCollectionCount(args?: GetProviderActionCollectionCountArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderActionCollectionCountResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appcomplianceautomation:getProviderActionCollectionCount", {
         "type": args.type,
@@ -38,7 +37,11 @@ export interface GetProviderActionCollectionCountResult {
  * Azure REST API version: 2024-06-27.
  */
 export function getProviderActionCollectionCountOutput(args?: GetProviderActionCollectionCountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderActionCollectionCountResult> {
-    return pulumi.output(args).apply((a: any) => getProviderActionCollectionCount(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation:getProviderActionCollectionCount", {
+        "type": args.type,
+    }, opts);
 }
 
 export interface GetProviderActionCollectionCountOutputArgs {

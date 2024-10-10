@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified backup policy name.
  */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:getBackupPolicy", {
         "backupPolicyName": args.backupPolicyName,
@@ -90,7 +89,13 @@ export interface GetBackupPolicyResult {
  * Gets the properties of the specified backup policy name.
  */
 export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBackupPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:getBackupPolicy", {
+        "backupPolicyName": args.backupPolicyName,
+        "deviceName": args.deviceName,
+        "managerName": args.managerName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBackupPolicyOutputArgs {

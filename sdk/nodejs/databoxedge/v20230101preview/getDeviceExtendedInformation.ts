@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
  */
 export function getDeviceExtendedInformation(args: GetDeviceExtendedInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceExtendedInformationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20230101preview:getDeviceExtendedInformation", {
         "deviceName": args.deviceName,
@@ -115,7 +114,11 @@ export interface GetDeviceExtendedInformationResult {
  * Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
  */
 export function getDeviceExtendedInformationOutput(args: GetDeviceExtendedInformationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceExtendedInformationResult> {
-    return pulumi.output(args).apply((a: any) => getDeviceExtendedInformation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230101preview:getDeviceExtendedInformation", {
+        "deviceName": args.deviceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDeviceExtendedInformationOutputArgs {

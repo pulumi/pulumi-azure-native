@@ -295,9 +295,6 @@ def get_connector_mapping(connector_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_connector_mapping)
 def get_connector_mapping_output(connector_name: Optional[pulumi.Input[str]] = None,
                                  hub_name: Optional[pulumi.Input[str]] = None,
                                  mapping_name: Optional[pulumi.Input[str]] = None,
@@ -312,4 +309,29 @@ def get_connector_mapping_output(connector_name: Optional[pulumi.Input[str]] = N
     :param str mapping_name: The name of the connector mapping.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['connectorName'] = connector_name
+    __args__['hubName'] = hub_name
+    __args__['mappingName'] = mapping_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights/v20170426:getConnectorMapping', __args__, opts=opts, typ=GetConnectorMappingResult)
+    return __ret__.apply(lambda __response__: GetConnectorMappingResult(
+        connector_mapping_name=pulumi.get(__response__, 'connector_mapping_name'),
+        connector_name=pulumi.get(__response__, 'connector_name'),
+        connector_type=pulumi.get(__response__, 'connector_type'),
+        created=pulumi.get(__response__, 'created'),
+        data_format_id=pulumi.get(__response__, 'data_format_id'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        entity_type=pulumi.get(__response__, 'entity_type'),
+        entity_type_name=pulumi.get(__response__, 'entity_type_name'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        mapping_properties=pulumi.get(__response__, 'mapping_properties'),
+        name=pulumi.get(__response__, 'name'),
+        next_run_time=pulumi.get(__response__, 'next_run_time'),
+        run_id=pulumi.get(__response__, 'run_id'),
+        state=pulumi.get(__response__, 'state'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type')))

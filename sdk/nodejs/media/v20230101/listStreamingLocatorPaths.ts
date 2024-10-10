@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List Paths supported by this Streaming Locator
  */
 export function listStreamingLocatorPaths(args: ListStreamingLocatorPathsArgs, opts?: pulumi.InvokeOptions): Promise<ListStreamingLocatorPathsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20230101:listStreamingLocatorPaths", {
         "accountName": args.accountName,
@@ -52,7 +51,12 @@ export interface ListStreamingLocatorPathsResult {
  * List Paths supported by this Streaming Locator
  */
 export function listStreamingLocatorPathsOutput(args: ListStreamingLocatorPathsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStreamingLocatorPathsResult> {
-    return pulumi.output(args).apply((a: any) => listStreamingLocatorPaths(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:media/v20230101:listStreamingLocatorPaths", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+        "streamingLocatorName": args.streamingLocatorName,
+    }, opts);
 }
 
 export interface ListStreamingLocatorPathsOutputArgs {

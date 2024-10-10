@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets properties of a forwarding rule in a DNS forwarding ruleset.
  */
 export function getForwardingRule(args: GetForwardingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetForwardingRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230701preview:getForwardingRule", {
         "dnsForwardingRulesetName": args.dnsForwardingRulesetName,
@@ -84,7 +83,12 @@ export interface GetForwardingRuleResult {
  * Gets properties of a forwarding rule in a DNS forwarding ruleset.
  */
 export function getForwardingRuleOutput(args: GetForwardingRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetForwardingRuleResult> {
-    return pulumi.output(args).apply((a: any) => getForwardingRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230701preview:getForwardingRule", {
+        "dnsForwardingRulesetName": args.dnsForwardingRulesetName,
+        "forwardingRuleName": args.forwardingRuleName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetForwardingRuleOutputArgs {

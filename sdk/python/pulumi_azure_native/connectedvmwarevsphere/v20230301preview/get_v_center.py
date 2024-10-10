@@ -289,9 +289,6 @@ def get_v_center(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_v_center)
 def get_v_center_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         vcenter_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVCenterResult]:
@@ -302,4 +299,27 @@ def get_v_center_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The Resource Group Name.
     :param str vcenter_name: Name of the vCenter.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vcenterName'] = vcenter_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere/v20230301preview:getVCenter', __args__, opts=opts, typ=GetVCenterResult)
+    return __ret__.apply(lambda __response__: GetVCenterResult(
+        connection_status=pulumi.get(__response__, 'connection_status'),
+        credentials=pulumi.get(__response__, 'credentials'),
+        custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        id=pulumi.get(__response__, 'id'),
+        instance_uuid=pulumi.get(__response__, 'instance_uuid'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        port=pulumi.get(__response__, 'port'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        statuses=pulumi.get(__response__, 'statuses'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        uuid=pulumi.get(__response__, 'uuid'),
+        version=pulumi.get(__response__, 'version')))

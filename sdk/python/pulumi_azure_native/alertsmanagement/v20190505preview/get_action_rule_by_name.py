@@ -133,9 +133,6 @@ def get_action_rule_by_name(action_rule_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_action_rule_by_name)
 def get_action_rule_by_name_output(action_rule_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionRuleByNameResult]:
@@ -146,4 +143,15 @@ def get_action_rule_by_name_output(action_rule_name: Optional[pulumi.Input[str]]
     :param str action_rule_name: The name of action rule that needs to be fetched
     :param str resource_group_name: Resource group name where the resource is created.
     """
-    ...
+    __args__ = dict()
+    __args__['actionRuleName'] = action_rule_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:alertsmanagement/v20190505preview:getActionRuleByName', __args__, opts=opts, typ=GetActionRuleByNameResult)
+    return __ret__.apply(lambda __response__: GetActionRuleByNameResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

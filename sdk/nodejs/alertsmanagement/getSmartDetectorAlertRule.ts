@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-04-01.
  */
 export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSmartDetectorAlertRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:alertsmanagement:getSmartDetectorAlertRule", {
         "alertRuleName": args.alertRuleName,
@@ -98,7 +97,12 @@ export interface GetSmartDetectorAlertRuleResult {
  * Azure REST API version: 2021-04-01.
  */
 export function getSmartDetectorAlertRuleOutput(args: GetSmartDetectorAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmartDetectorAlertRuleResult> {
-    return pulumi.output(args).apply((a: any) => getSmartDetectorAlertRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:alertsmanagement:getSmartDetectorAlertRule", {
+        "alertRuleName": args.alertRuleName,
+        "expandDetector": args.expandDetector,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSmartDetectorAlertRuleOutputArgs {

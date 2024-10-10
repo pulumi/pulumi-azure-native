@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a specific Azure Active Directory only authentication property.
  */
 export function getServerAzureADOnlyAuthentication(args: GetServerAzureADOnlyAuthenticationArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADOnlyAuthenticationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20221101preview:getServerAzureADOnlyAuthentication", {
         "authenticationName": args.authenticationName,
@@ -57,7 +56,12 @@ export interface GetServerAzureADOnlyAuthenticationResult {
  * Gets a specific Azure Active Directory only authentication property.
  */
 export function getServerAzureADOnlyAuthenticationOutput(args: GetServerAzureADOnlyAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAzureADOnlyAuthenticationResult> {
-    return pulumi.output(args).apply((a: any) => getServerAzureADOnlyAuthentication(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20221101preview:getServerAzureADOnlyAuthentication", {
+        "authenticationName": args.authenticationName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetServerAzureADOnlyAuthenticationOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the send key name and value for a Hybrid Connection.
  */
 export function listWebAppHybridConnectionKeys(args: ListWebAppHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHybridConnectionKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20181101:listWebAppHybridConnectionKeys", {
         "name": args.name,
@@ -70,7 +69,13 @@ export interface ListWebAppHybridConnectionKeysResult {
  * Gets the send key name and value for a Hybrid Connection.
  */
 export function listWebAppHybridConnectionKeysOutput(args: ListWebAppHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHybridConnectionKeysResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppHybridConnectionKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20181101:listWebAppHybridConnectionKeys", {
+        "name": args.name,
+        "namespaceName": args.namespaceName,
+        "relayName": args.relayName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListWebAppHybridConnectionKeysOutputArgs {

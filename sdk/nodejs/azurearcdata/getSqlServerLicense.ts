@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-05-01-preview.
  */
 export function getSqlServerLicense(args: GetSqlServerLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerLicenseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata:getSqlServerLicense", {
         "resourceGroupName": args.resourceGroupName,
@@ -69,7 +68,11 @@ export interface GetSqlServerLicenseResult {
  * Azure REST API version: 2024-05-01-preview.
  */
 export function getSqlServerLicenseOutput(args: GetSqlServerLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerLicenseResult> {
-    return pulumi.output(args).apply((a: any) => getSqlServerLicense(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurearcdata:getSqlServerLicense", {
+        "resourceGroupName": args.resourceGroupName,
+        "sqlServerLicenseName": args.sqlServerLicenseName,
+    }, opts);
 }
 
 export interface GetSqlServerLicenseOutputArgs {

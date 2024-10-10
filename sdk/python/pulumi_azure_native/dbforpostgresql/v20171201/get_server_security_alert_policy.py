@@ -187,9 +187,6 @@ def get_server_security_alert_policy(resource_group_name: Optional[str] = None,
         storage_account_access_key=pulumi.get(__ret__, 'storage_account_access_key'),
         storage_endpoint=pulumi.get(__ret__, 'storage_endpoint'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_server_security_alert_policy)
 def get_server_security_alert_policy_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             security_alert_policy_name: Optional[pulumi.Input[str]] = None,
                                             server_name: Optional[pulumi.Input[str]] = None,
@@ -202,4 +199,20 @@ def get_server_security_alert_policy_output(resource_group_name: Optional[pulumi
     :param str security_alert_policy_name: The name of the security alert policy.
     :param str server_name: The name of the server.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['securityAlertPolicyName'] = security_alert_policy_name
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20171201:getServerSecurityAlertPolicy', __args__, opts=opts, typ=GetServerSecurityAlertPolicyResult)
+    return __ret__.apply(lambda __response__: GetServerSecurityAlertPolicyResult(
+        disabled_alerts=pulumi.get(__response__, 'disabled_alerts'),
+        email_account_admins=pulumi.get(__response__, 'email_account_admins'),
+        email_addresses=pulumi.get(__response__, 'email_addresses'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        retention_days=pulumi.get(__response__, 'retention_days'),
+        state=pulumi.get(__response__, 'state'),
+        storage_account_access_key=pulumi.get(__response__, 'storage_account_access_key'),
+        storage_endpoint=pulumi.get(__response__, 'storage_endpoint'),
+        type=pulumi.get(__response__, 'type')))

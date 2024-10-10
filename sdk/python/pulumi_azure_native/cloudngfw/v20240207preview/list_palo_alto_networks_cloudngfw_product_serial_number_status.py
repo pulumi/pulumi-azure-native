@@ -72,11 +72,13 @@ def list_palo_alto_networks_cloudngfw_product_serial_number_status(opts: Optiona
     return AwaitableListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult(
         serial_number=pulumi.get(__ret__, 'serial_number'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(list_palo_alto_networks_cloudngfw_product_serial_number_status)
 def list_palo_alto_networks_cloudngfw_product_serial_number_status_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult]:
     """
     Product serial and status for the service
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240207preview:listPaloAltoNetworksCloudngfwProductSerialNumberStatus', __args__, opts=opts, typ=ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult)
+    return __ret__.apply(lambda __response__: ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult(
+        serial_number=pulumi.get(__response__, 'serial_number'),
+        status=pulumi.get(__response__, 'status')))

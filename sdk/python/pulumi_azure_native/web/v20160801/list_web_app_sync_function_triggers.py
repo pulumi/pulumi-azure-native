@@ -132,9 +132,6 @@ def list_web_app_sync_function_triggers(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         trigger_url=pulumi.get(__ret__, 'trigger_url'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(list_web_app_sync_function_triggers)
 def list_web_app_sync_function_triggers_output(name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSyncFunctionTriggersResult]:
@@ -145,4 +142,15 @@ def list_web_app_sync_function_triggers_output(name: Optional[pulumi.Input[str]]
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20160801:listWebAppSyncFunctionTriggers', __args__, opts=opts, typ=ListWebAppSyncFunctionTriggersResult)
+    return __ret__.apply(lambda __response__: ListWebAppSyncFunctionTriggersResult(
+        id=pulumi.get(__response__, 'id'),
+        key=pulumi.get(__response__, 'key'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        trigger_url=pulumi.get(__response__, 'trigger_url'),
+        type=pulumi.get(__response__, 'type')))

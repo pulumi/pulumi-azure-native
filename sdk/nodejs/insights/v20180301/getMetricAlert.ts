@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve an alert rule definition.
  */
 export function getMetricAlert(args: GetMetricAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricAlertResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20180301:getMetricAlert", {
         "resourceGroupName": args.resourceGroupName,
@@ -111,7 +110,11 @@ export interface GetMetricAlertResult {
  * Retrieve an alert rule definition.
  */
 export function getMetricAlertOutput(args: GetMetricAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricAlertResult> {
-    return pulumi.output(args).apply((a: any) => getMetricAlert(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights/v20180301:getMetricAlert", {
+        "resourceGroupName": args.resourceGroupName,
+        "ruleName": args.ruleName,
+    }, opts);
 }
 
 export interface GetMetricAlertOutputArgs {

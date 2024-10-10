@@ -191,9 +191,6 @@ def get_video(account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_video)
 def get_video_output(account_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      video_name: Optional[pulumi.Input[str]] = None,
@@ -209,4 +206,20 @@ def get_video_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str video_name: The Video name.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['videoName'] = video_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer:getVideo', __args__, opts=opts, typ=GetVideoResult)
+    return __ret__.apply(lambda __response__: GetVideoResult(
+        archival=pulumi.get(__response__, 'archival'),
+        content_urls=pulumi.get(__response__, 'content_urls'),
+        description=pulumi.get(__response__, 'description'),
+        flags=pulumi.get(__response__, 'flags'),
+        id=pulumi.get(__response__, 'id'),
+        media_info=pulumi.get(__response__, 'media_info'),
+        name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        title=pulumi.get(__response__, 'title'),
+        type=pulumi.get(__response__, 'type')))

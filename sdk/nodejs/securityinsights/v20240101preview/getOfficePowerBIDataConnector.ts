@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getOfficePowerBIDataConnector(args: GetOfficePowerBIDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetOfficePowerBIDataConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20240101preview:getOfficePowerBIDataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -77,7 +76,12 @@ export interface GetOfficePowerBIDataConnectorResult {
  * Gets a data connector.
  */
 export function getOfficePowerBIDataConnectorOutput(args: GetOfficePowerBIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficePowerBIDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getOfficePowerBIDataConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:getOfficePowerBIDataConnector", {
+        "dataConnectorId": args.dataConnectorId,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetOfficePowerBIDataConnectorOutputArgs {

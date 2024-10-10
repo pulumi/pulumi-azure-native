@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-11-01-preview.
  */
 export function getPipelineJob(args: GetPipelineJobArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineJobResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer:getPipelineJob", {
         "accountName": args.accountName,
@@ -86,7 +85,12 @@ export interface GetPipelineJobResult {
  * Azure REST API version: 2021-11-01-preview.
  */
 export function getPipelineJobOutput(args: GetPipelineJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineJobResult> {
-    return pulumi.output(args).apply((a: any) => getPipelineJob(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:videoanalyzer:getPipelineJob", {
+        "accountName": args.accountName,
+        "pipelineJobName": args.pipelineJobName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPipelineJobOutputArgs {

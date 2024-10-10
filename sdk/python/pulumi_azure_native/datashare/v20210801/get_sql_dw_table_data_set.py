@@ -192,9 +192,6 @@ def get_sql_dw_table_data_set(account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_sql_dw_table_data_set)
 def get_sql_dw_table_data_set_output(account_name: Optional[pulumi.Input[str]] = None,
                                      data_set_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -209,4 +206,21 @@ def get_sql_dw_table_data_set_output(account_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['dataSetName'] = data_set_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['shareName'] = share_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20210801:getSqlDWTableDataSet', __args__, opts=opts, typ=GetSqlDWTableDataSetResult)
+    return __ret__.apply(lambda __response__: GetSqlDWTableDataSetResult(
+        data_set_id=pulumi.get(__response__, 'data_set_id'),
+        data_warehouse_name=pulumi.get(__response__, 'data_warehouse_name'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        schema_name=pulumi.get(__response__, 'schema_name'),
+        sql_server_resource_id=pulumi.get(__response__, 'sql_server_resource_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        table_name=pulumi.get(__response__, 'table_name'),
+        type=pulumi.get(__response__, 'type')))

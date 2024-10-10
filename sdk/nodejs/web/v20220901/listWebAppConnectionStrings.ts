@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Description for Gets the connection strings of an app.
  */
 export function listWebAppConnectionStrings(args: ListWebAppConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppConnectionStringsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20220901:listWebAppConnectionStrings", {
         "name": args.name,
@@ -59,7 +58,11 @@ export interface ListWebAppConnectionStringsResult {
  * Description for Gets the connection strings of an app.
  */
 export function listWebAppConnectionStringsOutput(args: ListWebAppConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppConnectionStringsResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppConnectionStrings(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20220901:listWebAppConnectionStrings", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListWebAppConnectionStringsOutputArgs {

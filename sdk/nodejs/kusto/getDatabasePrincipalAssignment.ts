@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-05-02, 2023-08-15.
  */
 export function getDatabasePrincipalAssignment(args: GetDatabasePrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabasePrincipalAssignmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto:getDatabasePrincipalAssignment", {
         "clusterName": args.clusterName,
@@ -96,7 +95,13 @@ export interface GetDatabasePrincipalAssignmentResult {
  * Other available API versions: 2023-05-02, 2023-08-15.
  */
 export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getDatabasePrincipalAssignment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kusto:getDatabasePrincipalAssignment", {
+        "clusterName": args.clusterName,
+        "databaseName": args.databaseName,
+        "principalAssignmentName": args.principalAssignmentName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDatabasePrincipalAssignmentOutputArgs {

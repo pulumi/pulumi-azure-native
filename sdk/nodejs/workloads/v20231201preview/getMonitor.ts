@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20231201preview:getMonitor", {
         "monitorName": args.monitorName,
@@ -111,7 +110,11 @@ export interface GetMonitorResult {
  * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
-    return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:workloads/v20231201preview:getMonitor", {
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMonitorOutputArgs {

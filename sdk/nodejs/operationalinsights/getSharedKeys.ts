@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-08-01.
  */
 export function getSharedKeys(args: GetSharedKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights:getSharedKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -46,7 +45,11 @@ export interface GetSharedKeysResult {
  * Azure REST API version: 2020-08-01.
  */
 export function getSharedKeysOutput(args: GetSharedKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedKeysResult> {
-    return pulumi.output(args).apply((a: any) => getSharedKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getSharedKeys", {
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetSharedKeysOutputArgs {

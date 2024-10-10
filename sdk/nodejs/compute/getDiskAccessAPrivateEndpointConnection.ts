@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
  */
 export function getDiskAccessAPrivateEndpointConnection(args: GetDiskAccessAPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessAPrivateEndpointConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getDiskAccessAPrivateEndpointConnection", {
         "diskAccessName": args.diskAccessName,
@@ -74,7 +73,12 @@ export interface GetDiskAccessAPrivateEndpointConnectionResult {
  * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
  */
 export function getDiskAccessAPrivateEndpointConnectionOutput(args: GetDiskAccessAPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessAPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getDiskAccessAPrivateEndpointConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute:getDiskAccessAPrivateEndpointConnection", {
+        "diskAccessName": args.diskAccessName,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDiskAccessAPrivateEndpointConnectionOutputArgs {

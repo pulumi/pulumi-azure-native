@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get all delivery attributes for an event subscription.
  */
 export function getEventSubscriptionDeliveryAttributes(args: GetEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionDeliveryAttributesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20220615:getEventSubscriptionDeliveryAttributes", {
         "eventSubscriptionName": args.eventSubscriptionName,
@@ -43,7 +42,11 @@ export interface GetEventSubscriptionDeliveryAttributesResult {
  * Get all delivery attributes for an event subscription.
  */
 export function getEventSubscriptionDeliveryAttributesOutput(args: GetEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionDeliveryAttributesResult> {
-    return pulumi.output(args).apply((a: any) => getEventSubscriptionDeliveryAttributes(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20220615:getEventSubscriptionDeliveryAttributes", {
+        "eventSubscriptionName": args.eventSubscriptionName,
+        "scope": args.scope,
+    }, opts);
 }
 
 export interface GetEventSubscriptionDeliveryAttributesOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the action request under the specified test base account.
  */
 export function getActionRequest(args: GetActionRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetActionRequestResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20231101preview:getActionRequest", {
         "actionRequestName": args.actionRequestName,
@@ -62,7 +61,12 @@ export interface GetActionRequestResult {
  * Get the action request under the specified test base account.
  */
 export function getActionRequestOutput(args: GetActionRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionRequestResult> {
-    return pulumi.output(args).apply((a: any) => getActionRequest(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getActionRequest", {
+        "actionRequestName": args.actionRequestName,
+        "resourceGroupName": args.resourceGroupName,
+        "testBaseAccountName": args.testBaseAccountName,
+    }, opts);
 }
 
 export interface GetActionRequestOutputArgs {

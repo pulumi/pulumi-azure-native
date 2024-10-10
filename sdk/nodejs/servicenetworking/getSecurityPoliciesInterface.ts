@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-05-01-preview.
  */
 export function getSecurityPoliciesInterface(args: GetSecurityPoliciesInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPoliciesInterfaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicenetworking:getSecurityPoliciesInterface", {
         "resourceGroupName": args.resourceGroupName,
@@ -82,7 +81,12 @@ export interface GetSecurityPoliciesInterfaceResult {
  * Azure REST API version: 2024-05-01-preview.
  */
 export function getSecurityPoliciesInterfaceOutput(args: GetSecurityPoliciesInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPoliciesInterfaceResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityPoliciesInterface(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicenetworking:getSecurityPoliciesInterface", {
+        "resourceGroupName": args.resourceGroupName,
+        "securityPolicyName": args.securityPolicyName,
+        "trafficControllerName": args.trafficControllerName,
+    }, opts);
 }
 
 export interface GetSecurityPoliciesInterfaceOutputArgs {

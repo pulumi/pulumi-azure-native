@@ -243,9 +243,6 @@ def get_cosmos_db_data_connection(cluster_name: Optional[str] = None,
         retrieval_start_date=pulumi.get(__ret__, 'retrieval_start_date'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_cosmos_db_data_connection)
 def get_cosmos_db_data_connection_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                          data_connection_name: Optional[pulumi.Input[str]] = None,
                                          database_name: Optional[pulumi.Input[str]] = None,
@@ -260,4 +257,25 @@ def get_cosmos_db_data_connection_output(cluster_name: Optional[pulumi.Input[str
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['dataConnectionName'] = data_connection_name
+    __args__['databaseName'] = database_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20221229:getCosmosDbDataConnection', __args__, opts=opts, typ=GetCosmosDbDataConnectionResult)
+    return __ret__.apply(lambda __response__: GetCosmosDbDataConnectionResult(
+        cosmos_db_account_resource_id=pulumi.get(__response__, 'cosmos_db_account_resource_id'),
+        cosmos_db_container=pulumi.get(__response__, 'cosmos_db_container'),
+        cosmos_db_database=pulumi.get(__response__, 'cosmos_db_database'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        managed_identity_object_id=pulumi.get(__response__, 'managed_identity_object_id'),
+        managed_identity_resource_id=pulumi.get(__response__, 'managed_identity_resource_id'),
+        mapping_rule_name=pulumi.get(__response__, 'mapping_rule_name'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        retrieval_start_date=pulumi.get(__response__, 'retrieval_start_date'),
+        table_name=pulumi.get(__response__, 'table_name'),
+        type=pulumi.get(__response__, 'type')))

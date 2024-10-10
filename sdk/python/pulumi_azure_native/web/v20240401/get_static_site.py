@@ -393,9 +393,6 @@ def get_static_site(name: Optional[str] = None,
         template_properties=pulumi.get(__ret__, 'template_properties'),
         type=pulumi.get(__ret__, 'type'),
         user_provided_function_apps=pulumi.get(__ret__, 'user_provided_function_apps'))
-
-
-@_utilities.lift_output_func(get_static_site)
 def get_static_site_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteResult]:
@@ -406,4 +403,35 @@ def get_static_site_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the static site.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:getStaticSite', __args__, opts=opts, typ=GetStaticSiteResult)
+    return __ret__.apply(lambda __response__: GetStaticSiteResult(
+        allow_config_file_updates=pulumi.get(__response__, 'allow_config_file_updates'),
+        branch=pulumi.get(__response__, 'branch'),
+        build_properties=pulumi.get(__response__, 'build_properties'),
+        content_distribution_endpoint=pulumi.get(__response__, 'content_distribution_endpoint'),
+        custom_domains=pulumi.get(__response__, 'custom_domains'),
+        database_connections=pulumi.get(__response__, 'database_connections'),
+        default_hostname=pulumi.get(__response__, 'default_hostname'),
+        enterprise_grade_cdn_status=pulumi.get(__response__, 'enterprise_grade_cdn_status'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        key_vault_reference_identity=pulumi.get(__response__, 'key_vault_reference_identity'),
+        kind=pulumi.get(__response__, 'kind'),
+        linked_backends=pulumi.get(__response__, 'linked_backends'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provider=pulumi.get(__response__, 'provider'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        repository_token=pulumi.get(__response__, 'repository_token'),
+        repository_url=pulumi.get(__response__, 'repository_url'),
+        sku=pulumi.get(__response__, 'sku'),
+        staging_environment_policy=pulumi.get(__response__, 'staging_environment_policy'),
+        tags=pulumi.get(__response__, 'tags'),
+        template_properties=pulumi.get(__response__, 'template_properties'),
+        type=pulumi.get(__response__, 'type'),
+        user_provided_function_apps=pulumi.get(__response__, 'user_provided_function_apps')))

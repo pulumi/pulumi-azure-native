@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
  */
 export function getInferencePool(args: GetInferencePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetInferencePoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getInferencePool", {
         "inferencePoolName": args.inferencePoolName,
@@ -85,7 +84,12 @@ export interface GetInferencePoolResult {
  * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
  */
 export function getInferencePoolOutput(args: GetInferencePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferencePoolResult> {
-    return pulumi.output(args).apply((a: any) => getInferencePool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getInferencePool", {
+        "inferencePoolName": args.inferencePoolName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetInferencePoolOutputArgs {

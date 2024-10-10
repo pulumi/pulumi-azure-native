@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview.
  */
 export function getAppResiliency(args: GetAppResiliencyArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResiliencyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app:getAppResiliency", {
         "appName": args.appName,
@@ -90,7 +89,12 @@ export interface GetAppResiliencyResult {
  * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview.
  */
 export function getAppResiliencyOutput(args: GetAppResiliencyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResiliencyResult> {
-    return pulumi.output(args).apply((a: any) => getAppResiliency(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app:getAppResiliency", {
+        "appName": args.appName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAppResiliencyOutputArgs {

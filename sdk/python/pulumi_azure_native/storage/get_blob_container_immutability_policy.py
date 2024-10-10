@@ -167,9 +167,6 @@ def get_blob_container_immutability_policy(account_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_blob_container_immutability_policy)
 def get_blob_container_immutability_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                                   container_name: Optional[pulumi.Input[str]] = None,
                                                   immutability_policy_name: Optional[pulumi.Input[str]] = None,
@@ -187,4 +184,19 @@ def get_blob_container_immutability_policy_output(account_name: Optional[pulumi.
     :param str immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['containerName'] = container_name
+    __args__['immutabilityPolicyName'] = immutability_policy_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getBlobContainerImmutabilityPolicy', __args__, opts=opts, typ=GetBlobContainerImmutabilityPolicyResult)
+    return __ret__.apply(lambda __response__: GetBlobContainerImmutabilityPolicyResult(
+        allow_protected_append_writes=pulumi.get(__response__, 'allow_protected_append_writes'),
+        allow_protected_append_writes_all=pulumi.get(__response__, 'allow_protected_append_writes_all'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        immutability_period_since_creation_in_days=pulumi.get(__response__, 'immutability_period_since_creation_in_days'),
+        name=pulumi.get(__response__, 'name'),
+        state=pulumi.get(__response__, 'state'),
+        type=pulumi.get(__response__, 'type')))

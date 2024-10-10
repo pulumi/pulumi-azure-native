@@ -328,9 +328,6 @@ def get_communications_gateway(communications_gateway_name: Optional[str] = None
         tags=pulumi.get(__ret__, 'tags'),
         teams_voicemail_pilot_number=pulumi.get(__ret__, 'teams_voicemail_pilot_number'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_communications_gateway)
 def get_communications_gateway_output(communications_gateway_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommunicationsGatewayResult]:
@@ -341,4 +338,30 @@ def get_communications_gateway_output(communications_gateway_name: Optional[pulu
     :param str communications_gateway_name: Unique identifier for this deployment
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['communicationsGatewayName'] = communications_gateway_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:voiceservices/v20230403:getCommunicationsGateway', __args__, opts=opts, typ=GetCommunicationsGatewayResult)
+    return __ret__.apply(lambda __response__: GetCommunicationsGatewayResult(
+        api_bridge=pulumi.get(__response__, 'api_bridge'),
+        auto_generated_domain_name_label=pulumi.get(__response__, 'auto_generated_domain_name_label'),
+        auto_generated_domain_name_label_scope=pulumi.get(__response__, 'auto_generated_domain_name_label_scope'),
+        codecs=pulumi.get(__response__, 'codecs'),
+        connectivity=pulumi.get(__response__, 'connectivity'),
+        e911_type=pulumi.get(__response__, 'e911_type'),
+        emergency_dial_strings=pulumi.get(__response__, 'emergency_dial_strings'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        integrated_mcp_enabled=pulumi.get(__response__, 'integrated_mcp_enabled'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        on_prem_mcp_enabled=pulumi.get(__response__, 'on_prem_mcp_enabled'),
+        platforms=pulumi.get(__response__, 'platforms'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        service_locations=pulumi.get(__response__, 'service_locations'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        teams_voicemail_pilot_number=pulumi.get(__response__, 'teams_voicemail_pilot_number'),
+        type=pulumi.get(__response__, 'type')))

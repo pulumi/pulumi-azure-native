@@ -331,9 +331,6 @@ def get_virtual_network(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_peerings=pulumi.get(__ret__, 'virtual_network_peerings'))
-
-
-@_utilities.lift_output_func(get_virtual_network)
 def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                virtual_network_name: Optional[pulumi.Input[str]] = None,
@@ -346,4 +343,31 @@ def get_virtual_network_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_name: The name of the virtual network.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualNetworkName'] = virtual_network_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult)
+    return __ret__.apply(lambda __response__: GetVirtualNetworkResult(
+        address_space=pulumi.get(__response__, 'address_space'),
+        bgp_communities=pulumi.get(__response__, 'bgp_communities'),
+        ddos_protection_plan=pulumi.get(__response__, 'ddos_protection_plan'),
+        dhcp_options=pulumi.get(__response__, 'dhcp_options'),
+        enable_ddos_protection=pulumi.get(__response__, 'enable_ddos_protection'),
+        enable_vm_protection=pulumi.get(__response__, 'enable_vm_protection'),
+        encryption=pulumi.get(__response__, 'encryption'),
+        etag=pulumi.get(__response__, 'etag'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        flow_logs=pulumi.get(__response__, 'flow_logs'),
+        flow_timeout_in_minutes=pulumi.get(__response__, 'flow_timeout_in_minutes'),
+        id=pulumi.get(__response__, 'id'),
+        ip_allocations=pulumi.get(__response__, 'ip_allocations'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        subnets=pulumi.get(__response__, 'subnets'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_network_peerings=pulumi.get(__response__, 'virtual_network_peerings')))

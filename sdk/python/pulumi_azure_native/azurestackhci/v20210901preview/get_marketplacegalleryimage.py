@@ -263,9 +263,6 @@ def get_marketplacegalleryimage(marketplacegalleryimages_name: Optional[str] = N
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_marketplacegalleryimage)
 def get_marketplacegalleryimage_output(marketplacegalleryimages_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMarketplacegalleryimageResult]:
@@ -276,4 +273,25 @@ def get_marketplacegalleryimage_output(marketplacegalleryimages_name: Optional[p
     :param str marketplacegalleryimages_name: Name of the marketplace gallery image
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['marketplacegalleryimagesName'] = marketplacegalleryimages_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20210901preview:getMarketplacegalleryimage', __args__, opts=opts, typ=GetMarketplacegalleryimageResult)
+    return __ret__.apply(lambda __response__: GetMarketplacegalleryimageResult(
+        cloud_init_data_source=pulumi.get(__response__, 'cloud_init_data_source'),
+        container_name=pulumi.get(__response__, 'container_name'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        hyper_v_generation=pulumi.get(__response__, 'hyper_v_generation'),
+        id=pulumi.get(__response__, 'id'),
+        identifier=pulumi.get(__response__, 'identifier'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_name=pulumi.get(__response__, 'resource_name'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

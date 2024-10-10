@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a network manager security user configuration rule collection.
  */
 export function getSecurityUserRuleCollection(args: GetSecurityUserRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityUserRuleCollectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:getSecurityUserRuleCollection", {
         "configurationName": args.configurationName,
@@ -85,7 +84,13 @@ export interface GetSecurityUserRuleCollectionResult {
  * Gets a network manager security user configuration rule collection.
  */
 export function getSecurityUserRuleCollectionOutput(args: GetSecurityUserRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityUserRuleCollectionResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityUserRuleCollection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getSecurityUserRuleCollection", {
+        "configurationName": args.configurationName,
+        "networkManagerName": args.networkManagerName,
+        "resourceGroupName": args.resourceGroupName,
+        "ruleCollectionName": args.ruleCollectionName,
+    }, opts);
 }
 
 export interface GetSecurityUserRuleCollectionOutputArgs {

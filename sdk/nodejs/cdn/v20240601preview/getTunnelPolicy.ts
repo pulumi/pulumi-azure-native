@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an existing tunnel policy within a profile.
  */
 export function getTunnelPolicy(args: GetTunnelPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetTunnelPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20240601preview:getTunnelPolicy", {
         "profileName": args.profileName,
@@ -77,7 +76,12 @@ export interface GetTunnelPolicyResult {
  * Gets an existing tunnel policy within a profile.
  */
 export function getTunnelPolicyOutput(args: GetTunnelPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTunnelPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getTunnelPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cdn/v20240601preview:getTunnelPolicy", {
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+        "tunnelPolicyName": args.tunnelPolicyName,
+    }, opts);
 }
 
 export interface GetTunnelPolicyOutputArgs {

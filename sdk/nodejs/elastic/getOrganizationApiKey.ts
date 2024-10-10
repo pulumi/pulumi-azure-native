@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  */
 export function getOrganizationApiKey(args?: GetOrganizationApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationApiKeyResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic:getOrganizationApiKey", {
         "emailId": args.emailId,
@@ -42,7 +41,11 @@ export interface GetOrganizationApiKeyResult {
  * Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
  */
 export function getOrganizationApiKeyOutput(args?: GetOrganizationApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationApiKeyResult> {
-    return pulumi.output(args).apply((a: any) => getOrganizationApiKey(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:elastic:getOrganizationApiKey", {
+        "emailId": args.emailId,
+    }, opts);
 }
 
 export interface GetOrganizationApiKeyOutputArgs {

@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-11-01-preview.
  */
 export function getBillingHubServiceUsage(args: GetBillingHubServiceUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingHubServiceUsageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase:getBillingHubServiceUsage", {
         "endTimeStamp": args.endTimeStamp,
@@ -53,7 +52,15 @@ export interface GetBillingHubServiceUsageResult {
  * Other available API versions: 2023-11-01-preview.
  */
 export function getBillingHubServiceUsageOutput(args: GetBillingHubServiceUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingHubServiceUsageResult> {
-    return pulumi.output(args).apply((a: any) => getBillingHubServiceUsage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:testbase:getBillingHubServiceUsage", {
+        "endTimeStamp": args.endTimeStamp,
+        "pageIndex": args.pageIndex,
+        "pageSize": args.pageSize,
+        "resourceGroupName": args.resourceGroupName,
+        "startTimeStamp": args.startTimeStamp,
+        "testBaseAccountName": args.testBaseAccountName,
+    }, opts);
 }
 
 export interface GetBillingHubServiceUsageOutputArgs {

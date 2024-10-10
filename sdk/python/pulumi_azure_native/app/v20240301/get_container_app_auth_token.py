@@ -159,9 +159,6 @@ def get_container_app_auth_token(container_app_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         token=pulumi.get(__ret__, 'token'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_container_app_auth_token)
 def get_container_app_auth_token_output(container_app_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppAuthTokenResult]:
@@ -172,4 +169,17 @@ def get_container_app_auth_token_output(container_app_name: Optional[pulumi.Inpu
     :param str container_app_name: Name of the Container App.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['containerAppName'] = container_app_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20240301:getContainerAppAuthToken', __args__, opts=opts, typ=GetContainerAppAuthTokenResult)
+    return __ret__.apply(lambda __response__: GetContainerAppAuthTokenResult(
+        expires=pulumi.get(__response__, 'expires'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        token=pulumi.get(__response__, 'token'),
+        type=pulumi.get(__response__, 'type')))

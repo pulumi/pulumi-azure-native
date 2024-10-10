@@ -347,9 +347,6 @@ def get_topic(namespace_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_topic)
 def get_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      topic_name: Optional[pulumi.Input[str]] = None,
@@ -365,4 +362,32 @@ def get_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str topic_name: The topic name.
     """
-    ...
+    __args__ = dict()
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['topicName'] = topic_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus:getTopic', __args__, opts=opts, typ=GetTopicResult)
+    return __ret__.apply(lambda __response__: GetTopicResult(
+        accessed_at=pulumi.get(__response__, 'accessed_at'),
+        auto_delete_on_idle=pulumi.get(__response__, 'auto_delete_on_idle'),
+        count_details=pulumi.get(__response__, 'count_details'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        default_message_time_to_live=pulumi.get(__response__, 'default_message_time_to_live'),
+        duplicate_detection_history_time_window=pulumi.get(__response__, 'duplicate_detection_history_time_window'),
+        enable_batched_operations=pulumi.get(__response__, 'enable_batched_operations'),
+        enable_express=pulumi.get(__response__, 'enable_express'),
+        enable_partitioning=pulumi.get(__response__, 'enable_partitioning'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        max_message_size_in_kilobytes=pulumi.get(__response__, 'max_message_size_in_kilobytes'),
+        max_size_in_megabytes=pulumi.get(__response__, 'max_size_in_megabytes'),
+        name=pulumi.get(__response__, 'name'),
+        requires_duplicate_detection=pulumi.get(__response__, 'requires_duplicate_detection'),
+        size_in_bytes=pulumi.get(__response__, 'size_in_bytes'),
+        status=pulumi.get(__response__, 'status'),
+        subscription_count=pulumi.get(__response__, 'subscription_count'),
+        support_ordering=pulumi.get(__response__, 'support_ordering'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

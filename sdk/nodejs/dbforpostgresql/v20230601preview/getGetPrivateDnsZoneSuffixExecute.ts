@@ -9,7 +9,6 @@ import * as utilities from "../../utilities";
  */
 export function getGetPrivateDnsZoneSuffixExecute(args?: GetGetPrivateDnsZoneSuffixExecuteArgs, opts?: pulumi.InvokeOptions): Promise<GetGetPrivateDnsZoneSuffixExecuteResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20230601preview:getGetPrivateDnsZoneSuffixExecute", {
     }, opts);
@@ -28,5 +27,8 @@ export interface GetGetPrivateDnsZoneSuffixExecuteResult {
  * Get private DNS zone suffix in the cloud
  */
 export function getGetPrivateDnsZoneSuffixExecuteOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetGetPrivateDnsZoneSuffixExecuteResult> {
-    return pulumi.output(getGetPrivateDnsZoneSuffixExecute(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20230601preview:getGetPrivateDnsZoneSuffixExecute", {
+    }, opts);
 }
+

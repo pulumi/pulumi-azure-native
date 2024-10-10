@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified DDoS protection plan.
  */
 export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosProtectionPlanResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230901:getDdosProtectionPlan", {
         "ddosProtectionPlanName": args.ddosProtectionPlanName,
@@ -79,7 +78,11 @@ export interface GetDdosProtectionPlanResult {
  * Gets information about the specified DDoS protection plan.
  */
 export function getDdosProtectionPlanOutput(args: GetDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosProtectionPlanResult> {
-    return pulumi.output(args).apply((a: any) => getDdosProtectionPlan(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230901:getDdosProtectionPlan", {
+        "ddosProtectionPlanName": args.ddosProtectionPlanName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDdosProtectionPlanOutputArgs {

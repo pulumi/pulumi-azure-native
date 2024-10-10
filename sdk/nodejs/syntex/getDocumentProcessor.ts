@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-09-15-preview.
  */
 export function getDocumentProcessor(args: GetDocumentProcessorArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentProcessorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:syntex:getDocumentProcessor", {
         "processorName": args.processorName,
@@ -69,7 +68,11 @@ export interface GetDocumentProcessorResult {
  * Azure REST API version: 2022-09-15-preview.
  */
 export function getDocumentProcessorOutput(args: GetDocumentProcessorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentProcessorResult> {
-    return pulumi.output(args).apply((a: any) => getDocumentProcessor(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:syntex:getDocumentProcessor", {
+        "processorName": args.processorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDocumentProcessorOutputArgs {

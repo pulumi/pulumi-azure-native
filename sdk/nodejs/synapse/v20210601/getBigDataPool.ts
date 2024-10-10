@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Big Data pool.
  */
 export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBigDataPoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601:getBigDataPool", {
         "bigDataPoolName": args.bigDataPoolName,
@@ -140,7 +139,12 @@ export interface GetBigDataPoolResult {
  * Get a Big Data pool.
  */
 export function getBigDataPoolOutput(args: GetBigDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBigDataPoolResult> {
-    return pulumi.output(args).apply((a: any) => getBigDataPool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601:getBigDataPool", {
+        "bigDataPoolName": args.bigDataPoolName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetBigDataPoolOutputArgs {

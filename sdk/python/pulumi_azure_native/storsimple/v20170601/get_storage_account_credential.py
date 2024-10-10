@@ -162,9 +162,6 @@ def get_storage_account_credential(manager_name: Optional[str] = None,
         ssl_status=pulumi.get(__ret__, 'ssl_status'),
         type=pulumi.get(__ret__, 'type'),
         volumes_count=pulumi.get(__ret__, 'volumes_count'))
-
-
-@_utilities.lift_output_func(get_storage_account_credential)
 def get_storage_account_credential_output(manager_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           storage_account_credential_name: Optional[pulumi.Input[str]] = None,
@@ -177,4 +174,18 @@ def get_storage_account_credential_output(manager_name: Optional[pulumi.Input[st
     :param str resource_group_name: The resource group name
     :param str storage_account_credential_name: The name of storage account credential to be fetched.
     """
-    ...
+    __args__ = dict()
+    __args__['managerName'] = manager_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['storageAccountCredentialName'] = storage_account_credential_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple/v20170601:getStorageAccountCredential', __args__, opts=opts, typ=GetStorageAccountCredentialResult)
+    return __ret__.apply(lambda __response__: GetStorageAccountCredentialResult(
+        access_key=pulumi.get(__response__, 'access_key'),
+        end_point=pulumi.get(__response__, 'end_point'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        ssl_status=pulumi.get(__response__, 'ssl_status'),
+        type=pulumi.get(__response__, 'type'),
+        volumes_count=pulumi.get(__response__, 'volumes_count')))

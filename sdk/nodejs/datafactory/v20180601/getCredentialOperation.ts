@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a credential.
  */
 export function getCredentialOperation(args: GetCredentialOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialOperationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getCredentialOperation", {
         "credentialName": args.credentialName,
@@ -64,7 +63,12 @@ export interface GetCredentialOperationResult {
  * Gets a credential.
  */
 export function getCredentialOperationOutput(args: GetCredentialOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialOperationResult> {
-    return pulumi.output(args).apply((a: any) => getCredentialOperation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getCredentialOperation", {
+        "credentialName": args.credentialName,
+        "factoryName": args.factoryName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCredentialOperationOutputArgs {

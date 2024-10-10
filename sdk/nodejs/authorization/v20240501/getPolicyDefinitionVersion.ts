@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * This operation retrieves the policy definition version in the given subscription with the given name.
  */
 export function getPolicyDefinitionVersion(args: GetPolicyDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefinitionVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20240501:getPolicyDefinitionVersion", {
         "policyDefinitionName": args.policyDefinitionName,
@@ -87,7 +86,11 @@ export interface GetPolicyDefinitionVersionResult {
  * This operation retrieves the policy definition version in the given subscription with the given name.
  */
 export function getPolicyDefinitionVersionOutput(args: GetPolicyDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionVersionResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyDefinitionVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:authorization/v20240501:getPolicyDefinitionVersion", {
+        "policyDefinitionName": args.policyDefinitionName,
+        "policyDefinitionVersion": args.policyDefinitionVersion,
+    }, opts);
 }
 
 export interface GetPolicyDefinitionVersionOutputArgs {

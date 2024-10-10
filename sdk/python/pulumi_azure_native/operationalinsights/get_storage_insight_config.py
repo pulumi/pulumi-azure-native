@@ -176,9 +176,6 @@ def get_storage_insight_config(resource_group_name: Optional[str] = None,
         tables=pulumi.get(__ret__, 'tables'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_storage_insight_config)
 def get_storage_insight_config_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                       storage_insight_name: Optional[pulumi.Input[str]] = None,
                                       workspace_name: Optional[pulumi.Input[str]] = None,
@@ -192,4 +189,19 @@ def get_storage_insight_config_output(resource_group_name: Optional[pulumi.Input
     :param str storage_insight_name: Name of the storageInsightsConfigs resource
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['storageInsightName'] = storage_insight_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights:getStorageInsightConfig', __args__, opts=opts, typ=GetStorageInsightConfigResult)
+    return __ret__.apply(lambda __response__: GetStorageInsightConfigResult(
+        containers=pulumi.get(__response__, 'containers'),
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        storage_account=pulumi.get(__response__, 'storage_account'),
+        tables=pulumi.get(__response__, 'tables'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

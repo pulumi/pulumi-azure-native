@@ -68,9 +68,6 @@ def list_global_user_environments(lab_id: Optional[str] = None,
 
     return AwaitableListGlobalUserEnvironmentsResult(
         environments=pulumi.get(__ret__, 'environments'))
-
-
-@_utilities.lift_output_func(list_global_user_environments)
 def list_global_user_environments_output(lab_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          user_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGlobalUserEnvironmentsResult]:
@@ -81,4 +78,10 @@ def list_global_user_environments_output(lab_id: Optional[pulumi.Input[Optional[
     :param str lab_id: The resource Id of the lab
     :param str user_name: The name of the user.
     """
-    ...
+    __args__ = dict()
+    __args__['labId'] = lab_id
+    __args__['userName'] = user_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices/v20181015:listGlobalUserEnvironments', __args__, opts=opts, typ=ListGlobalUserEnvironmentsResult)
+    return __ret__.apply(lambda __response__: ListGlobalUserEnvironmentsResult(
+        environments=pulumi.get(__response__, 'environments')))

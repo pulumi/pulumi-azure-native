@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-07-01-preview.
  */
 export function listConnectionModels(args: ListConnectionModelsArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectionModelsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:listConnectionModels", {
         "resourceGroupName": args.resourceGroupName,
@@ -44,7 +43,11 @@ export interface ListConnectionModelsResult {
  * Azure REST API version: 2024-07-01-preview.
  */
 export function listConnectionModelsOutput(args: ListConnectionModelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionModelsResult> {
-    return pulumi.output(args).apply((a: any) => listConnectionModels(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listConnectionModels", {
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListConnectionModelsOutputArgs {

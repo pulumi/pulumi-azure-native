@@ -229,9 +229,6 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
         target_database=pulumi.get(__ret__, 'target_database'),
         target_replica_id=pulumi.get(__ret__, 'target_replica_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_distributed_availability_group)
 def get_distributed_availability_group_output(distributed_availability_group_name: Optional[pulumi.Input[str]] = None,
                                               managed_instance_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -247,4 +244,23 @@ def get_distributed_availability_group_output(distributed_availability_group_nam
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
-    ...
+    __args__ = dict()
+    __args__['distributedAvailabilityGroupName'] = distributed_availability_group_name
+    __args__['managedInstanceName'] = managed_instance_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDistributedAvailabilityGroup', __args__, opts=opts, typ=GetDistributedAvailabilityGroupResult)
+    return __ret__.apply(lambda __response__: GetDistributedAvailabilityGroupResult(
+        distributed_availability_group_id=pulumi.get(__response__, 'distributed_availability_group_id'),
+        id=pulumi.get(__response__, 'id'),
+        last_hardened_lsn=pulumi.get(__response__, 'last_hardened_lsn'),
+        link_state=pulumi.get(__response__, 'link_state'),
+        name=pulumi.get(__response__, 'name'),
+        primary_availability_group_name=pulumi.get(__response__, 'primary_availability_group_name'),
+        replication_mode=pulumi.get(__response__, 'replication_mode'),
+        secondary_availability_group_name=pulumi.get(__response__, 'secondary_availability_group_name'),
+        source_endpoint=pulumi.get(__response__, 'source_endpoint'),
+        source_replica_id=pulumi.get(__response__, 'source_replica_id'),
+        target_database=pulumi.get(__response__, 'target_database'),
+        target_replica_id=pulumi.get(__response__, 'target_replica_id'),
+        type=pulumi.get(__response__, 'type')))

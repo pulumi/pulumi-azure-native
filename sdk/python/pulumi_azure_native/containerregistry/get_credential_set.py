@@ -179,9 +179,6 @@ def get_credential_set(credential_set_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_credential_set)
 def get_credential_set_output(credential_set_name: Optional[pulumi.Input[str]] = None,
                               registry_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -197,4 +194,19 @@ def get_credential_set_output(credential_set_name: Optional[pulumi.Input[str]] =
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['credentialSetName'] = credential_set_name
+    __args__['registryName'] = registry_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getCredentialSet', __args__, opts=opts, typ=GetCredentialSetResult)
+    return __ret__.apply(lambda __response__: GetCredentialSetResult(
+        auth_credentials=pulumi.get(__response__, 'auth_credentials'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        login_server=pulumi.get(__response__, 'login_server'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

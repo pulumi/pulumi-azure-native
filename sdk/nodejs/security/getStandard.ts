@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-08-01-preview.
  */
 export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getStandard", {
         "resourceGroupName": args.resourceGroupName,
@@ -97,7 +96,11 @@ export interface GetStandardResult {
  * Azure REST API version: 2021-08-01-preview.
  */
 export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {
-    return pulumi.output(args).apply((a: any) => getStandard(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security:getStandard", {
+        "resourceGroupName": args.resourceGroupName,
+        "standardId": args.standardId,
+    }, opts);
 }
 
 export interface GetStandardOutputArgs {

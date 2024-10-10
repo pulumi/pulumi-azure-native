@@ -171,9 +171,6 @@ def get_static_site_custom_domain(domain_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'),
         validation_token=pulumi.get(__ret__, 'validation_token'))
-
-
-@_utilities.lift_output_func(get_static_site_custom_domain)
 def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                                          name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -186,4 +183,19 @@ def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[str]
     :param str name: Name of the static site resource to search in.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:getStaticSiteCustomDomain', __args__, opts=opts, typ=GetStaticSiteCustomDomainResult)
+    return __ret__.apply(lambda __response__: GetStaticSiteCustomDomainResult(
+        created_on=pulumi.get(__response__, 'created_on'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        error_message=pulumi.get(__response__, 'error_message'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type'),
+        validation_token=pulumi.get(__response__, 'validation_token')))

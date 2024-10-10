@@ -198,9 +198,6 @@ def get_connector(connector_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_connector)
 def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
@@ -211,4 +208,20 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
     :param str connector_name: The name of the connector resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['connectorName'] = connector_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20231001preview:getConnector', __args__, opts=opts, typ=GetConnectorResult)
+    return __ret__.apply(lambda __response__: GetConnectorResult(
+        errors=pulumi.get(__response__, 'errors'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        managed_resource_group_configuration=pulumi.get(__response__, 'managed_resource_group_configuration'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        source_resource_id=pulumi.get(__response__, 'source_resource_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

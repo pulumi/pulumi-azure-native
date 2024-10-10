@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Lists the access key for the specified configuration store.
  */
 export function listConfigurationStoreKeys(args: ListConfigurationStoreKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationStoreKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20230301:listConfigurationStoreKeys", {
         "configStoreName": args.configStoreName,
@@ -52,7 +51,12 @@ export interface ListConfigurationStoreKeysResult {
  * Lists the access key for the specified configuration store.
  */
 export function listConfigurationStoreKeysOutput(args: ListConfigurationStoreKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationStoreKeysResult> {
-    return pulumi.output(args).apply((a: any) => listConfigurationStoreKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appconfiguration/v20230301:listConfigurationStoreKeys", {
+        "configStoreName": args.configStoreName,
+        "resourceGroupName": args.resourceGroupName,
+        "skipToken": args.skipToken,
+    }, opts);
 }
 
 export interface ListConfigurationStoreKeysOutputArgs {

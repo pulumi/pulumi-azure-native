@@ -159,9 +159,6 @@ def get_cloud_service(cloud_service_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_cloud_service)
 def get_cloud_service_output(cloud_service_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudServiceResult]:
@@ -172,4 +169,17 @@ def get_cloud_service_output(cloud_service_name: Optional[pulumi.Input[str]] = N
     :param str cloud_service_name: Name of the cloud service.
     :param str resource_group_name: Name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['cloudServiceName'] = cloud_service_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20220904:getCloudService', __args__, opts=opts, typ=GetCloudServiceResult)
+    return __ret__.apply(lambda __response__: GetCloudServiceResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        zones=pulumi.get(__response__, 'zones')))

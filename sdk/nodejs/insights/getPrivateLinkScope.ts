@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-10-17-preview.
  */
 export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getPrivateLinkScope", {
         "resourceGroupName": args.resourceGroupName,
@@ -81,7 +80,11 @@ export interface GetPrivateLinkScopeResult {
  * Other available API versions: 2019-10-17-preview.
  */
 export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopeResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkScope(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights:getPrivateLinkScope", {
+        "resourceGroupName": args.resourceGroupName,
+        "scopeName": args.scopeName,
+    }, opts);
 }
 
 export interface GetPrivateLinkScopeOutputArgs {

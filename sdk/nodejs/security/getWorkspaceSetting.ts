@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-08-01-preview.
  */
 export function getWorkspaceSetting(args: GetWorkspaceSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceSettingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getWorkspaceSetting", {
         "workspaceSettingName": args.workspaceSettingName,
@@ -53,7 +52,10 @@ export interface GetWorkspaceSettingResult {
  * Azure REST API version: 2017-08-01-preview.
  */
 export function getWorkspaceSettingOutput(args: GetWorkspaceSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSettingResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspaceSetting(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security:getWorkspaceSetting", {
+        "workspaceSettingName": args.workspaceSettingName,
+    }, opts);
 }
 
 export interface GetWorkspaceSettingOutputArgs {

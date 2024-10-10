@@ -295,9 +295,6 @@ def get_job_definition(job_definition_name: Optional[str] = None,
         target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
         target_subpath=pulumi.get(__ret__, 'target_subpath'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_job_definition)
 def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] = None,
                               project_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -312,4 +309,29 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_mover_name: The name of the Storage Mover resource.
     """
-    ...
+    __args__ = dict()
+    __args__['jobDefinitionName'] = job_definition_name
+    __args__['projectName'] = project_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['storageMoverName'] = storage_mover_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storagemover/v20230301:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult)
+    return __ret__.apply(lambda __response__: GetJobDefinitionResult(
+        agent_name=pulumi.get(__response__, 'agent_name'),
+        agent_resource_id=pulumi.get(__response__, 'agent_resource_id'),
+        copy_mode=pulumi.get(__response__, 'copy_mode'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        latest_job_run_name=pulumi.get(__response__, 'latest_job_run_name'),
+        latest_job_run_resource_id=pulumi.get(__response__, 'latest_job_run_resource_id'),
+        latest_job_run_status=pulumi.get(__response__, 'latest_job_run_status'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        source_name=pulumi.get(__response__, 'source_name'),
+        source_resource_id=pulumi.get(__response__, 'source_resource_id'),
+        source_subpath=pulumi.get(__response__, 'source_subpath'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        target_name=pulumi.get(__response__, 'target_name'),
+        target_resource_id=pulumi.get(__response__, 'target_resource_id'),
+        target_subpath=pulumi.get(__response__, 'target_subpath'),
+        type=pulumi.get(__response__, 'type')))

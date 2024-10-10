@@ -344,9 +344,6 @@ def get_deployment_stack_at_management_group(deployment_stack_name: Optional[str
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_deployment_stack_at_management_group)
 def get_deployment_stack_at_management_group_output(deployment_stack_name: Optional[pulumi.Input[str]] = None,
                                                     management_group_id: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentStackAtManagementGroupResult]:
@@ -360,4 +357,31 @@ def get_deployment_stack_at_management_group_output(deployment_stack_name: Optio
     :param str deployment_stack_name: Name of the deployment stack.
     :param str management_group_id: Management Group.
     """
-    ...
+    __args__ = dict()
+    __args__['deploymentStackName'] = deployment_stack_name
+    __args__['managementGroupId'] = management_group_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:resources:getDeploymentStackAtManagementGroup', __args__, opts=opts, typ=GetDeploymentStackAtManagementGroupResult)
+    return __ret__.apply(lambda __response__: GetDeploymentStackAtManagementGroupResult(
+        action_on_unmanage=pulumi.get(__response__, 'action_on_unmanage'),
+        debug_setting=pulumi.get(__response__, 'debug_setting'),
+        deleted_resources=pulumi.get(__response__, 'deleted_resources'),
+        deny_settings=pulumi.get(__response__, 'deny_settings'),
+        deployment_id=pulumi.get(__response__, 'deployment_id'),
+        deployment_scope=pulumi.get(__response__, 'deployment_scope'),
+        description=pulumi.get(__response__, 'description'),
+        detached_resources=pulumi.get(__response__, 'detached_resources'),
+        duration=pulumi.get(__response__, 'duration'),
+        error=pulumi.get(__response__, 'error'),
+        failed_resources=pulumi.get(__response__, 'failed_resources'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        outputs=pulumi.get(__response__, 'outputs'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        parameters_link=pulumi.get(__response__, 'parameters_link'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resources=pulumi.get(__response__, 'resources'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

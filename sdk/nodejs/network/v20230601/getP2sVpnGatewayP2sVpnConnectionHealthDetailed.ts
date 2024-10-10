@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
  */
 export function getP2sVpnGatewayP2sVpnConnectionHealthDetailed(args: GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230601:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", {
         "gatewayName": args.gatewayName,
@@ -50,7 +49,13 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult {
  * Gets the sas url to get the connection health detail of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
  */
 export function getP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput(args: GetP2sVpnGatewayP2sVpnConnectionHealthDetailedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult> {
-    return pulumi.output(args).apply((a: any) => getP2sVpnGatewayP2sVpnConnectionHealthDetailed(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230601:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", {
+        "gatewayName": args.gatewayName,
+        "outputBlobSasUrl": args.outputBlobSasUrl,
+        "resourceGroupName": args.resourceGroupName,
+        "vpnUserNamesFilter": args.vpnUserNamesFilter,
+    }, opts);
 }
 
 export interface GetP2sVpnGatewayP2sVpnConnectionHealthDetailedOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Result of POST request to list regions supported by confluent
  */
 export function listOrganizationRegions(args: ListOrganizationRegionsArgs, opts?: pulumi.InvokeOptions): Promise<ListOrganizationRegionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:confluent/v20240213:listOrganizationRegions", {
         "organizationName": args.organizationName,
@@ -48,7 +47,12 @@ export interface ListOrganizationRegionsResult {
  * Result of POST request to list regions supported by confluent
  */
 export function listOrganizationRegionsOutput(args: ListOrganizationRegionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOrganizationRegionsResult> {
-    return pulumi.output(args).apply((a: any) => listOrganizationRegions(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:confluent/v20240213:listOrganizationRegions", {
+        "organizationName": args.organizationName,
+        "resourceGroupName": args.resourceGroupName,
+        "searchFilters": args.searchFilters,
+    }, opts);
 }
 
 export interface ListOrganizationRegionsOutputArgs {

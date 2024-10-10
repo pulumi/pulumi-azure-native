@@ -615,9 +615,6 @@ def get_sql_assessment_v2_operation(assessment_name: Optional[str] = None,
         time_range=pulumi.get(__ret__, 'time_range'),
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
-
-
-@_utilities.lift_output_func(get_sql_assessment_v2_operation)
 def get_sql_assessment_v2_operation_output(assessment_name: Optional[pulumi.Input[str]] = None,
                                            group_name: Optional[pulumi.Input[str]] = None,
                                            project_name: Optional[pulumi.Input[str]] = None,
@@ -635,4 +632,53 @@ def get_sql_assessment_v2_operation_output(assessment_name: Optional[pulumi.Inpu
     :param str project_name: Assessment Project Name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['assessmentName'] = assessment_name
+    __args__['groupName'] = group_name
+    __args__['projectName'] = project_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getSqlAssessmentV2Operation', __args__, opts=opts, typ=GetSqlAssessmentV2OperationResult)
+    return __ret__.apply(lambda __response__: GetSqlAssessmentV2OperationResult(
+        assessment_type=pulumi.get(__response__, 'assessment_type'),
+        async_commit_mode_intent=pulumi.get(__response__, 'async_commit_mode_intent'),
+        azure_location=pulumi.get(__response__, 'azure_location'),
+        azure_offer_code=pulumi.get(__response__, 'azure_offer_code'),
+        azure_offer_code_for_vm=pulumi.get(__response__, 'azure_offer_code_for_vm'),
+        azure_security_offering_type=pulumi.get(__response__, 'azure_security_offering_type'),
+        azure_sql_database_settings=pulumi.get(__response__, 'azure_sql_database_settings'),
+        azure_sql_managed_instance_settings=pulumi.get(__response__, 'azure_sql_managed_instance_settings'),
+        azure_sql_vm_settings=pulumi.get(__response__, 'azure_sql_vm_settings'),
+        confidence_rating_in_percentage=pulumi.get(__response__, 'confidence_rating_in_percentage'),
+        created_timestamp=pulumi.get(__response__, 'created_timestamp'),
+        currency=pulumi.get(__response__, 'currency'),
+        disaster_recovery_location=pulumi.get(__response__, 'disaster_recovery_location'),
+        discount_percentage=pulumi.get(__response__, 'discount_percentage'),
+        ea_subscription_id=pulumi.get(__response__, 'ea_subscription_id'),
+        enable_hadr_assessment=pulumi.get(__response__, 'enable_hadr_assessment'),
+        entity_uptime=pulumi.get(__response__, 'entity_uptime'),
+        environment_type=pulumi.get(__response__, 'environment_type'),
+        group_type=pulumi.get(__response__, 'group_type'),
+        id=pulumi.get(__response__, 'id'),
+        is_internet_access_available=pulumi.get(__response__, 'is_internet_access_available'),
+        multi_subnet_intent=pulumi.get(__response__, 'multi_subnet_intent'),
+        name=pulumi.get(__response__, 'name'),
+        optimization_logic=pulumi.get(__response__, 'optimization_logic'),
+        os_license=pulumi.get(__response__, 'os_license'),
+        percentile=pulumi.get(__response__, 'percentile'),
+        perf_data_end_time=pulumi.get(__response__, 'perf_data_end_time'),
+        perf_data_start_time=pulumi.get(__response__, 'perf_data_start_time'),
+        prices_timestamp=pulumi.get(__response__, 'prices_timestamp'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        reserved_instance=pulumi.get(__response__, 'reserved_instance'),
+        reserved_instance_for_vm=pulumi.get(__response__, 'reserved_instance_for_vm'),
+        scaling_factor=pulumi.get(__response__, 'scaling_factor'),
+        schema_version=pulumi.get(__response__, 'schema_version'),
+        sizing_criterion=pulumi.get(__response__, 'sizing_criterion'),
+        sql_server_license=pulumi.get(__response__, 'sql_server_license'),
+        stage=pulumi.get(__response__, 'stage'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        time_range=pulumi.get(__response__, 'time_range'),
+        type=pulumi.get(__response__, 'type'),
+        updated_timestamp=pulumi.get(__response__, 'updated_timestamp')))

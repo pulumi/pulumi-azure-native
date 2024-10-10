@@ -90,9 +90,6 @@ def list_endpoint_managed_proxy_details(endpoint_name: Optional[str] = None,
     return AwaitableListEndpointManagedProxyDetailsResult(
         expires_on=pulumi.get(__ret__, 'expires_on'),
         proxy=pulumi.get(__ret__, 'proxy'))
-
-
-@_utilities.lift_output_func(list_endpoint_managed_proxy_details)
 def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                                hostname: Optional[pulumi.Input[Optional[str]]] = None,
                                                resource_uri: Optional[pulumi.Input[str]] = None,
@@ -109,4 +106,14 @@ def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.In
     :param str service: The name of the service.
     :param Union[str, 'ServiceName'] service_name: The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
     """
-    ...
+    __args__ = dict()
+    __args__['endpointName'] = endpoint_name
+    __args__['hostname'] = hostname
+    __args__['resourceUri'] = resource_uri
+    __args__['service'] = service
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity/v20241201:listEndpointManagedProxyDetails', __args__, opts=opts, typ=ListEndpointManagedProxyDetailsResult)
+    return __ret__.apply(lambda __response__: ListEndpointManagedProxyDetailsResult(
+        expires_on=pulumi.get(__response__, 'expires_on'),
+        proxy=pulumi.get(__response__, 'proxy')))

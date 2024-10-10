@@ -211,9 +211,6 @@ def get_integration_account_map(integration_account_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_integration_account_map)
 def get_integration_account_map_output(integration_account_name: Optional[pulumi.Input[str]] = None,
                                        map_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -226,4 +223,22 @@ def get_integration_account_map_output(integration_account_name: Optional[pulumi
     :param str map_name: The integration account map name.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['integrationAccountName'] = integration_account_name
+    __args__['mapName'] = map_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20150801preview:getIntegrationAccountMap', __args__, opts=opts, typ=GetIntegrationAccountMapResult)
+    return __ret__.apply(lambda __response__: GetIntegrationAccountMapResult(
+        changed_time=pulumi.get(__response__, 'changed_time'),
+        content=pulumi.get(__response__, 'content'),
+        content_link=pulumi.get(__response__, 'content_link'),
+        content_type=pulumi.get(__response__, 'content_type'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        map_type=pulumi.get(__response__, 'map_type'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

@@ -286,9 +286,6 @@ def get_virtual_machine_instance(resource_uri: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         vm_id=pulumi.get(__ret__, 'vm_id'))
-
-
-@_utilities.lift_output_func(get_virtual_machine_instance)
 def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineInstanceResult]:
     """
@@ -297,4 +294,26 @@ def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceUri'] = resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20240201preview:getVirtualMachineInstance', __args__, opts=opts, typ=GetVirtualMachineInstanceResult)
+    return __ret__.apply(lambda __response__: GetVirtualMachineInstanceResult(
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        guest_agent_install_status=pulumi.get(__response__, 'guest_agent_install_status'),
+        hardware_profile=pulumi.get(__response__, 'hardware_profile'),
+        http_proxy_config=pulumi.get(__response__, 'http_proxy_config'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        instance_view=pulumi.get(__response__, 'instance_view'),
+        name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
+        os_profile=pulumi.get(__response__, 'os_profile'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_uid=pulumi.get(__response__, 'resource_uid'),
+        security_profile=pulumi.get(__response__, 'security_profile'),
+        status=pulumi.get(__response__, 'status'),
+        storage_profile=pulumi.get(__response__, 'storage_profile'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        vm_id=pulumi.get(__response__, 'vm_id')))

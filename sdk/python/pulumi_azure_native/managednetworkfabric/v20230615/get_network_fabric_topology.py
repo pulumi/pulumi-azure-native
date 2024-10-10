@@ -94,9 +94,6 @@ def get_network_fabric_topology(network_fabric_name: Optional[str] = None,
         configuration_state=pulumi.get(__ret__, 'configuration_state'),
         error=pulumi.get(__ret__, 'error'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_network_fabric_topology)
 def get_network_fabric_topology_output(network_fabric_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkFabricTopologyResult]:
@@ -107,4 +104,12 @@ def get_network_fabric_topology_output(network_fabric_name: Optional[pulumi.Inpu
     :param str network_fabric_name: Name of the Network Fabric.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['networkFabricName'] = network_fabric_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getNetworkFabricTopology', __args__, opts=opts, typ=GetNetworkFabricTopologyResult)
+    return __ret__.apply(lambda __response__: GetNetworkFabricTopologyResult(
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
+        error=pulumi.get(__response__, 'error'),
+        url=pulumi.get(__response__, 'url')))

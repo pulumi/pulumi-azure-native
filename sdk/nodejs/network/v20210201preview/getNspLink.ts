@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the specified NSP link resource.
  */
 export function getNspLink(args: GetNspLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetNspLinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201preview:getNspLink", {
         "linkName": args.linkName,
@@ -97,7 +96,12 @@ export interface GetNspLinkResult {
  * Gets the specified NSP link resource.
  */
 export function getNspLinkOutput(args: GetNspLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspLinkResult> {
-    return pulumi.output(args).apply((a: any) => getNspLink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20210201preview:getNspLink", {
+        "linkName": args.linkName,
+        "networkSecurityPerimeterName": args.networkSecurityPerimeterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNspLinkOutputArgs {

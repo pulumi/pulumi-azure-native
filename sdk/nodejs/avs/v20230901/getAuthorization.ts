@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a ExpressRouteAuthorization
  */
 export function getAuthorization(args: GetAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20230901:getAuthorization", {
         "authorizationName": args.authorizationName,
@@ -76,7 +75,12 @@ export interface GetAuthorizationResult {
  * Get a ExpressRouteAuthorization
  */
 export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorization(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getAuthorization", {
+        "authorizationName": args.authorizationName,
+        "privateCloudName": args.privateCloudName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAuthorizationOutputArgs {

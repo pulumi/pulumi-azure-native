@@ -529,9 +529,6 @@ def get_virtual_machine(expand: Optional[str] = None,
         virtual_machine_scale_set=pulumi.get(__ret__, 'virtual_machine_scale_set'),
         vm_id=pulumi.get(__ret__, 'vm_id'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_virtual_machine)
 def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                vm_name: Optional[pulumi.Input[str]] = None,
@@ -547,4 +544,46 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str resource_group_name: The name of the resource group.
     :param str vm_name: The name of the virtual machine.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vmName'] = vm_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
+    return __ret__.apply(lambda __response__: GetVirtualMachineResult(
+        additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),
+        application_profile=pulumi.get(__response__, 'application_profile'),
+        availability_set=pulumi.get(__response__, 'availability_set'),
+        billing_profile=pulumi.get(__response__, 'billing_profile'),
+        capacity_reservation=pulumi.get(__response__, 'capacity_reservation'),
+        diagnostics_profile=pulumi.get(__response__, 'diagnostics_profile'),
+        eviction_policy=pulumi.get(__response__, 'eviction_policy'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        extensions_time_budget=pulumi.get(__response__, 'extensions_time_budget'),
+        hardware_profile=pulumi.get(__response__, 'hardware_profile'),
+        host=pulumi.get(__response__, 'host'),
+        host_group=pulumi.get(__response__, 'host_group'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        instance_view=pulumi.get(__response__, 'instance_view'),
+        license_type=pulumi.get(__response__, 'license_type'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
+        os_profile=pulumi.get(__response__, 'os_profile'),
+        plan=pulumi.get(__response__, 'plan'),
+        platform_fault_domain=pulumi.get(__response__, 'platform_fault_domain'),
+        priority=pulumi.get(__response__, 'priority'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        proximity_placement_group=pulumi.get(__response__, 'proximity_placement_group'),
+        resources=pulumi.get(__response__, 'resources'),
+        scheduled_events_profile=pulumi.get(__response__, 'scheduled_events_profile'),
+        security_profile=pulumi.get(__response__, 'security_profile'),
+        storage_profile=pulumi.get(__response__, 'storage_profile'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_created=pulumi.get(__response__, 'time_created'),
+        type=pulumi.get(__response__, 'type'),
+        user_data=pulumi.get(__response__, 'user_data'),
+        virtual_machine_scale_set=pulumi.get(__response__, 'virtual_machine_scale_set'),
+        vm_id=pulumi.get(__response__, 'vm_id'),
+        zones=pulumi.get(__response__, 'zones')))

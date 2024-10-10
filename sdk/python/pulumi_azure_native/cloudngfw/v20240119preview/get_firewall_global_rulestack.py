@@ -67,9 +67,6 @@ def get_firewall_global_rulestack(firewall_name: Optional[str] = None,
 
     return AwaitableGetFirewallGlobalRulestackResult(
         azure_id=pulumi.get(__ret__, 'azure_id'))
-
-
-@_utilities.lift_output_func(get_firewall_global_rulestack)
 def get_firewall_global_rulestack_output(firewall_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallGlobalRulestackResult]:
@@ -80,4 +77,10 @@ def get_firewall_global_rulestack_output(firewall_name: Optional[pulumi.Input[st
     :param str firewall_name: Firewall resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['firewallName'] = firewall_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240119preview:getFirewallGlobalRulestack', __args__, opts=opts, typ=GetFirewallGlobalRulestackResult)
+    return __ret__.apply(lambda __response__: GetFirewallGlobalRulestackResult(
+        azure_id=pulumi.get(__response__, 'azure_id')))

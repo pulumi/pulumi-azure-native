@@ -235,9 +235,6 @@ def get_project(group_name: Optional[str] = None,
         target_connection_info=pulumi.get(__ret__, 'target_connection_info'),
         target_platform=pulumi.get(__ret__, 'target_platform'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_project)
 def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
                        project_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
@@ -250,4 +247,25 @@ def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: Name of the project
     :param str service_name: Name of the service
     """
-    ...
+    __args__ = dict()
+    __args__['groupName'] = group_name
+    __args__['projectName'] = project_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration/v20230715preview:getProject', __args__, opts=opts, typ=GetProjectResult)
+    return __ret__.apply(lambda __response__: GetProjectResult(
+        azure_authentication_info=pulumi.get(__response__, 'azure_authentication_info'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        databases_info=pulumi.get(__response__, 'databases_info'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        source_connection_info=pulumi.get(__response__, 'source_connection_info'),
+        source_platform=pulumi.get(__response__, 'source_platform'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_connection_info=pulumi.get(__response__, 'target_connection_info'),
+        target_platform=pulumi.get(__response__, 'target_platform'),
+        type=pulumi.get(__response__, 'type')))

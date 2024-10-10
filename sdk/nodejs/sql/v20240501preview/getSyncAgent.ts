@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a sync agent.
  */
 export function getSyncAgent(args: GetSyncAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncAgentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20240501preview:getSyncAgent", {
         "resourceGroupName": args.resourceGroupName,
@@ -77,7 +76,12 @@ export interface GetSyncAgentResult {
  * Gets a sync agent.
  */
 export function getSyncAgentOutput(args: GetSyncAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncAgentResult> {
-    return pulumi.output(args).apply((a: any) => getSyncAgent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20240501preview:getSyncAgent", {
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+        "syncAgentName": args.syncAgentName,
+    }, opts);
 }
 
 export interface GetSyncAgentOutputArgs {

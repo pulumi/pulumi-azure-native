@@ -298,9 +298,6 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
         suspend=pulumi.get(__ret__, 'suspend'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_flux_configuration)
 def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                   cluster_resource_name: Optional[pulumi.Input[str]] = None,
                                   cluster_rp: Optional[pulumi.Input[str]] = None,
@@ -317,4 +314,30 @@ def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = No
     :param str flux_configuration_name: Name of the Flux Configuration.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['clusterResourceName'] = cluster_resource_name
+    __args__['clusterRp'] = cluster_rp
+    __args__['fluxConfigurationName'] = flux_configuration_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesconfiguration/v20211101preview:getFluxConfiguration', __args__, opts=opts, typ=GetFluxConfigurationResult)
+    return __ret__.apply(lambda __response__: GetFluxConfigurationResult(
+        compliance_state=pulumi.get(__response__, 'compliance_state'),
+        configuration_protected_settings=pulumi.get(__response__, 'configuration_protected_settings'),
+        error_message=pulumi.get(__response__, 'error_message'),
+        git_repository=pulumi.get(__response__, 'git_repository'),
+        id=pulumi.get(__response__, 'id'),
+        kustomizations=pulumi.get(__response__, 'kustomizations'),
+        last_source_synced_at=pulumi.get(__response__, 'last_source_synced_at'),
+        last_source_synced_commit_id=pulumi.get(__response__, 'last_source_synced_commit_id'),
+        name=pulumi.get(__response__, 'name'),
+        namespace=pulumi.get(__response__, 'namespace'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        repository_public_key=pulumi.get(__response__, 'repository_public_key'),
+        scope=pulumi.get(__response__, 'scope'),
+        source_kind=pulumi.get(__response__, 'source_kind'),
+        statuses=pulumi.get(__response__, 'statuses'),
+        suspend=pulumi.get(__response__, 'suspend'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

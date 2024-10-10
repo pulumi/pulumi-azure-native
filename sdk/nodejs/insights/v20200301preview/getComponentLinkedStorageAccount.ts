@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Returns the current linked storage settings for an Application Insights component.
  */
 export function getComponentLinkedStorageAccount(args: GetComponentLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentLinkedStorageAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", {
         "resourceGroupName": args.resourceGroupName,
@@ -57,7 +56,12 @@ export interface GetComponentLinkedStorageAccountResult {
  * Returns the current linked storage settings for an Application Insights component.
  */
 export function getComponentLinkedStorageAccountOutput(args: GetComponentLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentLinkedStorageAccountResult> {
-    return pulumi.output(args).apply((a: any) => getComponentLinkedStorageAccount(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+        "storageType": args.storageType,
+    }, opts);
 }
 
 export interface GetComponentLinkedStorageAccountOutputArgs {

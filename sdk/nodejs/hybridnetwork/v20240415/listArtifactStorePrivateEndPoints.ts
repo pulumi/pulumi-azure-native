@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List manual private endpoints on artifact stores
  */
 export function listArtifactStorePrivateEndPoints(args: ListArtifactStorePrivateEndPointsArgs, opts?: pulumi.InvokeOptions): Promise<ListArtifactStorePrivateEndPointsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20240415:listArtifactStorePrivateEndPoints", {
         "artifactStoreName": args.artifactStoreName,
@@ -52,7 +51,12 @@ export interface ListArtifactStorePrivateEndPointsResult {
  * List manual private endpoints on artifact stores
  */
 export function listArtifactStorePrivateEndPointsOutput(args: ListArtifactStorePrivateEndPointsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListArtifactStorePrivateEndPointsResult> {
-    return pulumi.output(args).apply((a: any) => listArtifactStorePrivateEndPoints(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20240415:listArtifactStorePrivateEndPoints", {
+        "artifactStoreName": args.artifactStoreName,
+        "publisherName": args.publisherName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListArtifactStorePrivateEndPointsOutputArgs {

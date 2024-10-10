@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the replica and its properties.
  */
 export function getWebPubSubReplica(args: GetWebPubSubReplicaArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubReplicaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20240801preview:getWebPubSubReplica", {
         "replicaName": args.replicaName,
@@ -87,7 +86,12 @@ export interface GetWebPubSubReplicaResult {
  * Get the replica and its properties.
  */
 export function getWebPubSubReplicaOutput(args: GetWebPubSubReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubReplicaResult> {
-    return pulumi.output(args).apply((a: any) => getWebPubSubReplica(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20240801preview:getWebPubSubReplica", {
+        "replicaName": args.replicaName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetWebPubSubReplicaOutputArgs {

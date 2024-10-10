@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getDnsSecurityRule(args: GetDnsSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsSecurityRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getDnsSecurityRule", {
         "dnsResolverPolicyName": args.dnsResolverPolicyName,
@@ -94,7 +93,12 @@ export interface GetDnsSecurityRuleResult {
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getDnsSecurityRuleOutput(args: GetDnsSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsSecurityRuleResult> {
-    return pulumi.output(args).apply((a: any) => getDnsSecurityRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network:getDnsSecurityRule", {
+        "dnsResolverPolicyName": args.dnsResolverPolicyName,
+        "dnsSecurityRuleName": args.dnsSecurityRuleName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDnsSecurityRuleOutputArgs {

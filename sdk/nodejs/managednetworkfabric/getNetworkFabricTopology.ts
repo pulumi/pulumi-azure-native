@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-06-15.
  */
 export function getNetworkFabricTopology(args: GetNetworkFabricTopologyArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFabricTopologyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric:getNetworkFabricTopology", {
         "networkFabricName": args.networkFabricName,
@@ -53,7 +52,11 @@ export interface GetNetworkFabricTopologyResult {
  * Azure REST API version: 2023-06-15.
  */
 export function getNetworkFabricTopologyOutput(args: GetNetworkFabricTopologyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFabricTopologyResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkFabricTopology(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNetworkFabricTopology", {
+        "networkFabricName": args.networkFabricName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkFabricTopologyOutputArgs {

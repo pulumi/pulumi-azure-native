@@ -161,9 +161,6 @@ def get_workload_network_dhcp(dhcp_id: Optional[str] = None,
         revision=pulumi.get(__ret__, 'revision'),
         segments=pulumi.get(__ret__, 'segments'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_workload_network_dhcp)
 def get_workload_network_dhcp_output(dhcp_id: Optional[pulumi.Input[str]] = None,
                                      private_cloud_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -176,4 +173,18 @@ def get_workload_network_dhcp_output(dhcp_id: Optional[pulumi.Input[str]] = None
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['dhcpId'] = dhcp_id
+    __args__['privateCloudName'] = private_cloud_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20210101preview:getWorkloadNetworkDhcp', __args__, opts=opts, typ=GetWorkloadNetworkDhcpResult)
+    return __ret__.apply(lambda __response__: GetWorkloadNetworkDhcpResult(
+        dhcp_type=pulumi.get(__response__, 'dhcp_type'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        revision=pulumi.get(__response__, 'revision'),
+        segments=pulumi.get(__response__, 'segments'),
+        type=pulumi.get(__response__, 'type')))

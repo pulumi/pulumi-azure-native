@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Service by name.
  */
 export function getEndpointVariant(args: GetEndpointVariantArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointVariantResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20210401:getEndpointVariant", {
         "expand": args.expand,
@@ -85,7 +84,13 @@ export interface GetEndpointVariantResult {
  * Get a Service by name.
  */
 export function getEndpointVariantOutput(args: GetEndpointVariantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointVariantResult> {
-    return pulumi.output(args).apply((a: any) => getEndpointVariant(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20210401:getEndpointVariant", {
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetEndpointVariantOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Returns a data connection.
  */
 export function getIotHubDataConnection(args: GetIotHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubDataConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20221229:getIotHubDataConnection", {
         "clusterName": args.clusterName,
@@ -107,7 +106,13 @@ export interface GetIotHubDataConnectionResult {
  * Returns a data connection.
  */
 export function getIotHubDataConnectionOutput(args: GetIotHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubDataConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getIotHubDataConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kusto/v20221229:getIotHubDataConnection", {
+        "clusterName": args.clusterName,
+        "dataConnectionName": args.dataConnectionName,
+        "databaseName": args.databaseName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIotHubDataConnectionOutputArgs {

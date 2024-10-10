@@ -198,9 +198,6 @@ def get_network_security_group(network_security_group_name: Optional[str] = None
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_network_security_group)
 def get_network_security_group_output(network_security_group_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSecurityGroupResult]:
@@ -211,4 +208,20 @@ def get_network_security_group_output(network_security_group_name: Optional[pulu
     :param str network_security_group_name: Name of the network security group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['networkSecurityGroupName'] = network_security_group_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20240501preview:getNetworkSecurityGroup', __args__, opts=opts, typ=GetNetworkSecurityGroupResult)
+    return __ret__.apply(lambda __response__: GetNetworkSecurityGroupResult(
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_interfaces=pulumi.get(__response__, 'network_interfaces'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        subnets=pulumi.get(__response__, 'subnets'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

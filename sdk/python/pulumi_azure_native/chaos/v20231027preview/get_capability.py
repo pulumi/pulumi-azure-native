@@ -132,9 +132,6 @@ def get_capability(capability_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_capability)
 def get_capability_output(capability_name: Optional[pulumi.Input[str]] = None,
                           parent_provider_namespace: Optional[pulumi.Input[str]] = None,
                           parent_resource_name: Optional[pulumi.Input[str]] = None,
@@ -153,4 +150,18 @@ def get_capability_output(capability_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: String that represents an Azure resource group.
     :param str target_name: String that represents a Target resource name.
     """
-    ...
+    __args__ = dict()
+    __args__['capabilityName'] = capability_name
+    __args__['parentProviderNamespace'] = parent_provider_namespace
+    __args__['parentResourceName'] = parent_resource_name
+    __args__['parentResourceType'] = parent_resource_type
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['targetName'] = target_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:chaos/v20231027preview:getCapability', __args__, opts=opts, typ=GetCapabilityResult)
+    return __ret__.apply(lambda __response__: GetCapabilityResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

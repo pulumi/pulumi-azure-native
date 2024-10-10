@@ -105,9 +105,6 @@ def get_subscription_tar_directory(subscription_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_subscription_tar_directory)
 def get_subscription_tar_directory_output(subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionTarDirectoryResult]:
     """
@@ -117,4 +114,12 @@ def get_subscription_tar_directory_output(subscription_id: Optional[pulumi.Input
 
     :param str subscription_id: Subscription Id.
     """
-    ...
+    __args__ = dict()
+    __args__['subscriptionId'] = subscription_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:subscription:getSubscriptionTarDirectory', __args__, opts=opts, typ=GetSubscriptionTarDirectoryResult)
+    return __ret__.apply(lambda __response__: GetSubscriptionTarDirectoryResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        type=pulumi.get(__response__, 'type')))

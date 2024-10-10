@@ -70,9 +70,6 @@ def list_compute_keys(compute_name: Optional[str] = None,
 
     return AwaitableListComputeKeysResult(
         compute_type=pulumi.get(__ret__, 'compute_type'))
-
-
-@_utilities.lift_output_func(list_compute_keys)
 def list_compute_keys_output(compute_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              workspace_name: Optional[pulumi.Input[str]] = None,
@@ -85,4 +82,11 @@ def list_compute_keys_output(compute_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['computeName'] = compute_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20220101preview:listComputeKeys', __args__, opts=opts, typ=ListComputeKeysResult)
+    return __ret__.apply(lambda __response__: ListComputeKeysResult(
+        compute_type=pulumi.get(__response__, 'compute_type')))

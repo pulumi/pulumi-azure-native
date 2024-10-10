@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-03-01-preview.
  */
 export function listObjectAnchorsAccountKeys(args: ListObjectAnchorsAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListObjectAnchorsAccountKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mixedreality:listObjectAnchorsAccountKeys", {
         "accountName": args.accountName,
@@ -46,7 +45,11 @@ export interface ListObjectAnchorsAccountKeysResult {
  * Azure REST API version: 2021-03-01-preview.
  */
 export function listObjectAnchorsAccountKeysOutput(args: ListObjectAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListObjectAnchorsAccountKeysResult> {
-    return pulumi.output(args).apply((a: any) => listObjectAnchorsAccountKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:mixedreality:listObjectAnchorsAccountKeys", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListObjectAnchorsAccountKeysOutputArgs {

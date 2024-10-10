@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the modernize project.
  */
 export function getModernizeProject(args: GetModernizeProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetModernizeProjectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20220501preview:getModernizeProject", {
         "modernizeProjectName": args.modernizeProjectName,
@@ -70,7 +69,12 @@ export interface GetModernizeProjectResult {
  * Gets the details of the modernize project.
  */
 export function getModernizeProjectOutput(args: GetModernizeProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModernizeProjectResult> {
-    return pulumi.output(args).apply((a: any) => getModernizeProject(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate/v20220501preview:getModernizeProject", {
+        "modernizeProjectName": args.modernizeProjectName,
+        "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
+    }, opts);
 }
 
 export interface GetModernizeProjectOutputArgs {

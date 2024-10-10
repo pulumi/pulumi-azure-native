@@ -127,9 +127,6 @@ def get_track(account_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         track=pulumi.get(__ret__, 'track'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_track)
 def get_track_output(account_name: Optional[pulumi.Input[str]] = None,
                      asset_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -145,4 +142,16 @@ def get_track_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str track_name: The Asset Track name.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['assetName'] = asset_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['trackName'] = track_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:media:getTrack', __args__, opts=opts, typ=GetTrackResult)
+    return __ret__.apply(lambda __response__: GetTrackResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        track=pulumi.get(__response__, 'track'),
+        type=pulumi.get(__response__, 'type')))

@@ -221,9 +221,6 @@ def get_object_anchors_account(account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_object_anchors_account)
 def get_object_anchors_account_output(account_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectAnchorsAccountResult]:
@@ -234,4 +231,22 @@ def get_object_anchors_account_output(account_name: Optional[pulumi.Input[str]] 
     :param str account_name: Name of an Mixed Reality Account.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:mixedreality/v20210301preview:getObjectAnchorsAccount', __args__, opts=opts, typ=GetObjectAnchorsAccountResult)
+    return __ret__.apply(lambda __response__: GetObjectAnchorsAccountResult(
+        account_domain=pulumi.get(__response__, 'account_domain'),
+        account_id=pulumi.get(__response__, 'account_id'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        plan=pulumi.get(__response__, 'plan'),
+        sku=pulumi.get(__response__, 'sku'),
+        storage_account_name=pulumi.get(__response__, 'storage_account_name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

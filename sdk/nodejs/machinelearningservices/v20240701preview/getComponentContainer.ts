@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getComponentContainer(args: GetComponentContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentContainerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240701preview:getComponentContainer", {
         "name": args.name,
@@ -64,7 +63,12 @@ export interface GetComponentContainerResult {
  * Azure Resource Manager resource envelope.
  */
 export function getComponentContainerOutput(args: GetComponentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentContainerResult> {
-    return pulumi.output(args).apply((a: any) => getComponentContainer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240701preview:getComponentContainer", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetComponentContainerOutputArgs {

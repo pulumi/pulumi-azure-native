@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The operation to get the export for the defined scope by export name.
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20230401preview:getExport", {
         "expand": args.expand,
@@ -96,7 +95,12 @@ export interface GetExportResult {
  * The operation to get the export for the defined scope by export name.
  */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
-    return pulumi.output(args).apply((a: any) => getExport(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20230401preview:getExport", {
+        "expand": args.expand,
+        "exportName": args.exportName,
+        "scope": args.scope,
+    }, opts);
 }
 
 export interface GetExportOutputArgs {

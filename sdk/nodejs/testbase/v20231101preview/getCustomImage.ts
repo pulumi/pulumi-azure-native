@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a test base custom image.
  */
 export function getCustomImage(args: GetCustomImageArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomImageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20231101preview:getCustomImage", {
         "customImageName": args.customImageName,
@@ -112,7 +111,12 @@ export interface GetCustomImageResult {
  * Gets a test base custom image.
  */
 export function getCustomImageOutput(args: GetCustomImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomImageResult> {
-    return pulumi.output(args).apply((a: any) => getCustomImage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getCustomImage", {
+        "customImageName": args.customImageName,
+        "resourceGroupName": args.resourceGroupName,
+        "testBaseAccountName": args.testBaseAccountName,
+    }, opts);
 }
 
 export interface GetCustomImageOutputArgs {

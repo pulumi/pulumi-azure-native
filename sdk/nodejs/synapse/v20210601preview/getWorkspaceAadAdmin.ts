@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a workspace active directory admin
  */
 export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceAadAdminResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getWorkspaceAadAdmin", {
         "resourceGroupName": args.resourceGroupName,
@@ -64,7 +63,11 @@ export interface GetWorkspaceAadAdminResult {
  * Gets a workspace active directory admin
  */
 export function getWorkspaceAadAdminOutput(args: GetWorkspaceAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceAadAdminResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspaceAadAdmin(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:getWorkspaceAadAdmin", {
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetWorkspaceAadAdminOutputArgs {

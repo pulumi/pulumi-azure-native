@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the configuration details of the identity Provider configured in specified service instance.
  */
 export function getIdentityProvider(args: GetIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityProviderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:getIdentityProvider", {
         "identityProviderName": args.identityProviderName,
@@ -93,7 +92,12 @@ export interface GetIdentityProviderResult {
  * Gets the configuration details of the identity Provider configured in specified service instance.
  */
 export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderResult> {
-    return pulumi.output(args).apply((a: any) => getIdentityProvider(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getIdentityProvider", {
+        "identityProviderName": args.identityProviderName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetIdentityProviderOutputArgs {

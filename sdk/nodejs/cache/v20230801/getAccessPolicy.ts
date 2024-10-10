@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the detailed information about an access policy of a redis cache
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cache/v20230801:getAccessPolicy", {
         "accessPolicyName": args.accessPolicyName,
@@ -61,7 +60,12 @@ export interface GetAccessPolicyResult {
  * Gets the detailed information about an access policy of a redis cache
  */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cache/v20230801:getAccessPolicy", {
+        "accessPolicyName": args.accessPolicyName,
+        "cacheName": args.cacheName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAccessPolicyOutputArgs {

@@ -227,9 +227,6 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         throttling=pulumi.get(__ret__, 'throttling'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_smart_detector_alert_rule)
 def get_smart_detector_alert_rule_output(alert_rule_name: Optional[pulumi.Input[str]] = None,
                                          expand_detector: Optional[pulumi.Input[Optional[bool]]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -242,4 +239,23 @@ def get_smart_detector_alert_rule_output(alert_rule_name: Optional[pulumi.Input[
     :param bool expand_detector: Indicates if Smart Detector should be expanded.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['alertRuleName'] = alert_rule_name
+    __args__['expandDetector'] = expand_detector
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:alertsmanagement/v20210401:getSmartDetectorAlertRule', __args__, opts=opts, typ=GetSmartDetectorAlertRuleResult)
+    return __ret__.apply(lambda __response__: GetSmartDetectorAlertRuleResult(
+        action_groups=pulumi.get(__response__, 'action_groups'),
+        description=pulumi.get(__response__, 'description'),
+        detector=pulumi.get(__response__, 'detector'),
+        frequency=pulumi.get(__response__, 'frequency'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        scope=pulumi.get(__response__, 'scope'),
+        severity=pulumi.get(__response__, 'severity'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        throttling=pulumi.get(__response__, 'throttling'),
+        type=pulumi.get(__response__, 'type')))

@@ -243,9 +243,6 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
         type=pulumi.get(__ret__, 'type'),
         virtual_machines_associated=pulumi.get(__ret__, 'virtual_machines_associated'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_capacity_reservation)
 def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pulumi.Input[str]] = None,
                                     capacity_reservation_name: Optional[pulumi.Input[str]] = None,
                                     expand: Optional[pulumi.Input[Optional[str]]] = None,
@@ -260,4 +257,25 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
     :param str expand: The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['capacityReservationGroupName'] = capacity_reservation_group_name
+    __args__['capacityReservationName'] = capacity_reservation_name
+    __args__['expand'] = expand
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230301:getCapacityReservation', __args__, opts=opts, typ=GetCapacityReservationResult)
+    return __ret__.apply(lambda __response__: GetCapacityReservationResult(
+        id=pulumi.get(__response__, 'id'),
+        instance_view=pulumi.get(__response__, 'instance_view'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        platform_fault_domain_count=pulumi.get(__response__, 'platform_fault_domain_count'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        provisioning_time=pulumi.get(__response__, 'provisioning_time'),
+        reservation_id=pulumi.get(__response__, 'reservation_id'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_created=pulumi.get(__response__, 'time_created'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_machines_associated=pulumi.get(__response__, 'virtual_machines_associated'),
+        zones=pulumi.get(__response__, 'zones')))

@@ -12,7 +12,6 @@ import * as utilities from "../../utilities";
  * and instance name.
  */
 export function getAzureLargeInstance(args: GetAzureLargeInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureLargeInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurelargeinstance/v20240801preview:getAzureLargeInstance", {
         "azureLargeInstanceName": args.azureLargeInstanceName,
@@ -102,7 +101,11 @@ export interface GetAzureLargeInstanceResult {
  * and instance name.
  */
 export function getAzureLargeInstanceOutput(args: GetAzureLargeInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureLargeInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getAzureLargeInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurelargeinstance/v20240801preview:getAzureLargeInstance", {
+        "azureLargeInstanceName": args.azureLargeInstanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAzureLargeInstanceOutputArgs {

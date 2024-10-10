@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-04-01-preview.
  */
 export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticSettingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:aadiam:getDiagnosticSetting", {
         "name": args.name,
@@ -76,7 +75,10 @@ export interface GetDiagnosticSettingResult {
  * Other available API versions: 2017-04-01-preview.
  */
 export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticSettingResult> {
-    return pulumi.output(args).apply((a: any) => getDiagnosticSetting(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:aadiam:getDiagnosticSetting", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetDiagnosticSettingOutputArgs {

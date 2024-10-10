@@ -123,9 +123,6 @@ def get_rules_engine(front_door_name: Optional[str] = None,
         resource_state=pulumi.get(__ret__, 'resource_state'),
         rules=pulumi.get(__ret__, 'rules'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_rules_engine)
 def get_rules_engine_output(front_door_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             rules_engine_name: Optional[pulumi.Input[str]] = None,
@@ -138,4 +135,15 @@ def get_rules_engine_output(front_door_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
     """
-    ...
+    __args__ = dict()
+    __args__['frontDoorName'] = front_door_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['rulesEngineName'] = rules_engine_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20210601:getRulesEngine', __args__, opts=opts, typ=GetRulesEngineResult)
+    return __ret__.apply(lambda __response__: GetRulesEngineResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_state=pulumi.get(__response__, 'resource_state'),
+        rules=pulumi.get(__response__, 'rules'),
+        type=pulumi.get(__response__, 'type')))

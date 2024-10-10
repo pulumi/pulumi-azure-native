@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a policy fragment.
  */
 export function getWorkspacePolicyFragment(args: GetWorkspacePolicyFragmentArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspacePolicyFragmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230301preview:getWorkspacePolicyFragment", {
         "format": args.format,
@@ -75,7 +74,14 @@ export interface GetWorkspacePolicyFragmentResult {
  * Gets a policy fragment.
  */
 export function getWorkspacePolicyFragmentOutput(args: GetWorkspacePolicyFragmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspacePolicyFragmentResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspacePolicyFragment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getWorkspacePolicyFragment", {
+        "format": args.format,
+        "id": args.id,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 export interface GetWorkspacePolicyFragmentOutputArgs {

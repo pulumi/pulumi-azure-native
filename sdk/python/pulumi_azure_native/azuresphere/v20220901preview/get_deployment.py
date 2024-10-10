@@ -168,9 +168,6 @@ def get_deployment(catalog_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_deployment)
 def get_deployment_output(catalog_name: Optional[pulumi.Input[str]] = None,
                           deployment_name: Optional[pulumi.Input[str]] = None,
                           device_group_name: Optional[pulumi.Input[str]] = None,
@@ -187,4 +184,20 @@ def get_deployment_output(catalog_name: Optional[pulumi.Input[str]] = None,
     :param str product_name: Name of product.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['catalogName'] = catalog_name
+    __args__['deploymentName'] = deployment_name
+    __args__['deviceGroupName'] = device_group_name
+    __args__['productName'] = product_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azuresphere/v20220901preview:getDeployment', __args__, opts=opts, typ=GetDeploymentResult)
+    return __ret__.apply(lambda __response__: GetDeploymentResult(
+        deployed_images=pulumi.get(__response__, 'deployed_images'),
+        deployment_date_utc=pulumi.get(__response__, 'deployment_date_utc'),
+        deployment_id=pulumi.get(__response__, 'deployment_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the SAP Instance resource.
  */
 export function getSapInstance(args: GetSapInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSapInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20231001preview:getSapInstance", {
         "resourceGroupName": args.resourceGroupName,
@@ -92,7 +91,12 @@ export interface GetSapInstanceResult {
  * Gets the SAP Instance resource.
  */
 export function getSapInstanceOutput(args: GetSapInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getSapInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:workloads/v20231001preview:getSapInstance", {
+        "resourceGroupName": args.resourceGroupName,
+        "sapDiscoverySiteName": args.sapDiscoverySiteName,
+        "sapInstanceName": args.sapInstanceName,
+    }, opts);
 }
 
 export interface GetSapInstanceOutputArgs {

@@ -128,9 +128,6 @@ def get_authorization_access_policy(authorization_access_policy_id: Optional[str
         object_id=pulumi.get(__ret__, 'object_id'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_authorization_access_policy)
 def get_authorization_access_policy_output(authorization_access_policy_id: Optional[pulumi.Input[str]] = None,
                                            authorization_id: Optional[pulumi.Input[str]] = None,
                                            authorization_provider_id: Optional[pulumi.Input[str]] = None,
@@ -147,4 +144,17 @@ def get_authorization_access_policy_output(authorization_access_policy_id: Optio
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    ...
+    __args__ = dict()
+    __args__['authorizationAccessPolicyId'] = authorization_access_policy_id
+    __args__['authorizationId'] = authorization_id
+    __args__['authorizationProviderId'] = authorization_provider_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20220901preview:getAuthorizationAccessPolicy', __args__, opts=opts, typ=GetAuthorizationAccessPolicyResult)
+    return __ret__.apply(lambda __response__: GetAuthorizationAccessPolicyResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        object_id=pulumi.get(__response__, 'object_id'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type')))

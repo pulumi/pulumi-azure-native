@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the properties of the specified n group.
  */
 export function getNGroup(args: GetNGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerinstance/v20240901preview:getNGroup", {
         "ngroupsName": args.ngroupsName,
@@ -83,7 +82,11 @@ export interface GetNGroupResult {
  * Get the properties of the specified n group.
  */
 export function getNGroupOutput(args: GetNGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNGroupResult> {
-    return pulumi.output(args).apply((a: any) => getNGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerinstance/v20240901preview:getNGroup", {
+        "ngroupsName": args.ngroupsName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNGroupOutputArgs {

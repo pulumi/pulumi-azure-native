@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getRestApiPollerDataConnector(args: GetRestApiPollerDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiPollerDataConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20240401preview:getRestApiPollerDataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -105,7 +104,12 @@ export interface GetRestApiPollerDataConnectorResult {
  * Gets a data connector.
  */
 export function getRestApiPollerDataConnectorOutput(args: GetRestApiPollerDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiPollerDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getRestApiPollerDataConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:getRestApiPollerDataConnector", {
+        "dataConnectorId": args.dataConnectorId,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetRestApiPollerDataConnectorOutputArgs {

@@ -292,9 +292,6 @@ def get_application(application_name: Optional[str] = None,
         type_name=pulumi.get(__ret__, 'type_name'),
         type_version=pulumi.get(__ret__, 'type_version'),
         upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'))
-
-
-@_utilities.lift_output_func(get_application)
 def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            cluster_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -307,4 +304,28 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationName'] = application_name
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20210601:getApplication', __args__, opts=opts, typ=GetApplicationResult)
+    return __ret__.apply(lambda __response__: GetApplicationResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        managed_identities=pulumi.get(__response__, 'managed_identities'),
+        maximum_nodes=pulumi.get(__response__, 'maximum_nodes'),
+        metrics=pulumi.get(__response__, 'metrics'),
+        minimum_nodes=pulumi.get(__response__, 'minimum_nodes'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        remove_application_capacity=pulumi.get(__response__, 'remove_application_capacity'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        type_name=pulumi.get(__response__, 'type_name'),
+        type_version=pulumi.get(__response__, 'type_version'),
+        upgrade_policy=pulumi.get(__response__, 'upgrade_policy')))

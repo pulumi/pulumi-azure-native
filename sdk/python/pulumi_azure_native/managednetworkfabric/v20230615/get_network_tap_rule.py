@@ -276,9 +276,6 @@ def get_network_tap_rule(network_tap_rule_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tap_rules_url=pulumi.get(__ret__, 'tap_rules_url'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_network_tap_rule)
 def get_network_tap_rule_output(network_tap_rule_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkTapRuleResult]:
@@ -289,4 +286,26 @@ def get_network_tap_rule_output(network_tap_rule_name: Optional[pulumi.Input[str
     :param str network_tap_rule_name: Name of the Network Tap Rule.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['networkTapRuleName'] = network_tap_rule_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getNetworkTapRule', __args__, opts=opts, typ=GetNetworkTapRuleResult)
+    return __ret__.apply(lambda __response__: GetNetworkTapRuleResult(
+        administrative_state=pulumi.get(__response__, 'administrative_state'),
+        annotation=pulumi.get(__response__, 'annotation'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
+        configuration_type=pulumi.get(__response__, 'configuration_type'),
+        dynamic_match_configurations=pulumi.get(__response__, 'dynamic_match_configurations'),
+        id=pulumi.get(__response__, 'id'),
+        last_synced_time=pulumi.get(__response__, 'last_synced_time'),
+        location=pulumi.get(__response__, 'location'),
+        match_configurations=pulumi.get(__response__, 'match_configurations'),
+        name=pulumi.get(__response__, 'name'),
+        network_tap_id=pulumi.get(__response__, 'network_tap_id'),
+        polling_interval_in_seconds=pulumi.get(__response__, 'polling_interval_in_seconds'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        tap_rules_url=pulumi.get(__response__, 'tap_rules_url'),
+        type=pulumi.get(__response__, 'type')))

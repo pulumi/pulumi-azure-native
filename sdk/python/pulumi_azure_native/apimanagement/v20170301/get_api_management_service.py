@@ -393,9 +393,6 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_network_configuration=pulumi.get(__ret__, 'virtual_network_configuration'),
         virtual_network_type=pulumi.get(__ret__, 'virtual_network_type'))
-
-
-@_utilities.lift_output_func(get_api_management_service)
 def get_api_management_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                       service_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceResult]:
@@ -406,4 +403,35 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20170301:getApiManagementService', __args__, opts=opts, typ=GetApiManagementServiceResult)
+    return __ret__.apply(lambda __response__: GetApiManagementServiceResult(
+        additional_locations=pulumi.get(__response__, 'additional_locations'),
+        certificates=pulumi.get(__response__, 'certificates'),
+        created_at_utc=pulumi.get(__response__, 'created_at_utc'),
+        custom_properties=pulumi.get(__response__, 'custom_properties'),
+        etag=pulumi.get(__response__, 'etag'),
+        gateway_regional_url=pulumi.get(__response__, 'gateway_regional_url'),
+        gateway_url=pulumi.get(__response__, 'gateway_url'),
+        hostname_configurations=pulumi.get(__response__, 'hostname_configurations'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        management_api_url=pulumi.get(__response__, 'management_api_url'),
+        name=pulumi.get(__response__, 'name'),
+        notification_sender_email=pulumi.get(__response__, 'notification_sender_email'),
+        portal_url=pulumi.get(__response__, 'portal_url'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        publisher_email=pulumi.get(__response__, 'publisher_email'),
+        publisher_name=pulumi.get(__response__, 'publisher_name'),
+        scm_url=pulumi.get(__response__, 'scm_url'),
+        sku=pulumi.get(__response__, 'sku'),
+        static_ips=pulumi.get(__response__, 'static_ips'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_provisioning_state=pulumi.get(__response__, 'target_provisioning_state'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_network_configuration=pulumi.get(__response__, 'virtual_network_configuration'),
+        virtual_network_type=pulumi.get(__response__, 'virtual_network_type')))

@@ -67,9 +67,6 @@ def list_service_globally_enabled_apms(resource_group_name: Optional[str] = None
 
     return AwaitableListServiceGloballyEnabledApmsResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_service_globally_enabled_apms)
 def list_service_globally_enabled_apms_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                               service_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServiceGloballyEnabledApmsResult]:
@@ -80,4 +77,10 @@ def list_service_globally_enabled_apms_output(resource_group_name: Optional[pulu
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str service_name: The name of the Service resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20231101preview:listServiceGloballyEnabledApms', __args__, opts=opts, typ=ListServiceGloballyEnabledApmsResult)
+    return __ret__.apply(lambda __response__: ListServiceGloballyEnabledApmsResult(
+        value=pulumi.get(__response__, 'value')))

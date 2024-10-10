@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get track ingest heartbeat events telemetry of a live event.
  */
 export function getLiveEventTrackIngestHeartbeats(args: GetLiveEventTrackIngestHeartbeatsArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventTrackIngestHeartbeatsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20221101:getLiveEventTrackIngestHeartbeats", {
         "accountName": args.accountName,
@@ -48,7 +47,12 @@ export interface GetLiveEventTrackIngestHeartbeatsResult {
  * Get track ingest heartbeat events telemetry of a live event.
  */
 export function getLiveEventTrackIngestHeartbeatsOutput(args: GetLiveEventTrackIngestHeartbeatsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventTrackIngestHeartbeatsResult> {
-    return pulumi.output(args).apply((a: any) => getLiveEventTrackIngestHeartbeats(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:media/v20221101:getLiveEventTrackIngestHeartbeats", {
+        "accountName": args.accountName,
+        "liveEventName": args.liveEventName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLiveEventTrackIngestHeartbeatsOutputArgs {

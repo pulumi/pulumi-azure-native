@@ -344,9 +344,6 @@ def get_internal_network(internal_network_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
-
-
-@_utilities.lift_output_func(get_internal_network)
 def get_internal_network_output(internal_network_name: Optional[pulumi.Input[str]] = None,
                                 l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -359,4 +356,32 @@ def get_internal_network_output(internal_network_name: Optional[pulumi.Input[str
     :param str l3_isolation_domain_name: Name of the L3 Isolation Domain.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['internalNetworkName'] = internal_network_name
+    __args__['l3IsolationDomainName'] = l3_isolation_domain_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getInternalNetwork', __args__, opts=opts, typ=GetInternalNetworkResult)
+    return __ret__.apply(lambda __response__: GetInternalNetworkResult(
+        administrative_state=pulumi.get(__response__, 'administrative_state'),
+        annotation=pulumi.get(__response__, 'annotation'),
+        bgp_configuration=pulumi.get(__response__, 'bgp_configuration'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
+        connected_i_pv4_subnets=pulumi.get(__response__, 'connected_i_pv4_subnets'),
+        connected_i_pv6_subnets=pulumi.get(__response__, 'connected_i_pv6_subnets'),
+        egress_acl_id=pulumi.get(__response__, 'egress_acl_id'),
+        export_route_policy=pulumi.get(__response__, 'export_route_policy'),
+        export_route_policy_id=pulumi.get(__response__, 'export_route_policy_id'),
+        extension=pulumi.get(__response__, 'extension'),
+        id=pulumi.get(__response__, 'id'),
+        import_route_policy=pulumi.get(__response__, 'import_route_policy'),
+        import_route_policy_id=pulumi.get(__response__, 'import_route_policy_id'),
+        ingress_acl_id=pulumi.get(__response__, 'ingress_acl_id'),
+        is_monitoring_enabled=pulumi.get(__response__, 'is_monitoring_enabled'),
+        mtu=pulumi.get(__response__, 'mtu'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        static_route_configuration=pulumi.get(__response__, 'static_route_configuration'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        vlan_id=pulumi.get(__response__, 'vlan_id')))

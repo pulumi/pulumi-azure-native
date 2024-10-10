@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the virtual machine details
  */
 export function getGlobalUserEnvironment(args: GetGlobalUserEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserEnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices/v20181015:getGlobalUserEnvironment", {
         "environmentId": args.environmentId,
@@ -48,7 +47,12 @@ export interface GetGlobalUserEnvironmentResult {
  * Gets the virtual machine details
  */
 export function getGlobalUserEnvironmentOutput(args: GetGlobalUserEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalUserEnvironment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:labservices/v20181015:getGlobalUserEnvironment", {
+        "environmentId": args.environmentId,
+        "expand": args.expand,
+        "userName": args.userName,
+    }, opts);
 }
 
 export interface GetGlobalUserEnvironmentOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
  */
 export function getFileServiceProperties(args: GetFileServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServicePropertiesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20230401:getFileServiceProperties", {
         "accountName": args.accountName,
@@ -72,7 +71,12 @@ export interface GetFileServicePropertiesResult {
  * Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
  */
 export function getFileServicePropertiesOutput(args: GetFileServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileServicePropertiesResult> {
-    return pulumi.output(args).apply((a: any) => getFileServiceProperties(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storage/v20230401:getFileServiceProperties", {
+        "accountName": args.accountName,
+        "fileServicesName": args.fileServicesName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFileServicePropertiesOutputArgs {

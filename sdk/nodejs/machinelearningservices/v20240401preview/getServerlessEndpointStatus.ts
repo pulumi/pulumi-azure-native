@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 export function getServerlessEndpointStatus(args: GetServerlessEndpointStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessEndpointStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240401preview:getServerlessEndpointStatus", {
         "name": args.name,
@@ -36,7 +35,12 @@ export interface GetServerlessEndpointStatusResult {
     readonly metrics: {[key: string]: string};
 }
 export function getServerlessEndpointStatusOutput(args: GetServerlessEndpointStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessEndpointStatusResult> {
-    return pulumi.output(args).apply((a: any) => getServerlessEndpointStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401preview:getServerlessEndpointStatus", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetServerlessEndpointStatusOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a list of SAP supported SKUs for ASCS, Application and Database tier.
  */
 export function getSapVirtualInstanceInvokeSapSupportedSku(args: GetSapVirtualInstanceInvokeSapSupportedSkuArgs, opts?: pulumi.InvokeOptions): Promise<GetSapVirtualInstanceInvokeSapSupportedSkuResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20240901:getSapVirtualInstanceInvokeSapSupportedSku", {
         "appLocation": args.appLocation,
@@ -68,7 +67,16 @@ export interface GetSapVirtualInstanceInvokeSapSupportedSkuResult {
  * Get a list of SAP supported SKUs for ASCS, Application and Database tier.
  */
 export function getSapVirtualInstanceInvokeSapSupportedSkuOutput(args: GetSapVirtualInstanceInvokeSapSupportedSkuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapVirtualInstanceInvokeSapSupportedSkuResult> {
-    return pulumi.output(args).apply((a: any) => getSapVirtualInstanceInvokeSapSupportedSku(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:workloads/v20240901:getSapVirtualInstanceInvokeSapSupportedSku", {
+        "appLocation": args.appLocation,
+        "databaseType": args.databaseType,
+        "deploymentType": args.deploymentType,
+        "environment": args.environment,
+        "highAvailabilityType": args.highAvailabilityType,
+        "location": args.location,
+        "sapProduct": args.sapProduct,
+    }, opts);
 }
 
 export interface GetSapVirtualInstanceInvokeSapSupportedSkuOutputArgs {

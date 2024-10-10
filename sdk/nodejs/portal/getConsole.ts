@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-10-01.
  */
 export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal:getConsole", {
         "consoleName": args.consoleName,
@@ -40,7 +39,10 @@ export interface GetConsoleResult {
  * Azure REST API version: 2018-10-01.
  */
 export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {
-    return pulumi.output(args).apply((a: any) => getConsole(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:portal:getConsole", {
+        "consoleName": args.consoleName,
+    }, opts);
 }
 
 export interface GetConsoleOutputArgs {

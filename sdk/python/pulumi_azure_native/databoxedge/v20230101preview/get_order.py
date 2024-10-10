@@ -237,9 +237,6 @@ def get_order(device_name: Optional[str] = None,
         shipping_address=pulumi.get(__ret__, 'shipping_address'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_order)
 def get_order_output(device_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderResult]:
@@ -250,4 +247,23 @@ def get_order_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['deviceName'] = device_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20230101preview:getOrder', __args__, opts=opts, typ=GetOrderResult)
+    return __ret__.apply(lambda __response__: GetOrderResult(
+        contact_information=pulumi.get(__response__, 'contact_information'),
+        current_status=pulumi.get(__response__, 'current_status'),
+        delivery_tracking_info=pulumi.get(__response__, 'delivery_tracking_info'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        order_history=pulumi.get(__response__, 'order_history'),
+        order_id=pulumi.get(__response__, 'order_id'),
+        return_tracking_info=pulumi.get(__response__, 'return_tracking_info'),
+        serial_number=pulumi.get(__response__, 'serial_number'),
+        shipment_type=pulumi.get(__response__, 'shipment_type'),
+        shipping_address=pulumi.get(__response__, 'shipping_address'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

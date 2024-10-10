@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Description for Get function information by its ID for web site, or a deployment slot.
  */
 export function getWebAppInstanceFunctionSlot(args: GetWebAppInstanceFunctionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppInstanceFunctionSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20231201:getWebAppInstanceFunctionSlot", {
         "functionName": args.functionName,
@@ -114,7 +113,13 @@ export interface GetWebAppInstanceFunctionSlotResult {
  * Description for Get function information by its ID for web site, or a deployment slot.
  */
 export function getWebAppInstanceFunctionSlotOutput(args: GetWebAppInstanceFunctionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppInstanceFunctionSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppInstanceFunctionSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20231201:getWebAppInstanceFunctionSlot", {
+        "functionName": args.functionName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface GetWebAppInstanceFunctionSlotOutputArgs {

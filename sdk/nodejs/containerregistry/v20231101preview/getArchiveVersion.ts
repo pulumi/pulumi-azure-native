@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the archive version.
  */
 export function getArchiveVersion(args: GetArchiveVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetArchiveVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20231101preview:getArchiveVersion", {
         "archiveName": args.archiveName,
@@ -78,7 +77,14 @@ export interface GetArchiveVersionResult {
  * Gets the properties of the archive version.
  */
 export function getArchiveVersionOutput(args: GetArchiveVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArchiveVersionResult> {
-    return pulumi.output(args).apply((a: any) => getArchiveVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20231101preview:getArchiveVersion", {
+        "archiveName": args.archiveName,
+        "archiveVersionName": args.archiveVersionName,
+        "packageType": args.packageType,
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetArchiveVersionOutputArgs {

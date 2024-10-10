@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-07-01, 2021-03-03-preview, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
  */
 export function getIotHubResourceEventHubConsumerGroup(args: GetIotHubResourceEventHubConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceEventHubConsumerGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices:getIotHubResourceEventHubConsumerGroup", {
         "eventHubEndpointName": args.eventHubEndpointName,
@@ -72,7 +71,13 @@ export interface GetIotHubResourceEventHubConsumerGroupResult {
  * Other available API versions: 2017-07-01, 2021-03-03-preview, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
  */
 export function getIotHubResourceEventHubConsumerGroupOutput(args: GetIotHubResourceEventHubConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceEventHubConsumerGroupResult> {
-    return pulumi.output(args).apply((a: any) => getIotHubResourceEventHubConsumerGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devices:getIotHubResourceEventHubConsumerGroup", {
+        "eventHubEndpointName": args.eventHubEndpointName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetIotHubResourceEventHubConsumerGroupOutputArgs {

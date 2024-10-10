@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the properties of an connectedEnvironment.
  */
 export function getConnectedEnvironment(args: GetConnectedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20231102preview:getConnectedEnvironment", {
         "connectedEnvironmentName": args.connectedEnvironmentName,
@@ -91,7 +90,11 @@ export interface GetConnectedEnvironmentResult {
  * Get the properties of an connectedEnvironment.
  */
 export function getConnectedEnvironmentOutput(args: GetConnectedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getConnectedEnvironment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app/v20231102preview:getConnectedEnvironment", {
+        "connectedEnvironmentName": args.connectedEnvironmentName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetConnectedEnvironmentOutputArgs {

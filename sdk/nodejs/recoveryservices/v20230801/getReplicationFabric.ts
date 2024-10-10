@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of an Azure Site Recovery fabric.
  */
 export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationFabricResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20230801:getReplicationFabric", {
         "fabricName": args.fabricName,
@@ -69,7 +68,13 @@ export interface GetReplicationFabricResult {
  * Gets the details of an Azure Site Recovery fabric.
  */
 export function getReplicationFabricOutput(args: GetReplicationFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationFabricResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationFabric(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230801:getReplicationFabric", {
+        "fabricName": args.fabricName,
+        "filter": args.filter,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetReplicationFabricOutputArgs {

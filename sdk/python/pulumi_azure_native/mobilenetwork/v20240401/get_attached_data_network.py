@@ -222,9 +222,6 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
         user_equipment_address_pool_prefix=pulumi.get(__ret__, 'user_equipment_address_pool_prefix'),
         user_equipment_static_address_pool_prefix=pulumi.get(__ret__, 'user_equipment_static_address_pool_prefix'),
         user_plane_data_interface=pulumi.get(__ret__, 'user_plane_data_interface'))
-
-
-@_utilities.lift_output_func(get_attached_data_network)
 def get_attached_data_network_output(attached_data_network_name: Optional[pulumi.Input[str]] = None,
                                      packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                                      packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
@@ -239,4 +236,23 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
     :param str packet_core_data_plane_name: The name of the packet core data plane.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['attachedDataNetworkName'] = attached_data_network_name
+    __args__['packetCoreControlPlaneName'] = packet_core_control_plane_name
+    __args__['packetCoreDataPlaneName'] = packet_core_data_plane_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork/v20240401:getAttachedDataNetwork', __args__, opts=opts, typ=GetAttachedDataNetworkResult)
+    return __ret__.apply(lambda __response__: GetAttachedDataNetworkResult(
+        dns_addresses=pulumi.get(__response__, 'dns_addresses'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        napt_configuration=pulumi.get(__response__, 'napt_configuration'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        user_equipment_address_pool_prefix=pulumi.get(__response__, 'user_equipment_address_pool_prefix'),
+        user_equipment_static_address_pool_prefix=pulumi.get(__response__, 'user_equipment_static_address_pool_prefix'),
+        user_plane_data_interface=pulumi.get(__response__, 'user_plane_data_interface')))

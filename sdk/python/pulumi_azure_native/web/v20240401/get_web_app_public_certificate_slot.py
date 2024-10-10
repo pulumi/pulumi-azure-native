@@ -151,9 +151,6 @@ def get_web_app_public_certificate_slot(name: Optional[str] = None,
         public_certificate_location=pulumi.get(__ret__, 'public_certificate_location'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_web_app_public_certificate_slot)
 def get_web_app_public_certificate_slot_output(name: Optional[pulumi.Input[str]] = None,
                                                public_certificate_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -168,4 +165,18 @@ def get_web_app_public_certificate_slot_output(name: Optional[pulumi.Input[str]]
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API the named binding for the production slot.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['publicCertificateName'] = public_certificate_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['slot'] = slot
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:getWebAppPublicCertificateSlot', __args__, opts=opts, typ=GetWebAppPublicCertificateSlotResult)
+    return __ret__.apply(lambda __response__: GetWebAppPublicCertificateSlotResult(
+        blob=pulumi.get(__response__, 'blob'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        public_certificate_location=pulumi.get(__response__, 'public_certificate_location'),
+        thumbprint=pulumi.get(__response__, 'thumbprint'),
+        type=pulumi.get(__response__, 'type')))

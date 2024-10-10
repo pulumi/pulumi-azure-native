@@ -244,9 +244,6 @@ def get_arc_addon(addon_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_arc_addon)
 def get_arc_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                          device_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -261,4 +258,25 @@ def get_arc_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str role_name: The role name.
     """
-    ...
+    __args__ = dict()
+    __args__['addonName'] = addon_name
+    __args__['deviceName'] = device_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['roleName'] = role_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20230101preview:getArcAddon', __args__, opts=opts, typ=GetArcAddonResult)
+    return __ret__.apply(lambda __response__: GetArcAddonResult(
+        custom_locations_object_id=pulumi.get(__response__, 'custom_locations_object_id'),
+        host_platform=pulumi.get(__response__, 'host_platform'),
+        host_platform_type=pulumi.get(__response__, 'host_platform_type'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        resource_location=pulumi.get(__response__, 'resource_location'),
+        resource_name=pulumi.get(__response__, 'resource_name'),
+        subscription_id=pulumi.get(__response__, 'subscription_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

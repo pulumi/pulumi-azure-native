@@ -75,9 +75,6 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
 
     return AwaitableListConnectionConsentLinksResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_connection_consent_links)
 def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[str]] = None,
                                          parameters: Optional[pulumi.Input[Optional[Sequence[Union['ConsentLinkParameterDefinition', 'ConsentLinkParameterDefinitionDict']]]]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -92,4 +89,12 @@ def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[
     :param str resource_group_name: The resource group
     :param str subscription_id: Subscription Id
     """
-    ...
+    __args__ = dict()
+    __args__['connectionName'] = connection_name
+    __args__['parameters'] = parameters
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['subscriptionId'] = subscription_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20160601:listConnectionConsentLinks', __args__, opts=opts, typ=ListConnectionConsentLinksResult)
+    return __ret__.apply(lambda __response__: ListConnectionConsentLinksResult(
+        value=pulumi.get(__response__, 'value')))

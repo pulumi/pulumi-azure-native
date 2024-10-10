@@ -182,9 +182,6 @@ def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[str] = No
         state=pulumi.get(__ret__, 'state'),
         suppression_alerts_scope=pulumi.get(__ret__, 'suppression_alerts_scope'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_alerts_suppression_rule)
 def get_alerts_suppression_rule_output(alerts_suppression_rule_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertsSuppressionRuleResult]:
     """
@@ -193,4 +190,18 @@ def get_alerts_suppression_rule_output(alerts_suppression_rule_name: Optional[pu
 
     :param str alerts_suppression_rule_name: The unique name of the suppression alert rule
     """
-    ...
+    __args__ = dict()
+    __args__['alertsSuppressionRuleName'] = alerts_suppression_rule_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20190101preview:getAlertsSuppressionRule', __args__, opts=opts, typ=GetAlertsSuppressionRuleResult)
+    return __ret__.apply(lambda __response__: GetAlertsSuppressionRuleResult(
+        alert_type=pulumi.get(__response__, 'alert_type'),
+        comment=pulumi.get(__response__, 'comment'),
+        expiration_date_utc=pulumi.get(__response__, 'expiration_date_utc'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_utc=pulumi.get(__response__, 'last_modified_utc'),
+        name=pulumi.get(__response__, 'name'),
+        reason=pulumi.get(__response__, 'reason'),
+        state=pulumi.get(__response__, 'state'),
+        suppression_alerts_scope=pulumi.get(__response__, 'suppression_alerts_scope'),
+        type=pulumi.get(__response__, 'type')))

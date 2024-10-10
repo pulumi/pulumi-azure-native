@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a link in the hub.
  */
 export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getLink", {
         "hubName": args.hubName,
@@ -108,7 +107,12 @@ export interface GetLinkResult {
  * Gets a link in the hub.
  */
 export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
-    return pulumi.output(args).apply((a: any) => getLink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getLink", {
+        "hubName": args.hubName,
+        "linkName": args.linkName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLinkOutputArgs {

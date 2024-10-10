@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get properties of a namespace topic.
  */
 export function getNamespaceTopic(args: GetNamespaceTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20231215preview:getNamespaceTopic", {
         "namespaceName": args.namespaceName,
@@ -77,7 +76,12 @@ export interface GetNamespaceTopicResult {
  * Get properties of a namespace topic.
  */
 export function getNamespaceTopicOutput(args: GetNamespaceTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceTopicResult> {
-    return pulumi.output(args).apply((a: any) => getNamespaceTopic(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getNamespaceTopic", {
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+        "topicName": args.topicName,
+    }, opts);
 }
 
 export interface GetNamespaceTopicOutputArgs {

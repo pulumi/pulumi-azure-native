@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-01-26-preview.
  */
 export function getAuthority(args: GetAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorityResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:verifiedid:getAuthority", {
         "authorityName": args.authorityName,
@@ -69,7 +68,11 @@ export interface GetAuthorityResult {
  * Azure REST API version: 2024-01-26-preview.
  */
 export function getAuthorityOutput(args: GetAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorityResult> {
-    return pulumi.output(args).apply((a: any) => getAuthority(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:verifiedid:getAuthority", {
+        "authorityName": args.authorityName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAuthorityOutputArgs {

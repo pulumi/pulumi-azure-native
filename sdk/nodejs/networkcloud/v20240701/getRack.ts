@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get properties of the provided rack.
  */
 export function getRack(args: GetRackArgs, opts?: pulumi.InvokeOptions): Promise<GetRackResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20240701:getRack", {
         "rackName": args.rackName,
@@ -96,7 +95,11 @@ export interface GetRackResult {
  * Get properties of the provided rack.
  */
 export function getRackOutput(args: GetRackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRackResult> {
-    return pulumi.output(args).apply((a: any) => getRack(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240701:getRack", {
+        "rackName": args.rackName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRackOutputArgs {

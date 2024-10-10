@@ -136,9 +136,6 @@ def get_channel(account_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_channel)
 def get_channel_output(account_name: Optional[pulumi.Input[str]] = None,
                        channel_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -152,4 +149,16 @@ def get_channel_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str channel_name: Channel Name
     :param str resource_group_name: Resource Group Name
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['channelName'] = channel_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:engagementfabric:getChannel', __args__, opts=opts, typ=GetChannelResult)
+    return __ret__.apply(lambda __response__: GetChannelResult(
+        channel_functions=pulumi.get(__response__, 'channel_functions'),
+        channel_type=pulumi.get(__response__, 'channel_type'),
+        credentials=pulumi.get(__response__, 'credentials'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets storagecontainers by resource name
  */
 export function getStoragecontainerRetrieve(args: GetStoragecontainerRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetStoragecontainerRetrieveResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getStoragecontainerRetrieve", {
         "resourceGroupName": args.resourceGroupName,
@@ -82,7 +81,11 @@ export interface GetStoragecontainerRetrieveResult {
  * Gets storagecontainers by resource name
  */
 export function getStoragecontainerRetrieveOutput(args: GetStoragecontainerRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStoragecontainerRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getStoragecontainerRetrieve(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20210901preview:getStoragecontainerRetrieve", {
+        "resourceGroupName": args.resourceGroupName,
+        "storagecontainersName": args.storagecontainersName,
+    }, opts);
 }
 
 export interface GetStoragecontainerRetrieveOutputArgs {

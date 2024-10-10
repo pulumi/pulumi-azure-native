@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the file upload URL of a Test Base Account.
  */
 export function getTestBaseAccountFileUploadUrl(args: GetTestBaseAccountFileUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountFileUploadUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20220401preview:getTestBaseAccountFileUploadUrl", {
         "blobName": args.blobName,
@@ -49,7 +48,12 @@ export interface GetTestBaseAccountFileUploadUrlResult {
  * Gets the file upload URL of a Test Base Account.
  */
 export function getTestBaseAccountFileUploadUrlOutput(args: GetTestBaseAccountFileUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountFileUploadUrlResult> {
-    return pulumi.output(args).apply((a: any) => getTestBaseAccountFileUploadUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getTestBaseAccountFileUploadUrl", {
+        "blobName": args.blobName,
+        "resourceGroupName": args.resourceGroupName,
+        "testBaseAccountName": args.testBaseAccountName,
+    }, opts);
 }
 
 export interface GetTestBaseAccountFileUploadUrlOutputArgs {

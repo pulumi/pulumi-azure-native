@@ -136,9 +136,6 @@ def get_guest_configuration_connected_v_mwarev_sphere_assignment(guest_configura
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_guest_configuration_connected_v_mwarev_sphere_assignment)
 def get_guest_configuration_connected_v_mwarev_sphere_assignment_output(guest_configuration_assignment_name: Optional[pulumi.Input[str]] = None,
                                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                         vm_name: Optional[pulumi.Input[str]] = None,
@@ -151,4 +148,16 @@ def get_guest_configuration_connected_v_mwarev_sphere_assignment_output(guest_co
     :param str resource_group_name: The resource group name.
     :param str vm_name: The name of the virtual machine.
     """
-    ...
+    __args__ = dict()
+    __args__['guestConfigurationAssignmentName'] = guest_configuration_assignment_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vmName'] = vm_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:guestconfiguration/v20220125:getGuestConfigurationConnectedVMwarevSphereAssignment', __args__, opts=opts, typ=GetGuestConfigurationConnectedVMwarevSphereAssignmentResult)
+    return __ret__.apply(lambda __response__: GetGuestConfigurationConnectedVMwarevSphereAssignmentResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

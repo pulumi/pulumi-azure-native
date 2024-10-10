@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Operation to list the RegistrationTokens associated with the HostPool.
  */
 export function listHostPoolRegistrationTokens(args: ListHostPoolRegistrationTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListHostPoolRegistrationTokensResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:desktopvirtualization/v20240408preview:listHostPoolRegistrationTokens", {
         "hostPoolName": args.hostPoolName,
@@ -47,7 +46,11 @@ export interface ListHostPoolRegistrationTokensResult {
  * Operation to list the RegistrationTokens associated with the HostPool.
  */
 export function listHostPoolRegistrationTokensOutput(args: ListHostPoolRegistrationTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHostPoolRegistrationTokensResult> {
-    return pulumi.output(args).apply((a: any) => listHostPoolRegistrationTokens(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20240408preview:listHostPoolRegistrationTokens", {
+        "hostPoolName": args.hostPoolName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListHostPoolRegistrationTokensOutputArgs {

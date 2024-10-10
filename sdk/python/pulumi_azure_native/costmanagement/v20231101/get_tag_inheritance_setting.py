@@ -121,9 +121,6 @@ def get_tag_inheritance_setting(scope: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_tag_inheritance_setting)
 def get_tag_inheritance_setting_output(scope: Optional[pulumi.Input[str]] = None,
                                        type: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagInheritanceSettingResult]:
@@ -134,4 +131,14 @@ def get_tag_inheritance_setting_output(scope: Optional[pulumi.Input[str]] = None
     :param str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
     :param str type: Setting type.
     """
-    ...
+    __args__ = dict()
+    __args__['scope'] = scope
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20231101:getTagInheritanceSetting', __args__, opts=opts, typ=GetTagInheritanceSettingResult)
+    return __ret__.apply(lambda __response__: GetTagInheritanceSettingResult(
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        type=pulumi.get(__response__, 'type')))

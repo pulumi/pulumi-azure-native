@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get properties of the provided storage appliance.
  */
 export function getStorageAppliance(args: GetStorageApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageApplianceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud/v20240701:getStorageAppliance", {
         "resourceGroupName": args.resourceGroupName,
@@ -136,7 +135,11 @@ export interface GetStorageApplianceResult {
  * Get properties of the provided storage appliance.
  */
 export function getStorageApplianceOutput(args: GetStorageApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageApplianceResult> {
-    return pulumi.output(args).apply((a: any) => getStorageAppliance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240701:getStorageAppliance", {
+        "resourceGroupName": args.resourceGroupName,
+        "storageApplianceName": args.storageApplianceName,
+    }, opts);
 }
 
 export interface GetStorageApplianceOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Static Site Database Connection resource.
  */
 export function getStaticSiteBuildDatabaseConnection(args: GetStaticSiteBuildDatabaseConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteBuildDatabaseConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20230101:getStaticSiteBuildDatabaseConnection", {
         "databaseConnectionName": args.databaseConnectionName,
@@ -85,7 +84,13 @@ export interface GetStaticSiteBuildDatabaseConnectionResult {
  * Static Site Database Connection resource.
  */
 export function getStaticSiteBuildDatabaseConnectionOutput(args: GetStaticSiteBuildDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteBuildDatabaseConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getStaticSiteBuildDatabaseConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20230101:getStaticSiteBuildDatabaseConnection", {
+        "databaseConnectionName": args.databaseConnectionName,
+        "environmentName": args.environmentName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetStaticSiteBuildDatabaseConnectionOutputArgs {
