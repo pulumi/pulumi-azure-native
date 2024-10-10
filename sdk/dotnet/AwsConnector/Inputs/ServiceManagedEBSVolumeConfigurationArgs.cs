@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.AwsConnector.Inputs
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start. The available filesystem types are  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+        /// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start. The available filesystem types are ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
         /// </summary>
         [Input("filesystemType")]
         public Input<string>? FilesystemType { get; set; }

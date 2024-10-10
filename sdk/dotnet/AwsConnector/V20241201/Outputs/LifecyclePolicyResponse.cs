@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201.Outputs
         /// </summary>
         public readonly string? LifecyclePolicyText;
         /// <summary>
-        /// The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed. The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
+        /// The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed. The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
         /// </summary>
         public readonly string? RegistryId;
         /// <summary>

@@ -1475,7 +1475,7 @@ class DomainType(str, Enum):
 
 class EBSTagSpecificationPropagateTags(str, Enum):
     """
-    Determines whether to propagate the tags from the task definition to  the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in  ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't  propagated.
+    Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
     """
     SERVICE = "SERVICE"
     """

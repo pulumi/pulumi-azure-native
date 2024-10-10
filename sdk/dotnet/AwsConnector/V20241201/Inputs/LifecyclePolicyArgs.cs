@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201.Inputs
         public Input<string>? LifecyclePolicyText { get; set; }
 
         /// <summary>
-        /// The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed. The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
+        /// The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed. The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
         /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }

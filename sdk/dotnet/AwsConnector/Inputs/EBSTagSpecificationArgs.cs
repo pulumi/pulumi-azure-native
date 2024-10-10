@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.AwsConnector.Inputs
     public sealed class EBSTagSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines whether to propagate the tags from the task definition to  the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in  ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't  propagated.
+        /// Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
         /// </summary>
         [Input("propagateTags")]
         public InputUnion<string, Pulumi.AzureNative.AwsConnector.EBSTagSpecificationPropagateTags>? PropagateTags { get; set; }
