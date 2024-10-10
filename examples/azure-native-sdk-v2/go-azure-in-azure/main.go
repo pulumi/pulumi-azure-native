@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
 
 	"github.com/pulumi/pulumi-azure-native-sdk/authorization/v2"
 	"github.com/pulumi/pulumi-azure-native-sdk/compute/v2"
@@ -115,6 +116,7 @@ func main() {
 		vmIdentity := &compute.VirtualMachineIdentityArgs{Type: compute.ResourceIdentityTypeSystemAssigned}
 
 		var umi *managedidentity.UserAssignedIdentity
+		var umiClientId pulumi.StringOutput = pulumi.String("").ToStringOutput()
 		if os.Getenv("PULUMI_TEST_USER_IDENTITY") == "true" {
 			fmt.Printf("go-azure-in-azure: using user-assigned identity\n")
 
@@ -124,10 +126,20 @@ func main() {
 			if err != nil {
 				return err
 			}
+			umiClientId = umi.ClientId
+
+			// Create a second user-assigned identity to test multiple identities. With multiple identities, the one to
+			// use needs to be specified via clientId.
+			umi2, err := managedidentity.NewUserAssignedIdentity(ctx, "umi2", &managedidentity.UserAssignedIdentityArgs{
+				ResourceGroupName: rg.Name,
+			})
+			if err != nil {
+				return err
+			}
 
 			vmIdentity = &compute.VirtualMachineIdentityArgs{
 				Type:                   compute.ResourceIdentityTypeUserAssigned,
-				UserAssignedIdentities: pulumi.StringArray{umi.ID()},
+				UserAssignedIdentities: pulumi.StringArray{umi.ID(), umi2.ID()},
 			}
 		}
 
@@ -228,6 +240,7 @@ func main() {
 			User:       pulumi.String("pulumi"),
 			PrivateKey: privateKey.PrivateKeyOpenssh,
 		}
+
 		copy, err := remote.NewCopyToRemote(ctx, "copy", &remote.CopyToRemoteArgs{
 			Connection: sshConn,
 			Source:     pulumi.NewFileArchive(innerProgram + "/"),
@@ -247,30 +260,62 @@ func main() {
 			return err
 		}
 
+		// Copy the provider binary under test (the one on PATH) to the VM.
+		// We put it in the same directory as the pulumi binary which is on the PATH.
+		// Note that this can only work if the VM has the same architecture as the local machine.
+		providerBinaryPath, err := exec.LookPath("pulumi-resource-azure-native")
+		if err != nil {
+			return err
+		}
+		copyProvider, err := remote.NewCopyToRemote(ctx, "copyProvider", &remote.CopyToRemoteArgs{
+			Connection: sshConn,
+			Source:     pulumi.NewFileAsset(providerBinaryPath),
+			RemotePath: pulumi.String("/home/pulumi/.pulumi/bin/"),
+			Triggers:   pulumi.ToArray([]any{vm.ID()}),
+		}, pulumi.DependsOn([]pulumi.Resource{poll, installPulumi}))
+		if err != nil {
+			return err
+		}
+		chmodProvider, err := remote.NewCommand(ctx, "chmodProvider", &remote.CommandArgs{
+			Connection: sshConn,
+			Create:     pulumi.String("chmod +x /home/pulumi/.pulumi/bin/pulumi-resource-azure-native"),
+			Triggers:   pulumi.ToArray([]any{vm.ID()}),
+		}, pulumi.DependsOn([]pulumi.Resource{copyProvider}))
+		if err != nil {
+			return err
+		}
+
+		// Pass feature flags into the VM.
+		useAutorest := os.Getenv("PULUMI_USE_AUTOREST")
+		useLegacyAuth := os.Getenv("PULUMI_USE_LEGACY_AUTH")
+
 		// We pass the resource group's ID into the inner program via config so the program can
 		// create a resource in the resource group.
 		create := pulumi.Sprintf(`cd %s && \
 set -euxo pipefail && \
 export ARM_USE_MSI=true && \
 export ARM_SUBSCRIPTION_ID=%s && \
-export PATH=~/.pulumi/bin:$PATH && \
+export PATH="$HOME/.pulumi/bin:$PATH" && \
 export PULUMI_CONFIG_PASSPHRASE=pass && \
+export PULUMI_USE_AUTOREST=%s && \
+export PULUMI_USE_LEGACY_AUTH=%s && \
 rand=$(openssl rand -hex 4) && \
 stackname="%s-$rand" && \
 pulumi login --local && \
 pulumi stack init $stackname && \
+pulumi config set azure-native:clientId "%s" -s $stackname && \
 pulumi config set rgId "%s" -s $stackname && \
 pulumi config -s $stackname && \
 pulumi up -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi down -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi stack rm --yes $stackname && \
-pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram, rg.ID())
+pulumi logout --local`, innerProgram, clientConf.SubscriptionId, useAutorest, useLegacyAuth, innerProgram, umiClientId, rg.ID())
 
-		pulumiPreview, err := remote.NewCommand(ctx, "pulumiPreview", &remote.CommandArgs{
+		pulumiPreview, err := remote.NewCommand(ctx, "pulumiUpDown", &remote.CommandArgs{
 			Connection: sshConn,
 			Triggers:   pulumi.ToArray([]any{vm.ID(), principalId, roleAssignment.ID()}),
 			Create:     create,
-		}, pulumi.DependsOn([]pulumi.Resource{roleAssignment, copy, installPulumi}))
+		}, pulumi.DependsOn([]pulumi.Resource{roleAssignment, copy, copyProvider, chmodProvider, installPulumi}))
 		if err != nil {
 			return err
 		}
@@ -281,8 +326,9 @@ pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram, r
 		ctx.Export("publicIpAddress", ipLookup.IpAddress().Elem())
 		ctx.Export("installPulumi", installPulumi.Stdout)
 		ctx.Export("installPulumiStderr", installPulumi.Stderr)
-		ctx.Export("pulumiPreview", pulumiPreview.Stdout)
-		ctx.Export("pulumiPreviewStderr", pulumiPreview.Stderr)
+		ctx.Export("providerBinary", copyProvider.Source)
+		ctx.Export("pulumiStdout", pulumiPreview.Stdout)
+		ctx.Export("pulumiStderr", pulumiPreview.Stderr)
 
 		return nil
 	})

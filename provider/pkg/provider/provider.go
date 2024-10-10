@@ -22,6 +22,7 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
@@ -216,15 +217,24 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	userAgent := k.getUserAgent()
 
-	azCoreTokenCredential := azCoreTokenCredential{p: k}
+	var credential azcore.TokenCredential
+	if useLegacyAuth() {
+		logging.V(9).Infof("Using legacy authentication")
+		credential = azCoreTokenCredential{p: k}
+	} else {
+		credential, err = k.newTokenCredential()
+		if err != nil {
+			return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
+		}
+	}
 
-	k.azureClient, err = k.newAzureClient(resourceManagerAuth, azCoreTokenCredential, userAgent)
+	k.azureClient, err = k.newAzureClient(resourceManagerAuth, credential, userAgent)
 	if err != nil {
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
 
 	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
-		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)
+		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, credential)
 	if err != nil {
 		return nil, fmt.Errorf("initializing custom resources: %w", err)
 	}
@@ -237,12 +247,18 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 }
 
 func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
-	if os.Getenv("PULUMI_USE_AUTOREST") == "false" {
-		logging.V(9).Infof("AzureClient: using azCore")
-		return azure.NewAzCoreClient(tokenCred, userAgent, k.getAzureCloud(), nil)
+	useAutorest := os.Getenv("PULUMI_USE_AUTOREST") != "false"
+
+	if !useAutorest && useLegacyAuth() {
+		return nil, errors.New("PULUMI_USE_LEGACY_AUTH=true requires PULUMI_USE_AUTOREST=true")
 	}
-	logging.V(9).Infof("AzureClient: using autorest")
-	return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
+
+	if useAutorest {
+		logging.V(9).Infof("AzureClient: using autorest")
+		return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
+	}
+	logging.V(9).Infof("AzureClient: using azCore")
+	return azure.NewAzCoreClient(tokenCred, userAgent, k.getAzureCloud(), nil)
 }
 
 func (k *azureNativeProvider) getAzureCloud() cloud.Configuration {
@@ -301,9 +317,25 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		if endpointArg := args["endpoint"]; endpointArg.HasValue() && endpointArg.IsString() {
 			endpoint = endpointArg.StringValue()
 		}
-		token, err := k.getOAuthToken(ctx, auth, endpoint)
-		if err != nil {
-			return nil, err
+
+		var token string
+		if useLegacyAuth() {
+			token, err = k.getOAuthToken(ctx, auth, endpoint)
+			if err != nil {
+				return nil, err
+			}
+		} else {
+			cred, err := k.newTokenCredential()
+			if err != nil {
+				return nil, err
+			}
+			t, err := cred.GetToken(ctx, policy.TokenRequestOptions{
+				Scopes: []string{endpoint + "/.default"},
+			})
+			if err != nil {
+				return nil, err
+			}
+			token = t.Token
 		}
 		outputs = map[string]interface{}{"token": token}
 	default:
@@ -1579,4 +1611,8 @@ func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environmen
 	default:
 		return environments.Global
 	}
+}
+
+func useLegacyAuth() bool {
+	return os.Getenv("PULUMI_USE_LEGACY_AUTH") != "false"
 }
