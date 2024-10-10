@@ -540,9 +540,6 @@ def get_web_app(name: Optional[str] = None,
         traffic_manager_host_names=pulumi.get(__ret__, 'traffic_manager_host_names'),
         type=pulumi.get(__ret__, 'type'),
         usage_state=pulumi.get(__ret__, 'usage_state'))
-
-
-@_utilities.lift_output_func(get_web_app)
 def get_web_app_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppResult]:
@@ -553,4 +550,46 @@ def get_web_app_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20160801:getWebApp', __args__, opts=opts, typ=GetWebAppResult)
+    return __ret__.apply(lambda __response__: GetWebAppResult(
+        availability_state=pulumi.get(__response__, 'availability_state'),
+        client_affinity_enabled=pulumi.get(__response__, 'client_affinity_enabled'),
+        client_cert_enabled=pulumi.get(__response__, 'client_cert_enabled'),
+        container_size=pulumi.get(__response__, 'container_size'),
+        daily_memory_time_quota=pulumi.get(__response__, 'daily_memory_time_quota'),
+        default_host_name=pulumi.get(__response__, 'default_host_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        enabled_host_names=pulumi.get(__response__, 'enabled_host_names'),
+        host_name_ssl_states=pulumi.get(__response__, 'host_name_ssl_states'),
+        host_names=pulumi.get(__response__, 'host_names'),
+        host_names_disabled=pulumi.get(__response__, 'host_names_disabled'),
+        hosting_environment_profile=pulumi.get(__response__, 'hosting_environment_profile'),
+        https_only=pulumi.get(__response__, 'https_only'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        is_default_container=pulumi.get(__response__, 'is_default_container'),
+        kind=pulumi.get(__response__, 'kind'),
+        last_modified_time_utc=pulumi.get(__response__, 'last_modified_time_utc'),
+        location=pulumi.get(__response__, 'location'),
+        max_number_of_workers=pulumi.get(__response__, 'max_number_of_workers'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
+        possible_outbound_ip_addresses=pulumi.get(__response__, 'possible_outbound_ip_addresses'),
+        repository_site_name=pulumi.get(__response__, 'repository_site_name'),
+        reserved=pulumi.get(__response__, 'reserved'),
+        resource_group=pulumi.get(__response__, 'resource_group'),
+        scm_site_also_stopped=pulumi.get(__response__, 'scm_site_also_stopped'),
+        server_farm_id=pulumi.get(__response__, 'server_farm_id'),
+        site_config=pulumi.get(__response__, 'site_config'),
+        slot_swap_status=pulumi.get(__response__, 'slot_swap_status'),
+        state=pulumi.get(__response__, 'state'),
+        suspended_till=pulumi.get(__response__, 'suspended_till'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_swap_slot=pulumi.get(__response__, 'target_swap_slot'),
+        traffic_manager_host_names=pulumi.get(__response__, 'traffic_manager_host_names'),
+        type=pulumi.get(__response__, 'type'),
+        usage_state=pulumi.get(__response__, 'usage_state')))

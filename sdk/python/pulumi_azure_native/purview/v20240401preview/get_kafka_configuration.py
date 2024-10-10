@@ -198,9 +198,6 @@ def get_kafka_configuration(account_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_kafka_configuration)
 def get_kafka_configuration_output(account_name: Optional[pulumi.Input[str]] = None,
                                    kafka_configuration_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -213,4 +210,21 @@ def get_kafka_configuration_output(account_name: Optional[pulumi.Input[str]] = N
     :param str kafka_configuration_name: Name of kafka configuration.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['kafkaConfigurationName'] = kafka_configuration_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:purview/v20240401preview:getKafkaConfiguration', __args__, opts=opts, typ=GetKafkaConfigurationResult)
+    return __ret__.apply(lambda __response__: GetKafkaConfigurationResult(
+        consumer_group=pulumi.get(__response__, 'consumer_group'),
+        credentials=pulumi.get(__response__, 'credentials'),
+        event_hub_partition_id=pulumi.get(__response__, 'event_hub_partition_id'),
+        event_hub_resource_id=pulumi.get(__response__, 'event_hub_resource_id'),
+        event_hub_type=pulumi.get(__response__, 'event_hub_type'),
+        event_streaming_state=pulumi.get(__response__, 'event_streaming_state'),
+        event_streaming_type=pulumi.get(__response__, 'event_streaming_type'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

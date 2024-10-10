@@ -299,9 +299,6 @@ def list_web_app_backup_status_secrets(backup_id: Optional[str] = None,
         storage_account_url=pulumi.get(__ret__, 'storage_account_url'),
         type=pulumi.get(__ret__, 'type'),
         website_size_in_bytes=pulumi.get(__ret__, 'website_size_in_bytes'))
-
-
-@_utilities.lift_output_func(list_web_app_backup_status_secrets)
 def list_web_app_backup_status_secrets_output(backup_id: Optional[pulumi.Input[str]] = None,
                                               backup_name: Optional[pulumi.Input[Optional[str]]] = None,
                                               backup_schedule: Optional[pulumi.Input[Optional[Union['BackupSchedule', 'BackupScheduleDict']]]] = None,
@@ -326,4 +323,33 @@ def list_web_app_backup_status_secrets_output(backup_id: Optional[pulumi.Input[s
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str storage_account_url: SAS URL to the container.
     """
-    ...
+    __args__ = dict()
+    __args__['backupId'] = backup_id
+    __args__['backupName'] = backup_name
+    __args__['backupSchedule'] = backup_schedule
+    __args__['databases'] = databases
+    __args__['enabled'] = enabled
+    __args__['kind'] = kind
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['storageAccountUrl'] = storage_account_url
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:listWebAppBackupStatusSecrets', __args__, opts=opts, typ=ListWebAppBackupStatusSecretsResult)
+    return __ret__.apply(lambda __response__: ListWebAppBackupStatusSecretsResult(
+        backup_id=pulumi.get(__response__, 'backup_id'),
+        blob_name=pulumi.get(__response__, 'blob_name'),
+        correlation_id=pulumi.get(__response__, 'correlation_id'),
+        created=pulumi.get(__response__, 'created'),
+        databases=pulumi.get(__response__, 'databases'),
+        finished_time_stamp=pulumi.get(__response__, 'finished_time_stamp'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        last_restore_time_stamp=pulumi.get(__response__, 'last_restore_time_stamp'),
+        log=pulumi.get(__response__, 'log'),
+        name=pulumi.get(__response__, 'name'),
+        scheduled=pulumi.get(__response__, 'scheduled'),
+        size_in_bytes=pulumi.get(__response__, 'size_in_bytes'),
+        status=pulumi.get(__response__, 'status'),
+        storage_account_url=pulumi.get(__response__, 'storage_account_url'),
+        type=pulumi.get(__response__, 'type'),
+        website_size_in_bytes=pulumi.get(__response__, 'website_size_in_bytes')))

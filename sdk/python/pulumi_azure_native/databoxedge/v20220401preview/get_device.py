@@ -432,9 +432,6 @@ def get_device(device_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_device)
 def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
@@ -445,4 +442,38 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str device_name: The device name.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['deviceName'] = device_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20220401preview:getDevice', __args__, opts=opts, typ=GetDeviceResult)
+    return __ret__.apply(lambda __response__: GetDeviceResult(
+        compute_version_information=pulumi.get(__response__, 'compute_version_information'),
+        configured_role_types=pulumi.get(__response__, 'configured_role_types'),
+        culture=pulumi.get(__response__, 'culture'),
+        data_box_edge_device_status=pulumi.get(__response__, 'data_box_edge_device_status'),
+        data_residency=pulumi.get(__response__, 'data_residency'),
+        description=pulumi.get(__response__, 'description'),
+        device_hcs_version=pulumi.get(__response__, 'device_hcs_version'),
+        device_local_capacity=pulumi.get(__response__, 'device_local_capacity'),
+        device_model=pulumi.get(__response__, 'device_model'),
+        device_software_version=pulumi.get(__response__, 'device_software_version'),
+        device_type=pulumi.get(__response__, 'device_type'),
+        edge_profile=pulumi.get(__response__, 'edge_profile'),
+        etag=pulumi.get(__response__, 'etag'),
+        friendly_name=pulumi.get(__response__, 'friendly_name'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        kind=pulumi.get(__response__, 'kind'),
+        kubernetes_platform=pulumi.get(__response__, 'kubernetes_platform'),
+        location=pulumi.get(__response__, 'location'),
+        model_description=pulumi.get(__response__, 'model_description'),
+        name=pulumi.get(__response__, 'name'),
+        node_count=pulumi.get(__response__, 'node_count'),
+        resource_move_details=pulumi.get(__response__, 'resource_move_details'),
+        serial_number=pulumi.get(__response__, 'serial_number'),
+        sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_zone=pulumi.get(__response__, 'time_zone'),
+        type=pulumi.get(__response__, 'type')))

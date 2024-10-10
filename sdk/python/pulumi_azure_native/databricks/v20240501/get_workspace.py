@@ -432,9 +432,6 @@ def get_workspace(resource_group_name: Optional[str] = None,
         updated_by=pulumi.get(__ret__, 'updated_by'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'),
         workspace_url=pulumi.get(__ret__, 'workspace_url'))
-
-
-@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
@@ -445,4 +442,38 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:databricks/v20240501:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        access_connector=pulumi.get(__response__, 'access_connector'),
+        authorizations=pulumi.get(__response__, 'authorizations'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        created_date_time=pulumi.get(__response__, 'created_date_time'),
+        default_catalog=pulumi.get(__response__, 'default_catalog'),
+        default_storage_firewall=pulumi.get(__response__, 'default_storage_firewall'),
+        disk_encryption_set_id=pulumi.get(__response__, 'disk_encryption_set_id'),
+        encryption=pulumi.get(__response__, 'encryption'),
+        enhanced_security_compliance=pulumi.get(__response__, 'enhanced_security_compliance'),
+        id=pulumi.get(__response__, 'id'),
+        is_uc_enabled=pulumi.get(__response__, 'is_uc_enabled'),
+        location=pulumi.get(__response__, 'location'),
+        managed_disk_identity=pulumi.get(__response__, 'managed_disk_identity'),
+        managed_resource_group_id=pulumi.get(__response__, 'managed_resource_group_id'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        required_nsg_rules=pulumi.get(__response__, 'required_nsg_rules'),
+        sku=pulumi.get(__response__, 'sku'),
+        storage_account_identity=pulumi.get(__response__, 'storage_account_identity'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        ui_definition_uri=pulumi.get(__response__, 'ui_definition_uri'),
+        updated_by=pulumi.get(__response__, 'updated_by'),
+        workspace_id=pulumi.get(__response__, 'workspace_id'),
+        workspace_url=pulumi.get(__response__, 'workspace_url')))

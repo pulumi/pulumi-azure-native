@@ -243,9 +243,6 @@ def get_service_configuration(endpoint_name: Optional[str] = None,
         service_name=pulumi.get(__ret__, 'service_name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_service_configuration)
 def get_service_configuration_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                      resource_uri: Optional[pulumi.Input[str]] = None,
                                      service_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -261,4 +258,24 @@ def get_service_configuration_output(endpoint_name: Optional[pulumi.Input[str]] 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     :param str service_configuration_name: The service name.
     """
-    ...
+    __args__ = dict()
+    __args__['endpointName'] = endpoint_name
+    __args__['resourceUri'] = resource_uri
+    __args__['serviceConfigurationName'] = service_configuration_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity:getServiceConfiguration', __args__, opts=opts, typ=GetServiceConfigurationResult)
+    return __ret__.apply(lambda __response__: GetServiceConfigurationResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        created_by_type=pulumi.get(__response__, 'created_by_type'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_at=pulumi.get(__response__, 'last_modified_at'),
+        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
+        last_modified_by_type=pulumi.get(__response__, 'last_modified_by_type'),
+        name=pulumi.get(__response__, 'name'),
+        port=pulumi.get(__response__, 'port'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        service_name=pulumi.get(__response__, 'service_name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

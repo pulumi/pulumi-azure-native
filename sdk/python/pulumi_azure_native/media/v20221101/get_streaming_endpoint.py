@@ -357,9 +357,6 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_streaming_endpoint)
 def get_streaming_endpoint_output(account_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   streaming_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -372,4 +369,33 @@ def get_streaming_endpoint_output(account_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     :param str streaming_endpoint_name: The name of the streaming endpoint, maximum length is 24.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['streamingEndpointName'] = streaming_endpoint_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:media/v20221101:getStreamingEndpoint', __args__, opts=opts, typ=GetStreamingEndpointResult)
+    return __ret__.apply(lambda __response__: GetStreamingEndpointResult(
+        access_control=pulumi.get(__response__, 'access_control'),
+        availability_set_name=pulumi.get(__response__, 'availability_set_name'),
+        cdn_enabled=pulumi.get(__response__, 'cdn_enabled'),
+        cdn_profile=pulumi.get(__response__, 'cdn_profile'),
+        cdn_provider=pulumi.get(__response__, 'cdn_provider'),
+        created=pulumi.get(__response__, 'created'),
+        cross_site_access_policies=pulumi.get(__response__, 'cross_site_access_policies'),
+        custom_host_names=pulumi.get(__response__, 'custom_host_names'),
+        description=pulumi.get(__response__, 'description'),
+        free_trial_end_time=pulumi.get(__response__, 'free_trial_end_time'),
+        host_name=pulumi.get(__response__, 'host_name'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        location=pulumi.get(__response__, 'location'),
+        max_cache_age=pulumi.get(__response__, 'max_cache_age'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_state=pulumi.get(__response__, 'resource_state'),
+        scale_units=pulumi.get(__response__, 'scale_units'),
+        sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

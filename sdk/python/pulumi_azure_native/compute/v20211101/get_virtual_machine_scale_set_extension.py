@@ -242,9 +242,6 @@ def get_virtual_machine_scale_set_extension(expand: Optional[str] = None,
         suppress_failures=pulumi.get(__ret__, 'suppress_failures'),
         type=pulumi.get(__ret__, 'type'),
         type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
-
-
-@_utilities.lift_output_func(get_virtual_machine_scale_set_extension)
 def get_virtual_machine_scale_set_extension_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    vm_scale_set_name: Optional[pulumi.Input[str]] = None,
@@ -259,4 +256,25 @@ def get_virtual_machine_scale_set_extension_output(expand: Optional[pulumi.Input
     :param str vm_scale_set_name: The name of the VM scale set containing the extension.
     :param str vmss_extension_name: The name of the VM scale set extension.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vmScaleSetName'] = vm_scale_set_name
+    __args__['vmssExtensionName'] = vmss_extension_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20211101:getVirtualMachineScaleSetExtension', __args__, opts=opts, typ=GetVirtualMachineScaleSetExtensionResult)
+    return __ret__.apply(lambda __response__: GetVirtualMachineScaleSetExtensionResult(
+        auto_upgrade_minor_version=pulumi.get(__response__, 'auto_upgrade_minor_version'),
+        enable_automatic_upgrade=pulumi.get(__response__, 'enable_automatic_upgrade'),
+        force_update_tag=pulumi.get(__response__, 'force_update_tag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        protected_settings=pulumi.get(__response__, 'protected_settings'),
+        protected_settings_from_key_vault=pulumi.get(__response__, 'protected_settings_from_key_vault'),
+        provision_after_extensions=pulumi.get(__response__, 'provision_after_extensions'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        publisher=pulumi.get(__response__, 'publisher'),
+        settings=pulumi.get(__response__, 'settings'),
+        suppress_failures=pulumi.get(__response__, 'suppress_failures'),
+        type=pulumi.get(__response__, 'type'),
+        type_handler_version=pulumi.get(__response__, 'type_handler_version')))

@@ -225,9 +225,6 @@ def get_partner_destination(partner_destination_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_partner_destination)
 def get_partner_destination_output(partner_destination_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerDestinationResult]:
@@ -238,4 +235,22 @@ def get_partner_destination_output(partner_destination_name: Optional[pulumi.Inp
     :param str partner_destination_name: Name of the partner destination.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['partnerDestinationName'] = partner_destination_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20230601preview:getPartnerDestination', __args__, opts=opts, typ=GetPartnerDestinationResult)
+    return __ret__.apply(lambda __response__: GetPartnerDestinationResult(
+        activation_state=pulumi.get(__response__, 'activation_state'),
+        endpoint_base_url=pulumi.get(__response__, 'endpoint_base_url'),
+        endpoint_service_context=pulumi.get(__response__, 'endpoint_service_context'),
+        expiration_time_if_not_activated_utc=pulumi.get(__response__, 'expiration_time_if_not_activated_utc'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        message_for_activation=pulumi.get(__response__, 'message_for_activation'),
+        name=pulumi.get(__response__, 'name'),
+        partner_registration_immutable_id=pulumi.get(__response__, 'partner_registration_immutable_id'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

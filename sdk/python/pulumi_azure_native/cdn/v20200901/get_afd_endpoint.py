@@ -198,9 +198,6 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_afd_endpoint)
 def get_afd_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                             profile_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -213,4 +210,21 @@ def get_afd_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['endpointName'] = endpoint_name
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20200901:getAFDEndpoint', __args__, opts=opts, typ=GetAFDEndpointResult)
+    return __ret__.apply(lambda __response__: GetAFDEndpointResult(
+        deployment_status=pulumi.get(__response__, 'deployment_status'),
+        enabled_state=pulumi.get(__response__, 'enabled_state'),
+        host_name=pulumi.get(__response__, 'host_name'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        origin_response_timeout_seconds=pulumi.get(__response__, 'origin_response_timeout_seconds'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

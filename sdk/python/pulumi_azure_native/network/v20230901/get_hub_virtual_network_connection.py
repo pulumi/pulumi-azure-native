@@ -175,9 +175,6 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         remote_virtual_network=pulumi.get(__ret__, 'remote_virtual_network'),
         routing_configuration=pulumi.get(__ret__, 'routing_configuration'))
-
-
-@_utilities.lift_output_func(get_hub_virtual_network_connection)
 def get_hub_virtual_network_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               virtual_hub_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_hub_virtual_network_connection_output(connection_name: Optional[pulumi.I
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
-    ...
+    __args__ = dict()
+    __args__['connectionName'] = connection_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualHubName'] = virtual_hub_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230901:getHubVirtualNetworkConnection', __args__, opts=opts, typ=GetHubVirtualNetworkConnectionResult)
+    return __ret__.apply(lambda __response__: GetHubVirtualNetworkConnectionResult(
+        allow_hub_to_remote_vnet_transit=pulumi.get(__response__, 'allow_hub_to_remote_vnet_transit'),
+        allow_remote_vnet_to_use_hub_vnet_gateways=pulumi.get(__response__, 'allow_remote_vnet_to_use_hub_vnet_gateways'),
+        enable_internet_security=pulumi.get(__response__, 'enable_internet_security'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        remote_virtual_network=pulumi.get(__response__, 'remote_virtual_network'),
+        routing_configuration=pulumi.get(__response__, 'routing_configuration')))

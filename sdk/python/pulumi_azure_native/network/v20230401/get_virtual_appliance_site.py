@@ -149,9 +149,6 @@ def get_virtual_appliance_site(network_virtual_appliance_name: Optional[str] = N
         o365_policy=pulumi.get(__ret__, 'o365_policy'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_virtual_appliance_site)
 def get_virtual_appliance_site_output(network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       site_name: Optional[pulumi.Input[str]] = None,
@@ -164,4 +161,17 @@ def get_virtual_appliance_site_output(network_virtual_appliance_name: Optional[p
     :param str resource_group_name: The name of the resource group.
     :param str site_name: The name of the site.
     """
-    ...
+    __args__ = dict()
+    __args__['networkVirtualApplianceName'] = network_virtual_appliance_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['siteName'] = site_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getVirtualApplianceSite', __args__, opts=opts, typ=GetVirtualApplianceSiteResult)
+    return __ret__.apply(lambda __response__: GetVirtualApplianceSiteResult(
+        address_prefix=pulumi.get(__response__, 'address_prefix'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        o365_policy=pulumi.get(__response__, 'o365_policy'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type')))

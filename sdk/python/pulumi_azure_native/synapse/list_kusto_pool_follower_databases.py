@@ -72,9 +72,6 @@ def list_kusto_pool_follower_databases(kusto_pool_name: Optional[str] = None,
 
     return AwaitableListKustoPoolFollowerDatabasesResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_kusto_pool_follower_databases)
 def list_kusto_pool_follower_databases_output(kusto_pool_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               workspace_name: Optional[pulumi.Input[str]] = None,
@@ -88,4 +85,11 @@ def list_kusto_pool_follower_databases_output(kusto_pool_name: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['kustoPoolName'] = kusto_pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:listKustoPoolFollowerDatabases', __args__, opts=opts, typ=ListKustoPoolFollowerDatabasesResult)
+    return __ret__.apply(lambda __response__: ListKustoPoolFollowerDatabasesResult(
+        value=pulumi.get(__response__, 'value')))

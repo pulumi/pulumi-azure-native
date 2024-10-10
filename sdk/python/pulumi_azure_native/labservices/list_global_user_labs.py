@@ -66,9 +66,6 @@ def list_global_user_labs(user_name: Optional[str] = None,
 
     return AwaitableListGlobalUserLabsResult(
         labs=pulumi.get(__ret__, 'labs'))
-
-
-@_utilities.lift_output_func(list_global_user_labs)
 def list_global_user_labs_output(user_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGlobalUserLabsResult]:
     """
@@ -78,4 +75,9 @@ def list_global_user_labs_output(user_name: Optional[pulumi.Input[str]] = None,
 
     :param str user_name: The name of the user.
     """
-    ...
+    __args__ = dict()
+    __args__['userName'] = user_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:listGlobalUserLabs', __args__, opts=opts, typ=ListGlobalUserLabsResult)
+    return __ret__.apply(lambda __response__: ListGlobalUserLabsResult(
+        labs=pulumi.get(__response__, 'labs')))

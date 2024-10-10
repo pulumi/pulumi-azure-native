@@ -137,9 +137,6 @@ def get_invoice_section(billing_account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_invoice_section)
 def get_invoice_section_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                billing_profile_name: Optional[pulumi.Input[str]] = None,
                                invoice_section_name: Optional[pulumi.Input[str]] = None,
@@ -153,4 +150,16 @@ def get_invoice_section_output(billing_account_name: Optional[pulumi.Input[str]]
     :param str billing_profile_name: The ID that uniquely identifies a billing profile.
     :param str invoice_section_name: The ID that uniquely identifies an invoice section.
     """
-    ...
+    __args__ = dict()
+    __args__['billingAccountName'] = billing_account_name
+    __args__['billingProfileName'] = billing_profile_name
+    __args__['invoiceSectionName'] = invoice_section_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:billing:getInvoiceSection', __args__, opts=opts, typ=GetInvoiceSectionResult)
+    return __ret__.apply(lambda __response__: GetInvoiceSectionResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

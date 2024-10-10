@@ -136,9 +136,6 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_dps_certificate)
 def get_dps_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                                provisioning_service_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,4 +148,16 @@ def get_dps_certificate_output(certificate_name: Optional[pulumi.Input[str]] = N
     :param str provisioning_service_name: Name of the provisioning service the certificate is associated with.
     :param str resource_group_name: Resource group identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['certificateName'] = certificate_name
+    __args__['provisioningServiceName'] = provisioning_service_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devices/v20211015:getDpsCertificate', __args__, opts=opts, typ=GetDpsCertificateResult)
+    return __ret__.apply(lambda __response__: GetDpsCertificateResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

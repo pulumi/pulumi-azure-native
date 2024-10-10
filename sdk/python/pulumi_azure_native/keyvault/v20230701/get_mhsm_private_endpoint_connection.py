@@ -214,9 +214,6 @@ def get_mhsm_private_endpoint_connection(name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_mhsm_private_endpoint_connection)
 def get_mhsm_private_endpoint_connection_output(name: Optional[pulumi.Input[str]] = None,
                                                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -229,4 +226,22 @@ def get_mhsm_private_endpoint_connection_output(name: Optional[pulumi.Input[str]
     :param str private_endpoint_connection_name: Name of the private endpoint connection associated with the managed hsm pool.
     :param str resource_group_name: Name of the resource group that contains the managed HSM pool.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:keyvault/v20230701:getMHSMPrivateEndpointConnection', __args__, opts=opts, typ=GetMHSMPrivateEndpointConnectionResult)
+    return __ret__.apply(lambda __response__: GetMHSMPrivateEndpointConnectionResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint=pulumi.get(__response__, 'private_endpoint'),
+        private_link_service_connection_state=pulumi.get(__response__, 'private_link_service_connection_state'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

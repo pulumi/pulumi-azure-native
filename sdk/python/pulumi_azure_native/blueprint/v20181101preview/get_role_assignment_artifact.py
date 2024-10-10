@@ -188,9 +188,6 @@ def get_role_assignment_artifact(artifact_name: Optional[str] = None,
         resource_group=pulumi.get(__ret__, 'resource_group'),
         role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_role_assignment_artifact)
 def get_role_assignment_artifact_output(artifact_name: Optional[pulumi.Input[str]] = None,
                                         blueprint_name: Optional[pulumi.Input[str]] = None,
                                         resource_scope: Optional[pulumi.Input[str]] = None,
@@ -203,4 +200,20 @@ def get_role_assignment_artifact_output(artifact_name: Optional[pulumi.Input[str
     :param str blueprint_name: Name of the blueprint definition.
     :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
     """
-    ...
+    __args__ = dict()
+    __args__['artifactName'] = artifact_name
+    __args__['blueprintName'] = blueprint_name
+    __args__['resourceScope'] = resource_scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:blueprint/v20181101preview:getRoleAssignmentArtifact', __args__, opts=opts, typ=GetRoleAssignmentArtifactResult)
+    return __ret__.apply(lambda __response__: GetRoleAssignmentArtifactResult(
+        depends_on=pulumi.get(__response__, 'depends_on'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        principal_ids=pulumi.get(__response__, 'principal_ids'),
+        resource_group=pulumi.get(__response__, 'resource_group'),
+        role_definition_id=pulumi.get(__response__, 'role_definition_id'),
+        type=pulumi.get(__response__, 'type')))

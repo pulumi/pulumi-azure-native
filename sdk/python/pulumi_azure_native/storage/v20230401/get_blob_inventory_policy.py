@@ -136,9 +136,6 @@ def get_blob_inventory_policy(account_name: Optional[str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_blob_inventory_policy)
 def get_blob_inventory_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                      blob_inventory_policy_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,4 +148,16 @@ def get_blob_inventory_policy_output(account_name: Optional[pulumi.Input[str]] =
     :param str blob_inventory_policy_name: The name of the storage account blob inventory policy. It should always be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['blobInventoryPolicyName'] = blob_inventory_policy_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230401:getBlobInventoryPolicy', __args__, opts=opts, typ=GetBlobInventoryPolicyResult)
+    return __ret__.apply(lambda __response__: GetBlobInventoryPolicyResult(
+        id=pulumi.get(__response__, 'id'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        name=pulumi.get(__response__, 'name'),
+        policy=pulumi.get(__response__, 'policy'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

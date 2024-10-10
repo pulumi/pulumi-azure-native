@@ -204,9 +204,6 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
         ssm_host_name=pulumi.get(__ret__, 'ssm_host_name'),
         type=pulumi.get(__ret__, 'type'),
         volume_ids=pulumi.get(__ret__, 'volume_ids'))
-
-
-@_utilities.lift_output_func(get_backup_policy)
 def get_backup_policy_output(backup_policy_name: Optional[pulumi.Input[str]] = None,
                              device_name: Optional[pulumi.Input[str]] = None,
                              manager_name: Optional[pulumi.Input[str]] = None,
@@ -222,4 +219,22 @@ def get_backup_policy_output(backup_policy_name: Optional[pulumi.Input[str]] = N
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    ...
+    __args__ = dict()
+    __args__['backupPolicyName'] = backup_policy_name
+    __args__['deviceName'] = device_name
+    __args__['managerName'] = manager_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult)
+    return __ret__.apply(lambda __response__: GetBackupPolicyResult(
+        backup_policy_creation_type=pulumi.get(__response__, 'backup_policy_creation_type'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        last_backup_time=pulumi.get(__response__, 'last_backup_time'),
+        name=pulumi.get(__response__, 'name'),
+        next_backup_time=pulumi.get(__response__, 'next_backup_time'),
+        scheduled_backup_status=pulumi.get(__response__, 'scheduled_backup_status'),
+        schedules_count=pulumi.get(__response__, 'schedules_count'),
+        ssm_host_name=pulumi.get(__response__, 'ssm_host_name'),
+        type=pulumi.get(__response__, 'type'),
+        volume_ids=pulumi.get(__response__, 'volume_ids')))

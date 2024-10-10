@@ -139,9 +139,6 @@ def get_guest_configuration_hcrpassignment(guest_configuration_assignment_name: 
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_guest_configuration_hcrpassignment)
 def get_guest_configuration_hcrpassignment_output(guest_configuration_assignment_name: Optional[pulumi.Input[str]] = None,
                                                   machine_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -157,4 +154,16 @@ def get_guest_configuration_hcrpassignment_output(guest_configuration_assignment
     :param str machine_name: The name of the ARC machine.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['guestConfigurationAssignmentName'] = guest_configuration_assignment_name
+    __args__['machineName'] = machine_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment', __args__, opts=opts, typ=GetGuestConfigurationHCRPAssignmentResult)
+    return __ret__.apply(lambda __response__: GetGuestConfigurationHCRPAssignmentResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -267,9 +267,6 @@ def get_ti_taxii_data_connector(data_connector_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_name=pulumi.get(__ret__, 'user_name'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-
-
-@_utilities.lift_output_func(get_ti_taxii_data_connector)
 def get_ti_taxii_data_connector_output(data_connector_id: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        workspace_name: Optional[pulumi.Input[str]] = None,
@@ -282,4 +279,26 @@ def get_ti_taxii_data_connector_output(data_connector_id: Optional[pulumi.Input[
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['dataConnectorId'] = data_connector_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20230801preview:getTiTaxiiDataConnector', __args__, opts=opts, typ=GetTiTaxiiDataConnectorResult)
+    return __ret__.apply(lambda __response__: GetTiTaxiiDataConnectorResult(
+        collection_id=pulumi.get(__response__, 'collection_id'),
+        data_types=pulumi.get(__response__, 'data_types'),
+        etag=pulumi.get(__response__, 'etag'),
+        friendly_name=pulumi.get(__response__, 'friendly_name'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        password=pulumi.get(__response__, 'password'),
+        polling_frequency=pulumi.get(__response__, 'polling_frequency'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        taxii_lookback_period=pulumi.get(__response__, 'taxii_lookback_period'),
+        taxii_server=pulumi.get(__response__, 'taxii_server'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type'),
+        user_name=pulumi.get(__response__, 'user_name'),
+        workspace_id=pulumi.get(__response__, 'workspace_id')))

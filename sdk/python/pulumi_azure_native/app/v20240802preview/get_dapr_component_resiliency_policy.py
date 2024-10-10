@@ -139,9 +139,6 @@ def get_dapr_component_resiliency_policy(component_name: Optional[str] = None,
         outbound_policy=pulumi.get(__ret__, 'outbound_policy'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_dapr_component_resiliency_policy)
 def get_dapr_component_resiliency_policy_output(component_name: Optional[pulumi.Input[str]] = None,
                                                 environment_name: Optional[pulumi.Input[str]] = None,
                                                 name: Optional[pulumi.Input[str]] = None,
@@ -156,4 +153,17 @@ def get_dapr_component_resiliency_policy_output(component_name: Optional[pulumi.
     :param str name: Name of the Dapr Component Resiliency Policy.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['componentName'] = component_name
+    __args__['environmentName'] = environment_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20240802preview:getDaprComponentResiliencyPolicy', __args__, opts=opts, typ=GetDaprComponentResiliencyPolicyResult)
+    return __ret__.apply(lambda __response__: GetDaprComponentResiliencyPolicyResult(
+        id=pulumi.get(__response__, 'id'),
+        inbound_policy=pulumi.get(__response__, 'inbound_policy'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_policy=pulumi.get(__response__, 'outbound_policy'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

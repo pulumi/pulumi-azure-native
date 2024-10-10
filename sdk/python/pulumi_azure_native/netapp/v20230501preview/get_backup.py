@@ -256,9 +256,6 @@ def get_backup(account_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_existing_snapshot=pulumi.get(__ret__, 'use_existing_snapshot'),
         volume_resource_id=pulumi.get(__ret__, 'volume_resource_id'))
-
-
-@_utilities.lift_output_func(get_backup)
 def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
                       backup_name: Optional[pulumi.Input[str]] = None,
                       backup_vault_name: Optional[pulumi.Input[str]] = None,
@@ -273,4 +270,26 @@ def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str backup_vault_name: The name of the Backup Vault
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['backupName'] = backup_name
+    __args__['backupVaultName'] = backup_vault_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20230501preview:getBackup', __args__, opts=opts, typ=GetBackupResult)
+    return __ret__.apply(lambda __response__: GetBackupResult(
+        backup_id=pulumi.get(__response__, 'backup_id'),
+        backup_policy_resource_id=pulumi.get(__response__, 'backup_policy_resource_id'),
+        backup_type=pulumi.get(__response__, 'backup_type'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        failure_reason=pulumi.get(__response__, 'failure_reason'),
+        id=pulumi.get(__response__, 'id'),
+        label=pulumi.get(__response__, 'label'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        size=pulumi.get(__response__, 'size'),
+        snapshot_name=pulumi.get(__response__, 'snapshot_name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        use_existing_snapshot=pulumi.get(__response__, 'use_existing_snapshot'),
+        volume_resource_id=pulumi.get(__response__, 'volume_resource_id')))

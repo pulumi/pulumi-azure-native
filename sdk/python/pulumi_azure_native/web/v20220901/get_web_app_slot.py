@@ -755,9 +755,6 @@ def get_web_app_slot(name: Optional[str] = None,
         vnet_content_share_enabled=pulumi.get(__ret__, 'vnet_content_share_enabled'),
         vnet_image_pull_enabled=pulumi.get(__ret__, 'vnet_image_pull_enabled'),
         vnet_route_all_enabled=pulumi.get(__ret__, 'vnet_route_all_enabled'))
-
-
-@_utilities.lift_output_func(get_web_app_slot)
 def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             slot: Optional[pulumi.Input[str]] = None,
@@ -770,4 +767,63 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. By default, this API returns the production slot.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['slot'] = slot
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:getWebAppSlot', __args__, opts=opts, typ=GetWebAppSlotResult)
+    return __ret__.apply(lambda __response__: GetWebAppSlotResult(
+        availability_state=pulumi.get(__response__, 'availability_state'),
+        client_affinity_enabled=pulumi.get(__response__, 'client_affinity_enabled'),
+        client_cert_enabled=pulumi.get(__response__, 'client_cert_enabled'),
+        client_cert_exclusion_paths=pulumi.get(__response__, 'client_cert_exclusion_paths'),
+        client_cert_mode=pulumi.get(__response__, 'client_cert_mode'),
+        container_size=pulumi.get(__response__, 'container_size'),
+        custom_domain_verification_id=pulumi.get(__response__, 'custom_domain_verification_id'),
+        daily_memory_time_quota=pulumi.get(__response__, 'daily_memory_time_quota'),
+        default_host_name=pulumi.get(__response__, 'default_host_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        enabled_host_names=pulumi.get(__response__, 'enabled_host_names'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        host_name_ssl_states=pulumi.get(__response__, 'host_name_ssl_states'),
+        host_names=pulumi.get(__response__, 'host_names'),
+        host_names_disabled=pulumi.get(__response__, 'host_names_disabled'),
+        hosting_environment_profile=pulumi.get(__response__, 'hosting_environment_profile'),
+        https_only=pulumi.get(__response__, 'https_only'),
+        hyper_v=pulumi.get(__response__, 'hyper_v'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        in_progress_operation_id=pulumi.get(__response__, 'in_progress_operation_id'),
+        is_default_container=pulumi.get(__response__, 'is_default_container'),
+        is_xenon=pulumi.get(__response__, 'is_xenon'),
+        key_vault_reference_identity=pulumi.get(__response__, 'key_vault_reference_identity'),
+        kind=pulumi.get(__response__, 'kind'),
+        last_modified_time_utc=pulumi.get(__response__, 'last_modified_time_utc'),
+        location=pulumi.get(__response__, 'location'),
+        managed_environment_id=pulumi.get(__response__, 'managed_environment_id'),
+        max_number_of_workers=pulumi.get(__response__, 'max_number_of_workers'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
+        possible_outbound_ip_addresses=pulumi.get(__response__, 'possible_outbound_ip_addresses'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        redundancy_mode=pulumi.get(__response__, 'redundancy_mode'),
+        repository_site_name=pulumi.get(__response__, 'repository_site_name'),
+        reserved=pulumi.get(__response__, 'reserved'),
+        resource_group=pulumi.get(__response__, 'resource_group'),
+        scm_site_also_stopped=pulumi.get(__response__, 'scm_site_also_stopped'),
+        server_farm_id=pulumi.get(__response__, 'server_farm_id'),
+        site_config=pulumi.get(__response__, 'site_config'),
+        slot_swap_status=pulumi.get(__response__, 'slot_swap_status'),
+        state=pulumi.get(__response__, 'state'),
+        storage_account_required=pulumi.get(__response__, 'storage_account_required'),
+        suspended_till=pulumi.get(__response__, 'suspended_till'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_swap_slot=pulumi.get(__response__, 'target_swap_slot'),
+        traffic_manager_host_names=pulumi.get(__response__, 'traffic_manager_host_names'),
+        type=pulumi.get(__response__, 'type'),
+        usage_state=pulumi.get(__response__, 'usage_state'),
+        virtual_network_subnet_id=pulumi.get(__response__, 'virtual_network_subnet_id'),
+        vnet_content_share_enabled=pulumi.get(__response__, 'vnet_content_share_enabled'),
+        vnet_image_pull_enabled=pulumi.get(__response__, 'vnet_image_pull_enabled'),
+        vnet_route_all_enabled=pulumi.get(__response__, 'vnet_route_all_enabled')))

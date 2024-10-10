@@ -69,9 +69,6 @@ def list_account_keys(account_name: Optional[str] = None,
 
     return AwaitableListAccountKeysResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_account_keys)
 def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
@@ -83,4 +80,10 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: Account Name
     :param str resource_group_name: Resource Group Name
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:engagementfabric:listAccountKeys', __args__, opts=opts, typ=ListAccountKeysResult)
+    return __ret__.apply(lambda __response__: ListAccountKeysResult(
+        value=pulumi.get(__response__, 'value')))

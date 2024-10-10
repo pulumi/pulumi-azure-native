@@ -85,9 +85,6 @@ def list_local_rulestack_app_ids(app_id_version: Optional[str] = None,
     return AwaitableListLocalRulestackAppIdsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_local_rulestack_app_ids)
 def list_local_rulestack_app_ids_output(app_id_version: Optional[pulumi.Input[Optional[str]]] = None,
                                         app_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                                         local_rulestack_name: Optional[pulumi.Input[str]] = None,
@@ -102,4 +99,15 @@ def list_local_rulestack_app_ids_output(app_id_version: Optional[pulumi.Input[Op
     :param str local_rulestack_name: LocalRulestack resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['appIdVersion'] = app_id_version
+    __args__['appPrefix'] = app_prefix
+    __args__['localRulestackName'] = local_rulestack_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['skip'] = skip
+    __args__['top'] = top
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240207preview:listLocalRulestackAppIds', __args__, opts=opts, typ=ListLocalRulestackAppIdsResult)
+    return __ret__.apply(lambda __response__: ListLocalRulestackAppIdsResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

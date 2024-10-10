@@ -373,9 +373,6 @@ def get_watchlist(operational_insights_resource_provider: Optional[str] = None,
         watchlist_id=pulumi.get(__ret__, 'watchlist_id'),
         watchlist_items_count=pulumi.get(__ret__, 'watchlist_items_count'),
         watchlist_type=pulumi.get(__ret__, 'watchlist_type'))
-
-
-@_utilities.lift_output_func(get_watchlist)
 def get_watchlist_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          watchlist_alias: Optional[pulumi.Input[str]] = None,
@@ -390,4 +387,35 @@ def get_watchlist_output(operational_insights_resource_provider: Optional[pulumi
     :param str watchlist_alias: Watchlist Alias
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['watchlistAlias'] = watchlist_alias
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20190101preview:getWatchlist', __args__, opts=opts, typ=GetWatchlistResult)
+    return __ret__.apply(lambda __response__: GetWatchlistResult(
+        content_type=pulumi.get(__response__, 'content_type'),
+        created=pulumi.get(__response__, 'created'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        default_duration=pulumi.get(__response__, 'default_duration'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        is_deleted=pulumi.get(__response__, 'is_deleted'),
+        labels=pulumi.get(__response__, 'labels'),
+        name=pulumi.get(__response__, 'name'),
+        number_of_lines_to_skip=pulumi.get(__response__, 'number_of_lines_to_skip'),
+        provider=pulumi.get(__response__, 'provider'),
+        raw_content=pulumi.get(__response__, 'raw_content'),
+        source=pulumi.get(__response__, 'source'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type'),
+        updated=pulumi.get(__response__, 'updated'),
+        updated_by=pulumi.get(__response__, 'updated_by'),
+        upload_status=pulumi.get(__response__, 'upload_status'),
+        watchlist_alias=pulumi.get(__response__, 'watchlist_alias'),
+        watchlist_id=pulumi.get(__response__, 'watchlist_id'),
+        watchlist_items_count=pulumi.get(__response__, 'watchlist_items_count'),
+        watchlist_type=pulumi.get(__response__, 'watchlist_type')))

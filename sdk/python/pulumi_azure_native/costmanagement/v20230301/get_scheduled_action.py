@@ -234,9 +234,6 @@ def get_scheduled_action(name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         view_id=pulumi.get(__ret__, 'view_id'))
-
-
-@_utilities.lift_output_func(get_scheduled_action)
 def get_scheduled_action_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledActionResult]:
     """
@@ -245,4 +242,22 @@ def get_scheduled_action_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Scheduled action name.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20230301:getScheduledAction', __args__, opts=opts, typ=GetScheduledActionResult)
+    return __ret__.apply(lambda __response__: GetScheduledActionResult(
+        display_name=pulumi.get(__response__, 'display_name'),
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        file_destination=pulumi.get(__response__, 'file_destination'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        notification=pulumi.get(__response__, 'notification'),
+        notification_email=pulumi.get(__response__, 'notification_email'),
+        schedule=pulumi.get(__response__, 'schedule'),
+        scope=pulumi.get(__response__, 'scope'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        view_id=pulumi.get(__response__, 'view_id')))

@@ -156,9 +156,6 @@ def get_partner_configuration(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_partner_configuration)
 def get_partner_configuration_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerConfigurationResult]:
     """
@@ -167,4 +164,16 @@ def get_partner_configuration_output(resource_group_name: Optional[pulumi.Input[
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20220615:getPartnerConfiguration', __args__, opts=opts, typ=GetPartnerConfigurationResult)
+    return __ret__.apply(lambda __response__: GetPartnerConfigurationResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        partner_authorization=pulumi.get(__response__, 'partner_authorization'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

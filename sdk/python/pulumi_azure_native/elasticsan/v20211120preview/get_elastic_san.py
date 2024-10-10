@@ -263,9 +263,6 @@ def get_elastic_san(elastic_san_name: Optional[str] = None,
         total_volume_size_gi_b=pulumi.get(__ret__, 'total_volume_size_gi_b'),
         type=pulumi.get(__ret__, 'type'),
         volume_group_count=pulumi.get(__ret__, 'volume_group_count'))
-
-
-@_utilities.lift_output_func(get_elastic_san)
 def get_elastic_san_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticSanResult]:
@@ -276,4 +273,25 @@ def get_elastic_san_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
     :param str elastic_san_name: The name of the ElasticSan.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['elasticSanName'] = elastic_san_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:elasticsan/v20211120preview:getElasticSan', __args__, opts=opts, typ=GetElasticSanResult)
+    return __ret__.apply(lambda __response__: GetElasticSanResult(
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        base_size_ti_b=pulumi.get(__response__, 'base_size_ti_b'),
+        extended_capacity_size_ti_b=pulumi.get(__response__, 'extended_capacity_size_ti_b'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        total_iops=pulumi.get(__response__, 'total_iops'),
+        total_m_bps=pulumi.get(__response__, 'total_m_bps'),
+        total_size_ti_b=pulumi.get(__response__, 'total_size_ti_b'),
+        total_volume_size_gi_b=pulumi.get(__response__, 'total_volume_size_gi_b'),
+        type=pulumi.get(__response__, 'type'),
+        volume_group_count=pulumi.get(__response__, 'volume_group_count')))

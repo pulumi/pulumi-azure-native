@@ -177,9 +177,6 @@ def get_sql_pool_workload_group(resource_group_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         query_execution_timeout=pulumi.get(__ret__, 'query_execution_timeout'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_sql_pool_workload_group)
 def get_sql_pool_workload_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        sql_pool_name: Optional[pulumi.Input[str]] = None,
                                        workload_group_name: Optional[pulumi.Input[str]] = None,
@@ -194,4 +191,20 @@ def get_sql_pool_workload_group_output(resource_group_name: Optional[pulumi.Inpu
     :param str workload_group_name: The name of the workload group.
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sqlPoolName'] = sql_pool_name
+    __args__['workloadGroupName'] = workload_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601preview:getSqlPoolWorkloadGroup', __args__, opts=opts, typ=GetSqlPoolWorkloadGroupResult)
+    return __ret__.apply(lambda __response__: GetSqlPoolWorkloadGroupResult(
+        id=pulumi.get(__response__, 'id'),
+        importance=pulumi.get(__response__, 'importance'),
+        max_resource_percent=pulumi.get(__response__, 'max_resource_percent'),
+        max_resource_percent_per_request=pulumi.get(__response__, 'max_resource_percent_per_request'),
+        min_resource_percent=pulumi.get(__response__, 'min_resource_percent'),
+        min_resource_percent_per_request=pulumi.get(__response__, 'min_resource_percent_per_request'),
+        name=pulumi.get(__response__, 'name'),
+        query_execution_timeout=pulumi.get(__response__, 'query_execution_timeout'),
+        type=pulumi.get(__response__, 'type')))

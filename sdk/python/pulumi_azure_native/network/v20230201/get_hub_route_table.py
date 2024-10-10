@@ -175,9 +175,6 @@ def get_hub_route_table(resource_group_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         routes=pulumi.get(__ret__, 'routes'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_hub_route_table)
 def get_hub_route_table_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                route_table_name: Optional[pulumi.Input[str]] = None,
                                virtual_hub_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_hub_route_table_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str route_table_name: The name of the RouteTable.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['routeTableName'] = route_table_name
+    __args__['virtualHubName'] = virtual_hub_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getHubRouteTable', __args__, opts=opts, typ=GetHubRouteTableResult)
+    return __ret__.apply(lambda __response__: GetHubRouteTableResult(
+        associated_connections=pulumi.get(__response__, 'associated_connections'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        labels=pulumi.get(__response__, 'labels'),
+        name=pulumi.get(__response__, 'name'),
+        propagating_connections=pulumi.get(__response__, 'propagating_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        routes=pulumi.get(__response__, 'routes'),
+        type=pulumi.get(__response__, 'type')))

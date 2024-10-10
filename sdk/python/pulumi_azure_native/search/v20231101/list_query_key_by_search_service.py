@@ -81,9 +81,6 @@ def list_query_key_by_search_service(resource_group_name: Optional[str] = None,
     return AwaitableListQueryKeyBySearchServiceResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_query_key_by_search_service)
 def list_query_key_by_search_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             search_service_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListQueryKeyBySearchServiceResult]:
@@ -94,4 +91,11 @@ def list_query_key_by_search_service_output(resource_group_name: Optional[pulumi
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str search_service_name: The name of the search service associated with the specified resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['searchServiceName'] = search_service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:search/v20231101:listQueryKeyBySearchService', __args__, opts=opts, typ=ListQueryKeyBySearchServiceResult)
+    return __ret__.apply(lambda __response__: ListQueryKeyBySearchServiceResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

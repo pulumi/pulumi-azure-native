@@ -87,9 +87,6 @@ def list_effective_virtual_network_by_network_group(network_group_name: Optional
     return AwaitableListEffectiveVirtualNetworkByNetworkGroupResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_effective_virtual_network_by_network_group)
 def list_effective_virtual_network_by_network_group_output(network_group_name: Optional[pulumi.Input[str]] = None,
                                                            network_manager_name: Optional[pulumi.Input[str]] = None,
                                                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -104,4 +101,13 @@ def list_effective_virtual_network_by_network_group_output(network_group_name: O
     :param str resource_group_name: The name of the resource group.
     :param str skip_token: When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
     """
-    ...
+    __args__ = dict()
+    __args__['networkGroupName'] = network_group_name
+    __args__['networkManagerName'] = network_manager_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['skipToken'] = skip_token
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20210201preview:listEffectiveVirtualNetworkByNetworkGroup', __args__, opts=opts, typ=ListEffectiveVirtualNetworkByNetworkGroupResult)
+    return __ret__.apply(lambda __response__: ListEffectiveVirtualNetworkByNetworkGroupResult(
+        skip_token=pulumi.get(__response__, 'skip_token'),
+        value=pulumi.get(__response__, 'value')))

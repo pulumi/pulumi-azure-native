@@ -245,9 +245,6 @@ def get_managed_database_sensitivity_label(column_name: Optional[str] = None,
         schema_name=pulumi.get(__ret__, 'schema_name'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_managed_database_sensitivity_label)
 def get_managed_database_sensitivity_label_output(column_name: Optional[pulumi.Input[str]] = None,
                                                   database_name: Optional[pulumi.Input[str]] = None,
                                                   managed_instance_name: Optional[pulumi.Input[str]] = None,
@@ -268,4 +265,28 @@ def get_managed_database_sensitivity_label_output(column_name: Optional[pulumi.I
     :param str sensitivity_label_source: The source of the sensitivity label.
     :param str table_name: The name of the table.
     """
-    ...
+    __args__ = dict()
+    __args__['columnName'] = column_name
+    __args__['databaseName'] = database_name
+    __args__['managedInstanceName'] = managed_instance_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['schemaName'] = schema_name
+    __args__['sensitivityLabelSource'] = sensitivity_label_source
+    __args__['tableName'] = table_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230501preview:getManagedDatabaseSensitivityLabel', __args__, opts=opts, typ=GetManagedDatabaseSensitivityLabelResult)
+    return __ret__.apply(lambda __response__: GetManagedDatabaseSensitivityLabelResult(
+        client_classification_source=pulumi.get(__response__, 'client_classification_source'),
+        column_name=pulumi.get(__response__, 'column_name'),
+        id=pulumi.get(__response__, 'id'),
+        information_type=pulumi.get(__response__, 'information_type'),
+        information_type_id=pulumi.get(__response__, 'information_type_id'),
+        is_disabled=pulumi.get(__response__, 'is_disabled'),
+        label_id=pulumi.get(__response__, 'label_id'),
+        label_name=pulumi.get(__response__, 'label_name'),
+        managed_by=pulumi.get(__response__, 'managed_by'),
+        name=pulumi.get(__response__, 'name'),
+        rank=pulumi.get(__response__, 'rank'),
+        schema_name=pulumi.get(__response__, 'schema_name'),
+        table_name=pulumi.get(__response__, 'table_name'),
+        type=pulumi.get(__response__, 'type')))

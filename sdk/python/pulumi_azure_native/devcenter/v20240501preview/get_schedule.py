@@ -207,9 +207,6 @@ def get_schedule(pool_name: Optional[str] = None,
         time=pulumi.get(__ret__, 'time'),
         time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_schedule)
 def get_schedule_output(pool_name: Optional[pulumi.Input[str]] = None,
                         project_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -226,4 +223,23 @@ def get_schedule_output(pool_name: Optional[pulumi.Input[str]] = None,
     :param str schedule_name: The name of the schedule that uniquely identifies it.
     :param int top: The maximum number of resources to return from the operation. Example: '$top=10'.
     """
-    ...
+    __args__ = dict()
+    __args__['poolName'] = pool_name
+    __args__['projectName'] = project_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['scheduleName'] = schedule_name
+    __args__['top'] = top
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20240501preview:getSchedule', __args__, opts=opts, typ=GetScheduleResult)
+    return __ret__.apply(lambda __response__: GetScheduleResult(
+        frequency=pulumi.get(__response__, 'frequency'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        state=pulumi.get(__response__, 'state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        time=pulumi.get(__response__, 'time'),
+        time_zone=pulumi.get(__response__, 'time_zone'),
+        type=pulumi.get(__response__, 'type')))

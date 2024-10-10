@@ -271,9 +271,6 @@ def get_artifact_source(expand: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
         uri=pulumi.get(__ret__, 'uri'))
-
-
-@_utilities.lift_output_func(get_artifact_source)
 def get_artifact_source_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                lab_name: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
@@ -291,4 +288,27 @@ def get_artifact_source_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str name: The name of the artifact source.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['labName'] = lab_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getArtifactSource', __args__, opts=opts, typ=GetArtifactSourceResult)
+    return __ret__.apply(lambda __response__: GetArtifactSourceResult(
+        arm_template_folder_path=pulumi.get(__response__, 'arm_template_folder_path'),
+        branch_ref=pulumi.get(__response__, 'branch_ref'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        folder_path=pulumi.get(__response__, 'folder_path'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        security_token=pulumi.get(__response__, 'security_token'),
+        source_type=pulumi.get(__response__, 'source_type'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        unique_identifier=pulumi.get(__response__, 'unique_identifier'),
+        uri=pulumi.get(__response__, 'uri')))

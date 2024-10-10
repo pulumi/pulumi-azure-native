@@ -77,9 +77,6 @@ def get_marketplace_image_sas_token_sas_token(device_name: Optional[str] = None,
     return AwaitableGetMarketplaceImageSasTokenSASTokenResult(
         sas_uri=pulumi.get(__ret__, 'sas_uri'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_marketplace_image_sas_token_sas_token)
 def get_marketplace_image_sas_token_sas_token_output(device_name: Optional[pulumi.Input[str]] = None,
                                                      offer_name: Optional[pulumi.Input[str]] = None,
                                                      publisher_name: Optional[pulumi.Input[str]] = None,
@@ -92,4 +89,15 @@ def get_marketplace_image_sas_token_sas_token_output(device_name: Optional[pulum
 
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['deviceName'] = device_name
+    __args__['offerName'] = offer_name
+    __args__['publisherName'] = publisher_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['skuName'] = sku_name
+    __args__['versionName'] = version_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20230101preview:getMarketplaceImageSasTokenSASToken', __args__, opts=opts, typ=GetMarketplaceImageSasTokenSASTokenResult)
+    return __ret__.apply(lambda __response__: GetMarketplaceImageSasTokenSASTokenResult(
+        sas_uri=pulumi.get(__response__, 'sas_uri'),
+        status=pulumi.get(__response__, 'status')))

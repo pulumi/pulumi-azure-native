@@ -124,9 +124,6 @@ def get_time_series_database_connection(resource_group_name: Optional[str] = Non
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_time_series_database_connection)
 def get_time_series_database_connection_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                resource_name: Optional[pulumi.Input[str]] = None,
                                                time_series_database_connection_name: Optional[pulumi.Input[str]] = None,
@@ -140,4 +137,15 @@ def get_time_series_database_connection_output(resource_group_name: Optional[pul
     :param str resource_name: The name of the DigitalTwinsInstance.
     :param str time_series_database_connection_name: Name of time series database connection.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    __args__['timeSeriesDatabaseConnectionName'] = time_series_database_connection_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:digitaltwins:getTimeSeriesDatabaseConnection', __args__, opts=opts, typ=GetTimeSeriesDatabaseConnectionResult)
+    return __ret__.apply(lambda __response__: GetTimeSeriesDatabaseConnectionResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

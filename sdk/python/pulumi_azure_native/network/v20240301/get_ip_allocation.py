@@ -227,9 +227,6 @@ def get_ip_allocation(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'))
-
-
-@_utilities.lift_output_func(get_ip_allocation)
 def get_ip_allocation_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                              ip_allocation_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -242,4 +239,23 @@ def get_ip_allocation_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     :param str ip_allocation_name: The name of the IpAllocation.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['ipAllocationName'] = ip_allocation_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:getIpAllocation', __args__, opts=opts, typ=GetIpAllocationResult)
+    return __ret__.apply(lambda __response__: GetIpAllocationResult(
+        allocation_tags=pulumi.get(__response__, 'allocation_tags'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        ipam_allocation_id=pulumi.get(__response__, 'ipam_allocation_id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        prefix=pulumi.get(__response__, 'prefix'),
+        prefix_length=pulumi.get(__response__, 'prefix_length'),
+        prefix_type=pulumi.get(__response__, 'prefix_type'),
+        subnet=pulumi.get(__response__, 'subnet'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_network=pulumi.get(__response__, 'virtual_network')))

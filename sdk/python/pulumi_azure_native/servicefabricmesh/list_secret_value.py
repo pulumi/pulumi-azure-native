@@ -71,9 +71,6 @@ def list_secret_value(resource_group_name: Optional[str] = None,
 
     return AwaitableListSecretValueResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_secret_value)
 def list_secret_value_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                              secret_resource_name: Optional[pulumi.Input[str]] = None,
                              secret_value_resource_name: Optional[pulumi.Input[str]] = None,
@@ -87,4 +84,11 @@ def list_secret_value_output(resource_group_name: Optional[pulumi.Input[str]] = 
     :param str secret_resource_name: The name of the secret resource.
     :param str secret_value_resource_name: The name of the secret resource value which is typically the version identifier for the value.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['secretResourceName'] = secret_resource_name
+    __args__['secretValueResourceName'] = secret_value_resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh:listSecretValue', __args__, opts=opts, typ=ListSecretValueResult)
+    return __ret__.apply(lambda __response__: ListSecretValueResult(
+        value=pulumi.get(__response__, 'value')))

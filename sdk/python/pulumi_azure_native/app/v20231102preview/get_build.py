@@ -201,9 +201,6 @@ def get_build(build_name: Optional[str] = None,
         token_endpoint=pulumi.get(__ret__, 'token_endpoint'),
         type=pulumi.get(__ret__, 'type'),
         upload_endpoint=pulumi.get(__ret__, 'upload_endpoint'))
-
-
-@_utilities.lift_output_func(get_build)
 def get_build_output(build_name: Optional[pulumi.Input[str]] = None,
                      builder_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -216,4 +213,21 @@ def get_build_output(build_name: Optional[pulumi.Input[str]] = None,
     :param str builder_name: The name of the builder.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['buildName'] = build_name
+    __args__['builderName'] = builder_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20231102preview:getBuild', __args__, opts=opts, typ=GetBuildResult)
+    return __ret__.apply(lambda __response__: GetBuildResult(
+        build_status=pulumi.get(__response__, 'build_status'),
+        configuration=pulumi.get(__response__, 'configuration'),
+        destination_container_registry=pulumi.get(__response__, 'destination_container_registry'),
+        id=pulumi.get(__response__, 'id'),
+        log_stream_endpoint=pulumi.get(__response__, 'log_stream_endpoint'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        token_endpoint=pulumi.get(__response__, 'token_endpoint'),
+        type=pulumi.get(__response__, 'type'),
+        upload_endpoint=pulumi.get(__response__, 'upload_endpoint')))

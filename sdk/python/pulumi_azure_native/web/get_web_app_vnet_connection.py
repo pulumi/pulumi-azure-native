@@ -205,9 +205,6 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
         routes=pulumi.get(__ret__, 'routes'),
         type=pulumi.get(__ret__, 'type'),
         vnet_resource_id=pulumi.get(__ret__, 'vnet_resource_id'))
-
-
-@_utilities.lift_output_func(get_web_app_vnet_connection)
 def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        vnet_name: Optional[pulumi.Input[str]] = None,
@@ -223,4 +220,21 @@ def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str vnet_name: Name of the virtual network.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vnetName'] = vnet_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppVnetConnection', __args__, opts=opts, typ=GetWebAppVnetConnectionResult)
+    return __ret__.apply(lambda __response__: GetWebAppVnetConnectionResult(
+        cert_blob=pulumi.get(__response__, 'cert_blob'),
+        cert_thumbprint=pulumi.get(__response__, 'cert_thumbprint'),
+        dns_servers=pulumi.get(__response__, 'dns_servers'),
+        id=pulumi.get(__response__, 'id'),
+        is_swift=pulumi.get(__response__, 'is_swift'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        resync_required=pulumi.get(__response__, 'resync_required'),
+        routes=pulumi.get(__response__, 'routes'),
+        type=pulumi.get(__response__, 'type'),
+        vnet_resource_id=pulumi.get(__response__, 'vnet_resource_id')))

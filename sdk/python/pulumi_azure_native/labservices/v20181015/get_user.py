@@ -233,9 +233,6 @@ def get_user(expand: Optional[str] = None,
         total_usage=pulumi.get(__ret__, 'total_usage'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                     lab_account_name: Optional[pulumi.Input[str]] = None,
                     lab_name: Optional[pulumi.Input[str]] = None,
@@ -252,4 +249,25 @@ def get_user_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str user_name: The name of the user.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['labAccountName'] = lab_account_name
+    __args__['labName'] = lab_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['userName'] = user_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:labservices/v20181015:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        email=pulumi.get(__response__, 'email'),
+        family_name=pulumi.get(__response__, 'family_name'),
+        given_name=pulumi.get(__response__, 'given_name'),
+        id=pulumi.get(__response__, 'id'),
+        latest_operation_result=pulumi.get(__response__, 'latest_operation_result'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        tags=pulumi.get(__response__, 'tags'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        total_usage=pulumi.get(__response__, 'total_usage'),
+        type=pulumi.get(__response__, 'type'),
+        unique_identifier=pulumi.get(__response__, 'unique_identifier')))

@@ -319,9 +319,6 @@ def get_broker(broker_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_broker)
 def get_broker_output(broker_name: Optional[pulumi.Input[str]] = None,
                       mq_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -335,4 +332,30 @@ def get_broker_output(broker_name: Optional[pulumi.Input[str]] = None,
     :param str mq_name: Name of MQ resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['brokerName'] = broker_name
+    __args__['mqName'] = mq_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq:getBroker', __args__, opts=opts, typ=GetBrokerResult)
+    return __ret__.apply(lambda __response__: GetBrokerResult(
+        auth_image=pulumi.get(__response__, 'auth_image'),
+        broker_image=pulumi.get(__response__, 'broker_image'),
+        broker_node_tolerations=pulumi.get(__response__, 'broker_node_tolerations'),
+        cardinality=pulumi.get(__response__, 'cardinality'),
+        diagnostics=pulumi.get(__response__, 'diagnostics'),
+        disk_backed_message_buffer_settings=pulumi.get(__response__, 'disk_backed_message_buffer_settings'),
+        encrypt_internal_traffic=pulumi.get(__response__, 'encrypt_internal_traffic'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        health_manager_image=pulumi.get(__response__, 'health_manager_image'),
+        health_manager_node_tolerations=pulumi.get(__response__, 'health_manager_node_tolerations'),
+        id=pulumi.get(__response__, 'id'),
+        internal_certs=pulumi.get(__response__, 'internal_certs'),
+        location=pulumi.get(__response__, 'location'),
+        memory_profile=pulumi.get(__response__, 'memory_profile'),
+        mode=pulumi.get(__response__, 'mode'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

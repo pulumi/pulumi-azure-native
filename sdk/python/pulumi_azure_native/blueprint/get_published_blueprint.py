@@ -204,9 +204,6 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         target_scope=pulumi.get(__ret__, 'target_scope'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_published_blueprint)
 def get_published_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] = None,
                                    resource_scope: Optional[pulumi.Input[str]] = None,
                                    version_id: Optional[pulumi.Input[str]] = None,
@@ -222,4 +219,21 @@ def get_published_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] =
     :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
     :param str version_id: Version of the published blueprint definition.
     """
-    ...
+    __args__ = dict()
+    __args__['blueprintName'] = blueprint_name
+    __args__['resourceScope'] = resource_scope
+    __args__['versionId'] = version_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:blueprint:getPublishedBlueprint', __args__, opts=opts, typ=GetPublishedBlueprintResult)
+    return __ret__.apply(lambda __response__: GetPublishedBlueprintResult(
+        blueprint_name=pulumi.get(__response__, 'blueprint_name'),
+        change_notes=pulumi.get(__response__, 'change_notes'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        resource_groups=pulumi.get(__response__, 'resource_groups'),
+        status=pulumi.get(__response__, 'status'),
+        target_scope=pulumi.get(__response__, 'target_scope'),
+        type=pulumi.get(__response__, 'type')))

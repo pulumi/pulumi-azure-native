@@ -559,9 +559,6 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'))
-
-
-@_utilities.lift_output_func(get_bare_metal_machine)
 def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBareMetalMachineResult]:
@@ -572,4 +569,48 @@ def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input
     :param str bare_metal_machine_name: The name of the bare metal machine.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['bareMetalMachineName'] = bare_metal_machine_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20240701:getBareMetalMachine', __args__, opts=opts, typ=GetBareMetalMachineResult)
+    return __ret__.apply(lambda __response__: GetBareMetalMachineResult(
+        associated_resource_ids=pulumi.get(__response__, 'associated_resource_ids'),
+        bmc_connection_string=pulumi.get(__response__, 'bmc_connection_string'),
+        bmc_credentials=pulumi.get(__response__, 'bmc_credentials'),
+        bmc_mac_address=pulumi.get(__response__, 'bmc_mac_address'),
+        boot_mac_address=pulumi.get(__response__, 'boot_mac_address'),
+        cluster_id=pulumi.get(__response__, 'cluster_id'),
+        cordon_status=pulumi.get(__response__, 'cordon_status'),
+        detailed_status=pulumi.get(__response__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        hardware_inventory=pulumi.get(__response__, 'hardware_inventory'),
+        hardware_validation_status=pulumi.get(__response__, 'hardware_validation_status'),
+        hybrid_aks_clusters_associated_ids=pulumi.get(__response__, 'hybrid_aks_clusters_associated_ids'),
+        id=pulumi.get(__response__, 'id'),
+        kubernetes_node_name=pulumi.get(__response__, 'kubernetes_node_name'),
+        kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
+        location=pulumi.get(__response__, 'location'),
+        machine_cluster_version=pulumi.get(__response__, 'machine_cluster_version'),
+        machine_details=pulumi.get(__response__, 'machine_details'),
+        machine_name=pulumi.get(__response__, 'machine_name'),
+        machine_roles=pulumi.get(__response__, 'machine_roles'),
+        machine_sku_id=pulumi.get(__response__, 'machine_sku_id'),
+        name=pulumi.get(__response__, 'name'),
+        oam_ipv4_address=pulumi.get(__response__, 'oam_ipv4_address'),
+        oam_ipv6_address=pulumi.get(__response__, 'oam_ipv6_address'),
+        os_image=pulumi.get(__response__, 'os_image'),
+        power_state=pulumi.get(__response__, 'power_state'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        rack_id=pulumi.get(__response__, 'rack_id'),
+        rack_slot=pulumi.get(__response__, 'rack_slot'),
+        ready_state=pulumi.get(__response__, 'ready_state'),
+        runtime_protection_status=pulumi.get(__response__, 'runtime_protection_status'),
+        secret_rotation_status=pulumi.get(__response__, 'secret_rotation_status'),
+        serial_number=pulumi.get(__response__, 'serial_number'),
+        service_tag=pulumi.get(__response__, 'service_tag'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_machines_associated_ids=pulumi.get(__response__, 'virtual_machines_associated_ids')))

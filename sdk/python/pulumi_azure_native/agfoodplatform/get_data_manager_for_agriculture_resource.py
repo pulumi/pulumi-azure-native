@@ -212,9 +212,6 @@ def get_data_manager_for_agriculture_resource(data_manager_for_agriculture_resou
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_data_manager_for_agriculture_resource)
 def get_data_manager_for_agriculture_resource_output(data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataManagerForAgricultureResourceResult]:
@@ -226,4 +223,21 @@ def get_data_manager_for_agriculture_resource_output(data_manager_for_agricultur
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['dataManagerForAgricultureResourceName'] = data_manager_for_agriculture_resource_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:agfoodplatform:getDataManagerForAgricultureResource', __args__, opts=opts, typ=GetDataManagerForAgricultureResourceResult)
+    return __ret__.apply(lambda __response__: GetDataManagerForAgricultureResourceResult(
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        instance_uri=pulumi.get(__response__, 'instance_uri'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        sensor_integration=pulumi.get(__response__, 'sensor_integration'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

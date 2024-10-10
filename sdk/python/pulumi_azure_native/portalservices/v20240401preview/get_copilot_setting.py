@@ -125,11 +125,17 @@ def get_copilot_setting(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_copilot_setting)
 def get_copilot_setting_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCopilotSettingResult]:
     """
     Get a CopilotSettingsResource
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:portalservices/v20240401preview:getCopilotSetting', __args__, opts=opts, typ=GetCopilotSettingResult)
+    return __ret__.apply(lambda __response__: GetCopilotSettingResult(
+        access_control_enabled=pulumi.get(__response__, 'access_control_enabled'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -67,9 +67,6 @@ def list_delegation_setting_secrets(resource_group_name: Optional[str] = None,
 
     return AwaitableListDelegationSettingSecretsResult(
         validation_key=pulumi.get(__ret__, 'validation_key'))
-
-
-@_utilities.lift_output_func(list_delegation_setting_secrets)
 def list_delegation_setting_secrets_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                            service_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDelegationSettingSecretsResult]:
@@ -80,4 +77,10 @@ def list_delegation_setting_secrets_output(resource_group_name: Optional[pulumi.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the API Management service.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20210801:listDelegationSettingSecrets', __args__, opts=opts, typ=ListDelegationSettingSecretsResult)
+    return __ret__.apply(lambda __response__: ListDelegationSettingSecretsResult(
+        validation_key=pulumi.get(__response__, 'validation_key')))

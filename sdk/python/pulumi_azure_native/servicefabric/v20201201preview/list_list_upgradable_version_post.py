@@ -67,9 +67,6 @@ def list_list_upgradable_version_post(cluster_name: Optional[str] = None,
 
     return AwaitableListListUpgradableVersionPostResult(
         supported_path=pulumi.get(__ret__, 'supported_path'))
-
-
-@_utilities.lift_output_func(list_list_upgradable_version_post)
 def list_list_upgradable_version_post_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              target_version: Optional[pulumi.Input[str]] = None,
@@ -82,4 +79,11 @@ def list_list_upgradable_version_post_output(cluster_name: Optional[pulumi.Input
     :param str resource_group_name: The name of the resource group.
     :param str target_version: The target code version.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['targetVersion'] = target_version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20201201preview:listListUpgradableVersionPost', __args__, opts=opts, typ=ListListUpgradableVersionPostResult)
+    return __ret__.apply(lambda __response__: ListListUpgradableVersionPostResult(
+        supported_path=pulumi.get(__response__, 'supported_path')))

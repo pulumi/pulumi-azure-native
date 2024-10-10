@@ -368,9 +368,6 @@ def get_account(account_name: Optional[str] = None,
         trusted_id_providers=pulumi.get(__ret__, 'trusted_id_providers'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_rules=pulumi.get(__ret__, 'virtual_network_rules'))
-
-
-@_utilities.lift_output_func(get_account)
 def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
@@ -382,4 +379,33 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: The name of the Data Lake Store account.
     :param str resource_group_name: The name of the Azure resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datalakestore:getAccount', __args__, opts=opts, typ=GetAccountResult)
+    return __ret__.apply(lambda __response__: GetAccountResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        current_tier=pulumi.get(__response__, 'current_tier'),
+        default_group=pulumi.get(__response__, 'default_group'),
+        encryption_config=pulumi.get(__response__, 'encryption_config'),
+        encryption_provisioning_state=pulumi.get(__response__, 'encryption_provisioning_state'),
+        encryption_state=pulumi.get(__response__, 'encryption_state'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        firewall_allow_azure_ips=pulumi.get(__response__, 'firewall_allow_azure_ips'),
+        firewall_rules=pulumi.get(__response__, 'firewall_rules'),
+        firewall_state=pulumi.get(__response__, 'firewall_state'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        new_tier=pulumi.get(__response__, 'new_tier'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        trusted_id_provider_state=pulumi.get(__response__, 'trusted_id_provider_state'),
+        trusted_id_providers=pulumi.get(__response__, 'trusted_id_providers'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_network_rules=pulumi.get(__response__, 'virtual_network_rules')))

@@ -267,9 +267,6 @@ def get_mqtt_bridge_connector(mq_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_mqtt_bridge_connector)
 def get_mqtt_bridge_connector_output(mq_name: Optional[pulumi.Input[str]] = None,
                                      mqtt_bridge_connector_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -283,4 +280,26 @@ def get_mqtt_bridge_connector_output(mq_name: Optional[pulumi.Input[str]] = None
     :param str mqtt_bridge_connector_name: Name of MQ mqttBridgeConnector resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['mqName'] = mq_name
+    __args__['mqttBridgeConnectorName'] = mqtt_bridge_connector_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq:getMqttBridgeConnector', __args__, opts=opts, typ=GetMqttBridgeConnectorResult)
+    return __ret__.apply(lambda __response__: GetMqttBridgeConnectorResult(
+        bridge_instances=pulumi.get(__response__, 'bridge_instances'),
+        client_id_prefix=pulumi.get(__response__, 'client_id_prefix'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        image=pulumi.get(__response__, 'image'),
+        local_broker_connection=pulumi.get(__response__, 'local_broker_connection'),
+        location=pulumi.get(__response__, 'location'),
+        log_level=pulumi.get(__response__, 'log_level'),
+        name=pulumi.get(__response__, 'name'),
+        node_tolerations=pulumi.get(__response__, 'node_tolerations'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        remote_broker_connection=pulumi.get(__response__, 'remote_broker_connection'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

@@ -125,9 +125,6 @@ def get_cloud_link(cloud_link_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_cloud_link)
 def get_cloud_link_output(cloud_link_name: Optional[pulumi.Input[str]] = None,
                           private_cloud_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -143,4 +140,15 @@ def get_cloud_link_output(cloud_link_name: Optional[pulumi.Input[str]] = None,
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['cloudLinkName'] = cloud_link_name
+    __args__['privateCloudName'] = private_cloud_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:avs:getCloudLink', __args__, opts=opts, typ=GetCloudLinkResult)
+    return __ret__.apply(lambda __response__: GetCloudLinkResult(
+        id=pulumi.get(__response__, 'id'),
+        linked_cloud=pulumi.get(__response__, 'linked_cloud'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type')))

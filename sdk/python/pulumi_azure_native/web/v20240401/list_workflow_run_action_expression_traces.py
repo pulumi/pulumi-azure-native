@@ -97,9 +97,6 @@ def list_workflow_run_action_expression_traces(action_name: Optional[str] = None
         inputs=pulumi.get(__ret__, 'inputs'),
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_workflow_run_action_expression_traces)
 def list_workflow_run_action_expression_traces_output(action_name: Optional[pulumi.Input[str]] = None,
                                                       name: Optional[pulumi.Input[str]] = None,
                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -116,4 +113,15 @@ def list_workflow_run_action_expression_traces_output(action_name: Optional[pulu
     :param str run_name: The workflow run name.
     :param str workflow_name: The workflow name.
     """
-    ...
+    __args__ = dict()
+    __args__['actionName'] = action_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['runName'] = run_name
+    __args__['workflowName'] = workflow_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:listWorkflowRunActionExpressionTraces', __args__, opts=opts, typ=ListWorkflowRunActionExpressionTracesResult)
+    return __ret__.apply(lambda __response__: ListWorkflowRunActionExpressionTracesResult(
+        inputs=pulumi.get(__response__, 'inputs'),
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

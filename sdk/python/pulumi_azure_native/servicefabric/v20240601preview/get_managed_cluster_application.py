@@ -215,9 +215,6 @@ def get_managed_cluster_application(application_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_managed_cluster_application)
 def get_managed_cluster_application_output(application_name: Optional[pulumi.Input[str]] = None,
                                            cluster_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -230,4 +227,22 @@ def get_managed_cluster_application_output(application_name: Optional[pulumi.Inp
     :param str cluster_name: The name of the cluster resource.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationName'] = application_name
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20240601preview:getManagedClusterApplication', __args__, opts=opts, typ=GetManagedClusterApplicationResult)
+    return __ret__.apply(lambda __response__: GetManagedClusterApplicationResult(
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        managed_identities=pulumi.get(__response__, 'managed_identities'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        upgrade_policy=pulumi.get(__response__, 'upgrade_policy'),
+        version=pulumi.get(__response__, 'version')))

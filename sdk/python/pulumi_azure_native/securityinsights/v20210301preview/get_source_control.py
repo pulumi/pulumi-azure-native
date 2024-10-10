@@ -269,9 +269,6 @@ def get_source_control(operational_insights_resource_provider: Optional[str] = N
         repository=pulumi.get(__ret__, 'repository'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_source_control)
 def get_source_control_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               source_control_id: Optional[pulumi.Input[str]] = None,
@@ -286,4 +283,27 @@ def get_source_control_output(operational_insights_resource_provider: Optional[p
     :param str source_control_id: Source control Id
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sourceControlId'] = source_control_id
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20210301preview:getSourceControl', __args__, opts=opts, typ=GetSourceControlResult)
+    return __ret__.apply(lambda __response__: GetSourceControlResult(
+        content_types=pulumi.get(__response__, 'content_types'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        created_by_type=pulumi.get(__response__, 'created_by_type'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_at=pulumi.get(__response__, 'last_modified_at'),
+        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
+        last_modified_by_type=pulumi.get(__response__, 'last_modified_by_type'),
+        name=pulumi.get(__response__, 'name'),
+        repo_type=pulumi.get(__response__, 'repo_type'),
+        repository=pulumi.get(__response__, 'repository'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -69,9 +69,6 @@ def list_bit_locker_key(job_name: Optional[str] = None,
 
     return AwaitableListBitLockerKeyResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_bit_locker_key)
 def list_bit_locker_key_output(job_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBitLockerKeyResult]:
@@ -83,4 +80,10 @@ def list_bit_locker_key_output(job_name: Optional[pulumi.Input[str]] = None,
     :param str job_name: The name of the import/export job.
     :param str resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['jobName'] = job_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:importexport:listBitLockerKey', __args__, opts=opts, typ=ListBitLockerKeyResult)
+    return __ret__.apply(lambda __response__: ListBitLockerKeyResult(
+        value=pulumi.get(__response__, 'value')))

@@ -92,9 +92,6 @@ def get_test_result_console_log_download_url(log_file_name: Optional[str] = None
     return AwaitableGetTestResultConsoleLogDownloadURLResult(
         download_url=pulumi.get(__ret__, 'download_url'),
         expiration_time=pulumi.get(__ret__, 'expiration_time'))
-
-
-@_utilities.lift_output_func(get_test_result_console_log_download_url)
 def get_test_result_console_log_download_url_output(log_file_name: Optional[pulumi.Input[str]] = None,
                                                     package_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -114,4 +111,14 @@ def get_test_result_console_log_download_url_output(log_file_name: Optional[pulu
     :param str test_base_account_name: The resource name of the Test Base Account.
     :param str test_result_name: The Test Result Name. It equals to TestResult-{TestResultId} string.
     """
-    ...
+    __args__ = dict()
+    __args__['logFileName'] = log_file_name
+    __args__['packageName'] = package_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['testBaseAccountName'] = test_base_account_name
+    __args__['testResultName'] = test_result_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getTestResultConsoleLogDownloadURL', __args__, opts=opts, typ=GetTestResultConsoleLogDownloadURLResult)
+    return __ret__.apply(lambda __response__: GetTestResultConsoleLogDownloadURLResult(
+        download_url=pulumi.get(__response__, 'download_url'),
+        expiration_time=pulumi.get(__response__, 'expiration_time')))

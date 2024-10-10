@@ -136,9 +136,6 @@ def get_network(network_resource_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_network)
 def get_network_output(network_resource_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkResult]:
@@ -152,4 +149,15 @@ def get_network_output(network_resource_name: Optional[pulumi.Input[str]] = None
     :param str network_resource_name: The identity of the network.
     :param str resource_group_name: Azure resource group name
     """
-    ...
+    __args__ = dict()
+    __args__['networkResourceName'] = network_resource_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh:getNetwork', __args__, opts=opts, typ=GetNetworkResult)
+    return __ret__.apply(lambda __response__: GetNetworkResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

@@ -266,9 +266,6 @@ def get_dsc_configuration(automation_account_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_dsc_configuration)
 def get_dsc_configuration_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                  configuration_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -281,4 +278,26 @@ def get_dsc_configuration_output(automation_account_name: Optional[pulumi.Input[
     :param str configuration_name: The configuration name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['automationAccountName'] = automation_account_name
+    __args__['configurationName'] = configuration_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20231101:getDscConfiguration', __args__, opts=opts, typ=GetDscConfigurationResult)
+    return __ret__.apply(lambda __response__: GetDscConfigurationResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        description=pulumi.get(__response__, 'description'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        job_count=pulumi.get(__response__, 'job_count'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        location=pulumi.get(__response__, 'location'),
+        log_verbose=pulumi.get(__response__, 'log_verbose'),
+        name=pulumi.get(__response__, 'name'),
+        node_configuration_count=pulumi.get(__response__, 'node_configuration_count'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        source=pulumi.get(__response__, 'source'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

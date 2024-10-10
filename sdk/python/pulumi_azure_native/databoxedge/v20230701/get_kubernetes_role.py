@@ -209,9 +209,6 @@ def get_kubernetes_role(device_name: Optional[str] = None,
         role_status=pulumi.get(__ret__, 'role_status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_kubernetes_role)
 def get_kubernetes_role_output(device_name: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -224,4 +221,21 @@ def get_kubernetes_role_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str name: The role name.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['deviceName'] = device_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20230701:getKubernetesRole', __args__, opts=opts, typ=GetKubernetesRoleResult)
+    return __ret__.apply(lambda __response__: GetKubernetesRoleResult(
+        host_platform=pulumi.get(__response__, 'host_platform'),
+        host_platform_type=pulumi.get(__response__, 'host_platform_type'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        kubernetes_cluster_info=pulumi.get(__response__, 'kubernetes_cluster_info'),
+        kubernetes_role_resources=pulumi.get(__response__, 'kubernetes_role_resources'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        role_status=pulumi.get(__response__, 'role_status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -102,9 +102,6 @@ def list_featureset_version_materialization_jobs(feature_window_end: Optional[st
     return AwaitableListFeaturesetVersionMaterializationJobsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_featureset_version_materialization_jobs)
 def list_featureset_version_materialization_jobs_output(feature_window_end: Optional[pulumi.Input[Optional[str]]] = None,
                                                         feature_window_start: Optional[pulumi.Input[Optional[str]]] = None,
                                                         filters: Optional[pulumi.Input[Optional[str]]] = None,
@@ -130,4 +127,17 @@ def list_featureset_version_materialization_jobs_output(feature_window_end: Opti
     :param str version: Version identifier. This is case-sensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['featureWindowEnd'] = feature_window_end
+    __args__['featureWindowStart'] = feature_window_start
+    __args__['filters'] = filters
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['skip'] = skip
+    __args__['version'] = version
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:listFeaturesetVersionMaterializationJobs', __args__, opts=opts, typ=ListFeaturesetVersionMaterializationJobsResult)
+    return __ret__.apply(lambda __response__: ListFeaturesetVersionMaterializationJobsResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))
