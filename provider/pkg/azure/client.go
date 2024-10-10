@@ -31,7 +31,7 @@ type AzureDeleter interface {
 type AzureClient interface {
 	AzureDeleter
 	CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error
-	Get(ctx context.Context, id string, apiVersion string) (any, error)
+	Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (any, error)
 	Head(ctx context.Context, id string, apiVersion string) error
 	Patch(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error)
 	Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}) (any, error)
@@ -159,10 +159,14 @@ func (a *azureClientImpl) Post(
 	return outputs, nil
 }
 
-func (a *azureClientImpl) Get(ctx context.Context, id string, apiVersion string) (any, error) {
+func (a *azureClientImpl) Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (any, error) {
 	queryParameters := map[string]interface{}{
 		"api-version": apiVersion,
 	}
+	for k, v := range queryParams {
+		queryParameters[k] = v
+	}
+
 	preparer := autorest.CreatePreparer(
 		autorest.AsGet(),
 		autorest.WithBaseURL(a.environment.ResourceManagerEndpoint),

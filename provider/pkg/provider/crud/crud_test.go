@@ -5,10 +5,6 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/stretchr/testify/assert"
@@ -107,24 +103,12 @@ func TestCanCreate_RequestUrls(t *testing.T) {
 	const resourceId = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/virtualMachines/vm"
 
 	runTest := func(t *testing.T, res *resources.AzureAPIResource, assertions func(t *testing.T, req *http.Request)) {
-		transp := &requestAssertingTransporter{
-			t:          t,
-			assertions: assertions,
-		}
-		opts := arm.ClientOptions{
-			ClientOptions: policy.ClientOptions{
-				Retry:     policy.RetryOptions{MaxRetries: -1}, // speeds up the tests
-				Telemetry: policy.TelemetryOptions{Disabled: true},
-				Transport: transp,
-			},
-			DisableRPRegistration: true,
-		}
-		client, err := azure.NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+		client, err := azure.CreateTestClient(t, assertions)
 		require.NoError(t, err)
 
 		crudClient := NewResourceCrudClient(client, nil, nil, "123", res)
 		// Runs the assertions as part of HTTP transport
-		crudClient.CanCreate(context.Background(), resourceId)
+		crudClient.Read(context.Background(), resourceId)
 	}
 
 	t.Run("explicit GET, no read path", func(t *testing.T) {
@@ -146,6 +130,19 @@ func TestCanCreate_RequestUrls(t *testing.T) {
 		assertions := func(t *testing.T, req *http.Request) {
 			assert.Equal(t, "GET", req.Method)
 			assert.Equal(t, resourceId+"/read/me", req.URL.Path)
+		}
+		runTest(t, &res, assertions)
+	})
+
+	t.Run("explicit GET, additional query params", func(t *testing.T) {
+		res := resources.AzureAPIResource{
+			ReadMethod:      "GET",
+			ReadQueryParams: map[string]any{"$expand": "*"},
+		}
+		assertions := func(t *testing.T, req *http.Request) {
+			assert.Equal(t, "GET", req.Method)
+			assert.Equal(t, resourceId, req.URL.Path)
+			assert.Equal(t, "*", req.URL.Query().Get("$expand"))
 		}
 		runTest(t, &res, assertions)
 	})
@@ -194,12 +191,33 @@ func TestCanCreate_RequestUrls(t *testing.T) {
 	})
 }
 
-type requestAssertingTransporter struct {
-	t          *testing.T
-	assertions func(*testing.T, *http.Request)
-}
+func TestSqlVirtualMachineUsesReadQueryParams(t *testing.T) {
+	sqlVmResource := resources.AzureAPIResource{
+		Path:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/{sqlVirtualMachineName}",
+		ReadQueryParams: map[string]any{"$expand": "*"},
+	}
+	sqlVmId := "/subscriptions/123/resourceGroups/rg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/vm"
 
-func (r *requestAssertingTransporter) Do(req *http.Request) (*http.Response, error) {
-	r.assertions(r.t, req)
-	return nil, nil
+	runTest := func(t *testing.T, res *resources.AzureAPIResource, assertions func(t *testing.T, req *http.Request)) {
+		client, err := azure.CreateTestClient(t, assertions)
+		require.NoError(t, err)
+
+		crudClient := NewResourceCrudClient(client, nil, nil, "123", res)
+		// Runs the assertions as part of HTTP transport
+		crudClient.Read(context.Background(), sqlVmId)
+	}
+
+	runTest(t, &sqlVmResource, func(t *testing.T, req *http.Request) {
+		assert.Equal(t, "GET", req.Method)
+		assert.Equal(t, sqlVmId, req.URL.Path)
+		assert.Equal(t, "*", req.URL.Query().Get("$expand"))
+	})
+
+	// Sanity check
+	sqlVmResource.ReadQueryParams = nil
+	runTest(t, &sqlVmResource, func(t *testing.T, req *http.Request) {
+		assert.Equal(t, "GET", req.Method)
+		assert.Equal(t, sqlVmId, req.URL.Path)
+		assert.Empty(t, req.URL.Query().Get("$expand"))
+	})
 }

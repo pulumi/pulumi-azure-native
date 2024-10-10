@@ -67,7 +67,7 @@ func makeWebAppResource(resourceType, path string, crudClientFactory crud.Resour
 				return nil, false, err
 			}
 
-			siteConfigResponseRaw, err := azureClient.Get(ctx, id+"/config/web", apiVersion)
+			siteConfigResponseRaw, err := azureClient.Get(ctx, id+"/config/web", apiVersion, nil)
 			if err != nil {
 				return nil, false, err
 			}
