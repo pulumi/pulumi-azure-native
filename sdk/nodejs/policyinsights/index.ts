@@ -102,10 +102,12 @@ export * from "../types/enums/policyinsights";
 // Export sub-modules:
 import * as v20211001 from "./v20211001";
 import * as v20220901 from "./v20220901";
+import * as v20241001 from "./v20241001";
 
 export {
     v20211001,
     v20220901,
+    v20241001,
 };
 
 const _module = {

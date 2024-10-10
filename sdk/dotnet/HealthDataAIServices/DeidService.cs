@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.HealthDataAIServices
     /// <summary>
     /// A HealthDataAIServicesProviderHub resource
     /// Azure REST API version: 2024-02-28-preview.
+    /// 
+    /// Other available API versions: 2024-09-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthdataaiservices:DeidService")]
     public partial class DeidService : global::Pulumi.CustomResource
@@ -84,6 +86,7 @@ namespace Pulumi.AzureNative.HealthDataAIServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:healthdataaiservices/v20240228preview:DeidService" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthdataaiservices/v20240920:DeidService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

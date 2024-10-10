@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The remediation definition.
  * Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2019-07-01.
  *
- * Other available API versions: 2018-07-01-preview.
+ * Other available API versions: 2018-07-01-preview, 2024-10-01.
  */
 export class RemediationAtResource extends pulumi.CustomResource {
     /**
@@ -156,7 +156,7 @@ export class RemediationAtResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights/v20180701preview:RemediationAtResource" }, { type: "azure-native:policyinsights/v20190701:RemediationAtResource" }, { type: "azure-native:policyinsights/v20211001:RemediationAtResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights/v20180701preview:RemediationAtResource" }, { type: "azure-native:policyinsights/v20190701:RemediationAtResource" }, { type: "azure-native:policyinsights/v20211001:RemediationAtResource" }, { type: "azure-native:policyinsights/v20241001:RemediationAtResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RemediationAtResource.__pulumiType, name, resourceInputs, opts);
     }

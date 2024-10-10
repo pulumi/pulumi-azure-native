@@ -70,7 +70,7 @@ def list_remediation_deployments_at_resource(remediation_name: Optional[str] = N
     Gets all deployments for a remediation at resource scope.
     Azure REST API version: 2021-10-01.
 
-    Other available API versions: 2018-07-01-preview.
+    Other available API versions: 2018-07-01-preview, 2024-10-01.
 
 
     :param str remediation_name: The name of the remediation.
@@ -98,7 +98,7 @@ def list_remediation_deployments_at_resource_output(remediation_name: Optional[p
     Gets all deployments for a remediation at resource scope.
     Azure REST API version: 2021-10-01.
 
-    Other available API versions: 2018-07-01-preview.
+    Other available API versions: 2018-07-01-preview, 2024-10-01.
 
 
     :param str remediation_name: The name of the remediation.

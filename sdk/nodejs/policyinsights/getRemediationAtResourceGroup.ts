@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets an existing remediation at resource group scope.
  * Azure REST API version: 2021-10-01.
  *
- * Other available API versions: 2018-07-01-preview.
+ * Other available API versions: 2018-07-01-preview, 2024-10-01.
  */
 export function getRemediationAtResourceGroup(args: GetRemediationAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtResourceGroupResult> {
 
@@ -110,7 +110,7 @@ export interface GetRemediationAtResourceGroupResult {
  * Gets an existing remediation at resource group scope.
  * Azure REST API version: 2021-10-01.
  *
- * Other available API versions: 2018-07-01-preview.
+ * Other available API versions: 2018-07-01-preview, 2024-10-01.
  */
 export function getRemediationAtResourceGroupOutput(args: GetRemediationAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtResourceGroupResult> {
     return pulumi.output(args).apply((a: any) => getRemediationAtResourceGroup(a, opts))

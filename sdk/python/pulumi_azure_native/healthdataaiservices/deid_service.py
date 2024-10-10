@@ -138,6 +138,8 @@ class DeidService(pulumi.CustomResource):
         A HealthDataAIServicesProviderHub resource
         Azure REST API version: 2024-02-28-preview.
 
+        Other available API versions: 2024-09-20.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deid_service_name: The name of the deid service
@@ -156,6 +158,8 @@ class DeidService(pulumi.CustomResource):
         """
         A HealthDataAIServicesProviderHub resource
         Azure REST API version: 2024-02-28-preview.
+
+        Other available API versions: 2024-09-20.
 
         :param str resource_name: The name of the resource.
         :param DeidServiceArgs args: The arguments to use to populate this resource's properties.
@@ -198,7 +202,7 @@ class DeidService(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthdataaiservices/v20240228preview:DeidService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthdataaiservices/v20240228preview:DeidService"), pulumi.Alias(type_="azure-native:healthdataaiservices/v20240920:DeidService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeidService, __self__).__init__(
             'azure-native:healthdataaiservices:DeidService',

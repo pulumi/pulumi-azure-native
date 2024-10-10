@@ -31,9 +31,11 @@ export * from "../types/enums/healthdataaiservices";
 
 // Export sub-modules:
 import * as v20240228preview from "./v20240228preview";
+import * as v20240920 from "./v20240920";
 
 export {
     v20240228preview,
+    v20240920,
 };
 
 const _module = {

@@ -68684,6 +68684,8 @@ class SalesforceV2SourceResponse(dict):
             suggest = "include_deleted_objects"
         elif key == "maxConcurrentConnections":
             suggest = "max_concurrent_connections"
+        elif key == "pageSize":
+            suggest = "page_size"
         elif key == "queryTimeout":
             suggest = "query_timeout"
         elif key == "sOQLQuery":
@@ -68710,6 +68712,7 @@ class SalesforceV2SourceResponse(dict):
                  disable_metrics_collection: Optional[Any] = None,
                  include_deleted_objects: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
+                 page_size: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
                  s_oql_query: Optional[Any] = None,
@@ -68723,6 +68726,7 @@ class SalesforceV2SourceResponse(dict):
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any include_deleted_objects: This property control whether query result contains Deleted objects. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any page_size: Page size for each http request, too large pageSize will caused timeout, default 300,000. Type: integer (or Expression with resultType integer).
         :param Any query: You can only use Salesforce Object Query Language (SOQL) query with limitations. For SOQL limitations, see this article: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations. If query is not specified, all the data of the Salesforce object specified in ObjectApiName/reportId in dataset will be retrieved. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any s_oql_query: Deprecating, please use 'query' property instead. Type: string (or Expression with resultType string).
@@ -68738,6 +68742,8 @@ class SalesforceV2SourceResponse(dict):
             pulumi.set(__self__, "include_deleted_objects", include_deleted_objects)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if page_size is not None:
+            pulumi.set(__self__, "page_size", page_size)
         if query is not None:
             pulumi.set(__self__, "query", query)
         if query_timeout is not None:
@@ -68789,6 +68795,14 @@ class SalesforceV2SourceResponse(dict):
         The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="pageSize")
+    def page_size(self) -> Optional[Any]:
+        """
+        Page size for each http request, too large pageSize will caused timeout, default 300,000. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "page_size")
 
     @property
     @pulumi.getter

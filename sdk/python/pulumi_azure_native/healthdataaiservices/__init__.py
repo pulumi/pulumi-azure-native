@@ -17,6 +17,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.healthdataaiservices.v20240228preview as __v20240228preview
     v20240228preview = __v20240228preview
+    import pulumi_azure_native.healthdataaiservices.v20240920 as __v20240920
+    v20240920 = __v20240920
 else:
     v20240228preview = _utilities.lazy_import('pulumi_azure_native.healthdataaiservices.v20240228preview')
+    v20240920 = _utilities.lazy_import('pulumi_azure_native.healthdataaiservices.v20240920')
 

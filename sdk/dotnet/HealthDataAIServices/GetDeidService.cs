@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.HealthDataAIServices
         /// <summary>
         /// Get a DeidService
         /// Azure REST API version: 2024-02-28-preview.
+        /// 
+        /// Other available API versions: 2024-09-20.
         /// </summary>
         public static Task<GetDeidServiceResult> InvokeAsync(GetDeidServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeidServiceResult>("azure-native:healthdataaiservices:getDeidService", args ?? new GetDeidServiceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.HealthDataAIServices
         /// <summary>
         /// Get a DeidService
         /// Azure REST API version: 2024-02-28-preview.
+        /// 
+        /// Other available API versions: 2024-09-20.
         /// </summary>
         public static Output<GetDeidServiceResult> Invoke(GetDeidServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeidServiceResult>("azure-native:healthdataaiservices:getDeidService", args ?? new GetDeidServiceInvokeArgs(), options.WithDefaults());

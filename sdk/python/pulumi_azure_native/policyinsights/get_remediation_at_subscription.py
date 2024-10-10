@@ -248,7 +248,7 @@ def get_remediation_at_subscription(remediation_name: Optional[str] = None,
     Gets an existing remediation at subscription scope.
     Azure REST API version: 2021-10-01.
 
-    Other available API versions: 2018-07-01-preview.
+    Other available API versions: 2018-07-01-preview, 2024-10-01.
 
 
     :param str remediation_name: The name of the remediation.
@@ -285,7 +285,7 @@ def get_remediation_at_subscription_output(remediation_name: Optional[pulumi.Inp
     Gets an existing remediation at subscription scope.
     Azure REST API version: 2021-10-01.
 
-    Other available API versions: 2018-07-01-preview.
+    Other available API versions: 2018-07-01-preview, 2024-10-01.
 
 
     :param str remediation_name: The name of the remediation.

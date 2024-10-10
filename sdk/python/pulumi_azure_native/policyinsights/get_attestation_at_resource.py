@@ -225,6 +225,8 @@ def get_attestation_at_resource(attestation_name: Optional[str] = None,
     Gets an existing attestation at resource scope.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2024-10-01.
+
 
     :param str attestation_name: The name of the attestation.
     :param str resource_id: Resource ID.
@@ -260,6 +262,8 @@ def get_attestation_at_resource_output(attestation_name: Optional[pulumi.Input[s
     """
     Gets an existing attestation at resource scope.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2024-10-01.
 
 
     :param str attestation_name: The name of the attestation.

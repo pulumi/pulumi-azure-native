@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.HealthDataAIServices
     /// <summary>
     /// Holder for private endpoint connections
     /// Azure REST API version: 2024-02-28-preview.
+    /// 
+    /// Other available API versions: 2024-09-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthdataaiservices:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -66,6 +68,7 @@ namespace Pulumi.AzureNative.HealthDataAIServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:healthdataaiservices/v20240228preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthdataaiservices/v20240920:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -1500,6 +1500,15 @@ func getPropertyDescription(schema *spec.Schema, context *openapi.ReferenceConte
 
 		description = resolvedSchema.Description
 	}
+
+	description = strings.Map(func(r rune) rune {
+		// Remove Line Separator and Paragraph Separator characters, they break dotnet build.
+		if r == 0x2028 || r == 0x2029 {
+			return -1 // negative value means drop the character
+		}
+		return r
+	}, description)
+
 	if maintainSubResourceIfUnset {
 		if description != "" {
 			description = description + "\n"

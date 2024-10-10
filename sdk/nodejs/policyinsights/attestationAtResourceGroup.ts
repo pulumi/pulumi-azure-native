@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * An attestation resource.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
+ *
+ * Other available API versions: 2024-10-01.
  */
 export class AttestationAtResourceGroup extends pulumi.CustomResource {
     /**
@@ -145,7 +147,7 @@ export class AttestationAtResourceGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights/v20210101:AttestationAtResourceGroup" }, { type: "azure-native:policyinsights/v20220901:AttestationAtResourceGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights/v20210101:AttestationAtResourceGroup" }, { type: "azure-native:policyinsights/v20220901:AttestationAtResourceGroup" }, { type: "azure-native:policyinsights/v20241001:AttestationAtResourceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttestationAtResourceGroup.__pulumiType, name, resourceInputs, opts);
     }

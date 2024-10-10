@@ -431,6 +431,16 @@ func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, i
 // If a new mismatch is introduced in a newly published spec, our codegen will catch the difference
 // (see compatibleTypes) and fail. We will have to extend the list below with a new exception to unblock codegen.
 var typeNameOverrides = map[string]string{
+	// Upstream commit 1a49c263cc introduced AwsConnector.EmrCluster(Summary) and .AwsEksClusterProperties which
+	// both have ClusterStatus, but of different types.
+	"AwsConnector.EmrCluster.ClusterStatus":        "EmrClusterStatus",
+	"AwsConnector.EmrClusterSummary.ClusterStatus": "EmrClusterStatus",
+	// Upstream commit 1a49c263cc introduced several resources that all have an "Endpoint" property. Some are
+	// strings, the ones below are objects, all of them slightly different.
+	"AwsConnector.DaxCluster.Endpoint":      "DaxClusterEndpoint",
+	"AwsConnector.RdsDbCluster.Endpoint":    "RdsDbClusterEndpoint",
+	"AwsConnector.RdsDbInstance.Endpoint":   "RdsDbInstanceEndpoint",
+	"AwsConnector.RedshiftCluster.Endpoint": "RedshiftClusterEndpoint",
 	// SKU for Redis Enterprise is different from SKU for Redis. Keep them as separate types.
 	"Cache.RedisEnterprise.Sku": "EnterpriseSku",
 	// This one is not a disambiguation but a fix for a type name "String" that is not descriptive and leads to

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets an existing attestation at resource scope.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2024-10-01.
         /// </summary>
         public static Task<GetAttestationAtResourceResult> InvokeAsync(GetAttestationAtResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceResult>("azure-native:policyinsights:getAttestationAtResource", args ?? new GetAttestationAtResourceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// <summary>
         /// Gets an existing attestation at resource scope.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2024-10-01.
         /// </summary>
         public static Output<GetAttestationAtResourceResult> Invoke(GetAttestationAtResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceResult>("azure-native:policyinsights:getAttestationAtResource", args ?? new GetAttestationAtResourceInvokeArgs(), options.WithDefaults());

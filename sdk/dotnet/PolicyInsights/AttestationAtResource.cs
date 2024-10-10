@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.PolicyInsights
     /// <summary>
     /// An attestation resource.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
+    /// 
+    /// Other available API versions: 2024-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights:AttestationAtResource")]
     public partial class AttestationAtResource : global::Pulumi.CustomResource
@@ -127,6 +129,7 @@ namespace Pulumi.AzureNative.PolicyInsights
                 {
                     new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20210101:AttestationAtResource" },
                     new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20220901:AttestationAtResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20241001:AttestationAtResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
