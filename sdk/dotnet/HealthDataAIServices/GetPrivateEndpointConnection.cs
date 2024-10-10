@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.HealthDataAIServices
         /// <summary>
         /// Get a specific private connection
         /// Azure REST API version: 2024-02-28-preview.
+        /// 
+        /// Other available API versions: 2024-09-20.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:healthdataaiservices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.HealthDataAIServices
         /// <summary>
         /// Get a specific private connection
         /// Azure REST API version: 2024-02-28-preview.
+        /// 
+        /// Other available API versions: 2024-09-20.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:healthdataaiservices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

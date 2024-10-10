@@ -33,7 +33,10 @@ if typing.TYPE_CHECKING:
     v20211001 = __v20211001
     import pulumi_azure_native.policyinsights.v20220901 as __v20220901
     v20220901 = __v20220901
+    import pulumi_azure_native.policyinsights.v20241001 as __v20241001
+    v20241001 = __v20241001
 else:
     v20211001 = _utilities.lazy_import('pulumi_azure_native.policyinsights.v20211001')
     v20220901 = _utilities.lazy_import('pulumi_azure_native.policyinsights.v20220901')
+    v20241001 = _utilities.lazy_import('pulumi_azure_native.policyinsights.v20241001')
 

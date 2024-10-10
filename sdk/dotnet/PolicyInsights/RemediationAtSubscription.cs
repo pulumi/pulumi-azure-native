@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.PolicyInsights
     /// The remediation definition.
     /// Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2019-07-01.
     /// 
-    /// Other available API versions: 2018-07-01-preview.
+    /// Other available API versions: 2018-07-01-preview, 2024-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights:RemediationAtSubscription")]
     public partial class RemediationAtSubscription : global::Pulumi.CustomResource
@@ -142,6 +142,7 @@ namespace Pulumi.AzureNative.PolicyInsights
                     new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20211001:RemediationAtSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20241001:RemediationAtSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

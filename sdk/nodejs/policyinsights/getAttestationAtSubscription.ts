@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an existing attestation at subscription scope.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2024-10-01.
  */
 export function getAttestationAtSubscription(args: GetAttestationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtSubscriptionResult> {
 
@@ -94,6 +96,8 @@ export interface GetAttestationAtSubscriptionResult {
 /**
  * Gets an existing attestation at subscription scope.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2024-10-01.
  */
 export function getAttestationAtSubscriptionOutput(args: GetAttestationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getAttestationAtSubscription(a, opts))

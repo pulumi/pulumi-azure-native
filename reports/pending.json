@@ -111,7 +111,7 @@
     "2023-05-15-preview",
     "2023-11-01"
   ],
-  "AutonomousDevelopmentPlatform": [],
+  "AwsConnector": [],
   "AzureActiveDirectory": [
     "2023-01-18-preview",
     "2023-05-17-preview"
@@ -620,7 +620,9 @@
   "HealthBot": [
     "2024-02-01"
   ],
-  "HealthDataAIServices": [],
+  "HealthDataAIServices": [
+    "2024-09-20"
+  ],
   "HealthcareApis": [
     "2022-12-01",
     "2023-02-28",
@@ -1010,7 +1012,8 @@
   ],
   "Peering": [],
   "PolicyInsights": [
-    "2022-09-01"
+    "2022-09-01",
+    "2024-10-01"
   ],
   "Portal": [
     "2018-10-01-preview",
@@ -1046,7 +1049,8 @@
     "2024-01-01",
     "2024-02-01",
     "2024-04-01",
-    "2024-04-30-preview"
+    "2024-04-30-preview",
+    "2024-07-30-preview"
   ],
   "RedHatOpenShift": [
     "2023-04-01",
