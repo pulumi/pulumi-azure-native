@@ -9,7 +9,6 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
-	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
@@ -162,10 +161,6 @@ func BuildCustomResources(env *azureEnv.Environment,
 	userAgent string,
 	tokenCred azcore.TokenCredential) (map[string]*CustomResource, error) {
 
-	kvClient := keyvault.New()
-	kvClient.Authorizer = kvBearerAuth
-	kvClient.UserAgent = userAgent
-
 	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenCred, &arm.ClientOptions{})
 	if err != nil {
 		return nil, err
@@ -186,8 +181,8 @@ func BuildCustomResources(env *azureEnv.Environment,
 
 	resources := []*CustomResource{
 		// Azure KeyVault resources.
-		keyVaultSecret(env.KeyVaultDNSSuffix, &kvClient),
-		keyVaultKey(env.KeyVaultDNSSuffix, &kvClient),
+		keyVaultSecret(env.KeyVaultDNSSuffix, tokenCred),
+		keyVaultKey(env.KeyVaultDNSSuffix, tokenCred),
 		keyVaultAccessPolicy(armKVClient),
 		// Storage resources.
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
