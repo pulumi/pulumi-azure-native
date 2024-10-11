@@ -7,15 +7,15 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
-	"github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys"
-	"github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azsecrets"
+	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
+	"github.com/Azure/go-autorest/autorest"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
-// keyVaultSecret creates a custom resource for Azure KeyVault Secret.
-func keyVaultSecret(keyVaultDNSSuffix string, tokenCred azcore.TokenCredential) *CustomResource {
+// keyVaultSecret_autorest creates a custom resource for Azure KeyVault Secrets, based on the
+// deprecated autorest and go-azure-helpers backend.
+func keyVaultSecret_autorest(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *CustomResource {
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{secretName}",
 		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
@@ -29,18 +29,15 @@ func keyVaultSecret(keyVaultDNSSuffix string, tokenCred azcore.TokenCredential) 
 			}
 
 			vaultUrl := fmt.Sprintf("https://%s.%s", vaultName.StringValue(), keyVaultDNSSuffix)
-			kvClient, err := azsecrets.NewClient(vaultUrl, tokenCred, nil)
-			if err != nil {
-				return err
-			}
-			_, err = kvClient.DeleteSecret(ctx, secretName.StringValue(), nil)
-			return reportDeletionError(err)
+			_, err := kvClient.DeleteSecret(ctx, vaultUrl, secretName.StringValue())
+			return reportDeletionError_autorest(err)
 		},
 	}
 }
 
-// keyVaultKey creates a custom resource for Azure KeyVault Key.
-func keyVaultKey(keyVaultDNSSuffix string, tokenCred azcore.TokenCredential) *CustomResource {
+// keyVaultKey_autorest creates a custom resource for Azure KeyVault Keys, based on the
+// deprecated autorest and go-azure-helpers backend.
+func keyVaultKey_autorest(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *CustomResource {
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/keys/{keyName}",
 		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
@@ -54,18 +51,14 @@ func keyVaultKey(keyVaultDNSSuffix string, tokenCred azcore.TokenCredential) *Cu
 			}
 
 			vaultUrl := fmt.Sprintf("https://%s.%s", vaultName.StringValue(), keyVaultDNSSuffix)
-			kvClient, err := azkeys.NewClient(vaultUrl, tokenCred, nil)
-			if err != nil {
-				return err
-			}
-			_, err = kvClient.DeleteKey(ctx, keyName.StringValue(), nil)
-			return reportDeletionError(err)
+			_, err := kvClient.DeleteKey(ctx, vaultUrl, keyName.StringValue())
+			return reportDeletionError_autorest(err)
 		},
 	}
 }
 
-func reportDeletionError(err error) error {
-	if detailed, ok := err.(*azcore.ResponseError); ok && detailed.StatusCode == http.StatusNotFound {
+func reportDeletionError_autorest(err error) error {
+	if detailed, ok := err.(autorest.DetailedError); ok && detailed.StatusCode == http.StatusNotFound {
 		return nil
 	}
 	return err
