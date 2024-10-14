@@ -194,8 +194,9 @@
     "Webhook_GenerateUri": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/webhooks/generateUri",
     "convertGraphRunbookContent": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/convertGraphRunbookContent"
   },
-  "AutonomousDevelopmentPlatform": {
-    "Accounts_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.AutonomousDevelopmentPlatform/checkNameAvailability"
+  "AwsConnector": {
+    "Ec2Instances_Start": "/{resourceUri}/providers/Microsoft.AwsConnector/ec2Instances/default/start",
+    "Ec2Instances_Stop": "/{resourceUri}/providers/Microsoft.AwsConnector/ec2Instances/default/stop"
   },
   "AzureActiveDirectory": {
     "B2CTenants_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.AzureActiveDirectory/checkNameAvailability",

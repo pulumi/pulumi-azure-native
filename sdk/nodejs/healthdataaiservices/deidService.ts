@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * A HealthDataAIServicesProviderHub resource
  * Azure REST API version: 2024-02-28-preview.
+ *
+ * Other available API versions: 2024-09-20.
  */
 export class DeidService extends pulumi.CustomResource {
     /**
@@ -100,7 +102,7 @@ export class DeidService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthdataaiservices/v20240228preview:DeidService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthdataaiservices/v20240228preview:DeidService" }, { type: "azure-native:healthdataaiservices/v20240920:DeidService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeidService.__pulumiType, name, resourceInputs, opts);
     }

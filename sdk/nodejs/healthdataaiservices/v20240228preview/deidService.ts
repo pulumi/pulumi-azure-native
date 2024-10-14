@@ -99,7 +99,7 @@ export class DeidService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthdataaiservices:DeidService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthdataaiservices:DeidService" }, { type: "azure-native:healthdataaiservices/v20240920:DeidService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeidService.__pulumiType, name, resourceInputs, opts);
     }

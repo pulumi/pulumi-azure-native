@@ -141,6 +141,8 @@ def get_deid_service(deid_service_name: Optional[str] = None,
     Get a DeidService
     Azure REST API version: 2024-02-28-preview.
 
+    Other available API versions: 2024-09-20.
+
 
     :param str deid_service_name: The name of the deid service
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -169,6 +171,8 @@ def get_deid_service_output(deid_service_name: Optional[pulumi.Input[str]] = Non
     """
     Get a DeidService
     Azure REST API version: 2024-02-28-preview.
+
+    Other available API versions: 2024-09-20.
 
 
     :param str deid_service_name: The name of the deid service

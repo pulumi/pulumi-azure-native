@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? MaxConcurrentConnections { get; set; }
 
         /// <summary>
+        /// Page size for each http request, too large pageSize will caused timeout, default 300,000. Type: integer (or Expression with resultType integer).
+        /// </summary>
+        [Input("pageSize")]
+        public Input<object>? PageSize { get; set; }
+
+        /// <summary>
         /// You can only use Salesforce Object Query Language (SOQL) query with limitations. For SOQL limitations, see this article: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations. If query is not specified, all the data of the Salesforce object specified in ObjectApiName/reportId in dataset will be retrieved. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("query")]
