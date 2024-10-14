@@ -5,10 +5,12 @@ package customresources
 import (
 	"context"
 	"fmt"
+	"os"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
+	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
@@ -180,9 +182,6 @@ func BuildCustomResources(env *azureEnv.Environment,
 	}
 
 	resources := []*CustomResource{
-		// Azure KeyVault resources.
-		keyVaultSecret(env.KeyVaultDNSSuffix, tokenCred),
-		keyVaultKey(env.KeyVaultDNSSuffix, tokenCred),
 		keyVaultAccessPolicy(armKVClient),
 		// Storage resources.
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
@@ -192,6 +191,21 @@ func BuildCustomResources(env *azureEnv.Environment,
 		portalDashboard(),
 		customWebApp,
 		customWebAppSlot,
+	}
+
+	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The
+	// `azCoreTokenCredential` adapter that we use elsewhere to translate legacy token sources to azidentity doesn't
+	// work here because KV needs a different token source for the KV endpoint.
+	useLegacyAuth := os.Getenv("PULUMI_USE_LEGACY_AUTH") != "false"
+	if useLegacyAuth {
+		kvClient := keyvault.New()
+		kvClient.Authorizer = kvBearerAuth
+		kvClient.UserAgent = userAgent
+		resources = append(resources, keyVaultSecret_autorest(env.KeyVaultDNSSuffix, &kvClient))
+		resources = append(resources, keyVaultKey_autorest(env.KeyVaultDNSSuffix, &kvClient))
+	} else {
+		resources = append(resources, keyVaultSecret(env.KeyVaultDNSSuffix, tokenCred))
+		resources = append(resources, keyVaultKey(env.KeyVaultDNSSuffix, tokenCred))
 	}
 
 	result := map[string]*CustomResource{}
