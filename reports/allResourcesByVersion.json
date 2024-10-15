@@ -3303,6 +3303,19 @@
       "listListPendingConnection",
       "listListPendingFlow",
       "listListSchema"
+    ],
+    "2024-09-27": [
+      "Connection",
+      "Flow",
+      "Pipeline",
+      "getFlowDestinationEndpointPorts",
+      "getFlowDestinationEndpoints",
+      "getFlowSourceAddresses",
+      "getFlowStreamConnectionString",
+      "listAzureDataTransferApprovedSchemas",
+      "listListPendingConnection",
+      "listListPendingFlow",
+      "listListSchema"
     ]
   },
   "AzureFleet": {
@@ -3624,6 +3637,42 @@
       "StorageContainer",
       "VirtualHardDisk",
       "VirtualMachineInstance"
+    ],
+    "2024-07-15-preview": [
+      "GalleryImage",
+      "GuestAgent",
+      "LogicalNetwork",
+      "MarketplaceGalleryImage",
+      "NetworkInterface",
+      "NetworkSecurityGroup",
+      "SecurityRule",
+      "StorageContainer",
+      "VirtualHardDisk",
+      "VirtualMachineInstance"
+    ],
+    "2024-08-01-preview": [
+      "GalleryImage",
+      "GuestAgent",
+      "LogicalNetwork",
+      "MarketplaceGalleryImage",
+      "NetworkInterface",
+      "NetworkSecurityGroup",
+      "SecurityRule",
+      "StorageContainer",
+      "VirtualHardDisk",
+      "VirtualMachineInstance"
+    ],
+    "2024-09-01-preview": [
+      "ArcSetting",
+      "Cluster",
+      "DeploymentSetting",
+      "EdgeDevice",
+      "EdgeDeviceJob",
+      "Extension",
+      "SecuritySetting",
+      "Update",
+      "UpdateRun",
+      "UpdateSummary"
     ]
   },
   "AzureTerraform": {
@@ -8940,6 +8989,9 @@
     ],
     "2024-04-04-preview": [
       "Pool"
+    ],
+    "2024-10-19": [
+      "Pool"
     ]
   },
   "DevSpaces": {
@@ -9020,6 +9072,10 @@
       "Schema",
       "SchemaRegistry",
       "SchemaVersion"
+    ],
+    "2024-11-01": [
+      "Asset",
+      "AssetEndpointProfile"
     ]
   },
   "DeviceUpdate": {
@@ -15278,6 +15334,56 @@
       "getVolumeGroupIdForLdapUser",
       "listVolumeQuotaReport",
       "listVolumeReplications"
+    ],
+    "2024-05-01": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2024-05-01-preview": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getAccountChangeKeyVaultInformation",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeQuotaReport",
+      "listVolumeReplications"
+    ],
+    "2024-07-01": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
     ]
   },
   "Network": {
@@ -21040,6 +21146,9 @@
       "listGitHubOwnerAvailable",
       "listGitLabGroupAvailable",
       "listGitLabSubgroup"
+    ],
+    "2024-07-01-preview": [
+      "SecurityConnector"
     ],
     "2024-08-01": [
       "CustomRecommendation",

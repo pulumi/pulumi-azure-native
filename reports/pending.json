@@ -124,7 +124,8 @@
   "AzureDataTransfer": [
     "2024-01-25",
     "2024-05-07",
-    "2024-09-11"
+    "2024-09-11",
+    "2024-09-27"
   ],
   "AzureFleet": [
     "2024-11-01"
@@ -153,7 +154,10 @@
     "2024-02-01-preview",
     "2024-02-15-preview",
     "2024-04-01",
-    "2024-05-01-preview"
+    "2024-05-01-preview",
+    "2024-07-15-preview",
+    "2024-08-01-preview",
+    "2024-09-01-preview"
   ],
   "AzureTerraform": [],
   "BareMetalInfrastructure": [
@@ -511,12 +515,14 @@
   "DevOpsInfrastructure": [
     "2023-12-13-preview",
     "2024-03-26-preview",
-    "2024-04-04-preview"
+    "2024-04-04-preview",
+    "2024-10-19"
   ],
   "DevSpaces": [],
   "DevTestLab": [],
   "DeviceRegistry": [
-    "2024-09-01-preview"
+    "2024-09-01-preview",
+    "2024-11-01"
   ],
   "DeviceUpdate": [],
   "Devices": [
@@ -915,7 +921,10 @@
     "2023-11-01-preview",
     "2024-01-01",
     "2024-03-01",
-    "2024-03-01-preview"
+    "2024-03-01-preview",
+    "2024-05-01",
+    "2024-05-01-preview",
+    "2024-07-01"
   ],
   "Network": [
     "2018-06-01",
@@ -1130,6 +1139,7 @@
     "2024-03-01-preview",
     "2024-04-01",
     "2024-05-15-preview",
+    "2024-07-01-preview",
     "2024-08-01"
   ],
   "SecurityAndCompliance": [],

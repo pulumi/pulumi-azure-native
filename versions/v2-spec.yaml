@@ -193,6 +193,11 @@ AzureData:
     tracking: 2019-07-24-preview
 AzureDataTransfer:
     tracking: 2023-10-11-preview
+    additions:
+        getFlowDestinationEndpointPorts: "2024-09-27"
+        getFlowDestinationEndpoints: "2024-09-27"
+        getFlowSourceAddresses: "2024-09-27"
+        getFlowStreamConnectionString: "2024-09-27"
 AzureFleet:
     tracking: 2024-05-01-preview
 AzureLargeInstance:
@@ -210,6 +215,7 @@ AzureStackHCI:
     additions:
         DeploymentSetting: 2023-08-01-preview
         EdgeDevice: 2023-08-01-preview
+        EdgeDeviceJob: 2024-09-01-preview
         GalleryImage: 2022-12-15-preview
         GuestAgent: 2022-12-15-preview
         HybridIdentityMetadatum: 2022-12-15-preview
