@@ -138,6 +138,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240101
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:GalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240201preview:GalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240501preview:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:GalleryImage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

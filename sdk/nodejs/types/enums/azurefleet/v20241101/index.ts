@@ -44,9 +44,9 @@ export const ArchitectureType = {
      */
     ARM64: "ARM64",
     /**
-     * X86 Architecture
+     * X64 Architecture
      */
-    X86: "X86",
+    X64: "X64",
 } as const;
 
 /**

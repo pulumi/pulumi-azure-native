@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
-    /// The deployment mode for cluster deployment.
+    /// Deployment mode to trigger job.
     /// </summary>
     [EnumType]
     public readonly struct DeploymentMode : IEquatable<DeploymentMode>
@@ -121,11 +121,11 @@ namespace Pulumi.AzureNative.AzureStackHCI
         }
 
         /// <summary>
-        /// Validate deployment settings for cluster.
+        /// Validate ECE action deployment for a cluster.
         /// </summary>
         public static DeploymentMode Validate { get; } = new DeploymentMode("Validate");
         /// <summary>
-        /// Deploy cluster using deployment settings.
+        /// Deploy ECE action deployment for a cluster.
         /// </summary>
         public static DeploymentMode Deploy { get; } = new DeploymentMode("Deploy");
 
@@ -208,6 +208,39 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
+    /// Edge Solution type to support polymorphic resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct EdgeDeviceKind : IEquatable<EdgeDeviceKind>
+    {
+        private readonly string _value;
+
+        private EdgeDeviceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Arc-enabled edge device with HCI OS.
+        /// </summary>
+        public static EdgeDeviceKind HCI { get; } = new EdgeDeviceKind("HCI");
+
+        public static bool operator ==(EdgeDeviceKind left, EdgeDeviceKind right) => left.Equals(right);
+        public static bool operator !=(EdgeDeviceKind left, EdgeDeviceKind right) => !left.Equals(right);
+
+        public static explicit operator string(EdgeDeviceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EdgeDeviceKind other && Equals(other);
+        public bool Equals(EdgeDeviceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the extended location.
     /// </summary>
     [EnumType]
@@ -230,6 +263,43 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
         public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Job Type to support polymorphic resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct HciEdgeDeviceJobType : IEquatable<HciEdgeDeviceJobType>
+    {
+        private readonly string _value;
+
+        private HciEdgeDeviceJobType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Job to collect logs from the device.
+        /// </summary>
+        public static HciEdgeDeviceJobType CollectLog { get; } = new HciEdgeDeviceJobType("CollectLog");
+        /// <summary>
+        /// Job to provide remote support to the device.
+        /// </summary>
+        public static HciEdgeDeviceJobType RemoteSupport { get; } = new HciEdgeDeviceJobType("RemoteSupport");
+
+        public static bool operator ==(HciEdgeDeviceJobType left, HciEdgeDeviceJobType right) => left.Equals(right);
+        public static bool operator !=(HciEdgeDeviceJobType left, HciEdgeDeviceJobType right) => !left.Equals(right);
+
+        public static explicit operator string(HciEdgeDeviceJobType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HciEdgeDeviceJobType other && Equals(other);
+        public bool Equals(HciEdgeDeviceJobType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -519,6 +589,84 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProvisioningAction other && Equals(other);
         public bool Equals(ProvisioningAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Remote support access level.
+    /// </summary>
+    [EnumType]
+    public readonly struct RemoteSupportAccessLevel : IEquatable<RemoteSupportAccessLevel>
+    {
+        private readonly string _value;
+
+        private RemoteSupportAccessLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// No remote support access is granted.
+        /// </summary>
+        public static RemoteSupportAccessLevel None { get; } = new RemoteSupportAccessLevel("None");
+        /// <summary>
+        /// Access is limited to diagnostics information only.
+        /// </summary>
+        public static RemoteSupportAccessLevel Diagnostics { get; } = new RemoteSupportAccessLevel("Diagnostics");
+        /// <summary>
+        /// Access includes diagnostics information and the ability to perform repairs.
+        /// </summary>
+        public static RemoteSupportAccessLevel DiagnosticsAndRepair { get; } = new RemoteSupportAccessLevel("DiagnosticsAndRepair");
+
+        public static bool operator ==(RemoteSupportAccessLevel left, RemoteSupportAccessLevel right) => left.Equals(right);
+        public static bool operator !=(RemoteSupportAccessLevel left, RemoteSupportAccessLevel right) => !left.Equals(right);
+
+        public static explicit operator string(RemoteSupportAccessLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RemoteSupportAccessLevel other && Equals(other);
+        public bool Equals(RemoteSupportAccessLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Remote support type.
+    /// </summary>
+    [EnumType]
+    public readonly struct RemoteSupportType : IEquatable<RemoteSupportType>
+    {
+        private readonly string _value;
+
+        private RemoteSupportType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enables remote support for the edge device.
+        /// </summary>
+        public static RemoteSupportType Enable { get; } = new RemoteSupportType("Enable");
+        /// <summary>
+        /// Revokes previously granted remote support access for the edge device.
+        /// </summary>
+        public static RemoteSupportType Revoke { get; } = new RemoteSupportType("Revoke");
+
+        public static bool operator ==(RemoteSupportType left, RemoteSupportType right) => left.Equals(right);
+        public static bool operator !=(RemoteSupportType left, RemoteSupportType right) => !left.Equals(right);
+
+        public static explicit operator string(RemoteSupportType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RemoteSupportType other && Equals(other);
+        public bool Equals(RemoteSupportType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

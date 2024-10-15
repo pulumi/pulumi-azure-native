@@ -236,7 +236,7 @@ class Extension(pulumi.CustomResource):
         Details of a particular extension in HCI Cluster.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
 
-        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01.
+        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,7 +263,7 @@ class Extension(pulumi.CustomResource):
         Details of a particular extension in HCI Cluster.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
 
-        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01.
+        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -325,7 +325,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["per_node_extension_details"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210101preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220101:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220301:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220501:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220901:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20221001:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20221201:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230201:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230301:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230601:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20240215preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20240401:Extension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210101preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220101:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220301:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220501:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20220901:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20221001:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20221201:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230201:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230301:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230601:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20240215preview:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20240401:Extension"), pulumi.Alias(type_="azure-native:azurestackhci/v20240901preview:Extension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Extension, __self__).__init__(
             'azure-native:azurestackhci:Extension',

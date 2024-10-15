@@ -36,6 +36,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "AzureDataTransfer",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "AzureFleet",
     "Detail": "expected tracking stable but found preview"
   },

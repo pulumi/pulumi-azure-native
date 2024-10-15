@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a Asset
  * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2024-09-01-preview.
+ * Other available API versions: 2024-09-01-preview, 2024-11-01.
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
 
@@ -162,7 +162,7 @@ export interface GetAssetResult {
  * Get a Asset
  * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2024-09-01-preview.
+ * Other available API versions: 2024-09-01-preview, 2024-11-01.
  */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
     return pulumi.output(args).apply((a: any) => getAsset(a, opts))

@@ -29,7 +29,10 @@ if typing.TYPE_CHECKING:
     v20231101preview = __v20231101preview
     import pulumi_azure_native.deviceregistry.v20240901preview as __v20240901preview
     v20240901preview = __v20240901preview
+    import pulumi_azure_native.deviceregistry.v20241101 as __v20241101
+    v20241101 = __v20241101
 else:
     v20231101preview = _utilities.lazy_import('pulumi_azure_native.deviceregistry.v20231101preview')
     v20240901preview = _utilities.lazy_import('pulumi_azure_native.deviceregistry.v20240901preview')
+    v20241101 = _utilities.lazy_import('pulumi_azure_native.deviceregistry.v20241101')
 

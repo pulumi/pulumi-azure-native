@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Get HCI cluster.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01.
+        /// Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:azurestackhci:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Get HCI cluster.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01.
+        /// Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:azurestackhci:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

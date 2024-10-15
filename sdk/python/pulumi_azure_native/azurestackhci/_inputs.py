@@ -38,6 +38,10 @@ __all__ = [
     'GalleryImageVersionArgsDict',
     'GuestCredentialArgs',
     'GuestCredentialArgsDict',
+    'HciCollectLogJobPropertiesArgs',
+    'HciCollectLogJobPropertiesArgsDict',
+    'HciRemoteSupportJobPropertiesArgs',
+    'HciRemoteSupportJobPropertiesArgsDict',
     'HostNetworkArgs',
     'HostNetworkArgsDict',
     'HttpProxyConfigurationArgs',
@@ -1043,6 +1047,217 @@ class GuestCredentialArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+if not MYPY:
+    class HciCollectLogJobPropertiesArgsDict(TypedDict):
+        """
+        Represents the properties of an HCI Collect Log job.
+        """
+        from_date: pulumi.Input[str]
+        """
+        From date for log collection.
+        """
+        job_type: pulumi.Input[str]
+        """
+        Job Type supported.
+        Expected value is 'CollectLog'.
+        """
+        to_date: pulumi.Input[str]
+        """
+        To date for log collection.
+        """
+        deployment_mode: NotRequired[pulumi.Input[Union[str, 'DeploymentMode']]]
+        """
+        Deployment mode to trigger job.
+        """
+elif False:
+    HciCollectLogJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HciCollectLogJobPropertiesArgs:
+    def __init__(__self__, *,
+                 from_date: pulumi.Input[str],
+                 job_type: pulumi.Input[str],
+                 to_date: pulumi.Input[str],
+                 deployment_mode: Optional[pulumi.Input[Union[str, 'DeploymentMode']]] = None):
+        """
+        Represents the properties of an HCI Collect Log job.
+        :param pulumi.Input[str] from_date: From date for log collection.
+        :param pulumi.Input[str] job_type: Job Type supported.
+               Expected value is 'CollectLog'.
+        :param pulumi.Input[str] to_date: To date for log collection.
+        :param pulumi.Input[Union[str, 'DeploymentMode']] deployment_mode: Deployment mode to trigger job.
+        """
+        pulumi.set(__self__, "from_date", from_date)
+        pulumi.set(__self__, "job_type", 'CollectLog')
+        pulumi.set(__self__, "to_date", to_date)
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+
+    @property
+    @pulumi.getter(name="fromDate")
+    def from_date(self) -> pulumi.Input[str]:
+        """
+        From date for log collection.
+        """
+        return pulumi.get(self, "from_date")
+
+    @from_date.setter
+    def from_date(self, value: pulumi.Input[str]):
+        pulumi.set(self, "from_date", value)
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Input[str]:
+        """
+        Job Type supported.
+        Expected value is 'CollectLog'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "job_type", value)
+
+    @property
+    @pulumi.getter(name="toDate")
+    def to_date(self) -> pulumi.Input[str]:
+        """
+        To date for log collection.
+        """
+        return pulumi.get(self, "to_date")
+
+    @to_date.setter
+    def to_date(self, value: pulumi.Input[str]):
+        pulumi.set(self, "to_date", value)
+
+    @property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[pulumi.Input[Union[str, 'DeploymentMode']]]:
+        """
+        Deployment mode to trigger job.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+    @deployment_mode.setter
+    def deployment_mode(self, value: Optional[pulumi.Input[Union[str, 'DeploymentMode']]]):
+        pulumi.set(self, "deployment_mode", value)
+
+
+if not MYPY:
+    class HciRemoteSupportJobPropertiesArgsDict(TypedDict):
+        """
+        Represents the properties of a remote support job for HCI.
+        """
+        access_level: pulumi.Input[Union[str, 'RemoteSupportAccessLevel']]
+        """
+        Remote support access level.
+        """
+        expiration_timestamp: pulumi.Input[str]
+        """
+        Remote support expiration timestamp.
+        """
+        job_type: pulumi.Input[str]
+        """
+        Job Type supported.
+        Expected value is 'RemoteSupport'.
+        """
+        type: pulumi.Input[Union[str, 'RemoteSupportType']]
+        """
+        Remote support type.
+        """
+        deployment_mode: NotRequired[pulumi.Input[Union[str, 'DeploymentMode']]]
+        """
+        Deployment mode to trigger job.
+        """
+elif False:
+    HciRemoteSupportJobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HciRemoteSupportJobPropertiesArgs:
+    def __init__(__self__, *,
+                 access_level: pulumi.Input[Union[str, 'RemoteSupportAccessLevel']],
+                 expiration_timestamp: pulumi.Input[str],
+                 job_type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'RemoteSupportType']],
+                 deployment_mode: Optional[pulumi.Input[Union[str, 'DeploymentMode']]] = None):
+        """
+        Represents the properties of a remote support job for HCI.
+        :param pulumi.Input[Union[str, 'RemoteSupportAccessLevel']] access_level: Remote support access level.
+        :param pulumi.Input[str] expiration_timestamp: Remote support expiration timestamp.
+        :param pulumi.Input[str] job_type: Job Type supported.
+               Expected value is 'RemoteSupport'.
+        :param pulumi.Input[Union[str, 'RemoteSupportType']] type: Remote support type.
+        :param pulumi.Input[Union[str, 'DeploymentMode']] deployment_mode: Deployment mode to trigger job.
+        """
+        pulumi.set(__self__, "access_level", access_level)
+        pulumi.set(__self__, "expiration_timestamp", expiration_timestamp)
+        pulumi.set(__self__, "job_type", 'RemoteSupport')
+        pulumi.set(__self__, "type", type)
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+
+    @property
+    @pulumi.getter(name="accessLevel")
+    def access_level(self) -> pulumi.Input[Union[str, 'RemoteSupportAccessLevel']]:
+        """
+        Remote support access level.
+        """
+        return pulumi.get(self, "access_level")
+
+    @access_level.setter
+    def access_level(self, value: pulumi.Input[Union[str, 'RemoteSupportAccessLevel']]):
+        pulumi.set(self, "access_level", value)
+
+    @property
+    @pulumi.getter(name="expirationTimestamp")
+    def expiration_timestamp(self) -> pulumi.Input[str]:
+        """
+        Remote support expiration timestamp.
+        """
+        return pulumi.get(self, "expiration_timestamp")
+
+    @expiration_timestamp.setter
+    def expiration_timestamp(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expiration_timestamp", value)
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Input[str]:
+        """
+        Job Type supported.
+        Expected value is 'RemoteSupport'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "job_type", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'RemoteSupportType']]:
+        """
+        Remote support type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'RemoteSupportType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[pulumi.Input[Union[str, 'DeploymentMode']]]:
+        """
+        Deployment mode to trigger job.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+    @deployment_mode.setter
+    def deployment_mode(self, value: Optional[pulumi.Input[Union[str, 'DeploymentMode']]]):
+        pulumi.set(self, "deployment_mode", value)
 
 
 if not MYPY:

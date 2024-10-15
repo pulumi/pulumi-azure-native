@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.V20231011Preview
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240125:Flow" },
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240507:Flow" },
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240911:Flow" },
+                    new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240927:Flow" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

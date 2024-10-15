@@ -110,6 +110,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240101
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:LogicalNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240201preview:LogicalNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240501preview:LogicalNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:LogicalNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:LogicalNetwork" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

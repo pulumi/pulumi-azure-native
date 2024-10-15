@@ -16,7 +16,9 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
     public sealed class VMAttributesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The range of accelerator count specified from min to max.. Optional parameter. Either Min or Max is required if specified.
+        /// The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
+        /// acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        /// If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         /// </summary>
         [Input("acceleratorCount")]
         public Input<Inputs.VMAttributeMinMaxIntegerArgs>? AcceleratorCount { get; set; }
@@ -25,7 +27,9 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
         private InputList<Union<string, Pulumi.AzureNative.AzureFleet.V20241101.AcceleratorManufacturer>>? _acceleratorManufacturers;
 
         /// <summary>
-        /// The accelerator manufacturers specified as a list. acceleratorSupport should be set to Included or Required to use this VMAttribute.
+        /// The accelerator manufacturers specified as a list. 
+        /// acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        /// If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         /// </summary>
         public InputList<Union<string, Pulumi.AzureNative.AzureFleet.V20241101.AcceleratorManufacturer>> AcceleratorManufacturers
         {
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
 
         /// <summary>
         /// Specifies whether the VMSize supporting accelerator should be used to build Fleet or not.
+        /// acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        /// If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         /// </summary>
         [Input("acceleratorSupport")]
         public InputUnion<string, Pulumi.AzureNative.AzureFleet.V20241101.VMAttributeSupport>? AcceleratorSupport { get; set; }
@@ -43,7 +49,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
         private InputList<Union<string, Pulumi.AzureNative.AzureFleet.V20241101.AcceleratorType>>? _acceleratorTypes;
 
         /// <summary>
-        /// The accelerator types specified as a list. acceleratorSupport should be set to Included or Required to use this VMAttribute.
+        /// The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        /// If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         /// </summary>
         public InputList<Union<string, Pulumi.AzureNative.AzureFleet.V20241101.AcceleratorType>> AcceleratorTypes
         {
@@ -113,7 +120,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
         }
 
         /// <summary>
-        /// The range of local storage in GB specified from Min to Max.
+        /// LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        /// If localStorageSupport is "Excluded", this VMAttribute can not be used.
         /// </summary>
         [Input("localStorageInGiB")]
         public Input<Inputs.VMAttributeMinMaxDoubleArgs>? LocalStorageInGiB { get; set; }
@@ -131,6 +139,12 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
         public Input<Inputs.VMAttributeMinMaxDoubleArgs> MemoryInGiB { get; set; } = null!;
 
         /// <summary>
+        /// The range of memory in GiB per vCPU specified from min to max. Optional parameter. Either Min or Max is required if specified.
+        /// </summary>
+        [Input("memoryInGiBPerVCpu")]
+        public Input<Inputs.VMAttributeMinMaxDoubleArgs>? MemoryInGiBPerVCpu { get; set; }
+
+        /// <summary>
         /// The range of network bandwidth in Mbps specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
         /// </summary>
         [Input("networkBandwidthInMbps")]
@@ -144,6 +158,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
 
         /// <summary>
         /// The range of RDMA (Remote Direct Memory Access) network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+        /// rdmaSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        /// If rdmaSupport is "Excluded", this VMAttribute can not be used.
         /// </summary>
         [Input("rdmaNetworkInterfaceCount")]
         public Input<Inputs.VMAttributeMinMaxIntegerArgs>? RdmaNetworkInterfaceCount { get; set; }

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// Returns report of quotas for the volume
         /// Azure REST API version: 2024-03-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Task<ListVolumeQuotaReportResult> InvokeAsync(ListVolumeQuotaReportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListVolumeQuotaReportResult>("azure-native:netapp:listVolumeQuotaReport", args ?? new ListVolumeQuotaReportArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// Returns report of quotas for the volume
         /// Azure REST API version: 2024-03-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Output<ListVolumeQuotaReportResult> Invoke(ListVolumeQuotaReportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVolumeQuotaReportResult>("azure-native:netapp:listVolumeQuotaReport", args ?? new ListVolumeQuotaReportInvokeArgs(), options.WithDefaults());

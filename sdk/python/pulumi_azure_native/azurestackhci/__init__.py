@@ -19,6 +19,7 @@ from .get_edge_device import *
 from .get_extension import *
 from .get_gallery_image import *
 from .get_guest_agent import *
+from .get_hci_edge_device_job import *
 from .get_hybrid_identity_metadatum import *
 from .get_logical_network import *
 from .get_machine_extension import *
@@ -36,6 +37,7 @@ from .get_virtual_machine import *
 from .get_virtual_machine_instance import *
 from .get_virtual_network import *
 from .guest_agent import *
+from .hci_edge_device_job import *
 from .hybrid_identity_metadatum import *
 from .logical_network import *
 from .machine_extension import *
@@ -89,6 +91,12 @@ if typing.TYPE_CHECKING:
     v20240401 = __v20240401
     import pulumi_azure_native.azurestackhci.v20240501preview as __v20240501preview
     v20240501preview = __v20240501preview
+    import pulumi_azure_native.azurestackhci.v20240715preview as __v20240715preview
+    v20240715preview = __v20240715preview
+    import pulumi_azure_native.azurestackhci.v20240801preview as __v20240801preview
+    v20240801preview = __v20240801preview
+    import pulumi_azure_native.azurestackhci.v20240901preview as __v20240901preview
+    v20240901preview = __v20240901preview
 else:
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20210901preview')
     v20220101 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20220101')
@@ -106,4 +114,7 @@ else:
     v20240215preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20240215preview')
     v20240401 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20240401')
     v20240501preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20240501preview')
+    v20240715preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20240715preview')
+    v20240801preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20240801preview')
+    v20240901preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20240901preview')
 

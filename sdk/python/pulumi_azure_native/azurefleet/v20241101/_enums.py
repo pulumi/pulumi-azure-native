@@ -88,9 +88,9 @@ class ArchitectureType(str, Enum):
     """
     ARM64 Architecture
     """
-    X86 = "X86"
+    X64 = "X64"
     """
-    X86 Architecture
+    X64 Architecture
     """
 
 

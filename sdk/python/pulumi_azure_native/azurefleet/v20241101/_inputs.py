@@ -1793,9 +1793,9 @@ if not MYPY:
         """
         Represents the profile for a single additional location in the Fleet. The location and the virtualMachineProfileOverride (optional).
         """
-        location: NotRequired[pulumi.Input[str]]
+        location: pulumi.Input[str]
         """
-        The ARM location name of the additional region.
+        The ARM location name of the additional region. If LocationProfile is specified, then location is required.
         """
         virtual_machine_profile_override: NotRequired[pulumi.Input['BaseVirtualMachineProfileArgsDict']]
         """
@@ -1808,29 +1808,28 @@ elif False:
 @pulumi.input_type
 class LocationProfileArgs:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[str]] = None,
+                 location: pulumi.Input[str],
                  virtual_machine_profile_override: Optional[pulumi.Input['BaseVirtualMachineProfileArgs']] = None):
         """
         Represents the profile for a single additional location in the Fleet. The location and the virtualMachineProfileOverride (optional).
-        :param pulumi.Input[str] location: The ARM location name of the additional region.
+        :param pulumi.Input[str] location: The ARM location name of the additional region. If LocationProfile is specified, then location is required.
         :param pulumi.Input['BaseVirtualMachineProfileArgs'] virtual_machine_profile_override: An override for computeProfile.baseVirtualMachineProfile specific to this region. 
                This override is merged with the base virtual machine profile to define the final virtual machine profile for the resources deployed in this location.
         """
-        if location is not None:
-            pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "location", location)
         if virtual_machine_profile_override is not None:
             pulumi.set(__self__, "virtual_machine_profile_override", virtual_machine_profile_override)
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
+    def location(self) -> pulumi.Input[str]:
         """
-        The ARM location name of the additional region.
+        The ARM location name of the additional region. If LocationProfile is specified, then location is required.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
+    def location(self, value: pulumi.Input[str]):
         pulumi.set(self, "location", value)
 
     @property
@@ -3337,19 +3336,26 @@ if not MYPY:
         """
         accelerator_count: NotRequired[pulumi.Input['VMAttributeMinMaxIntegerArgsDict']]
         """
-        The range of accelerator count specified from min to max.. Optional parameter. Either Min or Max is required if specified.
+        The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
+        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         """
         accelerator_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AcceleratorManufacturer']]]]]
         """
-        The accelerator manufacturers specified as a list. acceleratorSupport should be set to Included or Required to use this VMAttribute.
+        The accelerator manufacturers specified as a list. 
+        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         """
         accelerator_support: NotRequired[pulumi.Input[Union[str, 'VMAttributeSupport']]]
         """
         Specifies whether the VMSize supporting accelerator should be used to build Fleet or not.
+        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         """
         accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AcceleratorType']]]]]
         """
-        The accelerator types specified as a list. acceleratorSupport should be set to Included or Required to use this VMAttribute.
+        The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         """
         architecture_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ArchitectureType']]]]]
         """
@@ -3378,11 +3384,16 @@ if not MYPY:
         """
         local_storage_in_gi_b: NotRequired[pulumi.Input['VMAttributeMinMaxDoubleArgsDict']]
         """
-        The range of local storage in GB specified from Min to Max.
+        LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If localStorageSupport is "Excluded", this VMAttribute can not be used.
         """
         local_storage_support: NotRequired[pulumi.Input[Union[str, 'VMAttributeSupport']]]
         """
         Specifies whether the VMSize supporting local storage should be used to build Fleet or not.
+        """
+        memory_in_gi_b_per_v_cpu: NotRequired[pulumi.Input['VMAttributeMinMaxDoubleArgsDict']]
+        """
+        The range of memory in GiB per vCPU specified from min to max. Optional parameter. Either Min or Max is required if specified.
         """
         network_bandwidth_in_mbps: NotRequired[pulumi.Input['VMAttributeMinMaxDoubleArgsDict']]
         """
@@ -3395,6 +3406,8 @@ if not MYPY:
         rdma_network_interface_count: NotRequired[pulumi.Input['VMAttributeMinMaxIntegerArgsDict']]
         """
         The range of RDMA (Remote Direct Memory Access) network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+        rdmaSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If rdmaSupport is "Excluded", this VMAttribute can not be used.
         """
         rdma_support: NotRequired[pulumi.Input[Union[str, 'VMAttributeSupport']]]
         """
@@ -3424,6 +3437,7 @@ class VMAttributesArgs:
                  local_storage_disk_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'LocalStorageDiskType']]]]] = None,
                  local_storage_in_gi_b: Optional[pulumi.Input['VMAttributeMinMaxDoubleArgs']] = None,
                  local_storage_support: Optional[pulumi.Input[Union[str, 'VMAttributeSupport']]] = None,
+                 memory_in_gi_b_per_v_cpu: Optional[pulumi.Input['VMAttributeMinMaxDoubleArgs']] = None,
                  network_bandwidth_in_mbps: Optional[pulumi.Input['VMAttributeMinMaxDoubleArgs']] = None,
                  network_interface_count: Optional[pulumi.Input['VMAttributeMinMaxIntegerArgs']] = None,
                  rdma_network_interface_count: Optional[pulumi.Input['VMAttributeMinMaxIntegerArgs']] = None,
@@ -3433,10 +3447,17 @@ class VMAttributesArgs:
         VMAttributes that will be used to filter VMSizes which will be used to build Fleet.
         :param pulumi.Input['VMAttributeMinMaxDoubleArgs'] memory_in_gi_b: The range of memory specified from Min to Max. Must be specified if VMAttributes are specified, either Min or Max is required if specified.
         :param pulumi.Input['VMAttributeMinMaxIntegerArgs'] v_cpu_count: The range of vCpuCount specified from Min to Max. Must be specified if VMAttributes are specified, either Min or Max is required if specified.
-        :param pulumi.Input['VMAttributeMinMaxIntegerArgs'] accelerator_count: The range of accelerator count specified from min to max.. Optional parameter. Either Min or Max is required if specified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AcceleratorManufacturer']]]] accelerator_manufacturers: The accelerator manufacturers specified as a list. acceleratorSupport should be set to Included or Required to use this VMAttribute.
+        :param pulumi.Input['VMAttributeMinMaxIntegerArgs'] accelerator_count: The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
+               acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AcceleratorManufacturer']]]] accelerator_manufacturers: The accelerator manufacturers specified as a list. 
+               acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         :param pulumi.Input[Union[str, 'VMAttributeSupport']] accelerator_support: Specifies whether the VMSize supporting accelerator should be used to build Fleet or not.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AcceleratorType']]]] accelerator_types: The accelerator types specified as a list. acceleratorSupport should be set to Included or Required to use this VMAttribute.
+               acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AcceleratorType']]]] accelerator_types: The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ArchitectureType']]]] architecture_types: The VM architecture types specified as a list. Optional parameter.
         :param pulumi.Input[Union[str, 'VMAttributeSupport']] burstable_support: Specifies whether the VMSize supporting burstable capability should be used to build Fleet or not.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'CpuManufacturer']]]] cpu_manufacturers: The VM CPU manufacturers specified as a list. Optional parameter.
@@ -3444,11 +3465,15 @@ class VMAttributesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_vm_sizes: Specifies which VMSizes should be excluded while building Fleet. Optional parameter.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'LocalStorageDiskType']]]] local_storage_disk_types: The local storage disk types specified as a list. LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
                If localStorageSupport is "Excluded", this VMAttribute can not be used.
-        :param pulumi.Input['VMAttributeMinMaxDoubleArgs'] local_storage_in_gi_b: The range of local storage in GB specified from Min to Max.
+        :param pulumi.Input['VMAttributeMinMaxDoubleArgs'] local_storage_in_gi_b: LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If localStorageSupport is "Excluded", this VMAttribute can not be used.
         :param pulumi.Input[Union[str, 'VMAttributeSupport']] local_storage_support: Specifies whether the VMSize supporting local storage should be used to build Fleet or not.
+        :param pulumi.Input['VMAttributeMinMaxDoubleArgs'] memory_in_gi_b_per_v_cpu: The range of memory in GiB per vCPU specified from min to max. Optional parameter. Either Min or Max is required if specified.
         :param pulumi.Input['VMAttributeMinMaxDoubleArgs'] network_bandwidth_in_mbps: The range of network bandwidth in Mbps specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
         :param pulumi.Input['VMAttributeMinMaxIntegerArgs'] network_interface_count: The range of network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
         :param pulumi.Input['VMAttributeMinMaxIntegerArgs'] rdma_network_interface_count: The range of RDMA (Remote Direct Memory Access) network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+               rdmaSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If rdmaSupport is "Excluded", this VMAttribute can not be used.
         :param pulumi.Input[Union[str, 'VMAttributeSupport']] rdma_support: Specifies whether the VMSize supporting RDMA (Remote Direct Memory Access) should be used to build Fleet or not.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VMCategory']]]] vm_categories: The VM category specified as a list. Optional parameter.
         """
@@ -3478,6 +3503,8 @@ class VMAttributesArgs:
             pulumi.set(__self__, "local_storage_in_gi_b", local_storage_in_gi_b)
         if local_storage_support is not None:
             pulumi.set(__self__, "local_storage_support", local_storage_support)
+        if memory_in_gi_b_per_v_cpu is not None:
+            pulumi.set(__self__, "memory_in_gi_b_per_v_cpu", memory_in_gi_b_per_v_cpu)
         if network_bandwidth_in_mbps is not None:
             pulumi.set(__self__, "network_bandwidth_in_mbps", network_bandwidth_in_mbps)
         if network_interface_count is not None:
@@ -3517,7 +3544,9 @@ class VMAttributesArgs:
     @pulumi.getter(name="acceleratorCount")
     def accelerator_count(self) -> Optional[pulumi.Input['VMAttributeMinMaxIntegerArgs']]:
         """
-        The range of accelerator count specified from min to max.. Optional parameter. Either Min or Max is required if specified.
+        The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
+        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "accelerator_count")
 
@@ -3529,7 +3558,9 @@ class VMAttributesArgs:
     @pulumi.getter(name="acceleratorManufacturers")
     def accelerator_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AcceleratorManufacturer']]]]]:
         """
-        The accelerator manufacturers specified as a list. acceleratorSupport should be set to Included or Required to use this VMAttribute.
+        The accelerator manufacturers specified as a list. 
+        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "accelerator_manufacturers")
 
@@ -3542,6 +3573,8 @@ class VMAttributesArgs:
     def accelerator_support(self) -> Optional[pulumi.Input[Union[str, 'VMAttributeSupport']]]:
         """
         Specifies whether the VMSize supporting accelerator should be used to build Fleet or not.
+        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "accelerator_support")
 
@@ -3553,7 +3586,8 @@ class VMAttributesArgs:
     @pulumi.getter(name="acceleratorTypes")
     def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AcceleratorType']]]]]:
         """
-        The accelerator types specified as a list. acceleratorSupport should be set to Included or Required to use this VMAttribute.
+        The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -3638,7 +3672,8 @@ class VMAttributesArgs:
     @pulumi.getter(name="localStorageInGiB")
     def local_storage_in_gi_b(self) -> Optional[pulumi.Input['VMAttributeMinMaxDoubleArgs']]:
         """
-        The range of local storage in GB specified from Min to Max.
+        LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If localStorageSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "local_storage_in_gi_b")
 
@@ -3657,6 +3692,18 @@ class VMAttributesArgs:
     @local_storage_support.setter
     def local_storage_support(self, value: Optional[pulumi.Input[Union[str, 'VMAttributeSupport']]]):
         pulumi.set(self, "local_storage_support", value)
+
+    @property
+    @pulumi.getter(name="memoryInGiBPerVCpu")
+    def memory_in_gi_b_per_v_cpu(self) -> Optional[pulumi.Input['VMAttributeMinMaxDoubleArgs']]:
+        """
+        The range of memory in GiB per vCPU specified from min to max. Optional parameter. Either Min or Max is required if specified.
+        """
+        return pulumi.get(self, "memory_in_gi_b_per_v_cpu")
+
+    @memory_in_gi_b_per_v_cpu.setter
+    def memory_in_gi_b_per_v_cpu(self, value: Optional[pulumi.Input['VMAttributeMinMaxDoubleArgs']]):
+        pulumi.set(self, "memory_in_gi_b_per_v_cpu", value)
 
     @property
     @pulumi.getter(name="networkBandwidthInMbps")
@@ -3687,6 +3734,8 @@ class VMAttributesArgs:
     def rdma_network_interface_count(self) -> Optional[pulumi.Input['VMAttributeMinMaxIntegerArgs']]:
         """
         The range of RDMA (Remote Direct Memory Access) network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+        rdmaSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If rdmaSupport is "Excluded", this VMAttribute can not be used.
         """
         return pulumi.get(self, "rdma_network_interface_count")
 

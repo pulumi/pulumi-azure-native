@@ -150,7 +150,7 @@ export class GalleryImage extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:GalleryImage" }, { type: "azure-native:azurestackhci/v20210701preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20210901preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20221215preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20230701preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20230901preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240101:GalleryImage" }, { type: "azure-native:azurestackhci/v20240501preview:GalleryImage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:GalleryImage" }, { type: "azure-native:azurestackhci/v20210701preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20210901preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20221215preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20230701preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20230901preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240101:GalleryImage" }, { type: "azure-native:azurestackhci/v20240501preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240715preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240801preview:GalleryImage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryImage.__pulumiType, name, resourceInputs, opts);
     }

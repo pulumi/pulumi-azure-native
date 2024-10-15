@@ -395,6 +395,7 @@ import * as v20240101 from "./v20240101";
 import * as v20240301preview from "./v20240301preview";
 import * as v20240401 from "./v20240401";
 import * as v20240515preview from "./v20240515preview";
+import * as v20240701preview from "./v20240701preview";
 import * as v20240801 from "./v20240801";
 
 export {
@@ -423,6 +424,7 @@ export {
     v20240301preview,
     v20240401,
     v20240515preview,
+    v20240701preview,
     v20240801,
 };
 

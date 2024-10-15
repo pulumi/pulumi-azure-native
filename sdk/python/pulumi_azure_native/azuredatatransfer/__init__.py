@@ -10,6 +10,10 @@ from .connection import *
 from .flow import *
 from .get_connection import *
 from .get_flow import *
+from .get_flow_destination_endpoint_ports import *
+from .get_flow_destination_endpoints import *
+from .get_flow_source_addresses import *
+from .get_flow_stream_connection_string import *
 from .get_pipeline import *
 from .list_azure_data_transfer_approved_schemas import *
 from .list_list_pending_connection import *
@@ -29,9 +33,12 @@ if typing.TYPE_CHECKING:
     v20240507 = __v20240507
     import pulumi_azure_native.azuredatatransfer.v20240911 as __v20240911
     v20240911 = __v20240911
+    import pulumi_azure_native.azuredatatransfer.v20240927 as __v20240927
+    v20240927 = __v20240927
 else:
     v20231011preview = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20231011preview')
     v20240125 = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20240125')
     v20240507 = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20240507')
     v20240911 = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20240911')
+    v20240927 = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer.v20240927')
 

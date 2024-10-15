@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240401
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20231101preview:DeploymentSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:DeploymentSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240215preview:DeploymentSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240901preview:DeploymentSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

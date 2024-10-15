@@ -140,6 +140,9 @@ namespace Pulumi.AzureNative.NetApp.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:SnapshotPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:SnapshotPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:SnapshotPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:SnapshotPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:SnapshotPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:SnapshotPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.V20231011Preview
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240125:Connection" },
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240507:Connection" },
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240911:Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240927:Connection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

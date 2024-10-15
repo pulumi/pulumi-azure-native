@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Asset definition.
  * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2024-09-01-preview.
+ * Other available API versions: 2024-09-01-preview, 2024-11-01.
  */
 export class Asset extends pulumi.CustomResource {
     /**
@@ -240,7 +240,7 @@ export class Asset extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20231101preview:Asset" }, { type: "azure-native:deviceregistry/v20240901preview:Asset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20231101preview:Asset" }, { type: "azure-native:deviceregistry/v20240901preview:Asset" }, { type: "azure-native:deviceregistry/v20241101:Asset" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Asset.__pulumiType, name, resourceInputs, opts);
     }

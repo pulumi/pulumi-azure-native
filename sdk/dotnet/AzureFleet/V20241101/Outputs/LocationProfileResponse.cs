@@ -17,9 +17,9 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Outputs
     public sealed class LocationProfileResponse
     {
         /// <summary>
-        /// The ARM location name of the additional region.
+        /// The ARM location name of the additional region. If LocationProfile is specified, then location is required.
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
         /// An override for computeProfile.baseVirtualMachineProfile specific to this region. 
         /// This override is merged with the base virtual machine profile to define the final virtual machine profile for the resources deployed in this location.
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Outputs
 
         [OutputConstructor]
         private LocationProfileResponse(
-            string? location,
+            string location,
 
             Outputs.BaseVirtualMachineProfileResponse? virtualMachineProfileOverride)
         {

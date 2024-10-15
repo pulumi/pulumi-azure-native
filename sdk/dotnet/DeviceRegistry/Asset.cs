@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// Asset definition.
     /// Azure REST API version: 2023-11-01-preview.
     /// 
-    /// Other available API versions: 2024-09-01-preview.
+    /// Other available API versions: 2024-09-01-preview, 2024-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:Asset")]
     public partial class Asset : global::Pulumi.CustomResource
@@ -219,6 +219,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20231101preview:Asset" },
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20240901preview:Asset" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20241101:Asset" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

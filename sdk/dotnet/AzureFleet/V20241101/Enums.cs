@@ -103,9 +103,9 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101
         /// </summary>
         public static ArchitectureType ARM64 { get; } = new ArchitectureType("ARM64");
         /// <summary>
-        /// X86 Architecture
+        /// X64 Architecture
         /// </summary>
-        public static ArchitectureType X86 { get; } = new ArchitectureType("X86");
+        public static ArchitectureType X64 { get; } = new ArchitectureType("X64");
 
         public static bool operator ==(ArchitectureType left, ArchitectureType right) => left.Equals(right);
         public static bool operator !=(ArchitectureType left, ArchitectureType right) => !left.Equals(right);

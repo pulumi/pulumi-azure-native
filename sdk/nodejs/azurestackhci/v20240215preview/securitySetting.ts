@@ -97,7 +97,7 @@ export class SecuritySetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:SecuritySetting" }, { type: "azure-native:azurestackhci/v20231101preview:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240101:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240401:SecuritySetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:SecuritySetting" }, { type: "azure-native:azurestackhci/v20231101preview:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240101:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240401:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240901preview:SecuritySetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecuritySetting.__pulumiType, name, resourceInputs, opts);
     }

@@ -3331,6 +3331,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azuredatatransfer/v20240927",
+  "fqn": "pulumi_azure_native.azuredatatransfer.v20240927",
+  "classes": {
+   "azure-native:azuredatatransfer/v20240927:Connection": "Connection",
+   "azure-native:azuredatatransfer/v20240927:Flow": "Flow",
+   "azure-native:azuredatatransfer/v20240927:Pipeline": "Pipeline"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azurefleet",
   "fqn": "pulumi_azure_native.azurefleet",
   "classes": {
@@ -3491,6 +3501,7 @@ _utilities.register(
    "azure-native:azurestackhci:Extension": "Extension",
    "azure-native:azurestackhci:GalleryImage": "GalleryImage",
    "azure-native:azurestackhci:GuestAgent": "GuestAgent",
+   "azure-native:azurestackhci:HciEdgeDeviceJob": "HciEdgeDeviceJob",
    "azure-native:azurestackhci:HybridIdentityMetadatum": "HybridIdentityMetadatum",
    "azure-native:azurestackhci:LogicalNetwork": "LogicalNetwork",
    "azure-native:azurestackhci:MachineExtension": "MachineExtension",
@@ -3751,6 +3762,57 @@ _utilities.register(
    "azure-native:azurestackhci/v20240501preview:StorageContainer": "StorageContainer",
    "azure-native:azurestackhci/v20240501preview:VirtualHardDisk": "VirtualHardDisk",
    "azure-native:azurestackhci/v20240501preview:VirtualMachineInstance": "VirtualMachineInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurestackhci/v20240715preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20240715preview",
+  "classes": {
+   "azure-native:azurestackhci/v20240715preview:GalleryImage": "GalleryImage",
+   "azure-native:azurestackhci/v20240715preview:GuestAgent": "GuestAgent",
+   "azure-native:azurestackhci/v20240715preview:LogicalNetwork": "LogicalNetwork",
+   "azure-native:azurestackhci/v20240715preview:MarketplaceGalleryImage": "MarketplaceGalleryImage",
+   "azure-native:azurestackhci/v20240715preview:NetworkInterface": "NetworkInterface",
+   "azure-native:azurestackhci/v20240715preview:NetworkSecurityGroup": "NetworkSecurityGroup",
+   "azure-native:azurestackhci/v20240715preview:SecurityRule": "SecurityRule",
+   "azure-native:azurestackhci/v20240715preview:StorageContainer": "StorageContainer",
+   "azure-native:azurestackhci/v20240715preview:VirtualHardDisk": "VirtualHardDisk",
+   "azure-native:azurestackhci/v20240715preview:VirtualMachineInstance": "VirtualMachineInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurestackhci/v20240801preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20240801preview",
+  "classes": {
+   "azure-native:azurestackhci/v20240801preview:GalleryImage": "GalleryImage",
+   "azure-native:azurestackhci/v20240801preview:GuestAgent": "GuestAgent",
+   "azure-native:azurestackhci/v20240801preview:LogicalNetwork": "LogicalNetwork",
+   "azure-native:azurestackhci/v20240801preview:MarketplaceGalleryImage": "MarketplaceGalleryImage",
+   "azure-native:azurestackhci/v20240801preview:NetworkInterface": "NetworkInterface",
+   "azure-native:azurestackhci/v20240801preview:NetworkSecurityGroup": "NetworkSecurityGroup",
+   "azure-native:azurestackhci/v20240801preview:SecurityRule": "SecurityRule",
+   "azure-native:azurestackhci/v20240801preview:StorageContainer": "StorageContainer",
+   "azure-native:azurestackhci/v20240801preview:VirtualHardDisk": "VirtualHardDisk",
+   "azure-native:azurestackhci/v20240801preview:VirtualMachineInstance": "VirtualMachineInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurestackhci/v20240901preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20240901preview",
+  "classes": {
+   "azure-native:azurestackhci/v20240901preview:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci/v20240901preview:Cluster": "Cluster",
+   "azure-native:azurestackhci/v20240901preview:DeploymentSetting": "DeploymentSetting",
+   "azure-native:azurestackhci/v20240901preview:Extension": "Extension",
+   "azure-native:azurestackhci/v20240901preview:HciEdgeDevice": "HciEdgeDevice",
+   "azure-native:azurestackhci/v20240901preview:HciEdgeDeviceJob": "HciEdgeDeviceJob",
+   "azure-native:azurestackhci/v20240901preview:SecuritySetting": "SecuritySetting",
+   "azure-native:azurestackhci/v20240901preview:Update": "Update",
+   "azure-native:azurestackhci/v20240901preview:UpdateRun": "UpdateRun",
+   "azure-native:azurestackhci/v20240901preview:UpdateSummary": "UpdateSummary"
   }
  },
  {
@@ -8130,6 +8192,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "deviceregistry/v20241101",
+  "fqn": "pulumi_azure_native.deviceregistry.v20241101",
+  "classes": {
+   "azure-native:deviceregistry/v20241101:Asset": "Asset",
+   "azure-native:deviceregistry/v20241101:AssetEndpointProfile": "AssetEndpointProfile"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "devices",
   "fqn": "pulumi_azure_native.devices",
   "classes": {
@@ -8308,6 +8379,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.devopsinfrastructure.v20240404preview",
   "classes": {
    "azure-native:devopsinfrastructure/v20240404preview:Pool": "Pool"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devopsinfrastructure/v20241019",
+  "fqn": "pulumi_azure_native.devopsinfrastructure.v20241019",
+  "classes": {
+   "azure-native:devopsinfrastructure/v20241019:Pool": "Pool"
   }
  },
  {
@@ -13212,6 +13291,60 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "netapp/v20240501",
+  "fqn": "pulumi_azure_native.netapp.v20240501",
+  "classes": {
+   "azure-native:netapp/v20240501:Account": "Account",
+   "azure-native:netapp/v20240501:Backup": "Backup",
+   "azure-native:netapp/v20240501:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20240501:BackupVault": "BackupVault",
+   "azure-native:netapp/v20240501:Pool": "Pool",
+   "azure-native:netapp/v20240501:Snapshot": "Snapshot",
+   "azure-native:netapp/v20240501:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20240501:Subvolume": "Subvolume",
+   "azure-native:netapp/v20240501:Volume": "Volume",
+   "azure-native:netapp/v20240501:VolumeGroup": "VolumeGroup",
+   "azure-native:netapp/v20240501:VolumeQuotaRule": "VolumeQuotaRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "netapp/v20240501preview",
+  "fqn": "pulumi_azure_native.netapp.v20240501preview",
+  "classes": {
+   "azure-native:netapp/v20240501preview:Account": "Account",
+   "azure-native:netapp/v20240501preview:Backup": "Backup",
+   "azure-native:netapp/v20240501preview:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20240501preview:BackupVault": "BackupVault",
+   "azure-native:netapp/v20240501preview:Pool": "Pool",
+   "azure-native:netapp/v20240501preview:Snapshot": "Snapshot",
+   "azure-native:netapp/v20240501preview:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20240501preview:Subvolume": "Subvolume",
+   "azure-native:netapp/v20240501preview:Volume": "Volume",
+   "azure-native:netapp/v20240501preview:VolumeGroup": "VolumeGroup",
+   "azure-native:netapp/v20240501preview:VolumeQuotaRule": "VolumeQuotaRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "netapp/v20240701",
+  "fqn": "pulumi_azure_native.netapp.v20240701",
+  "classes": {
+   "azure-native:netapp/v20240701:Account": "Account",
+   "azure-native:netapp/v20240701:Backup": "Backup",
+   "azure-native:netapp/v20240701:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20240701:BackupVault": "BackupVault",
+   "azure-native:netapp/v20240701:Pool": "Pool",
+   "azure-native:netapp/v20240701:Snapshot": "Snapshot",
+   "azure-native:netapp/v20240701:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20240701:Subvolume": "Subvolume",
+   "azure-native:netapp/v20240701:Volume": "Volume",
+   "azure-native:netapp/v20240701:VolumeGroup": "VolumeGroup",
+   "azure-native:netapp/v20240701:VolumeQuotaRule": "VolumeQuotaRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "network",
   "fqn": "pulumi_azure_native.network",
   "classes": {
@@ -16472,6 +16605,14 @@ _utilities.register(
   "classes": {
    "azure-native:security/v20240515preview:DevOpsConfiguration": "DevOpsConfiguration",
    "azure-native:security/v20240515preview:DevOpsPolicyAssignment": "DevOpsPolicyAssignment"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20240701preview",
+  "fqn": "pulumi_azure_native.security.v20240701preview",
+  "classes": {
+   "azure-native:security/v20240701preview:SecurityConnector": "SecurityConnector"
   }
  },
  {

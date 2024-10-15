@@ -126,6 +126,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240501Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:SecurityRule" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240201preview:SecurityRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:SecurityRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:SecurityRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

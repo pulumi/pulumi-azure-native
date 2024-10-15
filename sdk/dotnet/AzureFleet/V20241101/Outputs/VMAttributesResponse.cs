@@ -17,19 +17,26 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Outputs
     public sealed class VMAttributesResponse
     {
         /// <summary>
-        /// The range of accelerator count specified from min to max.. Optional parameter. Either Min or Max is required if specified.
+        /// The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
+        /// acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        /// If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         /// </summary>
         public readonly Outputs.VMAttributeMinMaxIntegerResponse? AcceleratorCount;
         /// <summary>
-        /// The accelerator manufacturers specified as a list. acceleratorSupport should be set to Included or Required to use this VMAttribute.
+        /// The accelerator manufacturers specified as a list. 
+        /// acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        /// If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorManufacturers;
         /// <summary>
         /// Specifies whether the VMSize supporting accelerator should be used to build Fleet or not.
+        /// acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        /// If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         /// </summary>
         public readonly string? AcceleratorSupport;
         /// <summary>
-        /// The accelerator types specified as a list. acceleratorSupport should be set to Included or Required to use this VMAttribute.
+        /// The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        /// If acceleratorSupport is "Excluded", this VMAttribute can not be used.
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorTypes;
         /// <summary>
@@ -58,7 +65,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LocalStorageDiskTypes;
         /// <summary>
-        /// The range of local storage in GB specified from Min to Max.
+        /// LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        /// If localStorageSupport is "Excluded", this VMAttribute can not be used.
         /// </summary>
         public readonly Outputs.VMAttributeMinMaxDoubleResponse? LocalStorageInGiB;
         /// <summary>
@@ -70,6 +78,10 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Outputs
         /// </summary>
         public readonly Outputs.VMAttributeMinMaxDoubleResponse MemoryInGiB;
         /// <summary>
+        /// The range of memory in GiB per vCPU specified from min to max. Optional parameter. Either Min or Max is required if specified.
+        /// </summary>
+        public readonly Outputs.VMAttributeMinMaxDoubleResponse? MemoryInGiBPerVCpu;
+        /// <summary>
         /// The range of network bandwidth in Mbps specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
         /// </summary>
         public readonly Outputs.VMAttributeMinMaxDoubleResponse? NetworkBandwidthInMbps;
@@ -79,6 +91,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Outputs
         public readonly Outputs.VMAttributeMinMaxIntegerResponse? NetworkInterfaceCount;
         /// <summary>
         /// The range of RDMA (Remote Direct Memory Access) network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+        /// rdmaSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        /// If rdmaSupport is "Excluded", this VMAttribute can not be used.
         /// </summary>
         public readonly Outputs.VMAttributeMinMaxIntegerResponse? RdmaNetworkInterfaceCount;
         /// <summary>
@@ -122,6 +136,8 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Outputs
 
             Outputs.VMAttributeMinMaxDoubleResponse memoryInGiB,
 
+            Outputs.VMAttributeMinMaxDoubleResponse? memoryInGiBPerVCpu,
+
             Outputs.VMAttributeMinMaxDoubleResponse? networkBandwidthInMbps,
 
             Outputs.VMAttributeMinMaxIntegerResponse? networkInterfaceCount,
@@ -147,6 +163,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Outputs
             LocalStorageInGiB = localStorageInGiB;
             LocalStorageSupport = localStorageSupport;
             MemoryInGiB = memoryInGiB;
+            MemoryInGiBPerVCpu = memoryInGiBPerVCpu;
             NetworkBandwidthInMbps = networkBandwidthInMbps;
             NetworkInterfaceCount = networkInterfaceCount;
             RdmaNetworkInterfaceCount = rdmaNetworkInterfaceCount;

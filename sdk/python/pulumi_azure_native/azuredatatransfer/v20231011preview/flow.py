@@ -237,7 +237,7 @@ class Flow(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuredatatransfer:Flow"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240125:Flow"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240507:Flow"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240911:Flow")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuredatatransfer:Flow"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240125:Flow"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240507:Flow"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240911:Flow"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240927:Flow")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Flow, __self__).__init__(
             'azure-native:azuredatatransfer/v20231011preview:Flow',

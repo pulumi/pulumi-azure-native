@@ -187,7 +187,7 @@ class ArcSetting(pulumi.CustomResource):
         ArcSetting details.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
 
-        Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01.
+        Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +211,7 @@ class ArcSetting(pulumi.CustomResource):
         ArcSetting details.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
 
-        Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01.
+        Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ArcSettingArgs args: The arguments to use to populate this resource's properties.
@@ -266,7 +266,7 @@ class ArcSetting(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210101preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220101:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220301:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220501:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220901:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20221001:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20221201:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20230201:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20230301:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20230601:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240215preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240401:ArcSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210101preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220101:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220301:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220501:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20220901:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20221001:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20221201:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20230201:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20230301:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20230601:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240215preview:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240401:ArcSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240901preview:ArcSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ArcSetting, __self__).__init__(
             'azure-native:azurestackhci:ArcSetting',

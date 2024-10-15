@@ -237,7 +237,7 @@ export class Asset extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry:Asset" }, { type: "azure-native:deviceregistry/v20240901preview:Asset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry:Asset" }, { type: "azure-native:deviceregistry/v20240901preview:Asset" }, { type: "azure-native:deviceregistry/v20241101:Asset" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Asset.__pulumiType, name, resourceInputs, opts);
     }

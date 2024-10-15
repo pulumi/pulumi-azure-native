@@ -114,7 +114,7 @@ export class StorageContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:StorageContainer" }, { type: "azure-native:azurestackhci/v20210901preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20221215preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20230701preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20230901preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240101:StorageContainer" }, { type: "azure-native:azurestackhci/v20240501preview:StorageContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:StorageContainer" }, { type: "azure-native:azurestackhci/v20210901preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20221215preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20230701preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20230901preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240101:StorageContainer" }, { type: "azure-native:azurestackhci/v20240501preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240715preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240801preview:StorageContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageContainer.__pulumiType, name, resourceInputs, opts);
     }

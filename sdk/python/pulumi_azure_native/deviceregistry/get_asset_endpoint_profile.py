@@ -201,7 +201,7 @@ def get_asset_endpoint_profile(asset_endpoint_profile_name: Optional[str] = None
     Get a AssetEndpointProfile
     Azure REST API version: 2023-11-01-preview.
 
-    Other available API versions: 2024-09-01-preview.
+    Other available API versions: 2024-09-01-preview, 2024-11-01.
 
 
     :param str asset_endpoint_profile_name: Asset Endpoint Profile name parameter.
@@ -237,7 +237,7 @@ def get_asset_endpoint_profile_output(asset_endpoint_profile_name: Optional[pulu
     Get a AssetEndpointProfile
     Azure REST API version: 2023-11-01-preview.
 
-    Other available API versions: 2024-09-01-preview.
+    Other available API versions: 2024-09-01-preview, 2024-11-01.
 
 
     :param str asset_endpoint_profile_name: Asset Endpoint Profile name parameter.

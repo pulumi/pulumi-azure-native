@@ -71,6 +71,8 @@ def list_volume_quota_report(account_name: Optional[str] = None,
     Returns report of quotas for the volume
     Azure REST API version: 2024-03-01-preview.
 
+    Other available API versions: 2024-05-01-preview.
+
 
     :param str account_name: The name of the NetApp account
     :param str pool_name: The name of the capacity pool
@@ -99,6 +101,8 @@ def list_volume_quota_report_output(account_name: Optional[pulumi.Input[str]] = 
     """
     Returns report of quotas for the volume
     Azure REST API version: 2024-03-01-preview.
+
+    Other available API versions: 2024-05-01-preview.
 
 
     :param str account_name: The name of the NetApp account

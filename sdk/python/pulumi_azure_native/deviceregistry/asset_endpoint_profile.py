@@ -187,7 +187,7 @@ class AssetEndpointProfile(pulumi.CustomResource):
         Asset Endpoint Profile definition.
         Azure REST API version: 2023-11-01-preview.
 
-        Other available API versions: 2024-09-01-preview.
+        Other available API versions: 2024-09-01-preview, 2024-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +211,7 @@ class AssetEndpointProfile(pulumi.CustomResource):
         Asset Endpoint Profile definition.
         Azure REST API version: 2023-11-01-preview.
 
-        Other available API versions: 2024-09-01-preview.
+        Other available API versions: 2024-09-01-preview, 2024-11-01.
 
         :param str resource_name: The name of the resource.
         :param AssetEndpointProfileArgs args: The arguments to use to populate this resource's properties.
@@ -266,7 +266,7 @@ class AssetEndpointProfile(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20231101preview:AssetEndpointProfile"), pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:AssetEndpointProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20231101preview:AssetEndpointProfile"), pulumi.Alias(type_="azure-native:deviceregistry/v20240901preview:AssetEndpointProfile"), pulumi.Alias(type_="azure-native:deviceregistry/v20241101:AssetEndpointProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssetEndpointProfile, __self__).__init__(
             'azure-native:deviceregistry:AssetEndpointProfile',

@@ -201,7 +201,7 @@ def get_security_connector(resource_group_name: Optional[str] = None,
     Retrieves details of a specific security connector
     Azure REST API version: 2023-03-01-preview.
 
-    Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview.
+    Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -237,7 +237,7 @@ def get_security_connector_output(resource_group_name: Optional[pulumi.Input[str
     Retrieves details of a specific security connector
     Azure REST API version: 2023-03-01-preview.
 
-    Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview.
+    Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.

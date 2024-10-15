@@ -120,6 +120,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240201Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240501preview:NetworkInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:NetworkInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:NetworkInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

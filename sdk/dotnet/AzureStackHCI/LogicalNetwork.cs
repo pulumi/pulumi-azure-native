@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// The logical network resource definition.
     /// Azure REST API version: 2023-09-01-preview.
     /// 
-    /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview.
+    /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:LogicalNetwork")]
     public partial class LogicalNetwork : global::Pulumi.CustomResource
@@ -113,6 +113,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:LogicalNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240201preview:LogicalNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240501preview:LogicalNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:LogicalNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:LogicalNetwork" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

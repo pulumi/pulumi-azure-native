@@ -25,6 +25,26 @@ export const getFlow: typeof import("./getFlow").getFlow = null as any;
 export const getFlowOutput: typeof import("./getFlow").getFlowOutput = null as any;
 utilities.lazyLoad(exports, ["getFlow","getFlowOutput"], () => require("./getFlow"));
 
+export { GetFlowDestinationEndpointPortsArgs, GetFlowDestinationEndpointPortsResult, GetFlowDestinationEndpointPortsOutputArgs } from "./getFlowDestinationEndpointPorts";
+export const getFlowDestinationEndpointPorts: typeof import("./getFlowDestinationEndpointPorts").getFlowDestinationEndpointPorts = null as any;
+export const getFlowDestinationEndpointPortsOutput: typeof import("./getFlowDestinationEndpointPorts").getFlowDestinationEndpointPortsOutput = null as any;
+utilities.lazyLoad(exports, ["getFlowDestinationEndpointPorts","getFlowDestinationEndpointPortsOutput"], () => require("./getFlowDestinationEndpointPorts"));
+
+export { GetFlowDestinationEndpointsArgs, GetFlowDestinationEndpointsResult, GetFlowDestinationEndpointsOutputArgs } from "./getFlowDestinationEndpoints";
+export const getFlowDestinationEndpoints: typeof import("./getFlowDestinationEndpoints").getFlowDestinationEndpoints = null as any;
+export const getFlowDestinationEndpointsOutput: typeof import("./getFlowDestinationEndpoints").getFlowDestinationEndpointsOutput = null as any;
+utilities.lazyLoad(exports, ["getFlowDestinationEndpoints","getFlowDestinationEndpointsOutput"], () => require("./getFlowDestinationEndpoints"));
+
+export { GetFlowSourceAddressesArgs, GetFlowSourceAddressesResult, GetFlowSourceAddressesOutputArgs } from "./getFlowSourceAddresses";
+export const getFlowSourceAddresses: typeof import("./getFlowSourceAddresses").getFlowSourceAddresses = null as any;
+export const getFlowSourceAddressesOutput: typeof import("./getFlowSourceAddresses").getFlowSourceAddressesOutput = null as any;
+utilities.lazyLoad(exports, ["getFlowSourceAddresses","getFlowSourceAddressesOutput"], () => require("./getFlowSourceAddresses"));
+
+export { GetFlowStreamConnectionStringArgs, GetFlowStreamConnectionStringResult, GetFlowStreamConnectionStringOutputArgs } from "./getFlowStreamConnectionString";
+export const getFlowStreamConnectionString: typeof import("./getFlowStreamConnectionString").getFlowStreamConnectionString = null as any;
+export const getFlowStreamConnectionStringOutput: typeof import("./getFlowStreamConnectionString").getFlowStreamConnectionStringOutput = null as any;
+utilities.lazyLoad(exports, ["getFlowStreamConnectionString","getFlowStreamConnectionStringOutput"], () => require("./getFlowStreamConnectionString"));
+
 export { GetPipelineArgs, GetPipelineResult, GetPipelineOutputArgs } from "./getPipeline";
 export const getPipeline: typeof import("./getPipeline").getPipeline = null as any;
 export const getPipelineOutput: typeof import("./getPipeline").getPipelineOutput = null as any;
@@ -64,12 +84,14 @@ import * as v20231011preview from "./v20231011preview";
 import * as v20240125 from "./v20240125";
 import * as v20240507 from "./v20240507";
 import * as v20240911 from "./v20240911";
+import * as v20240927 from "./v20240927";
 
 export {
     v20231011preview,
     v20240125,
     v20240507,
     v20240911,
+    v20240927,
 };
 
 const _module = {

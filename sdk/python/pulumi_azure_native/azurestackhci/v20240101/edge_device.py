@@ -136,7 +136,7 @@ class EdgeDevice(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci:EdgeDevice"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:EdgeDevice"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:EdgeDevice"), pulumi.Alias(type_="azure-native:azurestackhci/v20240215preview:EdgeDevice"), pulumi.Alias(type_="azure-native:azurestackhci/v20240401:EdgeDevice")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci:EdgeDevice"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:EdgeDevice"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:EdgeDevice"), pulumi.Alias(type_="azure-native:azurestackhci/v20240215preview:EdgeDevice"), pulumi.Alias(type_="azure-native:azurestackhci/v20240401:EdgeDevice"), pulumi.Alias(type_="azure-native:azurestackhci/v20240901preview:EdgeDevice")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EdgeDevice, __self__).__init__(
             'azure-native:azurestackhci/v20240101:EdgeDevice',

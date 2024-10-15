@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// Get a AssetEndpointProfile
         /// Azure REST API version: 2023-11-01-preview.
         /// 
-        /// Other available API versions: 2024-09-01-preview.
+        /// Other available API versions: 2024-09-01-preview, 2024-11-01.
         /// </summary>
         public static Task<GetAssetEndpointProfileResult> InvokeAsync(GetAssetEndpointProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetEndpointProfileResult>("azure-native:deviceregistry:getAssetEndpointProfile", args ?? new GetAssetEndpointProfileArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// Get a AssetEndpointProfile
         /// Azure REST API version: 2023-11-01-preview.
         /// 
-        /// Other available API versions: 2024-09-01-preview.
+        /// Other available API versions: 2024-09-01-preview, 2024-11-01.
         /// </summary>
         public static Output<GetAssetEndpointProfileResult> Invoke(GetAssetEndpointProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetEndpointProfileResult>("azure-native:deviceregistry:getAssetEndpointProfile", args ?? new GetAssetEndpointProfileInvokeArgs(), options.WithDefaults());

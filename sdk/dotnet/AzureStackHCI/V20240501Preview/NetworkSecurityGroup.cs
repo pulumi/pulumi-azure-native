@@ -102,6 +102,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240501Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:NetworkSecurityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240201preview:NetworkSecurityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:NetworkSecurityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:NetworkSecurityGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

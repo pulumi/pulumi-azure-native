@@ -82,10 +82,12 @@ export * from "../types/enums/deviceregistry";
 // Export sub-modules:
 import * as v20231101preview from "./v20231101preview";
 import * as v20240901preview from "./v20240901preview";
+import * as v20241101 from "./v20241101";
 
 export {
     v20231101preview,
     v20240901preview,
+    v20241101,
 };
 
 const _module = {

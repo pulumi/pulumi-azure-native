@@ -27,7 +27,9 @@ __all__ = [
     'DeploymentConfigurationResponse',
     'DeploymentDataResponse',
     'DeploymentStatusResponse',
+    'DeploymentStepResponse',
     'DeviceConfigurationResponse',
+    'EceActionStatusResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
     'ExtendedLocationResponse',
@@ -43,6 +45,8 @@ __all__ = [
     'GuestAgentInstallStatusResponse',
     'GuestAgentProfileResponse',
     'GuestCredentialResponse',
+    'HciCollectLogJobPropertiesResponse',
+    'HciRemoteSupportJobPropertiesResponse',
     'HostNetworkResponse',
     'HttpProxyConfigurationResponse',
     'IPConfigurationResponse',
@@ -56,6 +60,8 @@ __all__ = [
     'IntentsResponse',
     'InterfaceDNSSettingsResponse',
     'IpPoolsResponse',
+    'LogCollectionJobSessionResponse',
+    'LogCollectionReportedPropertiesResponse',
     'LogicalNetworkArmReferenceResponse',
     'LogicalNetworkPropertiesResponseDhcpOptions',
     'LogicalNetworkStatusResponse',
@@ -75,6 +81,9 @@ __all__ = [
     'PerNodeStateResponse',
     'PhysicalNodesResponse',
     'QosPolicyOverridesResponse',
+    'RemoteSupportJobNodeSettingsResponse',
+    'RemoteSupportJobReportedPropertiesResponse',
+    'RemoteSupportSessionResponse',
     'ReportedPropertiesResponse',
     'RouteResponse',
     'RouteTableResponse',
@@ -1058,6 +1067,126 @@ class DeploymentStatusResponse(dict):
 
 
 @pulumi.output_type
+class DeploymentStepResponse(dict):
+    """
+    The Step of AzureStackHCI Cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTimeUtc":
+            suggest = "end_time_utc"
+        elif key == "fullStepIndex":
+            suggest = "full_step_index"
+        elif key == "startTimeUtc":
+            suggest = "start_time_utc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentStepResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentStepResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentStepResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 end_time_utc: str,
+                 exception: Sequence[str],
+                 full_step_index: str,
+                 name: str,
+                 start_time_utc: str,
+                 status: str,
+                 steps: Sequence['outputs.DeploymentStepResponse']):
+        """
+        The Step of AzureStackHCI Cluster.
+        :param str description: Description of step.
+        :param str end_time_utc: End time of step.
+        :param Sequence[str] exception: List of exceptions in AzureStackHCI Cluster Deployment.
+        :param str full_step_index: FullStepIndex of step.
+        :param str name: Name of step.
+        :param str start_time_utc: Start time of step.
+        :param str status: Status of step. Allowed values are 'Error', 'Success', 'InProgress'
+        :param Sequence['DeploymentStepResponse'] steps: List of nested steps of AzureStackHCI Cluster Deployment.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "end_time_utc", end_time_utc)
+        pulumi.set(__self__, "exception", exception)
+        pulumi.set(__self__, "full_step_index", full_step_index)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "steps", steps)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of step.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="endTimeUtc")
+    def end_time_utc(self) -> str:
+        """
+        End time of step.
+        """
+        return pulumi.get(self, "end_time_utc")
+
+    @property
+    @pulumi.getter
+    def exception(self) -> Sequence[str]:
+        """
+        List of exceptions in AzureStackHCI Cluster Deployment.
+        """
+        return pulumi.get(self, "exception")
+
+    @property
+    @pulumi.getter(name="fullStepIndex")
+    def full_step_index(self) -> str:
+        """
+        FullStepIndex of step.
+        """
+        return pulumi.get(self, "full_step_index")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of step.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> str:
+        """
+        Start time of step.
+        """
+        return pulumi.get(self, "start_time_utc")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of step. Allowed values are 'Error', 'Success', 'InProgress'
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def steps(self) -> Sequence['outputs.DeploymentStepResponse']:
+        """
+        List of nested steps of AzureStackHCI Cluster Deployment.
+        """
+        return pulumi.get(self, "steps")
+
+
+@pulumi.output_type
 class DeviceConfigurationResponse(dict):
     """
     The device Configuration of a device.
@@ -1108,6 +1237,39 @@ class DeviceConfigurationResponse(dict):
         device metadata details.
         """
         return pulumi.get(self, "device_metadata")
+
+
+@pulumi.output_type
+class EceActionStatusResponse(dict):
+    """
+    The ECE action plan deployment status for AzureStackHCI Cluster.
+    """
+    def __init__(__self__, *,
+                 status: str,
+                 steps: Sequence['outputs.DeploymentStepResponse']):
+        """
+        The ECE action plan deployment status for AzureStackHCI Cluster.
+        :param str status: Status of ECE action AzureStackHCI Cluster Deployment.
+        :param Sequence['DeploymentStepResponse'] steps: List of steps of AzureStackHCI Cluster Deployment.
+        """
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "steps", steps)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of ECE action AzureStackHCI Cluster Deployment.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def steps(self) -> Sequence['outputs.DeploymentStepResponse']:
+        """
+        List of steps of AzureStackHCI Cluster Deployment.
+        """
+        return pulumi.get(self, "steps")
 
 
 @pulumi.output_type
@@ -1981,6 +2143,344 @@ class GuestCredentialResponse(dict):
 
 
 @pulumi.output_type
+class HciCollectLogJobPropertiesResponse(dict):
+    """
+    Represents the properties of an HCI Collect Log job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTimeUtc":
+            suggest = "end_time_utc"
+        elif key == "fromDate":
+            suggest = "from_date"
+        elif key == "jobId":
+            suggest = "job_id"
+        elif key == "jobType":
+            suggest = "job_type"
+        elif key == "lastLogGenerated":
+            suggest = "last_log_generated"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "reportedProperties":
+            suggest = "reported_properties"
+        elif key == "startTimeUtc":
+            suggest = "start_time_utc"
+        elif key == "toDate":
+            suggest = "to_date"
+        elif key == "deploymentMode":
+            suggest = "deployment_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HciCollectLogJobPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HciCollectLogJobPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HciCollectLogJobPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_time_utc: str,
+                 from_date: str,
+                 job_id: str,
+                 job_type: str,
+                 last_log_generated: str,
+                 provisioning_state: str,
+                 reported_properties: 'outputs.LogCollectionReportedPropertiesResponse',
+                 start_time_utc: str,
+                 status: str,
+                 to_date: str,
+                 deployment_mode: Optional[str] = None):
+        """
+        Represents the properties of an HCI Collect Log job.
+        :param str end_time_utc: The UTC date and time at which the job completed.
+        :param str from_date: From date for log collection.
+        :param str job_id: Unique, immutable job id.
+        :param str job_type: Job Type supported.
+               Expected value is 'CollectLog'.
+        :param str last_log_generated: To date for log collection.
+        :param str provisioning_state: Job provisioning state
+        :param 'LogCollectionReportedPropertiesResponse' reported_properties: log collection job reported properties.
+        :param str start_time_utc: The UTC date and time at which the job started.
+        :param str status: Status of Edge device job.
+        :param str to_date: To date for log collection.
+        :param str deployment_mode: Deployment mode to trigger job.
+        """
+        pulumi.set(__self__, "end_time_utc", end_time_utc)
+        pulumi.set(__self__, "from_date", from_date)
+        pulumi.set(__self__, "job_id", job_id)
+        pulumi.set(__self__, "job_type", 'CollectLog')
+        pulumi.set(__self__, "last_log_generated", last_log_generated)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "reported_properties", reported_properties)
+        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "to_date", to_date)
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+
+    @property
+    @pulumi.getter(name="endTimeUtc")
+    def end_time_utc(self) -> str:
+        """
+        The UTC date and time at which the job completed.
+        """
+        return pulumi.get(self, "end_time_utc")
+
+    @property
+    @pulumi.getter(name="fromDate")
+    def from_date(self) -> str:
+        """
+        From date for log collection.
+        """
+        return pulumi.get(self, "from_date")
+
+    @property
+    @pulumi.getter(name="jobId")
+    def job_id(self) -> str:
+        """
+        Unique, immutable job id.
+        """
+        return pulumi.get(self, "job_id")
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> str:
+        """
+        Job Type supported.
+        Expected value is 'CollectLog'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @property
+    @pulumi.getter(name="lastLogGenerated")
+    def last_log_generated(self) -> str:
+        """
+        To date for log collection.
+        """
+        return pulumi.get(self, "last_log_generated")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Job provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="reportedProperties")
+    def reported_properties(self) -> 'outputs.LogCollectionReportedPropertiesResponse':
+        """
+        log collection job reported properties.
+        """
+        return pulumi.get(self, "reported_properties")
+
+    @property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> str:
+        """
+        The UTC date and time at which the job started.
+        """
+        return pulumi.get(self, "start_time_utc")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of Edge device job.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="toDate")
+    def to_date(self) -> str:
+        """
+        To date for log collection.
+        """
+        return pulumi.get(self, "to_date")
+
+    @property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[str]:
+        """
+        Deployment mode to trigger job.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+
+@pulumi.output_type
+class HciRemoteSupportJobPropertiesResponse(dict):
+    """
+    Represents the properties of a remote support job for HCI.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessLevel":
+            suggest = "access_level"
+        elif key == "endTimeUtc":
+            suggest = "end_time_utc"
+        elif key == "expirationTimestamp":
+            suggest = "expiration_timestamp"
+        elif key == "jobId":
+            suggest = "job_id"
+        elif key == "jobType":
+            suggest = "job_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "reportedProperties":
+            suggest = "reported_properties"
+        elif key == "startTimeUtc":
+            suggest = "start_time_utc"
+        elif key == "deploymentMode":
+            suggest = "deployment_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HciRemoteSupportJobPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HciRemoteSupportJobPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HciRemoteSupportJobPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_level: str,
+                 end_time_utc: str,
+                 expiration_timestamp: str,
+                 job_id: str,
+                 job_type: str,
+                 provisioning_state: str,
+                 reported_properties: 'outputs.RemoteSupportJobReportedPropertiesResponse',
+                 start_time_utc: str,
+                 status: str,
+                 type: str,
+                 deployment_mode: Optional[str] = None):
+        """
+        Represents the properties of a remote support job for HCI.
+        :param str access_level: Remote support access level.
+        :param str end_time_utc: The UTC date and time at which the job completed.
+        :param str expiration_timestamp: Remote support expiration timestamp.
+        :param str job_id: Unique, immutable job id.
+        :param str job_type: Job Type supported.
+               Expected value is 'RemoteSupport'.
+        :param str provisioning_state: Job provisioning state
+        :param 'RemoteSupportJobReportedPropertiesResponse' reported_properties: log collection job reported properties.
+        :param str start_time_utc: The UTC date and time at which the job started.
+        :param str status: Status of Edge device job.
+        :param str type: Remote support type.
+        :param str deployment_mode: Deployment mode to trigger job.
+        """
+        pulumi.set(__self__, "access_level", access_level)
+        pulumi.set(__self__, "end_time_utc", end_time_utc)
+        pulumi.set(__self__, "expiration_timestamp", expiration_timestamp)
+        pulumi.set(__self__, "job_id", job_id)
+        pulumi.set(__self__, "job_type", 'RemoteSupport')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "reported_properties", reported_properties)
+        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "type", type)
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+
+    @property
+    @pulumi.getter(name="accessLevel")
+    def access_level(self) -> str:
+        """
+        Remote support access level.
+        """
+        return pulumi.get(self, "access_level")
+
+    @property
+    @pulumi.getter(name="endTimeUtc")
+    def end_time_utc(self) -> str:
+        """
+        The UTC date and time at which the job completed.
+        """
+        return pulumi.get(self, "end_time_utc")
+
+    @property
+    @pulumi.getter(name="expirationTimestamp")
+    def expiration_timestamp(self) -> str:
+        """
+        Remote support expiration timestamp.
+        """
+        return pulumi.get(self, "expiration_timestamp")
+
+    @property
+    @pulumi.getter(name="jobId")
+    def job_id(self) -> str:
+        """
+        Unique, immutable job id.
+        """
+        return pulumi.get(self, "job_id")
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> str:
+        """
+        Job Type supported.
+        Expected value is 'RemoteSupport'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Job provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="reportedProperties")
+    def reported_properties(self) -> 'outputs.RemoteSupportJobReportedPropertiesResponse':
+        """
+        log collection job reported properties.
+        """
+        return pulumi.get(self, "reported_properties")
+
+    @property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> str:
+        """
+        The UTC date and time at which the job started.
+        """
+        return pulumi.get(self, "start_time_utc")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of Edge device job.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Remote support type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[str]:
+        """
+        Deployment mode to trigger job.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+
+@pulumi.output_type
 class HostNetworkResponse(dict):
     """
     The HostNetwork of a cluster.
@@ -2839,6 +3339,186 @@ class IpPoolsResponse(dict):
         Starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering.
         """
         return pulumi.get(self, "starting_address")
+
+
+@pulumi.output_type
+class LogCollectionJobSessionResponse(dict):
+    """
+    Represents a session for collecting logs from an edge device.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "correlationId":
+            suggest = "correlation_id"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "logSize":
+            suggest = "log_size"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "timeCollected":
+            suggest = "time_collected"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogCollectionJobSessionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogCollectionJobSessionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogCollectionJobSessionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 correlation_id: str,
+                 end_time: str,
+                 log_size: int,
+                 start_time: str,
+                 status: str,
+                 time_collected: str):
+        """
+        Represents a session for collecting logs from an edge device.
+        :param str correlation_id: A unique identifier for correlating this log collection session with other operations or sessions.
+        :param str end_time: The timestamp when log collection ended, in ISO 8601 format.
+        :param int log_size: The size of the collected logs in bytes.
+        :param str start_time: The timestamp when log collection started, in ISO 8601 format.
+        :param str status: The status of the log collection session.
+        :param str time_collected: The total time logs were collected for, in ISO 8601 duration format.
+        """
+        pulumi.set(__self__, "correlation_id", correlation_id)
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "log_size", log_size)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "time_collected", time_collected)
+
+    @property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> str:
+        """
+        A unique identifier for correlating this log collection session with other operations or sessions.
+        """
+        return pulumi.get(self, "correlation_id")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> str:
+        """
+        The timestamp when log collection ended, in ISO 8601 format.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="logSize")
+    def log_size(self) -> int:
+        """
+        The size of the collected logs in bytes.
+        """
+        return pulumi.get(self, "log_size")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The timestamp when log collection started, in ISO 8601 format.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the log collection session.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="timeCollected")
+    def time_collected(self) -> str:
+        """
+        The total time logs were collected for, in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "time_collected")
+
+
+@pulumi.output_type
+class LogCollectionReportedPropertiesResponse(dict):
+    """
+    Represents the reported properties of a log collection job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentStatus":
+            suggest = "deployment_status"
+        elif key == "logCollectionSessionDetails":
+            suggest = "log_collection_session_details"
+        elif key == "percentComplete":
+            suggest = "percent_complete"
+        elif key == "validationStatus":
+            suggest = "validation_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogCollectionReportedPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogCollectionReportedPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogCollectionReportedPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_status: 'outputs.EceActionStatusResponse',
+                 log_collection_session_details: Sequence['outputs.LogCollectionJobSessionResponse'],
+                 percent_complete: int,
+                 validation_status: 'outputs.EceActionStatusResponse'):
+        """
+        Represents the reported properties of a log collection job.
+        :param 'EceActionStatusResponse' deployment_status: Deployment status of job.
+        :param Sequence['LogCollectionJobSessionResponse'] log_collection_session_details: Details of the log collection session.
+        :param int percent_complete: The percentage of the job that is complete.
+        :param 'EceActionStatusResponse' validation_status: Validation status of job.
+        """
+        pulumi.set(__self__, "deployment_status", deployment_status)
+        pulumi.set(__self__, "log_collection_session_details", log_collection_session_details)
+        pulumi.set(__self__, "percent_complete", percent_complete)
+        pulumi.set(__self__, "validation_status", validation_status)
+
+    @property
+    @pulumi.getter(name="deploymentStatus")
+    def deployment_status(self) -> 'outputs.EceActionStatusResponse':
+        """
+        Deployment status of job.
+        """
+        return pulumi.get(self, "deployment_status")
+
+    @property
+    @pulumi.getter(name="logCollectionSessionDetails")
+    def log_collection_session_details(self) -> Sequence['outputs.LogCollectionJobSessionResponse']:
+        """
+        Details of the log collection session.
+        """
+        return pulumi.get(self, "log_collection_session_details")
+
+    @property
+    @pulumi.getter(name="percentComplete")
+    def percent_complete(self) -> int:
+        """
+        The percentage of the job that is complete.
+        """
+        return pulumi.get(self, "percent_complete")
+
+    @property
+    @pulumi.getter(name="validationStatus")
+    def validation_status(self) -> 'outputs.EceActionStatusResponse':
+        """
+        Validation status of job.
+        """
+        return pulumi.get(self, "validation_status")
 
 
 @pulumi.output_type
@@ -4016,6 +4696,277 @@ class QosPolicyOverridesResponse(dict):
         This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         """
         return pulumi.get(self, "priority_value8021_action_smb")
+
+
+@pulumi.output_type
+class RemoteSupportJobNodeSettingsResponse(dict):
+    """
+    Represents the settings of a remote support node.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionErrorMessage":
+            suggest = "connection_error_message"
+        elif key == "connectionStatus":
+            suggest = "connection_status"
+        elif key == "createdAt":
+            suggest = "created_at"
+        elif key == "updatedAt":
+            suggest = "updated_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteSupportJobNodeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteSupportJobNodeSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteSupportJobNodeSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_error_message: str,
+                 connection_status: str,
+                 created_at: str,
+                 state: str,
+                 updated_at: str):
+        """
+        Represents the settings of a remote support node.
+        :param str connection_error_message: The error message, if any, from the last connection attempt.
+        :param str connection_status: The current connection status of the remote support session.
+        :param str created_at: The timestamp when the node settings were created, in UTC.
+        :param str state: The state of the remote support node.
+        :param str updated_at: The timestamp when the node settings were last updated, in UTC.
+        """
+        pulumi.set(__self__, "connection_error_message", connection_error_message)
+        pulumi.set(__self__, "connection_status", connection_status)
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="connectionErrorMessage")
+    def connection_error_message(self) -> str:
+        """
+        The error message, if any, from the last connection attempt.
+        """
+        return pulumi.get(self, "connection_error_message")
+
+    @property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> str:
+        """
+        The current connection status of the remote support session.
+        """
+        return pulumi.get(self, "connection_status")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        The timestamp when the node settings were created, in UTC.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the remote support node.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        The timestamp when the node settings were last updated, in UTC.
+        """
+        return pulumi.get(self, "updated_at")
+
+
+@pulumi.output_type
+class RemoteSupportJobReportedPropertiesResponse(dict):
+    """
+    Represents the reported properties of a remote support job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentStatus":
+            suggest = "deployment_status"
+        elif key == "nodeSettings":
+            suggest = "node_settings"
+        elif key == "percentComplete":
+            suggest = "percent_complete"
+        elif key == "sessionDetails":
+            suggest = "session_details"
+        elif key == "validationStatus":
+            suggest = "validation_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteSupportJobReportedPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteSupportJobReportedPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteSupportJobReportedPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_status: 'outputs.EceActionStatusResponse',
+                 node_settings: 'outputs.RemoteSupportJobNodeSettingsResponse',
+                 percent_complete: int,
+                 session_details: Sequence['outputs.RemoteSupportSessionResponse'],
+                 validation_status: 'outputs.EceActionStatusResponse'):
+        """
+        Represents the reported properties of a remote support job.
+        :param 'EceActionStatusResponse' deployment_status: Deployment status of job.
+        :param 'RemoteSupportJobNodeSettingsResponse' node_settings: Optional settings for configuring the node for remote support.
+        :param int percent_complete: The percentage of the job that is complete.
+        :param Sequence['RemoteSupportSessionResponse'] session_details: Details of the remote support session.
+        :param 'EceActionStatusResponse' validation_status: Validation status of job.
+        """
+        pulumi.set(__self__, "deployment_status", deployment_status)
+        pulumi.set(__self__, "node_settings", node_settings)
+        pulumi.set(__self__, "percent_complete", percent_complete)
+        pulumi.set(__self__, "session_details", session_details)
+        pulumi.set(__self__, "validation_status", validation_status)
+
+    @property
+    @pulumi.getter(name="deploymentStatus")
+    def deployment_status(self) -> 'outputs.EceActionStatusResponse':
+        """
+        Deployment status of job.
+        """
+        return pulumi.get(self, "deployment_status")
+
+    @property
+    @pulumi.getter(name="nodeSettings")
+    def node_settings(self) -> 'outputs.RemoteSupportJobNodeSettingsResponse':
+        """
+        Optional settings for configuring the node for remote support.
+        """
+        return pulumi.get(self, "node_settings")
+
+    @property
+    @pulumi.getter(name="percentComplete")
+    def percent_complete(self) -> int:
+        """
+        The percentage of the job that is complete.
+        """
+        return pulumi.get(self, "percent_complete")
+
+    @property
+    @pulumi.getter(name="sessionDetails")
+    def session_details(self) -> Sequence['outputs.RemoteSupportSessionResponse']:
+        """
+        Details of the remote support session.
+        """
+        return pulumi.get(self, "session_details")
+
+    @property
+    @pulumi.getter(name="validationStatus")
+    def validation_status(self) -> 'outputs.EceActionStatusResponse':
+        """
+        Validation status of job.
+        """
+        return pulumi.get(self, "validation_status")
+
+
+@pulumi.output_type
+class RemoteSupportSessionResponse(dict):
+    """
+    Represents a remote support session.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessLevel":
+            suggest = "access_level"
+        elif key == "sessionEndTime":
+            suggest = "session_end_time"
+        elif key == "sessionId":
+            suggest = "session_id"
+        elif key == "sessionStartTime":
+            suggest = "session_start_time"
+        elif key == "transcriptLocation":
+            suggest = "transcript_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteSupportSessionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteSupportSessionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteSupportSessionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_level: str,
+                 session_end_time: str,
+                 session_id: str,
+                 session_start_time: str,
+                 transcript_location: str):
+        """
+        Represents a remote support session.
+        :param str access_level: The level of access granted during the remote support session.
+        :param str session_end_time: The end time of the remote support session, in UTC.
+        :param str session_id: Unique session Id.
+        :param str session_start_time: The start time of the remote support session, in UTC.
+        :param str transcript_location: The location where the session transcript is stored.
+        """
+        pulumi.set(__self__, "access_level", access_level)
+        pulumi.set(__self__, "session_end_time", session_end_time)
+        pulumi.set(__self__, "session_id", session_id)
+        pulumi.set(__self__, "session_start_time", session_start_time)
+        pulumi.set(__self__, "transcript_location", transcript_location)
+
+    @property
+    @pulumi.getter(name="accessLevel")
+    def access_level(self) -> str:
+        """
+        The level of access granted during the remote support session.
+        """
+        return pulumi.get(self, "access_level")
+
+    @property
+    @pulumi.getter(name="sessionEndTime")
+    def session_end_time(self) -> str:
+        """
+        The end time of the remote support session, in UTC.
+        """
+        return pulumi.get(self, "session_end_time")
+
+    @property
+    @pulumi.getter(name="sessionId")
+    def session_id(self) -> str:
+        """
+        Unique session Id.
+        """
+        return pulumi.get(self, "session_id")
+
+    @property
+    @pulumi.getter(name="sessionStartTime")
+    def session_start_time(self) -> str:
+        """
+        The start time of the remote support session, in UTC.
+        """
+        return pulumi.get(self, "session_start_time")
+
+    @property
+    @pulumi.getter(name="transcriptLocation")
+    def transcript_location(self) -> str:
+        """
+        The location where the session transcript is stored.
+        """
+        return pulumi.get(self, "transcript_location")
 
 
 @pulumi.output_type

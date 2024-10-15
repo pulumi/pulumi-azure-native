@@ -11,7 +11,9 @@ __all__ = [
     'DeploymentMode',
     'DiagnosticLevel',
     'DiskFileFormat',
+    'EdgeDeviceKind',
     'ExtendedLocationTypes',
+    'HciEdgeDeviceJobType',
     'HyperVGeneration',
     'IPPoolTypeEnum',
     'IpAllocationMethodEnum',
@@ -21,6 +23,8 @@ __all__ = [
     'OsTypeEnum',
     'PrivateIPAllocationMethodEnum',
     'ProvisioningAction',
+    'RemoteSupportAccessLevel',
+    'RemoteSupportType',
     'ResourceIdentityType',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
@@ -69,15 +73,15 @@ class ComplianceAssignmentType(str, Enum):
 
 class DeploymentMode(str, Enum):
     """
-    The deployment mode for cluster deployment.
+    Deployment mode to trigger job.
     """
     VALIDATE = "Validate"
     """
-    Validate deployment settings for cluster.
+    Validate ECE action deployment for a cluster.
     """
     DEPLOY = "Deploy"
     """
-    Deploy cluster using deployment settings.
+    Deploy ECE action deployment for a cluster.
     """
 
 
@@ -98,11 +102,35 @@ class DiskFileFormat(str, Enum):
     VHD = "vhd"
 
 
+class EdgeDeviceKind(str, Enum):
+    """
+    Edge Solution type to support polymorphic resource.
+    """
+    HCI = "HCI"
+    """
+    Arc-enabled edge device with HCI OS.
+    """
+
+
 class ExtendedLocationTypes(str, Enum):
     """
     The type of the extended location.
     """
     CUSTOM_LOCATION = "CustomLocation"
+
+
+class HciEdgeDeviceJobType(str, Enum):
+    """
+    Job Type to support polymorphic resource.
+    """
+    COLLECT_LOG = "CollectLog"
+    """
+    Job to collect logs from the device.
+    """
+    REMOTE_SUPPORT = "RemoteSupport"
+    """
+    Job to provide remote support to the device.
+    """
 
 
 class HyperVGeneration(str, Enum):
@@ -185,6 +213,38 @@ class ProvisioningAction(str, Enum):
     INSTALL = "install"
     UNINSTALL = "uninstall"
     REPAIR = "repair"
+
+
+class RemoteSupportAccessLevel(str, Enum):
+    """
+    Remote support access level.
+    """
+    NONE = "None"
+    """
+    No remote support access is granted.
+    """
+    DIAGNOSTICS = "Diagnostics"
+    """
+    Access is limited to diagnostics information only.
+    """
+    DIAGNOSTICS_AND_REPAIR = "DiagnosticsAndRepair"
+    """
+    Access includes diagnostics information and the ability to perform repairs.
+    """
+
+
+class RemoteSupportType(str, Enum):
+    """
+    Remote support type.
+    """
+    ENABLE = "Enable"
+    """
+    Enables remote support for the edge device.
+    """
+    REVOKE = "Revoke"
+    """
+    Revokes previously granted remote support access for the edge device.
+    """
 
 
 class ResourceIdentityType(str, Enum):

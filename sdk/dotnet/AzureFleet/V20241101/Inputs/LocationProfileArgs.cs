@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
     public sealed class LocationProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARM location name of the additional region.
+        /// The ARM location name of the additional region. If LocationProfile is specified, then location is required.
         /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
 
         /// <summary>
         /// An override for computeProfile.baseVirtualMachineProfile specific to this region. 

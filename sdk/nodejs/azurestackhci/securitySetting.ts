@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Security settings proxy resource
  * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01.
+ * Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
  */
 export class SecuritySetting extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class SecuritySetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20231101preview:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240101:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240215preview:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240401:SecuritySetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20231101preview:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240101:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240215preview:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240401:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240901preview:SecuritySetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecuritySetting.__pulumiType, name, resourceInputs, opts);
     }

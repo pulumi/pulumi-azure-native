@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240401
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20231101preview:SecuritySetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:SecuritySetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240215preview:SecuritySetting" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240901preview:SecuritySetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
