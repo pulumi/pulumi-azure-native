@@ -921,7 +921,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		readMethod = "HEAD"
 	}
 
-	readUrlParams := additionalReadParams[resourceTok]
+	readUrlParams := defaultReadQueryParams[resourceTok]
 
 	requiredContainers := mergeRequiredContainers(resourceRequest.requiredContainers, additionalRequiredContainers(resourceTok))
 
