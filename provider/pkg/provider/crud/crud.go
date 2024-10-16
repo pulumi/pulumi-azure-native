@@ -241,7 +241,7 @@ func (r *resourceCrudClient) HandleErrorWithCheckpoint(ctx context.Context, err 
 // currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
 // produces a checkpoint with these outputs and given inputs.
 func (r *resourceCrudClient) currentResourceStateCheckpoint(ctx context.Context, id string, inputs resource.PropertyMap) (*structpb.Struct, error) {
-	getResp, getErr := r.azureClient.Get(ctx, id, r.res.APIVersion)
+	getResp, getErr := r.azureClient.Get(ctx, id, r.res.APIVersion, r.res.ReadQueryParams)
 	if getErr != nil {
 		return nil, getErr
 	}
@@ -275,7 +275,7 @@ func (r *resourceCrudClient) MaintainSubResourcePropertiesIfNotSet(ctx context.C
 	}
 
 	// Read the current resource state.
-	state, err := r.azureClient.Get(ctx, id+r.res.ReadPath, r.res.APIVersion)
+	state, err := r.azureClient.Get(ctx, id+r.res.ReadPath, r.res.APIVersion, r.res.ReadQueryParams)
 	if err != nil {
 		return fmt.Errorf("reading cloud state: %w", err)
 	}
@@ -380,7 +380,7 @@ func (r *resourceCrudClient) Read(ctx context.Context, id string) (map[string]an
 		}
 		resp, err = r.azureClient.Post(ctx, url, bodyParams, queryParams)
 	default:
-		resp, err = r.azureClient.Get(ctx, url, r.res.APIVersion)
+		resp, err = r.azureClient.Get(ctx, url, r.res.APIVersion, r.res.ReadQueryParams)
 	}
 
 	if err != nil {

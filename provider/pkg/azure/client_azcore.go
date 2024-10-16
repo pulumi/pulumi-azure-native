@@ -10,12 +10,14 @@ import (
 	"net/url"
 	"reflect"
 	"strings"
+	"testing"
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	armruntime "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/log"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
@@ -109,9 +111,15 @@ func (c *azCoreClient) initRequest(ctx context.Context, method, id string, query
 	return req, nil
 }
 
-func (c *azCoreClient) Get(ctx context.Context, id string, apiVersion string) (any, error) {
-	queryParams := map[string]any{"api-version": apiVersion}
-	req, err := c.initRequest(ctx, http.MethodGet, id, queryParams)
+func (c *azCoreClient) Get(ctx context.Context, id, apiVersion string, queryParams map[string]any) (any, error) {
+	queryParameters := map[string]any{
+		"api-version": apiVersion,
+	}
+	for k, v := range queryParams {
+		queryParameters[k] = v
+	}
+
+	req, err := c.initRequest(ctx, http.MethodGet, id, queryParameters)
 	if err != nil {
 		return nil, err
 	}
@@ -438,4 +446,32 @@ func MapToValues(m map[string]interface{}) url.Values {
 		}
 	}
 	return v
+}
+
+// CreateTestClient creates a test AzureClient wthat doesn't actually execute requests but instead
+// runs the given assertions against them.
+func CreateTestClient(t *testing.T, assertions func(t *testing.T, req *http.Request)) (AzureClient, error) {
+	transp := &requestAssertingTransporter{
+		t:          t,
+		assertions: assertions,
+	}
+	opts := arm.ClientOptions{
+		ClientOptions: policy.ClientOptions{
+			Retry:     policy.RetryOptions{MaxRetries: -1}, // speeds up the tests
+			Telemetry: policy.TelemetryOptions{Disabled: true},
+			Transport: transp,
+		},
+		DisableRPRegistration: true,
+	}
+	return NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+}
+
+type requestAssertingTransporter struct {
+	t          *testing.T
+	assertions func(*testing.T, *http.Request)
+}
+
+func (r *requestAssertingTransporter) Do(req *http.Request) (*http.Response, error) {
+	r.assertions(r.t, req)
+	return nil, nil
 }

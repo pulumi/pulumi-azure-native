@@ -921,6 +921,8 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		readMethod = "HEAD"
 	}
 
+	readUrlParams := defaultReadQueryParams[resourceTok]
+
 	requiredContainers := mergeRequiredContainers(resourceRequest.requiredContainers, additionalRequiredContainers(resourceTok))
 
 	r := resources.AzureAPIResource{
@@ -935,6 +937,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		DeleteAsyncStyle:     g.getAsyncStyle(resource.PathItem.Delete),
 		ReadMethod:           readMethod,
 		ReadPath:             readPath,
+		ReadQueryParams:      readUrlParams,
 		AutoLocationDisabled: resources.AutoLocationDisabled(resource.Path),
 		RequiredContainers:   requiredContainers,
 		DefaultProperties:    propertyDefaults(module, resource.typeName),

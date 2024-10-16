@@ -119,7 +119,7 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 		},
 		Read: func(ctx context.Context, id string, properties resource.PropertyMap) (map[string]any, bool, error) {
 			containerId := strings.TrimSuffix(id, "/legalHold")
-			container, err := azureClient.Get(ctx, containerId, "2022-09-01")
+			container, err := azureClient.Get(ctx, containerId, "2022-09-01", nil)
 			if err != nil {
 				if azure.IsNotFound(err) {
 					return nil, false, nil

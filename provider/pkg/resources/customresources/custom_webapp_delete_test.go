@@ -28,7 +28,7 @@ func (m *WebAppMockAzureClient) Delete(ctx context.Context, id, apiVersion, asyn
 func (m *WebAppMockAzureClient) CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error {
 	return nil
 }
-func (m *WebAppMockAzureClient) Get(ctx context.Context, id string, apiVersion string) (any, error) {
+func (m *WebAppMockAzureClient) Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (any, error) {
 	m.getIds = append(m.getIds, id)
 	return map[string]any{}, nil
 }

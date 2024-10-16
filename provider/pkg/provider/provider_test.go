@@ -431,7 +431,7 @@ func (m *mockAzureClient) Delete(ctx context.Context, id, apiVersion, asyncStyle
 func (m *mockAzureClient) CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error {
 	return nil
 }
-func (m *mockAzureClient) Get(ctx context.Context, id string, apiVersion string) (any, error) {
+func (m *mockAzureClient) Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (any, error) {
 	m.getIds = append(m.getIds, id)
 	return map[string]any{}, nil
 }
