@@ -3,13 +3,17 @@
 package provider
 
 import (
+	"context"
 	_ "embed"
+	"net/http"
+	"net/http/httptest"
 	"os"
 	"path/filepath"
 	"testing"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
@@ -279,4 +283,45 @@ func TestNewCredential(t *testing.T) {
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ManagedIdentityCredential{}, cred)
 	})
+
+	t.Run("CLI", func(t *testing.T) {
+		conf := &authConfiguration{}
+		cred, err := newSingleMethodAuthCredential(conf)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
+	})
+
+	t.Run("CLI with tenant ids", func(t *testing.T) {
+		conf := &authConfiguration{
+			tenantId:   "tenant-id",
+			auxTenants: []string{"123", "456"},
+		}
+		cred, err := newSingleMethodAuthCredential(conf)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
+	})
+}
+
+func TestOidcTokenExchangeAssertion(t *testing.T) {
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		assert.Equal(t, "GET", r.Method)
+		assert.Equal(t, "application/x-www-form-urlencoded", r.Header.Get("Content-Type"))
+		assert.Equal(t, "application/json", r.Header.Get("Accept"))
+		assert.Equal(t, "api://AzureADTokenExchange", r.URL.Query().Get("audience"))
+		assert.Equal(t, "Bearer oidc-token", r.Header.Get("Authorization"))
+
+		w.Write([]byte(`{"Value": "new-oidc-token"}`))
+	}))
+	defer ts.Close()
+
+	conf := &authConfiguration{
+		oidcTokenRequestToken: "oidc-token",
+		oidcTokenRequestUrl:   ts.URL,
+	}
+
+	assertion := getOidcTokenExchangeAssertion(conf)
+
+	oidcToken, err := assertion(context.Background())
+	require.NoError(t, err)
+	require.Equal(t, "new-oidc-token", oidcToken)
 }
