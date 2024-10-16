@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getOrganizationsOrganization(args: GetOrganizationsOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationsOrganizationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getOrganizationsOrganization", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetOrganizationsOrganizationResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getOrganizationsOrganizationOutput(args: GetOrganizationsOrganizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationsOrganizationResult> {
-    return pulumi.output(args).apply((a: any) => getOrganizationsOrganization(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getOrganizationsOrganization", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetOrganizationsOrganizationOutputArgs {

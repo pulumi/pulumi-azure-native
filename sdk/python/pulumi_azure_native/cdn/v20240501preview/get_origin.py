@@ -295,9 +295,6 @@ def get_origin(endpoint_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         weight=pulumi.get(__ret__, 'weight'))
-
-
-@_utilities.lift_output_func(get_origin)
 def get_origin_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                       origin_name: Optional[pulumi.Input[str]] = None,
                       profile_name: Optional[pulumi.Input[str]] = None,
@@ -312,4 +309,29 @@ def get_origin_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['endpointName'] = endpoint_name
+    __args__['originName'] = origin_name
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20240501preview:getOrigin', __args__, opts=opts, typ=GetOriginResult)
+    return __ret__.apply(lambda __response__: GetOriginResult(
+        enabled=pulumi.get(__response__, 'enabled'),
+        host_name=pulumi.get(__response__, 'host_name'),
+        http_port=pulumi.get(__response__, 'http_port'),
+        https_port=pulumi.get(__response__, 'https_port'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        origin_host_header=pulumi.get(__response__, 'origin_host_header'),
+        priority=pulumi.get(__response__, 'priority'),
+        private_endpoint_status=pulumi.get(__response__, 'private_endpoint_status'),
+        private_link_alias=pulumi.get(__response__, 'private_link_alias'),
+        private_link_approval_message=pulumi.get(__response__, 'private_link_approval_message'),
+        private_link_location=pulumi.get(__response__, 'private_link_location'),
+        private_link_resource_id=pulumi.get(__response__, 'private_link_resource_id'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_state=pulumi.get(__response__, 'resource_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        weight=pulumi.get(__response__, 'weight')))

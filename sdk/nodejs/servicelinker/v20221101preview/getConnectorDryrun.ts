@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * get a dryrun job
  */
 export function getConnectorDryrun(args: GetConnectorDryrunArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorDryrunResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicelinker/v20221101preview:getConnectorDryrun", {
         "dryrunName": args.dryrunName,
@@ -81,7 +80,13 @@ export interface GetConnectorDryrunResult {
  * get a dryrun job
  */
 export function getConnectorDryrunOutput(args: GetConnectorDryrunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorDryrunResult> {
-    return pulumi.output(args).apply((a: any) => getConnectorDryrun(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicelinker/v20221101preview:getConnectorDryrun", {
+        "dryrunName": args.dryrunName,
+        "location": args.location,
+        "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
+    }, opts);
 }
 
 export interface GetConnectorDryrunOutputArgs {

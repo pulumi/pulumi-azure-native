@@ -128,9 +128,6 @@ def get_sql_pool_transparent_data_encryption(resource_group_name: Optional[str] 
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_sql_pool_transparent_data_encryption)
 def get_sql_pool_transparent_data_encryption_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     sql_pool_name: Optional[pulumi.Input[str]] = None,
                                                     transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
@@ -148,4 +145,16 @@ def get_sql_pool_transparent_data_encryption_output(resource_group_name: Optiona
     :param str transparent_data_encryption_name: The name of the transparent data encryption configuration.
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sqlPoolName'] = sql_pool_name
+    __args__['transparentDataEncryptionName'] = transparent_data_encryption_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getSqlPoolTransparentDataEncryption', __args__, opts=opts, typ=GetSqlPoolTransparentDataEncryptionResult)
+    return __ret__.apply(lambda __response__: GetSqlPoolTransparentDataEncryptionResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type')))

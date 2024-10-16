@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get an Operator API Connection.
  */
 export function getOperatorApiConnection(args: GetOperatorApiConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetOperatorApiConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:programmableconnectivity/v20240115preview:getOperatorApiConnection", {
         "operatorApiConnectionName": args.operatorApiConnectionName,
@@ -103,7 +102,11 @@ export interface GetOperatorApiConnectionResult {
  * Get an Operator API Connection.
  */
 export function getOperatorApiConnectionOutput(args: GetOperatorApiConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOperatorApiConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getOperatorApiConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:programmableconnectivity/v20240115preview:getOperatorApiConnection", {
+        "operatorApiConnectionName": args.operatorApiConnectionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetOperatorApiConnectionOutputArgs {

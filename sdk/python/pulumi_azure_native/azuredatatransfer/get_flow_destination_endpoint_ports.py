@@ -71,9 +71,6 @@ def get_flow_destination_endpoint_ports(connection_name: Optional[str] = None,
 
     return AwaitableGetFlowDestinationEndpointPortsResult(
         ports=pulumi.get(__ret__, 'ports'))
-
-
-@_utilities.lift_output_func(get_flow_destination_endpoint_ports)
 def get_flow_destination_endpoint_ports_output(connection_name: Optional[pulumi.Input[str]] = None,
                                                flow_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -87,4 +84,11 @@ def get_flow_destination_endpoint_ports_output(connection_name: Optional[pulumi.
     :param str flow_name: The name for the flow that is to be onboarded.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['connectionName'] = connection_name
+    __args__['flowName'] = flow_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azuredatatransfer:getFlowDestinationEndpointPorts', __args__, opts=opts, typ=GetFlowDestinationEndpointPortsResult)
+    return __ret__.apply(lambda __response__: GetFlowDestinationEndpointPortsResult(
+        ports=pulumi.get(__response__, 'ports')))

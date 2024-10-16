@@ -321,9 +321,6 @@ def get_sap_central_instance(central_instance_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_details=pulumi.get(__ret__, 'vm_details'))
-
-
-@_utilities.lift_output_func(get_sap_central_instance)
 def get_sap_central_instance_output(central_instance_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
@@ -339,4 +336,30 @@ def get_sap_central_instance_output(central_instance_name: Optional[pulumi.Input
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
     """
-    ...
+    __args__ = dict()
+    __args__['centralInstanceName'] = central_instance_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sapVirtualInstanceName'] = sap_virtual_instance_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getSAPCentralInstance', __args__, opts=opts, typ=GetSAPCentralInstanceResult)
+    return __ret__.apply(lambda __response__: GetSAPCentralInstanceResult(
+        enqueue_replication_server_properties=pulumi.get(__response__, 'enqueue_replication_server_properties'),
+        enqueue_server_properties=pulumi.get(__response__, 'enqueue_server_properties'),
+        errors=pulumi.get(__response__, 'errors'),
+        gateway_server_properties=pulumi.get(__response__, 'gateway_server_properties'),
+        health=pulumi.get(__response__, 'health'),
+        id=pulumi.get(__response__, 'id'),
+        instance_no=pulumi.get(__response__, 'instance_no'),
+        kernel_patch=pulumi.get(__response__, 'kernel_patch'),
+        kernel_version=pulumi.get(__response__, 'kernel_version'),
+        load_balancer_details=pulumi.get(__response__, 'load_balancer_details'),
+        location=pulumi.get(__response__, 'location'),
+        message_server_properties=pulumi.get(__response__, 'message_server_properties'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
+        subnet=pulumi.get(__response__, 'subnet'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        vm_details=pulumi.get(__response__, 'vm_details')))

@@ -240,9 +240,6 @@ def get_snapshot(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_size=pulumi.get(__ret__, 'vm_size'))
-
-
-@_utilities.lift_output_func(get_snapshot)
 def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
@@ -256,4 +253,23 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
+    return __ret__.apply(lambda __response__: GetSnapshotResult(
+        creation_data=pulumi.get(__response__, 'creation_data'),
+        enable_fips=pulumi.get(__response__, 'enable_fips'),
+        id=pulumi.get(__response__, 'id'),
+        kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        node_image_version=pulumi.get(__response__, 'node_image_version'),
+        os_sku=pulumi.get(__response__, 'os_sku'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        snapshot_type=pulumi.get(__response__, 'snapshot_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        vm_size=pulumi.get(__response__, 'vm_size')))

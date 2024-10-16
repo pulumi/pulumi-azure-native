@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
  */
 export function listWebAppBackupStatusSecretsSlot(args: ListWebAppBackupStatusSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupStatusSecretsSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20160801:listWebAppBackupStatusSecretsSlot", {
         "backupId": args.backupId,
@@ -152,7 +151,20 @@ export interface ListWebAppBackupStatusSecretsSlotResult {
  * Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
  */
 export function listWebAppBackupStatusSecretsSlotOutput(args: ListWebAppBackupStatusSecretsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupStatusSecretsSlotResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppBackupStatusSecretsSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20160801:listWebAppBackupStatusSecretsSlot", {
+        "backupId": args.backupId,
+        "backupRequestName": args.backupRequestName,
+        "backupSchedule": args.backupSchedule ? pulumi.output(args.backupSchedule).apply(inputs.web.v20160801.backupScheduleProvideDefaults) : undefined,
+        "databases": args.databases,
+        "enabled": args.enabled,
+        "kind": args.kind,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+        "storageAccountUrl": args.storageAccountUrl,
+        "type": args.type,
+    }, opts);
 }
 
 export interface ListWebAppBackupStatusSecretsSlotOutputArgs {

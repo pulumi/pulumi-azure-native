@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a resource management private link(resource-level).
  */
 export function getResourceManagementPrivateLink(args: GetResourceManagementPrivateLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceManagementPrivateLinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20200501:getResourceManagementPrivateLink", {
         "resourceGroupName": args.resourceGroupName,
@@ -53,7 +52,11 @@ export interface GetResourceManagementPrivateLinkResult {
  * Get a resource management private link(resource-level).
  */
 export function getResourceManagementPrivateLinkOutput(args: GetResourceManagementPrivateLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceManagementPrivateLinkResult> {
-    return pulumi.output(args).apply((a: any) => getResourceManagementPrivateLink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:authorization/v20200501:getResourceManagementPrivateLink", {
+        "resourceGroupName": args.resourceGroupName,
+        "rmplName": args.rmplName,
+    }, opts);
 }
 
 export interface GetResourceManagementPrivateLinkOutputArgs {

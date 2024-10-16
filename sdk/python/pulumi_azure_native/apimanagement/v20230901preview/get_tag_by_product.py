@@ -112,9 +112,6 @@ def get_tag_by_product(product_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_tag_by_product)
 def get_tag_by_product_output(product_id: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               service_name: Optional[pulumi.Input[str]] = None,
@@ -129,4 +126,15 @@ def get_tag_by_product_output(product_id: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of the API Management service.
     :param str tag_id: Tag identifier. Must be unique in the current API Management service instance.
     """
-    ...
+    __args__ = dict()
+    __args__['productId'] = product_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['tagId'] = tag_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getTagByProduct', __args__, opts=opts, typ=GetTagByProductResult)
+    return __ret__.apply(lambda __response__: GetTagByProductResult(
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type')))

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the shared keys for a workspace.
  */
 export function getSharedKeys(args: GetSharedKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200801:getSharedKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -44,7 +43,11 @@ export interface GetSharedKeysResult {
  * Gets the shared keys for a workspace.
  */
 export function getSharedKeysOutput(args: GetSharedKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedKeysResult> {
-    return pulumi.output(args).apply((a: any) => getSharedKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20200801:getSharedKeys", {
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetSharedKeysOutputArgs {

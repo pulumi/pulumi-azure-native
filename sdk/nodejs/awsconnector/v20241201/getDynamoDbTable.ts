@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a DynamoDBTable
  */
 export function getDynamoDbTable(args: GetDynamoDbTableArgs, opts?: pulumi.InvokeOptions): Promise<GetDynamoDbTableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getDynamoDbTable", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetDynamoDbTableResult {
  * Get a DynamoDBTable
  */
 export function getDynamoDbTableOutput(args: GetDynamoDbTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamoDbTableResult> {
-    return pulumi.output(args).apply((a: any) => getDynamoDbTable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getDynamoDbTable", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDynamoDbTableOutputArgs {

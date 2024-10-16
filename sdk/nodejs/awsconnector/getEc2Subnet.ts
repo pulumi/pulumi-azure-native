@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2Subnet(args: GetEc2SubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2SubnetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEc2Subnet", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEc2SubnetResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2SubnetOutput(args: GetEc2SubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2SubnetResult> {
-    return pulumi.output(args).apply((a: any) => getEc2Subnet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Subnet", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2SubnetOutputArgs {

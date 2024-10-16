@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the specified Backup under Backup Vault.
  */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20240501:getBackup", {
         "accountName": args.accountName,
@@ -109,7 +108,13 @@ export interface GetBackupResult {
  * Get the specified Backup under Backup Vault.
  */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {
-    return pulumi.output(args).apply((a: any) => getBackup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:netapp/v20240501:getBackup", {
+        "accountName": args.accountName,
+        "backupName": args.backupName,
+        "backupVaultName": args.backupVaultName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBackupOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Ec2VPCEndpoint
  */
 export function getEc2VpcEndpoint(args: GetEc2VpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2VpcEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEc2VpcEndpoint", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEc2VpcEndpointResult {
  * Get a Ec2VPCEndpoint
  */
 export function getEc2VpcEndpointOutput(args: GetEc2VpcEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2VpcEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getEc2VpcEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2VpcEndpoint", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2VpcEndpointOutputArgs {

@@ -77,9 +77,6 @@ def get_user_shared_access_token(expiry: Optional[str] = None,
 
     return AwaitableGetUserSharedAccessTokenResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_user_shared_access_token)
 def get_user_shared_access_token_output(expiry: Optional[pulumi.Input[str]] = None,
                                         key_type: Optional[pulumi.Input['KeyType']] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -96,4 +93,13 @@ def get_user_shared_access_token_output(expiry: Optional[pulumi.Input[str]] = No
     :param str service_name: The name of the API Management service.
     :param str user_id: User identifier. Must be unique in the current API Management service instance.
     """
-    ...
+    __args__ = dict()
+    __args__['expiry'] = expiry
+    __args__['keyType'] = key_type
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['userId'] = user_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20220901preview:getUserSharedAccessToken', __args__, opts=opts, typ=GetUserSharedAccessTokenResult)
+    return __ret__.apply(lambda __response__: GetUserSharedAccessTokenResult(
+        value=pulumi.get(__response__, 'value')))

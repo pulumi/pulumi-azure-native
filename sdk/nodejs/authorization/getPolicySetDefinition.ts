@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01.
  */
 export function getPolicySetDefinition(args: GetPolicySetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getPolicySetDefinition", {
         "policySetDefinitionName": args.policySetDefinitionName,
@@ -84,7 +83,10 @@ export interface GetPolicySetDefinitionResult {
  * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01.
  */
 export function getPolicySetDefinitionOutput(args: GetPolicySetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getPolicySetDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:authorization:getPolicySetDefinition", {
+        "policySetDefinitionName": args.policySetDefinitionName,
+    }, opts);
 }
 
 export interface GetPolicySetDefinitionOutputArgs {

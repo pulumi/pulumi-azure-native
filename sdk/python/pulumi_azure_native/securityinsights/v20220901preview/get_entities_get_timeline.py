@@ -97,9 +97,6 @@ def get_entities_get_timeline(end_time: Optional[str] = None,
     return AwaitableGetEntitiesGetTimelineResult(
         meta_data=pulumi.get(__ret__, 'meta_data'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_entities_get_timeline)
 def get_entities_get_timeline_output(end_time: Optional[pulumi.Input[str]] = None,
                                      entity_id: Optional[pulumi.Input[str]] = None,
                                      kinds: Optional[pulumi.Input[Optional[Sequence[Union[str, 'EntityTimelineKind']]]]] = None,
@@ -120,4 +117,16 @@ def get_entities_get_timeline_output(end_time: Optional[pulumi.Input[str]] = Non
     :param str start_time: The start timeline date, so the results returned are after this date.
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['endTime'] = end_time
+    __args__['entityId'] = entity_id
+    __args__['kinds'] = kinds
+    __args__['numberOfBucket'] = number_of_bucket
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['startTime'] = start_time
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20220901preview:getEntitiesGetTimeline', __args__, opts=opts, typ=GetEntitiesGetTimelineResult)
+    return __ret__.apply(lambda __response__: GetEntitiesGetTimelineResult(
+        meta_data=pulumi.get(__response__, 'meta_data'),
+        value=pulumi.get(__response__, 'value')))

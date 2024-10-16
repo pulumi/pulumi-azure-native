@@ -266,9 +266,6 @@ def get_global_schedule(expand: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
         weekly_recurrence=pulumi.get(__ret__, 'weekly_recurrence'))
-
-
-@_utilities.lift_output_func(get_global_schedule)
 def get_global_schedule_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -281,4 +278,26 @@ def get_global_schedule_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str name: The name of the schedule.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getGlobalSchedule', __args__, opts=opts, typ=GetGlobalScheduleResult)
+    return __ret__.apply(lambda __response__: GetGlobalScheduleResult(
+        created_date=pulumi.get(__response__, 'created_date'),
+        daily_recurrence=pulumi.get(__response__, 'daily_recurrence'),
+        hourly_recurrence=pulumi.get(__response__, 'hourly_recurrence'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        notification_settings=pulumi.get(__response__, 'notification_settings'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_resource_id=pulumi.get(__response__, 'target_resource_id'),
+        task_type=pulumi.get(__response__, 'task_type'),
+        time_zone_id=pulumi.get(__response__, 'time_zone_id'),
+        type=pulumi.get(__response__, 'type'),
+        unique_identifier=pulumi.get(__response__, 'unique_identifier'),
+        weekly_recurrence=pulumi.get(__response__, 'weekly_recurrence')))

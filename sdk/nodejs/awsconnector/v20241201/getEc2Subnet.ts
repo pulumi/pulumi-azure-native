@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Ec2Subnet
  */
 export function getEc2Subnet(args: GetEc2SubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2SubnetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEc2Subnet", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEc2SubnetResult {
  * Get a Ec2Subnet
  */
 export function getEc2SubnetOutput(args: GetEc2SubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2SubnetResult> {
-    return pulumi.output(args).apply((a: any) => getEc2Subnet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2Subnet", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2SubnetOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get properties of a client group.
  */
 export function getClientGroup(args: GetClientGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClientGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20240601preview:getClientGroup", {
         "clientGroupName": args.clientGroupName,
@@ -73,7 +72,12 @@ export interface GetClientGroupResult {
  * Get properties of a client group.
  */
 export function getClientGroupOutput(args: GetClientGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientGroupResult> {
-    return pulumi.output(args).apply((a: any) => getClientGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getClientGroup", {
+        "clientGroupName": args.clientGroupName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetClientGroupOutputArgs {

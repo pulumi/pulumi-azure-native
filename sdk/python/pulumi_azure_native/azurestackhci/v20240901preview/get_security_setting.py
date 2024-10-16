@@ -175,9 +175,6 @@ def get_security_setting(cluster_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         wdac_compliance_assignment=pulumi.get(__ret__, 'wdac_compliance_assignment'))
-
-
-@_utilities.lift_output_func(get_security_setting)
 def get_security_setting_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 security_settings_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_security_setting_output(cluster_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str security_settings_name: Name of security setting
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['securitySettingsName'] = security_settings_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20240901preview:getSecuritySetting', __args__, opts=opts, typ=GetSecuritySettingResult)
+    return __ret__.apply(lambda __response__: GetSecuritySettingResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        secured_core_compliance_assignment=pulumi.get(__response__, 'secured_core_compliance_assignment'),
+        security_compliance_status=pulumi.get(__response__, 'security_compliance_status'),
+        smb_encryption_for_intra_cluster_traffic_compliance_assignment=pulumi.get(__response__, 'smb_encryption_for_intra_cluster_traffic_compliance_assignment'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        wdac_compliance_assignment=pulumi.get(__response__, 'wdac_compliance_assignment')))

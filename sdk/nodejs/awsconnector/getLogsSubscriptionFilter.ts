@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getLogsSubscriptionFilter(args: GetLogsSubscriptionFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetLogsSubscriptionFilterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getLogsSubscriptionFilter", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetLogsSubscriptionFilterResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getLogsSubscriptionFilterOutput(args: GetLogsSubscriptionFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsSubscriptionFilterResult> {
-    return pulumi.output(args).apply((a: any) => getLogsSubscriptionFilter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getLogsSubscriptionFilter", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLogsSubscriptionFilterOutputArgs {

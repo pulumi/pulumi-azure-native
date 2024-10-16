@@ -100,9 +100,6 @@ def list_source_control_repositories(client_id: Optional[str] = None,
     return AwaitableListSourceControlRepositoriesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_source_control_repositories)
 def list_source_control_repositories_output(client_id: Optional[pulumi.Input[Optional[str]]] = None,
                                             code: Optional[pulumi.Input[Optional[str]]] = None,
                                             installation_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -125,4 +122,17 @@ def list_source_control_repositories_output(client_id: Optional[pulumi.Input[Opt
     :param str token: Personal Access Token. Required when `kind` is `PAT`
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['clientId'] = client_id
+    __args__['code'] = code
+    __args__['installationId'] = installation_id
+    __args__['kind'] = kind
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['state'] = state
+    __args__['token'] = token
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240301:listSourceControlRepositories', __args__, opts=opts, typ=ListSourceControlRepositoriesResult)
+    return __ret__.apply(lambda __response__: ListSourceControlRepositoriesResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

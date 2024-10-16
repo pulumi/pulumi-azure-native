@@ -202,9 +202,6 @@ def get_share(account_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_email=pulumi.get(__ret__, 'user_email'),
         user_name=pulumi.get(__ret__, 'user_name'))
-
-
-@_utilities.lift_output_func(get_share)
 def get_share_output(account_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      share_name: Optional[pulumi.Input[str]] = None,
@@ -218,4 +215,21 @@ def get_share_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share to retrieve.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['shareName'] = share_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getShare', __args__, opts=opts, typ=GetShareResult)
+    return __ret__.apply(lambda __response__: GetShareResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        share_kind=pulumi.get(__response__, 'share_kind'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        terms=pulumi.get(__response__, 'terms'),
+        type=pulumi.get(__response__, 'type'),
+        user_email=pulumi.get(__response__, 'user_email'),
+        user_name=pulumi.get(__response__, 'user_name')))

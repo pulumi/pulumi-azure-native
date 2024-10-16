@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getCodeBuildSourceCredentialsInfo(args: GetCodeBuildSourceCredentialsInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeBuildSourceCredentialsInfoResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getCodeBuildSourceCredentialsInfo", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetCodeBuildSourceCredentialsInfoResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getCodeBuildSourceCredentialsInfoOutput(args: GetCodeBuildSourceCredentialsInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeBuildSourceCredentialsInfoResult> {
-    return pulumi.output(args).apply((a: any) => getCodeBuildSourceCredentialsInfo(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getCodeBuildSourceCredentialsInfo", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCodeBuildSourceCredentialsInfoOutputArgs {

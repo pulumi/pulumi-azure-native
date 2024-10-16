@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2020-08-01.
  */
 export function getDataExport(args: GetDataExportArgs, opts?: pulumi.InvokeOptions): Promise<GetDataExportResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights:getDataExport", {
         "dataExportName": args.dataExportName,
@@ -83,7 +82,12 @@ export interface GetDataExportResult {
  * Azure REST API version: 2020-08-01.
  */
 export function getDataExportOutput(args: GetDataExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataExportResult> {
-    return pulumi.output(args).apply((a: any) => getDataExport(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getDataExport", {
+        "dataExportName": args.dataExportName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetDataExportOutputArgs {

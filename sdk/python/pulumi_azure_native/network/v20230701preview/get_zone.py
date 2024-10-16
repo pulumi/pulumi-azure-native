@@ -250,9 +250,6 @@ def get_zone(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zone_type=pulumi.get(__ret__, 'zone_type'))
-
-
-@_utilities.lift_output_func(get_zone)
 def get_zone_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                     zone_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZoneResult]:
@@ -263,4 +260,24 @@ def get_zone_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['zoneName'] = zone_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230701preview:getZone', __args__, opts=opts, typ=GetZoneResult)
+    return __ret__.apply(lambda __response__: GetZoneResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        max_number_of_record_sets=pulumi.get(__response__, 'max_number_of_record_sets'),
+        max_number_of_records_per_record_set=pulumi.get(__response__, 'max_number_of_records_per_record_set'),
+        name=pulumi.get(__response__, 'name'),
+        name_servers=pulumi.get(__response__, 'name_servers'),
+        number_of_record_sets=pulumi.get(__response__, 'number_of_record_sets'),
+        registration_virtual_networks=pulumi.get(__response__, 'registration_virtual_networks'),
+        resolution_virtual_networks=pulumi.get(__response__, 'resolution_virtual_networks'),
+        signing_keys=pulumi.get(__response__, 'signing_keys'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        zone_type=pulumi.get(__response__, 'zone_type')))

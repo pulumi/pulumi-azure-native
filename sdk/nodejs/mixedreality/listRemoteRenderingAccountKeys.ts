@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-03-01-preview.
  */
 export function listRemoteRenderingAccountKeys(args: ListRemoteRenderingAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRemoteRenderingAccountKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mixedreality:listRemoteRenderingAccountKeys", {
         "accountName": args.accountName,
@@ -50,7 +49,11 @@ export interface ListRemoteRenderingAccountKeysResult {
  * Other available API versions: 2021-03-01-preview.
  */
 export function listRemoteRenderingAccountKeysOutput(args: ListRemoteRenderingAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemoteRenderingAccountKeysResult> {
-    return pulumi.output(args).apply((a: any) => listRemoteRenderingAccountKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:mixedreality:listRemoteRenderingAccountKeys", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListRemoteRenderingAccountKeysOutputArgs {

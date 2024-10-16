@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a RdsDBInstance
  */
 export function getRdsDbInstance(args: GetRdsDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetRdsDbInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getRdsDbInstance", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetRdsDbInstanceResult {
  * Get a RdsDBInstance
  */
 export function getRdsDbInstanceOutput(args: GetRdsDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsDbInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getRdsDbInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRdsDbInstance", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRdsDbInstanceOutputArgs {

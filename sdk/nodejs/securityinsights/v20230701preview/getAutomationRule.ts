@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the automation rule.
  */
 export function getAutomationRule(args: GetAutomationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230701preview:getAutomationRule", {
         "automationRuleId": args.automationRuleId,
@@ -93,7 +92,12 @@ export interface GetAutomationRuleResult {
  * Gets the automation rule.
  */
 export function getAutomationRuleOutput(args: GetAutomationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getAutomationRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230701preview:getAutomationRule", {
+        "automationRuleId": args.automationRuleId,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetAutomationRuleOutputArgs {

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-03-11.
  */
 export function getDataCollectionRuleAssociation(args: GetDataCollectionRuleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getDataCollectionRuleAssociation", {
         "associationName": args.associationName,
@@ -85,7 +84,11 @@ export interface GetDataCollectionRuleAssociationResult {
  * Other available API versions: 2023-03-11.
  */
 export function getDataCollectionRuleAssociationOutput(args: GetDataCollectionRuleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getDataCollectionRuleAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights:getDataCollectionRuleAssociation", {
+        "associationName": args.associationName,
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetDataCollectionRuleAssociationOutputArgs {

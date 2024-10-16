@@ -248,9 +248,6 @@ def get_policy(expand: Optional[str] = None,
         threshold=pulumi.get(__ret__, 'threshold'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
-
-
-@_utilities.lift_output_func(get_policy)
 def get_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       lab_name: Optional[pulumi.Input[str]] = None,
                       name: Optional[pulumi.Input[str]] = None,
@@ -270,4 +267,26 @@ def get_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str policy_set_name: The name of the policy set.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['labName'] = lab_name
+    __args__['name'] = name
+    __args__['policySetName'] = policy_set_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
+    return __ret__.apply(lambda __response__: GetPolicyResult(
+        created_date=pulumi.get(__response__, 'created_date'),
+        description=pulumi.get(__response__, 'description'),
+        evaluator_type=pulumi.get(__response__, 'evaluator_type'),
+        fact_data=pulumi.get(__response__, 'fact_data'),
+        fact_name=pulumi.get(__response__, 'fact_name'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        threshold=pulumi.get(__response__, 'threshold'),
+        type=pulumi.get(__response__, 'type'),
+        unique_identifier=pulumi.get(__response__, 'unique_identifier')))

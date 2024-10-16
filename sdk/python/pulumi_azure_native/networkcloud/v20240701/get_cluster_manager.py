@@ -273,9 +273,6 @@ def get_cluster_manager(cluster_manager_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_size=pulumi.get(__ret__, 'vm_size'))
-
-
-@_utilities.lift_output_func(get_cluster_manager)
 def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterManagerResult]:
@@ -286,4 +283,26 @@ def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]]
     :param str cluster_manager_name: The name of the cluster manager.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterManagerName'] = cluster_manager_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20240701:getClusterManager', __args__, opts=opts, typ=GetClusterManagerResult)
+    return __ret__.apply(lambda __response__: GetClusterManagerResult(
+        analytics_workspace_id=pulumi.get(__response__, 'analytics_workspace_id'),
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        cluster_versions=pulumi.get(__response__, 'cluster_versions'),
+        detailed_status=pulumi.get(__response__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        fabric_controller_id=pulumi.get(__response__, 'fabric_controller_id'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        managed_resource_group_configuration=pulumi.get(__response__, 'managed_resource_group_configuration'),
+        manager_extended_location=pulumi.get(__response__, 'manager_extended_location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        vm_size=pulumi.get(__response__, 'vm_size')))

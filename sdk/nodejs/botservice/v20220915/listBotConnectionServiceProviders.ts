@@ -12,7 +12,6 @@ import * as utilities from "../../utilities";
  */
 export function listBotConnectionServiceProviders(args?: ListBotConnectionServiceProvidersArgs, opts?: pulumi.InvokeOptions): Promise<ListBotConnectionServiceProvidersResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice/v20220915:listBotConnectionServiceProviders", {
     }, opts);
@@ -38,5 +37,8 @@ export interface ListBotConnectionServiceProvidersResult {
  * Lists the available Service Providers for creating Connection Settings
  */
 export function listBotConnectionServiceProvidersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListBotConnectionServiceProvidersResult> {
-    return pulumi.output(listBotConnectionServiceProviders(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:botservice/v20220915:listBotConnectionServiceProviders", {
+    }, opts);
 }
+

@@ -81,9 +81,6 @@ def get_adoo_auth_info(location: Optional[str] = None,
     return AwaitableGetADOOAuthInfoResult(
         auth_url=pulumi.get(__ret__, 'auth_url'),
         token=pulumi.get(__ret__, 'token'))
-
-
-@_utilities.lift_output_func(get_adoo_auth_info)
 def get_adoo_auth_info_output(location: Optional[pulumi.Input[str]] = None,
                               redirect_url: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADOOAuthInfoResult]:
@@ -95,4 +92,11 @@ def get_adoo_auth_info_output(location: Optional[pulumi.Input[str]] = None,
     :param str location: The name of the Azure region.
     :param str redirect_url: The URL the client will redirect to on successful authentication. If empty, no redirect will occur.
     """
-    ...
+    __args__ = dict()
+    __args__['location'] = location
+    __args__['redirectUrl'] = redirect_url
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devhub:getADOOAuthInfo', __args__, opts=opts, typ=GetADOOAuthInfoResult)
+    return __ret__.apply(lambda __response__: GetADOOAuthInfoResult(
+        auth_url=pulumi.get(__response__, 'auth_url'),
+        token=pulumi.get(__response__, 'token')))

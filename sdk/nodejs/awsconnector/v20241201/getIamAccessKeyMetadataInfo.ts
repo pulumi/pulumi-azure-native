@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a IamAccessKeyMetadata
  */
 export function getIamAccessKeyMetadataInfo(args: GetIamAccessKeyMetadataInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetIamAccessKeyMetadataInfoResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getIamAccessKeyMetadataInfo", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetIamAccessKeyMetadataInfoResult {
  * Get a IamAccessKeyMetadata
  */
 export function getIamAccessKeyMetadataInfoOutput(args: GetIamAccessKeyMetadataInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamAccessKeyMetadataInfoResult> {
-    return pulumi.output(args).apply((a: any) => getIamAccessKeyMetadataInfo(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamAccessKeyMetadataInfo", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamAccessKeyMetadataInfoOutputArgs {

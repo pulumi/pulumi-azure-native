@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getIamPolicyVersion(args: GetIamPolicyVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetIamPolicyVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getIamPolicyVersion", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetIamPolicyVersionResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getIamPolicyVersionOutput(args: GetIamPolicyVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamPolicyVersionResult> {
-    return pulumi.output(args).apply((a: any) => getIamPolicyVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamPolicyVersion", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamPolicyVersionOutputArgs {

@@ -266,9 +266,6 @@ def get_agent(agent_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         uptime_in_seconds=pulumi.get(__ret__, 'uptime_in_seconds'))
-
-
-@_utilities.lift_output_func(get_agent)
 def get_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      storage_mover_name: Optional[pulumi.Input[str]] = None,
@@ -284,4 +281,26 @@ def get_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_mover_name: The name of the Storage Mover resource.
     """
-    ...
+    __args__ = dict()
+    __args__['agentName'] = agent_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['storageMoverName'] = storage_mover_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storagemover:getAgent', __args__, opts=opts, typ=GetAgentResult)
+    return __ret__.apply(lambda __response__: GetAgentResult(
+        agent_status=pulumi.get(__response__, 'agent_status'),
+        agent_version=pulumi.get(__response__, 'agent_version'),
+        arc_resource_id=pulumi.get(__response__, 'arc_resource_id'),
+        arc_vm_uuid=pulumi.get(__response__, 'arc_vm_uuid'),
+        description=pulumi.get(__response__, 'description'),
+        error_details=pulumi.get(__response__, 'error_details'),
+        id=pulumi.get(__response__, 'id'),
+        last_status_update=pulumi.get(__response__, 'last_status_update'),
+        local_ip_address=pulumi.get(__response__, 'local_ip_address'),
+        memory_in_mb=pulumi.get(__response__, 'memory_in_mb'),
+        name=pulumi.get(__response__, 'name'),
+        number_of_cores=pulumi.get(__response__, 'number_of_cores'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        uptime_in_seconds=pulumi.get(__response__, 'uptime_in_seconds')))

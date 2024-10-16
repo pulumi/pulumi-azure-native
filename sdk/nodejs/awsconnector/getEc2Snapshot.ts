@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2Snapshot(args: GetEc2SnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2SnapshotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEc2Snapshot", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEc2SnapshotResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2SnapshotOutput(args: GetEc2SnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2SnapshotResult> {
-    return pulumi.output(args).apply((a: any) => getEc2Snapshot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Snapshot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2SnapshotOutputArgs {

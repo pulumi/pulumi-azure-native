@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEksCluster(args: GetEksClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetEksClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEksCluster", {
         "resourceUri": args.resourceUri,
@@ -56,7 +55,10 @@ export interface GetEksClusterResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEksClusterOutput(args: GetEksClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEksClusterResult> {
-    return pulumi.output(args).apply((a: any) => getEksCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEksCluster", {
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetEksClusterOutputArgs {

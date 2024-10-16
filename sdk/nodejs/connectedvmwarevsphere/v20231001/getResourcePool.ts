@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Implements resourcePool GET method.
  */
 export function getResourcePool(args: GetResourcePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20231001:getResourcePool", {
         "resourceGroupName": args.resourceGroupName,
@@ -157,7 +156,11 @@ export interface GetResourcePoolResult {
  * Implements resourcePool GET method.
  */
 export function getResourcePoolOutput(args: GetResourcePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePoolResult> {
-    return pulumi.output(args).apply((a: any) => getResourcePool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere/v20231001:getResourcePool", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourcePoolName": args.resourcePoolName,
+    }, opts);
 }
 
 export interface GetResourcePoolOutputArgs {

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-06-01.
  */
 export function getManagerDevicePublicEncryptionKey(args: GetManagerDevicePublicEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerDevicePublicEncryptionKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple:getManagerDevicePublicEncryptionKey", {
         "deviceName": args.deviceName,
@@ -47,7 +46,12 @@ export interface GetManagerDevicePublicEncryptionKeyResult {
  * Azure REST API version: 2017-06-01.
  */
 export function getManagerDevicePublicEncryptionKeyOutput(args: GetManagerDevicePublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerDevicePublicEncryptionKeyResult> {
-    return pulumi.output(args).apply((a: any) => getManagerDevicePublicEncryptionKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storsimple:getManagerDevicePublicEncryptionKey", {
+        "deviceName": args.deviceName,
+        "managerName": args.managerName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetManagerDevicePublicEncryptionKeyOutputArgs {

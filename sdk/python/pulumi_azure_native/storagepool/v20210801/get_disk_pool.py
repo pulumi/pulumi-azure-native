@@ -250,9 +250,6 @@ def get_disk_pool(disk_pool_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_disk_pool)
 def get_disk_pool_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskPoolResult]:
@@ -263,4 +260,24 @@ def get_disk_pool_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
     :param str disk_pool_name: The name of the Disk Pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['diskPoolName'] = disk_pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storagepool/v20210801:getDiskPool', __args__, opts=opts, typ=GetDiskPoolResult)
+    return __ret__.apply(lambda __response__: GetDiskPoolResult(
+        additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        disks=pulumi.get(__response__, 'disks'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        managed_by=pulumi.get(__response__, 'managed_by'),
+        managed_by_extended=pulumi.get(__response__, 'managed_by_extended'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        tier=pulumi.get(__response__, 'tier'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a LogsLogGroup
  */
 export function getLogsLogGroup(args: GetLogsLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogsLogGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getLogsLogGroup", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetLogsLogGroupResult {
  * Get a LogsLogGroup
  */
 export function getLogsLogGroupOutput(args: GetLogsLogGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsLogGroupResult> {
-    return pulumi.output(args).apply((a: any) => getLogsLogGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getLogsLogGroup", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLogsLogGroupOutputArgs {

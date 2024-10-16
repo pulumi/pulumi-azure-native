@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEcsTaskDefinition(args: GetEcsTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetEcsTaskDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEcsTaskDefinition", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEcsTaskDefinitionResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEcsTaskDefinitionOutput(args: GetEcsTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcsTaskDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getEcsTaskDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEcsTaskDefinition", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEcsTaskDefinitionOutputArgs {

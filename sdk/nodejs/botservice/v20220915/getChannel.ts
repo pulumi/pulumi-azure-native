@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns a BotService Channel registration specified by the parameters.
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice/v20220915:getChannel", {
         "channelName": args.channelName,
@@ -84,7 +83,12 @@ export interface GetChannelResult {
  * Returns a BotService Channel registration specified by the parameters.
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
-    return pulumi.output(args).apply((a: any) => getChannel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:botservice/v20220915:getChannel", {
+        "channelName": args.channelName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetChannelOutputArgs {

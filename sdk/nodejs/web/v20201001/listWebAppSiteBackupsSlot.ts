@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets existing backups of an app.
  */
 export function listWebAppSiteBackupsSlot(args: ListWebAppSiteBackupsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppSiteBackupsSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:listWebAppSiteBackupsSlot", {
         "name": args.name,
@@ -52,7 +51,12 @@ export interface ListWebAppSiteBackupsSlotResult {
  * Gets existing backups of an app.
  */
 export function listWebAppSiteBackupsSlotOutput(args: ListWebAppSiteBackupsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSiteBackupsSlotResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppSiteBackupsSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:listWebAppSiteBackupsSlot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface ListWebAppSiteBackupsSlotOutputArgs {

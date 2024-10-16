@@ -136,9 +136,6 @@ def get_metadata_schema(metadata_schema_name: Optional[str] = None,
         schema=pulumi.get(__ret__, 'schema'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_metadata_schema)
 def get_metadata_schema_output(metadata_schema_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                service_name: Optional[pulumi.Input[str]] = None,
@@ -151,4 +148,16 @@ def get_metadata_schema_output(metadata_schema_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of Azure API Center service.
     """
-    ...
+    __args__ = dict()
+    __args__['metadataSchemaName'] = metadata_schema_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter/v20240315preview:getMetadataSchema', __args__, opts=opts, typ=GetMetadataSchemaResult)
+    return __ret__.apply(lambda __response__: GetMetadataSchemaResult(
+        assigned_to=pulumi.get(__response__, 'assigned_to'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        schema=pulumi.get(__response__, 'schema'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getCodeBuildProject(args: GetCodeBuildProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeBuildProjectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getCodeBuildProject", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetCodeBuildProjectResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getCodeBuildProjectOutput(args: GetCodeBuildProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeBuildProjectResult> {
-    return pulumi.output(args).apply((a: any) => getCodeBuildProject(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getCodeBuildProject", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCodeBuildProjectOutputArgs {

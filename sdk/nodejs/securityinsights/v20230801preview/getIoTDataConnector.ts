@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a data connector.
  */
 export function getIoTDataConnector(args: GetIoTDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTDataConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230801preview:getIoTDataConnector", {
         "dataConnectorId": args.dataConnectorId,
@@ -77,7 +76,12 @@ export interface GetIoTDataConnectorResult {
  * Gets a data connector.
  */
 export function getIoTDataConnectorOutput(args: GetIoTDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTDataConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getIoTDataConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230801preview:getIoTDataConnector", {
+        "dataConnectorId": args.dataConnectorId,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetIoTDataConnectorOutputArgs {

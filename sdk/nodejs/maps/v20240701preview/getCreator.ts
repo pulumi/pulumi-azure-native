@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Maps Creator resource.
  */
 export function getCreator(args: GetCreatorArgs, opts?: pulumi.InvokeOptions): Promise<GetCreatorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:maps/v20240701preview:getCreator", {
         "accountName": args.accountName,
@@ -72,7 +71,12 @@ export interface GetCreatorResult {
  * Get a Maps Creator resource.
  */
 export function getCreatorOutput(args: GetCreatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCreatorResult> {
-    return pulumi.output(args).apply((a: any) => getCreator(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:maps/v20240701preview:getCreator", {
+        "accountName": args.accountName,
+        "creatorName": args.creatorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCreatorOutputArgs {

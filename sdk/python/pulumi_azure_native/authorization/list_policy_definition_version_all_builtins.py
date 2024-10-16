@@ -76,9 +76,6 @@ def list_policy_definition_version_all_builtins(opts: Optional[pulumi.InvokeOpti
     return AwaitableListPolicyDefinitionVersionAllBuiltinsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_policy_definition_version_all_builtins)
 def list_policy_definition_version_all_builtins_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPolicyDefinitionVersionAllBuiltinsResult]:
     """
     This operation lists all the built-in policy definition versions for all built-in policy definitions.
@@ -86,4 +83,9 @@ def list_policy_definition_version_all_builtins_output(opts: Optional[pulumi.Inv
 
     Other available API versions: 2024-05-01.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:listPolicyDefinitionVersionAllBuiltins', __args__, opts=opts, typ=ListPolicyDefinitionVersionAllBuiltinsResult)
+    return __ret__.apply(lambda __response__: ListPolicyDefinitionVersionAllBuiltinsResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

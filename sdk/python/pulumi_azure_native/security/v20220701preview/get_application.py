@@ -129,9 +129,6 @@ def get_application(application_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         source_resource_type=pulumi.get(__ret__, 'source_resource_type'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_application)
 def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
@@ -140,4 +137,14 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
 
     :param str application_id: The security Application key - unique key for the standard application
     """
-    ...
+    __args__ = dict()
+    __args__['applicationId'] = application_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20220701preview:getApplication', __args__, opts=opts, typ=GetApplicationResult)
+    return __ret__.apply(lambda __response__: GetApplicationResult(
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        source_resource_type=pulumi.get(__response__, 'source_resource_type'),
+        type=pulumi.get(__response__, 'type')))

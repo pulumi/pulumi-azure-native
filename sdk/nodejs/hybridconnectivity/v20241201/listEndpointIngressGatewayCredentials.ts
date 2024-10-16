@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the ingress gateway endpoint credentials
  */
 export function listEndpointIngressGatewayCredentials(args: ListEndpointIngressGatewayCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointIngressGatewayCredentialsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridconnectivity/v20241201:listEndpointIngressGatewayCredentials", {
         "endpointName": args.endpointName,
@@ -85,7 +84,13 @@ export interface ListEndpointIngressGatewayCredentialsResult {
  * Gets the ingress gateway endpoint credentials
  */
 export function listEndpointIngressGatewayCredentialsOutput(args: ListEndpointIngressGatewayCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointIngressGatewayCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => listEndpointIngressGatewayCredentials(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity/v20241201:listEndpointIngressGatewayCredentials", {
+        "endpointName": args.endpointName,
+        "expiresin": args.expiresin,
+        "resourceUri": args.resourceUri,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface ListEndpointIngressGatewayCredentialsOutputArgs {

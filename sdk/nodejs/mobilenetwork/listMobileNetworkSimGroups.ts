@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-04-01.
  */
 export function listMobileNetworkSimGroups(args: ListMobileNetworkSimGroupsArgs, opts?: pulumi.InvokeOptions): Promise<ListMobileNetworkSimGroupsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork:listMobileNetworkSimGroups", {
         "mobileNetworkName": args.mobileNetworkName,
@@ -49,7 +48,11 @@ export interface ListMobileNetworkSimGroupsResult {
  * Azure REST API version: 2024-04-01.
  */
 export function listMobileNetworkSimGroupsOutput(args: ListMobileNetworkSimGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMobileNetworkSimGroupsResult> {
-    return pulumi.output(args).apply((a: any) => listMobileNetworkSimGroups(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork:listMobileNetworkSimGroups", {
+        "mobileNetworkName": args.mobileNetworkName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListMobileNetworkSimGroupsOutputArgs {

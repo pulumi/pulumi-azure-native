@@ -167,9 +167,6 @@ def get_workspace_api_schema(api_id: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_workspace_api_schema)
 def get_workspace_api_schema_output(api_id: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     schema_id: Optional[pulumi.Input[str]] = None,
@@ -186,4 +183,20 @@ def get_workspace_api_schema_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str service_name: The name of the API Management service.
     :param str workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
     """
-    ...
+    __args__ = dict()
+    __args__['apiId'] = api_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['schemaId'] = schema_id
+    __args__['serviceName'] = service_name
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:getWorkspaceApiSchema', __args__, opts=opts, typ=GetWorkspaceApiSchemaResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceApiSchemaResult(
+        components=pulumi.get(__response__, 'components'),
+        content_type=pulumi.get(__response__, 'content_type'),
+        definitions=pulumi.get(__response__, 'definitions'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        type=pulumi.get(__response__, 'type'),
+        value=pulumi.get(__response__, 'value')))

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getRoute53DomainsDomainSummary(args: GetRoute53DomainsDomainSummaryArgs, opts?: pulumi.InvokeOptions): Promise<GetRoute53DomainsDomainSummaryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getRoute53DomainsDomainSummary", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetRoute53DomainsDomainSummaryResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getRoute53DomainsDomainSummaryOutput(args: GetRoute53DomainsDomainSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoute53DomainsDomainSummaryResult> {
-    return pulumi.output(args).apply((a: any) => getRoute53DomainsDomainSummary(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getRoute53DomainsDomainSummary", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRoute53DomainsDomainSummaryOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getRegistryComponentVersion(args: GetRegistryComponentVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryComponentVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230601preview:getRegistryComponentVersion", {
         "componentName": args.componentName,
@@ -69,7 +68,13 @@ export interface GetRegistryComponentVersionResult {
  * Azure Resource Manager resource envelope.
  */
 export function getRegistryComponentVersionOutput(args: GetRegistryComponentVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryComponentVersionResult> {
-    return pulumi.output(args).apply((a: any) => getRegistryComponentVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230601preview:getRegistryComponentVersion", {
+        "componentName": args.componentName,
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+        "version": args.version,
+    }, opts);
 }
 
 export interface GetRegistryComponentVersionOutputArgs {

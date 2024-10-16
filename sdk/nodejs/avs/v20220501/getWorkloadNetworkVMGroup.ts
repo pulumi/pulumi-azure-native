@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * NSX VM Group
  */
 export function getWorkloadNetworkVMGroup(args: GetWorkloadNetworkVMGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkVMGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20220501:getWorkloadNetworkVMGroup", {
         "privateCloudName": args.privateCloudName,
@@ -73,7 +72,12 @@ export interface GetWorkloadNetworkVMGroupResult {
  * NSX VM Group
  */
 export function getWorkloadNetworkVMGroupOutput(args: GetWorkloadNetworkVMGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkVMGroupResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadNetworkVMGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs/v20220501:getWorkloadNetworkVMGroup", {
+        "privateCloudName": args.privateCloudName,
+        "resourceGroupName": args.resourceGroupName,
+        "vmGroupId": args.vmGroupId,
+    }, opts);
 }
 
 export interface GetWorkloadNetworkVMGroupOutputArgs {

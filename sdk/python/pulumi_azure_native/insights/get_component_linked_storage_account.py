@@ -110,9 +110,6 @@ def get_component_linked_storage_account(resource_group_name: Optional[str] = No
         linked_storage_account=pulumi.get(__ret__, 'linked_storage_account'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_component_linked_storage_account)
 def get_component_linked_storage_account_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 resource_name: Optional[pulumi.Input[str]] = None,
                                                 storage_type: Optional[pulumi.Input[str]] = None,
@@ -126,4 +123,14 @@ def get_component_linked_storage_account_output(resource_group_name: Optional[pu
     :param str resource_name: The name of the Application Insights component resource.
     :param str storage_type: The type of the Application Insights component data source for the linked storage account.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    __args__['storageType'] = storage_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getComponentLinkedStorageAccount', __args__, opts=opts, typ=GetComponentLinkedStorageAccountResult)
+    return __ret__.apply(lambda __response__: GetComponentLinkedStorageAccountResult(
+        id=pulumi.get(__response__, 'id'),
+        linked_storage_account=pulumi.get(__response__, 'linked_storage_account'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type')))

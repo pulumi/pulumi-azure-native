@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-06-01-preview.
  */
 export function getIpFirewallRule(args: GetIpFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetIpFirewallRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:getIpFirewallRule", {
         "resourceGroupName": args.resourceGroupName,
@@ -71,7 +70,12 @@ export interface GetIpFirewallRuleResult {
  * Other available API versions: 2021-06-01-preview.
  */
 export function getIpFirewallRuleOutput(args: GetIpFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpFirewallRuleResult> {
-    return pulumi.output(args).apply((a: any) => getIpFirewallRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:synapse:getIpFirewallRule", {
+        "resourceGroupName": args.resourceGroupName,
+        "ruleName": args.ruleName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetIpFirewallRuleOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the details for a specific student in the specified lab by student alias
  */
 export function getStudent(args: GetStudentArgs, opts?: pulumi.InvokeOptions): Promise<GetStudentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:education/v20211201preview:getStudent", {
         "billingAccountName": args.billingAccountName,
@@ -109,7 +108,13 @@ export interface GetStudentResult {
  * Get the details for a specific student in the specified lab by student alias
  */
 export function getStudentOutput(args: GetStudentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudentResult> {
-    return pulumi.output(args).apply((a: any) => getStudent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:education/v20211201preview:getStudent", {
+        "billingAccountName": args.billingAccountName,
+        "billingProfileName": args.billingProfileName,
+        "invoiceSectionName": args.invoiceSectionName,
+        "studentAlias": args.studentAlias,
+    }, opts);
 }
 
 export interface GetStudentOutputArgs {

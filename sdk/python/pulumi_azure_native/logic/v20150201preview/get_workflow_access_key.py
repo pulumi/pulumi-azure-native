@@ -119,9 +119,6 @@ def get_workflow_access_key(access_key_name: Optional[str] = None,
         not_after=pulumi.get(__ret__, 'not_after'),
         not_before=pulumi.get(__ret__, 'not_before'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_workflow_access_key)
 def get_workflow_access_key_output(access_key_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    workflow_name: Optional[pulumi.Input[str]] = None,
@@ -134,4 +131,15 @@ def get_workflow_access_key_output(access_key_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The resource group name.
     :param str workflow_name: The workflow name.
     """
-    ...
+    __args__ = dict()
+    __args__['accessKeyName'] = access_key_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workflowName'] = workflow_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20150201preview:getWorkflowAccessKey', __args__, opts=opts, typ=GetWorkflowAccessKeyResult)
+    return __ret__.apply(lambda __response__: GetWorkflowAccessKeyResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        not_after=pulumi.get(__response__, 'not_after'),
+        not_before=pulumi.get(__response__, 'not_before'),
+        type=pulumi.get(__response__, 'type')))

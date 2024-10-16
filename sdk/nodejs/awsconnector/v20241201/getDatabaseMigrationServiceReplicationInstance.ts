@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a DatabaseMigrationServiceReplicationInstance
  */
 export function getDatabaseMigrationServiceReplicationInstance(args: GetDatabaseMigrationServiceReplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseMigrationServiceReplicationInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getDatabaseMigrationServiceReplicationInstance", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetDatabaseMigrationServiceReplicationInstanceResult {
  * Get a DatabaseMigrationServiceReplicationInstance
  */
 export function getDatabaseMigrationServiceReplicationInstanceOutput(args: GetDatabaseMigrationServiceReplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseMigrationServiceReplicationInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getDatabaseMigrationServiceReplicationInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getDatabaseMigrationServiceReplicationInstance", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDatabaseMigrationServiceReplicationInstanceOutputArgs {

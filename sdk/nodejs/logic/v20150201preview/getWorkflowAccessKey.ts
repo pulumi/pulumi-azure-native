@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a workflow access key.
  */
 export function getWorkflowAccessKey(args: GetWorkflowAccessKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowAccessKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20150201preview:getWorkflowAccessKey", {
         "accessKeyName": args.accessKeyName,
@@ -58,7 +57,12 @@ export interface GetWorkflowAccessKeyResult {
  * Gets a workflow access key.
  */
 export function getWorkflowAccessKeyOutput(args: GetWorkflowAccessKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowAccessKeyResult> {
-    return pulumi.output(args).apply((a: any) => getWorkflowAccessKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:logic/v20150201preview:getWorkflowAccessKey", {
+        "accessKeyName": args.accessKeyName,
+        "resourceGroupName": args.resourceGroupName,
+        "workflowName": args.workflowName,
+    }, opts);
 }
 
 export interface GetWorkflowAccessKeyOutputArgs {

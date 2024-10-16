@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
  */
 export function listClusterFollowerDatabases(args: ListClusterFollowerDatabasesArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterFollowerDatabasesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto:listClusterFollowerDatabases", {
         "clusterName": args.clusterName,
@@ -49,7 +48,11 @@ export interface ListClusterFollowerDatabasesResult {
  * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
  */
 export function listClusterFollowerDatabasesOutput(args: ListClusterFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterFollowerDatabasesResult> {
-    return pulumi.output(args).apply((a: any) => listClusterFollowerDatabases(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kusto:listClusterFollowerDatabases", {
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListClusterFollowerDatabasesOutputArgs {

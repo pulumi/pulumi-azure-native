@@ -163,9 +163,6 @@ def get_network_manager_routing_configuration(configuration_name: Optional[str] 
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_network_manager_routing_configuration)
 def get_network_manager_routing_configuration_output(configuration_name: Optional[pulumi.Input[str]] = None,
                                                      network_manager_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -179,4 +176,18 @@ def get_network_manager_routing_configuration_output(configuration_name: Optiona
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['configurationName'] = configuration_name
+    __args__['networkManagerName'] = network_manager_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNetworkManagerRoutingConfiguration', __args__, opts=opts, typ=GetNetworkManagerRoutingConfigurationResult)
+    return __ret__.apply(lambda __response__: GetNetworkManagerRoutingConfigurationResult(
+        description=pulumi.get(__response__, 'description'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

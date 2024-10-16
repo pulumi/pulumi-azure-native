@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a RdsEventSubscription
  */
 export function getRdsEventSubscription(args: GetRdsEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetRdsEventSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getRdsEventSubscription", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetRdsEventSubscriptionResult {
  * Get a RdsEventSubscription
  */
 export function getRdsEventSubscriptionOutput(args: GetRdsEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsEventSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getRdsEventSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRdsEventSubscription", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRdsEventSubscriptionOutputArgs {

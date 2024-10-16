@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getKmsKey(args: GetKmsKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKmsKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getKmsKey", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetKmsKeyResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getKmsKeyOutput(args: GetKmsKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKmsKeyResult> {
-    return pulumi.output(args).apply((a: any) => getKmsKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getKmsKey", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetKmsKeyOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Description for Get the certificate associated with a certificate order.
  */
 export function getAppServiceCertificateOrderCertificate(args: GetAppServiceCertificateOrderCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:certificateregistration/v20240401:getAppServiceCertificateOrderCertificate", {
         "certificateOrderName": args.certificateOrderName,
@@ -77,7 +76,12 @@ export interface GetAppServiceCertificateOrderCertificateResult {
  * Description for Get the certificate associated with a certificate order.
  */
 export function getAppServiceCertificateOrderCertificateOutput(args: GetAppServiceCertificateOrderCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getAppServiceCertificateOrderCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:certificateregistration/v20240401:getAppServiceCertificateOrderCertificate", {
+        "certificateOrderName": args.certificateOrderName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAppServiceCertificateOrderCertificateOutputArgs {

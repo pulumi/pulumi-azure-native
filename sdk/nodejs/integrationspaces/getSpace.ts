@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-11-14-preview.
  */
 export function getSpace(args: GetSpaceArgs, opts?: pulumi.InvokeOptions): Promise<GetSpaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:integrationspaces:getSpace", {
         "resourceGroupName": args.resourceGroupName,
@@ -73,7 +72,11 @@ export interface GetSpaceResult {
  * Azure REST API version: 2023-11-14-preview.
  */
 export function getSpaceOutput(args: GetSpaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpaceResult> {
-    return pulumi.output(args).apply((a: any) => getSpace(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:integrationspaces:getSpace", {
+        "resourceGroupName": args.resourceGroupName,
+        "spaceName": args.spaceName,
+    }, opts);
 }
 
 export interface GetSpaceOutputArgs {

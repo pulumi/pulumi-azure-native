@@ -136,9 +136,6 @@ def get_access_policy(access_policy_name: Optional[str] = None,
         role=pulumi.get(__ret__, 'role'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_access_policy)
 def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = None,
                              account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,4 +148,16 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
     :param str account_name: The Azure Video Analyzer account name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['accessPolicyName'] = access_policy_name
+    __args__['accountName'] = account_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer/v20211101preview:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult)
+    return __ret__.apply(lambda __response__: GetAccessPolicyResult(
+        authentication=pulumi.get(__response__, 'authentication'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        role=pulumi.get(__response__, 'role'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

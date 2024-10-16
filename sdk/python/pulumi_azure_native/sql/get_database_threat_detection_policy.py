@@ -217,9 +217,6 @@ def get_database_threat_detection_policy(database_name: Optional[str] = None,
         storage_endpoint=pulumi.get(__ret__, 'storage_endpoint'),
         type=pulumi.get(__ret__, 'type'),
         use_server_default=pulumi.get(__ret__, 'use_server_default'))
-
-
-@_utilities.lift_output_func(get_database_threat_detection_policy)
 def get_database_threat_detection_policy_output(database_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 security_alert_policy_name: Optional[pulumi.Input[str]] = None,
@@ -235,4 +232,23 @@ def get_database_threat_detection_policy_output(database_name: Optional[pulumi.I
     :param str security_alert_policy_name: The name of the security alert policy.
     :param str server_name: The name of the server.
     """
-    ...
+    __args__ = dict()
+    __args__['databaseName'] = database_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['securityAlertPolicyName'] = security_alert_policy_name
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDatabaseThreatDetectionPolicy', __args__, opts=opts, typ=GetDatabaseThreatDetectionPolicyResult)
+    return __ret__.apply(lambda __response__: GetDatabaseThreatDetectionPolicyResult(
+        disabled_alerts=pulumi.get(__response__, 'disabled_alerts'),
+        email_account_admins=pulumi.get(__response__, 'email_account_admins'),
+        email_addresses=pulumi.get(__response__, 'email_addresses'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        retention_days=pulumi.get(__response__, 'retention_days'),
+        state=pulumi.get(__response__, 'state'),
+        storage_endpoint=pulumi.get(__response__, 'storage_endpoint'),
+        type=pulumi.get(__response__, 'type'),
+        use_server_default=pulumi.get(__response__, 'use_server_default')))

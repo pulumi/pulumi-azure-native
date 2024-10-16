@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a LogsMetricFilter
  */
 export function getLogsMetricFilter(args: GetLogsMetricFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetLogsMetricFilterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getLogsMetricFilter", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetLogsMetricFilterResult {
  * Get a LogsMetricFilter
  */
 export function getLogsMetricFilterOutput(args: GetLogsMetricFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsMetricFilterResult> {
-    return pulumi.output(args).apply((a: any) => getLogsMetricFilter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getLogsMetricFilter", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLogsMetricFilterOutputArgs {

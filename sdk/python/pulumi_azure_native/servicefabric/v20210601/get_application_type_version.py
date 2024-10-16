@@ -191,9 +191,6 @@ def get_application_type_version(application_type_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_application_type_version)
 def get_application_type_version_output(application_type_name: Optional[pulumi.Input[str]] = None,
                                         cluster_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -208,4 +205,21 @@ def get_application_type_version_output(application_type_name: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group.
     :param str version: The application type version.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationTypeName'] = application_type_name
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20210601:getApplicationTypeVersion', __args__, opts=opts, typ=GetApplicationTypeVersionResult)
+    return __ret__.apply(lambda __response__: GetApplicationTypeVersionResult(
+        app_package_url=pulumi.get(__response__, 'app_package_url'),
+        default_parameter_list=pulumi.get(__response__, 'default_parameter_list'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

@@ -132,9 +132,6 @@ def get_web_app_swift_virtual_network_connection(name: Optional[str] = None,
         subnet_resource_id=pulumi.get(__ret__, 'subnet_resource_id'),
         swift_supported=pulumi.get(__ret__, 'swift_supported'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_web_app_swift_virtual_network_connection)
 def get_web_app_swift_virtual_network_connection_output(name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSwiftVirtualNetworkConnectionResult]:
@@ -145,4 +142,15 @@ def get_web_app_swift_virtual_network_connection_output(name: Optional[pulumi.In
     :param str name: Name of the app.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:getWebAppSwiftVirtualNetworkConnection', __args__, opts=opts, typ=GetWebAppSwiftVirtualNetworkConnectionResult)
+    return __ret__.apply(lambda __response__: GetWebAppSwiftVirtualNetworkConnectionResult(
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        subnet_resource_id=pulumi.get(__response__, 'subnet_resource_id'),
+        swift_supported=pulumi.get(__response__, 'swift_supported'),
+        type=pulumi.get(__response__, 'type')))

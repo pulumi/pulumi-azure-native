@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2017-05-01-preview.
  */
 export function getSubscriptionDiagnosticSetting(args: GetSubscriptionDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionDiagnosticSettingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getSubscriptionDiagnosticSetting", {
         "name": args.name,
@@ -84,7 +83,10 @@ export interface GetSubscriptionDiagnosticSettingResult {
  * Other available API versions: 2017-05-01-preview.
  */
 export function getSubscriptionDiagnosticSettingOutput(args: GetSubscriptionDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionDiagnosticSettingResult> {
-    return pulumi.output(args).apply((a: any) => getSubscriptionDiagnosticSetting(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights:getSubscriptionDiagnosticSetting", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetSubscriptionDiagnosticSettingOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a KmsKey
  */
 export function getKmsKey(args: GetKmsKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKmsKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getKmsKey", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetKmsKeyResult {
  * Get a KmsKey
  */
 export function getKmsKeyOutput(args: GetKmsKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKmsKeyResult> {
-    return pulumi.output(args).apply((a: any) => getKmsKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getKmsKey", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetKmsKeyOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Returns the specified product.
  */
 export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestack/v20220601:getCustomerSubscription", {
         "customerSubscriptionName": args.customerSubscriptionName,
@@ -61,7 +60,12 @@ export interface GetCustomerSubscriptionResult {
  * Returns the specified product.
  */
 export function getCustomerSubscriptionOutput(args: GetCustomerSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getCustomerSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestack/v20220601:getCustomerSubscription", {
+        "customerSubscriptionName": args.customerSubscriptionName,
+        "registrationName": args.registrationName,
+        "resourceGroup": args.resourceGroup,
+    }, opts);
 }
 
 export interface GetCustomerSubscriptionOutputArgs {

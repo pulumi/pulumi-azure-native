@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the replica and its properties.
  */
 export function getSignalRReplica(args: GetSignalRReplicaArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRReplicaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:signalrservice/v20230801preview:getSignalRReplica", {
         "replicaName": args.replicaName,
@@ -87,7 +86,12 @@ export interface GetSignalRReplicaResult {
  * Get the replica and its properties.
  */
 export function getSignalRReplicaOutput(args: GetSignalRReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRReplicaResult> {
-    return pulumi.output(args).apply((a: any) => getSignalRReplica(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:signalrservice/v20230801preview:getSignalRReplica", {
+        "replicaName": args.replicaName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetSignalRReplicaOutputArgs {

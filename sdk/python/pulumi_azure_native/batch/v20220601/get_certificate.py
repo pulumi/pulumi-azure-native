@@ -218,9 +218,6 @@ def get_certificate(account_name: Optional[str] = None,
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         thumbprint_algorithm=pulumi.get(__ret__, 'thumbprint_algorithm'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(account_name: Optional[pulumi.Input[str]] = None,
                            certificate_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -233,4 +230,23 @@ def get_certificate_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str certificate_name: The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['certificateName'] = certificate_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:batch/v20220601:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
+    return __ret__.apply(lambda __response__: GetCertificateResult(
+        delete_certificate_error=pulumi.get(__response__, 'delete_certificate_error'),
+        etag=pulumi.get(__response__, 'etag'),
+        format=pulumi.get(__response__, 'format'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        previous_provisioning_state=pulumi.get(__response__, 'previous_provisioning_state'),
+        previous_provisioning_state_transition_time=pulumi.get(__response__, 'previous_provisioning_state_transition_time'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        provisioning_state_transition_time=pulumi.get(__response__, 'provisioning_state_transition_time'),
+        public_data=pulumi.get(__response__, 'public_data'),
+        thumbprint=pulumi.get(__response__, 'thumbprint'),
+        thumbprint_algorithm=pulumi.get(__response__, 'thumbprint_algorithm'),
+        type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a workspace manager member
  */
 export function getWorkspaceManagerMember(args: GetWorkspaceManagerMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceManagerMemberResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230801preview:getWorkspaceManagerMember", {
         "resourceGroupName": args.resourceGroupName,
@@ -72,7 +71,12 @@ export interface GetWorkspaceManagerMemberResult {
  * Gets a workspace manager member
  */
 export function getWorkspaceManagerMemberOutput(args: GetWorkspaceManagerMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceManagerMemberResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspaceManagerMember(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230801preview:getWorkspaceManagerMember", {
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceManagerMemberName": args.workspaceManagerMemberName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetWorkspaceManagerMemberOutputArgs {

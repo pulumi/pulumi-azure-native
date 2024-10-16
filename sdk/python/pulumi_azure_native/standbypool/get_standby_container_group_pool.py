@@ -175,9 +175,6 @@ def get_standby_container_group_pool(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_standby_container_group_pool)
 def get_standby_container_group_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             standby_container_group_pool_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandbyContainerGroupPoolResult]:
@@ -191,4 +188,18 @@ def get_standby_container_group_pool_output(resource_group_name: Optional[pulumi
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str standby_container_group_pool_name: Name of the standby container group pool
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['standbyContainerGroupPoolName'] = standby_container_group_pool_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:standbypool:getStandbyContainerGroupPool', __args__, opts=opts, typ=GetStandbyContainerGroupPoolResult)
+    return __ret__.apply(lambda __response__: GetStandbyContainerGroupPoolResult(
+        container_group_properties=pulumi.get(__response__, 'container_group_properties'),
+        elasticity_profile=pulumi.get(__response__, 'elasticity_profile'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

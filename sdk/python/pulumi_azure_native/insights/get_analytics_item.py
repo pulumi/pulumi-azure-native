@@ -182,9 +182,6 @@ def get_analytics_item(id: Optional[str] = None,
         time_modified=pulumi.get(__ret__, 'time_modified'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_analytics_item)
 def get_analytics_item_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                               name: Optional[pulumi.Input[Optional[str]]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -202,4 +199,21 @@ def get_analytics_item_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str resource_name: The name of the Application Insights component resource.
     :param str scope_path: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    __args__['scopePath'] = scope_path
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getAnalyticsItem', __args__, opts=opts, typ=GetAnalyticsItemResult)
+    return __ret__.apply(lambda __response__: GetAnalyticsItemResult(
+        content=pulumi.get(__response__, 'content'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        scope=pulumi.get(__response__, 'scope'),
+        time_created=pulumi.get(__response__, 'time_created'),
+        time_modified=pulumi.get(__response__, 'time_modified'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

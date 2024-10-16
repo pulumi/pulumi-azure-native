@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a CloudWatchAlarm
  */
 export function getCloudWatchAlarm(args: GetCloudWatchAlarmArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudWatchAlarmResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getCloudWatchAlarm", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetCloudWatchAlarmResult {
  * Get a CloudWatchAlarm
  */
 export function getCloudWatchAlarmOutput(args: GetCloudWatchAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudWatchAlarmResult> {
-    return pulumi.output(args).apply((a: any) => getCloudWatchAlarm(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getCloudWatchAlarm", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCloudWatchAlarmOutputArgs {

@@ -168,9 +168,6 @@ def get_subvolume(account_name: Optional[str] = None,
         size=pulumi.get(__ret__, 'size'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_subvolume)
 def get_subvolume_output(account_name: Optional[pulumi.Input[str]] = None,
                          pool_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -187,4 +184,20 @@ def get_subvolume_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str subvolume_name: The name of the subvolume.
     :param str volume_name: The name of the volume
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['poolName'] = pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['subvolumeName'] = subvolume_name
+    __args__['volumeName'] = volume_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20240501:getSubvolume', __args__, opts=opts, typ=GetSubvolumeResult)
+    return __ret__.apply(lambda __response__: GetSubvolumeResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        parent_path=pulumi.get(__response__, 'parent_path'),
+        path=pulumi.get(__response__, 'path'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        size=pulumi.get(__response__, 'size'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

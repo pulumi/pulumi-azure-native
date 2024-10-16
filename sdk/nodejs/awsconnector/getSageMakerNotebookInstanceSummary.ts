@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getSageMakerNotebookInstanceSummary(args: GetSageMakerNotebookInstanceSummaryArgs, opts?: pulumi.InvokeOptions): Promise<GetSageMakerNotebookInstanceSummaryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getSageMakerNotebookInstanceSummary", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetSageMakerNotebookInstanceSummaryResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getSageMakerNotebookInstanceSummaryOutput(args: GetSageMakerNotebookInstanceSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSageMakerNotebookInstanceSummaryResult> {
-    return pulumi.output(args).apply((a: any) => getSageMakerNotebookInstanceSummary(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getSageMakerNotebookInstanceSummary", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSageMakerNotebookInstanceSummaryOutputArgs {

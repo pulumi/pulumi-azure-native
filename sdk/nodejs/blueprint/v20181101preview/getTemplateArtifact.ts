@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a blueprint artifact.
  */
 export function getTemplateArtifact(args: GetTemplateArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateArtifactResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:blueprint/v20181101preview:getTemplateArtifact", {
         "artifactName": args.artifactName,
@@ -85,7 +84,12 @@ export interface GetTemplateArtifactResult {
  * Get a blueprint artifact.
  */
 export function getTemplateArtifactOutput(args: GetTemplateArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateArtifactResult> {
-    return pulumi.output(args).apply((a: any) => getTemplateArtifact(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:blueprint/v20181101preview:getTemplateArtifact", {
+        "artifactName": args.artifactName,
+        "blueprintName": args.blueprintName,
+        "resourceScope": args.resourceScope,
+    }, opts);
 }
 
 export interface GetTemplateArtifactOutputArgs {

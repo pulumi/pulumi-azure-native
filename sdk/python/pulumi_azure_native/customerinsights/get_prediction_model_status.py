@@ -201,9 +201,6 @@ def get_prediction_model_status(hub_name: Optional[str] = None,
         training_accuracy=pulumi.get(__ret__, 'training_accuracy'),
         training_set_count=pulumi.get(__ret__, 'training_set_count'),
         validation_set_count=pulumi.get(__ret__, 'validation_set_count'))
-
-
-@_utilities.lift_output_func(get_prediction_model_status)
 def get_prediction_model_status_output(hub_name: Optional[pulumi.Input[str]] = None,
                                        prediction_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -217,4 +214,21 @@ def get_prediction_model_status_output(hub_name: Optional[pulumi.Input[str]] = N
     :param str prediction_name: The name of the Prediction.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['hubName'] = hub_name
+    __args__['predictionName'] = prediction_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getPredictionModelStatus', __args__, opts=opts, typ=GetPredictionModelStatusResult)
+    return __ret__.apply(lambda __response__: GetPredictionModelStatusResult(
+        message=pulumi.get(__response__, 'message'),
+        model_version=pulumi.get(__response__, 'model_version'),
+        prediction_guid_id=pulumi.get(__response__, 'prediction_guid_id'),
+        prediction_name=pulumi.get(__response__, 'prediction_name'),
+        signals_used=pulumi.get(__response__, 'signals_used'),
+        status=pulumi.get(__response__, 'status'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        test_set_count=pulumi.get(__response__, 'test_set_count'),
+        training_accuracy=pulumi.get(__response__, 'training_accuracy'),
+        training_set_count=pulumi.get(__response__, 'training_set_count'),
+        validation_set_count=pulumi.get(__response__, 'validation_set_count')))

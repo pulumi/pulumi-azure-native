@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns details of the API version.
  */
 export function getApiVersion(args: GetApiVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apicenter/v20240315preview:getApiVersion", {
         "apiName": args.apiName,
@@ -78,7 +77,14 @@ export interface GetApiVersionResult {
  * Returns details of the API version.
  */
 export function getApiVersionOutput(args: GetApiVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiVersionResult> {
-    return pulumi.output(args).apply((a: any) => getApiVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apicenter/v20240315preview:getApiVersion", {
+        "apiName": args.apiName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "versionName": args.versionName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetApiVersionOutputArgs {

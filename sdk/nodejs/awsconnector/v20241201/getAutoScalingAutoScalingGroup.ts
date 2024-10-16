@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a AutoScalingAutoScalingGroup
  */
 export function getAutoScalingAutoScalingGroup(args: GetAutoScalingAutoScalingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoScalingAutoScalingGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getAutoScalingAutoScalingGroup", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetAutoScalingAutoScalingGroupResult {
  * Get a AutoScalingAutoScalingGroup
  */
 export function getAutoScalingAutoScalingGroupOutput(args: GetAutoScalingAutoScalingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoScalingAutoScalingGroupResult> {
-    return pulumi.output(args).apply((a: any) => getAutoScalingAutoScalingGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getAutoScalingAutoScalingGroup", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAutoScalingAutoScalingGroupOutputArgs {

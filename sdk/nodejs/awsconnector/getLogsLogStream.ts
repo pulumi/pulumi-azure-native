@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getLogsLogStream(args: GetLogsLogStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetLogsLogStreamResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getLogsLogStream", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetLogsLogStreamResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getLogsLogStreamOutput(args: GetLogsLogStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsLogStreamResult> {
-    return pulumi.output(args).apply((a: any) => getLogsLogStream(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getLogsLogStream", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLogsLogStreamOutputArgs {

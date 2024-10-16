@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List of RP resources which supports pagination.
  */
 export function listAzureDevOpsOrgAvailable(args: ListAzureDevOpsOrgAvailableArgs, opts?: pulumi.InvokeOptions): Promise<ListAzureDevOpsOrgAvailableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20240515preview:listAzureDevOpsOrgAvailable", {
         "resourceGroupName": args.resourceGroupName,
@@ -47,7 +46,11 @@ export interface ListAzureDevOpsOrgAvailableResult {
  * List of RP resources which supports pagination.
  */
 export function listAzureDevOpsOrgAvailableOutput(args: ListAzureDevOpsOrgAvailableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAzureDevOpsOrgAvailableResult> {
-    return pulumi.output(args).apply((a: any) => listAzureDevOpsOrgAvailable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security/v20240515preview:listAzureDevOpsOrgAvailable", {
+        "resourceGroupName": args.resourceGroupName,
+        "securityConnectorName": args.securityConnectorName,
+    }, opts);
 }
 
 export interface ListAzureDevOpsOrgAvailableOutputArgs {

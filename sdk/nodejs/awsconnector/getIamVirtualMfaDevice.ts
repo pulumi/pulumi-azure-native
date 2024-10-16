@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getIamVirtualMfaDevice(args: GetIamVirtualMfaDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetIamVirtualMfaDeviceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getIamVirtualMfaDevice", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetIamVirtualMfaDeviceResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getIamVirtualMfaDeviceOutput(args: GetIamVirtualMfaDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamVirtualMfaDeviceResult> {
-    return pulumi.output(args).apply((a: any) => getIamVirtualMfaDevice(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamVirtualMfaDevice", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamVirtualMfaDeviceOutputArgs {

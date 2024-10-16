@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a AcmCertificateSummary
  */
 export function getAcmCertificateSummary(args: GetAcmCertificateSummaryArgs, opts?: pulumi.InvokeOptions): Promise<GetAcmCertificateSummaryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getAcmCertificateSummary", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetAcmCertificateSummaryResult {
  * Get a AcmCertificateSummary
  */
 export function getAcmCertificateSummaryOutput(args: GetAcmCertificateSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcmCertificateSummaryResult> {
-    return pulumi.output(args).apply((a: any) => getAcmCertificateSummary(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getAcmCertificateSummary", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAcmCertificateSummaryOutputArgs {

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
 export function getEnvironmentDefinitionErrorDetails(args: GetEnvironmentDefinitionErrorDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentDefinitionErrorDetailsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devcenter:getEnvironmentDefinitionErrorDetails", {
         "catalogName": args.catalogName,
@@ -59,7 +58,13 @@ export interface GetEnvironmentDefinitionErrorDetailsResult {
  * Other available API versions: 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
 export function getEnvironmentDefinitionErrorDetailsOutput(args: GetEnvironmentDefinitionErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentDefinitionErrorDetailsResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironmentDefinitionErrorDetails(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devcenter:getEnvironmentDefinitionErrorDetails", {
+        "catalogName": args.catalogName,
+        "devCenterName": args.devCenterName,
+        "environmentDefinitionName": args.environmentDefinitionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEnvironmentDefinitionErrorDetailsOutputArgs {

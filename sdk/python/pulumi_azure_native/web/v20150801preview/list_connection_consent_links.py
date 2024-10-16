@@ -91,9 +91,6 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
 
     return AwaitableListConnectionConsentLinksResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_connection_consent_links)
 def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[str]] = None,
                                          id: Optional[pulumi.Input[Optional[str]]] = None,
                                          kind: Optional[pulumi.Input[Optional[str]]] = None,
@@ -118,4 +115,17 @@ def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[
     :param Mapping[str, str] tags: Resource tags
     :param str type: Resource type
     """
-    ...
+    __args__ = dict()
+    __args__['connectionName'] = connection_name
+    __args__['id'] = id
+    __args__['kind'] = kind
+    __args__['location'] = location
+    __args__['name'] = name
+    __args__['parameters'] = parameters
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20150801preview:listConnectionConsentLinks', __args__, opts=opts, typ=ListConnectionConsentLinksResult)
+    return __ret__.apply(lambda __response__: ListConnectionConsentLinksResult(
+        value=pulumi.get(__response__, 'value')))

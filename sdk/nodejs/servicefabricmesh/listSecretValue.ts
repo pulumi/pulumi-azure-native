@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-09-01-preview.
  */
 export function listSecretValue(args: ListSecretValueArgs, opts?: pulumi.InvokeOptions): Promise<ListSecretValueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabricmesh:listSecretValue", {
         "resourceGroupName": args.resourceGroupName,
@@ -47,7 +46,12 @@ export interface ListSecretValueResult {
  * Azure REST API version: 2018-09-01-preview.
  */
 export function listSecretValueOutput(args: ListSecretValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecretValueResult> {
-    return pulumi.output(args).apply((a: any) => listSecretValue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh:listSecretValue", {
+        "resourceGroupName": args.resourceGroupName,
+        "secretResourceName": args.secretResourceName,
+        "secretValueResourceName": args.secretValueResourceName,
+    }, opts);
 }
 
 export interface ListSecretValueOutputArgs {

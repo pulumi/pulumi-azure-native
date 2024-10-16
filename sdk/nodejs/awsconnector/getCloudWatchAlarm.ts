@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getCloudWatchAlarm(args: GetCloudWatchAlarmArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudWatchAlarmResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getCloudWatchAlarm", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetCloudWatchAlarmResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getCloudWatchAlarmOutput(args: GetCloudWatchAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudWatchAlarmResult> {
-    return pulumi.output(args).apply((a: any) => getCloudWatchAlarm(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getCloudWatchAlarm", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCloudWatchAlarmOutputArgs {

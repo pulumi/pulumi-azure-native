@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview.
  */
 export function getResourceGuardProxy(args: GetResourceGuardProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardProxyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices:getResourceGuardProxy", {
         "resourceGroupName": args.resourceGroupName,
@@ -72,7 +71,12 @@ export interface GetResourceGuardProxyResult {
  * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview.
  */
 export function getResourceGuardProxyOutput(args: GetResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardProxyResult> {
-    return pulumi.output(args).apply((a: any) => getResourceGuardProxy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:recoveryservices:getResourceGuardProxy", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceGuardProxyName": args.resourceGuardProxyName,
+        "vaultName": args.vaultName,
+    }, opts);
 }
 
 export interface GetResourceGuardProxyOutputArgs {

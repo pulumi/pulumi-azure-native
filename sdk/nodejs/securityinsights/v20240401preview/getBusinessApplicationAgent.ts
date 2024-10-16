@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets Business Application Agent.
  */
 export function getBusinessApplicationAgent(args: GetBusinessApplicationAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessApplicationAgentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20240401preview:getBusinessApplicationAgent", {
         "agentResourceName": args.agentResourceName,
@@ -71,7 +70,12 @@ export interface GetBusinessApplicationAgentResult {
  * Gets Business Application Agent.
  */
 export function getBusinessApplicationAgentOutput(args: GetBusinessApplicationAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessApplicationAgentResult> {
-    return pulumi.output(args).apply((a: any) => getBusinessApplicationAgent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:getBusinessApplicationAgent", {
+        "agentResourceName": args.agentResourceName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetBusinessApplicationAgentOutputArgs {

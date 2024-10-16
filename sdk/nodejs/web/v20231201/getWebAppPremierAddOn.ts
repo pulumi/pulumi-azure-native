@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Description for Gets a named add-on of an app.
  */
 export function getWebAppPremierAddOn(args: GetWebAppPremierAddOnArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20231201:getWebAppPremierAddOn", {
         "name": args.name,
@@ -85,7 +84,12 @@ export interface GetWebAppPremierAddOnResult {
  * Description for Gets a named add-on of an app.
  */
 export function getWebAppPremierAddOnOutput(args: GetWebAppPremierAddOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPremierAddOnResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppPremierAddOn(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20231201:getWebAppPremierAddOn", {
+        "name": args.name,
+        "premierAddOnName": args.premierAddOnName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWebAppPremierAddOnOutputArgs {

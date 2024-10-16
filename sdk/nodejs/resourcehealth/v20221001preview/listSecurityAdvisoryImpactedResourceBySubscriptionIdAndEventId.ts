@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Lists impacted resources in the subscription by an event (Security Advisory).
  */
 export function listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId(args: ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdArgs, opts?: pulumi.InvokeOptions): Promise<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resourcehealth/v20221001preview:listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId", {
         "eventTrackingId": args.eventTrackingId,
@@ -47,7 +46,11 @@ export interface ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdR
  * Lists impacted resources in the subscription by an event (Security Advisory).
  */
 export function listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdOutput(args: ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult> {
-    return pulumi.output(args).apply((a: any) => listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:resourcehealth/v20221001preview:listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId", {
+        "eventTrackingId": args.eventTrackingId,
+        "filter": args.filter,
+    }, opts);
 }
 
 export interface ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdOutputArgs {

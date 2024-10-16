@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
  */
 export function getSqlResourceSqlRoleAssignment(args: GetSqlResourceSqlRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleAssignmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20231115:getSqlResourceSqlRoleAssignment", {
         "accountName": args.accountName,
@@ -65,7 +64,12 @@ export interface GetSqlResourceSqlRoleAssignmentResult {
  * Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
  */
 export function getSqlResourceSqlRoleAssignmentOutput(args: GetSqlResourceSqlRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlRoleAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getSqlResourceSqlRoleAssignment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20231115:getSqlResourceSqlRoleAssignment", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+        "roleAssignmentId": args.roleAssignmentId,
+    }, opts);
 }
 
 export interface GetSqlResourceSqlRoleAssignmentOutputArgs {

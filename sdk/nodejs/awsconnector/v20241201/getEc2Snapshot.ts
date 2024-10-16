@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Ec2Snapshot
  */
 export function getEc2Snapshot(args: GetEc2SnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2SnapshotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEc2Snapshot", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEc2SnapshotResult {
  * Get a Ec2Snapshot
  */
 export function getEc2SnapshotOutput(args: GetEc2SnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2SnapshotResult> {
-    return pulumi.output(args).apply((a: any) => getEc2Snapshot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2Snapshot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2SnapshotOutputArgs {

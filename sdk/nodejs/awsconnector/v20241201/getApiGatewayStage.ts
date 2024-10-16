@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a ApiGatewayStage
  */
 export function getApiGatewayStage(args: GetApiGatewayStageArgs, opts?: pulumi.InvokeOptions): Promise<GetApiGatewayStageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getApiGatewayStage", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetApiGatewayStageResult {
  * Get a ApiGatewayStage
  */
 export function getApiGatewayStageOutput(args: GetApiGatewayStageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayStageResult> {
-    return pulumi.output(args).apply((a: any) => getApiGatewayStage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getApiGatewayStage", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetApiGatewayStageOutputArgs {

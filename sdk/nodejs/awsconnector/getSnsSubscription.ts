@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getSnsSubscription(args: GetSnsSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSnsSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getSnsSubscription", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetSnsSubscriptionResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getSnsSubscriptionOutput(args: GetSnsSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnsSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getSnsSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getSnsSubscription", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSnsSubscriptionOutputArgs {

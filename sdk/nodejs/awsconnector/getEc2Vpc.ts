@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2Vpc(args: GetEc2VpcArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2VpcResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEc2Vpc", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEc2VpcResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2VpcOutput(args: GetEc2VpcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2VpcResult> {
-    return pulumi.output(args).apply((a: any) => getEc2Vpc(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Vpc", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2VpcOutputArgs {

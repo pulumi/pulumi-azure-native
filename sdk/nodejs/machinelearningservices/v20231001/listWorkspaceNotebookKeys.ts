@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * List keys of a notebook.
  */
 export function listWorkspaceNotebookKeys(args: ListWorkspaceNotebookKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNotebookKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20231001:listWorkspaceNotebookKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -35,7 +34,11 @@ export interface ListWorkspaceNotebookKeysResult {
  * List keys of a notebook.
  */
 export function listWorkspaceNotebookKeysOutput(args: ListWorkspaceNotebookKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookKeysResult> {
-    return pulumi.output(args).apply((a: any) => listWorkspaceNotebookKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20231001:listWorkspaceNotebookKeys", {
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListWorkspaceNotebookKeysOutputArgs {

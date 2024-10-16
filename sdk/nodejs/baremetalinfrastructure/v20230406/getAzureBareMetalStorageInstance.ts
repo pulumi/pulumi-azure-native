@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
  */
 export function getAzureBareMetalStorageInstance(args: GetAzureBareMetalStorageInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureBareMetalStorageInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:baremetalinfrastructure/v20230406:getAzureBareMetalStorageInstance", {
         "azureBareMetalStorageInstanceName": args.azureBareMetalStorageInstanceName,
@@ -71,7 +70,11 @@ export interface GetAzureBareMetalStorageInstanceResult {
  * Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
  */
 export function getAzureBareMetalStorageInstanceOutput(args: GetAzureBareMetalStorageInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureBareMetalStorageInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getAzureBareMetalStorageInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:baremetalinfrastructure/v20230406:getAzureBareMetalStorageInstance", {
+        "azureBareMetalStorageInstanceName": args.azureBareMetalStorageInstanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAzureBareMetalStorageInstanceOutputArgs {

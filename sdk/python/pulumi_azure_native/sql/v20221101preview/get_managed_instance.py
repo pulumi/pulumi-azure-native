@@ -479,9 +479,6 @@ def get_managed_instance(expand: Optional[str] = None,
         v_cores=pulumi.get(__ret__, 'v_cores'),
         virtual_cluster_id=pulumi.get(__ret__, 'virtual_cluster_id'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-
-
-@_utilities.lift_output_func(get_managed_instance)
 def get_managed_instance_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                 managed_instance_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -494,4 +491,42 @@ def get_managed_instance_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['managedInstanceName'] = managed_instance_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20221101preview:getManagedInstance', __args__, opts=opts, typ=GetManagedInstanceResult)
+    return __ret__.apply(lambda __response__: GetManagedInstanceResult(
+        administrator_login=pulumi.get(__response__, 'administrator_login'),
+        administrators=pulumi.get(__response__, 'administrators'),
+        collation=pulumi.get(__response__, 'collation'),
+        current_backup_storage_redundancy=pulumi.get(__response__, 'current_backup_storage_redundancy'),
+        dns_zone=pulumi.get(__response__, 'dns_zone'),
+        fully_qualified_domain_name=pulumi.get(__response__, 'fully_qualified_domain_name'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        instance_pool_id=pulumi.get(__response__, 'instance_pool_id'),
+        key_id=pulumi.get(__response__, 'key_id'),
+        license_type=pulumi.get(__response__, 'license_type'),
+        location=pulumi.get(__response__, 'location'),
+        maintenance_configuration_id=pulumi.get(__response__, 'maintenance_configuration_id'),
+        minimal_tls_version=pulumi.get(__response__, 'minimal_tls_version'),
+        name=pulumi.get(__response__, 'name'),
+        primary_user_assigned_identity_id=pulumi.get(__response__, 'primary_user_assigned_identity_id'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        proxy_override=pulumi.get(__response__, 'proxy_override'),
+        public_data_endpoint_enabled=pulumi.get(__response__, 'public_data_endpoint_enabled'),
+        requested_backup_storage_redundancy=pulumi.get(__response__, 'requested_backup_storage_redundancy'),
+        service_principal=pulumi.get(__response__, 'service_principal'),
+        sku=pulumi.get(__response__, 'sku'),
+        state=pulumi.get(__response__, 'state'),
+        storage_size_in_gb=pulumi.get(__response__, 'storage_size_in_gb'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        timezone_id=pulumi.get(__response__, 'timezone_id'),
+        type=pulumi.get(__response__, 'type'),
+        v_cores=pulumi.get(__response__, 'v_cores'),
+        virtual_cluster_id=pulumi.get(__response__, 'virtual_cluster_id'),
+        zone_redundant=pulumi.get(__response__, 'zone_redundant')))

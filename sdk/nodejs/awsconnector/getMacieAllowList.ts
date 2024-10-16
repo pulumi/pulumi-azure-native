@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getMacieAllowList(args: GetMacieAllowListArgs, opts?: pulumi.InvokeOptions): Promise<GetMacieAllowListResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getMacieAllowList", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetMacieAllowListResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getMacieAllowListOutput(args: GetMacieAllowListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMacieAllowListResult> {
-    return pulumi.output(args).apply((a: any) => getMacieAllowList(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getMacieAllowList", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMacieAllowListOutputArgs {

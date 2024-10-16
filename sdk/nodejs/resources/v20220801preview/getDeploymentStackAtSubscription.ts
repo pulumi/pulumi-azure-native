@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a Deployment Stack with a given name.
  */
 export function getDeploymentStackAtSubscription(args: GetDeploymentStackAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentStackAtSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources/v20220801preview:getDeploymentStackAtSubscription", {
         "deploymentStackName": args.deploymentStackName,
@@ -122,7 +121,10 @@ export interface GetDeploymentStackAtSubscriptionResult {
  * Gets a Deployment Stack with a given name.
  */
 export function getDeploymentStackAtSubscriptionOutput(args: GetDeploymentStackAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentStackAtSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getDeploymentStackAtSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:resources/v20220801preview:getDeploymentStackAtSubscription", {
+        "deploymentStackName": args.deploymentStackName,
+    }, opts);
 }
 
 export interface GetDeploymentStackAtSubscriptionOutputArgs {

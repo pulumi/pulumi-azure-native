@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a AutoUpgradeProfile
  */
 export function getAutoUpgradeProfile(args: GetAutoUpgradeProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoUpgradeProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20240502preview:getAutoUpgradeProfile", {
         "autoUpgradeProfileName": args.autoUpgradeProfileName,
@@ -87,7 +86,12 @@ export interface GetAutoUpgradeProfileResult {
  * Get a AutoUpgradeProfile
  */
 export function getAutoUpgradeProfileOutput(args: GetAutoUpgradeProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoUpgradeProfileResult> {
-    return pulumi.output(args).apply((a: any) => getAutoUpgradeProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerservice/v20240502preview:getAutoUpgradeProfile", {
+        "autoUpgradeProfileName": args.autoUpgradeProfileName,
+        "fleetName": args.fleetName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAutoUpgradeProfileOutputArgs {

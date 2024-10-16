@@ -181,9 +181,6 @@ def get_policy_definition(policy_definition_name: Optional[str] = None,
         policy_rule=pulumi.get(__ret__, 'policy_rule'),
         policy_type=pulumi.get(__ret__, 'policy_type'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_policy_definition)
 def get_policy_definition_output(policy_definition_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyDefinitionResult]:
     """
@@ -192,4 +189,18 @@ def get_policy_definition_output(policy_definition_name: Optional[pulumi.Input[s
 
     :param str policy_definition_name: The name of the policy definition to get.
     """
-    ...
+    __args__ = dict()
+    __args__['policyDefinitionName'] = policy_definition_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20180501:getPolicyDefinition', __args__, opts=opts, typ=GetPolicyDefinitionResult)
+    return __ret__.apply(lambda __response__: GetPolicyDefinitionResult(
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        mode=pulumi.get(__response__, 'mode'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        policy_rule=pulumi.get(__response__, 'policy_rule'),
+        policy_type=pulumi.get(__response__, 'policy_type'),
+        type=pulumi.get(__response__, 'type')))

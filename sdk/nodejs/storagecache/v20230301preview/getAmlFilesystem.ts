@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns an AML file system.
  */
 export function getAmlFilesystem(args: GetAmlFilesystemArgs, opts?: pulumi.InvokeOptions): Promise<GetAmlFilesystemResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storagecache/v20230301preview:getAmlFilesystem", {
         "amlFilesystemName": args.amlFilesystemName,
@@ -119,7 +118,11 @@ export interface GetAmlFilesystemResult {
  * Returns an AML file system.
  */
 export function getAmlFilesystemOutput(args: GetAmlFilesystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmlFilesystemResult> {
-    return pulumi.output(args).apply((a: any) => getAmlFilesystem(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storagecache/v20230301preview:getAmlFilesystem", {
+        "amlFilesystemName": args.amlFilesystemName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAmlFilesystemOutputArgs {

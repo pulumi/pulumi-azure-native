@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-12-03.
  */
 export function getEnterpriseKnowledgeGraph(args: GetEnterpriseKnowledgeGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseKnowledgeGraphResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph", {
         "resourceGroupName": args.resourceGroupName,
@@ -69,7 +68,11 @@ export interface GetEnterpriseKnowledgeGraphResult {
  * Azure REST API version: 2018-12-03.
  */
 export function getEnterpriseKnowledgeGraphOutput(args: GetEnterpriseKnowledgeGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseKnowledgeGraphResult> {
-    return pulumi.output(args).apply((a: any) => getEnterpriseKnowledgeGraph(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetEnterpriseKnowledgeGraphOutputArgs {

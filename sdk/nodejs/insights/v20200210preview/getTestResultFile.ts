@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Returns a file test result for the matching test
  */
 export function getTestResultFile(args: GetTestResultFileArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultFileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20200210preview:getTestResultFile", {
         "continuationToken": args.continuationToken,
@@ -69,7 +68,16 @@ export interface GetTestResultFileResult {
  * Returns a file test result for the matching test
  */
 export function getTestResultFileOutput(args: GetTestResultFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultFileResult> {
-    return pulumi.output(args).apply((a: any) => getTestResultFile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights/v20200210preview:getTestResultFile", {
+        "continuationToken": args.continuationToken,
+        "downloadAs": args.downloadAs,
+        "geoLocationId": args.geoLocationId,
+        "resourceGroupName": args.resourceGroupName,
+        "testSuccessfulCriteria": args.testSuccessfulCriteria,
+        "timeStamp": args.timeStamp,
+        "webTestName": args.webTestName,
+    }, opts);
 }
 
 export interface GetTestResultFileOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of a registered vCenter server(Add vCenter server).
  */
 export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationvCenterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20240201:getReplicationvCenter", {
         "fabricName": args.fabricName,
@@ -69,7 +68,13 @@ export interface GetReplicationvCenterResult {
  * Gets the details of a registered vCenter server(Add vCenter server).
  */
 export function getReplicationvCenterOutput(args: GetReplicationvCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationvCenterResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationvCenter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20240201:getReplicationvCenter", {
+        "fabricName": args.fabricName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+        "vcenterName": args.vcenterName,
+    }, opts);
 }
 
 export interface GetReplicationvCenterOutputArgs {

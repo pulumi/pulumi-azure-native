@@ -347,9 +347,6 @@ def get_file_share(account_name: Optional[str] = None,
         snapshot_time=pulumi.get(__ret__, 'snapshot_time'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_file_share)
 def get_file_share_output(account_name: Optional[pulumi.Input[str]] = None,
                           expand: Optional[pulumi.Input[Optional[str]]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -364,4 +361,33 @@ def get_file_share_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['expand'] = expand
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['shareName'] = share_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230401:getFileShare', __args__, opts=opts, typ=GetFileShareResult)
+    return __ret__.apply(lambda __response__: GetFileShareResult(
+        access_tier=pulumi.get(__response__, 'access_tier'),
+        access_tier_change_time=pulumi.get(__response__, 'access_tier_change_time'),
+        access_tier_status=pulumi.get(__response__, 'access_tier_status'),
+        deleted=pulumi.get(__response__, 'deleted'),
+        deleted_time=pulumi.get(__response__, 'deleted_time'),
+        enabled_protocols=pulumi.get(__response__, 'enabled_protocols'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        lease_duration=pulumi.get(__response__, 'lease_duration'),
+        lease_state=pulumi.get(__response__, 'lease_state'),
+        lease_status=pulumi.get(__response__, 'lease_status'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        remaining_retention_days=pulumi.get(__response__, 'remaining_retention_days'),
+        root_squash=pulumi.get(__response__, 'root_squash'),
+        share_quota=pulumi.get(__response__, 'share_quota'),
+        share_usage_bytes=pulumi.get(__response__, 'share_usage_bytes'),
+        signed_identifiers=pulumi.get(__response__, 'signed_identifiers'),
+        snapshot_time=pulumi.get(__response__, 'snapshot_time'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

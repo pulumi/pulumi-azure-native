@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-10-01.
  */
 export function getAttestationAtResource(args: GetAttestationAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtResourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights:getAttestationAtResource", {
         "attestationName": args.attestationName,
@@ -105,7 +104,11 @@ export interface GetAttestationAtResourceResult {
  * Other available API versions: 2024-10-01.
  */
 export function getAttestationAtResourceOutput(args: GetAttestationAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtResourceResult> {
-    return pulumi.output(args).apply((a: any) => getAttestationAtResource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:policyinsights:getAttestationAtResource", {
+        "attestationName": args.attestationName,
+        "resourceId": args.resourceId,
+    }, opts);
 }
 
 export interface GetAttestationAtResourceOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getNetworkFirewallFirewall(args: GetNetworkFirewallFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFirewallFirewallResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getNetworkFirewallFirewall", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetNetworkFirewallFirewallResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getNetworkFirewallFirewallOutput(args: GetNetworkFirewallFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFirewallFirewallResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkFirewallFirewall(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getNetworkFirewallFirewall", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkFirewallFirewallOutputArgs {

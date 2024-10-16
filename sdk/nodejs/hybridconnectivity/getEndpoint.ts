@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-05-01-preview, 2024-12-01.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridconnectivity:getEndpoint", {
         "endpointName": args.endpointName,
@@ -89,7 +88,11 @@ export interface GetEndpointResult {
  * Other available API versions: 2022-05-01-preview, 2024-12-01.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity:getEndpoint", {
+        "endpointName": args.endpointName,
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetEndpointOutputArgs {

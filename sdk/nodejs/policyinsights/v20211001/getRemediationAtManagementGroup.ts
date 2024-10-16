@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an existing remediation at management group scope.
  */
 export function getRemediationAtManagementGroup(args: GetRemediationAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtManagementGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights/v20211001:getRemediationAtManagementGroup", {
         "managementGroupId": args.managementGroupId,
@@ -112,7 +111,12 @@ export interface GetRemediationAtManagementGroupResult {
  * Gets an existing remediation at management group scope.
  */
 export function getRemediationAtManagementGroupOutput(args: GetRemediationAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtManagementGroupResult> {
-    return pulumi.output(args).apply((a: any) => getRemediationAtManagementGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:policyinsights/v20211001:getRemediationAtManagementGroup", {
+        "managementGroupId": args.managementGroupId,
+        "managementGroupsNamespace": args.managementGroupsNamespace,
+        "remediationName": args.remediationName,
+    }, opts);
 }
 
 export interface GetRemediationAtManagementGroupOutputArgs {

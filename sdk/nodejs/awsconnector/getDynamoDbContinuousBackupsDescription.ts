@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getDynamoDbContinuousBackupsDescription(args: GetDynamoDbContinuousBackupsDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDynamoDbContinuousBackupsDescriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getDynamoDbContinuousBackupsDescription", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetDynamoDbContinuousBackupsDescriptionResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getDynamoDbContinuousBackupsDescriptionOutput(args: GetDynamoDbContinuousBackupsDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamoDbContinuousBackupsDescriptionResult> {
-    return pulumi.output(args).apply((a: any) => getDynamoDbContinuousBackupsDescription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getDynamoDbContinuousBackupsDescription", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDynamoDbContinuousBackupsDescriptionOutputArgs {

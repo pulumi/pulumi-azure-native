@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets all linked storage account of a specific data source type associated with the specified workspace.
  */
 export function getLinkedStorageAccount(args: GetLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedStorageAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20200801:getLinkedStorageAccount", {
         "dataSourceType": args.dataSourceType,
@@ -61,7 +60,12 @@ export interface GetLinkedStorageAccountResult {
  * Gets all linked storage account of a specific data source type associated with the specified workspace.
  */
 export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedStorageAccountResult> {
-    return pulumi.output(args).apply((a: any) => getLinkedStorageAccount(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20200801:getLinkedStorageAccount", {
+        "dataSourceType": args.dataSourceType,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetLinkedStorageAccountOutputArgs {

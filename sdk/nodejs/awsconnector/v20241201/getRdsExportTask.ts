@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a RdsExportTask
  */
 export function getRdsExportTask(args: GetRdsExportTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetRdsExportTaskResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getRdsExportTask", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetRdsExportTaskResult {
  * Get a RdsExportTask
  */
 export function getRdsExportTaskOutput(args: GetRdsExportTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsExportTaskResult> {
-    return pulumi.output(args).apply((a: any) => getRdsExportTask(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRdsExportTask", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRdsExportTaskOutputArgs {

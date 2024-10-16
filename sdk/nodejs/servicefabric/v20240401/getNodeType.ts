@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Service Fabric node type of a given managed cluster.
  */
 export function getNodeType(args: GetNodeTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeTypeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric/v20240401:getNodeType", {
         "clusterName": args.clusterName,
@@ -264,7 +263,12 @@ export interface GetNodeTypeResult {
  * Get a Service Fabric node type of a given managed cluster.
  */
 export function getNodeTypeOutput(args: GetNodeTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeTypeResult> {
-    return pulumi.output(args).apply((a: any) => getNodeType(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20240401:getNodeType", {
+        "clusterName": args.clusterName,
+        "nodeTypeName": args.nodeTypeName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNodeTypeOutputArgs {

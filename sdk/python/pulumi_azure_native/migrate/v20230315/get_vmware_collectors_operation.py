@@ -175,9 +175,6 @@ def get_vmware_collectors_operation(project_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
-
-
-@_utilities.lift_output_func(get_vmware_collectors_operation)
 def get_vmware_collectors_operation_output(project_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            vm_ware_collector_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_vmware_collectors_operation_output(project_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vm_ware_collector_name: VMware collector ARM name
     """
-    ...
+    __args__ = dict()
+    __args__['projectName'] = project_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vmWareCollectorName'] = vm_ware_collector_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230315:getVmwareCollectorsOperation', __args__, opts=opts, typ=GetVmwareCollectorsOperationResult)
+    return __ret__.apply(lambda __response__: GetVmwareCollectorsOperationResult(
+        agent_properties=pulumi.get(__response__, 'agent_properties'),
+        created_timestamp=pulumi.get(__response__, 'created_timestamp'),
+        discovery_site_id=pulumi.get(__response__, 'discovery_site_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        updated_timestamp=pulumi.get(__response__, 'updated_timestamp')))

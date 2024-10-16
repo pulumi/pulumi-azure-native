@@ -78,9 +78,6 @@ def get_get_cached_server_name_execute(location_name: Optional[str] = None,
 
     return AwaitableGetGetCachedServerNameExecuteResult(
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_get_cached_server_name_execute)
 def get_get_cached_server_name_execute_output(location_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               sku: Optional[pulumi.Input[Union['Sku', 'SkuDict']]] = None,
@@ -97,4 +94,13 @@ def get_get_cached_server_name_execute_output(location_name: Optional[pulumi.Inp
     :param Union['Storage', 'StorageDict'] storage: Storage properties of a server.
     :param Union[str, 'ServerVersion'] version: PostgreSQL Server version.
     """
-    ...
+    __args__ = dict()
+    __args__['locationName'] = location_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sku'] = sku
+    __args__['storage'] = storage
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute', __args__, opts=opts, typ=GetGetCachedServerNameExecuteResult)
+    return __ret__.apply(lambda __response__: GetGetCachedServerNameExecuteResult(
+        name=pulumi.get(__response__, 'name')))

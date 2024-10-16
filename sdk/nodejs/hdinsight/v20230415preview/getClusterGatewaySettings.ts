@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the gateway settings for the specified cluster.
  */
 export function getClusterGatewaySettings(args: GetClusterGatewaySettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterGatewaySettingsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hdinsight/v20230415preview:getClusterGatewaySettings", {
         "clusterName": args.clusterName,
@@ -48,7 +47,11 @@ export interface GetClusterGatewaySettingsResult {
  * Gets the gateway settings for the specified cluster.
  */
 export function getClusterGatewaySettingsOutput(args: GetClusterGatewaySettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterGatewaySettingsResult> {
-    return pulumi.output(args).apply((a: any) => getClusterGatewaySettings(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hdinsight/v20230415preview:getClusterGatewaySettings", {
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetClusterGatewaySettingsOutputArgs {

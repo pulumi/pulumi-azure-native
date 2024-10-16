@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified vendor.
  */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20220101preview:getVendor", {
         "vendorName": args.vendorName,
@@ -58,7 +57,10 @@ export interface GetVendorResult {
  * Gets information about the specified vendor.
  */
 export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
-    return pulumi.output(args).apply((a: any) => getVendor(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20220101preview:getVendor", {
+        "vendorName": args.vendorName,
+    }, opts);
 }
 
 export interface GetVendorOutputArgs {

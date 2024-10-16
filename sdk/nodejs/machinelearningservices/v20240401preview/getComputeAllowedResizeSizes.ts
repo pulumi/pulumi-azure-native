@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns supported virtual machine sizes for resize
  */
 export function getComputeAllowedResizeSizes(args: GetComputeAllowedResizeSizesArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeAllowedResizeSizesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240401preview:getComputeAllowedResizeSizes", {
         "computeName": args.computeName,
@@ -48,7 +47,12 @@ export interface GetComputeAllowedResizeSizesResult {
  * Returns supported virtual machine sizes for resize
  */
 export function getComputeAllowedResizeSizesOutput(args: GetComputeAllowedResizeSizesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeAllowedResizeSizesResult> {
-    return pulumi.output(args).apply((a: any) => getComputeAllowedResizeSizes(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401preview:getComputeAllowedResizeSizes", {
+        "computeName": args.computeName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetComputeAllowedResizeSizesOutputArgs {

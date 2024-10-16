@@ -214,9 +214,6 @@ def list_container_app_custom_host_name_analysis(container_app_name: Optional[st
         host_name=pulumi.get(__ret__, 'host_name'),
         is_hostname_already_verified=pulumi.get(__ret__, 'is_hostname_already_verified'),
         txt_records=pulumi.get(__ret__, 'txt_records'))
-
-
-@_utilities.lift_output_func(list_container_app_custom_host_name_analysis)
 def list_container_app_custom_host_name_analysis_output(container_app_name: Optional[pulumi.Input[str]] = None,
                                                         custom_hostname: Optional[pulumi.Input[Optional[str]]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -229,4 +226,22 @@ def list_container_app_custom_host_name_analysis_output(container_app_name: Opti
     :param str custom_hostname: Custom hostname.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['containerAppName'] = container_app_name
+    __args__['customHostname'] = custom_hostname
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20231102preview:listContainerAppCustomHostNameAnalysis', __args__, opts=opts, typ=ListContainerAppCustomHostNameAnalysisResult)
+    return __ret__.apply(lambda __response__: ListContainerAppCustomHostNameAnalysisResult(
+        a_records=pulumi.get(__response__, 'a_records'),
+        alternate_c_name_records=pulumi.get(__response__, 'alternate_c_name_records'),
+        alternate_txt_records=pulumi.get(__response__, 'alternate_txt_records'),
+        c_name_records=pulumi.get(__response__, 'c_name_records'),
+        conflict_with_environment_custom_domain=pulumi.get(__response__, 'conflict_with_environment_custom_domain'),
+        conflicting_container_app_resource_id=pulumi.get(__response__, 'conflicting_container_app_resource_id'),
+        custom_domain_verification_failure_info=pulumi.get(__response__, 'custom_domain_verification_failure_info'),
+        custom_domain_verification_test=pulumi.get(__response__, 'custom_domain_verification_test'),
+        has_conflict_on_managed_environment=pulumi.get(__response__, 'has_conflict_on_managed_environment'),
+        host_name=pulumi.get(__response__, 'host_name'),
+        is_hostname_already_verified=pulumi.get(__response__, 'is_hostname_already_verified'),
+        txt_records=pulumi.get(__response__, 'txt_records')))

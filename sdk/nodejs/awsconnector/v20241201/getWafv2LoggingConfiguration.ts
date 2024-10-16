@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Wafv2LoggingConfiguration
  */
 export function getWafv2LoggingConfiguration(args: GetWafv2LoggingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWafv2LoggingConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getWafv2LoggingConfiguration", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetWafv2LoggingConfigurationResult {
  * Get a Wafv2LoggingConfiguration
  */
 export function getWafv2LoggingConfigurationOutput(args: GetWafv2LoggingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafv2LoggingConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getWafv2LoggingConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getWafv2LoggingConfiguration", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWafv2LoggingConfigurationOutputArgs {

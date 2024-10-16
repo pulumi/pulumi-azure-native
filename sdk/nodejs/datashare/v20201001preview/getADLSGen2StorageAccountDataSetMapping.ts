@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a DataSetMapping in a shareSubscription
  */
 export function getADLSGen2StorageAccountDataSetMapping(args: GetADLSGen2StorageAccountDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetADLSGen2StorageAccountDataSetMappingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping", {
         "accountName": args.accountName,
@@ -102,7 +101,13 @@ export interface GetADLSGen2StorageAccountDataSetMappingResult {
  * Get a DataSetMapping in a shareSubscription
  */
 export function getADLSGen2StorageAccountDataSetMappingOutput(args: GetADLSGen2StorageAccountDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2StorageAccountDataSetMappingResult> {
-    return pulumi.output(args).apply((a: any) => getADLSGen2StorageAccountDataSetMapping(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping", {
+        "accountName": args.accountName,
+        "dataSetMappingName": args.dataSetMappingName,
+        "resourceGroupName": args.resourceGroupName,
+        "shareSubscriptionName": args.shareSubscriptionName,
+    }, opts);
 }
 
 export interface GetADLSGen2StorageAccountDataSetMappingOutputArgs {

@@ -237,9 +237,6 @@ def get_iot_security_solution(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_defined_resources=pulumi.get(__ret__, 'user_defined_resources'),
         workspace=pulumi.get(__ret__, 'workspace'))
-
-
-@_utilities.lift_output_func(get_iot_security_solution)
 def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                      solution_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotSecuritySolutionResult]:
@@ -250,4 +247,23 @@ def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str solution_name: The solution manager name
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['solutionName'] = solution_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20170801preview:getIotSecuritySolution', __args__, opts=opts, typ=GetIotSecuritySolutionResult)
+    return __ret__.apply(lambda __response__: GetIotSecuritySolutionResult(
+        auto_discovered_resources=pulumi.get(__response__, 'auto_discovered_resources'),
+        disabled_data_sources=pulumi.get(__response__, 'disabled_data_sources'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        export=pulumi.get(__response__, 'export'),
+        id=pulumi.get(__response__, 'id'),
+        iot_hubs=pulumi.get(__response__, 'iot_hubs'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        recommendations_configuration=pulumi.get(__response__, 'recommendations_configuration'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        user_defined_resources=pulumi.get(__response__, 'user_defined_resources'),
+        workspace=pulumi.get(__response__, 'workspace')))

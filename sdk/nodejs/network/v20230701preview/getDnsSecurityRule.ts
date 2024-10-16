@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets properties of a DNS security rule for a DNS resolver policy.
  */
 export function getDnsSecurityRule(args: GetDnsSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsSecurityRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230701preview:getDnsSecurityRule", {
         "dnsResolverPolicyName": args.dnsResolverPolicyName,
@@ -92,7 +91,12 @@ export interface GetDnsSecurityRuleResult {
  * Gets properties of a DNS security rule for a DNS resolver policy.
  */
 export function getDnsSecurityRuleOutput(args: GetDnsSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsSecurityRuleResult> {
-    return pulumi.output(args).apply((a: any) => getDnsSecurityRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230701preview:getDnsSecurityRule", {
+        "dnsResolverPolicyName": args.dnsResolverPolicyName,
+        "dnsSecurityRuleName": args.dnsSecurityRuleName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDnsSecurityRuleOutputArgs {

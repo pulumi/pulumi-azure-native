@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets an Internet Gateway Rule resource.
  */
 export function getInternetGatewayRule(args: GetInternetGatewayRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:managednetworkfabric/v20230615:getInternetGatewayRule", {
         "internetGatewayRuleName": args.internetGatewayRuleName,
@@ -79,7 +78,11 @@ export interface GetInternetGatewayRuleResult {
  * Gets an Internet Gateway Rule resource.
  */
 export function getInternetGatewayRuleOutput(args: GetInternetGatewayRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayRuleResult> {
-    return pulumi.output(args).apply((a: any) => getInternetGatewayRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getInternetGatewayRule", {
+        "internetGatewayRuleName": args.internetGatewayRuleName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetInternetGatewayRuleOutputArgs {

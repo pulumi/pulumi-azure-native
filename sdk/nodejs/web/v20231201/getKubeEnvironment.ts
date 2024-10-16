@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Description for Get the properties of a Kubernetes Environment.
  */
 export function getKubeEnvironment(args: GetKubeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKubeEnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20231201:getKubeEnvironment", {
         "name": args.name,
@@ -108,7 +107,11 @@ export interface GetKubeEnvironmentResult {
  * Description for Get the properties of a Kubernetes Environment.
  */
 export function getKubeEnvironmentOutput(args: GetKubeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubeEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getKubeEnvironment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20231201:getKubeEnvironment", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetKubeEnvironmentOutputArgs {

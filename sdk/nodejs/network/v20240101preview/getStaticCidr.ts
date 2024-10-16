@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Instance of StaticCidr resource.
  */
 export function getStaticCidr(args: GetStaticCidrArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticCidrResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240101preview:getStaticCidr", {
         "networkManagerName": args.networkManagerName,
@@ -69,7 +68,13 @@ export interface GetStaticCidrResult {
  * Instance of StaticCidr resource.
  */
 export function getStaticCidrOutput(args: GetStaticCidrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticCidrResult> {
-    return pulumi.output(args).apply((a: any) => getStaticCidr(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240101preview:getStaticCidr", {
+        "networkManagerName": args.networkManagerName,
+        "poolName": args.poolName,
+        "resourceGroupName": args.resourceGroupName,
+        "staticCidrName": args.staticCidrName,
+    }, opts);
 }
 
 export interface GetStaticCidrOutputArgs {

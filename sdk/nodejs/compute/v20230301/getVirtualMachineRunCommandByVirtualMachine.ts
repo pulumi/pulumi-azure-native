@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The operation to get the run command.
  */
 export function getVirtualMachineRunCommandByVirtualMachine(args: GetVirtualMachineRunCommandByVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRunCommandByVirtualMachineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute/v20230301:getVirtualMachineRunCommandByVirtualMachine", {
         "expand": args.expand,
@@ -125,7 +124,13 @@ export interface GetVirtualMachineRunCommandByVirtualMachineResult {
  * The operation to get the run command.
  */
 export function getVirtualMachineRunCommandByVirtualMachineOutput(args: GetVirtualMachineRunCommandByVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRunCommandByVirtualMachineResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachineRunCommandByVirtualMachine(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:compute/v20230301:getVirtualMachineRunCommandByVirtualMachine", {
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+        "runCommandName": args.runCommandName,
+        "vmName": args.vmName,
+    }, opts);
 }
 
 export interface GetVirtualMachineRunCommandByVirtualMachineOutputArgs {

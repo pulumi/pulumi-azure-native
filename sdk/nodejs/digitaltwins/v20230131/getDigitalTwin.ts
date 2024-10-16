@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get DigitalTwinsInstances resource.
  */
 export function getDigitalTwin(args: GetDigitalTwinArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20230131:getDigitalTwin", {
         "resourceGroupName": args.resourceGroupName,
@@ -91,7 +90,11 @@ export interface GetDigitalTwinResult {
  * Get DigitalTwinsInstances resource.
  */
 export function getDigitalTwinOutput(args: GetDigitalTwinOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinResult> {
-    return pulumi.output(args).apply((a: any) => getDigitalTwin(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:digitaltwins/v20230131:getDigitalTwin", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetDigitalTwinOutputArgs {

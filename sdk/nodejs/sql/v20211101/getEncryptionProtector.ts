@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a server encryption protector.
  */
 export function getEncryptionProtector(args: GetEncryptionProtectorArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionProtectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getEncryptionProtector", {
         "encryptionProtectorName": args.encryptionProtectorName,
@@ -85,7 +84,12 @@ export interface GetEncryptionProtectorResult {
  * Gets a server encryption protector.
  */
 export function getEncryptionProtectorOutput(args: GetEncryptionProtectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionProtectorResult> {
-    return pulumi.output(args).apply((a: any) => getEncryptionProtector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getEncryptionProtector", {
+        "encryptionProtectorName": args.encryptionProtectorName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetEncryptionProtectorOutputArgs {

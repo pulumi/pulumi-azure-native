@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a NetworkFirewallFirewallPolicy
  */
 export function getNetworkFirewallFirewallPolicy(args: GetNetworkFirewallFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFirewallFirewallPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getNetworkFirewallFirewallPolicy", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetNetworkFirewallFirewallPolicyResult {
  * Get a NetworkFirewallFirewallPolicy
  */
 export function getNetworkFirewallFirewallPolicyOutput(args: GetNetworkFirewallFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFirewallFirewallPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkFirewallFirewallPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getNetworkFirewallFirewallPolicy", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkFirewallFirewallPolicyOutputArgs {

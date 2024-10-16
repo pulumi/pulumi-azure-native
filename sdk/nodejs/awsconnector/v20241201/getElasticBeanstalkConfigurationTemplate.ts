@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a ElasticBeanstalkConfigurationTemplate
  */
 export function getElasticBeanstalkConfigurationTemplate(args: GetElasticBeanstalkConfigurationTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticBeanstalkConfigurationTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getElasticBeanstalkConfigurationTemplate", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetElasticBeanstalkConfigurationTemplateResult {
  * Get a ElasticBeanstalkConfigurationTemplate
  */
 export function getElasticBeanstalkConfigurationTemplateOutput(args: GetElasticBeanstalkConfigurationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticBeanstalkConfigurationTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getElasticBeanstalkConfigurationTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getElasticBeanstalkConfigurationTemplate", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetElasticBeanstalkConfigurationTemplateOutputArgs {

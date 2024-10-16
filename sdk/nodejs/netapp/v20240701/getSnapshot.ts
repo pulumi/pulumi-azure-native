@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get details of the specified snapshot
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20240701:getSnapshot", {
         "accountName": args.accountName,
@@ -86,7 +85,14 @@ export interface GetSnapshotResult {
  * Get details of the specified snapshot
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
-    return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:netapp/v20240701:getSnapshot", {
+        "accountName": args.accountName,
+        "poolName": args.poolName,
+        "resourceGroupName": args.resourceGroupName,
+        "snapshotName": args.snapshotName,
+        "volumeName": args.volumeName,
+    }, opts);
 }
 
 export interface GetSnapshotOutputArgs {

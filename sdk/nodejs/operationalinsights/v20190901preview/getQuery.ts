@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
  */
 export function getQuery(args: GetQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20190901preview:getQuery", {
         "id": args.id,
@@ -96,7 +95,12 @@ export interface GetQueryResult {
  * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
  */
 export function getQueryOutput(args: GetQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryResult> {
-    return pulumi.output(args).apply((a: any) => getQuery(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20190901preview:getQuery", {
+        "id": args.id,
+        "queryPackName": args.queryPackName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetQueryOutputArgs {

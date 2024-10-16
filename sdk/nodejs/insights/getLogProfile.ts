@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2016-03-01.
  */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getLogProfile", {
         "logProfileName": args.logProfileName,
@@ -76,7 +75,10 @@ export interface GetLogProfileResult {
  * Azure REST API version: 2016-03-01.
  */
 export function getLogProfileOutput(args: GetLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogProfileResult> {
-    return pulumi.output(args).apply((a: any) => getLogProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights:getLogProfile", {
+        "logProfileName": args.logProfileName,
+    }, opts);
 }
 
 export interface GetLogProfileOutputArgs {

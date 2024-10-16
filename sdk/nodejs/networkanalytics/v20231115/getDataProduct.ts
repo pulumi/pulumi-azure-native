@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve data product resource.
  */
 export function getDataProduct(args: GetDataProductArgs, opts?: pulumi.InvokeOptions): Promise<GetDataProductResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkanalytics/v20231115:getDataProduct", {
         "dataProductName": args.dataProductName,
@@ -143,7 +142,11 @@ export interface GetDataProductResult {
  * Retrieve data product resource.
  */
 export function getDataProductOutput(args: GetDataProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataProductResult> {
-    return pulumi.output(args).apply((a: any) => getDataProduct(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:networkanalytics/v20231115:getDataProduct", {
+        "dataProductName": args.dataProductName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDataProductOutputArgs {

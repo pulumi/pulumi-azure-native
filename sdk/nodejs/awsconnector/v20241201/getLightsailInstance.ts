@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a LightsailInstance
  */
 export function getLightsailInstance(args: GetLightsailInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetLightsailInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getLightsailInstance", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetLightsailInstanceResult {
  * Get a LightsailInstance
  */
 export function getLightsailInstanceOutput(args: GetLightsailInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLightsailInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getLightsailInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getLightsailInstance", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLightsailInstanceOutputArgs {

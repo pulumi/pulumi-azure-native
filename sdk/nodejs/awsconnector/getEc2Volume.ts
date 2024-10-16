@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2Volume(args: GetEc2VolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2VolumeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEc2Volume", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEc2VolumeResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2VolumeOutput(args: GetEc2VolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2VolumeResult> {
-    return pulumi.output(args).apply((a: any) => getEc2Volume(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Volume", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2VolumeOutputArgs {

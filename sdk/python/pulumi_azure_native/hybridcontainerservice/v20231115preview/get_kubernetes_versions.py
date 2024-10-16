@@ -127,9 +127,6 @@ def get_kubernetes_versions(custom_location_resource_uri: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_kubernetes_versions)
 def get_kubernetes_versions_output(custom_location_resource_uri: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesVersionsResult]:
     """
@@ -138,4 +135,14 @@ def get_kubernetes_versions_output(custom_location_resource_uri: Optional[pulumi
 
     :param str custom_location_resource_uri: The fully qualified Azure Resource manager identifier of the custom location resource.
     """
-    ...
+    __args__ = dict()
+    __args__['customLocationResourceUri'] = custom_location_resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice/v20231115preview:getKubernetesVersions', __args__, opts=opts, typ=GetKubernetesVersionsResult)
+    return __ret__.apply(lambda __response__: GetKubernetesVersionsResult(
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

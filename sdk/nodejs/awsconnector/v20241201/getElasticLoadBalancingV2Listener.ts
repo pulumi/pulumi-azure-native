@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a ElasticLoadBalancingV2Listener
  */
 export function getElasticLoadBalancingV2Listener(args: GetElasticLoadBalancingV2ListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticLoadBalancingV2ListenerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getElasticLoadBalancingV2Listener", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetElasticLoadBalancingV2ListenerResult {
  * Get a ElasticLoadBalancingV2Listener
  */
 export function getElasticLoadBalancingV2ListenerOutput(args: GetElasticLoadBalancingV2ListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticLoadBalancingV2ListenerResult> {
-    return pulumi.output(args).apply((a: any) => getElasticLoadBalancingV2Listener(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getElasticLoadBalancingV2Listener", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetElasticLoadBalancingV2ListenerOutputArgs {

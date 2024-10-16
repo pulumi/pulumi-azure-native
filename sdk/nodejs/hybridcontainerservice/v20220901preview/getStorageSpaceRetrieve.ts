@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the Hybrid AKS storage space object
  */
 export function getStorageSpaceRetrieve(args: GetStorageSpaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSpaceRetrieveResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20220901preview:getStorageSpaceRetrieve", {
         "resourceGroupName": args.resourceGroupName,
@@ -68,7 +67,11 @@ export interface GetStorageSpaceRetrieveResult {
  * Gets the Hybrid AKS storage space object
  */
 export function getStorageSpaceRetrieveOutput(args: GetStorageSpaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSpaceRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getStorageSpaceRetrieve(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20220901preview:getStorageSpaceRetrieve", {
+        "resourceGroupName": args.resourceGroupName,
+        "storageSpacesName": args.storageSpacesName,
+    }, opts);
 }
 
 export interface GetStorageSpaceRetrieveOutputArgs {

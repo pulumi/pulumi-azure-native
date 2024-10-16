@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The operation to get the extension.
  */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute/v20221227:getMachineExtension", {
         "extensionName": args.extensionName,
@@ -72,7 +71,12 @@ export interface GetMachineExtensionResult {
  * The operation to get the extension.
  */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
-    return pulumi.output(args).apply((a: any) => getMachineExtension(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridcompute/v20221227:getMachineExtension", {
+        "extensionName": args.extensionName,
+        "machineName": args.machineName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMachineExtensionOutputArgs {

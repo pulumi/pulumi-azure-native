@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-05-01-preview.
  */
 export function getSqlServerInstanceJobsStatus(args: GetSqlServerInstanceJobsStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerInstanceJobsStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata:getSqlServerInstanceJobsStatus", {
         "featureName": args.featureName,
@@ -55,7 +54,13 @@ export interface GetSqlServerInstanceJobsStatusResult {
  * Azure REST API version: 2024-05-01-preview.
  */
 export function getSqlServerInstanceJobsStatusOutput(args: GetSqlServerInstanceJobsStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerInstanceJobsStatusResult> {
-    return pulumi.output(args).apply((a: any) => getSqlServerInstanceJobsStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurearcdata:getSqlServerInstanceJobsStatus", {
+        "featureName": args.featureName,
+        "jobType": args.jobType,
+        "resourceGroupName": args.resourceGroupName,
+        "sqlServerInstanceName": args.sqlServerInstanceName,
+    }, opts);
 }
 
 export interface GetSqlServerInstanceJobsStatusOutputArgs {

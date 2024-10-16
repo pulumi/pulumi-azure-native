@@ -462,9 +462,6 @@ def get_draft_package(draft_package_name: Optional[str] = None,
         use_sample=pulumi.get(__ret__, 'use_sample'),
         version=pulumi.get(__ret__, 'version'),
         working_path=pulumi.get(__ret__, 'working_path'))
-
-
-@_utilities.lift_output_func(get_draft_package)
 def get_draft_package_output(draft_package_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              test_base_account_name: Optional[pulumi.Input[str]] = None,
@@ -478,4 +475,41 @@ def get_draft_package_output(draft_package_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
-    ...
+    __args__ = dict()
+    __args__['draftPackageName'] = draft_package_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['testBaseAccountName'] = test_base_account_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getDraftPackage', __args__, opts=opts, typ=GetDraftPackageResult)
+    return __ret__.apply(lambda __response__: GetDraftPackageResult(
+        app_file_name=pulumi.get(__response__, 'app_file_name'),
+        application_name=pulumi.get(__response__, 'application_name'),
+        comments=pulumi.get(__response__, 'comments'),
+        draft_package_path=pulumi.get(__response__, 'draft_package_path'),
+        edit_package=pulumi.get(__response__, 'edit_package'),
+        executable_launch_command=pulumi.get(__response__, 'executable_launch_command'),
+        first_party_apps=pulumi.get(__response__, 'first_party_apps'),
+        flighting_ring=pulumi.get(__response__, 'flighting_ring'),
+        gallery_apps=pulumi.get(__response__, 'gallery_apps'),
+        highlighted_files=pulumi.get(__response__, 'highlighted_files'),
+        id=pulumi.get(__response__, 'id'),
+        inplace_upgrade_os_pair=pulumi.get(__response__, 'inplace_upgrade_os_pair'),
+        intune_enrollment_metadata=pulumi.get(__response__, 'intune_enrollment_metadata'),
+        intune_metadata=pulumi.get(__response__, 'intune_metadata'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        name=pulumi.get(__response__, 'name'),
+        package_id=pulumi.get(__response__, 'package_id'),
+        package_tags=pulumi.get(__response__, 'package_tags'),
+        process_name=pulumi.get(__response__, 'process_name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        source_type=pulumi.get(__response__, 'source_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tab_state=pulumi.get(__response__, 'tab_state'),
+        target_os_list=pulumi.get(__response__, 'target_os_list'),
+        test_types=pulumi.get(__response__, 'test_types'),
+        tests=pulumi.get(__response__, 'tests'),
+        type=pulumi.get(__response__, 'type'),
+        use_autofill=pulumi.get(__response__, 'use_autofill'),
+        use_sample=pulumi.get(__response__, 'use_sample'),
+        version=pulumi.get(__response__, 'version'),
+        working_path=pulumi.get(__response__, 'working_path')))

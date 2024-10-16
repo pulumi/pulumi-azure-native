@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getSsmInstanceInformation(args: GetSsmInstanceInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetSsmInstanceInformationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getSsmInstanceInformation", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetSsmInstanceInformationResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getSsmInstanceInformationOutput(args: GetSsmInstanceInformationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSsmInstanceInformationResult> {
-    return pulumi.output(args).apply((a: any) => getSsmInstanceInformation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getSsmInstanceInformation", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSsmInstanceInformationOutputArgs {

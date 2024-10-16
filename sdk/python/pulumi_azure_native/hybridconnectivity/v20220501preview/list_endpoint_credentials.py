@@ -122,9 +122,6 @@ def list_endpoint_credentials(endpoint_name: Optional[str] = None,
         hybrid_connection_name=pulumi.get(__ret__, 'hybrid_connection_name'),
         namespace_name=pulumi.get(__ret__, 'namespace_name'),
         namespace_name_suffix=pulumi.get(__ret__, 'namespace_name_suffix'))
-
-
-@_utilities.lift_output_func(list_endpoint_credentials)
 def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                      expiresin: Optional[pulumi.Input[Optional[int]]] = None,
                                      resource_uri: Optional[pulumi.Input[str]] = None,
@@ -137,4 +134,15 @@ def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[str]] 
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
-    ...
+    __args__ = dict()
+    __args__['endpointName'] = endpoint_name
+    __args__['expiresin'] = expiresin
+    __args__['resourceUri'] = resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity/v20220501preview:listEndpointCredentials', __args__, opts=opts, typ=ListEndpointCredentialsResult)
+    return __ret__.apply(lambda __response__: ListEndpointCredentialsResult(
+        access_key=pulumi.get(__response__, 'access_key'),
+        expires_on=pulumi.get(__response__, 'expires_on'),
+        hybrid_connection_name=pulumi.get(__response__, 'hybrid_connection_name'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        namespace_name_suffix=pulumi.get(__response__, 'namespace_name_suffix')))

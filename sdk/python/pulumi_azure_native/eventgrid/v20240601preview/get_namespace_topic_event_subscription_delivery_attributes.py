@@ -74,9 +74,6 @@ def get_namespace_topic_event_subscription_delivery_attributes(event_subscriptio
 
     return AwaitableGetNamespaceTopicEventSubscriptionDeliveryAttributesResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_namespace_topic_event_subscription_delivery_attributes)
 def get_namespace_topic_event_subscription_delivery_attributes_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                                       namespace_name: Optional[pulumi.Input[str]] = None,
                                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -91,4 +88,12 @@ def get_namespace_topic_event_subscription_delivery_attributes_output(event_subs
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the namespace topic.
     """
-    ...
+    __args__ = dict()
+    __args__['eventSubscriptionName'] = event_subscription_name
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['topicName'] = topic_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20240601preview:getNamespaceTopicEventSubscriptionDeliveryAttributes', __args__, opts=opts, typ=GetNamespaceTopicEventSubscriptionDeliveryAttributesResult)
+    return __ret__.apply(lambda __response__: GetNamespaceTopicEventSubscriptionDeliveryAttributesResult(
+        value=pulumi.get(__response__, 'value')))

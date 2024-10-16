@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Implements virtual machine template GET method.
  */
 export function getVirtualMachineTemplate(args: GetVirtualMachineTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220715preview:getVirtualMachineTemplate", {
         "resourceGroupName": args.resourceGroupName,
@@ -149,7 +148,11 @@ export interface GetVirtualMachineTemplateResult {
  * Implements virtual machine template GET method.
  */
 export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachineTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere/v20220715preview:getVirtualMachineTemplate", {
+        "resourceGroupName": args.resourceGroupName,
+        "virtualMachineTemplateName": args.virtualMachineTemplateName,
+    }, opts);
 }
 
 export interface GetVirtualMachineTemplateOutputArgs {

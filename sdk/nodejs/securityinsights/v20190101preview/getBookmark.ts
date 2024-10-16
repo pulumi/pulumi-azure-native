@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a bookmark.
  */
 export function getBookmark(args: GetBookmarkArgs, opts?: pulumi.InvokeOptions): Promise<GetBookmarkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20190101preview:getBookmark", {
         "bookmarkId": args.bookmarkId,
@@ -117,7 +116,13 @@ export interface GetBookmarkResult {
  * Gets a bookmark.
  */
 export function getBookmarkOutput(args: GetBookmarkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkResult> {
-    return pulumi.output(args).apply((a: any) => getBookmark(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20190101preview:getBookmark", {
+        "bookmarkId": args.bookmarkId,
+        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetBookmarkOutputArgs {

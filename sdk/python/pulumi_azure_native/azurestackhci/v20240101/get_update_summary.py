@@ -224,9 +224,6 @@ def get_update_summary(cluster_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_update_summary)
 def get_update_summary_output(cluster_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUpdateSummaryResult]:
@@ -237,4 +234,22 @@ def get_update_summary_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20240101:getUpdateSummary', __args__, opts=opts, typ=GetUpdateSummaryResult)
+    return __ret__.apply(lambda __response__: GetUpdateSummaryResult(
+        current_version=pulumi.get(__response__, 'current_version'),
+        hardware_model=pulumi.get(__response__, 'hardware_model'),
+        health_check_date=pulumi.get(__response__, 'health_check_date'),
+        id=pulumi.get(__response__, 'id'),
+        last_checked=pulumi.get(__response__, 'last_checked'),
+        last_updated=pulumi.get(__response__, 'last_updated'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        oem_family=pulumi.get(__response__, 'oem_family'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        state=pulumi.get(__response__, 'state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

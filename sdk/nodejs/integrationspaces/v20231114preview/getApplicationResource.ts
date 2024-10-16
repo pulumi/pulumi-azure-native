@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a ApplicationResource
  */
 export function getApplicationResource(args: GetApplicationResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:integrationspaces/v20231114preview:getApplicationResource", {
         "applicationName": args.applicationName,
@@ -81,7 +80,13 @@ export interface GetApplicationResourceResult {
  * Get a ApplicationResource
  */
 export function getApplicationResourceOutput(args: GetApplicationResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResourceResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationResource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:integrationspaces/v20231114preview:getApplicationResource", {
+        "applicationName": args.applicationName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+        "spaceName": args.spaceName,
+    }, opts);
 }
 
 export interface GetApplicationResourceOutputArgs {

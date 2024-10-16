@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Returns an Event Hub connection.
  */
 export function getEventHubConnection(args: GetEventHubConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20180907preview:getEventHubConnection", {
         "clusterName": args.clusterName,
@@ -82,7 +81,13 @@ export interface GetEventHubConnectionResult {
  * Returns an Event Hub connection.
  */
 export function getEventHubConnectionOutput(args: GetEventHubConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getEventHubConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kusto/v20180907preview:getEventHubConnection", {
+        "clusterName": args.clusterName,
+        "databaseName": args.databaseName,
+        "eventHubConnectionName": args.eventHubConnectionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEventHubConnectionOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-08-01.
  */
 export function getBlobFolderDataSetMapping(args: GetBlobFolderDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobFolderDataSetMappingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare:getBlobFolderDataSetMapping", {
         "accountName": args.accountName,
@@ -104,7 +103,13 @@ export interface GetBlobFolderDataSetMappingResult {
  * Azure REST API version: 2021-08-01.
  */
 export function getBlobFolderDataSetMappingOutput(args: GetBlobFolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobFolderDataSetMappingResult> {
-    return pulumi.output(args).apply((a: any) => getBlobFolderDataSetMapping(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datashare:getBlobFolderDataSetMapping", {
+        "accountName": args.accountName,
+        "dataSetMappingName": args.dataSetMappingName,
+        "resourceGroupName": args.resourceGroupName,
+        "shareSubscriptionName": args.shareSubscriptionName,
+    }, opts);
 }
 
 export interface GetBlobFolderDataSetMappingOutputArgs {

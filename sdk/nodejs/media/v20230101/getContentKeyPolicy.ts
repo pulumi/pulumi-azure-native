@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the details of a Content Key Policy in the Media Services account
  */
 export function getContentKeyPolicy(args: GetContentKeyPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetContentKeyPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20230101:getContentKeyPolicy", {
         "accountName": args.accountName,
@@ -80,7 +79,12 @@ export interface GetContentKeyPolicyResult {
  * Get the details of a Content Key Policy in the Media Services account
  */
 export function getContentKeyPolicyOutput(args: GetContentKeyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentKeyPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getContentKeyPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:media/v20230101:getContentKeyPolicy", {
+        "accountName": args.accountName,
+        "contentKeyPolicyName": args.contentKeyPolicyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetContentKeyPolicyOutputArgs {

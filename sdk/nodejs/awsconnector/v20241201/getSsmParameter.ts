@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a SsmParameter
  */
 export function getSsmParameter(args: GetSsmParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetSsmParameterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getSsmParameter", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetSsmParameterResult {
  * Get a SsmParameter
  */
 export function getSsmParameterOutput(args: GetSsmParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSsmParameterResult> {
-    return pulumi.output(args).apply((a: any) => getSsmParameter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getSsmParameter", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSsmParameterOutputArgs {

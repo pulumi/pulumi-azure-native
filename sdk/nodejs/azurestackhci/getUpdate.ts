@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
  */
 export function getUpdate(args: GetUpdateArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci:getUpdate", {
         "clusterName": args.clusterName,
@@ -138,7 +137,12 @@ export interface GetUpdateResult {
  * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
  */
 export function getUpdateOutput(args: GetUpdateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateResult> {
-    return pulumi.output(args).apply((a: any) => getUpdate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getUpdate", {
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+        "updateName": args.updateName,
+    }, opts);
 }
 
 export interface GetUpdateOutputArgs {

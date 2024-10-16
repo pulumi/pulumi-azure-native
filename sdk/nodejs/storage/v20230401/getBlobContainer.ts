@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets properties of a specified container.
  */
 export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage/v20230401:getBlobContainer", {
         "accountName": args.accountName,
@@ -136,7 +135,12 @@ export interface GetBlobContainerResult {
  * Gets properties of a specified container.
  */
 export function getBlobContainerOutput(args: GetBlobContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerResult> {
-    return pulumi.output(args).apply((a: any) => getBlobContainer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storage/v20230401:getBlobContainer", {
+        "accountName": args.accountName,
+        "containerName": args.containerName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBlobContainerOutputArgs {

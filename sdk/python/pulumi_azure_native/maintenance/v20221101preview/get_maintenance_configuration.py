@@ -276,9 +276,6 @@ def get_maintenance_configuration(resource_group_name: Optional[str] = None,
         time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'),
         visibility=pulumi.get(__ret__, 'visibility'))
-
-
-@_utilities.lift_output_func(get_maintenance_configuration)
 def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                          resource_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
@@ -289,4 +286,26 @@ def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.In
     :param str resource_group_name: Resource Group Name
     :param str resource_name: Maintenance Configuration Name
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:maintenance/v20221101preview:getMaintenanceConfiguration', __args__, opts=opts, typ=GetMaintenanceConfigurationResult)
+    return __ret__.apply(lambda __response__: GetMaintenanceConfigurationResult(
+        duration=pulumi.get(__response__, 'duration'),
+        expiration_date_time=pulumi.get(__response__, 'expiration_date_time'),
+        extension_properties=pulumi.get(__response__, 'extension_properties'),
+        id=pulumi.get(__response__, 'id'),
+        install_patches=pulumi.get(__response__, 'install_patches'),
+        location=pulumi.get(__response__, 'location'),
+        maintenance_scope=pulumi.get(__response__, 'maintenance_scope'),
+        name=pulumi.get(__response__, 'name'),
+        namespace=pulumi.get(__response__, 'namespace'),
+        overrides=pulumi.get(__response__, 'overrides'),
+        recur_every=pulumi.get(__response__, 'recur_every'),
+        start_date_time=pulumi.get(__response__, 'start_date_time'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_zone=pulumi.get(__response__, 'time_zone'),
+        type=pulumi.get(__response__, 'type'),
+        visibility=pulumi.get(__response__, 'visibility')))

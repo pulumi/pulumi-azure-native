@@ -80,9 +80,6 @@ def list_open_shift_cluster_credentials(resource_group_name: Optional[str] = Non
     return AwaitableListOpenShiftClusterCredentialsResult(
         kubeadmin_password=pulumi.get(__ret__, 'kubeadmin_password'),
         kubeadmin_username=pulumi.get(__ret__, 'kubeadmin_username'))
-
-
-@_utilities.lift_output_func(list_open_shift_cluster_credentials)
 def list_open_shift_cluster_credentials_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                resource_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOpenShiftClusterCredentialsResult]:
@@ -93,4 +90,11 @@ def list_open_shift_cluster_credentials_output(resource_group_name: Optional[pul
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the OpenShift cluster resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:redhatopenshift/v20231122:listOpenShiftClusterCredentials', __args__, opts=opts, typ=ListOpenShiftClusterCredentialsResult)
+    return __ret__.apply(lambda __response__: ListOpenShiftClusterCredentialsResult(
+        kubeadmin_password=pulumi.get(__response__, 'kubeadmin_password'),
+        kubeadmin_username=pulumi.get(__response__, 'kubeadmin_username')))

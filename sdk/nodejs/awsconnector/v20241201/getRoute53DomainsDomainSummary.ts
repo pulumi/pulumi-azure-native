@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Route53DomainsDomainSummary
  */
 export function getRoute53DomainsDomainSummary(args: GetRoute53DomainsDomainSummaryArgs, opts?: pulumi.InvokeOptions): Promise<GetRoute53DomainsDomainSummaryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getRoute53DomainsDomainSummary", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetRoute53DomainsDomainSummaryResult {
  * Get a Route53DomainsDomainSummary
  */
 export function getRoute53DomainsDomainSummaryOutput(args: GetRoute53DomainsDomainSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoute53DomainsDomainSummaryResult> {
-    return pulumi.output(args).apply((a: any) => getRoute53DomainsDomainSummary(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRoute53DomainsDomainSummary", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRoute53DomainsDomainSummaryOutputArgs {

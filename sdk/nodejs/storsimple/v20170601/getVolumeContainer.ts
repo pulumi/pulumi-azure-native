@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified volume container name.
  */
 export function getVolumeContainer(args: GetVolumeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeContainerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:getVolumeContainer", {
         "deviceName": args.deviceName,
@@ -97,7 +96,13 @@ export interface GetVolumeContainerResult {
  * Gets the properties of the specified volume container name.
  */
 export function getVolumeContainerOutput(args: GetVolumeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeContainerResult> {
-    return pulumi.output(args).apply((a: any) => getVolumeContainer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:getVolumeContainer", {
+        "deviceName": args.deviceName,
+        "managerName": args.managerName,
+        "resourceGroupName": args.resourceGroupName,
+        "volumeContainerName": args.volumeContainerName,
+    }, opts);
 }
 
 export interface GetVolumeContainerOutputArgs {

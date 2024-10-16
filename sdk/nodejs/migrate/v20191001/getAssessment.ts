@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20191001:getAssessment", {
         "assessmentName": args.assessmentName,
@@ -69,7 +68,13 @@ export interface GetAssessmentResult {
  * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
-    return pulumi.output(args).apply((a: any) => getAssessment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate/v20191001:getAssessment", {
+        "assessmentName": args.assessmentName,
+        "groupName": args.groupName,
+        "projectName": args.projectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAssessmentOutputArgs {

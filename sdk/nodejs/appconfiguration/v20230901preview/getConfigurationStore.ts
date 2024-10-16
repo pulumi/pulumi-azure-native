@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified configuration store.
  */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20230901preview:getConfigurationStore", {
         "configStoreName": args.configStoreName,
@@ -119,7 +118,11 @@ export interface GetConfigurationStoreResult {
  * Gets the properties of the specified configuration store.
  */
 export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationStoreResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationStore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appconfiguration/v20230901preview:getConfigurationStore", {
+        "configStoreName": args.configStoreName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetConfigurationStoreOutputArgs {

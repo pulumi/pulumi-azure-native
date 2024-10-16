@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
  */
 export function getMigrateProjectsControllerMigrateProject(args: GetMigrateProjectsControllerMigrateProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrateProjectsControllerMigrateProjectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20230101:getMigrateProjectsControllerMigrateProject", {
         "migrateProjectName": args.migrateProjectName,
@@ -67,7 +66,11 @@ export interface GetMigrateProjectsControllerMigrateProjectResult {
  * Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
  */
 export function getMigrateProjectsControllerMigrateProjectOutput(args: GetMigrateProjectsControllerMigrateProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateProjectsControllerMigrateProjectResult> {
-    return pulumi.output(args).apply((a: any) => getMigrateProjectsControllerMigrateProject(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate/v20230101:getMigrateProjectsControllerMigrateProject", {
+        "migrateProjectName": args.migrateProjectName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMigrateProjectsControllerMigrateProjectOutputArgs {

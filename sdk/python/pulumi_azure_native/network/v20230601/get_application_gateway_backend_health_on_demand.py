@@ -110,9 +110,6 @@ def get_application_gateway_backend_health_on_demand(application_gateway_name: O
     return AwaitableGetApplicationGatewayBackendHealthOnDemandResult(
         backend_address_pool=pulumi.get(__ret__, 'backend_address_pool'),
         backend_health_http_settings=pulumi.get(__ret__, 'backend_health_http_settings'))
-
-
-@_utilities.lift_output_func(get_application_gateway_backend_health_on_demand)
 def get_application_gateway_backend_health_on_demand_output(application_gateway_name: Optional[pulumi.Input[str]] = None,
                                                             backend_address_pool: Optional[pulumi.Input[Optional[Union['SubResource', 'SubResourceDict']]]] = None,
                                                             backend_http_settings: Optional[pulumi.Input[Optional[Union['SubResource', 'SubResourceDict']]]] = None,
@@ -141,4 +138,20 @@ def get_application_gateway_backend_health_on_demand_output(application_gateway_
     :param str resource_group_name: The name of the resource group.
     :param int timeout: The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationGatewayName'] = application_gateway_name
+    __args__['backendAddressPool'] = backend_address_pool
+    __args__['backendHttpSettings'] = backend_http_settings
+    __args__['expand'] = expand
+    __args__['host'] = host
+    __args__['match'] = match
+    __args__['path'] = path
+    __args__['pickHostNameFromBackendHttpSettings'] = pick_host_name_from_backend_http_settings
+    __args__['protocol'] = protocol
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['timeout'] = timeout
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getApplicationGatewayBackendHealthOnDemand', __args__, opts=opts, typ=GetApplicationGatewayBackendHealthOnDemandResult)
+    return __ret__.apply(lambda __response__: GetApplicationGatewayBackendHealthOnDemandResult(
+        backend_address_pool=pulumi.get(__response__, 'backend_address_pool'),
+        backend_health_http_settings=pulumi.get(__response__, 'backend_health_http_settings')))

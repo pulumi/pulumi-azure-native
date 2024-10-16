@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the configured settings for a serial port
  */
 export function getSerialPort(args: GetSerialPortArgs, opts?: pulumi.InvokeOptions): Promise<GetSerialPortResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:serialconsole/v20180501:getSerialPort", {
         "parentResource": args.parentResource,
@@ -67,7 +66,14 @@ export interface GetSerialPortResult {
  * Gets the configured settings for a serial port
  */
 export function getSerialPortOutput(args: GetSerialPortOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSerialPortResult> {
-    return pulumi.output(args).apply((a: any) => getSerialPort(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:serialconsole/v20180501:getSerialPort", {
+        "parentResource": args.parentResource,
+        "parentResourceType": args.parentResourceType,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceProviderNamespace": args.resourceProviderNamespace,
+        "serialPort": args.serialPort,
+    }, opts);
 }
 
 export interface GetSerialPortOutputArgs {

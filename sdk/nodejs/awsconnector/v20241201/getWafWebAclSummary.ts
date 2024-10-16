@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a WafWebACLSummary
  */
 export function getWafWebAclSummary(args: GetWafWebAclSummaryArgs, opts?: pulumi.InvokeOptions): Promise<GetWafWebAclSummaryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getWafWebAclSummary", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetWafWebAclSummaryResult {
  * Get a WafWebACLSummary
  */
 export function getWafWebAclSummaryOutput(args: GetWafWebAclSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafWebAclSummaryResult> {
-    return pulumi.output(args).apply((a: any) => getWafWebAclSummary(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getWafWebAclSummary", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWafWebAclSummaryOutputArgs {

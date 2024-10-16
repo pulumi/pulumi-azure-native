@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets guest diagnostics settings.
  */
 export function getGuestDiagnosticsSetting(args: GetGuestDiagnosticsSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestDiagnosticsSettingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights/v20180601preview:getGuestDiagnosticsSetting", {
         "diagnosticSettingsName": args.diagnosticSettingsName,
@@ -68,7 +67,11 @@ export interface GetGuestDiagnosticsSettingResult {
  * Gets guest diagnostics settings.
  */
 export function getGuestDiagnosticsSettingOutput(args: GetGuestDiagnosticsSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestDiagnosticsSettingResult> {
-    return pulumi.output(args).apply((a: any) => getGuestDiagnosticsSetting(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights/v20180601preview:getGuestDiagnosticsSetting", {
+        "diagnosticSettingsName": args.diagnosticSettingsName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetGuestDiagnosticsSettingOutputArgs {

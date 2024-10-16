@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a ApiGatewayRestApi
  */
 export function getApiGatewayRestApi(args: GetApiGatewayRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiGatewayRestApiResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getApiGatewayRestApi", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetApiGatewayRestApiResult {
  * Get a ApiGatewayRestApi
  */
 export function getApiGatewayRestApiOutput(args: GetApiGatewayRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayRestApiResult> {
-    return pulumi.output(args).apply((a: any) => getApiGatewayRestApi(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getApiGatewayRestApi", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetApiGatewayRestApiOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getElasticBeanstalkConfigurationTemplate(args: GetElasticBeanstalkConfigurationTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticBeanstalkConfigurationTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getElasticBeanstalkConfigurationTemplate", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetElasticBeanstalkConfigurationTemplateResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getElasticBeanstalkConfigurationTemplateOutput(args: GetElasticBeanstalkConfigurationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticBeanstalkConfigurationTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getElasticBeanstalkConfigurationTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getElasticBeanstalkConfigurationTemplate", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetElasticBeanstalkConfigurationTemplateOutputArgs {

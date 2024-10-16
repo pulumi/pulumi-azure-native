@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getRdsDbSnapshotAttributesResult(args: GetRdsDbSnapshotAttributesResultArgs, opts?: pulumi.InvokeOptions): Promise<GetRdsDbSnapshotAttributesResultResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getRdsDbSnapshotAttributesResult", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetRdsDbSnapshotAttributesResultResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getRdsDbSnapshotAttributesResultOutput(args: GetRdsDbSnapshotAttributesResultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsDbSnapshotAttributesResultResult> {
-    return pulumi.output(args).apply((a: any) => getRdsDbSnapshotAttributesResult(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getRdsDbSnapshotAttributesResult", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRdsDbSnapshotAttributesResultOutputArgs {

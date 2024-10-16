@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve protection policy with specified name within a resource group.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cdn/v20230701preview:getPolicy", {
         "policyName": args.policyName,
@@ -100,7 +99,11 @@ export interface GetPolicyResult {
  * Retrieve protection policy with specified name within a resource group.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cdn/v20230701preview:getPolicy", {
+        "policyName": args.policyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPolicyOutputArgs {

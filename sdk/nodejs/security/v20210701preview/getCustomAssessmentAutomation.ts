@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a single custom assessment automation by name for the provided subscription and resource group.
  */
 export function getCustomAssessmentAutomation(args: GetCustomAssessmentAutomationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomAssessmentAutomationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security/v20210701preview:getCustomAssessmentAutomation", {
         "customAssessmentAutomationName": args.customAssessmentAutomationName,
@@ -83,7 +82,11 @@ export interface GetCustomAssessmentAutomationResult {
  * Gets a single custom assessment automation by name for the provided subscription and resource group.
  */
 export function getCustomAssessmentAutomationOutput(args: GetCustomAssessmentAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomAssessmentAutomationResult> {
-    return pulumi.output(args).apply((a: any) => getCustomAssessmentAutomation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security/v20210701preview:getCustomAssessmentAutomation", {
+        "customAssessmentAutomationName": args.customAssessmentAutomationName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCustomAssessmentAutomationOutputArgs {

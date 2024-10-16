@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get tenant access information details.
  */
 export function listTenantAccessSecrets(args: ListTenantAccessSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListTenantAccessSecretsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230501preview:listTenantAccessSecrets", {
         "accessName": args.accessName,
@@ -61,7 +60,12 @@ export interface ListTenantAccessSecretsResult {
  * Get tenant access information details.
  */
 export function listTenantAccessSecretsOutput(args: ListTenantAccessSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTenantAccessSecretsResult> {
-    return pulumi.output(args).apply((a: any) => listTenantAccessSecrets(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:listTenantAccessSecrets", {
+        "accessName": args.accessName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface ListTenantAccessSecretsOutputArgs {

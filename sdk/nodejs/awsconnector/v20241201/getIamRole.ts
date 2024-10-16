@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a IamRole
  */
 export function getIamRole(args: GetIamRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetIamRoleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getIamRole", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetIamRoleResult {
  * Get a IamRole
  */
 export function getIamRoleOutput(args: GetIamRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamRoleResult> {
-    return pulumi.output(args).apply((a: any) => getIamRole(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamRole", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamRoleOutputArgs {

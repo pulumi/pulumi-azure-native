@@ -207,9 +207,6 @@ def get_device(catalog_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_device)
 def get_device_output(catalog_name: Optional[pulumi.Input[str]] = None,
                       device_group_name: Optional[pulumi.Input[str]] = None,
                       device_name: Optional[pulumi.Input[str]] = None,
@@ -226,4 +223,23 @@ def get_device_output(catalog_name: Optional[pulumi.Input[str]] = None,
     :param str product_name: Name of product.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['catalogName'] = catalog_name
+    __args__['deviceGroupName'] = device_group_name
+    __args__['deviceName'] = device_name
+    __args__['productName'] = product_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azuresphere/v20220901preview:getDevice', __args__, opts=opts, typ=GetDeviceResult)
+    return __ret__.apply(lambda __response__: GetDeviceResult(
+        chip_sku=pulumi.get(__response__, 'chip_sku'),
+        device_id=pulumi.get(__response__, 'device_id'),
+        id=pulumi.get(__response__, 'id'),
+        last_available_os_version=pulumi.get(__response__, 'last_available_os_version'),
+        last_installed_os_version=pulumi.get(__response__, 'last_installed_os_version'),
+        last_os_update_utc=pulumi.get(__response__, 'last_os_update_utc'),
+        last_update_request_utc=pulumi.get(__response__, 'last_update_request_utc'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -188,9 +188,6 @@ def get_network_profile(expand: Optional[str] = None,
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_network_profile)
 def get_network_profile_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                network_profile_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -203,4 +200,20 @@ def get_network_profile_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str network_profile_name: The name of the public IP prefix.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['networkProfileName'] = network_profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getNetworkProfile', __args__, opts=opts, typ=GetNetworkProfileResult)
+    return __ret__.apply(lambda __response__: GetNetworkProfileResult(
+        container_network_interface_configurations=pulumi.get(__response__, 'container_network_interface_configurations'),
+        container_network_interfaces=pulumi.get(__response__, 'container_network_interfaces'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

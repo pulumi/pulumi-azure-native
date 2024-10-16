@@ -185,9 +185,6 @@ def get_certificate_object_global_rulestack(global_rulestack_name: Optional[str]
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_certificate_object_global_rulestack)
 def get_certificate_object_global_rulestack_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
                                                    name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateObjectGlobalRulestackResult]:
@@ -198,4 +195,19 @@ def get_certificate_object_global_rulestack_output(global_rulestack_name: Option
     :param str global_rulestack_name: GlobalRulestack resource name
     :param str name: certificate name
     """
-    ...
+    __args__ = dict()
+    __args__['globalRulestackName'] = global_rulestack_name
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20231010preview:getCertificateObjectGlobalRulestack', __args__, opts=opts, typ=GetCertificateObjectGlobalRulestackResult)
+    return __ret__.apply(lambda __response__: GetCertificateObjectGlobalRulestackResult(
+        audit_comment=pulumi.get(__response__, 'audit_comment'),
+        certificate_self_signed=pulumi.get(__response__, 'certificate_self_signed'),
+        certificate_signer_resource_id=pulumi.get(__response__, 'certificate_signer_resource_id'),
+        description=pulumi.get(__response__, 'description'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

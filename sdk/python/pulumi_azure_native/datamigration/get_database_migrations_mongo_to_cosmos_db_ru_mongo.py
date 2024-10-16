@@ -281,9 +281,6 @@ def get_database_migrations_mongo_to_cosmos_db_ru_mongo(migration_name: Optional
         system_data=pulumi.get(__ret__, 'system_data'),
         target_mongo_connection=pulumi.get(__ret__, 'target_mongo_connection'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_database_migrations_mongo_to_cosmos_db_ru_mongo)
 def get_database_migrations_mongo_to_cosmos_db_ru_mongo_output(migration_name: Optional[pulumi.Input[str]] = None,
                                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                target_resource_name: Optional[pulumi.Input[str]] = None,
@@ -297,4 +294,27 @@ def get_database_migrations_mongo_to_cosmos_db_ru_mongo_output(migration_name: O
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str target_resource_name: The name of the target resource/account.
     """
-    ...
+    __args__ = dict()
+    __args__['migrationName'] = migration_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['targetResourceName'] = target_resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration:getDatabaseMigrationsMongoToCosmosDbRUMongo', __args__, opts=opts, typ=GetDatabaseMigrationsMongoToCosmosDbRUMongoResult)
+    return __ret__.apply(lambda __response__: GetDatabaseMigrationsMongoToCosmosDbRUMongoResult(
+        collection_list=pulumi.get(__response__, 'collection_list'),
+        ended_on=pulumi.get(__response__, 'ended_on'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        migration_failure_error=pulumi.get(__response__, 'migration_failure_error'),
+        migration_operation_id=pulumi.get(__response__, 'migration_operation_id'),
+        migration_service=pulumi.get(__response__, 'migration_service'),
+        migration_status=pulumi.get(__response__, 'migration_status'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_error=pulumi.get(__response__, 'provisioning_error'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        scope=pulumi.get(__response__, 'scope'),
+        source_mongo_connection=pulumi.get(__response__, 'source_mongo_connection'),
+        started_on=pulumi.get(__response__, 'started_on'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        target_mongo_connection=pulumi.get(__response__, 'target_mongo_connection'),
+        type=pulumi.get(__response__, 'type')))

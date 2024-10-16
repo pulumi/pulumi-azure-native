@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List all effective connectivity configurations applied on a virtual network.
  */
 export function listEffectiveConnectivityConfiguration(args: ListEffectiveConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<ListEffectiveConnectivityConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201preview:listEffectiveConnectivityConfiguration", {
         "resourceGroupName": args.resourceGroupName,
@@ -52,7 +51,12 @@ export interface ListEffectiveConnectivityConfigurationResult {
  * List all effective connectivity configurations applied on a virtual network.
  */
 export function listEffectiveConnectivityConfigurationOutput(args: ListEffectiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveConnectivityConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => listEffectiveConnectivityConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20210201preview:listEffectiveConnectivityConfiguration", {
+        "resourceGroupName": args.resourceGroupName,
+        "skipToken": args.skipToken,
+        "virtualNetworkName": args.virtualNetworkName,
+    }, opts);
 }
 
 export interface ListEffectiveConnectivityConfigurationOutputArgs {

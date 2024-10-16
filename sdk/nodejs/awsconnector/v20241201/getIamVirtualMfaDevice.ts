@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a IamVirtualMFADevice
  */
 export function getIamVirtualMfaDevice(args: GetIamVirtualMfaDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetIamVirtualMfaDeviceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getIamVirtualMfaDevice", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetIamVirtualMfaDeviceResult {
  * Get a IamVirtualMFADevice
  */
 export function getIamVirtualMfaDeviceOutput(args: GetIamVirtualMfaDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamVirtualMfaDeviceResult> {
-    return pulumi.output(args).apply((a: any) => getIamVirtualMfaDevice(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamVirtualMfaDevice", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamVirtualMfaDeviceOutputArgs {

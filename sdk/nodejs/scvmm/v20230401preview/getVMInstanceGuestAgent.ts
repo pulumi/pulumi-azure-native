@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Implements GuestAgent GET method.
  */
 export function getVMInstanceGuestAgent(args: GetVMInstanceGuestAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetVMInstanceGuestAgentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scvmm/v20230401preview:getVMInstanceGuestAgent", {
         "resourceUri": args.resourceUri,
@@ -78,7 +77,10 @@ export interface GetVMInstanceGuestAgentResult {
  * Implements GuestAgent GET method.
  */
 export function getVMInstanceGuestAgentOutput(args: GetVMInstanceGuestAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVMInstanceGuestAgentResult> {
-    return pulumi.output(args).apply((a: any) => getVMInstanceGuestAgent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:scvmm/v20230401preview:getVMInstanceGuestAgent", {
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetVMInstanceGuestAgentOutputArgs {

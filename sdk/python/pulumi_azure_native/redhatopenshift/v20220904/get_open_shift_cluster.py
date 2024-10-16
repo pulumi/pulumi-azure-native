@@ -250,9 +250,6 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         worker_profiles=pulumi.get(__ret__, 'worker_profiles'))
-
-
-@_utilities.lift_output_func(get_open_shift_cluster)
 def get_open_shift_cluster_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                   resource_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenShiftClusterResult]:
@@ -263,4 +260,24 @@ def get_open_shift_cluster_output(resource_group_name: Optional[pulumi.Input[str
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the OpenShift cluster resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['resourceName'] = resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:redhatopenshift/v20220904:getOpenShiftCluster', __args__, opts=opts, typ=GetOpenShiftClusterResult)
+    return __ret__.apply(lambda __response__: GetOpenShiftClusterResult(
+        apiserver_profile=pulumi.get(__response__, 'apiserver_profile'),
+        cluster_profile=pulumi.get(__response__, 'cluster_profile'),
+        console_profile=pulumi.get(__response__, 'console_profile'),
+        id=pulumi.get(__response__, 'id'),
+        ingress_profiles=pulumi.get(__response__, 'ingress_profiles'),
+        location=pulumi.get(__response__, 'location'),
+        master_profile=pulumi.get(__response__, 'master_profile'),
+        name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        service_principal_profile=pulumi.get(__response__, 'service_principal_profile'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        worker_profiles=pulumi.get(__response__, 'worker_profiles')))

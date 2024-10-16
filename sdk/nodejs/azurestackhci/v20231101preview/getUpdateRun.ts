@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the Update run for a specified update
  */
 export function getUpdateRun(args: GetUpdateRunArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateRunResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20231101preview:getUpdateRun", {
         "clusterName": args.clusterName,
@@ -117,7 +116,13 @@ export interface GetUpdateRunResult {
  * Get the Update run for a specified update
  */
 export function getUpdateRunOutput(args: GetUpdateRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateRunResult> {
-    return pulumi.output(args).apply((a: any) => getUpdateRun(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20231101preview:getUpdateRun", {
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+        "updateName": args.updateName,
+        "updateRunName": args.updateRunName,
+    }, opts);
 }
 
 export interface GetUpdateRunOutputArgs {

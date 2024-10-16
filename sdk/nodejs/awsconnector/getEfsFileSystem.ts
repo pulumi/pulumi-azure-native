@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEfsFileSystem(args: GetEfsFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetEfsFileSystemResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEfsFileSystem", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEfsFileSystemResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEfsFileSystemOutput(args: GetEfsFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEfsFileSystemResult> {
-    return pulumi.output(args).apply((a: any) => getEfsFileSystem(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEfsFileSystem", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEfsFileSystemOutputArgs {

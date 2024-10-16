@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the Server Instance resource.
  */
 export function getServerInstance(args: GetServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetServerInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20231001preview:getServerInstance", {
         "resourceGroupName": args.resourceGroupName,
@@ -105,7 +104,13 @@ export interface GetServerInstanceResult {
  * Gets the Server Instance resource.
  */
 export function getServerInstanceOutput(args: GetServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getServerInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:workloads/v20231001preview:getServerInstance", {
+        "resourceGroupName": args.resourceGroupName,
+        "sapDiscoverySiteName": args.sapDiscoverySiteName,
+        "sapInstanceName": args.sapInstanceName,
+        "serverInstanceName": args.serverInstanceName,
+    }, opts);
 }
 
 export interface GetServerInstanceOutputArgs {

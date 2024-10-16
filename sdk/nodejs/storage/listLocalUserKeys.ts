@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function listLocalUserKeys(args: ListLocalUserKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalUserKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:storage:listLocalUserKeys", {
         "accountName": args.accountName,
@@ -58,7 +57,12 @@ export interface ListLocalUserKeysResult {
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export function listLocalUserKeysOutput(args: ListLocalUserKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalUserKeysResult> {
-    return pulumi.output(args).apply((a: any) => listLocalUserKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:storage:listLocalUserKeys", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+        "username": args.username,
+    }, opts);
 }
 
 export interface ListLocalUserKeysOutputArgs {

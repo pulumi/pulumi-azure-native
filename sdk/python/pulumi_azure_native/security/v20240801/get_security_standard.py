@@ -185,9 +185,6 @@ def get_security_standard(scope: Optional[str] = None,
         policy_set_definition_id=pulumi.get(__ret__, 'policy_set_definition_id'),
         standard_type=pulumi.get(__ret__, 'standard_type'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_security_standard)
 def get_security_standard_output(scope: Optional[pulumi.Input[str]] = None,
                                  standard_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityStandardResult]:
@@ -198,4 +195,19 @@ def get_security_standard_output(scope: Optional[pulumi.Input[str]] = None,
     :param str scope: The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
     :param str standard_id: The Security Standard key - unique key for the standard type
     """
-    ...
+    __args__ = dict()
+    __args__['scope'] = scope
+    __args__['standardId'] = standard_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20240801:getSecurityStandard', __args__, opts=opts, typ=GetSecurityStandardResult)
+    return __ret__.apply(lambda __response__: GetSecurityStandardResult(
+        assessments=pulumi.get(__response__, 'assessments'),
+        cloud_providers=pulumi.get(__response__, 'cloud_providers'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        policy_set_definition_id=pulumi.get(__response__, 'policy_set_definition_id'),
+        standard_type=pulumi.get(__response__, 'standard_type'),
+        type=pulumi.get(__response__, 'type')))

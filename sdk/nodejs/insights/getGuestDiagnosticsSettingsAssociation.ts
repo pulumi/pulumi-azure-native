@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-06-01-preview.
  */
 export function getGuestDiagnosticsSettingsAssociation(args: GetGuestDiagnosticsSettingsAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestDiagnosticsSettingsAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getGuestDiagnosticsSettingsAssociation", {
         "associationName": args.associationName,
@@ -62,7 +61,11 @@ export interface GetGuestDiagnosticsSettingsAssociationResult {
  * Azure REST API version: 2018-06-01-preview.
  */
 export function getGuestDiagnosticsSettingsAssociationOutput(args: GetGuestDiagnosticsSettingsAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestDiagnosticsSettingsAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getGuestDiagnosticsSettingsAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:insights:getGuestDiagnosticsSettingsAssociation", {
+        "associationName": args.associationName,
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetGuestDiagnosticsSettingsAssociationOutputArgs {

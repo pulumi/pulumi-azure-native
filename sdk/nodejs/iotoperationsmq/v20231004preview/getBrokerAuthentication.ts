@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a BrokerAuthenticationResource
  */
 export function getBrokerAuthentication(args: GetBrokerAuthenticationArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerAuthenticationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperationsmq/v20231004preview:getBrokerAuthentication", {
         "authenticationName": args.authenticationName,
@@ -89,7 +88,13 @@ export interface GetBrokerAuthenticationResult {
  * Get a BrokerAuthenticationResource
  */
 export function getBrokerAuthenticationOutput(args: GetBrokerAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerAuthenticationResult> {
-    return pulumi.output(args).apply((a: any) => getBrokerAuthentication(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq/v20231004preview:getBrokerAuthentication", {
+        "authenticationName": args.authenticationName,
+        "brokerName": args.brokerName,
+        "mqName": args.mqName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBrokerAuthenticationOutputArgs {

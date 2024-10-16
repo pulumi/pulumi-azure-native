@@ -229,9 +229,6 @@ def get_web_app_deployment_slot(id: Optional[str] = None,
         start_time=pulumi.get(__ret__, 'start_time'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_web_app_deployment_slot)
 def get_web_app_deployment_slot_output(id: Optional[pulumi.Input[str]] = None,
                                        name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -246,4 +243,24 @@ def get_web_app_deployment_slot_output(id: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API gets a deployment for the production slot.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['slot'] = slot
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:getWebAppDeploymentSlot', __args__, opts=opts, typ=GetWebAppDeploymentSlotResult)
+    return __ret__.apply(lambda __response__: GetWebAppDeploymentSlotResult(
+        active=pulumi.get(__response__, 'active'),
+        author=pulumi.get(__response__, 'author'),
+        author_email=pulumi.get(__response__, 'author_email'),
+        deployer=pulumi.get(__response__, 'deployer'),
+        details=pulumi.get(__response__, 'details'),
+        end_time=pulumi.get(__response__, 'end_time'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        message=pulumi.get(__response__, 'message'),
+        name=pulumi.get(__response__, 'name'),
+        start_time=pulumi.get(__response__, 'start_time'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type')))

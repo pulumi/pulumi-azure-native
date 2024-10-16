@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * get access token.
  */
 export function getOfferAccessToken(args: GetOfferAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetOfferAccessTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:edgemarketplace/v20230801:getOfferAccessToken", {
         "offerId": args.offerId,
@@ -53,7 +52,12 @@ export interface GetOfferAccessTokenResult {
  * get access token.
  */
 export function getOfferAccessTokenOutput(args: GetOfferAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfferAccessTokenResult> {
-    return pulumi.output(args).apply((a: any) => getOfferAccessToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:edgemarketplace/v20230801:getOfferAccessToken", {
+        "offerId": args.offerId,
+        "requestId": args.requestId,
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetOfferAccessTokenOutputArgs {

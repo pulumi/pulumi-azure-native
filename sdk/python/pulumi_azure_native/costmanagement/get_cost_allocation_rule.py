@@ -110,9 +110,6 @@ def get_cost_allocation_rule(billing_account_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_cost_allocation_rule)
 def get_cost_allocation_rule_output(billing_account_id: Optional[pulumi.Input[str]] = None,
                                     rule_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCostAllocationRuleResult]:
@@ -126,4 +123,13 @@ def get_cost_allocation_rule_output(billing_account_id: Optional[pulumi.Input[st
     :param str billing_account_id: BillingAccount ID
     :param str rule_name: Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
     """
-    ...
+    __args__ = dict()
+    __args__['billingAccountId'] = billing_account_id
+    __args__['ruleName'] = rule_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getCostAllocationRule', __args__, opts=opts, typ=GetCostAllocationRuleResult)
+    return __ret__.apply(lambda __response__: GetCostAllocationRuleResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        type=pulumi.get(__response__, 'type')))

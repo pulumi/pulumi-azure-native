@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a Test Base Draft Package.
  */
 export function getDraftPackage(args: GetDraftPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetDraftPackageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase/v20231101preview:getDraftPackage", {
         "draftPackageName": args.draftPackageName,
@@ -168,7 +167,12 @@ export interface GetDraftPackageResult {
  * Gets a Test Base Draft Package.
  */
 export function getDraftPackageOutput(args: GetDraftPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDraftPackageResult> {
-    return pulumi.output(args).apply((a: any) => getDraftPackage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getDraftPackage", {
+        "draftPackageName": args.draftPackageName,
+        "resourceGroupName": args.resourceGroupName,
+        "testBaseAccountName": args.testBaseAccountName,
+    }, opts);
 }
 
 export interface GetDraftPackageOutputArgs {

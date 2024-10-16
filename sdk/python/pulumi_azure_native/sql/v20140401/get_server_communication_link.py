@@ -148,9 +148,6 @@ def get_server_communication_link(communication_link_name: Optional[str] = None,
         partner_server=pulumi.get(__ret__, 'partner_server'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_server_communication_link)
 def get_server_communication_link_output(communication_link_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          server_name: Optional[pulumi.Input[str]] = None,
@@ -163,4 +160,17 @@ def get_server_communication_link_output(communication_link_name: Optional[pulum
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    ...
+    __args__ = dict()
+    __args__['communicationLinkName'] = communication_link_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20140401:getServerCommunicationLink', __args__, opts=opts, typ=GetServerCommunicationLinkResult)
+    return __ret__.apply(lambda __response__: GetServerCommunicationLinkResult(
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        partner_server=pulumi.get(__response__, 'partner_server'),
+        state=pulumi.get(__response__, 'state'),
+        type=pulumi.get(__response__, 'type')))

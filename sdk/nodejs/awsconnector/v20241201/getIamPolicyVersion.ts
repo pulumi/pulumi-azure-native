@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a IamPolicyVersion
  */
 export function getIamPolicyVersion(args: GetIamPolicyVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetIamPolicyVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getIamPolicyVersion", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetIamPolicyVersionResult {
  * Get a IamPolicyVersion
  */
 export function getIamPolicyVersionOutput(args: GetIamPolicyVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamPolicyVersionResult> {
-    return pulumi.output(args).apply((a: any) => getIamPolicyVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamPolicyVersion", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamPolicyVersionOutputArgs {

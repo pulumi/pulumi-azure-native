@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the GraphQL API Resolver specified by its identifier.
  */
 export function getGraphQLApiResolver(args: GetGraphQLApiResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLApiResolverResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getGraphQLApiResolver", {
         "apiId": args.apiId,
@@ -70,7 +69,13 @@ export interface GetGraphQLApiResolverResult {
  * Gets the details of the GraphQL API Resolver specified by its identifier.
  */
 export function getGraphQLApiResolverOutput(args: GetGraphQLApiResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLApiResolverResult> {
-    return pulumi.output(args).apply((a: any) => getGraphQLApiResolver(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220801:getGraphQLApiResolver", {
+        "apiId": args.apiId,
+        "resolverId": args.resolverId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetGraphQLApiResolverOutputArgs {

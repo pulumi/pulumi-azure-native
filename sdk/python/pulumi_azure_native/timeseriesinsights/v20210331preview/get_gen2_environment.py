@@ -280,9 +280,6 @@ def get_gen2_environment(environment_name: Optional[str] = None,
         time_series_id_properties=pulumi.get(__ret__, 'time_series_id_properties'),
         type=pulumi.get(__ret__, 'type'),
         warm_store_configuration=pulumi.get(__ret__, 'warm_store_configuration'))
-
-
-@_utilities.lift_output_func(get_gen2_environment)
 def get_gen2_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
                                 expand: Optional[pulumi.Input[Optional[str]]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -295,4 +292,27 @@ def get_gen2_environment_output(environment_name: Optional[pulumi.Input[str]] = 
     :param str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['environmentName'] = environment_name
+    __args__['expand'] = expand
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:timeseriesinsights/v20210331preview:getGen2Environment', __args__, opts=opts, typ=GetGen2EnvironmentResult)
+    return __ret__.apply(lambda __response__: GetGen2EnvironmentResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        data_access_fqdn=pulumi.get(__response__, 'data_access_fqdn'),
+        data_access_id=pulumi.get(__response__, 'data_access_id'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        sku=pulumi.get(__response__, 'sku'),
+        status=pulumi.get(__response__, 'status'),
+        storage_configuration=pulumi.get(__response__, 'storage_configuration'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_series_id_properties=pulumi.get(__response__, 'time_series_id_properties'),
+        type=pulumi.get(__response__, 'type'),
+        warm_store_configuration=pulumi.get(__response__, 'warm_store_configuration')))

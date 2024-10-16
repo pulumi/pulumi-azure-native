@@ -138,9 +138,6 @@ def get_hci_edge_device_job(edge_device_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_hci_edge_device_job)
 def get_hci_edge_device_job_output(edge_device_name: Optional[pulumi.Input[str]] = None,
                                    jobs_name: Optional[pulumi.Input[str]] = None,
                                    resource_uri: Optional[pulumi.Input[str]] = None,
@@ -154,4 +151,16 @@ def get_hci_edge_device_job_output(edge_device_name: Optional[pulumi.Input[str]]
     :param str jobs_name: Name of EdgeDevice Job
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['edgeDeviceName'] = edge_device_name
+    __args__['jobsName'] = jobs_name
+    __args__['resourceUri'] = resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getHciEdgeDeviceJob', __args__, opts=opts, typ=GetHciEdgeDeviceJobResult)
+    return __ret__.apply(lambda __response__: GetHciEdgeDeviceJobResult(
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

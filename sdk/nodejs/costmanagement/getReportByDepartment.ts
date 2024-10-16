@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-08-01-preview.
  */
 export function getReportByDepartment(args: GetReportByDepartmentArgs, opts?: pulumi.InvokeOptions): Promise<GetReportByDepartmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement:getReportByDepartment", {
         "departmentId": args.departmentId,
@@ -73,7 +72,11 @@ export interface GetReportByDepartmentResult {
  * Azure REST API version: 2018-08-01-preview.
  */
 export function getReportByDepartmentOutput(args: GetReportByDepartmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByDepartmentResult> {
-    return pulumi.output(args).apply((a: any) => getReportByDepartment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:costmanagement:getReportByDepartment", {
+        "departmentId": args.departmentId,
+        "reportName": args.reportName,
+    }, opts);
 }
 
 export interface GetReportByDepartmentOutputArgs {

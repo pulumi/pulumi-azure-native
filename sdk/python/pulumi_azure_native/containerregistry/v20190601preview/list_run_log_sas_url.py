@@ -83,9 +83,6 @@ def list_run_log_sas_url(registry_name: Optional[str] = None,
     return AwaitableListRunLogSasUrlResult(
         log_artifact_link=pulumi.get(__ret__, 'log_artifact_link'),
         log_link=pulumi.get(__ret__, 'log_link'))
-
-
-@_utilities.lift_output_func(list_run_log_sas_url)
 def list_run_log_sas_url_output(registry_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 run_id: Optional[pulumi.Input[str]] = None,
@@ -98,4 +95,12 @@ def list_run_log_sas_url_output(registry_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     :param str run_id: The run ID.
     """
-    ...
+    __args__ = dict()
+    __args__['registryName'] = registry_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['runId'] = run_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20190601preview:listRunLogSasUrl', __args__, opts=opts, typ=ListRunLogSasUrlResult)
+    return __ret__.apply(lambda __response__: ListRunLogSasUrlResult(
+        log_artifact_link=pulumi.get(__response__, 'log_artifact_link'),
+        log_link=pulumi.get(__response__, 'log_link')))

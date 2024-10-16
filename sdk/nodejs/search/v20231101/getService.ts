@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the search service with the given name in the given resource group.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:search/v20231101:getService", {
         "resourceGroupName": args.resourceGroupName,
@@ -123,7 +122,11 @@ export interface GetServiceResult {
  * Gets the search service with the given name in the given resource group.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply((a: any) => getService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:search/v20231101:getService", {
+        "resourceGroupName": args.resourceGroupName,
+        "searchServiceName": args.searchServiceName,
+    }, opts);
 }
 
 export interface GetServiceOutputArgs {

@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getInferencePool(args: GetInferencePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetInferencePoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230801preview:getInferencePool", {
         "inferencePoolName": args.inferencePoolName,
@@ -75,7 +74,12 @@ export interface GetInferencePoolResult {
     readonly type: string;
 }
 export function getInferencePoolOutput(args: GetInferencePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferencePoolResult> {
-    return pulumi.output(args).apply((a: any) => getInferencePool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230801preview:getInferencePool", {
+        "inferencePoolName": args.inferencePoolName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetInferencePoolOutputArgs {

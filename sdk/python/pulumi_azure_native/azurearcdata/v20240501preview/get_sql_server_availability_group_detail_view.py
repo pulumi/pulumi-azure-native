@@ -149,9 +149,6 @@ def get_sql_server_availability_group_detail_view(availability_group_name: Optio
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_sql_server_availability_group_detail_view)
 def get_sql_server_availability_group_detail_view_output(availability_group_name: Optional[pulumi.Input[str]] = None,
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          sql_server_instance_name: Optional[pulumi.Input[str]] = None,
@@ -164,4 +161,17 @@ def get_sql_server_availability_group_detail_view_output(availability_group_name
     :param str resource_group_name: The name of the Azure resource group
     :param str sql_server_instance_name: Name of SQL Server Instance
     """
-    ...
+    __args__ = dict()
+    __args__['availabilityGroupName'] = availability_group_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sqlServerInstanceName'] = sql_server_instance_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata/v20240501preview:getSqlServerAvailabilityGroupDetailView', __args__, opts=opts, typ=GetSqlServerAvailabilityGroupDetailViewResult)
+    return __ret__.apply(lambda __response__: GetSqlServerAvailabilityGroupDetailViewResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

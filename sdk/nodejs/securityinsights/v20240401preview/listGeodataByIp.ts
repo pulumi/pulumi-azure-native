@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get geodata for a single IP address
  */
 export function listGeodataByIp(args: ListGeodataByIpArgs, opts?: pulumi.InvokeOptions): Promise<ListGeodataByIpResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20240401preview:listGeodataByIp", {
         "enrichmentType": args.enrichmentType,
@@ -114,7 +113,13 @@ export interface ListGeodataByIpResult {
  * Get geodata for a single IP address
  */
 export function listGeodataByIpOutput(args: ListGeodataByIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGeodataByIpResult> {
-    return pulumi.output(args).apply((a: any) => listGeodataByIp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:listGeodataByIp", {
+        "enrichmentType": args.enrichmentType,
+        "ipAddress": args.ipAddress,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListGeodataByIpOutputArgs {

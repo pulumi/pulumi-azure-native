@@ -228,9 +228,6 @@ def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optiona
         radius_server_secret=pulumi.get(__ret__, 'radius_server_secret'),
         vpn_client_ipsec_policies=pulumi.get(__ret__, 'vpn_client_ipsec_policies'),
         vpn_protocols=pulumi.get(__ret__, 'vpn_protocols'))
-
-
-@_utilities.lift_output_func(get_p2s_vpn_server_configuration)
 def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             virtual_wan_name: Optional[pulumi.Input[str]] = None,
@@ -244,4 +241,23 @@ def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: 
     :param str resource_group_name: The resource group name of the P2SVpnServerConfiguration.
     :param str virtual_wan_name: The name of the VirtualWan.
     """
-    ...
+    __args__ = dict()
+    __args__['p2SVpnServerConfigurationName'] = p2_s_vpn_server_configuration_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualWanName'] = virtual_wan_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network:getP2sVpnServerConfiguration', __args__, opts=opts, typ=GetP2sVpnServerConfigurationResult)
+    return __ret__.apply(lambda __response__: GetP2sVpnServerConfigurationResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        p2_s_vpn_gateways=pulumi.get(__response__, 'p2_s_vpn_gateways'),
+        p2_s_vpn_server_config_radius_client_root_certificates=pulumi.get(__response__, 'p2_s_vpn_server_config_radius_client_root_certificates'),
+        p2_s_vpn_server_config_radius_server_root_certificates=pulumi.get(__response__, 'p2_s_vpn_server_config_radius_server_root_certificates'),
+        p2_s_vpn_server_config_vpn_client_revoked_certificates=pulumi.get(__response__, 'p2_s_vpn_server_config_vpn_client_revoked_certificates'),
+        p2_s_vpn_server_config_vpn_client_root_certificates=pulumi.get(__response__, 'p2_s_vpn_server_config_vpn_client_root_certificates'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        radius_server_address=pulumi.get(__response__, 'radius_server_address'),
+        radius_server_secret=pulumi.get(__response__, 'radius_server_secret'),
+        vpn_client_ipsec_policies=pulumi.get(__response__, 'vpn_client_ipsec_policies'),
+        vpn_protocols=pulumi.get(__response__, 'vpn_protocols')))

@@ -148,9 +148,6 @@ def get_managed_instance_key(key_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_managed_instance_key)
 def get_managed_instance_key_output(key_name: Optional[pulumi.Input[str]] = None,
                                     managed_instance_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -163,4 +160,17 @@ def get_managed_instance_key_output(key_name: Optional[pulumi.Input[str]] = None
     :param str managed_instance_name: The name of the managed instance.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
-    ...
+    __args__ = dict()
+    __args__['keyName'] = key_name
+    __args__['managedInstanceName'] = managed_instance_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230201preview:getManagedInstanceKey', __args__, opts=opts, typ=GetManagedInstanceKeyResult)
+    return __ret__.apply(lambda __response__: GetManagedInstanceKeyResult(
+        auto_rotation_enabled=pulumi.get(__response__, 'auto_rotation_enabled'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        thumbprint=pulumi.get(__response__, 'thumbprint'),
+        type=pulumi.get(__response__, 'type')))

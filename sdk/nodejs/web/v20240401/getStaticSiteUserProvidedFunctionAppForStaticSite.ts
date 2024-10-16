@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Description for Gets the details of the user provided function app registered with a static site
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSite(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:getStaticSiteUserProvidedFunctionAppForStaticSite", {
         "functionAppName": args.functionAppName,
@@ -69,7 +68,12 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteResult {
  * Description for Gets the details of the user provided function app registered with a static site
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
-    return pulumi.output(args).apply((a: any) => getStaticSiteUserProvidedFunctionAppForStaticSite(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getStaticSiteUserProvidedFunctionAppForStaticSite", {
+        "functionAppName": args.functionAppName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Returns the specified machine group as it existed during the specified time interval.
  */
 export function getMachineGroup(args: GetMachineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20151101preview:getMachineGroup", {
         "endTime": args.endTime,
@@ -91,7 +90,14 @@ export interface GetMachineGroupResult {
  * Returns the specified machine group as it existed during the specified time interval.
  */
 export function getMachineGroupOutput(args: GetMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineGroupResult> {
-    return pulumi.output(args).apply((a: any) => getMachineGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20151101preview:getMachineGroup", {
+        "endTime": args.endTime,
+        "machineGroupName": args.machineGroupName,
+        "resourceGroupName": args.resourceGroupName,
+        "startTime": args.startTime,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetMachineGroupOutputArgs {

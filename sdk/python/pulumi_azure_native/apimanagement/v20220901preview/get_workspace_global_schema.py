@@ -138,9 +138,6 @@ def get_workspace_global_schema(resource_group_name: Optional[str] = None,
         schema_type=pulumi.get(__ret__, 'schema_type'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_workspace_global_schema)
 def get_workspace_global_schema_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        schema_id: Optional[pulumi.Input[str]] = None,
                                        service_name: Optional[pulumi.Input[str]] = None,
@@ -155,4 +152,17 @@ def get_workspace_global_schema_output(resource_group_name: Optional[pulumi.Inpu
     :param str service_name: The name of the API Management service.
     :param str workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['schemaId'] = schema_id
+    __args__['serviceName'] = service_name
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20220901preview:getWorkspaceGlobalSchema', __args__, opts=opts, typ=GetWorkspaceGlobalSchemaResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceGlobalSchemaResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        schema_type=pulumi.get(__response__, 'schema_type'),
+        type=pulumi.get(__response__, 'type'),
+        value=pulumi.get(__response__, 'value')))

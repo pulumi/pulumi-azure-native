@@ -284,9 +284,6 @@ def list_geodata_by_ip(enrichment_type: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         state_code=pulumi.get(__ret__, 'state_code'),
         state_confidence_factor=pulumi.get(__ret__, 'state_confidence_factor'))
-
-
-@_utilities.lift_output_func(list_geodata_by_ip)
 def list_geodata_by_ip_output(enrichment_type: Optional[pulumi.Input[str]] = None,
                               ip_address: Optional[pulumi.Input[Optional[str]]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -304,4 +301,28 @@ def list_geodata_by_ip_output(enrichment_type: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['enrichmentType'] = enrichment_type
+    __args__['ipAddress'] = ip_address
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:listGeodataByIp', __args__, opts=opts, typ=ListGeodataByIpResult)
+    return __ret__.apply(lambda __response__: ListGeodataByIpResult(
+        asn=pulumi.get(__response__, 'asn'),
+        carrier=pulumi.get(__response__, 'carrier'),
+        city=pulumi.get(__response__, 'city'),
+        city_confidence_factor=pulumi.get(__response__, 'city_confidence_factor'),
+        continent=pulumi.get(__response__, 'continent'),
+        country=pulumi.get(__response__, 'country'),
+        country_confidence_factor=pulumi.get(__response__, 'country_confidence_factor'),
+        ip_addr=pulumi.get(__response__, 'ip_addr'),
+        ip_routing_type=pulumi.get(__response__, 'ip_routing_type'),
+        latitude=pulumi.get(__response__, 'latitude'),
+        longitude=pulumi.get(__response__, 'longitude'),
+        organization=pulumi.get(__response__, 'organization'),
+        organization_type=pulumi.get(__response__, 'organization_type'),
+        region=pulumi.get(__response__, 'region'),
+        state=pulumi.get(__response__, 'state'),
+        state_code=pulumi.get(__response__, 'state_code'),
+        state_confidence_factor=pulumi.get(__response__, 'state_confidence_factor')))

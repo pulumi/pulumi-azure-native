@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
  */
 export function getWebPubSubSharedPrivateLinkResource(args: GetWebPubSubSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubSharedPrivateLinkResourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,
@@ -86,7 +85,12 @@ export interface GetWebPubSubSharedPrivateLinkResourceResult {
  * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
  */
 export function getWebPubSubSharedPrivateLinkResourceOutput(args: GetWebPubSubSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubSharedPrivateLinkResourceResult> {
-    return pulumi.output(args).apply((a: any) => getWebPubSubSharedPrivateLinkResource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+        "sharedPrivateLinkResourceName": args.sharedPrivateLinkResourceName,
+    }, opts);
 }
 
 export interface GetWebPubSubSharedPrivateLinkResourceOutputArgs {

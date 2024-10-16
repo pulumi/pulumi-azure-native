@@ -256,9 +256,6 @@ def get_notification_hub_authorization_rule(authorization_rule_name: Optional[st
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_notification_hub_authorization_rule)
 def get_notification_hub_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
                                                    namespace_name: Optional[pulumi.Input[str]] = None,
                                                    notification_hub_name: Optional[pulumi.Input[str]] = None,
@@ -273,4 +270,26 @@ def get_notification_hub_authorization_rule_output(authorization_rule_name: Opti
     :param str notification_hub_name: The notification hub name.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['authorizationRuleName'] = authorization_rule_name
+    __args__['namespaceName'] = namespace_name
+    __args__['notificationHubName'] = notification_hub_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:notificationhubs/v20170401:getNotificationHubAuthorizationRule', __args__, opts=opts, typ=GetNotificationHubAuthorizationRuleResult)
+    return __ret__.apply(lambda __response__: GetNotificationHubAuthorizationRuleResult(
+        claim_type=pulumi.get(__response__, 'claim_type'),
+        claim_value=pulumi.get(__response__, 'claim_value'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        id=pulumi.get(__response__, 'id'),
+        key_name=pulumi.get(__response__, 'key_name'),
+        location=pulumi.get(__response__, 'location'),
+        modified_time=pulumi.get(__response__, 'modified_time'),
+        name=pulumi.get(__response__, 'name'),
+        primary_key=pulumi.get(__response__, 'primary_key'),
+        revision=pulumi.get(__response__, 'revision'),
+        rights=pulumi.get(__response__, 'rights'),
+        secondary_key=pulumi.get(__response__, 'secondary_key'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

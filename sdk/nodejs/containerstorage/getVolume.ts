@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerstorage:getVolume", {
         "poolName": args.poolName,
@@ -82,7 +81,12 @@ export interface GetVolumeResult {
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerstorage:getVolume", {
+        "poolName": args.poolName,
+        "resourceGroupName": args.resourceGroupName,
+        "volumeName": args.volumeName,
+    }, opts);
 }
 
 export interface GetVolumeOutputArgs {

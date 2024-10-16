@@ -123,9 +123,6 @@ def get_active_directory_connector(active_directory_connector_name: Optional[str
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_active_directory_connector)
 def get_active_directory_connector_output(active_directory_connector_name: Optional[pulumi.Input[str]] = None,
                                           data_controller_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -138,4 +135,15 @@ def get_active_directory_connector_output(active_directory_connector_name: Optio
     :param str data_controller_name: The name of the data controller
     :param str resource_group_name: The name of the Azure resource group
     """
-    ...
+    __args__ = dict()
+    __args__['activeDirectoryConnectorName'] = active_directory_connector_name
+    __args__['dataControllerName'] = data_controller_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata/v20230115preview:getActiveDirectoryConnector', __args__, opts=opts, typ=GetActiveDirectoryConnectorResult)
+    return __ret__.apply(lambda __response__: GetActiveDirectoryConnectorResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

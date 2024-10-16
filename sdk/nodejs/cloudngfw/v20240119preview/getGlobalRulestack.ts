@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a GlobalRulestackResource
  */
 export function getGlobalRulestack(args: GetGlobalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalRulestackResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20240119preview:getGlobalRulestack", {
         "globalRulestackName": args.globalRulestackName,
@@ -94,7 +93,10 @@ export interface GetGlobalRulestackResult {
  * Get a GlobalRulestackResource
  */
 export function getGlobalRulestackOutput(args: GetGlobalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalRulestackResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalRulestack(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240119preview:getGlobalRulestack", {
+        "globalRulestackName": args.globalRulestackName,
+    }, opts);
 }
 
 export interface GetGlobalRulestackOutputArgs {
