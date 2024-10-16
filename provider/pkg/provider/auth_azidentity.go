@@ -218,8 +218,11 @@ func readCertificate(certPath, certPassword string) ([]*x509.Certificate, crypto
 	}
 
 	certs, key, err := azidentity.ParseCertificates(cert, pwBytes)
-	if err != nil || len(certs) == 0 {
+	if err != nil {
 		return nil, nil, errors.Wrapf(err, "failed to parse certificate from %s", certPath)
+	}
+	if len(certs) == 0 {
+		return nil, nil, errors.Errorf("no certificates found in %s", certPath)
 	}
 
 	return certs, key, nil
