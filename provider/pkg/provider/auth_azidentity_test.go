@@ -268,4 +268,15 @@ func TestNewCredential(t *testing.T) {
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ManagedIdentityCredential{}, cred)
 	})
+
+	// Used for user-assigned managed identity
+	t.Run("MSI with client id", func(t *testing.T) {
+		conf := &authConfiguration{
+			clientId: "123",
+			useMsi:   true,
+		}
+		cred, err := newSingleMethodAuthCredential(conf)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.ManagedIdentityCredential{}, cred)
+	})
 }
