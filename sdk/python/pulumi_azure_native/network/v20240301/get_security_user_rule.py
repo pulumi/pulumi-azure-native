@@ -246,9 +246,6 @@ def get_security_user_rule(configuration_name: Optional[str] = None,
         sources=pulumi.get(__ret__, 'sources'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_security_user_rule)
 def get_security_user_rule_output(configuration_name: Optional[pulumi.Input[str]] = None,
                                   network_manager_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -265,4 +262,26 @@ def get_security_user_rule_output(configuration_name: Optional[pulumi.Input[str]
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
     :param str rule_name: The name of the rule.
     """
-    ...
+    __args__ = dict()
+    __args__['configurationName'] = configuration_name
+    __args__['networkManagerName'] = network_manager_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['ruleCollectionName'] = rule_collection_name
+    __args__['ruleName'] = rule_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:getSecurityUserRule', __args__, opts=opts, typ=GetSecurityUserRuleResult)
+    return __ret__.apply(lambda __response__: GetSecurityUserRuleResult(
+        description=pulumi.get(__response__, 'description'),
+        destination_port_ranges=pulumi.get(__response__, 'destination_port_ranges'),
+        destinations=pulumi.get(__response__, 'destinations'),
+        direction=pulumi.get(__response__, 'direction'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        source_port_ranges=pulumi.get(__response__, 'source_port_ranges'),
+        sources=pulumi.get(__response__, 'sources'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

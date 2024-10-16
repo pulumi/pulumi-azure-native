@@ -124,9 +124,6 @@ def get_monitored_resource(instance_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_monitored_resource)
 def get_monitored_resource_output(instance_name: Optional[pulumi.Input[str]] = None,
                                   monitored_resource_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -140,4 +137,15 @@ def get_monitored_resource_output(instance_name: Optional[pulumi.Input[str]] = N
     :param str monitored_resource_name: The monitored resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['instanceName'] = instance_name
+    __args__['monitoredResourceName'] = monitored_resource_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:scom:getMonitoredResource', __args__, opts=opts, typ=GetMonitoredResourceResult)
+    return __ret__.apply(lambda __response__: GetMonitoredResourceResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

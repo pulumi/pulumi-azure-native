@@ -122,9 +122,6 @@ def get_firewall_rule(account_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         start_ip_address=pulumi.get(__ret__, 'start_ip_address'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_firewall_rule)
 def get_firewall_rule_output(account_name: Optional[pulumi.Input[str]] = None,
                              firewall_rule_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -137,4 +134,15 @@ def get_firewall_rule_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str firewall_rule_name: The name of the firewall rule to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['firewallRuleName'] = firewall_rule_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datalakeanalytics/v20191101preview:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult)
+    return __ret__.apply(lambda __response__: GetFirewallRuleResult(
+        end_ip_address=pulumi.get(__response__, 'end_ip_address'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        start_ip_address=pulumi.get(__response__, 'start_ip_address'),
+        type=pulumi.get(__response__, 'type')))

@@ -243,9 +243,6 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
         storage_account_tenant_id=pulumi.get(__ret__, 'storage_account_tenant_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_cloud_endpoint)
 def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               storage_sync_service_name: Optional[pulumi.Input[str]] = None,
@@ -260,4 +257,25 @@ def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] =
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
-    ...
+    __args__ = dict()
+    __args__['cloudEndpointName'] = cloud_endpoint_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['storageSyncServiceName'] = storage_sync_service_name
+    __args__['syncGroupName'] = sync_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storagesync/v20220901:getCloudEndpoint', __args__, opts=opts, typ=GetCloudEndpointResult)
+    return __ret__.apply(lambda __response__: GetCloudEndpointResult(
+        azure_file_share_name=pulumi.get(__response__, 'azure_file_share_name'),
+        backup_enabled=pulumi.get(__response__, 'backup_enabled'),
+        change_enumeration_status=pulumi.get(__response__, 'change_enumeration_status'),
+        friendly_name=pulumi.get(__response__, 'friendly_name'),
+        id=pulumi.get(__response__, 'id'),
+        last_operation_name=pulumi.get(__response__, 'last_operation_name'),
+        last_workflow_id=pulumi.get(__response__, 'last_workflow_id'),
+        name=pulumi.get(__response__, 'name'),
+        partnership_id=pulumi.get(__response__, 'partnership_id'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        storage_account_resource_id=pulumi.get(__response__, 'storage_account_resource_id'),
+        storage_account_tenant_id=pulumi.get(__response__, 'storage_account_tenant_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

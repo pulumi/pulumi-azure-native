@@ -139,9 +139,6 @@ def get_file(file_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_file)
 def get_file_output(file_name: Optional[pulumi.Input[str]] = None,
                     group_name: Optional[pulumi.Input[str]] = None,
                     project_name: Optional[pulumi.Input[str]] = None,
@@ -156,4 +153,17 @@ def get_file_output(file_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: Name of the project
     :param str service_name: Name of the service
     """
-    ...
+    __args__ = dict()
+    __args__['fileName'] = file_name
+    __args__['groupName'] = group_name
+    __args__['projectName'] = project_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration/v20220330preview:getFile', __args__, opts=opts, typ=GetFileResult)
+    return __ret__.apply(lambda __response__: GetFileResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

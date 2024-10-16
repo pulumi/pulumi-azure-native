@@ -205,9 +205,6 @@ def get_read_write_database(database_name: Optional[str] = None,
         statistics=pulumi.get(__ret__, 'statistics'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_read_write_database)
 def get_read_write_database_output(database_name: Optional[pulumi.Input[str]] = None,
                                    kusto_pool_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -222,4 +219,22 @@ def get_read_write_database_output(database_name: Optional[pulumi.Input[str]] = 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['databaseName'] = database_name
+    __args__['kustoPoolName'] = kusto_pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601preview:getReadWriteDatabase', __args__, opts=opts, typ=GetReadWriteDatabaseResult)
+    return __ret__.apply(lambda __response__: GetReadWriteDatabaseResult(
+        hot_cache_period=pulumi.get(__response__, 'hot_cache_period'),
+        id=pulumi.get(__response__, 'id'),
+        is_followed=pulumi.get(__response__, 'is_followed'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        soft_delete_period=pulumi.get(__response__, 'soft_delete_period'),
+        statistics=pulumi.get(__response__, 'statistics'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

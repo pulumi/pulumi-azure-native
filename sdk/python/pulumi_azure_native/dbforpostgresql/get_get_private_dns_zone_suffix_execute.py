@@ -59,9 +59,6 @@ def get_get_private_dns_zone_suffix_execute(opts: Optional[pulumi.InvokeOptions]
 
     return AwaitableGetGetPrivateDnsZoneSuffixExecuteResult(
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_get_private_dns_zone_suffix_execute)
 def get_get_private_dns_zone_suffix_execute_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGetPrivateDnsZoneSuffixExecuteResult]:
     """
     Get private DNS zone suffix in the cloud
@@ -69,4 +66,8 @@ def get_get_private_dns_zone_suffix_execute_output(opts: Optional[pulumi.InvokeO
 
     Other available API versions: 2021-03-31-privatepreview, 2021-06-01, 2022-01-20-preview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql:getGetPrivateDnsZoneSuffixExecute', __args__, opts=opts, typ=GetGetPrivateDnsZoneSuffixExecuteResult)
+    return __ret__.apply(lambda __response__: GetGetPrivateDnsZoneSuffixExecuteResult(
+        value=pulumi.get(__response__, 'value')))

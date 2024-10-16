@@ -149,9 +149,6 @@ def get_suppression(name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         ttl=pulumi.get(__ret__, 'ttl'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_suppression)
 def get_suppression_output(name: Optional[pulumi.Input[str]] = None,
                            recommendation_id: Optional[pulumi.Input[str]] = None,
                            resource_uri: Optional[pulumi.Input[str]] = None,
@@ -164,4 +161,17 @@ def get_suppression_output(name: Optional[pulumi.Input[str]] = None,
     :param str recommendation_id: The recommendation ID.
     :param str resource_uri: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['recommendationId'] = recommendation_id
+    __args__['resourceUri'] = resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:advisor/v20230101:getSuppression', __args__, opts=opts, typ=GetSuppressionResult)
+    return __ret__.apply(lambda __response__: GetSuppressionResult(
+        expiration_time_stamp=pulumi.get(__response__, 'expiration_time_stamp'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        suppression_id=pulumi.get(__response__, 'suppression_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        ttl=pulumi.get(__response__, 'ttl'),
+        type=pulumi.get(__response__, 'type')))

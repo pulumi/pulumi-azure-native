@@ -137,9 +137,6 @@ def get_integration_account_batch_configuration(batch_configuration_name: Option
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_integration_account_batch_configuration)
 def get_integration_account_batch_configuration_output(batch_configuration_name: Optional[pulumi.Input[str]] = None,
                                                        integration_account_name: Optional[pulumi.Input[str]] = None,
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -153,4 +150,16 @@ def get_integration_account_batch_configuration_output(batch_configuration_name:
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['batchConfigurationName'] = batch_configuration_name
+    __args__['integrationAccountName'] = integration_account_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getIntegrationAccountBatchConfiguration', __args__, opts=opts, typ=GetIntegrationAccountBatchConfigurationResult)
+    return __ret__.apply(lambda __response__: GetIntegrationAccountBatchConfigurationResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

@@ -96,9 +96,6 @@ def list_web_app_host_keys_slot(name: Optional[str] = None,
         function_keys=pulumi.get(__ret__, 'function_keys'),
         master_key=pulumi.get(__ret__, 'master_key'),
         system_keys=pulumi.get(__ret__, 'system_keys'))
-
-
-@_utilities.lift_output_func(list_web_app_host_keys_slot)
 def list_web_app_host_keys_slot_output(name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        slot: Optional[pulumi.Input[str]] = None,
@@ -111,4 +108,13 @@ def list_web_app_host_keys_slot_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['slot'] = slot
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:listWebAppHostKeysSlot', __args__, opts=opts, typ=ListWebAppHostKeysSlotResult)
+    return __ret__.apply(lambda __response__: ListWebAppHostKeysSlotResult(
+        function_keys=pulumi.get(__response__, 'function_keys'),
+        master_key=pulumi.get(__response__, 'master_key'),
+        system_keys=pulumi.get(__response__, 'system_keys')))

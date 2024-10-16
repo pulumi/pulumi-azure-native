@@ -156,9 +156,6 @@ def get_jit_network_access_policy(asc_location: Optional[str] = None,
         requests=pulumi.get(__ret__, 'requests'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machines=pulumi.get(__ret__, 'virtual_machines'))
-
-
-@_utilities.lift_output_func(get_jit_network_access_policy)
 def get_jit_network_access_policy_output(asc_location: Optional[pulumi.Input[str]] = None,
                                          jit_network_access_policy_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -171,4 +168,18 @@ def get_jit_network_access_policy_output(asc_location: Optional[pulumi.Input[str
     :param str jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['ascLocation'] = asc_location
+    __args__['jitNetworkAccessPolicyName'] = jit_network_access_policy_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20200101:getJitNetworkAccessPolicy', __args__, opts=opts, typ=GetJitNetworkAccessPolicyResult)
+    return __ret__.apply(lambda __response__: GetJitNetworkAccessPolicyResult(
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        requests=pulumi.get(__response__, 'requests'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_machines=pulumi.get(__response__, 'virtual_machines')))

@@ -142,9 +142,6 @@ def get_task(expand: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_task)
 def get_task_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                     group_name: Optional[pulumi.Input[str]] = None,
                     project_name: Optional[pulumi.Input[str]] = None,
@@ -161,4 +158,18 @@ def get_task_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str service_name: Name of the service
     :param str task_name: Name of the Task
     """
-    ...
+    __args__ = dict()
+    __args__['expand'] = expand
+    __args__['groupName'] = group_name
+    __args__['projectName'] = project_name
+    __args__['serviceName'] = service_name
+    __args__['taskName'] = task_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration/v20230715preview:getTask', __args__, opts=opts, typ=GetTaskResult)
+    return __ret__.apply(lambda __response__: GetTaskResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

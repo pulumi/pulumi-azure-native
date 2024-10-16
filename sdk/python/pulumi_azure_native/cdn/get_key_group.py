@@ -149,9 +149,6 @@ def get_key_group(key_group_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_key_group)
 def get_key_group_output(key_group_name: Optional[pulumi.Input[str]] = None,
                          profile_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -167,4 +164,17 @@ def get_key_group_output(key_group_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['keyGroupName'] = key_group_name
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getKeyGroup', __args__, opts=opts, typ=GetKeyGroupResult)
+    return __ret__.apply(lambda __response__: GetKeyGroupResult(
+        deployment_status=pulumi.get(__response__, 'deployment_status'),
+        id=pulumi.get(__response__, 'id'),
+        key_references=pulumi.get(__response__, 'key_references'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

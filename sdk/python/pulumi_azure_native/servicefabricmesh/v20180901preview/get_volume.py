@@ -198,9 +198,6 @@ def get_volume(resource_group_name: Optional[str] = None,
         status_details=pulumi.get(__ret__, 'status_details'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_volume)
 def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       volume_resource_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
@@ -211,4 +208,20 @@ def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Azure resource group name
     :param str volume_resource_name: The identity of the volume.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['volumeResourceName'] = volume_resource_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh/v20180901preview:getVolume', __args__, opts=opts, typ=GetVolumeResult)
+    return __ret__.apply(lambda __response__: GetVolumeResult(
+        azure_file_parameters=pulumi.get(__response__, 'azure_file_parameters'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provider=pulumi.get(__response__, 'provider'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
+        status_details=pulumi.get(__response__, 'status_details'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

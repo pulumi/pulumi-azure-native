@@ -203,9 +203,6 @@ def get_workload_network_dns_service(dns_service_id: Optional[str] = None,
         revision=pulumi.get(__ret__, 'revision'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_workload_network_dns_service)
 def get_workload_network_dns_service_output(dns_service_id: Optional[pulumi.Input[str]] = None,
                                             private_cloud_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -221,4 +218,21 @@ def get_workload_network_dns_service_output(dns_service_id: Optional[pulumi.Inpu
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['dnsServiceId'] = dns_service_id
+    __args__['privateCloudName'] = private_cloud_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:avs:getWorkloadNetworkDnsService', __args__, opts=opts, typ=GetWorkloadNetworkDnsServiceResult)
+    return __ret__.apply(lambda __response__: GetWorkloadNetworkDnsServiceResult(
+        default_dns_zone=pulumi.get(__response__, 'default_dns_zone'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        dns_service_ip=pulumi.get(__response__, 'dns_service_ip'),
+        fqdn_zones=pulumi.get(__response__, 'fqdn_zones'),
+        id=pulumi.get(__response__, 'id'),
+        log_level=pulumi.get(__response__, 'log_level'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        revision=pulumi.get(__response__, 'revision'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type')))

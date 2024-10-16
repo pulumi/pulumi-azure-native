@@ -289,9 +289,6 @@ def get_virtual_hard_disk(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_virtual_hard_disk)
 def get_virtual_hard_disk_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  virtual_hard_disk_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHardDiskResult]:
@@ -302,4 +299,27 @@ def get_virtual_hard_disk_output(resource_group_name: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_hard_disk_name: Name of the virtual hard disk
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualHardDiskName'] = virtual_hard_disk_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20240801preview:getVirtualHardDisk', __args__, opts=opts, typ=GetVirtualHardDiskResult)
+    return __ret__.apply(lambda __response__: GetVirtualHardDiskResult(
+        block_size_bytes=pulumi.get(__response__, 'block_size_bytes'),
+        container_id=pulumi.get(__response__, 'container_id'),
+        disk_file_format=pulumi.get(__response__, 'disk_file_format'),
+        disk_size_gb=pulumi.get(__response__, 'disk_size_gb'),
+        download_url=pulumi.get(__response__, 'download_url'),
+        dynamic=pulumi.get(__response__, 'dynamic'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        hyper_v_generation=pulumi.get(__response__, 'hyper_v_generation'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        logical_sector_bytes=pulumi.get(__response__, 'logical_sector_bytes'),
+        name=pulumi.get(__response__, 'name'),
+        physical_sector_bytes=pulumi.get(__response__, 'physical_sector_bytes'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

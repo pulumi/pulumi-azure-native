@@ -123,9 +123,6 @@ def get_group(group_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_group)
 def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
                      project_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -138,4 +135,15 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
-    ...
+    __args__ = dict()
+    __args__['groupName'] = group_name
+    __args__['projectName'] = project_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20191001:getGroup', __args__, opts=opts, typ=GetGroupResult)
+    return __ret__.apply(lambda __response__: GetGroupResult(
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        type=pulumi.get(__response__, 'type')))

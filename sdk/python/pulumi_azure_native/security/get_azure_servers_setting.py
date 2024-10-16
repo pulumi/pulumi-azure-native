@@ -132,9 +132,6 @@ def get_azure_servers_setting(setting_kind: Optional[str] = None,
         selected_provider=pulumi.get(__ret__, 'selected_provider'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_azure_servers_setting)
 def get_azure_servers_setting_output(setting_kind: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureServersSettingResult]:
     """
@@ -144,4 +141,14 @@ def get_azure_servers_setting_output(setting_kind: Optional[pulumi.Input[str]] =
 
     :param str setting_kind: The kind of the server vulnerability assessments setting
     """
-    ...
+    __args__ = dict()
+    __args__['settingKind'] = setting_kind
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAzureServersSetting', __args__, opts=opts, typ=GetAzureServersSettingResult)
+    return __ret__.apply(lambda __response__: GetAzureServersSettingResult(
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        selected_provider=pulumi.get(__response__, 'selected_provider'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

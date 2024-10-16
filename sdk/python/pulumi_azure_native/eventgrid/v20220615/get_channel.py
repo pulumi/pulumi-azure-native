@@ -189,9 +189,6 @@ def get_channel(channel_name: Optional[str] = None,
         readiness_state=pulumi.get(__ret__, 'readiness_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_channel)
 def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
                        partner_namespace_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -204,4 +201,20 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
     :param str partner_namespace_name: Name of the partner namespace.
     :param str resource_group_name: The name of the resource group within the partners subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['channelName'] = channel_name
+    __args__['partnerNamespaceName'] = partner_namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20220615:getChannel', __args__, opts=opts, typ=GetChannelResult)
+    return __ret__.apply(lambda __response__: GetChannelResult(
+        channel_type=pulumi.get(__response__, 'channel_type'),
+        expiration_time_if_not_activated_utc=pulumi.get(__response__, 'expiration_time_if_not_activated_utc'),
+        id=pulumi.get(__response__, 'id'),
+        message_for_activation=pulumi.get(__response__, 'message_for_activation'),
+        name=pulumi.get(__response__, 'name'),
+        partner_topic_info=pulumi.get(__response__, 'partner_topic_info'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        readiness_state=pulumi.get(__response__, 'readiness_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

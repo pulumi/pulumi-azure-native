@@ -175,9 +175,6 @@ def get_reference_data_set(environment_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_reference_data_set)
 def get_reference_data_set_output(environment_name: Optional[pulumi.Input[str]] = None,
                                   reference_data_set_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_reference_data_set_output(environment_name: Optional[pulumi.Input[str]] 
     :param str reference_data_set_name: The name of the Time Series Insights reference data set associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['environmentName'] = environment_name
+    __args__['referenceDataSetName'] = reference_data_set_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:timeseriesinsights/v20200515:getReferenceDataSet', __args__, opts=opts, typ=GetReferenceDataSetResult)
+    return __ret__.apply(lambda __response__: GetReferenceDataSetResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        data_string_comparison_behavior=pulumi.get(__response__, 'data_string_comparison_behavior'),
+        id=pulumi.get(__response__, 'id'),
+        key_properties=pulumi.get(__response__, 'key_properties'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

@@ -331,9 +331,6 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_fhir_service)
 def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             workspace_name: Optional[pulumi.Input[str]] = None,
@@ -346,4 +343,31 @@ def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
-    ...
+    __args__ = dict()
+    __args__['fhirServiceName'] = fhir_service_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:healthcareapis/v20240331:getFhirService', __args__, opts=opts, typ=GetFhirServiceResult)
+    return __ret__.apply(lambda __response__: GetFhirServiceResult(
+        acr_configuration=pulumi.get(__response__, 'acr_configuration'),
+        authentication_configuration=pulumi.get(__response__, 'authentication_configuration'),
+        cors_configuration=pulumi.get(__response__, 'cors_configuration'),
+        encryption=pulumi.get(__response__, 'encryption'),
+        etag=pulumi.get(__response__, 'etag'),
+        event_state=pulumi.get(__response__, 'event_state'),
+        export_configuration=pulumi.get(__response__, 'export_configuration'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        implementation_guides_configuration=pulumi.get(__response__, 'implementation_guides_configuration'),
+        import_configuration=pulumi.get(__response__, 'import_configuration'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        resource_version_policy_configuration=pulumi.get(__response__, 'resource_version_policy_configuration'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

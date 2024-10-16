@@ -246,9 +246,6 @@ def get_invitation(account_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_email=pulumi.get(__ret__, 'user_email'),
         user_name=pulumi.get(__ret__, 'user_name'))
-
-
-@_utilities.lift_output_func(get_invitation)
 def get_invitation_output(account_name: Optional[pulumi.Input[str]] = None,
                           invitation_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -264,4 +261,25 @@ def get_invitation_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['invitationName'] = invitation_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['shareName'] = share_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getInvitation', __args__, opts=opts, typ=GetInvitationResult)
+    return __ret__.apply(lambda __response__: GetInvitationResult(
+        expiration_date=pulumi.get(__response__, 'expiration_date'),
+        id=pulumi.get(__response__, 'id'),
+        invitation_id=pulumi.get(__response__, 'invitation_id'),
+        invitation_status=pulumi.get(__response__, 'invitation_status'),
+        name=pulumi.get(__response__, 'name'),
+        responded_at=pulumi.get(__response__, 'responded_at'),
+        sent_at=pulumi.get(__response__, 'sent_at'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        target_active_directory_id=pulumi.get(__response__, 'target_active_directory_id'),
+        target_email=pulumi.get(__response__, 'target_email'),
+        target_object_id=pulumi.get(__response__, 'target_object_id'),
+        type=pulumi.get(__response__, 'type'),
+        user_email=pulumi.get(__response__, 'user_email'),
+        user_name=pulumi.get(__response__, 'user_name')))

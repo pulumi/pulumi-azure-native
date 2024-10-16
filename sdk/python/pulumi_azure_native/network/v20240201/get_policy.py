@@ -247,9 +247,6 @@ def get_policy(policy_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_policy)
 def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
@@ -260,4 +257,24 @@ def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     :param str policy_name: The name of the Web Application Firewall Policy.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['policyName'] = policy_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240201:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
+    return __ret__.apply(lambda __response__: GetPolicyResult(
+        custom_rules=pulumi.get(__response__, 'custom_rules'),
+        etag=pulumi.get(__response__, 'etag'),
+        frontend_endpoint_links=pulumi.get(__response__, 'frontend_endpoint_links'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        managed_rules=pulumi.get(__response__, 'managed_rules'),
+        name=pulumi.get(__response__, 'name'),
+        policy_settings=pulumi.get(__response__, 'policy_settings'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_state=pulumi.get(__response__, 'resource_state'),
+        routing_rule_links=pulumi.get(__response__, 'routing_rule_links'),
+        security_policy_links=pulumi.get(__response__, 'security_policy_links'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

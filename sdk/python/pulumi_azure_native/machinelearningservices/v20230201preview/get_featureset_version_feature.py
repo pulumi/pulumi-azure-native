@@ -115,9 +115,6 @@ def get_featureset_version_feature(feature_name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         feature_name=pulumi.get(__ret__, 'feature_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_featureset_version_feature)
 def get_featureset_version_feature_output(feature_name: Optional[pulumi.Input[Optional[str]]] = None,
                                           name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -134,4 +131,16 @@ def get_featureset_version_feature_output(feature_name: Optional[pulumi.Input[Op
     :param str version: Feature set version identifier. This is case-sensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['featureName'] = feature_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['version'] = version
+    __args__['workspaceName'] = workspace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20230201preview:getFeaturesetVersionFeature', __args__, opts=opts, typ=GetFeaturesetVersionFeatureResult)
+    return __ret__.apply(lambda __response__: GetFeaturesetVersionFeatureResult(
+        data_type=pulumi.get(__response__, 'data_type'),
+        description=pulumi.get(__response__, 'description'),
+        feature_name=pulumi.get(__response__, 'feature_name'),
+        tags=pulumi.get(__response__, 'tags')))

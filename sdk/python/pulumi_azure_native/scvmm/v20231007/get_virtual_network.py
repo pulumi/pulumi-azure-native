@@ -211,9 +211,6 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
-
-
-@_utilities.lift_output_func(get_virtual_network)
 def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                virtual_network_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResult]:
@@ -224,4 +221,21 @@ def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_network_name: Name of the VirtualNetwork.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualNetworkName'] = virtual_network_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm/v20231007:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult)
+    return __ret__.apply(lambda __response__: GetVirtualNetworkResult(
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        inventory_item_id=pulumi.get(__response__, 'inventory_item_id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_name=pulumi.get(__response__, 'network_name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        uuid=pulumi.get(__response__, 'uuid'),
+        vmm_server_id=pulumi.get(__response__, 'vmm_server_id')))

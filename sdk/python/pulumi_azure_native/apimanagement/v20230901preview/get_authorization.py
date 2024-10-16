@@ -165,9 +165,6 @@ def get_authorization(authorization_id: Optional[str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_authorization)
 def get_authorization_output(authorization_id: Optional[pulumi.Input[str]] = None,
                              authorization_provider_id: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -182,4 +179,19 @@ def get_authorization_output(authorization_id: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    ...
+    __args__ = dict()
+    __args__['authorizationId'] = authorization_id
+    __args__['authorizationProviderId'] = authorization_provider_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getAuthorization', __args__, opts=opts, typ=GetAuthorizationResult)
+    return __ret__.apply(lambda __response__: GetAuthorizationResult(
+        authorization_type=pulumi.get(__response__, 'authorization_type'),
+        error=pulumi.get(__response__, 'error'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        o_auth2_grant_type=pulumi.get(__response__, 'o_auth2_grant_type'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type')))

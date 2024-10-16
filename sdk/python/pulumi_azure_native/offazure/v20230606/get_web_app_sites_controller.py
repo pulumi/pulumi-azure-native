@@ -164,9 +164,6 @@ def get_web_app_sites_controller(resource_group_name: Optional[str] = None,
         site_appliance_properties_collection=pulumi.get(__ret__, 'site_appliance_properties_collection'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_web_app_sites_controller)
 def get_web_app_sites_controller_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         site_name: Optional[pulumi.Input[str]] = None,
                                         web_app_site_name: Optional[pulumi.Input[str]] = None,
@@ -179,4 +176,18 @@ def get_web_app_sites_controller_output(resource_group_name: Optional[pulumi.Inp
     :param str site_name: Site name
     :param str web_app_site_name: Web app site name.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['siteName'] = site_name
+    __args__['webAppSiteName'] = web_app_site_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:offazure/v20230606:getWebAppSitesController', __args__, opts=opts, typ=GetWebAppSitesControllerResult)
+    return __ret__.apply(lambda __response__: GetWebAppSitesControllerResult(
+        discovery_scenario=pulumi.get(__response__, 'discovery_scenario'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        service_endpoint=pulumi.get(__response__, 'service_endpoint'),
+        site_appliance_properties_collection=pulumi.get(__response__, 'site_appliance_properties_collection'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

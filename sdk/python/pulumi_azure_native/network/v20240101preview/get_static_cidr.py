@@ -126,9 +126,6 @@ def get_static_cidr(network_manager_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_static_cidr)
 def get_static_cidr_output(network_manager_name: Optional[pulumi.Input[str]] = None,
                            pool_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -143,4 +140,16 @@ def get_static_cidr_output(network_manager_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group.
     :param str static_cidr_name: StaticCidr resource name to retrieve.
     """
-    ...
+    __args__ = dict()
+    __args__['networkManagerName'] = network_manager_name
+    __args__['poolName'] = pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['staticCidrName'] = static_cidr_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240101preview:getStaticCidr', __args__, opts=opts, typ=GetStaticCidrResult)
+    return __ret__.apply(lambda __response__: GetStaticCidrResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -326,9 +326,6 @@ def get_domain(domain_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_dns_type=pulumi.get(__ret__, 'target_dns_type'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_domain)
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
@@ -339,4 +336,30 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str domain_name: Name of the domain.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:domainregistration/v20231201:getDomain', __args__, opts=opts, typ=GetDomainResult)
+    return __ret__.apply(lambda __response__: GetDomainResult(
+        auth_code=pulumi.get(__response__, 'auth_code'),
+        auto_renew=pulumi.get(__response__, 'auto_renew'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        dns_type=pulumi.get(__response__, 'dns_type'),
+        dns_zone_id=pulumi.get(__response__, 'dns_zone_id'),
+        domain_not_renewable_reasons=pulumi.get(__response__, 'domain_not_renewable_reasons'),
+        expiration_time=pulumi.get(__response__, 'expiration_time'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        last_renewed_time=pulumi.get(__response__, 'last_renewed_time'),
+        location=pulumi.get(__response__, 'location'),
+        managed_host_names=pulumi.get(__response__, 'managed_host_names'),
+        name=pulumi.get(__response__, 'name'),
+        name_servers=pulumi.get(__response__, 'name_servers'),
+        privacy=pulumi.get(__response__, 'privacy'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        ready_for_dns_record_management=pulumi.get(__response__, 'ready_for_dns_record_management'),
+        registration_status=pulumi.get(__response__, 'registration_status'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_dns_type=pulumi.get(__response__, 'target_dns_type'),
+        type=pulumi.get(__response__, 'type')))

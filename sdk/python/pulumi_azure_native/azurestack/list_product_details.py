@@ -204,9 +204,6 @@ def list_product_details(product_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'),
         vm_os_type=pulumi.get(__ret__, 'vm_os_type'),
         vm_scale_set_enabled=pulumi.get(__ret__, 'vm_scale_set_enabled'))
-
-
-@_utilities.lift_output_func(list_product_details)
 def list_product_details_output(product_name: Optional[pulumi.Input[str]] = None,
                                 registration_name: Optional[pulumi.Input[str]] = None,
                                 resource_group: Optional[pulumi.Input[str]] = None,
@@ -222,4 +219,21 @@ def list_product_details_output(product_name: Optional[pulumi.Input[str]] = None
     :param str registration_name: Name of the Azure Stack registration.
     :param str resource_group: Name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['productName'] = product_name
+    __args__['registrationName'] = registration_name
+    __args__['resourceGroup'] = resource_group
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack:listProductDetails', __args__, opts=opts, typ=ListProductDetailsResult)
+    return __ret__.apply(lambda __response__: ListProductDetailsResult(
+        compute_role=pulumi.get(__response__, 'compute_role'),
+        data_disk_images=pulumi.get(__response__, 'data_disk_images'),
+        gallery_package_blob_sas_uri=pulumi.get(__response__, 'gallery_package_blob_sas_uri'),
+        is_system_extension=pulumi.get(__response__, 'is_system_extension'),
+        os_disk_image=pulumi.get(__response__, 'os_disk_image'),
+        product_kind=pulumi.get(__response__, 'product_kind'),
+        support_multiple_extensions=pulumi.get(__response__, 'support_multiple_extensions'),
+        uri=pulumi.get(__response__, 'uri'),
+        version=pulumi.get(__response__, 'version'),
+        vm_os_type=pulumi.get(__response__, 'vm_os_type'),
+        vm_scale_set_enabled=pulumi.get(__response__, 'vm_scale_set_enabled')))

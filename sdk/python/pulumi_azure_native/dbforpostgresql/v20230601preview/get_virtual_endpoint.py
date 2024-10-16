@@ -149,9 +149,6 @@ def get_virtual_endpoint(resource_group_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         virtual_endpoints=pulumi.get(__ret__, 'virtual_endpoints'))
-
-
-@_utilities.lift_output_func(get_virtual_endpoint)
 def get_virtual_endpoint_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                 server_name: Optional[pulumi.Input[str]] = None,
                                 virtual_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -164,4 +161,17 @@ def get_virtual_endpoint_output(resource_group_name: Optional[pulumi.Input[str]]
     :param str server_name: The name of the server.
     :param str virtual_endpoint_name: The name of the virtual endpoint.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    __args__['virtualEndpointName'] = virtual_endpoint_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20230601preview:getVirtualEndpoint', __args__, opts=opts, typ=GetVirtualEndpointResult)
+    return __ret__.apply(lambda __response__: GetVirtualEndpointResult(
+        endpoint_type=pulumi.get(__response__, 'endpoint_type'),
+        id=pulumi.get(__response__, 'id'),
+        members=pulumi.get(__response__, 'members'),
+        name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_endpoints=pulumi.get(__response__, 'virtual_endpoints')))

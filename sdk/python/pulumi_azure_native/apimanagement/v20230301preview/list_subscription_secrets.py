@@ -83,9 +83,6 @@ def list_subscription_secrets(resource_group_name: Optional[str] = None,
     return AwaitableListSubscriptionSecretsResult(
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-
-
-@_utilities.lift_output_func(list_subscription_secrets)
 def list_subscription_secrets_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                      service_name: Optional[pulumi.Input[str]] = None,
                                      sid: Optional[pulumi.Input[str]] = None,
@@ -98,4 +95,12 @@ def list_subscription_secrets_output(resource_group_name: Optional[pulumi.Input[
     :param str service_name: The name of the API Management service.
     :param str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['sid'] = sid
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230301preview:listSubscriptionSecrets', __args__, opts=opts, typ=ListSubscriptionSecretsResult)
+    return __ret__.apply(lambda __response__: ListSubscriptionSecretsResult(
+        primary_key=pulumi.get(__response__, 'primary_key'),
+        secondary_key=pulumi.get(__response__, 'secondary_key')))

@@ -163,9 +163,6 @@ def get_private_endpoint_connection_proxy(account_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_private_endpoint_connection_proxy)
 def get_private_endpoint_connection_proxy_output(account_name: Optional[pulumi.Input[str]] = None,
                                                  private_endpoint_connection_proxy_id: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -179,4 +176,18 @@ def get_private_endpoint_connection_proxy_output(account_name: Optional[pulumi.I
     :param str private_endpoint_connection_proxy_id: The ID of the private endpoint connection proxy object.
     :param str resource_group_name: The resource group name.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['privateEndpointConnectionProxyId'] = private_endpoint_connection_proxy_id
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:deviceupdate:getPrivateEndpointConnectionProxy', __args__, opts=opts, typ=GetPrivateEndpointConnectionProxyResult)
+    return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionProxyResult(
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        remote_private_endpoint=pulumi.get(__response__, 'remote_private_endpoint'),
+        status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

@@ -162,9 +162,6 @@ def get_firewall_policy_rule_collection_group(firewall_policy_name: Optional[str
         rule_collections=pulumi.get(__ret__, 'rule_collections'),
         size=pulumi.get(__ret__, 'size'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_firewall_policy_rule_collection_group)
 def get_firewall_policy_rule_collection_group_output(firewall_policy_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      rule_collection_group_name: Optional[pulumi.Input[str]] = None,
@@ -177,4 +174,18 @@ def get_firewall_policy_rule_collection_group_output(firewall_policy_name: Optio
     :param str resource_group_name: The name of the resource group.
     :param str rule_collection_group_name: The name of the FirewallPolicyRuleCollectionGroup.
     """
-    ...
+    __args__ = dict()
+    __args__['firewallPolicyName'] = firewall_policy_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['ruleCollectionGroupName'] = rule_collection_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20231101:getFirewallPolicyRuleCollectionGroup', __args__, opts=opts, typ=GetFirewallPolicyRuleCollectionGroupResult)
+    return __ret__.apply(lambda __response__: GetFirewallPolicyRuleCollectionGroupResult(
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        priority=pulumi.get(__response__, 'priority'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        rule_collections=pulumi.get(__response__, 'rule_collections'),
+        size=pulumi.get(__response__, 'size'),
+        type=pulumi.get(__response__, 'type')))

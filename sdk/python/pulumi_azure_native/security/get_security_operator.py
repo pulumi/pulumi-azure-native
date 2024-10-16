@@ -108,9 +108,6 @@ def get_security_operator(pricing_name: Optional[str] = None,
         identity=pulumi.get(__ret__, 'identity'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_security_operator)
 def get_security_operator_output(pricing_name: Optional[pulumi.Input[str]] = None,
                                  security_operator_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityOperatorResult]:
@@ -122,4 +119,13 @@ def get_security_operator_output(pricing_name: Optional[pulumi.Input[str]] = Non
     :param str pricing_name: name of the pricing configuration
     :param str security_operator_name: name of the securityOperator
     """
-    ...
+    __args__ = dict()
+    __args__['pricingName'] = pricing_name
+    __args__['securityOperatorName'] = security_operator_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:security:getSecurityOperator', __args__, opts=opts, typ=GetSecurityOperatorResult)
+    return __ret__.apply(lambda __response__: GetSecurityOperatorResult(
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type')))

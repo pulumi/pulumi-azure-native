@@ -251,9 +251,6 @@ def get_linked_subscription(linked_subscription_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_linked_subscription)
 def get_linked_subscription_output(linked_subscription_name: Optional[pulumi.Input[str]] = None,
                                    resource_group: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedSubscriptionResult]:
@@ -265,4 +262,24 @@ def get_linked_subscription_output(linked_subscription_name: Optional[pulumi.Inp
     :param str linked_subscription_name: Name of the Linked Subscription resource.
     :param str resource_group: Name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['linkedSubscriptionName'] = linked_subscription_name
+    __args__['resourceGroup'] = resource_group
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack:getLinkedSubscription', __args__, opts=opts, typ=GetLinkedSubscriptionResult)
+    return __ret__.apply(lambda __response__: GetLinkedSubscriptionResult(
+        device_connection_status=pulumi.get(__response__, 'device_connection_status'),
+        device_id=pulumi.get(__response__, 'device_id'),
+        device_link_state=pulumi.get(__response__, 'device_link_state'),
+        device_object_id=pulumi.get(__response__, 'device_object_id'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        last_connected_time=pulumi.get(__response__, 'last_connected_time'),
+        linked_subscription_id=pulumi.get(__response__, 'linked_subscription_id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        registration_resource_id=pulumi.get(__response__, 'registration_resource_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

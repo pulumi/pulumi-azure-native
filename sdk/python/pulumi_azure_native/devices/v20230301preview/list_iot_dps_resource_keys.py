@@ -81,9 +81,6 @@ def list_iot_dps_resource_keys(provisioning_service_name: Optional[str] = None,
     return AwaitableListIotDpsResourceKeysResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_iot_dps_resource_keys)
 def list_iot_dps_resource_keys_output(provisioning_service_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotDpsResourceKeysResult]:
@@ -94,4 +91,11 @@ def list_iot_dps_resource_keys_output(provisioning_service_name: Optional[pulumi
     :param str provisioning_service_name: The provisioning service name to get the shared access keys for.
     :param str resource_group_name: resource group name
     """
-    ...
+    __args__ = dict()
+    __args__['provisioningServiceName'] = provisioning_service_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:devices/v20230301preview:listIotDpsResourceKeys', __args__, opts=opts, typ=ListIotDpsResourceKeysResult)
+    return __ret__.apply(lambda __response__: ListIotDpsResourceKeysResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

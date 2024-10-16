@@ -81,9 +81,6 @@ def list_git_lab_group_available(resource_group_name: Optional[str] = None,
     return AwaitableListGitLabGroupAvailableResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(list_git_lab_group_available)
 def list_git_lab_group_available_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         security_connector_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGitLabGroupAvailableResult]:
@@ -94,4 +91,11 @@ def list_git_lab_group_available_output(resource_group_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str security_connector_name: The security connector name.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['securityConnectorName'] = security_connector_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20240515preview:listGitLabGroupAvailable', __args__, opts=opts, typ=ListGitLabGroupAvailableResult)
+    return __ret__.apply(lambda __response__: ListGitLabGroupAvailableResult(
+        next_link=pulumi.get(__response__, 'next_link'),
+        value=pulumi.get(__response__, 'value')))

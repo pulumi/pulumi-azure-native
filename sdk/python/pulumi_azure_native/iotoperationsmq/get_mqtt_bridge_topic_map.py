@@ -192,9 +192,6 @@ def get_mqtt_bridge_topic_map(mq_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_mqtt_bridge_topic_map)
 def get_mqtt_bridge_topic_map_output(mq_name: Optional[pulumi.Input[str]] = None,
                                      mqtt_bridge_connector_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -210,4 +207,21 @@ def get_mqtt_bridge_topic_map_output(mq_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str topic_map_name: Name of MQ mqttBridgeTopicMap resource
     """
-    ...
+    __args__ = dict()
+    __args__['mqName'] = mq_name
+    __args__['mqttBridgeConnectorName'] = mqtt_bridge_connector_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['topicMapName'] = topic_map_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq:getMqttBridgeTopicMap', __args__, opts=opts, typ=GetMqttBridgeTopicMapResult)
+    return __ret__.apply(lambda __response__: GetMqttBridgeTopicMapResult(
+        extended_location=pulumi.get(__response__, 'extended_location'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        mqtt_bridge_connector_ref=pulumi.get(__response__, 'mqtt_bridge_connector_ref'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        routes=pulumi.get(__response__, 'routes'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

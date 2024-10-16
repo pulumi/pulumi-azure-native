@@ -162,9 +162,6 @@ def get_job_schedule(automation_account_name: Optional[str] = None,
         runbook=pulumi.get(__ret__, 'runbook'),
         schedule=pulumi.get(__ret__, 'schedule'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_job_schedule)
 def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                             job_schedule_id: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -177,4 +174,18 @@ def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[str]]
     :param str job_schedule_id: The job schedule name.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['automationAccountName'] = automation_account_name
+    __args__['jobScheduleId'] = job_schedule_id
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:getJobSchedule', __args__, opts=opts, typ=GetJobScheduleResult)
+    return __ret__.apply(lambda __response__: GetJobScheduleResult(
+        id=pulumi.get(__response__, 'id'),
+        job_schedule_id=pulumi.get(__response__, 'job_schedule_id'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        run_on=pulumi.get(__response__, 'run_on'),
+        runbook=pulumi.get(__response__, 'runbook'),
+        schedule=pulumi.get(__response__, 'schedule'),
+        type=pulumi.get(__response__, 'type')))

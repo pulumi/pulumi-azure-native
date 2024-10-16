@@ -188,9 +188,6 @@ def get_migration_config(config_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         target_namespace=pulumi.get(__ret__, 'target_namespace'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_migration_config)
 def get_migration_config_output(config_name: Optional[pulumi.Input[str]] = None,
                                 namespace_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -203,4 +200,20 @@ def get_migration_config_output(config_name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['configName'] = config_name
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus/v20230101preview:getMigrationConfig', __args__, opts=opts, typ=GetMigrationConfigResult)
+    return __ret__.apply(lambda __response__: GetMigrationConfigResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        migration_state=pulumi.get(__response__, 'migration_state'),
+        name=pulumi.get(__response__, 'name'),
+        pending_replication_operations_count=pulumi.get(__response__, 'pending_replication_operations_count'),
+        post_migration_name=pulumi.get(__response__, 'post_migration_name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        target_namespace=pulumi.get(__response__, 'target_namespace'),
+        type=pulumi.get(__response__, 'type')))

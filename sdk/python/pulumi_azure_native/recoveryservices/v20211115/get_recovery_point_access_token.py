@@ -167,9 +167,6 @@ def get_recovery_point_access_token(container_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_recovery_point_access_token)
 def get_recovery_point_access_token_output(container_name: Optional[pulumi.Input[str]] = None,
                                            e_tag: Optional[pulumi.Input[Optional[str]]] = None,
                                            fabric_name: Optional[pulumi.Input[str]] = None,
@@ -195,4 +192,24 @@ def get_recovery_point_access_token_output(container_name: Optional[pulumi.Input
     :param Mapping[str, str] tags: Resource tags.
     :param str vault_name: The name of the recovery services vault.
     """
-    ...
+    __args__ = dict()
+    __args__['containerName'] = container_name
+    __args__['eTag'] = e_tag
+    __args__['fabricName'] = fabric_name
+    __args__['location'] = location
+    __args__['properties'] = properties
+    __args__['protectedItemName'] = protected_item_name
+    __args__['recoveryPointId'] = recovery_point_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    __args__['vaultName'] = vault_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20211115:getRecoveryPointAccessToken', __args__, opts=opts, typ=GetRecoveryPointAccessTokenResult)
+    return __ret__.apply(lambda __response__: GetRecoveryPointAccessTokenResult(
+        e_tag=pulumi.get(__response__, 'e_tag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

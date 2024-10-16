@@ -94,9 +94,6 @@ def list_manager_public_encryption_key(manager_name: Optional[str] = None,
         encryption_algorithm=pulumi.get(__ret__, 'encryption_algorithm'),
         value=pulumi.get(__ret__, 'value'),
         value_certificate_thumbprint=pulumi.get(__ret__, 'value_certificate_thumbprint'))
-
-
-@_utilities.lift_output_func(list_manager_public_encryption_key)
 def list_manager_public_encryption_key_output(manager_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagerPublicEncryptionKeyResult]:
@@ -108,4 +105,12 @@ def list_manager_public_encryption_key_output(manager_name: Optional[pulumi.Inpu
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    ...
+    __args__ = dict()
+    __args__['managerName'] = manager_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:listManagerPublicEncryptionKey', __args__, opts=opts, typ=ListManagerPublicEncryptionKeyResult)
+    return __ret__.apply(lambda __response__: ListManagerPublicEncryptionKeyResult(
+        encryption_algorithm=pulumi.get(__response__, 'encryption_algorithm'),
+        value=pulumi.get(__response__, 'value'),
+        value_certificate_thumbprint=pulumi.get(__response__, 'value_certificate_thumbprint')))

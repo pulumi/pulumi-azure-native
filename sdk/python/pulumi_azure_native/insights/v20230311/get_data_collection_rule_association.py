@@ -185,9 +185,6 @@ def get_data_collection_rule_association(association_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_data_collection_rule_association)
 def get_data_collection_rule_association_output(association_name: Optional[pulumi.Input[str]] = None,
                                                 resource_uri: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionRuleAssociationResult]:
@@ -198,4 +195,19 @@ def get_data_collection_rule_association_output(association_name: Optional[pulum
     :param str association_name: The name of the association. The name is case insensitive.
     :param str resource_uri: The identifier of the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['associationName'] = association_name
+    __args__['resourceUri'] = resource_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20230311:getDataCollectionRuleAssociation', __args__, opts=opts, typ=GetDataCollectionRuleAssociationResult)
+    return __ret__.apply(lambda __response__: GetDataCollectionRuleAssociationResult(
+        data_collection_endpoint_id=pulumi.get(__response__, 'data_collection_endpoint_id'),
+        data_collection_rule_id=pulumi.get(__response__, 'data_collection_rule_id'),
+        description=pulumi.get(__response__, 'description'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

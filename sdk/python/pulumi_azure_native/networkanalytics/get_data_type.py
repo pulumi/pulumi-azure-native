@@ -202,9 +202,6 @@ def get_data_type(data_product_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         visualization_url=pulumi.get(__ret__, 'visualization_url'))
-
-
-@_utilities.lift_output_func(get_data_type)
 def get_data_type_output(data_product_name: Optional[pulumi.Input[str]] = None,
                          data_type_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -218,4 +215,21 @@ def get_data_type_output(data_product_name: Optional[pulumi.Input[str]] = None,
     :param str data_type_name: The data type name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['dataProductName'] = data_product_name
+    __args__['dataTypeName'] = data_type_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:networkanalytics:getDataType', __args__, opts=opts, typ=GetDataTypeResult)
+    return __ret__.apply(lambda __response__: GetDataTypeResult(
+        database_cache_retention=pulumi.get(__response__, 'database_cache_retention'),
+        database_retention=pulumi.get(__response__, 'database_retention'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        state=pulumi.get(__response__, 'state'),
+        state_reason=pulumi.get(__response__, 'state_reason'),
+        storage_output_retention=pulumi.get(__response__, 'storage_output_retention'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        visualization_url=pulumi.get(__response__, 'visualization_url')))

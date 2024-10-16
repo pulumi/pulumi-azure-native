@@ -175,9 +175,6 @@ def get_variable(automation_account_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_variable)
 def get_variable_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         variable_name: Optional[pulumi.Input[str]] = None,
@@ -190,4 +187,19 @@ def get_variable_output(automation_account_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: Name of an Azure Resource group.
     :param str variable_name: The name of variable.
     """
-    ...
+    __args__ = dict()
+    __args__['automationAccountName'] = automation_account_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['variableName'] = variable_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:getVariable', __args__, opts=opts, typ=GetVariableResult)
+    return __ret__.apply(lambda __response__: GetVariableResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        is_encrypted=pulumi.get(__response__, 'is_encrypted'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        value=pulumi.get(__response__, 'value')))

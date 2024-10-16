@@ -257,9 +257,6 @@ def get_live_output(account_name: Optional[str] = None,
         rewind_window_length=pulumi.get(__ret__, 'rewind_window_length'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_live_output)
 def get_live_output_output(account_name: Optional[pulumi.Input[str]] = None,
                            live_event_name: Optional[pulumi.Input[str]] = None,
                            live_output_name: Optional[pulumi.Input[str]] = None,
@@ -275,4 +272,26 @@ def get_live_output_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str live_output_name: The name of the live output.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['liveEventName'] = live_event_name
+    __args__['liveOutputName'] = live_output_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:media:getLiveOutput', __args__, opts=opts, typ=GetLiveOutputResult)
+    return __ret__.apply(lambda __response__: GetLiveOutputResult(
+        archive_window_length=pulumi.get(__response__, 'archive_window_length'),
+        asset_name=pulumi.get(__response__, 'asset_name'),
+        created=pulumi.get(__response__, 'created'),
+        description=pulumi.get(__response__, 'description'),
+        hls=pulumi.get(__response__, 'hls'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        manifest_name=pulumi.get(__response__, 'manifest_name'),
+        name=pulumi.get(__response__, 'name'),
+        output_snap_time=pulumi.get(__response__, 'output_snap_time'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_state=pulumi.get(__response__, 'resource_state'),
+        rewind_window_length=pulumi.get(__response__, 'rewind_window_length'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type')))

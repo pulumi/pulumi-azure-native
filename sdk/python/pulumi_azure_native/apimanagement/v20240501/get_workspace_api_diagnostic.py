@@ -233,9 +233,6 @@ def get_workspace_api_diagnostic(api_id: Optional[str] = None,
         sampling=pulumi.get(__ret__, 'sampling'),
         type=pulumi.get(__ret__, 'type'),
         verbosity=pulumi.get(__ret__, 'verbosity'))
-
-
-@_utilities.lift_output_func(get_workspace_api_diagnostic)
 def get_workspace_api_diagnostic_output(api_id: Optional[pulumi.Input[str]] = None,
                                         diagnostic_id: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -252,4 +249,25 @@ def get_workspace_api_diagnostic_output(api_id: Optional[pulumi.Input[str]] = No
     :param str service_name: The name of the API Management service.
     :param str workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
     """
-    ...
+    __args__ = dict()
+    __args__['apiId'] = api_id
+    __args__['diagnosticId'] = diagnostic_id
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240501:getWorkspaceApiDiagnostic', __args__, opts=opts, typ=GetWorkspaceApiDiagnosticResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceApiDiagnosticResult(
+        always_log=pulumi.get(__response__, 'always_log'),
+        backend=pulumi.get(__response__, 'backend'),
+        frontend=pulumi.get(__response__, 'frontend'),
+        http_correlation_protocol=pulumi.get(__response__, 'http_correlation_protocol'),
+        id=pulumi.get(__response__, 'id'),
+        log_client_ip=pulumi.get(__response__, 'log_client_ip'),
+        logger_id=pulumi.get(__response__, 'logger_id'),
+        metrics=pulumi.get(__response__, 'metrics'),
+        name=pulumi.get(__response__, 'name'),
+        operation_name_format=pulumi.get(__response__, 'operation_name_format'),
+        sampling=pulumi.get(__response__, 'sampling'),
+        type=pulumi.get(__response__, 'type'),
+        verbosity=pulumi.get(__response__, 'verbosity')))

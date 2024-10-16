@@ -224,9 +224,6 @@ def get_virtual_wan(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_hubs=pulumi.get(__ret__, 'virtual_hubs'),
         vpn_sites=pulumi.get(__ret__, 'vpn_sites'))
-
-
-@_utilities.lift_output_func(get_virtual_wan)
 def get_virtual_wan_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            virtual_wan_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualWanResult]:
@@ -237,4 +234,22 @@ def get_virtual_wan_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The resource group name of the VirtualWan.
     :param str virtual_wan_name: The name of the VirtualWAN being retrieved.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualWANName'] = virtual_wan_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getVirtualWan', __args__, opts=opts, typ=GetVirtualWanResult)
+    return __ret__.apply(lambda __response__: GetVirtualWanResult(
+        allow_branch_to_branch_traffic=pulumi.get(__response__, 'allow_branch_to_branch_traffic'),
+        allow_vnet_to_vnet_traffic=pulumi.get(__response__, 'allow_vnet_to_vnet_traffic'),
+        disable_vpn_encryption=pulumi.get(__response__, 'disable_vpn_encryption'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        office365_local_breakout_category=pulumi.get(__response__, 'office365_local_breakout_category'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        virtual_hubs=pulumi.get(__response__, 'virtual_hubs'),
+        vpn_sites=pulumi.get(__response__, 'vpn_sites')))

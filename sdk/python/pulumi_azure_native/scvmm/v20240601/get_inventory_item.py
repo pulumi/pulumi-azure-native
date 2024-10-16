@@ -188,9 +188,6 @@ def get_inventory_item(inventory_item_resource_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
-
-
-@_utilities.lift_output_func(get_inventory_item)
 def get_inventory_item_output(inventory_item_resource_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               vmm_server_name: Optional[pulumi.Input[str]] = None,
@@ -203,4 +200,20 @@ def get_inventory_item_output(inventory_item_resource_name: Optional[pulumi.Inpu
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vmm_server_name: Name of the VmmServer.
     """
-    ...
+    __args__ = dict()
+    __args__['inventoryItemResourceName'] = inventory_item_resource_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['vmmServerName'] = vmm_server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm/v20240601:getInventoryItem', __args__, opts=opts, typ=GetInventoryItemResult)
+    return __ret__.apply(lambda __response__: GetInventoryItemResult(
+        id=pulumi.get(__response__, 'id'),
+        inventory_item_name=pulumi.get(__response__, 'inventory_item_name'),
+        inventory_type=pulumi.get(__response__, 'inventory_type'),
+        kind=pulumi.get(__response__, 'kind'),
+        managed_resource_id=pulumi.get(__response__, 'managed_resource_id'),
+        name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        uuid=pulumi.get(__response__, 'uuid')))

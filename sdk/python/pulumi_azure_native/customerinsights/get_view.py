@@ -191,9 +191,6 @@ def get_view(hub_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_id=pulumi.get(__ret__, 'user_id'),
         view_name=pulumi.get(__ret__, 'view_name'))
-
-
-@_utilities.lift_output_func(get_view)
 def get_view_output(hub_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     user_id: Optional[pulumi.Input[str]] = None,
@@ -209,4 +206,21 @@ def get_view_output(hub_name: Optional[pulumi.Input[str]] = None,
     :param str user_id: The user ID. Use * to retrieve hub level view.
     :param str view_name: The name of the view.
     """
-    ...
+    __args__ = dict()
+    __args__['hubName'] = hub_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['userId'] = user_id
+    __args__['viewName'] = view_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getView', __args__, opts=opts, typ=GetViewResult)
+    return __ret__.apply(lambda __response__: GetViewResult(
+        changed=pulumi.get(__response__, 'changed'),
+        created=pulumi.get(__response__, 'created'),
+        definition=pulumi.get(__response__, 'definition'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        type=pulumi.get(__response__, 'type'),
+        user_id=pulumi.get(__response__, 'user_id'),
+        view_name=pulumi.get(__response__, 'view_name')))
