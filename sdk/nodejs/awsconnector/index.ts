@@ -280,11 +280,6 @@ export type EmrCluster = import("./emrCluster").EmrCluster;
 export const EmrCluster: typeof import("./emrCluster").EmrCluster = null as any;
 utilities.lazyLoad(exports, ["EmrCluster"], () => require("./emrCluster"));
 
-export { EmrClusterSummaryArgs } from "./emrClusterSummary";
-export type EmrClusterSummary = import("./emrClusterSummary").EmrClusterSummary;
-export const EmrClusterSummary: typeof import("./emrClusterSummary").EmrClusterSummary = null as any;
-utilities.lazyLoad(exports, ["EmrClusterSummary"], () => require("./emrClusterSummary"));
-
 export { GetAccessAnalyzerAnalyzerArgs, GetAccessAnalyzerAnalyzerResult, GetAccessAnalyzerAnalyzerOutputArgs } from "./getAccessAnalyzerAnalyzer";
 export const getAccessAnalyzerAnalyzer: typeof import("./getAccessAnalyzerAnalyzer").getAccessAnalyzerAnalyzer = null as any;
 export const getAccessAnalyzerAnalyzerOutput: typeof import("./getAccessAnalyzerAnalyzer").getAccessAnalyzerAnalyzerOutput = null as any;
@@ -560,11 +555,6 @@ export const getEmrCluster: typeof import("./getEmrCluster").getEmrCluster = nul
 export const getEmrClusterOutput: typeof import("./getEmrCluster").getEmrClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getEmrCluster","getEmrClusterOutput"], () => require("./getEmrCluster"));
 
-export { GetEmrClusterSummaryArgs, GetEmrClusterSummaryResult, GetEmrClusterSummaryOutputArgs } from "./getEmrClusterSummary";
-export const getEmrClusterSummary: typeof import("./getEmrClusterSummary").getEmrClusterSummary = null as any;
-export const getEmrClusterSummaryOutput: typeof import("./getEmrClusterSummary").getEmrClusterSummaryOutput = null as any;
-utilities.lazyLoad(exports, ["getEmrClusterSummary","getEmrClusterSummaryOutput"], () => require("./getEmrClusterSummary"));
-
 export { GetGuardDutyDetectorArgs, GetGuardDutyDetectorResult, GetGuardDutyDetectorOutputArgs } from "./getGuardDutyDetector";
 export const getGuardDutyDetector: typeof import("./getGuardDutyDetector").getGuardDutyDetector = null as any;
 export const getGuardDutyDetectorOutput: typeof import("./getGuardDutyDetector").getGuardDutyDetectorOutput = null as any;
@@ -764,6 +754,11 @@ export { GetRoute53ResourceRecordSetArgs, GetRoute53ResourceRecordSetResult, Get
 export const getRoute53ResourceRecordSet: typeof import("./getRoute53ResourceRecordSet").getRoute53ResourceRecordSet = null as any;
 export const getRoute53ResourceRecordSetOutput: typeof import("./getRoute53ResourceRecordSet").getRoute53ResourceRecordSetOutput = null as any;
 utilities.lazyLoad(exports, ["getRoute53ResourceRecordSet","getRoute53ResourceRecordSetOutput"], () => require("./getRoute53ResourceRecordSet"));
+
+export { GetS3AccessControlPolicyArgs, GetS3AccessControlPolicyResult, GetS3AccessControlPolicyOutputArgs } from "./getS3AccessControlPolicy";
+export const getS3AccessControlPolicy: typeof import("./getS3AccessControlPolicy").getS3AccessControlPolicy = null as any;
+export const getS3AccessControlPolicyOutput: typeof import("./getS3AccessControlPolicy").getS3AccessControlPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getS3AccessControlPolicy","getS3AccessControlPolicyOutput"], () => require("./getS3AccessControlPolicy"));
 
 export { GetS3AccessPointArgs, GetS3AccessPointResult, GetS3AccessPointOutputArgs } from "./getS3AccessPoint";
 export const getS3AccessPoint: typeof import("./getS3AccessPoint").getS3AccessPoint = null as any;
@@ -1045,6 +1040,11 @@ export type Route53ResourceRecordSet = import("./route53ResourceRecordSet").Rout
 export const Route53ResourceRecordSet: typeof import("./route53ResourceRecordSet").Route53ResourceRecordSet = null as any;
 utilities.lazyLoad(exports, ["Route53ResourceRecordSet"], () => require("./route53ResourceRecordSet"));
 
+export { S3AccessControlPolicyArgs } from "./s3accessControlPolicy";
+export type S3AccessControlPolicy = import("./s3accessControlPolicy").S3AccessControlPolicy;
+export const S3AccessControlPolicy: typeof import("./s3accessControlPolicy").S3AccessControlPolicy = null as any;
+utilities.lazyLoad(exports, ["S3AccessControlPolicy"], () => require("./s3accessControlPolicy"));
+
 export { S3AccessPointArgs } from "./s3accessPoint";
 export type S3AccessPoint = import("./s3accessPoint").S3AccessPoint;
 export const S3AccessPoint: typeof import("./s3accessPoint").S3AccessPoint = null as any;
@@ -1250,8 +1250,6 @@ const _module = {
                 return new ElasticLoadBalancingv2TargetHealthDescription(name, <any>undefined, { urn })
             case "azure-native:awsconnector:EmrCluster":
                 return new EmrCluster(name, <any>undefined, { urn })
-            case "azure-native:awsconnector:EmrClusterSummary":
-                return new EmrClusterSummary(name, <any>undefined, { urn })
             case "azure-native:awsconnector:GuardDutyDetector":
                 return new GuardDutyDetector(name, <any>undefined, { urn })
             case "azure-native:awsconnector:IamAccessKeyLastUsed":
@@ -1332,6 +1330,8 @@ const _module = {
                 return new Route53HostedZone(name, <any>undefined, { urn })
             case "azure-native:awsconnector:Route53ResourceRecordSet":
                 return new Route53ResourceRecordSet(name, <any>undefined, { urn })
+            case "azure-native:awsconnector:S3AccessControlPolicy":
+                return new S3AccessControlPolicy(name, <any>undefined, { urn })
             case "azure-native:awsconnector:S3AccessPoint":
                 return new S3AccessPoint(name, <any>undefined, { urn })
             case "azure-native:awsconnector:S3Bucket":

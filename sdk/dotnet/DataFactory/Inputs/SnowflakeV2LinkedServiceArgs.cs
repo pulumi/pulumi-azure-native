@@ -75,6 +75,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("encryptedCredential")]
         public Input<string>? EncryptedCredential { get; set; }
 
+        /// <summary>
+        /// The host name of the Snowflake account.
+        /// </summary>
+        [Input("host")]
+        public Input<object>? Host { get; set; }
+
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 

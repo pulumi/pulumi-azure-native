@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a data export instance.
         /// Azure REST API version: 2020-08-01.
+        /// 
+        /// Other available API versions: 2023-09-01.
         /// </summary>
         public static Task<GetDataExportResult> InvokeAsync(GetDataExportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataExportResult>("azure-native:operationalinsights:getDataExport", args ?? new GetDataExportArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Gets a data export instance.
         /// Azure REST API version: 2020-08-01.
+        /// 
+        /// Other available API versions: 2023-09-01.
         /// </summary>
         public static Output<GetDataExportResult> Invoke(GetDataExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataExportResult>("azure-native:operationalinsights:getDataExport", args ?? new GetDataExportInvokeArgs(), options.WithDefaults());

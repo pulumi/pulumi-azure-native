@@ -7468,6 +7468,55 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
     }
 
     /// <summary>
+    /// Property value
+    /// </summary>
+    [EnumType]
+    public readonly struct Permission : IEquatable<Permission>
+    {
+        private readonly string _value;
+
+        private Permission(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Permission enum FULL_CONTROL
+        /// </summary>
+        public static Permission FULL_CONTROL { get; } = new Permission("FULL_CONTROL");
+        /// <summary>
+        /// Permission enum READ
+        /// </summary>
+        public static Permission READ { get; } = new Permission("READ");
+        /// <summary>
+        /// Permission enum READ_ACP
+        /// </summary>
+        public static Permission READ_ACP { get; } = new Permission("READ_ACP");
+        /// <summary>
+        /// Permission enum WRITE
+        /// </summary>
+        public static Permission WRITE { get; } = new Permission("WRITE");
+        /// <summary>
+        /// Permission enum WRITE_ACP
+        /// </summary>
+        public static Permission WRITE_ACP { get; } = new Permission("WRITE_ACP");
+
+        public static bool operator ==(Permission left, Permission right) => left.Equals(right);
+        public static bool operator !=(Permission left, Permission right) => !left.Equals(right);
+
+        public static explicit operator string(Permission value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Permission other && Equals(other);
+        public bool Equals(Permission other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
     /// </summary>
     [EnumType]

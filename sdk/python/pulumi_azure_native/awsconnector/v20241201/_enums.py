@@ -149,6 +149,7 @@ __all__ = [
     'OwnershipControlsRuleObjectOwnership',
     'PackageType',
     'PartitionedPrefixPartitionDateSource',
+    'Permission',
     'PermissionModel',
     'PingStatus',
     'PlacementConstraintType',
@@ -4372,6 +4373,32 @@ class PartitionedPrefixPartitionDateSource(str, Enum):
     EVENT_TIME = "EventTime"
     """
     PartitionedPrefixPartitionDateSource enum EventTime
+    """
+
+
+class Permission(str, Enum):
+    """
+    Property value
+    """
+    FUL_L_CONTROL = "FULL_CONTROL"
+    """
+    Permission enum FULL_CONTROL
+    """
+    READ = "READ"
+    """
+    Permission enum READ
+    """
+    REA_D_ACP = "READ_ACP"
+    """
+    Permission enum READ_ACP
+    """
+    WRITE = "WRITE"
+    """
+    Permission enum WRITE
+    """
+    WRIT_E_ACP = "WRITE_ACP"
+    """
+    Permission enum WRITE_ACP
     """
 
 

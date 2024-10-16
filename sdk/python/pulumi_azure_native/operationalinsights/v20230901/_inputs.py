@@ -16,8 +16,28 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ClusterSkuArgs',
+    'ClusterSkuArgsDict',
+    'ColumnArgs',
+    'ColumnArgsDict',
     'IdentityArgs',
     'IdentityArgsDict',
+    'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
+    'LogAnalyticsQueryPackQueryPropertiesRelatedArgs',
+    'LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict',
+    'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
+    'RestoredLogsArgs',
+    'RestoredLogsArgsDict',
+    'SchemaArgs',
+    'SchemaArgsDict',
+    'SearchResultsArgs',
+    'SearchResultsArgsDict',
+    'StorageAccountArgs',
+    'StorageAccountArgsDict',
+    'TagArgs',
+    'TagArgsDict',
     'WorkspaceCappingArgs',
     'WorkspaceCappingArgsDict',
     'WorkspaceFeaturesArgs',
@@ -27,6 +47,178 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ClusterSkuArgsDict(TypedDict):
+        """
+        The cluster sku definition.
+        """
+        capacity: NotRequired[pulumi.Input[float]]
+        """
+        The capacity reservation level in Gigabytes for this cluster.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]]
+        """
+        The SKU (tier) of a cluster.
+        """
+elif False:
+    ClusterSkuArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterSkuArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]] = None):
+        """
+        The cluster sku definition.
+        :param pulumi.Input[float] capacity: The capacity reservation level in Gigabytes for this cluster.
+        :param pulumi.Input[Union[str, 'ClusterSkuNameEnum']] name: The SKU (tier) of a cluster.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[float]]:
+        """
+        The capacity reservation level in Gigabytes for this cluster.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]]:
+        """
+        The SKU (tier) of a cluster.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class ColumnArgsDict(TypedDict):
+        """
+        Table column.
+        """
+        data_type_hint: NotRequired[pulumi.Input[Union[str, 'ColumnDataTypeHintEnum']]]
+        """
+        Column data type logical hint.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Column description.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Column display name.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Column name.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'ColumnTypeEnum']]]
+        """
+        Column data type.
+        """
+elif False:
+    ColumnArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ColumnArgs:
+    def __init__(__self__, *,
+                 data_type_hint: Optional[pulumi.Input[Union[str, 'ColumnDataTypeHintEnum']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ColumnTypeEnum']]] = None):
+        """
+        Table column.
+        :param pulumi.Input[Union[str, 'ColumnDataTypeHintEnum']] data_type_hint: Column data type logical hint.
+        :param pulumi.Input[str] description: Column description.
+        :param pulumi.Input[str] display_name: Column display name.
+        :param pulumi.Input[str] name: Column name.
+        :param pulumi.Input[Union[str, 'ColumnTypeEnum']] type: Column data type.
+        """
+        if data_type_hint is not None:
+            pulumi.set(__self__, "data_type_hint", data_type_hint)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="dataTypeHint")
+    def data_type_hint(self) -> Optional[pulumi.Input[Union[str, 'ColumnDataTypeHintEnum']]]:
+        """
+        Column data type logical hint.
+        """
+        return pulumi.get(self, "data_type_hint")
+
+    @data_type_hint.setter
+    def data_type_hint(self, value: Optional[pulumi.Input[Union[str, 'ColumnDataTypeHintEnum']]]):
+        pulumi.set(self, "data_type_hint", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Column description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Column display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Column name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ColumnTypeEnum']]]:
+        """
+        Column data type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ColumnTypeEnum']]]):
+        pulumi.set(self, "type", value)
+
 
 if not MYPY:
     class IdentityArgsDict(TypedDict):
@@ -81,6 +273,629 @@ class IdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        The key vault properties.
+        """
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the key associated with the Log Analytics cluster.
+        """
+        key_rsa_size: NotRequired[pulumi.Input[int]]
+        """
+        Selected key minimum required size.
+        """
+        key_vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Key Vault uri which holds they key associated with the Log Analytics cluster.
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the key associated with the Log Analytics cluster.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_rsa_size: Optional[pulumi.Input[int]] = None,
+                 key_vault_uri: Optional[pulumi.Input[str]] = None,
+                 key_version: Optional[pulumi.Input[str]] = None):
+        """
+        The key vault properties.
+        :param pulumi.Input[str] key_name: The name of the key associated with the Log Analytics cluster.
+        :param pulumi.Input[int] key_rsa_size: Selected key minimum required size.
+        :param pulumi.Input[str] key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
+        :param pulumi.Input[str] key_version: The version of the key associated with the Log Analytics cluster.
+        """
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_rsa_size is not None:
+            pulumi.set(__self__, "key_rsa_size", key_rsa_size)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the key associated with the Log Analytics cluster.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyRsaSize")
+    def key_rsa_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Selected key minimum required size.
+        """
+        return pulumi.get(self, "key_rsa_size")
+
+    @key_rsa_size.setter
+    def key_rsa_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "key_rsa_size", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Key Vault uri which holds they key associated with the Log Analytics cluster.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the key associated with the Log Analytics cluster.
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_version", value)
+
+
+if not MYPY:
+    class LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict(TypedDict):
+        """
+        The related metadata items for the function.
+        """
+        categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The related categories for the function.
+        """
+        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The related resource types for the function.
+        """
+        solutions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The related Log Analytics solutions for the function.
+        """
+elif False:
+    LogAnalyticsQueryPackQueryPropertiesRelatedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:
+    def __init__(__self__, *,
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 solutions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The related metadata items for the function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: The related categories for the function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: The related resource types for the function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] solutions: The related Log Analytics solutions for the function.
+        """
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if solutions is not None:
+            pulumi.set(__self__, "solutions", solutions)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The related categories for the function.
+        """
+        return pulumi.get(self, "categories")
+
+    @categories.setter
+    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "categories", value)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The related resource types for the function.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @property
+    @pulumi.getter
+    def solutions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The related Log Analytics solutions for the function.
+        """
+        return pulumi.get(self, "solutions")
+
+    @solutions.setter
+    def solutions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "solutions", value)
+
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class RestoredLogsArgsDict(TypedDict):
+        """
+        Restore parameters.
+        """
+        end_restore_time: NotRequired[pulumi.Input[str]]
+        """
+        The timestamp to end the restore by (UTC).
+        """
+        source_table: NotRequired[pulumi.Input[str]]
+        """
+        The table to restore data from.
+        """
+        start_restore_time: NotRequired[pulumi.Input[str]]
+        """
+        The timestamp to start the restore from (UTC).
+        """
+elif False:
+    RestoredLogsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RestoredLogsArgs:
+    def __init__(__self__, *,
+                 end_restore_time: Optional[pulumi.Input[str]] = None,
+                 source_table: Optional[pulumi.Input[str]] = None,
+                 start_restore_time: Optional[pulumi.Input[str]] = None):
+        """
+        Restore parameters.
+        :param pulumi.Input[str] end_restore_time: The timestamp to end the restore by (UTC).
+        :param pulumi.Input[str] source_table: The table to restore data from.
+        :param pulumi.Input[str] start_restore_time: The timestamp to start the restore from (UTC).
+        """
+        if end_restore_time is not None:
+            pulumi.set(__self__, "end_restore_time", end_restore_time)
+        if source_table is not None:
+            pulumi.set(__self__, "source_table", source_table)
+        if start_restore_time is not None:
+            pulumi.set(__self__, "start_restore_time", start_restore_time)
+
+    @property
+    @pulumi.getter(name="endRestoreTime")
+    def end_restore_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp to end the restore by (UTC).
+        """
+        return pulumi.get(self, "end_restore_time")
+
+    @end_restore_time.setter
+    def end_restore_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_restore_time", value)
+
+    @property
+    @pulumi.getter(name="sourceTable")
+    def source_table(self) -> Optional[pulumi.Input[str]]:
+        """
+        The table to restore data from.
+        """
+        return pulumi.get(self, "source_table")
+
+    @source_table.setter
+    def source_table(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_table", value)
+
+    @property
+    @pulumi.getter(name="startRestoreTime")
+    def start_restore_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp to start the restore from (UTC).
+        """
+        return pulumi.get(self, "start_restore_time")
+
+    @start_restore_time.setter
+    def start_restore_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_restore_time", value)
+
+
+if not MYPY:
+    class SchemaArgsDict(TypedDict):
+        """
+        Table's schema.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['ColumnArgsDict']]]]
+        """
+        A list of table custom columns.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Table description.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        Table display name.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Table name.
+        """
+elif False:
+    SchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SchemaArgs:
+    def __init__(__self__, *,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Table's schema.
+        :param pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]] columns: A list of table custom columns.
+        :param pulumi.Input[str] description: Table description.
+        :param pulumi.Input[str] display_name: Table display name.
+        :param pulumi.Input[str] name: Table name.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]]:
+        """
+        A list of table custom columns.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Table description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Table display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Table name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class SearchResultsArgsDict(TypedDict):
+        """
+        Parameters of the search job that initiated this table.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Search job Description.
+        """
+        end_search_time: NotRequired[pulumi.Input[str]]
+        """
+        The timestamp to end the search by (UTC)
+        """
+        limit: NotRequired[pulumi.Input[int]]
+        """
+        Limit the search job to return up to specified number of rows.
+        """
+        query: NotRequired[pulumi.Input[str]]
+        """
+        Search job query.
+        """
+        start_search_time: NotRequired[pulumi.Input[str]]
+        """
+        The timestamp to start the search from (UTC)
+        """
+elif False:
+    SearchResultsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SearchResultsArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 end_search_time: Optional[pulumi.Input[str]] = None,
+                 limit: Optional[pulumi.Input[int]] = None,
+                 query: Optional[pulumi.Input[str]] = None,
+                 start_search_time: Optional[pulumi.Input[str]] = None):
+        """
+        Parameters of the search job that initiated this table.
+        :param pulumi.Input[str] description: Search job Description.
+        :param pulumi.Input[str] end_search_time: The timestamp to end the search by (UTC)
+        :param pulumi.Input[int] limit: Limit the search job to return up to specified number of rows.
+        :param pulumi.Input[str] query: Search job query.
+        :param pulumi.Input[str] start_search_time: The timestamp to start the search from (UTC)
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if end_search_time is not None:
+            pulumi.set(__self__, "end_search_time", end_search_time)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if start_search_time is not None:
+            pulumi.set(__self__, "start_search_time", start_search_time)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Search job Description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="endSearchTime")
+    def end_search_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp to end the search by (UTC)
+        """
+        return pulumi.get(self, "end_search_time")
+
+    @end_search_time.setter
+    def end_search_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_search_time", value)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Limit the search job to return up to specified number of rows.
+        """
+        return pulumi.get(self, "limit")
+
+    @limit.setter
+    def limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input[str]]:
+        """
+        Search job query.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="startSearchTime")
+    def start_search_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp to start the search from (UTC)
+        """
+        return pulumi.get(self, "start_search_time")
+
+    @start_search_time.setter
+    def start_search_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_search_time", value)
+
+
+if not MYPY:
+    class StorageAccountArgsDict(TypedDict):
+        """
+        Describes a storage account connection.
+        """
+        id: pulumi.Input[str]
+        """
+        The Azure Resource Manager ID of the storage account resource.
+        """
+        key: pulumi.Input[str]
+        """
+        The storage account key.
+        """
+elif False:
+    StorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageAccountArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 key: pulumi.Input[str]):
+        """
+        Describes a storage account connection.
+        :param pulumi.Input[str] id: The Azure Resource Manager ID of the storage account resource.
+        :param pulumi.Input[str] key: The storage account key.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The Azure Resource Manager ID of the storage account resource.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The storage account key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+
+if not MYPY:
+    class TagArgsDict(TypedDict):
+        """
+        A tag of a saved search.
+        """
+        name: pulumi.Input[str]
+        """
+        The tag name.
+        """
+        value: pulumi.Input[str]
+        """
+        The tag value.
+        """
+elif False:
+    TagArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TagArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A tag of a saved search.
+        :param pulumi.Input[str] name: The tag name.
+        :param pulumi.Input[str] value: The tag value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The tag name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The tag value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

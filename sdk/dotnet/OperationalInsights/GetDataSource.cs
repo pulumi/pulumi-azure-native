@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets a datasource instance.
         /// Azure REST API version: 2020-08-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview.
+        /// Other available API versions: 2015-11-01-preview, 2023-09-01.
         /// </summary>
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Gets a datasource instance.
         /// Azure REST API version: 2020-08-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview.
+        /// Other available API versions: 2015-11-01-preview, 2023-09-01.
         /// </summary>
         public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());

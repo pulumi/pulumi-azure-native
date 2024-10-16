@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
     /// <summary>
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
     /// Azure REST API version: 2024-07-19-preview.
+    /// 
+    /// Other available API versions: 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databasewatcher:AlertRuleResource")]
     public partial class AlertRuleResource : global::Pulumi.CustomResource
@@ -96,6 +98,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20240719preview:AlertRuleResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20241001preview:AlertRuleResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

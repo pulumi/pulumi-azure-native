@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? EncryptedCredential;
         /// <summary>
+        /// The host name of the Snowflake account.
+        /// </summary>
+        public readonly object? Host;
+        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? encryptedCredential,
 
+            object? host,
+
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Database = database;
             Description = description;
             EncryptedCredential = encryptedCredential;
+            Host = host;
             Parameters = parameters;
             Password = password;
             PrivateKey = privateKey;

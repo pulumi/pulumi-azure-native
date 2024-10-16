@@ -4438,6 +4438,34 @@ export const PartitionedPrefixPartitionDateSource = {
  */
 export type PartitionedPrefixPartitionDateSource = (typeof PartitionedPrefixPartitionDateSource)[keyof typeof PartitionedPrefixPartitionDateSource];
 
+export const Permission = {
+    /**
+     * Permission enum FULL_CONTROL
+     */
+    FULL_CONTROL: "FULL_CONTROL",
+    /**
+     * Permission enum READ
+     */
+    READ: "READ",
+    /**
+     * Permission enum READ_ACP
+     */
+    READ_ACP: "READ_ACP",
+    /**
+     * Permission enum WRITE
+     */
+    WRITE: "WRITE",
+    /**
+     * Permission enum WRITE_ACP
+     */
+    WRITE_ACP: "WRITE_ACP",
+} as const;
+
+/**
+ * Property value
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
+
 export const PermissionModel = {
     /**
      * PermissionModel enum SELF_MANAGED

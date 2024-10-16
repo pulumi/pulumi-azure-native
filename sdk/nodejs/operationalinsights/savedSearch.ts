@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Value object for saved search results.
  * Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
  *
- * Other available API versions: 2015-03-20.
+ * Other available API versions: 2015-03-20, 2023-09-01.
  */
 export class SavedSearch extends pulumi.CustomResource {
     /**
@@ -133,7 +133,7 @@ export class SavedSearch extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20150320:SavedSearch" }, { type: "azure-native:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-native:operationalinsights/v20200801:SavedSearch" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20150320:SavedSearch" }, { type: "azure-native:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-native:operationalinsights/v20200801:SavedSearch" }, { type: "azure-native:operationalinsights/v20230901:SavedSearch" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SavedSearch.__pulumiType, name, resourceInputs, opts);
     }

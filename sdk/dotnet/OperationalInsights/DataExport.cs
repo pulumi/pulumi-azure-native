@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// <summary>
     /// The top level data export resource container.
     /// Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
+    /// 
+    /// Other available API versions: 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:DataExport")]
     public partial class DataExport : global::Pulumi.CustomResource
@@ -98,6 +100,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:DataExport" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:DataExport" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:DataExport" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:DataExport" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

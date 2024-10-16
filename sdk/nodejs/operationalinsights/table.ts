@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Workspace data table definition.
  * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
+ *
+ * Other available API versions: 2023-09-01.
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -152,7 +154,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20211201preview:Table" }, { type: "azure-native:operationalinsights/v20221001:Table" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20211201preview:Table" }, { type: "azure-native:operationalinsights/v20221001:Table" }, { type: "azure-native:operationalinsights/v20230901:Table" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Table.__pulumiType, name, resourceInputs, opts);
     }

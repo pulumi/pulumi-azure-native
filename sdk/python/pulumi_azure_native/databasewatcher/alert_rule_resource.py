@@ -165,6 +165,8 @@ class AlertRuleResource(pulumi.CustomResource):
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
         Azure REST API version: 2024-07-19-preview.
 
+        Other available API versions: 2024-10-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_rule_resource_id: The resource ID of the alert rule resource.
@@ -185,6 +187,8 @@ class AlertRuleResource(pulumi.CustomResource):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
         Azure REST API version: 2024-07-19-preview.
+
+        Other available API versions: 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AlertRuleResourceArgs args: The arguments to use to populate this resource's properties.
@@ -244,7 +248,7 @@ class AlertRuleResource(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher/v20240719preview:AlertRuleResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher/v20240719preview:AlertRuleResource"), pulumi.Alias(type_="azure-native:databasewatcher/v20241001preview:AlertRuleResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AlertRuleResource, __self__).__init__(
             'azure-native:databasewatcher:AlertRuleResource',

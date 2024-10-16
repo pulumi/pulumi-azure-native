@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Datasources under OMS Workspace.
  * Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
  *
- * Other available API versions: 2015-11-01-preview.
+ * Other available API versions: 2015-11-01-preview, 2023-09-01.
  */
 export class DataSource extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:DataSource" }, { type: "azure-native:operationalinsights/v20200301preview:DataSource" }, { type: "azure-native:operationalinsights/v20200801:DataSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:DataSource" }, { type: "azure-native:operationalinsights/v20200301preview:DataSource" }, { type: "azure-native:operationalinsights/v20200801:DataSource" }, { type: "azure-native:operationalinsights/v20230901:DataSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataSource.__pulumiType, name, resourceInputs, opts);
     }

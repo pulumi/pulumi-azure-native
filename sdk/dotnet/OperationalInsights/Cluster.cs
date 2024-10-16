@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// The top level Log Analytics cluster resource container.
     /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-10-01.
     /// 
-    /// Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01.
+    /// Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -145,6 +145,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20221001:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

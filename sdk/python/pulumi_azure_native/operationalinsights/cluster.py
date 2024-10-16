@@ -206,7 +206,7 @@ class Cluster(pulumi.CustomResource):
         The top level Log Analytics cluster resource container.
         Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-10-01.
 
-        Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01.
+        Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,7 +231,7 @@ class Cluster(pulumi.CustomResource):
         The top level Log Analytics cluster resource container.
         Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-10-01.
 
-        Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01.
+        Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -287,7 +287,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190801preview:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20201001:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20210601:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190801preview:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20201001:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20210601:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:operationalinsights:Cluster',

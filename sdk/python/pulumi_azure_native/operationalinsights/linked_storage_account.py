@@ -100,6 +100,8 @@ class LinkedStorageAccount(pulumi.CustomResource):
         Linked storage accounts top level resource container.
         Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
 
+        Other available API versions: 2023-09-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_source_type: Linked storage accounts type.
@@ -116,6 +118,8 @@ class LinkedStorageAccount(pulumi.CustomResource):
         """
         Linked storage accounts top level resource container.
         Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
+
+        Other available API versions: 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param LinkedStorageAccountArgs args: The arguments to use to populate this resource's properties.
@@ -155,7 +159,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190801preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:LinkedStorageAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190801preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:LinkedStorageAccount"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:LinkedStorageAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedStorageAccount, __self__).__init__(
             'azure-native:operationalinsights:LinkedStorageAccount',

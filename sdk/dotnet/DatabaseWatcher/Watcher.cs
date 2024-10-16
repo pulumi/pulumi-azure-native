@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
     /// The DatabaseWatcherProviderHub resource.
     /// Azure REST API version: 2023-09-01-preview.
     /// 
-    /// Other available API versions: 2024-07-19-preview.
+    /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databasewatcher:Watcher")]
     public partial class Watcher : global::Pulumi.CustomResource
@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20230901preview:Watcher" },
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20240719preview:Watcher" },
+                    new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20241001preview:Watcher" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

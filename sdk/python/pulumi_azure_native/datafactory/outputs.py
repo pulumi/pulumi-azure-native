@@ -78064,6 +78064,7 @@ class SnowflakeV2LinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
+                 host: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  private_key: Optional[Any] = None,
@@ -78086,6 +78087,7 @@ class SnowflakeV2LinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any host: The host name of the Snowflake account.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The Azure key vault secret reference of password in connection string.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] private_key: The Azure key vault secret reference of privateKey for KeyPair auth.
@@ -78115,6 +78117,8 @@ class SnowflakeV2LinkedServiceResponse(dict):
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
@@ -78220,6 +78224,14 @@ class SnowflakeV2LinkedServiceResponse(dict):
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[Any]:
+        """
+        The host name of the Snowflake account.
+        """
+        return pulumi.get(self, "host")
 
     @property
     @pulumi.getter

@@ -3211,7 +3211,8 @@
       "2024-02-01-preview",
       "2024-03-01-preview",
       "2024-04-01-preview",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2024-09-01-preview"
     ],
     "datacontrollers": [
       "2021-07-01-preview",
@@ -3245,7 +3246,8 @@
       "2024-02-01-preview",
       "2024-03-01-preview",
       "2024-04-01-preview",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2024-09-01-preview"
     ],
     "locations/operationstatuses": [
       "2021-07-01-preview",
@@ -3262,7 +3264,8 @@
       "2024-02-01-preview",
       "2024-03-01-preview",
       "2024-04-01-preview",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2024-09-01-preview"
     ],
     "operations": [
       "2021-07-01-preview",
@@ -3279,7 +3282,8 @@
       "2024-02-01-preview",
       "2024-03-01-preview",
       "2024-04-01-preview",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2024-09-01-preview"
     ],
     "postgresinstances": [
       "2021-07-01-preview",
@@ -3305,7 +3309,8 @@
       "2023-09-01-preview"
     ],
     "sqlserveresulicenses": [
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2024-09-01-preview"
     ],
     "sqlserverinstances": [
       "2021-07-01-preview",
@@ -3322,7 +3327,8 @@
       "2024-02-01-preview",
       "2024-03-01-preview",
       "2024-04-01-preview",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2024-09-01-preview"
     ],
     "sqlserverinstances/availabilitygroups": [
       "2023-05-16-preview",
@@ -3333,7 +3339,8 @@
       "2024-02-01-preview",
       "2024-03-01-preview",
       "2024-04-01-preview",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2024-09-01-preview"
     ],
     "sqlserverinstances/databases": [
       "2022-06-15-preview",
@@ -3346,12 +3353,14 @@
       "2024-02-01-preview",
       "2024-03-01-preview",
       "2024-04-01-preview",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2024-09-01-preview"
     ],
     "sqlserverlicenses": [
       "2024-03-01-preview",
       "2024-04-01-preview",
-      "2024-05-01-preview"
+      "2024-05-01-preview",
+      "2024-09-01-preview"
     ]
   },
   "azurebusinesscontinuity": {
@@ -3374,59 +3383,77 @@
       "2023-06-28",
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11",
+      "2024-09-27"
     ],
     "connections": [
       "2022-12-13-preview",
       "2023-06-28",
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11",
+      "2024-09-27"
     ],
     "connections/flows": [
       "2022-12-13-preview",
       "2023-06-28",
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11",
+      "2024-09-27"
     ],
     "listapprovedschemas": [
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11",
+      "2024-09-27"
     ],
     "locations": [
       "2022-12-13-preview",
       "2023-06-28",
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11",
+      "2024-09-27"
     ],
     "locations/operationstatuses": [
       "2022-12-13-preview",
       "2023-06-28",
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11",
+      "2024-09-27"
     ],
     "operations": [
       "2022-12-13-preview",
       "2023-06-28",
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11",
+      "2024-09-27"
     ],
     "pipelines": [
       "2022-12-13-preview",
       "2023-06-28",
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11",
+      "2024-09-27"
     ],
     "validateschema": [
       "2023-10-11-preview",
       "2024-01-25",
-      "2024-05-07"
+      "2024-05-07",
+      "2024-09-11",
+      "2024-09-27"
     ]
   },
   "azurefleet": {
@@ -17496,29 +17523,35 @@
       "2023-10-30-preview",
       "2023-12-13-preview",
       "2024-03-26-preview",
-      "2024-04-04-preview"
+      "2024-04-04-preview",
+      "2024-10-19"
     ],
     "images": [
-      "2024-04-04-preview"
+      "2024-04-04-preview",
+      "2024-10-19"
     ],
     "images/versions": [
-      "2024-04-04-preview"
+      "2024-04-04-preview",
+      "2024-10-19"
     ],
     "locations": [
       "2023-10-30-preview",
       "2023-12-13-preview",
       "2024-03-26-preview",
-      "2024-04-04-preview"
+      "2024-04-04-preview",
+      "2024-10-19"
     ],
     "locations/operationstatuses": [
       "2023-10-30-preview",
       "2023-12-13-preview",
       "2024-03-26-preview",
-      "2024-04-04-preview"
+      "2024-04-04-preview",
+      "2024-10-19"
     ],
     "locations/skus": [
       "2024-03-26-preview",
-      "2024-04-04-preview"
+      "2024-04-04-preview",
+      "2024-10-19"
     ],
     "locations/usages": [
       "2024-04-04-preview"
@@ -17527,17 +17560,20 @@
       "2023-10-30-preview",
       "2023-12-13-preview",
       "2024-03-26-preview",
-      "2024-04-04-preview"
+      "2024-04-04-preview",
+      "2024-10-19"
     ],
     "pools": [
       "2023-10-30-preview",
       "2023-12-13-preview",
       "2024-03-26-preview",
-      "2024-04-04-preview"
+      "2024-04-04-preview",
+      "2024-10-19"
     ],
     "pools/resources": [
       "2024-03-26-preview",
-      "2024-04-04-preview"
+      "2024-04-04-preview",
+      "2024-10-19"
     ],
     "resources": [
       "2024-03-26-preview"
@@ -24474,6 +24510,9 @@
       "2024-04-01-preview",
       "2024-07-01-preview",
       "2024-10-01",
+      "2024-10-01-preview"
+    ],
+    "workspaces/capabilityhosts": [
       "2024-10-01-preview"
     ],
     "workspaces/codes": [

@@ -63,7 +63,7 @@ class GetSharedPrivateLinkResourceResult:
     @pulumi.getter(name="dnsZone")
     def dns_zone(self) -> Optional[str]:
         """
-        The DNS zone to be included in the DNS name of the shared private link. Value is service-specific.
+        The DNS zone to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances. The value to use is the second segment of the host FQDN name of the resource that the shared private link resource is for.
         """
         return pulumi.get(self, "dns_zone")
 
@@ -166,7 +166,7 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
     Get a SharedPrivateLinkResource
     Azure REST API version: 2023-09-01-preview.
 
-    Other available API versions: 2024-07-19-preview.
+    Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -199,7 +199,7 @@ def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi
     Get a SharedPrivateLinkResource
     Azure REST API version: 2023-09-01-preview.
 
-    Other available API versions: 2024-07-19-preview.
+    Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

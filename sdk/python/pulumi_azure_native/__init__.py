@@ -2974,7 +2974,6 @@ _utilities.register(
    "azure-native:awsconnector:ElasticLoadBalancingV2TargetGroup": "ElasticLoadBalancingV2TargetGroup",
    "azure-native:awsconnector:ElasticLoadBalancingv2TargetHealthDescription": "ElasticLoadBalancingv2TargetHealthDescription",
    "azure-native:awsconnector:EmrCluster": "EmrCluster",
-   "azure-native:awsconnector:EmrClusterSummary": "EmrClusterSummary",
    "azure-native:awsconnector:GuardDutyDetector": "GuardDutyDetector",
    "azure-native:awsconnector:IamAccessKeyLastUsed": "IamAccessKeyLastUsed",
    "azure-native:awsconnector:IamAccessKeyMetadataInfo": "IamAccessKeyMetadataInfo",
@@ -3015,6 +3014,7 @@ _utilities.register(
    "azure-native:awsconnector:Route53DomainsDomainSummary": "Route53DomainsDomainSummary",
    "azure-native:awsconnector:Route53HostedZone": "Route53HostedZone",
    "azure-native:awsconnector:Route53ResourceRecordSet": "Route53ResourceRecordSet",
+   "azure-native:awsconnector:S3AccessControlPolicy": "S3AccessControlPolicy",
    "azure-native:awsconnector:S3AccessPoint": "S3AccessPoint",
    "azure-native:awsconnector:S3Bucket": "S3Bucket",
    "azure-native:awsconnector:S3BucketPolicy": "S3BucketPolicy",
@@ -3093,7 +3093,6 @@ _utilities.register(
    "azure-native:awsconnector/v20241201:ElasticLoadBalancingV2TargetGroup": "ElasticLoadBalancingV2TargetGroup",
    "azure-native:awsconnector/v20241201:ElasticLoadBalancingv2TargetHealthDescription": "ElasticLoadBalancingv2TargetHealthDescription",
    "azure-native:awsconnector/v20241201:EmrCluster": "EmrCluster",
-   "azure-native:awsconnector/v20241201:EmrClusterSummary": "EmrClusterSummary",
    "azure-native:awsconnector/v20241201:GuardDutyDetector": "GuardDutyDetector",
    "azure-native:awsconnector/v20241201:IamAccessKeyLastUsed": "IamAccessKeyLastUsed",
    "azure-native:awsconnector/v20241201:IamAccessKeyMetadataInfo": "IamAccessKeyMetadataInfo",
@@ -3134,6 +3133,7 @@ _utilities.register(
    "azure-native:awsconnector/v20241201:Route53DomainsDomainSummary": "Route53DomainsDomainSummary",
    "azure-native:awsconnector/v20241201:Route53HostedZone": "Route53HostedZone",
    "azure-native:awsconnector/v20241201:Route53ResourceRecordSet": "Route53ResourceRecordSet",
+   "azure-native:awsconnector/v20241201:S3AccessControlPolicy": "S3AccessControlPolicy",
    "azure-native:awsconnector/v20241201:S3AccessPoint": "S3AccessPoint",
    "azure-native:awsconnector/v20241201:S3Bucket": "S3Bucket",
    "azure-native:awsconnector/v20241201:S3BucketPolicy": "S3BucketPolicy",
@@ -6510,6 +6510,17 @@ _utilities.register(
    "azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource": "SharedPrivateLinkResource",
    "azure-native:databasewatcher/v20240719preview:Target": "Target",
    "azure-native:databasewatcher/v20240719preview:Watcher": "Watcher"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "databasewatcher/v20241001preview",
+  "fqn": "pulumi_azure_native.databasewatcher.v20241001preview",
+  "classes": {
+   "azure-native:databasewatcher/v20241001preview:AlertRuleResource": "AlertRuleResource",
+   "azure-native:databasewatcher/v20241001preview:SharedPrivateLinkResource": "SharedPrivateLinkResource",
+   "azure-native:databasewatcher/v20241001preview:Target": "Target",
+   "azure-native:databasewatcher/v20241001preview:Watcher": "Watcher"
   }
  },
  {
@@ -15092,6 +15103,16 @@ _utilities.register(
   "mod": "operationalinsights/v20230901",
   "fqn": "pulumi_azure_native.operationalinsights.v20230901",
   "classes": {
+   "azure-native:operationalinsights/v20230901:Cluster": "Cluster",
+   "azure-native:operationalinsights/v20230901:DataExport": "DataExport",
+   "azure-native:operationalinsights/v20230901:DataSource": "DataSource",
+   "azure-native:operationalinsights/v20230901:LinkedService": "LinkedService",
+   "azure-native:operationalinsights/v20230901:LinkedStorageAccount": "LinkedStorageAccount",
+   "azure-native:operationalinsights/v20230901:Query": "Query",
+   "azure-native:operationalinsights/v20230901:QueryPack": "QueryPack",
+   "azure-native:operationalinsights/v20230901:SavedSearch": "SavedSearch",
+   "azure-native:operationalinsights/v20230901:StorageInsightConfig": "StorageInsightConfig",
+   "azure-native:operationalinsights/v20230901:Table": "Table",
    "azure-native:operationalinsights/v20230901:Workspace": "Workspace"
   }
  },

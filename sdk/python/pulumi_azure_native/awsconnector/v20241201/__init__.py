@@ -61,7 +61,6 @@ from .elastic_load_balancing_v2_load_balancer import *
 from .elastic_load_balancing_v2_target_group import *
 from .elastic_load_balancingv2_target_health_description import *
 from .emr_cluster import *
-from .emr_cluster_summary import *
 from .get_access_analyzer_analyzer import *
 from .get_acm_certificate_summary import *
 from .get_api_gateway_rest_api import *
@@ -117,7 +116,6 @@ from .get_elastic_load_balancing_v2_load_balancer import *
 from .get_elastic_load_balancing_v2_target_group import *
 from .get_elastic_load_balancingv2_target_health_description import *
 from .get_emr_cluster import *
-from .get_emr_cluster_summary import *
 from .get_guard_duty_detector import *
 from .get_iam_access_key_last_used import *
 from .get_iam_access_key_metadata_info import *
@@ -158,6 +156,7 @@ from .get_redshift_cluster_parameter_group import *
 from .get_route53_domains_domain_summary import *
 from .get_route53_hosted_zone import *
 from .get_route53_resource_record_set import *
+from .get_s3_access_control_policy import *
 from .get_s3_access_point import *
 from .get_s3_bucket import *
 from .get_s3_bucket_policy import *
@@ -214,6 +213,7 @@ from .redshift_cluster_parameter_group import *
 from .route53_domains_domain_summary import *
 from .route53_hosted_zone import *
 from .route53_resource_record_set import *
+from .s3_access_control_policy import *
 from .s3_access_point import *
 from .s3_bucket import *
 from .s3_bucket_policy import *

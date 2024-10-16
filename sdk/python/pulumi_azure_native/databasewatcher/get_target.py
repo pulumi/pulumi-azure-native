@@ -154,7 +154,7 @@ def get_target(resource_group_name: Optional[str] = None,
     Get a Target
     Azure REST API version: 2023-09-01-preview.
 
-    Other available API versions: 2024-07-19-preview.
+    Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -186,7 +186,7 @@ def get_target_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     Get a Target
     Azure REST API version: 2023-09-01-preview.
 
-    Other available API versions: 2024-07-19-preview.
+    Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

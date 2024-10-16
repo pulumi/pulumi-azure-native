@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * The top level data export resource container.
  * Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
+ *
+ * Other available API versions: 2023-09-01.
  */
 export class DataExport extends pulumi.CustomResource {
     /**
@@ -119,7 +121,7 @@ export class DataExport extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190801preview:DataExport" }, { type: "azure-native:operationalinsights/v20200301preview:DataExport" }, { type: "azure-native:operationalinsights/v20200801:DataExport" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190801preview:DataExport" }, { type: "azure-native:operationalinsights/v20200301preview:DataExport" }, { type: "azure-native:operationalinsights/v20200801:DataExport" }, { type: "azure-native:operationalinsights/v20230901:DataExport" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataExport.__pulumiType, name, resourceInputs, opts);
     }

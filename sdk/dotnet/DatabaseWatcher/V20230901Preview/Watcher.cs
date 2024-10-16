@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20230901Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher:Watcher" },
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20240719preview:Watcher" },
+                    new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20241001preview:Watcher" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
