@@ -4428,6 +4428,7 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2024-09-01-preview",
           "2024-05-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
@@ -4448,6 +4449,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2024-09-01-preview",
           "2024-05-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
@@ -4468,6 +4470,7 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2024-09-01-preview",
           "2024-05-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
@@ -4520,12 +4523,14 @@
       {
         "resourceType": "SqlServerEsuLicenses",
         "apiVersions": [
+          "2024-09-01-preview",
           "2024-05-01-preview"
         ]
       },
       {
         "resourceType": "SqlServerInstances",
         "apiVersions": [
+          "2024-09-01-preview",
           "2024-05-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
@@ -4546,6 +4551,7 @@
       {
         "resourceType": "SqlServerInstances/AvailabilityGroups",
         "apiVersions": [
+          "2024-09-01-preview",
           "2024-05-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
@@ -4560,6 +4566,7 @@
       {
         "resourceType": "SqlServerInstances/Databases",
         "apiVersions": [
+          "2024-09-01-preview",
           "2024-05-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview",
@@ -4576,6 +4583,7 @@
       {
         "resourceType": "SqlServerLicenses",
         "apiVersions": [
+          "2024-09-01-preview",
           "2024-05-01-preview",
           "2024-04-01-preview",
           "2024-03-01-preview"
@@ -4612,6 +4620,8 @@
       {
         "resourceType": "connections",
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -4622,6 +4632,8 @@
       {
         "resourceType": "connections/flows",
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -4632,6 +4644,8 @@
       {
         "resourceType": "listApprovedSchemas",
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview"
@@ -4640,6 +4654,8 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -4650,6 +4666,8 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -4660,6 +4678,8 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -4670,6 +4690,8 @@
       {
         "resourceType": "pipelines",
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -4680,6 +4702,8 @@
       {
         "resourceType": "validateSchema",
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview"
@@ -21029,20 +21053,9 @@
     "namespace": "Microsoft.DevOpsInfrastructure",
     "resourceTypes": [
       {
-        "resourceType": "Images",
-        "apiVersions": [
-          "2024-04-04-preview"
-        ]
-      },
-      {
-        "resourceType": "Images/Versions",
-        "apiVersions": [
-          "2024-04-04-preview"
-        ]
-      },
-      {
         "resourceType": "Locations",
         "apiVersions": [
+          "2024-10-19",
           "2024-04-04-preview",
           "2024-03-26-preview",
           "2023-12-13-preview",
@@ -21052,6 +21065,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2024-10-19",
           "2024-04-04-preview",
           "2024-03-26-preview",
           "2023-12-13-preview",
@@ -21061,6 +21075,7 @@
       {
         "resourceType": "Locations/Skus",
         "apiVersions": [
+          "2024-10-19",
           "2024-04-04-preview",
           "2024-03-26-preview"
         ]
@@ -21074,6 +21089,7 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2024-10-19",
           "2024-04-04-preview",
           "2024-03-26-preview",
           "2023-12-13-preview",
@@ -21093,8 +21109,23 @@
         ]
       },
       {
+        "resourceType": "images",
+        "apiVersions": [
+          "2024-10-19",
+          "2024-04-04-preview"
+        ]
+      },
+      {
+        "resourceType": "images/versions",
+        "apiVersions": [
+          "2024-10-19",
+          "2024-04-04-preview"
+        ]
+      },
+      {
         "resourceType": "pools",
         "apiVersions": [
+          "2024-10-19",
           "2024-04-04-preview",
           "2024-03-26-preview",
           "2023-12-13-preview",
@@ -21104,6 +21135,7 @@
       {
         "resourceType": "pools/Resources",
         "apiVersions": [
+          "2024-10-19",
           "2024-04-04-preview",
           "2024-03-26-preview"
         ]
@@ -29402,6 +29434,12 @@
           "2022-02-01-preview",
           "2021-10-01",
           "2021-03-01-preview"
+        ]
+      },
+      {
+        "resourceType": "workspaces/capabilityhosts",
+        "apiVersions": [
+          "2024-10-01-preview"
         ]
       },
       {
@@ -56988,6 +57026,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-11-01-preview",
           "2024-09-01-preview",
           "2024-06-01-preview",
           "2024-01-01-preview",
@@ -57001,6 +57040,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2024-11-01-preview",
           "2024-09-01-preview",
           "2024-06-01-preview",
           "2024-01-01-preview",
@@ -57014,6 +57054,7 @@
       {
         "resourceType": "nginxDeployments",
         "apiVersions": [
+          "2024-11-01-preview",
           "2024-09-01-preview",
           "2024-06-01-preview",
           "2024-01-01-preview",
@@ -57040,6 +57081,7 @@
       {
         "resourceType": "nginxDeployments/certificates",
         "apiVersions": [
+          "2024-11-01-preview",
           "2024-09-01-preview",
           "2024-06-01-preview",
           "2024-01-01-preview",
@@ -57053,6 +57095,7 @@
       {
         "resourceType": "nginxDeployments/configurations",
         "apiVersions": [
+          "2024-11-01-preview",
           "2024-09-01-preview",
           "2024-06-01-preview",
           "2024-01-01-preview",
@@ -57066,6 +57109,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-11-01-preview",
           "2024-09-01-preview",
           "2024-06-01-preview",
           "2024-01-01-preview",

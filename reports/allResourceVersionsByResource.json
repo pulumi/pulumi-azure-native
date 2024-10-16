@@ -3497,9 +3497,6 @@
     "EmrCluster": [
       "2024-12-01"
     ],
-    "EmrClusterSummary": [
-      "2024-12-01"
-    ],
     "GuardDutyDetector": [
       "2024-12-01"
     ],
@@ -3618,6 +3615,9 @@
       "2024-12-01"
     ],
     "Route53ResourceRecordSet": [
+      "2024-12-01"
+    ],
+    "S3AccessControlPolicy": [
       "2024-12-01"
     ],
     "S3AccessPoint": [
@@ -8565,19 +8565,23 @@
   },
   "DatabaseWatcher": {
     "AlertRuleResource": [
-      "2024-07-19-preview"
+      "2024-07-19-preview",
+      "2024-10-01-preview"
     ],
     "SharedPrivateLinkResource": [
       "2023-09-01-preview",
-      "2024-07-19-preview"
+      "2024-07-19-preview",
+      "2024-10-01-preview"
     ],
     "Target": [
       "2023-09-01-preview",
-      "2024-07-19-preview"
+      "2024-07-19-preview",
+      "2024-10-01-preview"
     ],
     "Watcher": [
       "2023-09-01-preview",
-      "2024-07-19-preview"
+      "2024-07-19-preview",
+      "2024-10-01-preview"
     ]
   },
   "Databricks": {
@@ -20197,55 +20201,65 @@
       "2020-08-01",
       "2020-10-01",
       "2021-06-01",
-      "2022-10-01"
+      "2022-10-01",
+      "2023-09-01"
     ],
     "DataExport": [
       "2019-08-01-preview",
       "2020-03-01-preview",
-      "2020-08-01"
+      "2020-08-01",
+      "2023-09-01"
     ],
     "DataSource": [
       "2015-11-01-preview",
       "2020-03-01-preview",
-      "2020-08-01"
+      "2020-08-01",
+      "2023-09-01"
     ],
     "LinkedService": [
       "2015-11-01-preview",
       "2019-08-01-preview",
       "2020-03-01-preview",
-      "2020-08-01"
+      "2020-08-01",
+      "2023-09-01"
     ],
     "LinkedStorageAccount": [
       "2019-08-01-preview",
       "2020-03-01-preview",
-      "2020-08-01"
+      "2020-08-01",
+      "2023-09-01"
     ],
     "MachineGroup": [
       "2015-11-01-preview"
     ],
     "Query": [
       "2019-09-01",
-      "2019-09-01-preview"
+      "2019-09-01-preview",
+      "2023-09-01"
     ],
     "QueryPack": [
       "2019-09-01",
-      "2019-09-01-preview"
+      "2019-09-01-preview",
+      "2023-09-01"
     ],
     "SavedSearch": [
       "2015-03-20",
       "2020-03-01-preview",
-      "2020-08-01"
+      "2020-08-01",
+      "2023-09-01"
     ],
     "StorageInsight": [
       "2015-03-20"
     ],
     "StorageInsightConfig": [
       "2020-03-01-preview",
-      "2020-08-01"
+      "2020-08-01",
+      "2023-09-01"
     ],
     "Table": [
       "2021-12-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2023-09-01"
     ],
     "Workspace": [
       "2015-11-01-preview",
@@ -20259,7 +20273,8 @@
     ],
     "getSharedKeys": [
       "2020-03-01-preview",
-      "2020-08-01"
+      "2020-08-01",
+      "2023-09-01"
     ],
     "getWorkspaceSharedKeys": [
       "2015-11-01-preview"
