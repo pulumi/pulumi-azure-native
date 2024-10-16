@@ -14,15 +14,17 @@ import (
 	"os"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // newTokenCredential is the main entry to the new azcore/azidentity-based authenticattion stack. It returns a
 // TokenCredential which can be passed into various Azure Go SDKs.
 func (k *azureNativeProvider) newTokenCredential() (azcore.TokenCredential, error) {
-	authConf, err := k.getAuthConfig3()
+	authConf, err := k.readAuthConfig()
 	if err != nil {
 		return nil, err
 	}
@@ -36,18 +38,31 @@ func (k *azureNativeProvider) newTokenCredential() (azcore.TokenCredential, erro
 // Note: this function's behavior is written to match the behavior of
 // "github.com/hashicorp/go-azure-helpers/authentication".Builder.Build() in some ways, to minimize changes in provider
 // behavior when upgrading authentication dependencies from go-azure-helpers to azidentity. Namely:
-//   - The order in which the the different authentication methods are attempted is the same.
+//   - The order in which the the different authentication methods are attempted is the same:
+//     1. Service Principal with client certificate
+//     2. Service Principal with client secret
+//     3. OIDC
+//     4. Managed Identity
+//     5. Azure CLI
 //   - When a method is configured but instantiating the credential fails, we return an error and do not fall through to
 //     the next method.
 //   - Auxiliary or additional tenants are supported for SP with client secret and CLI authentication, not for others.
 func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
+	baseClientOpts := azcore.ClientOptions{
+		Cloud: authConf.cloud,
+	}
+
 	if authConf.clientCertPath != "" {
 		logging.V(9).Infof("[auth] Using SP with client certificate credential")
 		certs, key, err := readCertificate(authConf.clientCertPath, authConf.clientCertPassword)
 		if err != nil {
 			return nil, err
 		}
-		return azidentity.NewClientCertificateCredential(authConf.tenantId, authConf.clientId, certs, key, nil)
+		options := &azidentity.ClientCertificateCredentialOptions{
+			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+			ClientOptions:              baseClientOpts,
+		}
+		return azidentity.NewClientCertificateCredential(authConf.tenantId, authConf.clientId, certs, key, options)
 	} else {
 		logging.V(9).Infof("SP with client certificate credential is not enabled, skipping")
 	}
@@ -56,6 +71,7 @@ func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCre
 		logging.V(9).Infof("[auth] Using SP with client secret credential")
 		options := &azidentity.ClientSecretCredentialOptions{
 			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+			ClientOptions:              baseClientOpts,
 		}
 		return azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, options)
 	} else {
@@ -71,11 +87,13 @@ func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCre
 
 	if authConf.useMsi {
 		logging.V(9).Infof("[auth] Using Managed Identity (MSI) credential")
-		var msiOpts *azidentity.ManagedIdentityCredentialOptions
-		if authConf.clientId != "" {
-			msiOpts = &azidentity.ManagedIdentityCredentialOptions{ID: azidentity.ClientID(authConf.clientId)}
+		msiOpts := azidentity.ManagedIdentityCredentialOptions{
+			ClientOptions: baseClientOpts,
 		}
-		return azidentity.NewManagedIdentityCredential(msiOpts)
+		if authConf.clientId != "" {
+			msiOpts.ID = azidentity.ClientID(authConf.clientId)
+		}
+		return azidentity.NewManagedIdentityCredential(&msiOpts)
 	} else {
 		logging.V(9).Infof("Managed Identity (MSI) credential is not enabled, skipping")
 	}
@@ -187,7 +205,7 @@ func readCertificate(certPath, certPassword string) ([]*x509.Certificate, crypto
 
 type authConfiguration struct {
 	subscriptionId string
-	cloud          string
+	cloud          azcloud.Configuration
 
 	clientId   string
 	tenantId   string
@@ -208,7 +226,7 @@ type authConfiguration struct {
 }
 
 // getAuthConfig collects auth-related configuration from Pulumi config and environment variables
-func (k *azureNativeProvider) getAuthConfig3() (*authConfiguration, error) {
+func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
 	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
 	var auxTenants []string
 	if auxTenantsString != "" {
@@ -218,17 +236,18 @@ func (k *azureNativeProvider) getAuthConfig3() (*authConfiguration, error) {
 		}
 	}
 
-	envName := k.getConfig("environment", "ARM_ENVIRONMENT")
-	if envName == "" {
-		envName = "public"
+	cloudName := k.getConfig("environment", "ARM_ENVIRONMENT")
+	if cloudName == "" {
+		cloudName = "public"
 	}
+	cloud := azure.GetCloudByName(cloudName)
 
 	return &authConfiguration{
 		subscriptionId:     k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
 		clientId:           k.getConfig("clientId", "ARM_CLIENT_ID"),
 		tenantId:           k.getConfig("tenantId", "ARM_TENANT_ID"),
 		auxTenants:         auxTenants,
-		cloud:              envName,
+		cloud:              cloud,
 		clientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
 		clientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
 		clientCertPassword: k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),

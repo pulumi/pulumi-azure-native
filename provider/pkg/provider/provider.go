@@ -21,7 +21,6 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
@@ -258,18 +257,7 @@ func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenC
 		return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
 	}
 	logging.V(9).Infof("AzureClient: using azCore")
-	return azure.NewAzCoreClient(tokenCred, userAgent, k.getAzureCloud(), nil)
-}
-
-func (k *azureNativeProvider) getAzureCloud() cloud.Configuration {
-	switch k.environment.Name {
-	case azureEnv.ChinaCloud.Name:
-		return cloud.AzureChina
-	case azureEnv.USGovernmentCloud.Name:
-		return cloud.AzureGovernment
-	default:
-		return cloud.AzurePublic
-	}
+	return azure.NewAzCoreClient(tokenCred, userAgent, azure.GetCloudByName(k.environment.Name), nil)
 }
 
 // Invoke dynamically executes a built-in function in the provider.
