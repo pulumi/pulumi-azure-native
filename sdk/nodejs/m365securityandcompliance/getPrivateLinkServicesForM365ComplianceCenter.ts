@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateLinkServicesForM365ComplianceCenter(args: GetPrivateLinkServicesForM365ComplianceCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForM365ComplianceCenterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:m365securityandcompliance:getPrivateLinkServicesForM365ComplianceCenter", {
         "resourceGroupName": args.resourceGroupName,
@@ -81,7 +80,11 @@ export interface GetPrivateLinkServicesForM365ComplianceCenterResult {
  * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateLinkServicesForM365ComplianceCenterOutput(args: GetPrivateLinkServicesForM365ComplianceCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForM365ComplianceCenterResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkServicesForM365ComplianceCenter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:m365securityandcompliance:getPrivateLinkServicesForM365ComplianceCenter", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetPrivateLinkServicesForM365ComplianceCenterOutputArgs {

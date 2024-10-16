@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a RedshiftCluster
  */
 export function getRedshiftCluster(args: GetRedshiftClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetRedshiftClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getRedshiftCluster", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetRedshiftClusterResult {
  * Get a RedshiftCluster
  */
 export function getRedshiftClusterOutput(args: GetRedshiftClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedshiftClusterResult> {
-    return pulumi.output(args).apply((a: any) => getRedshiftCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRedshiftCluster", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRedshiftClusterOutputArgs {

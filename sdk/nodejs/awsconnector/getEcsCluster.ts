@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEcsCluster(args: GetEcsClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetEcsClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEcsCluster", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEcsClusterResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEcsClusterOutput(args: GetEcsClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcsClusterResult> {
-    return pulumi.output(args).apply((a: any) => getEcsCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEcsCluster", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEcsClusterOutputArgs {

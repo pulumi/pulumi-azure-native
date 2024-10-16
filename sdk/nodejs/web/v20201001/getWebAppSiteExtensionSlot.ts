@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get site extension information by its ID for a web site, or a deployment slot.
  */
 export function getWebAppSiteExtensionSlot(args: GetWebAppSiteExtensionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20201001:getWebAppSiteExtensionSlot", {
         "name": args.name,
@@ -146,7 +145,13 @@ export interface GetWebAppSiteExtensionSlotResult {
  * Get site extension information by its ID for a web site, or a deployment slot.
  */
 export function getWebAppSiteExtensionSlotOutput(args: GetWebAppSiteExtensionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteExtensionSlotResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppSiteExtensionSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20201001:getWebAppSiteExtensionSlot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "siteExtensionId": args.siteExtensionId,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface GetWebAppSiteExtensionSlotOutputArgs {

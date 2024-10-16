@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a SolutionConfiguration
  */
 export function getSolutionConfiguration(args: GetSolutionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridconnectivity/v20241201:getSolutionConfiguration", {
         "resourceUri": args.resourceUri,
@@ -59,7 +58,11 @@ export interface GetSolutionConfigurationResult {
  * Get a SolutionConfiguration
  */
 export function getSolutionConfigurationOutput(args: GetSolutionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getSolutionConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity/v20241201:getSolutionConfiguration", {
+        "resourceUri": args.resourceUri,
+        "solutionConfiguration": args.solutionConfiguration,
+    }, opts);
 }
 
 export interface GetSolutionConfigurationOutputArgs {

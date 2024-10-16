@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List users success response
  */
 export function listAccessUsers(args: ListAccessUsersArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessUsersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:confluent/v20230822:listAccessUsers", {
         "organizationName": args.organizationName,
@@ -56,7 +55,12 @@ export interface ListAccessUsersResult {
  * List users success response
  */
 export function listAccessUsersOutput(args: ListAccessUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessUsersResult> {
-    return pulumi.output(args).apply((a: any) => listAccessUsers(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:confluent/v20230822:listAccessUsers", {
+        "organizationName": args.organizationName,
+        "resourceGroupName": args.resourceGroupName,
+        "searchFilters": args.searchFilters,
+    }, opts);
 }
 
 export interface ListAccessUsersOutputArgs {

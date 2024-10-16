@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Content Key Policy including secret values
  */
 export function getContentKeyPolicyPropertiesWithSecrets(args: GetContentKeyPolicyPropertiesWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetContentKeyPolicyPropertiesWithSecretsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:media/v20230101:getContentKeyPolicyPropertiesWithSecrets", {
         "accountName": args.accountName,
@@ -64,7 +63,12 @@ export interface GetContentKeyPolicyPropertiesWithSecretsResult {
  * Get a Content Key Policy including secret values
  */
 export function getContentKeyPolicyPropertiesWithSecretsOutput(args: GetContentKeyPolicyPropertiesWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentKeyPolicyPropertiesWithSecretsResult> {
-    return pulumi.output(args).apply((a: any) => getContentKeyPolicyPropertiesWithSecrets(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:media/v20230101:getContentKeyPolicyPropertiesWithSecrets", {
+        "accountName": args.accountName,
+        "contentKeyPolicyName": args.contentKeyPolicyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetContentKeyPolicyPropertiesWithSecretsOutputArgs {

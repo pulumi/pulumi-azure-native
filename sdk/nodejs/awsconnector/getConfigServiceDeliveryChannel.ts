@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getConfigServiceDeliveryChannel(args: GetConfigServiceDeliveryChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigServiceDeliveryChannelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getConfigServiceDeliveryChannel", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetConfigServiceDeliveryChannelResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getConfigServiceDeliveryChannelOutput(args: GetConfigServiceDeliveryChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServiceDeliveryChannelResult> {
-    return pulumi.output(args).apply((a: any) => getConfigServiceDeliveryChannel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getConfigServiceDeliveryChannel", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetConfigServiceDeliveryChannelOutputArgs {

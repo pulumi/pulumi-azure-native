@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a RdsDBSnapshotAttributesResult
  */
 export function getRdsDbSnapshotAttributesResult(args: GetRdsDbSnapshotAttributesResultArgs, opts?: pulumi.InvokeOptions): Promise<GetRdsDbSnapshotAttributesResultResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getRdsDbSnapshotAttributesResult", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetRdsDbSnapshotAttributesResultResult {
  * Get a RdsDBSnapshotAttributesResult
  */
 export function getRdsDbSnapshotAttributesResultOutput(args: GetRdsDbSnapshotAttributesResultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsDbSnapshotAttributesResultResult> {
-    return pulumi.output(args).apply((a: any) => getRdsDbSnapshotAttributesResult(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRdsDbSnapshotAttributesResult", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRdsDbSnapshotAttributesResultOutputArgs {

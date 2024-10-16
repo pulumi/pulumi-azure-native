@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01.
  */
 export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp:getSnapshotPolicy", {
         "accountName": args.accountName,
@@ -102,7 +101,12 @@ export interface GetSnapshotPolicyResult {
  * Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01.
  */
 export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getSnapshotPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:netapp:getSnapshotPolicy", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+        "snapshotPolicyName": args.snapshotPolicyName,
+    }, opts);
 }
 
 export interface GetSnapshotPolicyOutputArgs {

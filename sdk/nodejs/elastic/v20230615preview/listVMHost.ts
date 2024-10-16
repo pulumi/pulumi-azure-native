@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Response of a list operation.
  */
 export function listVMHost(args: ListVMHostArgs, opts?: pulumi.InvokeOptions): Promise<ListVMHostResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic/v20230615preview:listVMHost", {
         "monitorName": args.monitorName,
@@ -47,7 +46,11 @@ export interface ListVMHostResult {
  * Response of a list operation.
  */
 export function listVMHostOutput(args: ListVMHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVMHostResult> {
-    return pulumi.output(args).apply((a: any) => listVMHost(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:elastic/v20230615preview:listVMHost", {
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListVMHostOutputArgs {

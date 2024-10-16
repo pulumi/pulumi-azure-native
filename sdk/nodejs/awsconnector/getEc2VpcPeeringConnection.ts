@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2VpcPeeringConnection(args: GetEc2VpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2VpcPeeringConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEc2VpcPeeringConnection", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEc2VpcPeeringConnectionResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2VpcPeeringConnectionOutput(args: GetEc2VpcPeeringConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2VpcPeeringConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getEc2VpcPeeringConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2VpcPeeringConnection", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2VpcPeeringConnectionOutputArgs {

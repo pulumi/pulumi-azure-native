@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-01.
  */
 export function getBillingRoleAssignmentByDepartment(args: GetBillingRoleAssignmentByDepartmentArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingRoleAssignmentByDepartmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:billing:getBillingRoleAssignmentByDepartment", {
         "billingAccountName": args.billingAccountName,
@@ -99,7 +98,12 @@ export interface GetBillingRoleAssignmentByDepartmentResult {
  * Other available API versions: 2024-04-01.
  */
 export function getBillingRoleAssignmentByDepartmentOutput(args: GetBillingRoleAssignmentByDepartmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingRoleAssignmentByDepartmentResult> {
-    return pulumi.output(args).apply((a: any) => getBillingRoleAssignmentByDepartment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:billing:getBillingRoleAssignmentByDepartment", {
+        "billingAccountName": args.billingAccountName,
+        "billingRoleAssignmentName": args.billingRoleAssignmentName,
+        "departmentName": args.departmentName,
+    }, opts);
 }
 
 export interface GetBillingRoleAssignmentByDepartmentOutputArgs {

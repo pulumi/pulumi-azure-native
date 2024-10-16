@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2019-09-01-preview.
  */
 export function getQuery(args: GetQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationalinsights:getQuery", {
         "id": args.id,
@@ -102,7 +101,12 @@ export interface GetQueryResult {
  * Other available API versions: 2019-09-01-preview.
  */
 export function getQueryOutput(args: GetQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryResult> {
-    return pulumi.output(args).apply((a: any) => getQuery(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getQuery", {
+        "id": args.id,
+        "queryPackName": args.queryPackName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetQueryOutputArgs {

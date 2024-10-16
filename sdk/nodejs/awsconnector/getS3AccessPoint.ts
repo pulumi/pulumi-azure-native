@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getS3AccessPoint(args: GetS3AccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetS3AccessPointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getS3AccessPoint", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetS3AccessPointResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getS3AccessPointOutput(args: GetS3AccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetS3AccessPointResult> {
-    return pulumi.output(args).apply((a: any) => getS3AccessPoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getS3AccessPoint", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetS3AccessPointOutputArgs {

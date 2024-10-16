@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets specific OpenID Connect Provider without secrets.
  */
 export function getOpenIdConnectProvider(args: GetOpenIdConnectProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenIdConnectProviderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getOpenIdConnectProvider", {
         "opid": args.opid,
@@ -81,7 +80,12 @@ export interface GetOpenIdConnectProviderResult {
  * Gets specific OpenID Connect Provider without secrets.
  */
 export function getOpenIdConnectProviderOutput(args: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
-    return pulumi.output(args).apply((a: any) => getOpenIdConnectProvider(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220801:getOpenIdConnectProvider", {
+        "opid": args.opid,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetOpenIdConnectProviderOutputArgs {

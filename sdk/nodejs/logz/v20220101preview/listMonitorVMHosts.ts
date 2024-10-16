@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Response of a list VM Host Update Operation.
  */
 export function listMonitorVMHosts(args: ListMonitorVMHostsArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorVMHostsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logz/v20220101preview:listMonitorVMHosts", {
         "monitorName": args.monitorName,
@@ -47,7 +46,11 @@ export interface ListMonitorVMHostsResult {
  * Response of a list VM Host Update Operation.
  */
 export function listMonitorVMHostsOutput(args: ListMonitorVMHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorVMHostsResult> {
-    return pulumi.output(args).apply((a: any) => listMonitorVMHosts(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:logz/v20220101preview:listMonitorVMHosts", {
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListMonitorVMHostsOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2Instance(args: GetEc2InstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2InstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEc2Instance", {
         "resourceUri": args.resourceUri,
@@ -56,7 +55,10 @@ export interface GetEc2InstanceResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2InstanceOutput(args: GetEc2InstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2InstanceResult> {
-    return pulumi.output(args).apply((a: any) => getEc2Instance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Instance", {
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetEc2InstanceOutputArgs {

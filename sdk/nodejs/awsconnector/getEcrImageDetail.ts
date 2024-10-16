@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEcrImageDetail(args: GetEcrImageDetailArgs, opts?: pulumi.InvokeOptions): Promise<GetEcrImageDetailResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEcrImageDetail", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEcrImageDetailResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEcrImageDetailOutput(args: GetEcrImageDetailOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcrImageDetailResult> {
-    return pulumi.output(args).apply((a: any) => getEcrImageDetail(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEcrImageDetail", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEcrImageDetailOutputArgs {

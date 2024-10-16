@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getS3BucketPolicy(args: GetS3BucketPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetS3BucketPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getS3BucketPolicy", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetS3BucketPolicyResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getS3BucketPolicyOutput(args: GetS3BucketPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetS3BucketPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getS3BucketPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getS3BucketPolicy", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetS3BucketPolicyOutputArgs {

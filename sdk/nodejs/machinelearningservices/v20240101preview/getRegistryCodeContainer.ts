@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getRegistryCodeContainer(args: GetRegistryCodeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryCodeContainerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240101preview:getRegistryCodeContainer", {
         "codeName": args.codeName,
@@ -64,7 +63,12 @@ export interface GetRegistryCodeContainerResult {
  * Azure Resource Manager resource envelope.
  */
 export function getRegistryCodeContainerOutput(args: GetRegistryCodeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryCodeContainerResult> {
-    return pulumi.output(args).apply((a: any) => getRegistryCodeContainer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240101preview:getRegistryCodeContainer", {
+        "codeName": args.codeName,
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRegistryCodeContainerOutputArgs {

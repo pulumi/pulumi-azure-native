@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a SqsQueue
  */
 export function getSqsQueue(args: GetSqsQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetSqsQueueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getSqsQueue", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetSqsQueueResult {
  * Get a SqsQueue
  */
 export function getSqsQueueOutput(args: GetSqsQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqsQueueResult> {
-    return pulumi.output(args).apply((a: any) => getSqsQueue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getSqsQueue", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSqsQueueOutputArgs {

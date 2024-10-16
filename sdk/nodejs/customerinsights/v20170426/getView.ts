@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a view in the hub.
  */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170426:getView", {
         "hubName": args.hubName,
@@ -86,7 +85,13 @@ export interface GetViewResult {
  * Gets a view in the hub.
  */
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
-    return pulumi.output(args).apply((a: any) => getView(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getView", {
+        "hubName": args.hubName,
+        "resourceGroupName": args.resourceGroupName,
+        "userId": args.userId,
+        "viewName": args.viewName,
+    }, opts);
 }
 
 export interface GetViewOutputArgs {

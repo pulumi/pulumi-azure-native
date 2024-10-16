@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets the ISV access token for a SaaS resource.
  */
 export function listSaasResourceAccessToken(args: ListSaasResourceAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListSaasResourceAccessTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:saas/v20180301beta:listSaasResourceAccessToken", {
         "resourceId": args.resourceId,
@@ -39,7 +38,10 @@ export interface ListSaasResourceAccessTokenResult {
  * Gets the ISV access token for a SaaS resource.
  */
 export function listSaasResourceAccessTokenOutput(args: ListSaasResourceAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSaasResourceAccessTokenResult> {
-    return pulumi.output(args).apply((a: any) => listSaasResourceAccessToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:saas/v20180301beta:listSaasResourceAccessToken", {
+        "resourceId": args.resourceId,
+    }, opts);
 }
 
 export interface ListSaasResourceAccessTokenOutputArgs {

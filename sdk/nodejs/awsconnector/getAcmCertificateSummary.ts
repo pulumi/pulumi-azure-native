@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getAcmCertificateSummary(args: GetAcmCertificateSummaryArgs, opts?: pulumi.InvokeOptions): Promise<GetAcmCertificateSummaryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getAcmCertificateSummary", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetAcmCertificateSummaryResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getAcmCertificateSummaryOutput(args: GetAcmCertificateSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcmCertificateSummaryResult> {
-    return pulumi.output(args).apply((a: any) => getAcmCertificateSummary(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getAcmCertificateSummary", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAcmCertificateSummaryOutputArgs {

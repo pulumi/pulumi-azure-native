@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-08-01.
  */
 export function getMoveCollection(args: GetMoveCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveCollectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getMoveCollection", {
         "moveCollectionName": args.moveCollectionName,
@@ -81,7 +80,11 @@ export interface GetMoveCollectionResult {
  * Other available API versions: 2023-08-01.
  */
 export function getMoveCollectionOutput(args: GetMoveCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveCollectionResult> {
-    return pulumi.output(args).apply((a: any) => getMoveCollection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate:getMoveCollection", {
+        "moveCollectionName": args.moveCollectionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMoveCollectionOutputArgs {

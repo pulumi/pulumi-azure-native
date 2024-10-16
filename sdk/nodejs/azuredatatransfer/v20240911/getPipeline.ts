@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets pipeline resource.
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer/v20240911:getPipeline", {
         "pipelineName": args.pipelineName,
@@ -67,7 +66,11 @@ export interface GetPipelineResult {
  * Gets pipeline resource.
  */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
-    return pulumi.output(args).apply((a: any) => getPipeline(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20240911:getPipeline", {
+        "pipelineName": args.pipelineName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPipelineOutputArgs {

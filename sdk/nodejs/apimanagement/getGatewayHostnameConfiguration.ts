@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getGatewayHostnameConfiguration(args: GetGatewayHostnameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostnameConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getGatewayHostnameConfiguration", {
         "gatewayId": args.gatewayId,
@@ -88,7 +87,13 @@ export interface GetGatewayHostnameConfigurationResult {
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getGatewayHostnameConfigurationOutput(args: GetGatewayHostnameConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayHostnameConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getGatewayHostnameConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getGatewayHostnameConfiguration", {
+        "gatewayId": args.gatewayId,
+        "hcId": args.hcId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetGatewayHostnameConfigurationOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2RouteTable(args: GetEc2RouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2RouteTableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEc2RouteTable", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEc2RouteTableResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2RouteTableOutput(args: GetEc2RouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2RouteTableResult> {
-    return pulumi.output(args).apply((a: any) => getEc2RouteTable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2RouteTable", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2RouteTableOutputArgs {

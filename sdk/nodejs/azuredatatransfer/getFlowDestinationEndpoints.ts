@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-09-27.
  */
 export function getFlowDestinationEndpoints(args: GetFlowDestinationEndpointsArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowDestinationEndpointsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer:getFlowDestinationEndpoints", {
         "connectionName": args.connectionName,
@@ -47,7 +46,12 @@ export interface GetFlowDestinationEndpointsResult {
  * Azure REST API version: 2024-09-27.
  */
 export function getFlowDestinationEndpointsOutput(args: GetFlowDestinationEndpointsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowDestinationEndpointsResult> {
-    return pulumi.output(args).apply((a: any) => getFlowDestinationEndpoints(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:getFlowDestinationEndpoints", {
+        "connectionName": args.connectionName,
+        "flowName": args.flowName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFlowDestinationEndpointsOutputArgs {

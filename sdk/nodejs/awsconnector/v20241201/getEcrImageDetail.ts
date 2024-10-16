@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a EcrImageDetail
  */
 export function getEcrImageDetail(args: GetEcrImageDetailArgs, opts?: pulumi.InvokeOptions): Promise<GetEcrImageDetailResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEcrImageDetail", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEcrImageDetailResult {
  * Get a EcrImageDetail
  */
 export function getEcrImageDetailOutput(args: GetEcrImageDetailOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcrImageDetailResult> {
-    return pulumi.output(args).apply((a: any) => getEcrImageDetail(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEcrImageDetail", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEcrImageDetailOutputArgs {

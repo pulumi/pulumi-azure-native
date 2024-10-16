@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getSsmResourceComplianceSummaryItem(args: GetSsmResourceComplianceSummaryItemArgs, opts?: pulumi.InvokeOptions): Promise<GetSsmResourceComplianceSummaryItemResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getSsmResourceComplianceSummaryItem", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetSsmResourceComplianceSummaryItemResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getSsmResourceComplianceSummaryItemOutput(args: GetSsmResourceComplianceSummaryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSsmResourceComplianceSummaryItemResult> {
-    return pulumi.output(args).apply((a: any) => getSsmResourceComplianceSummaryItem(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getSsmResourceComplianceSummaryItem", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSsmResourceComplianceSummaryItemOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets details of a migration.
  */
 export function getMigration(args: GetMigrationArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20240801:getMigration", {
         "migrationName": args.migrationName,
@@ -169,7 +168,13 @@ export interface GetMigrationResult {
  * Gets details of a migration.
  */
 export function getMigrationOutput(args: GetMigrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationResult> {
-    return pulumi.output(args).apply((a: any) => getMigration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20240801:getMigration", {
+        "migrationName": args.migrationName,
+        "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
+        "targetDbServerName": args.targetDbServerName,
+    }, opts);
 }
 
 export interface GetMigrationOutputArgs {

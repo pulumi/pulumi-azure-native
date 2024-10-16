@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Ec2FlowLog
  */
 export function getEc2FlowLog(args: GetEc2FlowLogArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2FlowLogResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEc2FlowLog", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEc2FlowLogResult {
  * Get a Ec2FlowLog
  */
 export function getEc2FlowLogOutput(args: GetEc2FlowLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2FlowLogResult> {
-    return pulumi.output(args).apply((a: any) => getEc2FlowLog(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2FlowLog", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2FlowLogOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getModelContainer(args: GetModelContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetModelContainerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230401:getModelContainer", {
         "name": args.name,
@@ -64,7 +63,12 @@ export interface GetModelContainerResult {
  * Azure Resource Manager resource envelope.
  */
 export function getModelContainerOutput(args: GetModelContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelContainerResult> {
-    return pulumi.output(args).apply((a: any) => getModelContainer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230401:getModelContainer", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetModelContainerOutputArgs {

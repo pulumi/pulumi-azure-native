@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a markup rule by its rule name.
  */
 export function getMarkupRule(args: GetMarkupRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMarkupRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement/v20221005preview:getMarkupRule", {
         "billingAccountId": args.billingAccountId,
@@ -80,7 +79,12 @@ export interface GetMarkupRuleResult {
  * Get a markup rule by its rule name.
  */
 export function getMarkupRuleOutput(args: GetMarkupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarkupRuleResult> {
-    return pulumi.output(args).apply((a: any) => getMarkupRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20221005preview:getMarkupRule", {
+        "billingAccountId": args.billingAccountId,
+        "billingProfileId": args.billingProfileId,
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetMarkupRuleOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getDatabaseMigrationServiceReplicationInstance(args: GetDatabaseMigrationServiceReplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseMigrationServiceReplicationInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getDatabaseMigrationServiceReplicationInstance", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetDatabaseMigrationServiceReplicationInstanceResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getDatabaseMigrationServiceReplicationInstanceOutput(args: GetDatabaseMigrationServiceReplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseMigrationServiceReplicationInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getDatabaseMigrationServiceReplicationInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getDatabaseMigrationServiceReplicationInstance", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDatabaseMigrationServiceReplicationInstanceOutputArgs {

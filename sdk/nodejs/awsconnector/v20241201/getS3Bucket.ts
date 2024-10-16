@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a S3Bucket
  */
 export function getS3Bucket(args: GetS3BucketArgs, opts?: pulumi.InvokeOptions): Promise<GetS3BucketResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getS3Bucket", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetS3BucketResult {
  * Get a S3Bucket
  */
 export function getS3BucketOutput(args: GetS3BucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetS3BucketResult> {
-    return pulumi.output(args).apply((a: any) => getS3Bucket(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getS3Bucket", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetS3BucketOutputArgs {

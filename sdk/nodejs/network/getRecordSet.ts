@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2015-05-04-preview, 2016-04-01, 2023-07-01-preview.
  */
 export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getRecordSet", {
         "recordType": args.recordType,
@@ -131,7 +130,13 @@ export interface GetRecordSetResult {
  * Other available API versions: 2015-05-04-preview, 2016-04-01, 2023-07-01-preview.
  */
 export function getRecordSetOutput(args: GetRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetResult> {
-    return pulumi.output(args).apply((a: any) => getRecordSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network:getRecordSet", {
+        "recordType": args.recordType,
+        "relativeRecordSetName": args.relativeRecordSetName,
+        "resourceGroupName": args.resourceGroupName,
+        "zoneName": args.zoneName,
+    }, opts);
 }
 
 export interface GetRecordSetOutputArgs {

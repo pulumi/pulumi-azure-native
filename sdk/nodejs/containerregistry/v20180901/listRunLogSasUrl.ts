@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a link to download the run logs.
  */
 export function listRunLogSasUrl(args: ListRunLogSasUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListRunLogSasUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerregistry/v20180901:listRunLogSasUrl", {
         "registryName": args.registryName,
@@ -45,7 +44,12 @@ export interface ListRunLogSasUrlResult {
  * Gets a link to download the run logs.
  */
 export function listRunLogSasUrlOutput(args: ListRunLogSasUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRunLogSasUrlResult> {
-    return pulumi.output(args).apply((a: any) => listRunLogSasUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20180901:listRunLogSasUrl", {
+        "registryName": args.registryName,
+        "resourceGroupName": args.resourceGroupName,
+        "runId": args.runId,
+    }, opts);
 }
 
 export interface ListRunLogSasUrlOutputArgs {

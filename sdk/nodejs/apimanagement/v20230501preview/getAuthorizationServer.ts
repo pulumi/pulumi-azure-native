@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the authorization server specified by its identifier.
  */
 export function getAuthorizationServer(args: GetAuthorizationServerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationServerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230501preview:getAuthorizationServer", {
         "authsid": args.authsid,
@@ -128,7 +127,12 @@ export interface GetAuthorizationServerResult {
  * Gets the details of the authorization server specified by its identifier.
  */
 export function getAuthorizationServerOutput(args: GetAuthorizationServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationServerResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorizationServer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getAuthorizationServer", {
+        "authsid": args.authsid,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetAuthorizationServerOutputArgs {

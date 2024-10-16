@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a OrganizationsOrganization
  */
 export function getOrganizationsOrganization(args: GetOrganizationsOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationsOrganizationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getOrganizationsOrganization", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetOrganizationsOrganizationResult {
  * Get a OrganizationsOrganization
  */
 export function getOrganizationsOrganizationOutput(args: GetOrganizationsOrganizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationsOrganizationResult> {
-    return pulumi.output(args).apply((a: any) => getOrganizationsOrganization(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getOrganizationsOrganization", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetOrganizationsOrganizationOutputArgs {

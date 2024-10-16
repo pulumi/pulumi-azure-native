@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-03-01-preview.
  */
 export function getBackupLongTermRetentionPolicy(args: GetBackupLongTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupLongTermRetentionPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql:getBackupLongTermRetentionPolicy", {
         "databaseName": args.databaseName,
@@ -76,7 +75,13 @@ export interface GetBackupLongTermRetentionPolicyResult {
  * Azure REST API version: 2017-03-01-preview.
  */
 export function getBackupLongTermRetentionPolicyOutput(args: GetBackupLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupLongTermRetentionPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBackupLongTermRetentionPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:sql:getBackupLongTermRetentionPolicy", {
+        "databaseName": args.databaseName,
+        "policyName": args.policyName,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 export interface GetBackupLongTermRetentionPolicyOutputArgs {

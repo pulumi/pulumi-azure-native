@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Description for Gets a hybrid connection configuration by its name.
  */
 export function getWebAppRelayServiceConnection(args: GetWebAppRelayServiceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20230101:getWebAppRelayServiceConnection", {
         "entityName": args.entityName,
@@ -64,7 +63,12 @@ export interface GetWebAppRelayServiceConnectionResult {
  * Description for Gets a hybrid connection configuration by its name.
  */
 export function getWebAppRelayServiceConnectionOutput(args: GetWebAppRelayServiceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppRelayServiceConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getWebAppRelayServiceConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20230101:getWebAppRelayServiceConnection", {
+        "entityName": args.entityName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWebAppRelayServiceConnectionOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a EfsFileSystem
  */
 export function getEfsFileSystem(args: GetEfsFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetEfsFileSystemResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEfsFileSystem", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEfsFileSystemResult {
  * Get a EfsFileSystem
  */
 export function getEfsFileSystemOutput(args: GetEfsFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEfsFileSystemResult> {
-    return pulumi.output(args).apply((a: any) => getEfsFileSystem(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEfsFileSystem", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEfsFileSystemOutputArgs {

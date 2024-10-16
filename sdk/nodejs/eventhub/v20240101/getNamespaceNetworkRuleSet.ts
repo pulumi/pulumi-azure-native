@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets NetworkRuleSet for a Namespace.
  */
 export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceNetworkRuleSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20240101:getNamespaceNetworkRuleSet", {
         "namespaceName": args.namespaceName,
@@ -79,7 +78,11 @@ export interface GetNamespaceNetworkRuleSetResult {
  * Gets NetworkRuleSet for a Namespace.
  */
 export function getNamespaceNetworkRuleSetOutput(args: GetNamespaceNetworkRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceNetworkRuleSetResult> {
-    return pulumi.output(args).apply((a: any) => getNamespaceNetworkRuleSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventhub/v20240101:getNamespaceNetworkRuleSet", {
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNamespaceNetworkRuleSetOutputArgs {

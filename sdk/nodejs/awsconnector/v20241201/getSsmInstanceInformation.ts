@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a SsmInstanceInformation
  */
 export function getSsmInstanceInformation(args: GetSsmInstanceInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetSsmInstanceInformationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getSsmInstanceInformation", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetSsmInstanceInformationResult {
  * Get a SsmInstanceInformation
  */
 export function getSsmInstanceInformationOutput(args: GetSsmInstanceInformationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSsmInstanceInformationResult> {
-    return pulumi.output(args).apply((a: any) => getSsmInstanceInformation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getSsmInstanceInformation", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSsmInstanceInformationOutputArgs {

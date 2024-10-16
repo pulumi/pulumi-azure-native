@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2SecurityGroup(args: GetEc2SecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2SecurityGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEc2SecurityGroup", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEc2SecurityGroupResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2SecurityGroupOutput(args: GetEc2SecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2SecurityGroupResult> {
-    return pulumi.output(args).apply((a: any) => getEc2SecurityGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2SecurityGroup", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2SecurityGroupOutputArgs {

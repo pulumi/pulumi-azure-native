@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Route53ResourceRecordSet
  */
 export function getRoute53ResourceRecordSet(args: GetRoute53ResourceRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRoute53ResourceRecordSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getRoute53ResourceRecordSet", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetRoute53ResourceRecordSetResult {
  * Get a Route53ResourceRecordSet
  */
 export function getRoute53ResourceRecordSetOutput(args: GetRoute53ResourceRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoute53ResourceRecordSetResult> {
-    return pulumi.output(args).apply((a: any) => getRoute53ResourceRecordSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRoute53ResourceRecordSet", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRoute53ResourceRecordSetOutputArgs {

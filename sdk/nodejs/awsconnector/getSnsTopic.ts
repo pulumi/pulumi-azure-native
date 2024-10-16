@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getSnsTopic(args: GetSnsTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSnsTopicResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getSnsTopic", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetSnsTopicResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getSnsTopicOutput(args: GetSnsTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnsTopicResult> {
-    return pulumi.output(args).apply((a: any) => getSnsTopic(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getSnsTopic", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSnsTopicOutputArgs {

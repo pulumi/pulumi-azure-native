@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getElasticLoadBalancingv2TargetHealthDescription(args: GetElasticLoadBalancingv2TargetHealthDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticLoadBalancingv2TargetHealthDescriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getElasticLoadBalancingv2TargetHealthDescription", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetElasticLoadBalancingv2TargetHealthDescriptionResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getElasticLoadBalancingv2TargetHealthDescriptionOutput(args: GetElasticLoadBalancingv2TargetHealthDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticLoadBalancingv2TargetHealthDescriptionResult> {
-    return pulumi.output(args).apply((a: any) => getElasticLoadBalancingv2TargetHealthDescription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getElasticLoadBalancingv2TargetHealthDescription", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetElasticLoadBalancingv2TargetHealthDescriptionOutputArgs {

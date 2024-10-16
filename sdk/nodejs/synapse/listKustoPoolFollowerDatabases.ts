@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-06-01-preview.
  */
 export function listKustoPoolFollowerDatabases(args: ListKustoPoolFollowerDatabasesArgs, opts?: pulumi.InvokeOptions): Promise<ListKustoPoolFollowerDatabasesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:synapse:listKustoPoolFollowerDatabases", {
         "kustoPoolName": args.kustoPoolName,
@@ -50,7 +49,12 @@ export interface ListKustoPoolFollowerDatabasesResult {
  * Azure REST API version: 2021-06-01-preview.
  */
 export function listKustoPoolFollowerDatabasesOutput(args: ListKustoPoolFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolFollowerDatabasesResult> {
-    return pulumi.output(args).apply((a: any) => listKustoPoolFollowerDatabases(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:synapse:listKustoPoolFollowerDatabases", {
+        "kustoPoolName": args.kustoPoolName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface ListKustoPoolFollowerDatabasesOutputArgs {

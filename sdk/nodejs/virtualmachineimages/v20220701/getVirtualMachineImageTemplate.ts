@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get information about a virtual machine image template
  */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:virtualmachineimages/v20220701:getVirtualMachineImageTemplate", {
         "imageTemplateName": args.imageTemplateName,
@@ -115,7 +114,11 @@ export interface GetVirtualMachineImageTemplateResult {
  * Get information about a virtual machine image template
  */
 export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachineImageTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:virtualmachineimages/v20220701:getVirtualMachineImageTemplate", {
+        "imageTemplateName": args.imageTemplateName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetVirtualMachineImageTemplateOutputArgs {

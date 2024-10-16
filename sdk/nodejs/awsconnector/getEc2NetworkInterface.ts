@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2NetworkInterface(args: GetEc2NetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2NetworkInterfaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEc2NetworkInterface", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEc2NetworkInterfaceResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2NetworkInterfaceOutput(args: GetEc2NetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2NetworkInterfaceResult> {
-    return pulumi.output(args).apply((a: any) => getEc2NetworkInterface(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2NetworkInterface", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2NetworkInterfaceOutputArgs {

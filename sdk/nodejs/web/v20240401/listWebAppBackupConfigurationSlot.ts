@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Description for Gets the backup configuration of an app.
  */
 export function listWebAppBackupConfigurationSlot(args: ListWebAppBackupConfigurationSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupConfigurationSlotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:web/v20240401:listWebAppBackupConfigurationSlot", {
         "name": args.name,
@@ -80,7 +79,12 @@ export interface ListWebAppBackupConfigurationSlotResult {
  * Description for Gets the backup configuration of an app.
  */
 export function listWebAppBackupConfigurationSlotOutput(args: ListWebAppBackupConfigurationSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupConfigurationSlotResult> {
-    return pulumi.output(args).apply((a: any) => listWebAppBackupConfigurationSlot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:web/v20240401:listWebAppBackupConfigurationSlot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "slot": args.slot,
+    }, opts);
 }
 
 export interface ListWebAppBackupConfigurationSlotOutputArgs {

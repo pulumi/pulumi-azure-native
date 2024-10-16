@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2Address(args: GetEc2AddressArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2AddressResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEc2Address", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEc2AddressResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2AddressOutput(args: GetEc2AddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2AddressResult> {
-    return pulumi.output(args).apply((a: any) => getEc2Address(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Address", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2AddressOutputArgs {

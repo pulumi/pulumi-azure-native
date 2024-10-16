@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-04-01.
  */
 export function listControllerConnectionDetails(args: ListControllerConnectionDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListControllerConnectionDetailsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devspaces:listControllerConnectionDetails", {
         "name": args.name,
@@ -47,7 +46,12 @@ export interface ListControllerConnectionDetailsResult {
  * Azure REST API version: 2019-04-01.
  */
 export function listControllerConnectionDetailsOutput(args: ListControllerConnectionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListControllerConnectionDetailsResult> {
-    return pulumi.output(args).apply((a: any) => listControllerConnectionDetails(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devspaces:listControllerConnectionDetails", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "targetContainerHostResourceId": args.targetContainerHostResourceId,
+    }, opts);
 }
 
 export interface ListControllerConnectionDetailsOutputArgs {

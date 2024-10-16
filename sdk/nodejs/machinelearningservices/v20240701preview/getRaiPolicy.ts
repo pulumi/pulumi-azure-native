@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Azure OpenAI Content Filters resource.
  */
 export function getRaiPolicy(args: GetRaiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRaiPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20240701preview:getRaiPolicy", {
         "endpointName": args.endpointName,
@@ -69,7 +68,13 @@ export interface GetRaiPolicyResult {
  * Azure OpenAI Content Filters resource.
  */
 export function getRaiPolicyOutput(args: GetRaiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getRaiPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240701preview:getRaiPolicy", {
+        "endpointName": args.endpointName,
+        "raiPolicyName": args.raiPolicyName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetRaiPolicyOutputArgs {

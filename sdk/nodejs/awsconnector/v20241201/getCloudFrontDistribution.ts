@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a CloudFrontDistribution
  */
 export function getCloudFrontDistribution(args: GetCloudFrontDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFrontDistributionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getCloudFrontDistribution", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetCloudFrontDistributionResult {
  * Get a CloudFrontDistribution
  */
 export function getCloudFrontDistributionOutput(args: GetCloudFrontDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFrontDistributionResult> {
-    return pulumi.output(args).apply((a: any) => getCloudFrontDistribution(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getCloudFrontDistribution", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCloudFrontDistributionOutputArgs {

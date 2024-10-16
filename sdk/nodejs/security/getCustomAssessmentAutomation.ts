@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-07-01-preview.
  */
 export function getCustomAssessmentAutomation(args: GetCustomAssessmentAutomationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomAssessmentAutomationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getCustomAssessmentAutomation", {
         "customAssessmentAutomationName": args.customAssessmentAutomationName,
@@ -85,7 +84,11 @@ export interface GetCustomAssessmentAutomationResult {
  * Azure REST API version: 2021-07-01-preview.
  */
 export function getCustomAssessmentAutomationOutput(args: GetCustomAssessmentAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomAssessmentAutomationResult> {
-    return pulumi.output(args).apply((a: any) => getCustomAssessmentAutomation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security:getCustomAssessmentAutomation", {
+        "customAssessmentAutomationName": args.customAssessmentAutomationName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCustomAssessmentAutomationOutputArgs {

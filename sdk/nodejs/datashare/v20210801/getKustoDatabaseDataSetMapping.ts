@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a DataSetMapping in a shareSubscription
  */
 export function getKustoDatabaseDataSetMapping(args: GetKustoDatabaseDataSetMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoDatabaseDataSetMappingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:getKustoDatabaseDataSetMapping", {
         "accountName": args.accountName,
@@ -90,7 +89,13 @@ export interface GetKustoDatabaseDataSetMappingResult {
  * Get a DataSetMapping in a shareSubscription
  */
 export function getKustoDatabaseDataSetMappingOutput(args: GetKustoDatabaseDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoDatabaseDataSetMappingResult> {
-    return pulumi.output(args).apply((a: any) => getKustoDatabaseDataSetMapping(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getKustoDatabaseDataSetMapping", {
+        "accountName": args.accountName,
+        "dataSetMappingName": args.dataSetMappingName,
+        "resourceGroupName": args.resourceGroupName,
+        "shareSubscriptionName": args.shareSubscriptionName,
+    }, opts);
 }
 
 export interface GetKustoDatabaseDataSetMappingOutputArgs {

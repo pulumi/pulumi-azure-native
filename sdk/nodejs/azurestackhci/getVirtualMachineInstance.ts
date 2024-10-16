@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview.
  */
 export function getVirtualMachineInstance(args: GetVirtualMachineInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci:getVirtualMachineInstance", {
         "resourceUri": args.resourceUri,
@@ -108,7 +107,10 @@ export interface GetVirtualMachineInstanceResult {
  * Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview.
  */
 export function getVirtualMachineInstanceOutput(args: GetVirtualMachineInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachineInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getVirtualMachineInstance", {
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetVirtualMachineInstanceOutputArgs {

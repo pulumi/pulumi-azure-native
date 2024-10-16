@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Ec2AccountAttribute
  */
 export function getEc2AccountAttribute(args: GetEc2AccountAttributeArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2AccountAttributeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEc2AccountAttribute", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEc2AccountAttributeResult {
  * Get a Ec2AccountAttribute
  */
 export function getEc2AccountAttributeOutput(args: GetEc2AccountAttributeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2AccountAttributeResult> {
-    return pulumi.output(args).apply((a: any) => getEc2AccountAttribute(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2AccountAttribute", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2AccountAttributeOutputArgs {

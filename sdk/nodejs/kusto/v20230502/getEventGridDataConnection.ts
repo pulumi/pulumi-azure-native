@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Returns a data connection.
  */
 export function getEventGridDataConnection(args: GetEventGridDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventGridDataConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto/v20230502:getEventGridDataConnection", {
         "clusterName": args.clusterName,
@@ -119,7 +118,13 @@ export interface GetEventGridDataConnectionResult {
  * Returns a data connection.
  */
 export function getEventGridDataConnectionOutput(args: GetEventGridDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventGridDataConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getEventGridDataConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kusto/v20230502:getEventGridDataConnection", {
+        "clusterName": args.clusterName,
+        "dataConnectionName": args.dataConnectionName,
+        "databaseName": args.databaseName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEventGridDataConnectionOutputArgs {

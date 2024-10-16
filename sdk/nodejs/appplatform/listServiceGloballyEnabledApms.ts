@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export function listServiceGloballyEnabledApms(args: ListServiceGloballyEnabledApmsArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceGloballyEnabledApmsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform:listServiceGloballyEnabledApms", {
         "resourceGroupName": args.resourceGroupName,
@@ -46,7 +45,11 @@ export interface ListServiceGloballyEnabledApmsResult {
  * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export function listServiceGloballyEnabledApmsOutput(args: ListServiceGloballyEnabledApmsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceGloballyEnabledApmsResult> {
-    return pulumi.output(args).apply((a: any) => listServiceGloballyEnabledApms(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appplatform:listServiceGloballyEnabledApms", {
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface ListServiceGloballyEnabledApmsOutputArgs {

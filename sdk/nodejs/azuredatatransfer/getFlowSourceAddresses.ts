@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-09-27.
  */
 export function getFlowSourceAddresses(args: GetFlowSourceAddressesArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowSourceAddressesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer:getFlowSourceAddresses", {
         "connectionName": args.connectionName,
@@ -47,7 +46,12 @@ export interface GetFlowSourceAddressesResult {
  * Azure REST API version: 2024-09-27.
  */
 export function getFlowSourceAddressesOutput(args: GetFlowSourceAddressesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowSourceAddressesResult> {
-    return pulumi.output(args).apply((a: any) => getFlowSourceAddresses(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:getFlowSourceAddresses", {
+        "connectionName": args.connectionName,
+        "flowName": args.flowName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFlowSourceAddressesOutputArgs {

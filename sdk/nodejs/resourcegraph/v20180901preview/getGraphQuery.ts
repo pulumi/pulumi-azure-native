@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get a single graph query by its resourceName.
  */
 export function getGraphQuery(args: GetGraphQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQueryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resourcegraph/v20180901preview:getGraphQuery", {
         "resourceGroupName": args.resourceGroupName,
@@ -76,7 +75,11 @@ export interface GetGraphQueryResult {
  * Get a single graph query by its resourceName.
  */
 export function getGraphQueryOutput(args: GetGraphQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQueryResult> {
-    return pulumi.output(args).apply((a: any) => getGraphQuery(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:resourcegraph/v20180901preview:getGraphQuery", {
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetGraphQueryOutputArgs {

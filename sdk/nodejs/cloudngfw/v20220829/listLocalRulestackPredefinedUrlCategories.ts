@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List predefined URL categories for rulestack
  */
 export function listLocalRulestackPredefinedUrlCategories(args: ListLocalRulestackPredefinedUrlCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalRulestackPredefinedUrlCategoriesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20220829:listLocalRulestackPredefinedUrlCategories", {
         "localRulestackName": args.localRulestackName,
@@ -51,7 +50,13 @@ export interface ListLocalRulestackPredefinedUrlCategoriesResult {
  * List predefined URL categories for rulestack
  */
 export function listLocalRulestackPredefinedUrlCategoriesOutput(args: ListLocalRulestackPredefinedUrlCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalRulestackPredefinedUrlCategoriesResult> {
-    return pulumi.output(args).apply((a: any) => listLocalRulestackPredefinedUrlCategories(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829:listLocalRulestackPredefinedUrlCategories", {
+        "localRulestackName": args.localRulestackName,
+        "resourceGroupName": args.resourceGroupName,
+        "skip": args.skip,
+        "top": args.top,
+    }, opts);
 }
 
 export interface ListLocalRulestackPredefinedUrlCategoriesOutputArgs {

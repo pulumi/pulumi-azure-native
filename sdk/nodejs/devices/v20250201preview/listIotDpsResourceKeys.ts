@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List the primary and secondary keys for a provisioning service.
  */
 export function listIotDpsResourceKeys(args: ListIotDpsResourceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIotDpsResourceKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devices/v20250201preview:listIotDpsResourceKeys", {
         "provisioningServiceName": args.provisioningServiceName,
@@ -47,7 +46,11 @@ export interface ListIotDpsResourceKeysResult {
  * List the primary and secondary keys for a provisioning service.
  */
 export function listIotDpsResourceKeysOutput(args: ListIotDpsResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysResult> {
-    return pulumi.output(args).apply((a: any) => listIotDpsResourceKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devices/v20250201preview:listIotDpsResourceKeys", {
+        "provisioningServiceName": args.provisioningServiceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListIotDpsResourceKeysOutputArgs {

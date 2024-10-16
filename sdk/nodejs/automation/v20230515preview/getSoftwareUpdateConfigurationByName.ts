@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a single software update configuration by name.
  */
 export function getSoftwareUpdateConfigurationByName(args: GetSoftwareUpdateConfigurationByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetSoftwareUpdateConfigurationByNameResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:automation/v20230515preview:getSoftwareUpdateConfigurationByName", {
         "automationAccountName": args.automationAccountName,
@@ -92,7 +91,12 @@ export interface GetSoftwareUpdateConfigurationByNameResult {
  * Get a single software update configuration by name.
  */
 export function getSoftwareUpdateConfigurationByNameOutput(args: GetSoftwareUpdateConfigurationByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoftwareUpdateConfigurationByNameResult> {
-    return pulumi.output(args).apply((a: any) => getSoftwareUpdateConfigurationByName(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getSoftwareUpdateConfigurationByName", {
+        "automationAccountName": args.automationAccountName,
+        "resourceGroupName": args.resourceGroupName,
+        "softwareUpdateConfigurationName": args.softwareUpdateConfigurationName,
+    }, opts);
 }
 
 export interface GetSoftwareUpdateConfigurationByNameOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a watchlist, without its watchlist items.
  */
 export function getWatchlist(args: GetWatchlistArgs, opts?: pulumi.InvokeOptions): Promise<GetWatchlistResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210301preview:getWatchlist", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
@@ -153,7 +152,13 @@ export interface GetWatchlistResult {
  * Gets a watchlist, without its watchlist items.
  */
 export function getWatchlistOutput(args: GetWatchlistOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatchlistResult> {
-    return pulumi.output(args).apply((a: any) => getWatchlist(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210301preview:getWatchlist", {
+        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
+        "resourceGroupName": args.resourceGroupName,
+        "watchlistAlias": args.watchlistAlias,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetWatchlistOutputArgs {

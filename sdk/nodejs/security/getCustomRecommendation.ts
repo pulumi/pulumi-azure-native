@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-08-01.
  */
 export function getCustomRecommendation(args: GetCustomRecommendationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomRecommendationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getCustomRecommendation", {
         "customRecommendationName": args.customRecommendationName,
@@ -89,7 +88,11 @@ export interface GetCustomRecommendationResult {
  * Azure REST API version: 2024-08-01.
  */
 export function getCustomRecommendationOutput(args: GetCustomRecommendationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomRecommendationResult> {
-    return pulumi.output(args).apply((a: any) => getCustomRecommendation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security:getCustomRecommendation", {
+        "customRecommendationName": args.customRecommendationName,
+        "scope": args.scope,
+    }, opts);
 }
 
 export interface GetCustomRecommendationOutputArgs {

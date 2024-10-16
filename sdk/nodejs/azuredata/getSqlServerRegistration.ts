@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-07-24-preview.
  */
 export function getSqlServerRegistration(args: GetSqlServerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerRegistrationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredata:getSqlServerRegistration", {
         "resourceGroupName": args.resourceGroupName,
@@ -77,7 +76,11 @@ export interface GetSqlServerRegistrationResult {
  * Azure REST API version: 2019-07-24-preview.
  */
 export function getSqlServerRegistrationOutput(args: GetSqlServerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerRegistrationResult> {
-    return pulumi.output(args).apply((a: any) => getSqlServerRegistration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuredata:getSqlServerRegistration", {
+        "resourceGroupName": args.resourceGroupName,
+        "sqlServerRegistrationName": args.sqlServerRegistrationName,
+    }, opts);
 }
 
 export interface GetSqlServerRegistrationOutputArgs {

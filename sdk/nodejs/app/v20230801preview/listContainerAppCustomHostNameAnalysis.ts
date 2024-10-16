@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Custom domain analysis.
  */
 export function listContainerAppCustomHostNameAnalysis(args: ListContainerAppCustomHostNameAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<ListContainerAppCustomHostNameAnalysisResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20230801preview:listContainerAppCustomHostNameAnalysis", {
         "containerAppName": args.containerAppName,
@@ -92,7 +91,12 @@ export interface ListContainerAppCustomHostNameAnalysisResult {
  * Custom domain analysis.
  */
 export function listContainerAppCustomHostNameAnalysisOutput(args: ListContainerAppCustomHostNameAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListContainerAppCustomHostNameAnalysisResult> {
-    return pulumi.output(args).apply((a: any) => listContainerAppCustomHostNameAnalysis(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app/v20230801preview:listContainerAppCustomHostNameAnalysis", {
+        "containerAppName": args.containerAppName,
+        "customHostname": args.customHostname,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListContainerAppCustomHostNameAnalysisOutputArgs {

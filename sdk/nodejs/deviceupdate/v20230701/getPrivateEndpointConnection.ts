@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the specified private endpoint connection associated with the device update account.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:deviceupdate/v20230701:getPrivateEndpointConnection", {
         "accountName": args.accountName,
@@ -76,7 +75,12 @@ export interface GetPrivateEndpointConnectionResult {
  * Get the specified private endpoint connection associated with the device update account.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:deviceupdate/v20230701:getPrivateEndpointConnection", {
+        "accountName": args.accountName,
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPrivateEndpointConnectionOutputArgs {

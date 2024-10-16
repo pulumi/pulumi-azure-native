@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a IamGroup
  */
 export function getIamGroup(args: GetIamGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIamGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getIamGroup", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetIamGroupResult {
  * Get a IamGroup
  */
 export function getIamGroupOutput(args: GetIamGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamGroupResult> {
-    return pulumi.output(args).apply((a: any) => getIamGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamGroup", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamGroupOutputArgs {

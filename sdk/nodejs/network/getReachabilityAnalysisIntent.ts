@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-01-01-preview.
  */
 export function getReachabilityAnalysisIntent(args: GetReachabilityAnalysisIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetReachabilityAnalysisIntentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getReachabilityAnalysisIntent", {
         "networkManagerName": args.networkManagerName,
@@ -71,7 +70,13 @@ export interface GetReachabilityAnalysisIntentResult {
  * Azure REST API version: 2024-01-01-preview.
  */
 export function getReachabilityAnalysisIntentOutput(args: GetReachabilityAnalysisIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReachabilityAnalysisIntentResult> {
-    return pulumi.output(args).apply((a: any) => getReachabilityAnalysisIntent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network:getReachabilityAnalysisIntent", {
+        "networkManagerName": args.networkManagerName,
+        "reachabilityAnalysisIntentName": args.reachabilityAnalysisIntentName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetReachabilityAnalysisIntentOutputArgs {

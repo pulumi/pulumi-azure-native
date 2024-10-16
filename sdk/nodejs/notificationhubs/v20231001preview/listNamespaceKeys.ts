@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
  */
 export function listNamespaceKeys(args: ListNamespaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20231001preview:listNamespaceKeys", {
         "authorizationRuleName": args.authorizationRuleName,
@@ -62,7 +61,12 @@ export interface ListNamespaceKeysResult {
  * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
  */
 export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {
-    return pulumi.output(args).apply((a: any) => listNamespaceKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20231001preview:listNamespaceKeys", {
+        "authorizationRuleName": args.authorizationRuleName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListNamespaceKeysOutputArgs {

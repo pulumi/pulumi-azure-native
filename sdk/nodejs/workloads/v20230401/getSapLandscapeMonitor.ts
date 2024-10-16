@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
  */
 export function getSapLandscapeMonitor(args: GetSapLandscapeMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetSapLandscapeMonitorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:workloads/v20230401:getSapLandscapeMonitor", {
         "monitorName": args.monitorName,
@@ -67,7 +66,11 @@ export interface GetSapLandscapeMonitorResult {
  * Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
  */
 export function getSapLandscapeMonitorOutput(args: GetSapLandscapeMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapLandscapeMonitorResult> {
-    return pulumi.output(args).apply((a: any) => getSapLandscapeMonitor(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:workloads/v20230401:getSapLandscapeMonitor", {
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSapLandscapeMonitorOutputArgs {

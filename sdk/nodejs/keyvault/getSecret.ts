@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01, 2024-04-01-preview.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:keyvault:getSecret", {
         "resourceGroupName": args.resourceGroupName,
@@ -74,7 +73,12 @@ export interface GetSecretResult {
  * Other available API versions: 2023-07-01, 2024-04-01-preview.
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
-    return pulumi.output(args).apply((a: any) => getSecret(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:keyvault:getSecret", {
+        "resourceGroupName": args.resourceGroupName,
+        "secretName": args.secretName,
+        "vaultName": args.vaultName,
+    }, opts);
 }
 
 export interface GetSecretOutputArgs {

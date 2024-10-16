@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets details of the specific container registered to your Recovery Services Vault.
  */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20240730preview:getProtectionContainer", {
         "containerName": args.containerName,
@@ -77,7 +76,13 @@ export interface GetProtectionContainerResult {
  * Gets details of the specific container registered to your Recovery Services Vault.
  */
 export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionContainerResult> {
-    return pulumi.output(args).apply((a: any) => getProtectionContainer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20240730preview:getProtectionContainer", {
+        "containerName": args.containerName,
+        "fabricName": args.fabricName,
+        "resourceGroupName": args.resourceGroupName,
+        "vaultName": args.vaultName,
+    }, opts);
 }
 
 export interface GetProtectionContainerOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getRdsDbCluster(args: GetRdsDbClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetRdsDbClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getRdsDbCluster", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetRdsDbClusterResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getRdsDbClusterOutput(args: GetRdsDbClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsDbClusterResult> {
-    return pulumi.output(args).apply((a: any) => getRdsDbCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getRdsDbCluster", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRdsDbClusterOutputArgs {

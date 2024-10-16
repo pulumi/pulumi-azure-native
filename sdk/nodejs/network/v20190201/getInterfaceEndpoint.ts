@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified interface endpoint by resource group.
  */
 export function getInterfaceEndpoint(args: GetInterfaceEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetInterfaceEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20190201:getInterfaceEndpoint", {
         "expand": args.expand,
@@ -92,7 +91,12 @@ export interface GetInterfaceEndpointResult {
  * Gets the specified interface endpoint by resource group.
  */
 export function getInterfaceEndpointOutput(args: GetInterfaceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInterfaceEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getInterfaceEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20190201:getInterfaceEndpoint", {
+        "expand": args.expand,
+        "interfaceEndpointName": args.interfaceEndpointName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetInterfaceEndpointOutputArgs {

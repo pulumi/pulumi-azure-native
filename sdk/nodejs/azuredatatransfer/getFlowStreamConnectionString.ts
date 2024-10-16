@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-09-27.
  */
 export function getFlowStreamConnectionString(args: GetFlowStreamConnectionStringArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowStreamConnectionStringResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer:getFlowStreamConnectionString", {
         "connectionName": args.connectionName,
@@ -47,7 +46,12 @@ export interface GetFlowStreamConnectionStringResult {
  * Azure REST API version: 2024-09-27.
  */
 export function getFlowStreamConnectionStringOutput(args: GetFlowStreamConnectionStringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowStreamConnectionStringResult> {
-    return pulumi.output(args).apply((a: any) => getFlowStreamConnectionString(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:getFlowStreamConnectionString", {
+        "connectionName": args.connectionName,
+        "flowName": args.flowName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFlowStreamConnectionStringOutputArgs {

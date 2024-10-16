@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets jobs status details for sql arc resource
  */
 export function getSqlServerInstanceJobsStatus(args: GetSqlServerInstanceJobsStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerInstanceJobsStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20240501preview:getSqlServerInstanceJobsStatus", {
         "featureName": args.featureName,
@@ -53,7 +52,13 @@ export interface GetSqlServerInstanceJobsStatusResult {
  * Gets jobs status details for sql arc resource
  */
 export function getSqlServerInstanceJobsStatusOutput(args: GetSqlServerInstanceJobsStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerInstanceJobsStatusResult> {
-    return pulumi.output(args).apply((a: any) => getSqlServerInstanceJobsStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20240501preview:getSqlServerInstanceJobsStatus", {
+        "featureName": args.featureName,
+        "jobType": args.jobType,
+        "resourceGroupName": args.resourceGroupName,
+        "sqlServerInstanceName": args.sqlServerInstanceName,
+    }, opts);
 }
 
 export interface GetSqlServerInstanceJobsStatusOutputArgs {

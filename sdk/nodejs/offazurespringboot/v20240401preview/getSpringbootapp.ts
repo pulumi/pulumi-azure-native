@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a springbootapps resource.
  */
 export function getSpringbootapp(args: GetSpringbootappArgs, opts?: pulumi.InvokeOptions): Promise<GetSpringbootappResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:offazurespringboot/v20240401preview:getSpringbootapp", {
         "resourceGroupName": args.resourceGroupName,
@@ -64,7 +63,12 @@ export interface GetSpringbootappResult {
  * Get a springbootapps resource.
  */
 export function getSpringbootappOutput(args: GetSpringbootappOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringbootappResult> {
-    return pulumi.output(args).apply((a: any) => getSpringbootapp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:offazurespringboot/v20240401preview:getSpringbootapp", {
+        "resourceGroupName": args.resourceGroupName,
+        "siteName": args.siteName,
+        "springbootappsName": args.springbootappsName,
+    }, opts);
 }
 
 export interface GetSpringbootappOutputArgs {

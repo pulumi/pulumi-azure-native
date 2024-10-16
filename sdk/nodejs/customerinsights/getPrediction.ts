@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2017-04-26.
  */
 export function getPrediction(args: GetPredictionArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customerinsights:getPrediction", {
         "hubName": args.hubName,
@@ -126,7 +125,12 @@ export interface GetPredictionResult {
  * Azure REST API version: 2017-04-26.
  */
 export function getPredictionOutput(args: GetPredictionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionResult> {
-    return pulumi.output(args).apply((a: any) => getPrediction(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:customerinsights:getPrediction", {
+        "hubName": args.hubName,
+        "predictionName": args.predictionName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPredictionOutputArgs {

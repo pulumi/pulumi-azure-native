@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get exposure control feature for specific location.
  */
 export function getExposureControlFeatureValue(args: GetExposureControlFeatureValueArgs, opts?: pulumi.InvokeOptions): Promise<GetExposureControlFeatureValueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getExposureControlFeatureValue", {
         "featureName": args.featureName,
@@ -49,7 +48,12 @@ export interface GetExposureControlFeatureValueResult {
  * Get exposure control feature for specific location.
  */
 export function getExposureControlFeatureValueOutput(args: GetExposureControlFeatureValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExposureControlFeatureValueResult> {
-    return pulumi.output(args).apply((a: any) => getExposureControlFeatureValue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getExposureControlFeatureValue", {
+        "featureName": args.featureName,
+        "featureType": args.featureType,
+        "locationId": args.locationId,
+    }, opts);
 }
 
 export interface GetExposureControlFeatureValueOutputArgs {

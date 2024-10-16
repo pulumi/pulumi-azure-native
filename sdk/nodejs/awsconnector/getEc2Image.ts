@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2Image(args: GetEc2ImageArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2ImageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEc2Image", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEc2ImageResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEc2ImageOutput(args: GetEc2ImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2ImageResult> {
-    return pulumi.output(args).apply((a: any) => getEc2Image(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Image", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2ImageOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the specified network security group.
  */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20240801preview:getNetworkSecurityGroup", {
         "networkSecurityGroupName": args.networkSecurityGroupName,
@@ -83,7 +82,11 @@ export interface GetNetworkSecurityGroupResult {
  * Gets the specified network security group.
  */
 export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityGroupResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkSecurityGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240801preview:getNetworkSecurityGroup", {
+        "networkSecurityGroupName": args.networkSecurityGroupName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkSecurityGroupOutputArgs {

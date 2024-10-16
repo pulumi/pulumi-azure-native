@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2016-05-15.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab:getPolicy", {
         "expand": args.expand,
@@ -113,7 +112,14 @@ export interface GetPolicyResult {
  * Other available API versions: 2016-05-15.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devtestlab:getPolicy", {
+        "expand": args.expand,
+        "labName": args.labName,
+        "name": args.name,
+        "policySetName": args.policySetName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetPolicyOutputArgs {

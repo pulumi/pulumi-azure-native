@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified mobile network site.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mobilenetwork/v20220401preview:getSite", {
         "mobileNetworkName": args.mobileNetworkName,
@@ -100,7 +99,12 @@ export interface GetSiteResult {
  * Gets information about the specified mobile network site.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
-    return pulumi.output(args).apply((a: any) => getSite(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20220401preview:getSite", {
+        "mobileNetworkName": args.mobileNetworkName,
+        "resourceGroupName": args.resourceGroupName,
+        "siteName": args.siteName,
+    }, opts);
 }
 
 export interface GetSiteOutputArgs {

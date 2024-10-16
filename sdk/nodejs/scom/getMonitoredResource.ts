@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-07-preview.
  */
 export function getMonitoredResource(args: GetMonitoredResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoredResourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:scom:getMonitoredResource", {
         "instanceName": args.instanceName,
@@ -66,7 +65,12 @@ export interface GetMonitoredResourceResult {
  * Azure REST API version: 2023-07-07-preview.
  */
 export function getMonitoredResourceOutput(args: GetMonitoredResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoredResourceResult> {
-    return pulumi.output(args).apply((a: any) => getMonitoredResource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:scom:getMonitoredResource", {
+        "instanceName": args.instanceName,
+        "monitoredResourceName": args.monitoredResourceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMonitoredResourceOutputArgs {

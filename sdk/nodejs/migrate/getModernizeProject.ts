@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-05-01-preview.
  */
 export function getModernizeProject(args: GetModernizeProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetModernizeProjectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate:getModernizeProject", {
         "modernizeProjectName": args.modernizeProjectName,
@@ -72,7 +71,12 @@ export interface GetModernizeProjectResult {
  * Azure REST API version: 2022-05-01-preview.
  */
 export function getModernizeProjectOutput(args: GetModernizeProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModernizeProjectResult> {
-    return pulumi.output(args).apply((a: any) => getModernizeProject(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate:getModernizeProject", {
+        "modernizeProjectName": args.modernizeProjectName,
+        "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
+    }, opts);
 }
 
 export interface GetModernizeProjectOutputArgs {

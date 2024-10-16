@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getDnsResolverPolicy(args: GetDnsResolverPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsResolverPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getDnsResolverPolicy", {
         "dnsResolverPolicyName": args.dnsResolverPolicyName,
@@ -77,7 +76,11 @@ export interface GetDnsResolverPolicyResult {
  * Azure REST API version: 2023-07-01-preview.
  */
 export function getDnsResolverPolicyOutput(args: GetDnsResolverPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getDnsResolverPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network:getDnsResolverPolicy", {
+        "dnsResolverPolicyName": args.dnsResolverPolicyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDnsResolverPolicyOutputArgs {

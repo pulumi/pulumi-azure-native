@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a BrokerResource
  */
 export function getBroker(args: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:iotoperations/v20240701preview:getBroker", {
         "brokerName": args.brokerName,
@@ -68,7 +67,12 @@ export interface GetBrokerResult {
  * Get a BrokerResource
  */
 export function getBrokerOutput(args: GetBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerResult> {
-    return pulumi.output(args).apply((a: any) => getBroker(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:iotoperations/v20240701preview:getBroker", {
+        "brokerName": args.brokerName,
+        "instanceName": args.instanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetBrokerOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the API Operation specified by its identifier.
  */
 export function getApiOperation(args: GetApiOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetApiOperationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getApiOperation", {
         "apiId": args.apiId,
@@ -93,7 +92,13 @@ export interface GetApiOperationResult {
  * Gets the details of the API Operation specified by its identifier.
  */
 export function getApiOperationOutput(args: GetApiOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiOperationResult> {
-    return pulumi.output(args).apply((a: any) => getApiOperation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getApiOperation", {
+        "apiId": args.apiId,
+        "operationId": args.operationId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetApiOperationOutputArgs {

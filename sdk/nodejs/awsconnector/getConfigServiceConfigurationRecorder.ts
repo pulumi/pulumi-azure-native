@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getConfigServiceConfigurationRecorder(args: GetConfigServiceConfigurationRecorderArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigServiceConfigurationRecorderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getConfigServiceConfigurationRecorder", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetConfigServiceConfigurationRecorderResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getConfigServiceConfigurationRecorderOutput(args: GetConfigServiceConfigurationRecorderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServiceConfigurationRecorderResult> {
-    return pulumi.output(args).apply((a: any) => getConfigServiceConfigurationRecorder(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getConfigServiceConfigurationRecorder", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetConfigServiceConfigurationRecorderOutputArgs {

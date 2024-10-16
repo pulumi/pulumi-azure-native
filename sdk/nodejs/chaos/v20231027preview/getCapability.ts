@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Capability resource that extends a Target resource.
  */
 export function getCapability(args: GetCapabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetCapabilityResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:chaos/v20231027preview:getCapability", {
         "capabilityName": args.capabilityName,
@@ -79,7 +78,15 @@ export interface GetCapabilityResult {
  * Get a Capability resource that extends a Target resource.
  */
 export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapabilityResult> {
-    return pulumi.output(args).apply((a: any) => getCapability(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:chaos/v20231027preview:getCapability", {
+        "capabilityName": args.capabilityName,
+        "parentProviderNamespace": args.parentProviderNamespace,
+        "parentResourceName": args.parentResourceName,
+        "parentResourceType": args.parentResourceType,
+        "resourceGroupName": args.resourceGroupName,
+        "targetName": args.targetName,
+    }, opts);
 }
 
 export interface GetCapabilityOutputArgs {

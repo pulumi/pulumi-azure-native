@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a AppSyncGraphqlApi
  */
 export function getAppSyncGraphqlApi(args: GetAppSyncGraphqlApiArgs, opts?: pulumi.InvokeOptions): Promise<GetAppSyncGraphqlApiResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getAppSyncGraphqlApi", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetAppSyncGraphqlApiResult {
  * Get a AppSyncGraphqlApi
  */
 export function getAppSyncGraphqlApiOutput(args: GetAppSyncGraphqlApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppSyncGraphqlApiResult> {
-    return pulumi.output(args).apply((a: any) => getAppSyncGraphqlApi(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getAppSyncGraphqlApi", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAppSyncGraphqlApiOutputArgs {

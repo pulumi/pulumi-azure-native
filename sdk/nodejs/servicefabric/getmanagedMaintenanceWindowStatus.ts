@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview.
  */
 export function getmanagedMaintenanceWindowStatus(args: GetmanagedMaintenanceWindowStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagedMaintenanceWindowStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:servicefabric:getmanagedMaintenanceWindowStatus", {
         "clusterName": args.clusterName,
@@ -70,7 +69,11 @@ export interface GetmanagedMaintenanceWindowStatusResult {
  * Other available API versions: 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview.
  */
 export function getmanagedMaintenanceWindowStatusOutput(args: GetmanagedMaintenanceWindowStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmanagedMaintenanceWindowStatusResult> {
-    return pulumi.output(args).apply((a: any) => getmanagedMaintenanceWindowStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:servicefabric:getmanagedMaintenanceWindowStatus", {
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetmanagedMaintenanceWindowStatusOutputArgs {

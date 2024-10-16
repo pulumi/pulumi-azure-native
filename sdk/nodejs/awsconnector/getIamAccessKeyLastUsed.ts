@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getIamAccessKeyLastUsed(args: GetIamAccessKeyLastUsedArgs, opts?: pulumi.InvokeOptions): Promise<GetIamAccessKeyLastUsedResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getIamAccessKeyLastUsed", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetIamAccessKeyLastUsedResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getIamAccessKeyLastUsedOutput(args: GetIamAccessKeyLastUsedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamAccessKeyLastUsedResult> {
-    return pulumi.output(args).apply((a: any) => getIamAccessKeyLastUsed(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamAccessKeyLastUsed", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamAccessKeyLastUsedOutputArgs {

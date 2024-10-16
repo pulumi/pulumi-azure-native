@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of the workload deployment.
  */
 export function getWorkloadDeployment(args: GetWorkloadDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadDeploymentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:migrate/v20220501preview:getWorkloadDeployment", {
         "modernizeProjectName": args.modernizeProjectName,
@@ -70,7 +69,13 @@ export interface GetWorkloadDeploymentResult {
  * Gets the details of the workload deployment.
  */
 export function getWorkloadDeploymentOutput(args: GetWorkloadDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadDeployment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:migrate/v20220501preview:getWorkloadDeployment", {
+        "modernizeProjectName": args.modernizeProjectName,
+        "resourceGroupName": args.resourceGroupName,
+        "subscriptionId": args.subscriptionId,
+        "workloadDeploymentName": args.workloadDeploymentName,
+    }, opts);
 }
 
 export interface GetWorkloadDeploymentOutputArgs {

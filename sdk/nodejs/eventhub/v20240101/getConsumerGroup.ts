@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a description for the specified consumer group.
  */
 export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumerGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20240101:getConsumerGroup", {
         "consumerGroupName": args.consumerGroupName,
@@ -81,7 +80,13 @@ export interface GetConsumerGroupResult {
  * Gets a description for the specified consumer group.
  */
 export function getConsumerGroupOutput(args: GetConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumerGroupResult> {
-    return pulumi.output(args).apply((a: any) => getConsumerGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventhub/v20240101:getConsumerGroup", {
+        "consumerGroupName": args.consumerGroupName,
+        "eventHubName": args.eventHubName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetConsumerGroupOutputArgs {

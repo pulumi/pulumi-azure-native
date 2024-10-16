@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEksNodegroup(args: GetEksNodegroupArgs, opts?: pulumi.InvokeOptions): Promise<GetEksNodegroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEksNodegroup", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEksNodegroupResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEksNodegroupOutput(args: GetEksNodegroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEksNodegroupResult> {
-    return pulumi.output(args).apply((a: any) => getEksNodegroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEksNodegroup", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEksNodegroupOutputArgs {

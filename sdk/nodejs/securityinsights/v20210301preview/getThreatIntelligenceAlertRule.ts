@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the alert rule.
  */
 export function getThreatIntelligenceAlertRule(args: GetThreatIntelligenceAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelligenceAlertRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210301preview:getThreatIntelligenceAlertRule", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
@@ -102,7 +101,13 @@ export interface GetThreatIntelligenceAlertRuleResult {
  * Gets the alert rule.
  */
 export function getThreatIntelligenceAlertRuleOutput(args: GetThreatIntelligenceAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelligenceAlertRuleResult> {
-    return pulumi.output(args).apply((a: any) => getThreatIntelligenceAlertRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210301preview:getThreatIntelligenceAlertRule", {
+        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
+        "resourceGroupName": args.resourceGroupName,
+        "ruleId": args.ruleId,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetThreatIntelligenceAlertRuleOutputArgs {

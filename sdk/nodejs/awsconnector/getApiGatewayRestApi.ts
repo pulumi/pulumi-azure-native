@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getApiGatewayRestApi(args: GetApiGatewayRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiGatewayRestApiResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getApiGatewayRestApi", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetApiGatewayRestApiResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getApiGatewayRestApiOutput(args: GetApiGatewayRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayRestApiResult> {
-    return pulumi.output(args).apply((a: any) => getApiGatewayRestApi(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getApiGatewayRestApi", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetApiGatewayRestApiOutputArgs {

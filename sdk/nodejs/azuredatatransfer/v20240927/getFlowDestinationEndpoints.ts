@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get the destination endpoints for the specified flow and stream ID.
  */
 export function getFlowDestinationEndpoints(args: GetFlowDestinationEndpointsArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowDestinationEndpointsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer/v20240927:getFlowDestinationEndpoints", {
         "connectionName": args.connectionName,
@@ -45,7 +44,12 @@ export interface GetFlowDestinationEndpointsResult {
  * Get the destination endpoints for the specified flow and stream ID.
  */
 export function getFlowDestinationEndpointsOutput(args: GetFlowDestinationEndpointsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowDestinationEndpointsResult> {
-    return pulumi.output(args).apply((a: any) => getFlowDestinationEndpoints(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20240927:getFlowDestinationEndpoints", {
+        "connectionName": args.connectionName,
+        "flowName": args.flowName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFlowDestinationEndpointsOutputArgs {

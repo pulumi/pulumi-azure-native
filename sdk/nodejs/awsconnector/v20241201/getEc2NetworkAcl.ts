@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Ec2NetworkAcl
  */
 export function getEc2NetworkAcl(args: GetEc2NetworkAclArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2NetworkAclResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEc2NetworkAcl", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEc2NetworkAclResult {
  * Get a Ec2NetworkAcl
  */
 export function getEc2NetworkAclOutput(args: GetEc2NetworkAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2NetworkAclResult> {
-    return pulumi.output(args).apply((a: any) => getEc2NetworkAcl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2NetworkAcl", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2NetworkAclOutputArgs {

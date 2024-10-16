@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a LambdaFunction
  */
 export function getLambdaFunction(args: GetLambdaFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetLambdaFunctionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getLambdaFunction", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetLambdaFunctionResult {
  * Get a LambdaFunction
  */
 export function getLambdaFunctionOutput(args: GetLambdaFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLambdaFunctionResult> {
-    return pulumi.output(args).apply((a: any) => getLambdaFunction(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getLambdaFunction", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLambdaFunctionOutputArgs {

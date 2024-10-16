@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  */
 export function getGetPrivateDnsZoneSuffixExecute(args?: GetGetPrivateDnsZoneSuffixExecuteArgs, opts?: pulumi.InvokeOptions): Promise<GetGetPrivateDnsZoneSuffixExecuteResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbformysql:getGetPrivateDnsZoneSuffixExecute", {
     }, opts);
@@ -37,5 +36,8 @@ export interface GetGetPrivateDnsZoneSuffixExecuteResult {
  * Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2023-12-30.
  */
 export function getGetPrivateDnsZoneSuffixExecuteOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetGetPrivateDnsZoneSuffixExecuteResult> {
-    return pulumi.output(getGetPrivateDnsZoneSuffixExecute(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:dbformysql:getGetPrivateDnsZoneSuffixExecute", {
+    }, opts);
 }
+

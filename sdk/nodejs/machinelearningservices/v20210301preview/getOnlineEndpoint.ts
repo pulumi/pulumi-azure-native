@@ -8,7 +8,6 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 export function getOnlineEndpoint(args: GetOnlineEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20210301preview:getOnlineEndpoint", {
         "endpointName": args.endpointName,
@@ -71,7 +70,12 @@ export interface GetOnlineEndpointResult {
     readonly type: string;
 }
 export function getOnlineEndpointOutput(args: GetOnlineEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getOnlineEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20210301preview:getOnlineEndpoint", {
+        "endpointName": args.endpointName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetOnlineEndpointOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a EfsMountTarget
  */
 export function getEfsMountTarget(args: GetEfsMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetEfsMountTargetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEfsMountTarget", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEfsMountTargetResult {
  * Get a EfsMountTarget
  */
 export function getEfsMountTargetOutput(args: GetEfsMountTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEfsMountTargetResult> {
-    return pulumi.output(args).apply((a: any) => getEfsMountTarget(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEfsMountTarget", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEfsMountTargetOutputArgs {

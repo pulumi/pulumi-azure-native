@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a gallery image
  */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20240715preview:getGalleryImage", {
         "galleryImageName": args.galleryImageName,
@@ -107,7 +106,11 @@ export interface GetGalleryImageResult {
  * Gets a gallery image
  */
 export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {
-    return pulumi.output(args).apply((a: any) => getGalleryImage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240715preview:getGalleryImage", {
+        "galleryImageName": args.galleryImageName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetGalleryImageOutputArgs {

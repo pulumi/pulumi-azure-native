@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
 export function getL2Network(args: GetL2NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL2NetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:networkcloud:getL2Network", {
         "l2NetworkName": args.l2NetworkName,
@@ -110,7 +109,11 @@ export interface GetL2NetworkResult {
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
 export function getL2NetworkOutput(args: GetL2NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2NetworkResult> {
-    return pulumi.output(args).apply((a: any) => getL2Network(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:networkcloud:getL2Network", {
+        "l2NetworkName": args.l2NetworkName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetL2NetworkOutputArgs {

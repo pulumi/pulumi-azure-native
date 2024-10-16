@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a VpnServerConfiguration.
  */
 export function getVpnServerConfiguration(args: GetVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnServerConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240101:getVpnServerConfiguration", {
         "resourceGroupName": args.resourceGroupName,
@@ -119,7 +118,11 @@ export interface GetVpnServerConfigurationResult {
  * Retrieves the details of a VpnServerConfiguration.
  */
 export function getVpnServerConfigurationOutput(args: GetVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnServerConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getVpnServerConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240101:getVpnServerConfiguration", {
+        "resourceGroupName": args.resourceGroupName,
+        "vpnServerConfigurationName": args.vpnServerConfigurationName,
+    }, opts);
 }
 
 export interface GetVpnServerConfigurationOutputArgs {

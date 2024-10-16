@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Retrieves gateway keys.
  */
 export function listGatewayKeys(args: ListGatewayKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListGatewayKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230501preview:listGatewayKeys", {
         "gatewayId": args.gatewayId,
@@ -49,7 +48,12 @@ export interface ListGatewayKeysResult {
  * Retrieves gateway keys.
  */
 export function listGatewayKeysOutput(args: ListGatewayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGatewayKeysResult> {
-    return pulumi.output(args).apply((a: any) => listGatewayKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:listGatewayKeys", {
+        "gatewayId": args.gatewayId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface ListGatewayKeysOutputArgs {

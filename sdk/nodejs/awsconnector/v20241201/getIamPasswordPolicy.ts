@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a IamPasswordPolicy
  */
 export function getIamPasswordPolicy(args: GetIamPasswordPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetIamPasswordPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getIamPasswordPolicy", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetIamPasswordPolicyResult {
  * Get a IamPasswordPolicy
  */
 export function getIamPasswordPolicyOutput(args: GetIamPasswordPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamPasswordPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getIamPasswordPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamPasswordPolicy", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamPasswordPolicyOutputArgs {

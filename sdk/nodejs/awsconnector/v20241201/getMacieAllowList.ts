@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a MacieAllowList
  */
 export function getMacieAllowList(args: GetMacieAllowListArgs, opts?: pulumi.InvokeOptions): Promise<GetMacieAllowListResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getMacieAllowList", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetMacieAllowListResult {
  * Get a MacieAllowList
  */
 export function getMacieAllowListOutput(args: GetMacieAllowListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMacieAllowListResult> {
-    return pulumi.output(args).apply((a: any) => getMacieAllowList(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getMacieAllowList", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMacieAllowListOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a ConfigServiceConfigurationRecorder
  */
 export function getConfigServiceConfigurationRecorder(args: GetConfigServiceConfigurationRecorderArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigServiceConfigurationRecorderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getConfigServiceConfigurationRecorder", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetConfigServiceConfigurationRecorderResult {
  * Get a ConfigServiceConfigurationRecorder
  */
 export function getConfigServiceConfigurationRecorderOutput(args: GetConfigServiceConfigurationRecorderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServiceConfigurationRecorderResult> {
-    return pulumi.output(args).apply((a: any) => getConfigServiceConfigurationRecorder(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getConfigServiceConfigurationRecorder", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetConfigServiceConfigurationRecorderOutputArgs {

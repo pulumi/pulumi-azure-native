@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export function getApm(args: GetApmArgs, opts?: pulumi.InvokeOptions): Promise<GetApmResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform:getApm", {
         "apmName": args.apmName,
@@ -70,7 +69,12 @@ export interface GetApmResult {
  * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export function getApmOutput(args: GetApmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApmResult> {
-    return pulumi.output(args).apply((a: any) => getApm(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appplatform:getApm", {
+        "apmName": args.apmName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetApmOutputArgs {

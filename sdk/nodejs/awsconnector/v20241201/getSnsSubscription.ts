@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a SnsSubscription
  */
 export function getSnsSubscription(args: GetSnsSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSnsSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getSnsSubscription", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetSnsSubscriptionResult {
  * Get a SnsSubscription
  */
 export function getSnsSubscriptionOutput(args: GetSnsSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnsSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getSnsSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getSnsSubscription", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSnsSubscriptionOutputArgs {

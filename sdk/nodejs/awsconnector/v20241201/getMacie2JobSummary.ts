@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Macie2JobSummary
  */
 export function getMacie2JobSummary(args: GetMacie2JobSummaryArgs, opts?: pulumi.InvokeOptions): Promise<GetMacie2JobSummaryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getMacie2JobSummary", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetMacie2JobSummaryResult {
  * Get a Macie2JobSummary
  */
 export function getMacie2JobSummaryOutput(args: GetMacie2JobSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMacie2JobSummaryResult> {
-    return pulumi.output(args).apply((a: any) => getMacie2JobSummary(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getMacie2JobSummary", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMacie2JobSummaryOutputArgs {

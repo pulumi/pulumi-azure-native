@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getS3ControlMultiRegionAccessPointPolicyDocument(args: GetS3ControlMultiRegionAccessPointPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetS3ControlMultiRegionAccessPointPolicyDocumentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getS3ControlMultiRegionAccessPointPolicyDocument", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetS3ControlMultiRegionAccessPointPolicyDocumentResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getS3ControlMultiRegionAccessPointPolicyDocumentOutput(args: GetS3ControlMultiRegionAccessPointPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetS3ControlMultiRegionAccessPointPolicyDocumentResult> {
-    return pulumi.output(args).apply((a: any) => getS3ControlMultiRegionAccessPointPolicyDocument(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getS3ControlMultiRegionAccessPointPolicyDocument", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetS3ControlMultiRegionAccessPointPolicyDocumentOutputArgs {

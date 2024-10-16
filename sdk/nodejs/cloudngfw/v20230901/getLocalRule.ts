@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a LocalRulesResource
  */
 export function getLocalRule(args: GetLocalRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:cloudngfw/v20230901:getLocalRule", {
         "localRulestackName": args.localRulestackName,
@@ -137,7 +136,12 @@ export interface GetLocalRuleResult {
  * Get a LocalRulesResource
  */
 export function getLocalRuleOutput(args: GetLocalRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRuleResult> {
-    return pulumi.output(args).apply((a: any) => getLocalRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20230901:getLocalRule", {
+        "localRulestackName": args.localRulestackName,
+        "priority": args.priority,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLocalRuleOutputArgs {

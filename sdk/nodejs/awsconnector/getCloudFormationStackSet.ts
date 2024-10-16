@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getCloudFormationStackSet(args: GetCloudFormationStackSetArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationStackSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getCloudFormationStackSet", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetCloudFormationStackSetResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getCloudFormationStackSetOutput(args: GetCloudFormationStackSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFormationStackSetResult> {
-    return pulumi.output(args).apply((a: any) => getCloudFormationStackSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getCloudFormationStackSet", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCloudFormationStackSetOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Ec2Instance
  */
 export function getEc2Instance(args: GetEc2InstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2InstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEc2Instance", {
         "resourceUri": args.resourceUri,
@@ -54,7 +53,10 @@ export interface GetEc2InstanceResult {
  * Get a Ec2Instance
  */
 export function getEc2InstanceOutput(args: GetEc2InstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2InstanceResult> {
-    return pulumi.output(args).apply((a: any) => getEc2Instance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2Instance", {
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetEc2InstanceOutputArgs {

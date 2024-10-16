@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a LambdaFunctionCodeLocation
  */
 export function getLambdaFunctionCodeLocation(args: GetLambdaFunctionCodeLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLambdaFunctionCodeLocationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getLambdaFunctionCodeLocation", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetLambdaFunctionCodeLocationResult {
  * Get a LambdaFunctionCodeLocation
  */
 export function getLambdaFunctionCodeLocationOutput(args: GetLambdaFunctionCodeLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLambdaFunctionCodeLocationResult> {
-    return pulumi.output(args).apply((a: any) => getLambdaFunctionCodeLocation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getLambdaFunctionCodeLocation", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLambdaFunctionCodeLocationOutputArgs {

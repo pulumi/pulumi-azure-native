@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
  */
 export function getUserRuleCollection(args: GetUserRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleCollectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network:getUserRuleCollection", {
         "configurationName": args.configurationName,
@@ -87,7 +86,13 @@ export interface GetUserRuleCollectionResult {
  * Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
  */
 export function getUserRuleCollectionOutput(args: GetUserRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserRuleCollectionResult> {
-    return pulumi.output(args).apply((a: any) => getUserRuleCollection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network:getUserRuleCollection", {
+        "configurationName": args.configurationName,
+        "networkManagerName": args.networkManagerName,
+        "resourceGroupName": args.resourceGroupName,
+        "ruleCollectionName": args.ruleCollectionName,
+    }, opts);
 }
 
 export interface GetUserRuleCollectionOutputArgs {

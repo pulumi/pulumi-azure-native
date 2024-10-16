@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-07-24-preview.
  */
 export function getSqlServer(args: GetSqlServerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredata:getSqlServer", {
         "expand": args.expand,
@@ -80,7 +79,13 @@ export interface GetSqlServerResult {
  * Azure REST API version: 2019-07-24-preview.
  */
 export function getSqlServerOutput(args: GetSqlServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerResult> {
-    return pulumi.output(args).apply((a: any) => getSqlServer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuredata:getSqlServer", {
+        "expand": args.expand,
+        "resourceGroupName": args.resourceGroupName,
+        "sqlServerName": args.sqlServerName,
+        "sqlServerRegistrationName": args.sqlServerRegistrationName,
+    }, opts);
 }
 
 export interface GetSqlServerOutputArgs {

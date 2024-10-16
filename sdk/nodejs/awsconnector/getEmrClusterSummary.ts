@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEmrClusterSummary(args: GetEmrClusterSummaryArgs, opts?: pulumi.InvokeOptions): Promise<GetEmrClusterSummaryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEmrClusterSummary", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEmrClusterSummaryResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEmrClusterSummaryOutput(args: GetEmrClusterSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmrClusterSummaryResult> {
-    return pulumi.output(args).apply((a: any) => getEmrClusterSummary(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEmrClusterSummary", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEmrClusterSummaryOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-05-01.
  */
 export function getApiGatewayConfigConnection(args: GetApiGatewayConfigConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiGatewayConfigConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getApiGatewayConfigConnection", {
         "configConnectionName": args.configConnectionName,
@@ -79,7 +78,12 @@ export interface GetApiGatewayConfigConnectionResult {
  * Other available API versions: 2024-05-01.
  */
 export function getApiGatewayConfigConnectionOutput(args: GetApiGatewayConfigConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayConfigConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getApiGatewayConfigConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getApiGatewayConfigConnection", {
+        "configConnectionName": args.configConnectionName,
+        "gatewayName": args.gatewayName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetApiGatewayConfigConnectionOutputArgs {

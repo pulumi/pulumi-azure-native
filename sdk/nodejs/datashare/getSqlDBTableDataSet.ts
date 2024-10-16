@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-08-01.
  */
 export function getSqlDBTableDataSet(args: GetSqlDBTableDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDBTableDataSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datashare:getSqlDBTableDataSet", {
         "accountName": args.accountName,
@@ -92,7 +91,13 @@ export interface GetSqlDBTableDataSetResult {
  * Azure REST API version: 2021-08-01.
  */
 export function getSqlDBTableDataSetOutput(args: GetSqlDBTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDBTableDataSetResult> {
-    return pulumi.output(args).apply((a: any) => getSqlDBTableDataSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datashare:getSqlDBTableDataSet", {
+        "accountName": args.accountName,
+        "dataSetName": args.dataSetName,
+        "resourceGroupName": args.resourceGroupName,
+        "shareName": args.shareName,
+    }, opts);
 }
 
 export interface GetSqlDBTableDataSetOutputArgs {

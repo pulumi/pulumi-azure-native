@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Status of the OpenAI Integration
  */
 export function getOpenAIStatus(args: GetOpenAIStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenAIStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:elastic/v20240615preview:getOpenAIStatus", {
         "integrationName": args.integrationName,
@@ -48,7 +47,12 @@ export interface GetOpenAIStatusResult {
  * Status of the OpenAI Integration
  */
 export function getOpenAIStatusOutput(args: GetOpenAIStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenAIStatusResult> {
-    return pulumi.output(args).apply((a: any) => getOpenAIStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:elastic/v20240615preview:getOpenAIStatus", {
+        "integrationName": args.integrationName,
+        "monitorName": args.monitorName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetOpenAIStatusOutputArgs {

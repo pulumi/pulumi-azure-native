@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get an association.
  */
 export function getAssociation(args: GetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:customproviders/v20180901preview:getAssociation", {
         "associationName": args.associationName,
@@ -56,7 +55,11 @@ export interface GetAssociationResult {
  * Get an association.
  */
 export function getAssociationOutput(args: GetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:customproviders/v20180901preview:getAssociation", {
+        "associationName": args.associationName,
+        "scope": args.scope,
+    }, opts);
 }
 
 export interface GetAssociationOutputArgs {

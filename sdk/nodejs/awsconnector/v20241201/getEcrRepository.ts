@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a EcrRepository
  */
 export function getEcrRepository(args: GetEcrRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetEcrRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEcrRepository", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEcrRepositoryResult {
  * Get a EcrRepository
  */
 export function getEcrRepositoryOutput(args: GetEcrRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcrRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getEcrRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEcrRepository", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEcrRepositoryOutputArgs {

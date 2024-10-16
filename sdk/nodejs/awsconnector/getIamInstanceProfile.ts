@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getIamInstanceProfile(args: GetIamInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetIamInstanceProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getIamInstanceProfile", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetIamInstanceProfileResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getIamInstanceProfileOutput(args: GetIamInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamInstanceProfileResult> {
-    return pulumi.output(args).apply((a: any) => getIamInstanceProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamInstanceProfile", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamInstanceProfileOutputArgs {

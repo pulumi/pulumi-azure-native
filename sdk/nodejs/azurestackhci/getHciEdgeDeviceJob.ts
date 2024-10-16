@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-09-01-preview.
  */
 export function getHciEdgeDeviceJob(args: GetHciEdgeDeviceJobArgs, opts?: pulumi.InvokeOptions): Promise<GetHciEdgeDeviceJobResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci:getHciEdgeDeviceJob", {
         "edgeDeviceName": args.edgeDeviceName,
@@ -71,7 +70,12 @@ export interface GetHciEdgeDeviceJobResult {
  * Azure REST API version: 2024-09-01-preview.
  */
 export function getHciEdgeDeviceJobOutput(args: GetHciEdgeDeviceJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHciEdgeDeviceJobResult> {
-    return pulumi.output(args).apply((a: any) => getHciEdgeDeviceJob(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getHciEdgeDeviceJob", {
+        "edgeDeviceName": args.edgeDeviceName,
+        "jobsName": args.jobsName,
+        "resourceUri": args.resourceUri,
+    }, opts);
 }
 
 export interface GetHciEdgeDeviceJobOutputArgs {

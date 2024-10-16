@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets a policy fragment.
  */
 export function getPolicyFragment(args: GetPolicyFragmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyFragmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20230901preview:getPolicyFragment", {
         "format": args.format,
@@ -74,7 +73,13 @@ export interface GetPolicyFragmentResult {
  * Gets a policy fragment.
  */
 export function getPolicyFragmentOutput(args: GetPolicyFragmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyFragmentResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyFragment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getPolicyFragment", {
+        "format": args.format,
+        "id": args.id,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetPolicyFragmentOutputArgs {

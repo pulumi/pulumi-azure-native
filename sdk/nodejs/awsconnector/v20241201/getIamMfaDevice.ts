@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a IamMFADevice
  */
 export function getIamMfaDevice(args: GetIamMfaDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetIamMfaDeviceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getIamMfaDevice", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetIamMfaDeviceResult {
  * Get a IamMFADevice
  */
 export function getIamMfaDeviceOutput(args: GetIamMfaDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamMfaDeviceResult> {
-    return pulumi.output(args).apply((a: any) => getIamMfaDevice(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamMfaDevice", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamMfaDeviceOutputArgs {

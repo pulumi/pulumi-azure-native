@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets detailed status information for an integration runtime.
  */
 export function getIntegrationRuntimeStatus(args: GetIntegrationRuntimeStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getIntegrationRuntimeStatus", {
         "factoryName": args.factoryName,
@@ -52,7 +51,12 @@ export interface GetIntegrationRuntimeStatusResult {
  * Gets detailed status information for an integration runtime.
  */
 export function getIntegrationRuntimeStatusOutput(args: GetIntegrationRuntimeStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeStatusResult> {
-    return pulumi.output(args).apply((a: any) => getIntegrationRuntimeStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getIntegrationRuntimeStatus", {
+        "factoryName": args.factoryName,
+        "integrationRuntimeName": args.integrationRuntimeName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIntegrationRuntimeStatusOutputArgs {

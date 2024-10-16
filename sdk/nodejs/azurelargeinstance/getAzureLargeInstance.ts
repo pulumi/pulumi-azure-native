@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-08-01-preview.
  */
 export function getAzureLargeInstance(args: GetAzureLargeInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureLargeInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurelargeinstance:getAzureLargeInstance", {
         "azureLargeInstanceName": args.azureLargeInstanceName,
@@ -104,7 +103,11 @@ export interface GetAzureLargeInstanceResult {
  * Azure REST API version: 2024-08-01-preview.
  */
 export function getAzureLargeInstanceOutput(args: GetAzureLargeInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureLargeInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getAzureLargeInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurelargeinstance:getAzureLargeInstance", {
+        "azureLargeInstanceName": args.azureLargeInstanceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAzureLargeInstanceOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a OpenSearchDomainStatus
  */
 export function getOpenSearchDomainStatus(args: GetOpenSearchDomainStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenSearchDomainStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getOpenSearchDomainStatus", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetOpenSearchDomainStatusResult {
  * Get a OpenSearchDomainStatus
  */
 export function getOpenSearchDomainStatusOutput(args: GetOpenSearchDomainStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenSearchDomainStatusResult> {
-    return pulumi.output(args).apply((a: any) => getOpenSearchDomainStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getOpenSearchDomainStatus", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetOpenSearchDomainStatusOutputArgs {

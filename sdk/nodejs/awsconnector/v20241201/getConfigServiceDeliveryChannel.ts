@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a ConfigServiceDeliveryChannel
  */
 export function getConfigServiceDeliveryChannel(args: GetConfigServiceDeliveryChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigServiceDeliveryChannelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getConfigServiceDeliveryChannel", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetConfigServiceDeliveryChannelResult {
  * Get a ConfigServiceDeliveryChannel
  */
 export function getConfigServiceDeliveryChannelOutput(args: GetConfigServiceDeliveryChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServiceDeliveryChannelResult> {
-    return pulumi.output(args).apply((a: any) => getConfigServiceDeliveryChannel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getConfigServiceDeliveryChannel", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetConfigServiceDeliveryChannelOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a IamServerCertificate
  */
 export function getIamServerCertificate(args: GetIamServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetIamServerCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getIamServerCertificate", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetIamServerCertificateResult {
  * Get a IamServerCertificate
  */
 export function getIamServerCertificateOutput(args: GetIamServerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamServerCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getIamServerCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamServerCertificate", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamServerCertificateOutputArgs {

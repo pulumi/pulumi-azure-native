@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getDaxCluster(args: GetDaxClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDaxClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getDaxCluster", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetDaxClusterResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getDaxClusterOutput(args: GetDaxClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaxClusterResult> {
-    return pulumi.output(args).apply((a: any) => getDaxCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getDaxCluster", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDaxClusterOutputArgs {

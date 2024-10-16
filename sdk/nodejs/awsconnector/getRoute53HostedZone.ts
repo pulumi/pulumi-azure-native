@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getRoute53HostedZone(args: GetRoute53HostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetRoute53HostedZoneResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getRoute53HostedZone", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetRoute53HostedZoneResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getRoute53HostedZoneOutput(args: GetRoute53HostedZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoute53HostedZoneResult> {
-    return pulumi.output(args).apply((a: any) => getRoute53HostedZone(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getRoute53HostedZone", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRoute53HostedZoneOutputArgs {

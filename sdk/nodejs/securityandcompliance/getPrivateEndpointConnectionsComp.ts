@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-03-08.
  */
 export function getPrivateEndpointConnectionsComp(args: GetPrivateEndpointConnectionsCompArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsCompResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityandcompliance:getPrivateEndpointConnectionsComp", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
@@ -74,7 +73,12 @@ export interface GetPrivateEndpointConnectionsCompResult {
  * Azure REST API version: 2021-03-08.
  */
 export function getPrivateEndpointConnectionsCompOutput(args: GetPrivateEndpointConnectionsCompOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsCompResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsComp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityandcompliance:getPrivateEndpointConnectionsComp", {
+        "privateEndpointConnectionName": args.privateEndpointConnectionName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface GetPrivateEndpointConnectionsCompOutputArgs {

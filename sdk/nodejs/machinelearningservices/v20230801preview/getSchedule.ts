@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Azure Resource Manager resource envelope.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20230801preview:getSchedule", {
         "name": args.name,
@@ -64,7 +63,12 @@ export interface GetScheduleResult {
  * Azure Resource Manager resource envelope.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
-    return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230801preview:getSchedule", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetScheduleOutputArgs {

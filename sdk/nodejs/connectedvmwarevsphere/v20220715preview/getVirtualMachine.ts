@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Implements virtual machine GET method.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20220715preview:getVirtualMachine", {
         "resourceGroupName": args.resourceGroupName,
@@ -168,7 +167,11 @@ export interface GetVirtualMachineResult {
  * Implements virtual machine GET method.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere/v20220715preview:getVirtualMachine", {
+        "resourceGroupName": args.resourceGroupName,
+        "virtualMachineName": args.virtualMachineName,
+    }, opts);
 }
 
 export interface GetVirtualMachineOutputArgs {

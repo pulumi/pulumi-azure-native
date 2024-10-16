@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a EcsTaskDefinition
  */
 export function getEcsTaskDefinition(args: GetEcsTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetEcsTaskDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEcsTaskDefinition", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEcsTaskDefinitionResult {
  * Get a EcsTaskDefinition
  */
 export function getEcsTaskDefinitionOutput(args: GetEcsTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcsTaskDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getEcsTaskDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEcsTaskDefinition", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEcsTaskDefinitionOutputArgs {

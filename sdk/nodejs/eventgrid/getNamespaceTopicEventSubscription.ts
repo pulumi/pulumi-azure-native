@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getNamespaceTopicEventSubscription(args: GetNamespaceTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicEventSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid:getNamespaceTopicEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,
@@ -87,7 +86,13 @@ export interface GetNamespaceTopicEventSubscriptionResult {
  * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getNamespaceTopicEventSubscriptionOutput(args: GetNamespaceTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceTopicEventSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getNamespaceTopicEventSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid:getNamespaceTopicEventSubscription", {
+        "eventSubscriptionName": args.eventSubscriptionName,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+        "topicName": args.topicName,
+    }, opts);
 }
 
 export interface GetNamespaceTopicEventSubscriptionOutputArgs {

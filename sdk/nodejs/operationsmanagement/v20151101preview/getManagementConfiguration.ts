@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the user ManagementConfiguration.
  */
 export function getManagementConfiguration(args: GetManagementConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:operationsmanagement/v20151101preview:getManagementConfiguration", {
         "managementConfigurationName": args.managementConfigurationName,
@@ -59,7 +58,11 @@ export interface GetManagementConfigurationResult {
  * Retrieves the user ManagementConfiguration.
  */
 export function getManagementConfigurationOutput(args: GetManagementConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getManagementConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:operationsmanagement/v20151101preview:getManagementConfiguration", {
+        "managementConfigurationName": args.managementConfigurationName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetManagementConfigurationOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the properties of a Lab Plan.
  */
 export function getLabPlan(args: GetLabPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetLabPlanResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices/v20230607:getLabPlan", {
         "labPlanName": args.labPlanName,
@@ -103,7 +102,11 @@ export interface GetLabPlanResult {
  * Retrieves the properties of a Lab Plan.
  */
 export function getLabPlanOutput(args: GetLabPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabPlanResult> {
-    return pulumi.output(args).apply((a: any) => getLabPlan(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:labservices/v20230607:getLabPlan", {
+        "labPlanName": args.labPlanName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLabPlanOutputArgs {

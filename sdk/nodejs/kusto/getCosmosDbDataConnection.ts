@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-12-29.
  */
 export function getCosmosDbDataConnection(args: GetCosmosDbDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetCosmosDbDataConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:kusto:getCosmosDbDataConnection", {
         "clusterName": args.clusterName,
@@ -105,7 +104,13 @@ export interface GetCosmosDbDataConnectionResult {
  * Azure REST API version: 2022-12-29.
  */
 export function getCosmosDbDataConnectionOutput(args: GetCosmosDbDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCosmosDbDataConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getCosmosDbDataConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:kusto:getCosmosDbDataConnection", {
+        "clusterName": args.clusterName,
+        "dataConnectionName": args.dataConnectionName,
+        "databaseName": args.databaseName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCosmosDbDataConnectionOutputArgs {

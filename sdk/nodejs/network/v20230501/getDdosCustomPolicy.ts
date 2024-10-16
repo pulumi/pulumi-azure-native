@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Gets information about the specified DDoS custom policy.
  */
 export function getDdosCustomPolicy(args: GetDdosCustomPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosCustomPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230501:getDdosCustomPolicy", {
         "ddosCustomPolicyName": args.ddosCustomPolicyName,
@@ -68,7 +67,11 @@ export interface GetDdosCustomPolicyResult {
  * Gets information about the specified DDoS custom policy.
  */
 export function getDdosCustomPolicyOutput(args: GetDdosCustomPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosCustomPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getDdosCustomPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getDdosCustomPolicy", {
+        "ddosCustomPolicyName": args.ddosCustomPolicyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDdosCustomPolicyOutputArgs {

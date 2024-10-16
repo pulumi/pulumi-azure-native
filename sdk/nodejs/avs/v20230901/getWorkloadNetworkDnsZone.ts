@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a WorkloadNetworkDnsZone
  */
 export function getWorkloadNetworkDnsZone(args: GetWorkloadNetworkDnsZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDnsZoneResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs/v20230901:getWorkloadNetworkDnsZone", {
         "dnsZoneId": args.dnsZoneId,
@@ -88,7 +87,12 @@ export interface GetWorkloadNetworkDnsZoneResult {
  * Get a WorkloadNetworkDnsZone
  */
 export function getWorkloadNetworkDnsZoneOutput(args: GetWorkloadNetworkDnsZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsZoneResult> {
-    return pulumi.output(args).apply((a: any) => getWorkloadNetworkDnsZone(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getWorkloadNetworkDnsZone", {
+        "dnsZoneId": args.dnsZoneId,
+        "privateCloudName": args.privateCloudName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWorkloadNetworkDnsZoneOutputArgs {

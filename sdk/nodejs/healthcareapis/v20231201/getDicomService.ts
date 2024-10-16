@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the properties of the specified DICOM Service.
  */
 export function getDicomService(args: GetDicomServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDicomServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:healthcareapis/v20231201:getDicomService", {
         "dicomServiceName": args.dicomServiceName,
@@ -108,7 +107,12 @@ export interface GetDicomServiceResult {
  * Gets the properties of the specified DICOM Service.
  */
 export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDicomServiceResult> {
-    return pulumi.output(args).apply((a: any) => getDicomService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:healthcareapis/v20231201:getDicomService", {
+        "dicomServiceName": args.dicomServiceName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetDicomServiceOutputArgs {

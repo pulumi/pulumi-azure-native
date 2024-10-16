@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-12-01-preview.
  */
 export function getDefenderForStorage(args: GetDefenderForStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetDefenderForStorageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getDefenderForStorage", {
         "resourceId": args.resourceId,
@@ -57,7 +56,11 @@ export interface GetDefenderForStorageResult {
  * Azure REST API version: 2022-12-01-preview.
  */
 export function getDefenderForStorageOutput(args: GetDefenderForStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefenderForStorageResult> {
-    return pulumi.output(args).apply((a: any) => getDefenderForStorage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security:getDefenderForStorage", {
+        "resourceId": args.resourceId,
+        "settingName": args.settingName,
+    }, opts);
 }
 
 export interface GetDefenderForStorageOutputArgs {

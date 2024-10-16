@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEcrRepository(args: GetEcrRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetEcrRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEcrRepository", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEcrRepositoryResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEcrRepositoryOutput(args: GetEcrRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcrRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getEcrRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEcrRepository", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEcrRepositoryOutputArgs {

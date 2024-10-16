@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get tag associated with the Operation.
  */
 export function getTagByOperation(args: GetTagByOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetTagByOperationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20240501:getTagByOperation", {
         "apiId": args.apiId,
@@ -67,7 +66,14 @@ export interface GetTagByOperationResult {
  * Get tag associated with the Operation.
  */
 export function getTagByOperationOutput(args: GetTagByOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByOperationResult> {
-    return pulumi.output(args).apply((a: any) => getTagByOperation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getTagByOperation", {
+        "apiId": args.apiId,
+        "operationId": args.operationId,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "tagId": args.tagId,
+    }, opts);
 }
 
 export interface GetTagByOperationOutputArgs {

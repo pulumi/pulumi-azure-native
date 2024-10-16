@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-08-02-preview.
  */
 export function getLogicApp(args: GetLogicAppArgs, opts?: pulumi.InvokeOptions): Promise<GetLogicAppResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app:getLogicApp", {
         "containerAppName": args.containerAppName,
@@ -66,7 +65,12 @@ export interface GetLogicAppResult {
  * Other available API versions: 2024-08-02-preview.
  */
 export function getLogicAppOutput(args: GetLogicAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogicAppResult> {
-    return pulumi.output(args).apply((a: any) => getLogicApp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:app:getLogicApp", {
+        "containerAppName": args.containerAppName,
+        "logicAppName": args.logicAppName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLogicAppOutputArgs {

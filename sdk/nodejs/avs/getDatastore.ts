@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:avs:getDatastore", {
         "clusterName": args.clusterName,
@@ -83,7 +82,13 @@ export interface GetDatastoreResult {
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
-    return pulumi.output(args).apply((a: any) => getDatastore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:avs:getDatastore", {
+        "clusterName": args.clusterName,
+        "datastoreName": args.datastoreName,
+        "privateCloudName": args.privateCloudName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetDatastoreOutputArgs {

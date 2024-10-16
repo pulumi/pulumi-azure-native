@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * List test keys for a Service.
  */
 export function listServiceTestKeys(args: ListServiceTestKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceTestKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20230501preview:listServiceTestKeys", {
         "resourceGroupName": args.resourceGroupName,
@@ -56,7 +55,11 @@ export interface ListServiceTestKeysResult {
  * List test keys for a Service.
  */
 export function listServiceTestKeysOutput(args: ListServiceTestKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceTestKeysResult> {
-    return pulumi.output(args).apply((a: any) => listServiceTestKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230501preview:listServiceTestKeys", {
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface ListServiceTestKeysOutputArgs {

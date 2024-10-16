@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets network interfaces by resource name
  */
 export function getNetworkinterfaceRetrieve(args: GetNetworkinterfaceRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkinterfaceRetrieveResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210901preview:getNetworkinterfaceRetrieve", {
         "networkinterfacesName": args.networkinterfacesName,
@@ -85,7 +84,11 @@ export interface GetNetworkinterfaceRetrieveResult {
  * Gets network interfaces by resource name
  */
 export function getNetworkinterfaceRetrieveOutput(args: GetNetworkinterfaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkinterfaceRetrieveResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkinterfaceRetrieve(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20210901preview:getNetworkinterfaceRetrieve", {
+        "networkinterfacesName": args.networkinterfacesName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetNetworkinterfaceRetrieveOutputArgs {

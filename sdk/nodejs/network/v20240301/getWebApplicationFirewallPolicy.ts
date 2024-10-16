@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieve protection policy with specified name within a resource group.
  */
 export function getWebApplicationFirewallPolicy(args: GetWebApplicationFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWebApplicationFirewallPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20240301:getWebApplicationFirewallPolicy", {
         "policyName": args.policyName,
@@ -99,7 +98,11 @@ export interface GetWebApplicationFirewallPolicyResult {
  * Retrieve protection policy with specified name within a resource group.
  */
 export function getWebApplicationFirewallPolicyOutput(args: GetWebApplicationFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebApplicationFirewallPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getWebApplicationFirewallPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getWebApplicationFirewallPolicy", {
+        "policyName": args.policyName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetWebApplicationFirewallPolicyOutputArgs {

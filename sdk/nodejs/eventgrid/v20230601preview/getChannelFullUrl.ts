@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get the full endpoint URL of a partner destination channel.
  */
 export function getChannelFullUrl(args: GetChannelFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelFullUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20230601preview:getChannelFullUrl", {
         "channelName": args.channelName,
@@ -45,7 +44,12 @@ export interface GetChannelFullUrlResult {
  * Get the full endpoint URL of a partner destination channel.
  */
 export function getChannelFullUrlOutput(args: GetChannelFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelFullUrlResult> {
-    return pulumi.output(args).apply((a: any) => getChannelFullUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20230601preview:getChannelFullUrl", {
+        "channelName": args.channelName,
+        "partnerNamespaceName": args.partnerNamespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetChannelFullUrlOutputArgs {

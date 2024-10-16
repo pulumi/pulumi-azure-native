@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-01-01-preview.
  */
 export function listVendorSkusCredential(args: ListVendorSkusCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListVendorSkusCredentialResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridnetwork:listVendorSkusCredential", {
         "skuName": args.skuName,
@@ -58,7 +57,11 @@ export interface ListVendorSkusCredentialResult {
  * Azure REST API version: 2022-01-01-preview.
  */
 export function listVendorSkusCredentialOutput(args: ListVendorSkusCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVendorSkusCredentialResult> {
-    return pulumi.output(args).apply((a: any) => listVendorSkusCredential(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:listVendorSkusCredential", {
+        "skuName": args.skuName,
+        "vendorName": args.vendorName,
+    }, opts);
 }
 
 export interface ListVendorSkusCredentialOutputArgs {

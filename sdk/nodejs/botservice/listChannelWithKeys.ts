@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-09-15-preview.
  */
 export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListChannelWithKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:botservice:listChannelWithKeys", {
         "channelName": args.channelName,
@@ -110,7 +109,12 @@ export interface ListChannelWithKeysResult {
  * Other available API versions: 2023-09-15-preview.
  */
 export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListChannelWithKeysResult> {
-    return pulumi.output(args).apply((a: any) => listChannelWithKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:botservice:listChannelWithKeys", {
+        "channelName": args.channelName,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+    }, opts);
 }
 
 export interface ListChannelWithKeysOutputArgs {

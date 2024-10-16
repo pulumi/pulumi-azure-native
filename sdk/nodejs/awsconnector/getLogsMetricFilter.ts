@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getLogsMetricFilter(args: GetLogsMetricFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetLogsMetricFilterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getLogsMetricFilter", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetLogsMetricFilterResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getLogsMetricFilterOutput(args: GetLogsMetricFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsMetricFilterResult> {
-    return pulumi.output(args).apply((a: any) => getLogsMetricFilter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getLogsMetricFilter", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLogsMetricFilterOutputArgs {

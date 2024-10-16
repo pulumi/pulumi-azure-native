@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2018-06-01.
  */
 export function getCredentialOperation(args: GetCredentialOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialOperationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datafactory:getCredentialOperation", {
         "credentialName": args.credentialName,
@@ -66,7 +65,12 @@ export interface GetCredentialOperationResult {
  * Azure REST API version: 2018-06-01.
  */
 export function getCredentialOperationOutput(args: GetCredentialOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialOperationResult> {
-    return pulumi.output(args).apply((a: any) => getCredentialOperation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datafactory:getCredentialOperation", {
+        "credentialName": args.credentialName,
+        "factoryName": args.factoryName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCredentialOperationOutputArgs {

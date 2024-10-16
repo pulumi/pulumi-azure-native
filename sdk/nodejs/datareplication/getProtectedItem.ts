@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2021-02-16-preview.
  */
 export function getProtectedItem(args: GetProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectedItemResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:datareplication:getProtectedItem", {
         "protectedItemName": args.protectedItemName,
@@ -63,7 +62,12 @@ export interface GetProtectedItemResult {
  * Azure REST API version: 2021-02-16-preview.
  */
 export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectedItemResult> {
-    return pulumi.output(args).apply((a: any) => getProtectedItem(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:datareplication:getProtectedItem", {
+        "protectedItemName": args.protectedItemName,
+        "resourceGroupName": args.resourceGroupName,
+        "vaultName": args.vaultName,
+    }, opts);
 }
 
 export interface GetProtectedItemOutputArgs {

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getSageMakerApp(args: GetSageMakerAppArgs, opts?: pulumi.InvokeOptions): Promise<GetSageMakerAppResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getSageMakerApp", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetSageMakerAppResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getSageMakerAppOutput(args: GetSageMakerAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSageMakerAppResult> {
-    return pulumi.output(args).apply((a: any) => getSageMakerApp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getSageMakerApp", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetSageMakerAppOutputArgs {

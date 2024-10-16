@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets a source control byt its identifier.
  */
 export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230501preview:getSourceControl", {
         "resourceGroupName": args.resourceGroupName,
@@ -96,7 +95,12 @@ export interface GetSourceControlResult {
  * Gets a source control byt its identifier.
  */
 export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
-    return pulumi.output(args).apply((a: any) => getSourceControl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230501preview:getSourceControl", {
+        "resourceGroupName": args.resourceGroupName,
+        "sourceControlId": args.sourceControlId,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetSourceControlOutputArgs {

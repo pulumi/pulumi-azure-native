@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * List allowed upgrade plans for application.
  */
 export function listApplicationAllowedUpgradePlans(args: ListApplicationAllowedUpgradePlansArgs, opts?: pulumi.InvokeOptions): Promise<ListApplicationAllowedUpgradePlansResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:solutions/v20210701:listApplicationAllowedUpgradePlans", {
         "applicationName": args.applicationName,
@@ -43,7 +42,11 @@ export interface ListApplicationAllowedUpgradePlansResult {
  * List allowed upgrade plans for application.
  */
 export function listApplicationAllowedUpgradePlansOutput(args: ListApplicationAllowedUpgradePlansOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationAllowedUpgradePlansResult> {
-    return pulumi.output(args).apply((a: any) => listApplicationAllowedUpgradePlans(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:solutions/v20210701:listApplicationAllowedUpgradePlans", {
+        "applicationName": args.applicationName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface ListApplicationAllowedUpgradePlansOutputArgs {

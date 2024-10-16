@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * The list credential result response.
  */
 export function listManagedClusterUserCredentials(args: ListManagedClusterUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterUserCredentialsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:containerservice/v20240201:listManagedClusterUserCredentials", {
         "format": args.format,
@@ -53,7 +52,13 @@ export interface ListManagedClusterUserCredentialsResult {
  * The list credential result response.
  */
 export function listManagedClusterUserCredentialsOutput(args: ListManagedClusterUserCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterUserCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => listManagedClusterUserCredentials(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:containerservice/v20240201:listManagedClusterUserCredentials", {
+        "format": args.format,
+        "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
+        "serverFqdn": args.serverFqdn,
+    }, opts);
 }
 
 export interface ListManagedClusterUserCredentialsOutputArgs {

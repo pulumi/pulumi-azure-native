@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getWorkspaceApiVersionSet(args: GetWorkspaceApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceApiVersionSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement:getWorkspaceApiVersionSet", {
         "resourceGroupName": args.resourceGroupName,
@@ -84,7 +83,13 @@ export interface GetWorkspaceApiVersionSetResult {
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
  */
 export function getWorkspaceApiVersionSetOutput(args: GetWorkspaceApiVersionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiVersionSetResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspaceApiVersionSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceApiVersionSet", {
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+        "versionSetId": args.versionSetId,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 export interface GetWorkspaceApiVersionSetOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a AccessAnalyzerAnalyzer
  */
 export function getAccessAnalyzerAnalyzer(args: GetAccessAnalyzerAnalyzerArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessAnalyzerAnalyzerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getAccessAnalyzerAnalyzer", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetAccessAnalyzerAnalyzerResult {
  * Get a AccessAnalyzerAnalyzer
  */
 export function getAccessAnalyzerAnalyzerOutput(args: GetAccessAnalyzerAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessAnalyzerAnalyzerResult> {
-    return pulumi.output(args).apply((a: any) => getAccessAnalyzerAnalyzer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getAccessAnalyzerAnalyzer", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetAccessAnalyzerAnalyzerOutputArgs {

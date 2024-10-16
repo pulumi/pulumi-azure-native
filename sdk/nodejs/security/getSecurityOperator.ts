@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2023-01-01-preview.
  */
 export function getSecurityOperator(args: GetSecurityOperatorArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityOperatorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getSecurityOperator", {
         "pricingName": args.pricingName,
@@ -57,7 +56,11 @@ export interface GetSecurityOperatorResult {
  * Azure REST API version: 2023-01-01-preview.
  */
 export function getSecurityOperatorOutput(args: GetSecurityOperatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityOperatorResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityOperator(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:security:getSecurityOperator", {
+        "pricingName": args.pricingName,
+        "securityOperatorName": args.securityOperatorName,
+    }, opts);
 }
 
 export interface GetSecurityOperatorOutputArgs {

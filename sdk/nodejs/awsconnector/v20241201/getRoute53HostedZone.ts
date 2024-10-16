@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Route53HostedZone
  */
 export function getRoute53HostedZone(args: GetRoute53HostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetRoute53HostedZoneResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getRoute53HostedZone", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetRoute53HostedZoneResult {
  * Get a Route53HostedZone
  */
 export function getRoute53HostedZoneOutput(args: GetRoute53HostedZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoute53HostedZoneResult> {
-    return pulumi.output(args).apply((a: any) => getRoute53HostedZone(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRoute53HostedZone", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetRoute53HostedZoneOutputArgs {

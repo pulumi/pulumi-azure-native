@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Ec2KeyPair
  */
 export function getEc2KeyPair(args: GetEc2KeyPairArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2KeyPairResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEc2KeyPair", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEc2KeyPairResult {
  * Get a Ec2KeyPair
  */
 export function getEc2KeyPairOutput(args: GetEc2KeyPairOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2KeyPairResult> {
-    return pulumi.output(args).apply((a: any) => getEc2KeyPair(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2KeyPair", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2KeyPairOutputArgs {

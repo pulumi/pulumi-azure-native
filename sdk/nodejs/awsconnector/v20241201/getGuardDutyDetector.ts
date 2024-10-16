@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a GuardDutyDetector
  */
 export function getGuardDutyDetector(args: GetGuardDutyDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetGuardDutyDetectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getGuardDutyDetector", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetGuardDutyDetectorResult {
  * Get a GuardDutyDetector
  */
 export function getGuardDutyDetectorOutput(args: GetGuardDutyDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuardDutyDetectorResult> {
-    return pulumi.output(args).apply((a: any) => getGuardDutyDetector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getGuardDutyDetector", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetGuardDutyDetectorOutputArgs {

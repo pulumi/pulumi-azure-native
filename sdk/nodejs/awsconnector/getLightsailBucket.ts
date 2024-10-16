@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getLightsailBucket(args: GetLightsailBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetLightsailBucketResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getLightsailBucket", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetLightsailBucketResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getLightsailBucketOutput(args: GetLightsailBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLightsailBucketResult> {
-    return pulumi.output(args).apply((a: any) => getLightsailBucket(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getLightsailBucket", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLightsailBucketOutputArgs {

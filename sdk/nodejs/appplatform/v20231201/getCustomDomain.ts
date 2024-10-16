@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get the custom domain of one lifecycle application.
  */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appplatform/v20231201:getCustomDomain", {
         "appName": args.appName,
@@ -69,7 +68,13 @@ export interface GetCustomDomainResult {
  * Get the custom domain of one lifecycle application.
  */
 export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {
-    return pulumi.output(args).apply((a: any) => getCustomDomain(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231201:getCustomDomain", {
+        "appName": args.appName,
+        "domainName": args.domainName,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetCustomDomainOutputArgs {

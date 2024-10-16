@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getEfsMountTarget(args: GetEfsMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetEfsMountTargetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getEfsMountTarget", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetEfsMountTargetResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getEfsMountTargetOutput(args: GetEfsMountTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEfsMountTargetResult> {
-    return pulumi.output(args).apply((a: any) => getEfsMountTarget(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEfsMountTarget", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEfsMountTargetOutputArgs {

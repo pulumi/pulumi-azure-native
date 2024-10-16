@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets information about a cluster such as compute and storage configuration and cluster lifecycle metadata such as cluster creation date and time.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20230302preview:getCluster", {
         "clusterName": args.clusterName,
@@ -191,7 +190,11 @@ export interface GetClusterResult {
  * Gets information about a cluster such as compute and storage configuration and cluster lifecycle metadata such as cluster creation date and time.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20230302preview:getCluster", {
+        "clusterName": args.clusterName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetClusterOutputArgs {

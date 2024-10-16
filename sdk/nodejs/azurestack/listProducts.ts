@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2022-06-01.
  */
 export function listProducts(args: ListProductsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azurestack:listProducts", {
         "productName": args.productName,
@@ -54,7 +53,12 @@ export interface ListProductsResult {
  * Azure REST API version: 2022-06-01.
  */
 export function listProductsOutput(args: ListProductsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductsResult> {
-    return pulumi.output(args).apply((a: any) => listProducts(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azurestack:listProducts", {
+        "productName": args.productName,
+        "registrationName": args.registrationName,
+        "resourceGroup": args.resourceGroup,
+    }, opts);
 }
 
 export interface ListProductsOutputArgs {

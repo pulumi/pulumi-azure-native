@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a LogsLogStream
  */
 export function getLogsLogStream(args: GetLogsLogStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetLogsLogStreamResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getLogsLogStream", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetLogsLogStreamResult {
  * Get a LogsLogStream
  */
 export function getLogsLogStreamOutput(args: GetLogsLogStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsLogStreamResult> {
-    return pulumi.output(args).apply((a: any) => getLogsLogStream(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getLogsLogStream", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetLogsLogStreamOutputArgs {

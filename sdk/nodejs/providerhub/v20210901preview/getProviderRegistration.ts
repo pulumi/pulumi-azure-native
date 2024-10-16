@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the provider registration details.
  */
 export function getProviderRegistration(args: GetProviderRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderRegistrationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:providerhub/v20210901preview:getProviderRegistration", {
         "providerNamespace": args.providerNamespace,
@@ -48,7 +47,10 @@ export interface GetProviderRegistrationResult {
  * Gets the provider registration details.
  */
 export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderRegistrationResult> {
-    return pulumi.output(args).apply((a: any) => getProviderRegistration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:providerhub/v20210901preview:getProviderRegistration", {
+        "providerNamespace": args.providerNamespace,
+    }, opts);
 }
 
 export interface GetProviderRegistrationOutputArgs {

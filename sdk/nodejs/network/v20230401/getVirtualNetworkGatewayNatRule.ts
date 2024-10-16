@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the details of a nat rule.
  */
 export function getVirtualNetworkGatewayNatRule(args: GetVirtualNetworkGatewayNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayNatRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20230401:getVirtualNetworkGatewayNatRule", {
         "natRuleName": args.natRuleName,
@@ -80,7 +79,12 @@ export interface GetVirtualNetworkGatewayNatRuleResult {
  * Retrieves the details of a nat rule.
  */
 export function getVirtualNetworkGatewayNatRuleOutput(args: GetVirtualNetworkGatewayNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayNatRuleResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayNatRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20230401:getVirtualNetworkGatewayNatRule", {
+        "natRuleName": args.natRuleName,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
+    }, opts);
 }
 
 export interface GetVirtualNetworkGatewayNatRuleOutputArgs {

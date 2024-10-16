@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  * Other available API versions: 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getEndpointDeployment(args: GetEndpointDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointDeploymentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getEndpointDeployment", {
         "deploymentName": args.deploymentName,
@@ -67,7 +66,13 @@ export interface GetEndpointDeploymentResult {
  * Other available API versions: 2024-04-01-preview, 2024-07-01-preview.
  */
 export function getEndpointDeploymentOutput(args: GetEndpointDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getEndpointDeployment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getEndpointDeployment", {
+        "deploymentName": args.deploymentName,
+        "endpointName": args.endpointName,
+        "resourceGroupName": args.resourceGroupName,
+        "workspaceName": args.workspaceName,
+    }, opts);
 }
 
 export interface GetEndpointDeploymentOutputArgs {

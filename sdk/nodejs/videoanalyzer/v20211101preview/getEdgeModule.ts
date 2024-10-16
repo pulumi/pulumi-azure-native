@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves an existing edge module resource with the given name.
  */
 export function getEdgeModule(args: GetEdgeModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEdgeModuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20211101preview:getEdgeModule", {
         "accountName": args.accountName,
@@ -64,7 +63,12 @@ export interface GetEdgeModuleResult {
  * Retrieves an existing edge module resource with the given name.
  */
 export function getEdgeModuleOutput(args: GetEdgeModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeModuleResult> {
-    return pulumi.output(args).apply((a: any) => getEdgeModule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:videoanalyzer/v20211101preview:getEdgeModule", {
+        "accountName": args.accountName,
+        "edgeModuleName": args.edgeModuleName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEdgeModuleOutputArgs {

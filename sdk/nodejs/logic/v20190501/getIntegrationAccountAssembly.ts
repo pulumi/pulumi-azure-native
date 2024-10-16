@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get an assembly for an integration account.
  */
 export function getIntegrationAccountAssembly(args: GetIntegrationAccountAssemblyArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountAssemblyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:logic/v20190501:getIntegrationAccountAssembly", {
         "assemblyArtifactName": args.assemblyArtifactName,
@@ -68,7 +67,12 @@ export interface GetIntegrationAccountAssemblyResult {
  * Get an assembly for an integration account.
  */
 export function getIntegrationAccountAssemblyOutput(args: GetIntegrationAccountAssemblyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountAssemblyResult> {
-    return pulumi.output(args).apply((a: any) => getIntegrationAccountAssembly(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:logic/v20190501:getIntegrationAccountAssembly", {
+        "assemblyArtifactName": args.assemblyArtifactName,
+        "integrationAccountName": args.integrationAccountName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIntegrationAccountAssemblyOutputArgs {

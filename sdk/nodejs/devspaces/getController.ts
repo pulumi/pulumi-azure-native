@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2019-04-01.
  */
 export function getController(args: GetControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devspaces:getController", {
         "name": args.name,
@@ -82,7 +81,11 @@ export interface GetControllerResult {
  * Azure REST API version: 2019-04-01.
  */
 export function getControllerOutput(args: GetControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerResult> {
-    return pulumi.output(args).apply((a: any) => getController(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devspaces:getController", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetControllerOutputArgs {

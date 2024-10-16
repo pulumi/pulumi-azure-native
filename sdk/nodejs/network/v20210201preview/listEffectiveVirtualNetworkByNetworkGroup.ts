@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Lists all effective virtual networks by specified network group.
  */
 export function listEffectiveVirtualNetworkByNetworkGroup(args: ListEffectiveVirtualNetworkByNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<ListEffectiveVirtualNetworkByNetworkGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:network/v20210201preview:listEffectiveVirtualNetworkByNetworkGroup", {
         "networkGroupName": args.networkGroupName,
@@ -57,7 +56,13 @@ export interface ListEffectiveVirtualNetworkByNetworkGroupResult {
  * Lists all effective virtual networks by specified network group.
  */
 export function listEffectiveVirtualNetworkByNetworkGroupOutput(args: ListEffectiveVirtualNetworkByNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveVirtualNetworkByNetworkGroupResult> {
-    return pulumi.output(args).apply((a: any) => listEffectiveVirtualNetworkByNetworkGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:network/v20210201preview:listEffectiveVirtualNetworkByNetworkGroup", {
+        "networkGroupName": args.networkGroupName,
+        "networkManagerName": args.networkManagerName,
+        "resourceGroupName": args.resourceGroupName,
+        "skipToken": args.skipToken,
+    }, opts);
 }
 
 export interface ListEffectiveVirtualNetworkByNetworkGroupOutputArgs {

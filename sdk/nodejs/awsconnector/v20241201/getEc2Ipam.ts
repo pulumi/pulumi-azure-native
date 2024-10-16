@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get a Ec2Ipam
  */
 export function getEc2Ipam(args: GetEc2IpamArgs, opts?: pulumi.InvokeOptions): Promise<GetEc2IpamResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector/v20241201:getEc2Ipam", {
         "name": args.name,
@@ -67,7 +66,11 @@ export interface GetEc2IpamResult {
  * Get a Ec2Ipam
  */
 export function getEc2IpamOutput(args: GetEc2IpamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2IpamResult> {
-    return pulumi.output(args).apply((a: any) => getEc2Ipam(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2Ipam", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetEc2IpamOutputArgs {

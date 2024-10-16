@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get the source addresses for the specified flow.
  */
 export function getFlowSourceAddresses(args: GetFlowSourceAddressesArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowSourceAddressesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer/v20240927:getFlowSourceAddresses", {
         "connectionName": args.connectionName,
@@ -45,7 +44,12 @@ export interface GetFlowSourceAddressesResult {
  * Get the source addresses for the specified flow.
  */
 export function getFlowSourceAddressesOutput(args: GetFlowSourceAddressesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowSourceAddressesResult> {
-    return pulumi.output(args).apply((a: any) => getFlowSourceAddresses(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20240927:getFlowSourceAddresses", {
+        "connectionName": args.connectionName,
+        "flowName": args.flowName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetFlowSourceAddressesOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
  */
 export function getMongoDBResourceMongoUserDefinition(args: GetMongoDBResourceMongoUserDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoUserDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:documentdb/v20231115preview:getMongoDBResourceMongoUserDefinition", {
         "accountName": args.accountName,
@@ -80,7 +79,12 @@ export interface GetMongoDBResourceMongoUserDefinitionResult {
  * Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
  */
 export function getMongoDBResourceMongoUserDefinitionOutput(args: GetMongoDBResourceMongoUserDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoUserDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoUserDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:documentdb/v20231115preview:getMongoDBResourceMongoUserDefinition", {
+        "accountName": args.accountName,
+        "mongoUserDefinitionId": args.mongoUserDefinitionId,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetMongoDBResourceMongoUserDefinitionOutputArgs {

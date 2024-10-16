@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Get details of the specified quota rule
  */
 export function getVolumeQuotaRule(args: GetVolumeQuotaRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeQuotaRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp/v20230501preview:getVolumeQuotaRule", {
         "accountName": args.accountName,
@@ -94,7 +93,14 @@ export interface GetVolumeQuotaRuleResult {
  * Get details of the specified quota rule
  */
 export function getVolumeQuotaRuleOutput(args: GetVolumeQuotaRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeQuotaRuleResult> {
-    return pulumi.output(args).apply((a: any) => getVolumeQuotaRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:netapp/v20230501preview:getVolumeQuotaRule", {
+        "accountName": args.accountName,
+        "poolName": args.poolName,
+        "resourceGroupName": args.resourceGroupName,
+        "volumeName": args.volumeName,
+        "volumeQuotaRuleName": args.volumeQuotaRuleName,
+    }, opts);
 }
 
 export interface GetVolumeQuotaRuleOutputArgs {

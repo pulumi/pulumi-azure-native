@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Retrieves an existing video resource within an account with a given name.
  */
 export function getVideo(args: GetVideoArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:videoanalyzer/v20210501preview:getVideo", {
         "accountName": args.accountName,
@@ -80,7 +79,12 @@ export interface GetVideoResult {
  * Retrieves an existing video resource within an account with a given name.
  */
 export function getVideoOutput(args: GetVideoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoResult> {
-    return pulumi.output(args).apply((a: any) => getVideo(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:videoanalyzer/v20210501preview:getVideo", {
+        "accountName": args.accountName,
+        "resourceGroupName": args.resourceGroupName,
+        "videoName": args.videoName,
+    }, opts);
 }
 
 export interface GetVideoOutputArgs {

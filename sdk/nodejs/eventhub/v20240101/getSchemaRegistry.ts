@@ -11,7 +11,6 @@ import * as utilities from "../../utilities";
  * Gets the details of an EventHub schema group.
  */
 export function getSchemaRegistry(args: GetSchemaRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventhub/v20240101:getSchemaRegistry", {
         "namespaceName": args.namespaceName,
@@ -82,7 +81,12 @@ export interface GetSchemaRegistryResult {
  * Gets the details of an EventHub schema group.
  */
 export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryResult> {
-    return pulumi.output(args).apply((a: any) => getSchemaRegistry(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:eventhub/v20240101:getSchemaRegistry", {
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+        "schemaGroupName": args.schemaGroupName,
+    }, opts);
 }
 
 export interface GetSchemaRegistryOutputArgs {

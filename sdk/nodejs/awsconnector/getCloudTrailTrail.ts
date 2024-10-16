@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getCloudTrailTrail(args: GetCloudTrailTrailArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudTrailTrailResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getCloudTrailTrail", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetCloudTrailTrailResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getCloudTrailTrailOutput(args: GetCloudTrailTrailOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudTrailTrailResult> {
-    return pulumi.output(args).apply((a: any) => getCloudTrailTrail(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getCloudTrailTrail", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetCloudTrailTrailOutputArgs {

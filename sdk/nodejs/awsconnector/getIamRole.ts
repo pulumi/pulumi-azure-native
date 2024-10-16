@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * Azure REST API version: 2024-12-01.
  */
 export function getIamRole(args: GetIamRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetIamRoleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:awsconnector:getIamRole", {
         "name": args.name,
@@ -69,7 +68,11 @@ export interface GetIamRoleResult {
  * Azure REST API version: 2024-12-01.
  */
 export function getIamRoleOutput(args: GetIamRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamRoleResult> {
-    return pulumi.output(args).apply((a: any) => getIamRole(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamRole", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 export interface GetIamRoleOutputArgs {

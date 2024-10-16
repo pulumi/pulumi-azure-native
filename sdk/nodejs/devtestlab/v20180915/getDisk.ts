@@ -8,7 +8,6 @@ import * as utilities from "../../utilities";
  * Get disk.
  */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:devtestlab/v20180915:getDisk", {
         "expand": args.expand,
@@ -115,7 +114,14 @@ export interface GetDiskResult {
  * Get disk.
  */
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
-    return pulumi.output(args).apply((a: any) => getDisk(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:getDisk", {
+        "expand": args.expand,
+        "labName": args.labName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "userName": args.userName,
+    }, opts);
 }
 
 export interface GetDiskOutputArgs {
