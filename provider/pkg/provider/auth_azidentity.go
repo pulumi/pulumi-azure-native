@@ -109,8 +109,16 @@ func newSingleMethodAuthCredential(authConf *authConfiguration) (azcore.TokenCre
 	return nil, errors.Errorf("Failed to find any valid credentials")
 }
 
+// newOidcCredential creates a TokenCredential for OpenID Connect (OIDC) authentication.
+// An OIDC credential is an azidentity.ClientAssertionCredential that authenticates with a token
+// obtained from a callback function. The token itself can be provided in various ways:
+// - directly via config/environment variable
+// - from a file
+// - through a token exchange by making a request to a configured endpoint
+// This function configures the client assertion callback according to the above cases.
 func newOidcCredential(authConf *authConfiguration) (azcore.TokenCredential, error) {
-	oidcTokenCredential := func(token string) (azcore.TokenCredential, error) {
+	// The generic client assertion that simply returns the token it was created with.
+	oidcTokenCredentialCallback := func(token string) (azcore.TokenCredential, error) {
 		return azidentity.NewClientAssertionCredential(
 			authConf.tenantId,
 			authConf.clientId,
@@ -121,7 +129,7 @@ func newOidcCredential(authConf *authConfiguration) (azcore.TokenCredential, err
 	}
 
 	if authConf.oidcToken != "" {
-		return oidcTokenCredential(authConf.oidcToken)
+		return oidcTokenCredentialCallback(authConf.oidcToken)
 	}
 
 	if authConf.oidcTokenFilePath != "" {
@@ -129,7 +137,7 @@ func newOidcCredential(authConf *authConfiguration) (azcore.TokenCredential, err
 		if err != nil {
 			return nil, fmt.Errorf("failed to read OIDC token from %s: %w", authConf.oidcTokenFilePath, err)
 		}
-		return oidcTokenCredential(string(token))
+		return oidcTokenCredentialCallback(string(token))
 	}
 
 	// In this case, we need to obtain the OIDC token first from the configured endpoint.
@@ -137,51 +145,65 @@ func newOidcCredential(authConf *authConfiguration) (azcore.TokenCredential, err
 		return azidentity.NewClientAssertionCredential(
 			authConf.tenantId,
 			authConf.clientId,
-			func(ctx context.Context) (string, error) {
-				req, err := http.NewRequestWithContext(ctx, http.MethodGet, authConf.oidcTokenRequestUrl, http.NoBody)
-				if err != nil {
-					return "", fmt.Errorf("GitHub OIDC: failed to build request to %s: %w", authConf.oidcTokenRequestUrl, err)
-				}
-
-				query, err := url.ParseQuery(req.URL.RawQuery)
-				if err != nil {
-					return "", fmt.Errorf("githubAssertion: cannot parse URL query")
-				}
-				query.Set("audience", "api://AzureADTokenExchange")
-				req.URL.RawQuery = query.Encode()
-
-				req.Header.Set("Accept", "application/json")
-				req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", authConf.oidcTokenRequestToken))
-				req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-
-				resp, err := http.DefaultClient.Do(req)
-				if err != nil {
-					return "", fmt.Errorf("GitHub OIDC: couldn't request token: %w", err)
-				}
-
-				defer resp.Body.Close()
-				body, err := io.ReadAll(resp.Body)
-				if err != nil {
-					return "", fmt.Errorf("GitHub OIDC: cannot parse response: %w", err)
-				}
-
-				if c := resp.StatusCode; c < 200 || c > 299 {
-					return "", fmt.Errorf("GitHub OIDC: %d with response: %s", resp.StatusCode, body)
-				}
-
-				var tokenResponse struct {
-					Value string `json:"value"`
-				}
-				if err := json.Unmarshal(body, &tokenResponse); err != nil {
-					return "", fmt.Errorf("GitHub OIDC: cannot unmarshal response: %w", err)
-				}
-
-				return tokenResponse.Value, nil
-			},
-			nil)
+			getOidcTokenExchangeAssertion(authConf),
+			&azidentity.ClientAssertionCredentialOptions{
+				ClientOptions: azcore.ClientOptions{
+					Cloud: authConf.cloud,
+				},
+			})
 	}
 
 	return nil, errors.New("OIDC token or request URL and token are not provided")
+}
+
+// getOidcTokenExchangeAssertion returns a callback function that implements the OIDC token
+// exchange flow on GitHub. The function makes a request to the configured endpoint with the
+// configured bearer token and returns the OIDC token from the response. It's intended to be used
+// in an azidentity.ClientAssertionCredential.
+func getOidcTokenExchangeAssertion(authConf *authConfiguration) func(ctx context.Context) (string, error) {
+	return func(ctx context.Context) (string, error) {
+		req, err := http.NewRequestWithContext(ctx, http.MethodGet, authConf.oidcTokenRequestUrl, http.NoBody)
+		if err != nil {
+			return "", fmt.Errorf("GitHub OIDC: failed to build request to %s: %w", authConf.oidcTokenRequestUrl, err)
+		}
+
+		query, err := url.ParseQuery(req.URL.RawQuery)
+		if err != nil {
+			return "", fmt.Errorf("githubAssertion: cannot parse URL query")
+		}
+		// see https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-azure#adding-the-federated-credentials-to-azure
+		query.Set("audience", "api://AzureADTokenExchange")
+		req.URL.RawQuery = query.Encode()
+
+		req.Header.Set("Accept", "application/json")
+		// see https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect#updating-your-actions-for-oidc
+		req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", authConf.oidcTokenRequestToken))
+		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
+		resp, err := http.DefaultClient.Do(req)
+		if err != nil {
+			return "", fmt.Errorf("GitHub OIDC: couldn't request token: %w", err)
+		}
+
+		defer resp.Body.Close()
+		body, err := io.ReadAll(resp.Body)
+		if err != nil {
+			return "", fmt.Errorf("GitHub OIDC: cannot read response: %w", err)
+		}
+
+		if c := resp.StatusCode; c < 200 || c > 299 {
+			return "", fmt.Errorf("GitHub OIDC: %d with response: %s", resp.StatusCode, body)
+		}
+
+		var tokenResponse struct {
+			Value string `json:"value"`
+		}
+		if err := json.Unmarshal(body, &tokenResponse); err != nil {
+			return "", fmt.Errorf("GitHub OIDC: cannot unmarshal response: %w", err)
+		}
+
+		return tokenResponse.Value, nil
+	}
 }
 
 func readCertificate(certPath, certPassword string) ([]*x509.Certificate, crypto.PrivateKey, error) {
