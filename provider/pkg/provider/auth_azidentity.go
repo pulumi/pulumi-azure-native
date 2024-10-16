@@ -221,8 +221,10 @@ type authConfiguration struct {
 	clientCertPath     string
 	clientCertPassword string
 
-	useMsi      bool
-	msiEndpoint string
+	// Note: for MSI, there used to be a "msiEndpoint"/"ARM_MSI_ENDPOINT" configuration. The newer
+	// azidentity package handles the MSI endpoint automatically:
+	// https://github.com/Azure/azure-sdk-for-go/blob/sdk/azidentity/v1.8.0/sdk/azidentity/managed_identity_client.go#L143
+	useMsi bool
 }
 
 // getAuthConfig collects auth-related configuration from Pulumi config and environment variables
@@ -243,17 +245,17 @@ func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
 	cloud := azure.GetCloudByName(cloudName)
 
 	return &authConfiguration{
-		subscriptionId:     k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
-		clientId:           k.getConfig("clientId", "ARM_CLIENT_ID"),
-		tenantId:           k.getConfig("tenantId", "ARM_TENANT_ID"),
-		auxTenants:         auxTenants,
-		cloud:              cloud,
+		subscriptionId: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
+		clientId:       k.getConfig("clientId", "ARM_CLIENT_ID"),
+		tenantId:       k.getConfig("tenantId", "ARM_TENANT_ID"),
+		auxTenants:     auxTenants,
+		cloud:          cloud,
+
 		clientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
 		clientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
 		clientCertPassword: k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),
 
-		useMsi:      k.getConfig("useMsi", "ARM_USE_MSI") == "true",
-		msiEndpoint: k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
+		useMsi: k.getConfig("useMsi", "ARM_USE_MSI") == "true",
 
 		useOidc:               k.getConfig("useOidc", "ARM_USE_OIDC") == "true",
 		oidcToken:             k.getConfig("oidcToken", "ARM_OIDC_TOKEN"),
