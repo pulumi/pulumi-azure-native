@@ -3102,7 +3102,6 @@
       "ElasticLoadBalancingV2TargetGroup",
       "ElasticLoadBalancingv2TargetHealthDescription",
       "EmrCluster",
-      "EmrClusterSummary",
       "GuardDutyDetector",
       "IamAccessKeyLastUsed",
       "IamAccessKeyMetadataInfo",
@@ -3143,6 +3142,7 @@
       "Route53DomainsDomainSummary",
       "Route53HostedZone",
       "Route53ResourceRecordSet",
+      "S3AccessControlPolicy",
       "S3AccessPoint",
       "S3Bucket",
       "S3BucketPolicy",
@@ -8312,6 +8312,12 @@
       "Watcher"
     ],
     "2024-07-19-preview": [
+      "AlertRuleResource",
+      "SharedPrivateLinkResource",
+      "Target",
+      "Watcher"
+    ],
+    "2024-10-01-preview": [
       "AlertRuleResource",
       "SharedPrivateLinkResource",
       "Target",
@@ -19528,7 +19534,18 @@
       "Workspace"
     ],
     "2023-09-01": [
-      "Workspace"
+      "Cluster",
+      "DataExport",
+      "DataSource",
+      "LinkedService",
+      "LinkedStorageAccount",
+      "Query",
+      "QueryPack",
+      "SavedSearch",
+      "StorageInsightConfig",
+      "Table",
+      "Workspace",
+      "getSharedKeys"
     ]
   },
   "OperationsManagement": {

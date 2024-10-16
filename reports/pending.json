@@ -469,7 +469,8 @@
   "DataReplication": [],
   "DataShare": [],
   "DatabaseWatcher": [
-    "2024-07-19-preview"
+    "2024-07-19-preview",
+    "2024-10-01-preview"
   ],
   "Databricks": [
     "2023-05-01",
