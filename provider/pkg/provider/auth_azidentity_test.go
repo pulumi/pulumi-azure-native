@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/stretchr/testify/require"
 )
@@ -16,7 +17,7 @@ import (
 var testPfxCert []byte
 
 func TestGetAuthConfig(t *testing.T) {
-	setAuthEnvVariables := func(value string, boolValue string) {
+	setAuthEnvVariables := func(value, boolValue, cloudValue string) {
 		if value != "" {
 			t.Setenv("ARM_AUXILIARY_TENANT_IDS", `["`+value+`"]`)
 		}
@@ -24,7 +25,7 @@ func TestGetAuthConfig(t *testing.T) {
 		t.Setenv("ARM_CLIENT_CERTIFICATE_PATH", value)
 		t.Setenv("ARM_CLIENT_ID", value)
 		t.Setenv("ARM_CLIENT_SECRET", value)
-		t.Setenv("ARM_ENVIRONMENT", value)
+		t.Setenv("ARM_ENVIRONMENT", cloudValue)
 		t.Setenv("ARM_OIDC_TOKEN", value)
 		t.Setenv("ARM_OIDC_TOKEN_FILE_PATH", value)
 		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_TOKEN", value)
@@ -36,9 +37,9 @@ func TestGetAuthConfig(t *testing.T) {
 	}
 
 	t.Run("empty", func(t *testing.T) {
-		setAuthEnvVariables("", "")
+		setAuthEnvVariables("", "", "")
 		p := azureNativeProvider{}
-		c, err := p.getAuthConfig3()
+		c, err := p.readAuthConfig()
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Empty(t, c.auxTenants)
@@ -46,7 +47,7 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Empty(t, c.clientCertPath)
 		require.Empty(t, c.clientId)
 		require.Empty(t, c.clientSecret)
-		require.Equal(t, "public", c.cloud)
+		require.Equal(t, cloud.AzurePublic, c.cloud)
 		require.Empty(t, c.oidcToken)
 		require.Empty(t, c.oidcTokenFilePath)
 		require.Empty(t, c.oidcTokenRequestToken)
@@ -58,7 +59,7 @@ func TestGetAuthConfig(t *testing.T) {
 	})
 
 	t.Run("values from config take precedence", func(t *testing.T) {
-		setAuthEnvVariables("env", "false")
+		setAuthEnvVariables("env", "false", "china")
 
 		p := azureNativeProvider{
 			config: map[string]string{
@@ -67,7 +68,7 @@ func TestGetAuthConfig(t *testing.T) {
 				"clientCertificatePath":     "conf",
 				"clientId":                  "conf",
 				"clientSecret":              "conf",
-				"environment":               "conf",
+				"environment":               "usgov",
 				"oidcToken":                 "conf",
 				"oidcTokenFilePath":         "conf",
 				"oidcRequestToken":          "conf",
@@ -79,7 +80,7 @@ func TestGetAuthConfig(t *testing.T) {
 			},
 		}
 
-		c, err := p.getAuthConfig3()
+		c, err := p.readAuthConfig()
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Equal(t, []string{"conf"}, c.auxTenants)
@@ -87,7 +88,7 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "conf", c.clientCertPath)
 		require.Equal(t, "conf", c.clientId)
 		require.Equal(t, "conf", c.clientSecret)
-		require.Equal(t, "conf", c.cloud)
+		require.Equal(t, cloud.AzureGovernment, c.cloud)
 		require.Equal(t, "conf", c.oidcToken)
 		require.Equal(t, "conf", c.oidcTokenFilePath)
 		require.Equal(t, "conf", c.oidcTokenRequestToken)
@@ -100,9 +101,9 @@ func TestGetAuthConfig(t *testing.T) {
 
 	t.Run("values from env", func(t *testing.T) {
 		p := azureNativeProvider{}
-		setAuthEnvVariables("env", "true")
+		setAuthEnvVariables("env", "true", "china")
 
-		c, err := p.getAuthConfig3()
+		c, err := p.readAuthConfig()
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Equal(t, []string{"env"}, c.auxTenants)
@@ -110,7 +111,7 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "env", c.clientCertPath)
 		require.Equal(t, "env", c.clientId)
 		require.Equal(t, "env", c.clientSecret)
-		require.Equal(t, "env", c.cloud)
+		require.Equal(t, cloud.AzureChina, c.cloud)
 		require.Equal(t, "env", c.oidcToken)
 		require.Equal(t, "env", c.oidcTokenFilePath)
 		require.Equal(t, "env", c.oidcTokenRequestToken)

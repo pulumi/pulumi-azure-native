@@ -1,3 +1,5 @@
+// Copyright 2016-2024, Pulumi Corporation.
+
 package azure
 
 import (
@@ -9,6 +11,7 @@ import (
 	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
@@ -60,4 +63,22 @@ func AzureError(err error) error {
 		}
 	}
 	return err
+}
+
+// GetCloudByName returns the azure-sdk-for-go/sdk/azcore/cloud configuration for the given cloud.
+// Valid names are as documented in the provider's installation & configuration guide, currently
+// public, china, usgovernment, or the empty value for public.
+// NOTE: this method doesn't do any validation. If an unknown cloud is given, it falls through to
+// the default public cloud. It's assumed that validation of cloud name in the provider's config
+// has been done earlier.
+func GetCloudByName(cloudName string) azcloud.Configuration {
+	switch cloudName {
+	case "china":
+		return azcloud.AzureChina
+	case "usgov":
+		return azcloud.AzureGovernment
+	case "usgovernment":
+		return azcloud.AzureGovernment
+	}
+	return azcloud.AzurePublic
 }
