@@ -318,6 +318,8 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 				return nil, err
 			}
 			t, err := cred.GetToken(ctx, policy.TokenRequestOptions{
+				// .default is the well-defined scope for all resources accessible to the user or application.
+				// https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc#the-default-scope
 				Scopes: []string{endpoint + "/.default"},
 			})
 			if err != nil {
