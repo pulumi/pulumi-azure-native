@@ -12850,7 +12850,8 @@
       "2024-02-01-preview",
       "2024-06-01-preview",
       "2024-07-01-preview",
-      "2024-07-15-preview"
+      "2024-07-15-preview",
+      "2024-12-01-preview"
     ],
     "listConnectedClusterUserCredential": [
       "2021-10-01",
@@ -12861,7 +12862,8 @@
       "2024-02-01-preview",
       "2024-06-01-preview",
       "2024-07-01-preview",
-      "2024-07-15-preview"
+      "2024-07-15-preview",
+      "2024-12-01-preview"
     ],
     "listConnectedClusterUserCredentials": [
       "2020-01-01-preview",

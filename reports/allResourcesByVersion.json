@@ -12647,6 +12647,10 @@
     "2024-07-15-preview": [
       "ConnectedCluster",
       "listConnectedClusterUserCredential"
+    ],
+    "2024-12-01-preview": [
+      "ConnectedCluster",
+      "listConnectedClusterUserCredential"
     ]
   },
   "KubernetesConfiguration": {
