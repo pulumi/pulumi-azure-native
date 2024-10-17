@@ -217,14 +217,14 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	userAgent := k.getUserAgent()
 
 	var credential azcore.TokenCredential
-	if useLegacyAuth() {
-		logging.V(9).Infof("Using legacy authentication")
-		credential = azCoreTokenCredential{p: k}
-	} else {
+	if enableAzcoreBackend() {
 		credential, err = k.newTokenCredential()
 		if err != nil {
 			return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
 		}
+	} else {
+		logging.V(9).Infof("Using legacy authentication")
+		credential = azCoreTokenCredential{p: k}
 	}
 
 	k.azureClient, err = k.newAzureClient(resourceManagerAuth, credential, userAgent)
@@ -246,18 +246,12 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 }
 
 func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
-	useAutorest := os.Getenv("PULUMI_USE_AUTOREST") != "false"
-
-	if !useAutorest && useLegacyAuth() {
-		return nil, errors.New("PULUMI_USE_LEGACY_AUTH=true requires PULUMI_USE_AUTOREST=true")
+	if enableAzcoreBackend() {
+		logging.V(9).Infof("AzureClient: using azcore and azidentity")
+		return azure.NewAzCoreClient(tokenCred, userAgent, azure.GetCloudByName(k.environment.Name), nil)
 	}
-
-	if useAutorest {
-		logging.V(9).Infof("AzureClient: using autorest")
-		return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
-	}
-	logging.V(9).Infof("AzureClient: using azCore")
-	return azure.NewAzCoreClient(tokenCred, userAgent, azure.GetCloudByName(k.environment.Name), nil)
+	logging.V(9).Infof("AzureClient: using autorest")
+	return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
 }
 
 // Invoke dynamically executes a built-in function in the provider.
@@ -372,19 +366,20 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 func (k *azureNativeProvider) getClientToken(ctx context.Context, authConfig *authConfig, endpointArg resource.PropertyValue) (string, error) {
 	endpoint := k.tokenEndpoint(endpointArg)
 
-	if useLegacyAuth() {
-		return k.getOAuthToken(ctx, authConfig, endpoint)
+	if enableAzcoreBackend() {
+		cred, err := k.newTokenCredential()
+		if err != nil {
+			return "", err
+		}
+		t, err := cred.GetToken(ctx, tokenRequestOpts(endpoint))
+		if err != nil {
+			return "", err
+		}
+		return t.Token, nil
 	}
 
-	cred, err := k.newTokenCredential()
-	if err != nil {
-		return "", err
-	}
-	t, err := cred.GetToken(ctx, tokenRequestOpts(endpoint))
-	if err != nil {
-		return "", err
-	}
-	return t.Token, nil
+	// legacy autorest/go-azure-helpers auth
+	return k.getOAuthToken(ctx, authConfig, endpoint)
 }
 
 // Returns the Azure endpoint where tokens can be requested. If the argument is not null or empty,
@@ -1617,6 +1612,13 @@ func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environmen
 	}
 }
 
-func useLegacyAuth() bool {
-	return os.Getenv("PULUMI_USE_LEGACY_AUTH") != "false"
+// enableAzcoreBackend is a feature toggle that returns true if the newer backend using azcore and
+// azidentity for REST and authentication should be used. Otherwise, the previous autorest backend
+// is used.
+// Tracked in epic #3576, the new backend was added to upgrade from unmaintained libraries that
+// don't receive security and other updates. It uses the latest official Azure packages.
+// The new backend is gated behind this feature toggle to allow enabling it selectively,
+// limiting the blast radius of regressions. It's enabled in the daily CI workflow azcore-scheduled.
+func enableAzcoreBackend() bool {
+	return os.Getenv("PULUMI_ENABLE_AZCORE_BACKEND") == "true"
 }
