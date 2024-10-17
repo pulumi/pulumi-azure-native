@@ -401,40 +401,24 @@ func TestUsesCorrectAzureClient(t *testing.T) {
 	p := azureNativeProvider{}
 
 	t.Run("default", func(t *testing.T) {
-		t.Setenv("PULUMI_USE_AUTOREST", "")
-		t.Setenv("PULUMI_USE_LEGACY_AUTH", "")
+		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "")
 		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
 		require.NoError(t, err)
 		assert.Equal(t, "azureClientImpl", reflect.TypeOf(client).Elem().Name())
 	})
 
-	t.Run("Autorest enabled", func(t *testing.T) {
-		t.Setenv("PULUMI_USE_AUTOREST", "true")
+	t.Run("Autorest and legacy auth disabled explicitly", func(t *testing.T) {
+		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "false")
 		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
 		require.NoError(t, err)
 		assert.Equal(t, "azureClientImpl", reflect.TypeOf(client).Elem().Name())
 	})
 
-	t.Run("Autorest and legacy auth disabled", func(t *testing.T) {
-		t.Setenv("PULUMI_USE_AUTOREST", "false")
-		t.Setenv("PULUMI_USE_LEGACY_AUTH", "false")
+	t.Run("Azcore enabled", func(t *testing.T) {
+		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "true")
 		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
 		require.NoError(t, err)
 		assert.Equal(t, "azCoreClient", reflect.TypeOf(client).Elem().Name())
-	})
-
-	t.Run("Legacy auth without autorest is an error", func(t *testing.T) {
-		t.Setenv("PULUMI_USE_AUTOREST", "false")
-		t.Setenv("PULUMI_USE_LEGACY_AUTH", "")
-		_, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
-		require.Error(t, err)
-	})
-
-	t.Run("Legacy auth without autorest is an error, explicit", func(t *testing.T) {
-		t.Setenv("PULUMI_USE_AUTOREST", "false")
-		t.Setenv("PULUMI_USE_LEGACY_AUTH", "true")
-		_, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
-		require.Error(t, err)
 	})
 }
 
