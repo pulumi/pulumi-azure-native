@@ -222,6 +222,9 @@ jobs:
           echo "${{ secrets.ARM_CLIENT_CERTIFICATE }}" | base64 -d > "${{ runner.temp }}/azure-client-certificate.pfx"
 
       - name: Write .azure.tmp folder
+        # We write to .azure.tmp, not directly to .azure, because we want only one test to use
+        # this folder. The test needs to rename it to .azure and then back. This is to avoid other
+        # tests using it unintentionally since CLI is the fallback auth method.
         run: |
           set -euxo pipefail
           echo "${{ secrets.AZURE_CLI_FOLDER }}" | base64 -d > "${{ runner.temp }}/azure-cli-folder.zip"

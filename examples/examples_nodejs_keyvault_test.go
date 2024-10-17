@@ -102,6 +102,12 @@ func TestAccKeyVaultTs_CLI(t *testing.T) {
 	err = os.Rename(filepath.Join(usr.HomeDir, ".azure.tmp"), filepath.Join(usr.HomeDir, ".azure"))
 	require.NoError(t, err)
 
+	// Prevent later tests from accidentally picking up the .azure folder because authentication
+	// falls back to CLI when other methods are misconfigured.
+	defer func() {
+		_ = os.Rename(filepath.Join(usr.HomeDir, ".azure"), filepath.Join(usr.HomeDir, ".azure.tmp"))
+	}()
+
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "keyvault"),
@@ -116,5 +122,4 @@ func TestAccKeyVaultTs_CLI(t *testing.T) {
 
 	integration.ProgramTest(t, &test)
 
-	_ = os.Rename(filepath.Join(usr.HomeDir, ".azure"), filepath.Join(usr.HomeDir, ".azure.tmp"))
 }
