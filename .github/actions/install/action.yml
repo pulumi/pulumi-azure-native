@@ -12,13 +12,13 @@ runs:
     - name: Install Go
       uses: actions/setup-go@v5
       with:
-        go-version: "1.22.x"
+        go-version-file: "provider/go.mod"
         cache-dependency-path: |
           provider/go.sum
           examples/go.sum
 
     - name: Install Pulumi CLI
-      uses: pulumi/actions@v5
+      uses: pulumi/actions@v6
       with:
         pulumi-version: dev
 
