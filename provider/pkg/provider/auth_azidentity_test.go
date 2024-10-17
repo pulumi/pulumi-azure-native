@@ -34,7 +34,6 @@ func TestGetAuthConfig(t *testing.T) {
 		t.Setenv("ARM_OIDC_TOKEN_FILE_PATH", value)
 		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_TOKEN", value)
 		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_URL", value)
-		t.Setenv("ARM_SUBSCRIPTION_ID", value)
 		t.Setenv("ARM_TENANT_ID", value)
 		t.Setenv("ARM_USE_MSI", boolValue)
 		t.Setenv("ARM_USE_OIDC", boolValue)
@@ -56,7 +55,6 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Empty(t, c.oidcTokenFilePath)
 		require.Empty(t, c.oidcTokenRequestToken)
 		require.Empty(t, c.oidcTokenRequestUrl)
-		require.Empty(t, c.subscriptionId)
 		require.Empty(t, c.tenantId)
 		require.False(t, c.useOidc)
 		require.False(t, c.useMsi)
@@ -77,7 +75,6 @@ func TestGetAuthConfig(t *testing.T) {
 				"oidcTokenFilePath":         "conf",
 				"oidcRequestToken":          "conf",
 				"oidcRequestUrl":            "conf",
-				"subscriptionId":            "conf",
 				"tenantId":                  "conf",
 				"useMsi":                    "true",
 				"useOidc":                   "true",
@@ -97,7 +94,6 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "conf", c.oidcTokenFilePath)
 		require.Equal(t, "conf", c.oidcTokenRequestToken)
 		require.Equal(t, "conf", c.oidcTokenRequestUrl)
-		require.Equal(t, "conf", c.subscriptionId)
 		require.Equal(t, "conf", c.tenantId)
 		require.True(t, c.useOidc)
 		require.True(t, c.useMsi)
@@ -120,7 +116,6 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "env", c.oidcTokenFilePath)
 		require.Equal(t, "env", c.oidcTokenRequestToken)
 		require.Equal(t, "env", c.oidcTokenRequestUrl)
-		require.Equal(t, "env", c.subscriptionId)
 		require.Equal(t, "env", c.tenantId)
 		require.True(t, c.useOidc)
 		require.True(t, c.useMsi)
