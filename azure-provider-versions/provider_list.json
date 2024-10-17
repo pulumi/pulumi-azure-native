@@ -44005,6 +44005,7 @@
       {
         "resourceType": "defenderForStorageSettings",
         "apiVersions": [
+          "2024-10-01-preview",
           "2022-12-01-preview",
           "2017-08-01-preview"
         ]
