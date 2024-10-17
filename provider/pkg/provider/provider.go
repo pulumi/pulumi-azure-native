@@ -301,31 +301,9 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		if err != nil {
 			return nil, fmt.Errorf("getting auth config: %w", err)
 		}
-		endpoint := k.environment.ResourceManagerEndpoint
-		if endpointArg := args["endpoint"]; endpointArg.HasValue() && endpointArg.IsString() {
-			endpoint = endpointArg.StringValue()
-		}
-
-		var token string
-		if useLegacyAuth() {
-			token, err = k.getOAuthToken(ctx, auth, endpoint)
-			if err != nil {
-				return nil, err
-			}
-		} else {
-			cred, err := k.newTokenCredential()
-			if err != nil {
-				return nil, err
-			}
-			t, err := cred.GetToken(ctx, policy.TokenRequestOptions{
-				// .default is the well-defined scope for all resources accessible to the user or application.
-				// https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc#the-default-scope
-				Scopes: []string{endpoint + "/.default"},
-			})
-			if err != nil {
-				return nil, err
-			}
-			token = t.Token
+		token, err := k.getClientToken(ctx, auth, args["endpoint"])
+		if err != nil {
+			return nil, err
 		}
 		outputs = map[string]interface{}{"token": token}
 	default:
@@ -389,6 +367,42 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		return nil, err
 	}
 	return &rpc.InvokeResponse{Return: result}, nil
+}
+
+func (k *azureNativeProvider) getClientToken(ctx context.Context, authConfig *authConfig, endpointArg resource.PropertyValue) (string, error) {
+	endpoint := k.tokenEndpoint(endpointArg)
+
+	if useLegacyAuth() {
+		return k.getOAuthToken(ctx, authConfig, endpoint)
+	}
+
+	cred, err := k.newTokenCredential()
+	if err != nil {
+		return "", err
+	}
+	t, err := cred.GetToken(ctx, tokenRequestOpts(endpoint))
+	if err != nil {
+		return "", err
+	}
+	return t.Token, nil
+}
+
+// Returns the Azure endpoint where tokens can be requested. If the argument is not null or empty,
+// it will be used verbatim.
+func (k *azureNativeProvider) tokenEndpoint(endpointArg resource.PropertyValue) string {
+	if endpointArg.HasValue() && endpointArg.IsString() && endpointArg.StringValue() != "" {
+		return endpointArg.StringValue()
+	}
+	return k.environment.ResourceManagerEndpoint
+}
+
+func tokenRequestOpts(endpoint string) policy.TokenRequestOptions {
+	return policy.TokenRequestOptions{
+		// "".default" is the well-defined scope for all resources accessible to the user or
+		// application. Despite the URL, it doesn't apply only to OIDC.
+		// https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc#the-default-scope
+		Scopes: []string{endpoint + "/.default"},
+	}
 }
 
 func (k *azureNativeProvider) invokeResponseToOutputs(response any, res resources.AzureAPIInvoke) map[string]any {
