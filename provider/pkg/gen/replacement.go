@@ -32,6 +32,10 @@ var forceNewMap = map[string]map[string]codegen.StringSet{
 			"nodeResourceGroup",
 			"windowsProfile",
 		),
+		"AgentPool": codegen.NewStringSet(
+			"gpuInstanceProfile",
+			"vmSize",
+		),
 	},
 	"Insights": {
 		"Component": codegen.NewStringSet(), // covered by x-ms-mutability
