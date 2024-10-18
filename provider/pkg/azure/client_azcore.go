@@ -4,7 +4,6 @@ package azure
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
@@ -105,17 +104,11 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 
 func shouldRetryConflict(resp *http.Response) bool {
 	if runtime.HasStatusCode(resp, http.StatusConflict) {
-		// Check body for {"error":{"code":"AnotherOperationInProgress"}}
-		body, err := runtime.Payload(resp)
-		if err != nil {
-			return false
-		}
-		var errorBody struct{ Error struct{ Code string } }
-		if err := json.Unmarshal(body, &errorBody); err != nil {
-			return false
-		}
-		if errorBody.Error.Code == "AnotherOperationInProgress" {
-			return true
+		err := runtime.NewResponseError(resp)
+		if responseErr, ok := err.(*azcore.ResponseError); ok {
+			if responseErr.ErrorCode == "AnotherOperationInProgress" {
+				return true
+			}
 		}
 	}
 	return false
