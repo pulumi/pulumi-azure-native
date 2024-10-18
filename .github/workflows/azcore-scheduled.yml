@@ -19,4 +19,4 @@ jobs:
       version: ${{ needs.version.outputs.version }}
       short_test: false
       retention_days: 7
-      use_autorest: false
+      use_azcore: true
