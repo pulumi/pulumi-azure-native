@@ -630,3 +630,50 @@ func TestPutPatchRequestBody(t *testing.T) {
 			qp, "")
 	})
 }
+
+func TestShouldRetryConflict(t *testing.T) {
+	shouldRetry := func(status int, body string) bool {
+		resp := http.Response{
+			StatusCode: status,
+			Body:       io.NopCloser(strings.NewReader(body)),
+		}
+		return shouldRetryConflict(&resp)
+	}
+	t.Run("Not a conflict", func(t *testing.T) {
+		assert.False(t, shouldRetry(200, ""))
+	})
+	t.Run("Blank body", func(t *testing.T) {
+		assert.False(t, shouldRetry(409, ""))
+	})
+	t.Run("Unreadable body", func(t *testing.T) {
+		resp := http.Response{
+			StatusCode: 409,
+			Body:       errorReadCloser{},
+		}
+		assert.False(t, shouldRetryConflict(&resp))
+	})
+	t.Run("empty json", func(t *testing.T) {
+		assert.False(t, shouldRetry(409, "{}"))
+	})
+	t.Run("wrong error type", func(t *testing.T) {
+		assert.False(t, shouldRetry(409, `{"error": "Conflict"}`))
+	})
+	t.Run("no error code", func(t *testing.T) {
+		assert.False(t, shouldRetry(409, `{"error": {"message": "Conflict"}}`))
+	})
+	t.Run("other error code", func(t *testing.T) {
+		assert.False(t, shouldRetry(409, `{"error": {"code": "Conflict"}}`))
+	})
+	t.Run("AnotherOperationInProgress", func(t *testing.T) {
+		assert.True(t, shouldRetry(409, `{"error": {"code": "AnotherOperationInProgress"}}`))
+	})
+}
+
+type errorReadCloser struct{}
+
+func (errorReadCloser) Read(p []byte) (n int, err error) {
+	return 0, errors.New("read error")
+}
+func (errorReadCloser) Close() error {
+	return nil
+}
