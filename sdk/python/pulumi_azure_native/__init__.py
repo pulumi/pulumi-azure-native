@@ -11049,6 +11049,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "kubernetes/v20241201preview",
+  "fqn": "pulumi_azure_native.kubernetes.v20241201preview",
+  "classes": {
+   "azure-native:kubernetes/v20241201preview:ConnectedCluster": "ConnectedCluster"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "kubernetesconfiguration",
   "fqn": "pulumi_azure_native.kubernetesconfiguration",
   "classes": {
