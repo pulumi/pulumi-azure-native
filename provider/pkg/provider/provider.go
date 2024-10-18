@@ -1620,5 +1620,8 @@ func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environmen
 // The new backend is gated behind this feature toggle to allow enabling it selectively,
 // limiting the blast radius of regressions. It's enabled in the daily CI workflow azcore-scheduled.
 func enableAzcoreBackend() bool {
-	return os.Getenv("PULUMI_ENABLE_AZCORE_BACKEND") == "true"
+	if enable, ok := os.LookupEnv("PULUMI_ENABLE_AZCORE_BACKEND"); ok {
+		return enable == "true"
+	}
+	return true
 }
