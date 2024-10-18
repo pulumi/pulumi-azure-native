@@ -71,27 +71,18 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 		http.StatusServiceUnavailable,  // 503
 		http.StatusGatewayTimeout,      // 504
 	}
+
 	opts.Retry.ShouldRetry = func(resp *http.Response, err error) bool {
+		if err != nil {
+			return true
+		}
 		// Replicate default retry behaviour first.
 		if runtime.HasStatusCode(resp, retryableStatusCodes...) {
 			return true
 		}
 
-		if runtime.HasStatusCode(resp, http.StatusConflict) {
-			// Check body for {"error":{"code":"AnotherOperationInProgress"}}
-			body, err := runtime.Payload(resp)
-			if err != nil {
-				return false
-			}
-			var errorBody map[string]interface{}
-			if err := json.Unmarshal(body, &errorBody); err != nil {
-				return false
-			}
-			if error, ok := errorBody["error"].(map[string]interface{}); ok {
-				if code, ok := error["code"].(string); ok && code == "AnotherOperationInProgress" {
-					return true
-				}
-			}
+		if shouldRetryConflict(resp) {
+			return true
 		}
 
 		return false
@@ -110,6 +101,24 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 		deletePollingIntervalSeconds: 30, // same as autorest.DefaultPollingDelay
 		updatePollingIntervalSeconds: 10,
 	}, nil
+}
+
+func shouldRetryConflict(resp *http.Response) bool {
+	if runtime.HasStatusCode(resp, http.StatusConflict) {
+		// Check body for {"error":{"code":"AnotherOperationInProgress"}}
+		body, err := runtime.Payload(resp)
+		if err != nil {
+			return false
+		}
+		var errorBody struct{ Error struct{ Code string } }
+		if err := json.Unmarshal(body, &errorBody); err != nil {
+			return false
+		}
+		if errorBody.Error.Code == "AnotherOperationInProgress" {
+			return true
+		}
+	}
+	return false
 }
 
 func (c *azCoreClient) setHeaders(req *policy.Request, contentTypeJson bool) {
