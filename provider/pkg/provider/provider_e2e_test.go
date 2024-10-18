@@ -33,6 +33,13 @@ func TestRequiredContainers(t *testing.T) {
 	runTestProgram(t, "required-containers")
 }
 
+func TestParallelSubnetCreation(t *testing.T) {
+	// Force this test to use the new AZCore client
+	// We have to set this here rather than in the ProgramTest config because the provider is started up before starting the test.
+	os.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "true")
+	runTestProgram(t, "parallel-subnet-creation")
+}
+
 // runTestProgram runs an example from ./examples/<initialDir>
 // Any editDirs are applied in order, and the program is run after each edit. e.g. ./examples/<editDir>
 func runTestProgram(t *testing.T, initialDir string, editDirs ...string) {

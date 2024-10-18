@@ -1,0 +1,64 @@
+name: parallel-subnet-creation
+runtime: yaml
+description: Test creating subnets in parallel, without dependencies which should trigger conflicts as only 1 can be updated at a time
+
+resources:
+  resourceGroup:
+    type: azure-native:resources:ResourceGroup
+  virtualNetwork:
+    type: azure-native:network:VirtualNetwork
+    properties:
+      addressSpace:
+        addressPrefixes:
+          - 10.0.0.0/16
+      flowTimeoutInMinutes: 10
+      location: eastus
+      resourceGroupName: ${resourceGroup.name}
+  subnet1:
+    type: azure-native:network:Subnet
+    properties:
+      addressPrefix: "10.0.0.0/24"
+      resourceGroupName: ${resourceGroup.name}
+      virtualNetworkName: ${virtualNetwork.name}
+  subnet2:
+    type: azure-native:network:Subnet
+    properties:
+      addressPrefix: "10.0.1.0/24"
+      resourceGroupName: ${resourceGroup.name}
+      virtualNetworkName: ${virtualNetwork.name}
+  subnet3:
+    type: azure-native:network:Subnet
+    properties:
+      addressPrefix: "10.0.2.0/24"
+      resourceGroupName: ${resourceGroup.name}
+      virtualNetworkName: ${virtualNetwork.name}
+  subnet4:
+    type: azure-native:network:Subnet
+    properties:
+      addressPrefix: "10.0.3.0/24"
+      resourceGroupName: ${resourceGroup.name}
+      virtualNetworkName: ${virtualNetwork.name}
+  subnet5:
+    type: azure-native:network:Subnet
+    properties:
+      addressPrefix: "10.0.4.0/24"
+      resourceGroupName: ${resourceGroup.name}
+      virtualNetworkName: ${virtualNetwork.name}
+  subnet6:
+    type: azure-native:network:Subnet
+    properties:
+      addressPrefix: "10.0.5.0/24"
+      resourceGroupName: ${resourceGroup.name}
+      virtualNetworkName: ${virtualNetwork.name}
+  subnet7:
+    type: azure-native:network:Subnet
+    properties:
+      addressPrefix: "10.0.6.0/24"
+      resourceGroupName: ${resourceGroup.name}
+      virtualNetworkName: ${virtualNetwork.name}
+  subnet8:
+    type: azure-native:network:Subnet
+    properties:
+      addressPrefix: "10.0.7.0/24"
+      resourceGroupName: ${resourceGroup.name}
+      virtualNetworkName: ${virtualNetwork.name}
