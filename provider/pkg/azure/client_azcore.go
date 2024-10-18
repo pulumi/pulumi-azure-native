@@ -4,6 +4,7 @@ package azure
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
@@ -60,6 +61,41 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 	// consider moving a bit towards a faster sequence, e.g. 10s, 30s, 70s.
 	opts.Retry.RetryDelay = 20 * time.Second
 	opts.Retry.MaxRetryDelay = 120 * time.Second
+
+	// These are the same as the default values in sdk/azcore/runtime/policy_retry.go setDefaults
+	retryableStatusCodes := []int{
+		http.StatusRequestTimeout,      // 408
+		http.StatusTooManyRequests,     // 429
+		http.StatusInternalServerError, // 500
+		http.StatusBadGateway,          // 502
+		http.StatusServiceUnavailable,  // 503
+		http.StatusGatewayTimeout,      // 504
+	}
+	opts.Retry.ShouldRetry = func(resp *http.Response, err error) bool {
+		// Replicate default retry behaviour first.
+		if runtime.HasStatusCode(resp, retryableStatusCodes...) {
+			return true
+		}
+
+		if runtime.HasStatusCode(resp, http.StatusConflict) {
+			// Check body for {"error":{"code":"AnotherOperationInProgress"}}
+			body, err := runtime.Payload(resp)
+			if err != nil {
+				return false
+			}
+			var errorBody map[string]interface{}
+			if err := json.Unmarshal(body, &errorBody); err != nil {
+				return false
+			}
+			if error, ok := errorBody["error"].(map[string]interface{}); ok {
+				if code, ok := error["code"].(string); ok && code == "AnotherOperationInProgress" {
+					return true
+				}
+			}
+		}
+
+		return false
+	}
 
 	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", version.Version, tokenCredential,
 		runtime.PipelineOptions{}, opts)
