@@ -7,7 +7,6 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
@@ -21,7 +20,7 @@ func mergeTypes(t1 schema.ComplexTypeSpec, t2 schema.ComplexTypeSpec, isOutput b
 	}
 
 	if !isOutput {
-		// Check that every required property of T1 and T2 exists in T1 and has the same type (for intputs only).
+		// Check that every required property of T1 and T2 exists in T1 and has the same type (for inputs only).
 		t1Required := codegen.NewStringSet(t1.Required...)
 		t2Required := codegen.NewStringSet(t2.Required...)
 		t1Only := t1Required.Subtract(t2Required)
@@ -43,7 +42,7 @@ func mergeTypes(t1 schema.ComplexTypeSpec, t2 schema.ComplexTypeSpec, isOutput b
 	if t1.Properties == nil && t2.Properties == nil {
 		return &t1, nil
 	}
-	mergedProperties := map[string]pschema.PropertySpec{}
+	mergedProperties := map[string]schema.PropertySpec{}
 	for name, p := range t1.Properties {
 		mergedProperties[name] = p
 	}
@@ -65,7 +64,7 @@ func mergeTypes(t1 schema.ComplexTypeSpec, t2 schema.ComplexTypeSpec, isOutput b
 	return &merged, nil
 }
 
-func mergePropertySpec(p1, p2 pschema.PropertySpec) (*pschema.PropertySpec, error) {
+func mergePropertySpec(p1, p2 schema.PropertySpec) (*schema.PropertySpec, error) {
 	mergedTypeSpec, err := mergeTypeSpec(p1.TypeSpec, p2.TypeSpec)
 	if err != nil {
 		return nil, err
