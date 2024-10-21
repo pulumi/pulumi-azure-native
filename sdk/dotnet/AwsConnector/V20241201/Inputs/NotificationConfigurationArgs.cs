@@ -33,18 +33,6 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201.Inputs
             set => _lambdaConfigurations = value;
         }
 
-        [Input("notificationTypes")]
-        private InputList<string>? _notificationTypes;
-
-        /// <summary>
-        /// A list of event types that send a notification. Event types can include any of the following types.  *Allowed values*:  +   ``autoscaling:EC2_INSTANCE_LAUNCH``   +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR``   +   ``autoscaling:EC2_INSTANCE_TERMINATE``   +   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR``   +   ``autoscaling:TEST_NOTIFICATION``
-        /// </summary>
-        public InputList<string> NotificationTypes
-        {
-            get => _notificationTypes ?? (_notificationTypes = new InputList<string>());
-            set => _notificationTypes = value;
-        }
-
         [Input("queueConfigurations")]
         private InputList<Inputs.QueueConfigurationArgs>? _queueConfigurations;
 
@@ -57,18 +45,6 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201.Inputs
             set => _queueConfigurations = value;
         }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic.
-        /// </summary>
-        [Input("topicARN")]
-        public Input<string>? TopicARN { get; set; }
-
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) that identifies the topic. &lt;/p&gt;
-        /// </summary>
-        [Input("topicArn")]
-        public Input<string>? TopicArn { get; set; }
-
         [Input("topicConfigurations")]
         private InputList<Inputs.TopicConfigurationArgs>? _topicConfigurations;
 
@@ -80,12 +56,6 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201.Inputs
             get => _topicConfigurations ?? (_topicConfigurations = new InputList<Inputs.TopicConfigurationArgs>());
             set => _topicConfigurations = value;
         }
-
-        /// <summary>
-        /// &lt;p&gt;The current state of the topic. A value of “active” means that notifications will be sent to the topic. A value of “inactive” means that notifications will not be sent to the topic.&lt;/p&gt;
-        /// </summary>
-        [Input("topicStatus")]
-        public Input<string>? TopicStatus { get; set; }
 
         public NotificationConfigurationArgs()
         {
