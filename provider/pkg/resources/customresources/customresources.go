@@ -15,11 +15,10 @@ import (
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
@@ -82,7 +81,7 @@ type ResourceDefinition struct {
 // ApplySchemas applies custom schema modifications to the given package.
 // These modifications should never overlap with each other, but we apply in a deterministic order to ensure
 // that the end result of the modifications is consistent.
-func ApplySchemas(pkg *pschema.PackageSpec, meta *resources.AzureAPIMetadata) error {
+func ApplySchemas(pkg *schema.PackageSpec, meta *AzureAPIMetadata) error {
 	for _, path := range codegen.SortedKeys(featureLookup) {
 		r := featureLookup[path]
 		if err := r.ApplySchema(pkg, meta); err != nil {
@@ -92,20 +91,20 @@ func ApplySchemas(pkg *pschema.PackageSpec, meta *resources.AzureAPIMetadata) er
 	return nil
 }
 
-func (r *CustomResource) ApplySchema(pkg *pschema.PackageSpec, meta *resources.AzureAPIMetadata) error {
+func (r *CustomResource) ApplySchema(pkg *schema.PackageSpec, meta *AzureAPIMetadata) error {
 	if r.tok == "" || r.Schema == nil {
 		return nil
 	}
 
 	existingResource, resourceAlreadyExists := pkg.Resources[r.tok]
 	var originalResource *ResourceDefinition
-	types := map[string]pschema.ComplexTypeSpec{} // Hoist scope for easy lookup when checking if the type is new.
+	types := map[string]schema.ComplexTypeSpec{} // Hoist scope for easy lookup when checking if the type is new.
 	if resourceAlreadyExists {
 		resourceMeta, resourceMetadataFound := meta.Resources[r.tok]
 		if !resourceMetadataFound {
 			return fmt.Errorf("metadata for resource %s not found", r.tok)
 		}
-		resources.VisitResourceTypes(pkg, r.tok, func(tok string, t pschema.ComplexTypeSpec) {
+		VisitResourceTypes(pkg, r.tok, func(tok string, t schema.ComplexTypeSpec) {
 			// Capture referenced schema types
 			types[tok] = t
 		})
@@ -286,7 +285,7 @@ func MetaTypeOverrides() map[string]AzureAPIType {
 // createCrudClient creates a CRUD client for the given resource type, looking up the fully
 // qualified `resourceToken` like "azure-native:web:WebApp" via `lookupResource`.
 func createCrudClient(
-	crudClientFactory crud.ResourceCrudClientFactory, lookupResource resources.ResourceLookupFunc, resourceToken string,
+	crudClientFactory crud.ResourceCrudClientFactory, lookupResource ResourceLookupFunc, resourceToken string,
 ) (crud.ResourceCrudClient, error) {
 	res, ok, err := lookupResource(webAppResourceType)
 	if err != nil {
