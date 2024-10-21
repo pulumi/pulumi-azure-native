@@ -23291,6 +23291,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
           "2024-03-01",
@@ -23314,6 +23315,7 @@
       {
         "resourceType": "elasticVersions",
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
           "2024-03-01",
@@ -23330,6 +23332,7 @@
       {
         "resourceType": "getElasticOrganizationToAzureSubscriptionMapping",
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
           "2024-03-01",
@@ -23343,6 +23346,7 @@
       {
         "resourceType": "getOrganizationApiKey",
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
           "2024-03-01",
@@ -23359,6 +23363,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
           "2024-03-01",
@@ -23382,6 +23387,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
           "2024-03-01",
@@ -23405,6 +23411,7 @@
       {
         "resourceType": "monitors",
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
           "2024-03-01",
@@ -23428,6 +23435,7 @@
       {
         "resourceType": "monitors/monitoredSubscriptions",
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview"
         ]
@@ -23435,6 +23443,7 @@
       {
         "resourceType": "monitors/openAIIntegrations",
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
           "2024-03-01",
@@ -23444,6 +23453,7 @@
       {
         "resourceType": "monitors/tagRules",
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
           "2024-03-01",
@@ -23467,6 +23477,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
           "2024-03-01",
@@ -40506,6 +40517,7 @@
       {
         "resourceType": "checkPolicyRestrictions",
         "apiVersions": [
+          "2024-10-01",
           "2023-03-01",
           "2022-03-01",
           "2020-07-01-preview",
@@ -40521,6 +40533,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-10-01",
           "2022-04-01",
           "2019-10-01",
           "2018-07-01-preview",
@@ -40533,6 +40546,7 @@
       {
         "resourceType": "policyEvents",
         "apiVersions": [
+          "2024-10-01",
           "2019-10-01",
           "2018-07-01-preview",
           "2018-04-04",
@@ -40544,12 +40558,14 @@
       {
         "resourceType": "policyMetadata",
         "apiVersions": [
+          "2024-10-01",
           "2019-10-01"
         ]
       },
       {
         "resourceType": "policyStates",
         "apiVersions": [
+          "2024-10-01",
           "2019-10-01",
           "2018-07-01-preview",
           "2018-04-04",
@@ -40567,6 +40583,7 @@
       {
         "resourceType": "remediations",
         "apiVersions": [
+          "2024-10-01",
           "2021-10-01",
           "2019-07-01",
           "2018-07-01-preview"
@@ -45720,6 +45737,7 @@
       {
         "resourceType": "consoleServices",
         "apiVersions": [
+          "2024-07-01",
           "2023-01-01",
           "2018-05-01"
         ]
@@ -45727,6 +45745,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-07-01",
           "2023-01-01",
           "2018-05-01"
         ]
@@ -45734,6 +45753,7 @@
       {
         "resourceType": "locations/consoleServices",
         "apiVersions": [
+          "2024-07-01",
           "2023-01-01",
           "2018-05-01"
         ]
@@ -45741,6 +45761,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-07-01",
           "2023-01-01",
           "2018-05-01"
         ]
@@ -45748,6 +45769,7 @@
       {
         "resourceType": "serialPorts",
         "apiVersions": [
+          "2024-07-01",
           "2023-01-01",
           "2018-05-01"
         ]
@@ -56539,6 +56561,12 @@
           "2014-06-01",
           "2014-04-01-preview",
           "2014-04-01"
+        ]
+      },
+      {
+        "resourceType": "staticSiteRegions",
+        "apiVersions": [
+          "2024-04-01"
         ]
       },
       {

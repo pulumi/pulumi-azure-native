@@ -21727,6 +21727,14 @@
       "2024-06-01-preview"
     ]
   },
+  "SecretSyncController": {
+    "AzureKeyVaultSecretProviderClass": [
+      "2024-08-21-preview"
+    ],
+    "SecretSync": [
+      "2024-08-21-preview"
+    ]
+  },
   "Security": {
     "APICollection": [
       "2022-11-20-preview"

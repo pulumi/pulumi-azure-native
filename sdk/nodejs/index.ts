@@ -203,6 +203,7 @@ import * as scheduler from "./scheduler";
 import * as scom from "./scom";
 import * as scvmm from "./scvmm";
 import * as search from "./search";
+import * as secretsynccontroller from "./secretsynccontroller";
 import * as security from "./security";
 import * as securityandcompliance from "./securityandcompliance";
 import * as securityinsights from "./securityinsights";
@@ -437,6 +438,7 @@ export {
     scom,
     scvmm,
     search,
+    secretsynccontroller,
     security,
     securityandcompliance,
     securityinsights,

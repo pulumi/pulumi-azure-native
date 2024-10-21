@@ -391,6 +391,8 @@ if typing.TYPE_CHECKING:
     scvmm = __scvmm
     import pulumi_azure_native.search as __search
     search = __search
+    import pulumi_azure_native.secretsynccontroller as __secretsynccontroller
+    secretsynccontroller = __secretsynccontroller
     import pulumi_azure_native.security as __security
     security = __security
     import pulumi_azure_native.securityandcompliance as __securityandcompliance
@@ -663,6 +665,7 @@ else:
     scom = _utilities.lazy_import('pulumi_azure_native.scom')
     scvmm = _utilities.lazy_import('pulumi_azure_native.scvmm')
     search = _utilities.lazy_import('pulumi_azure_native.search')
+    secretsynccontroller = _utilities.lazy_import('pulumi_azure_native.secretsynccontroller')
     security = _utilities.lazy_import('pulumi_azure_native.security')
     securityandcompliance = _utilities.lazy_import('pulumi_azure_native.securityandcompliance')
     securityinsights = _utilities.lazy_import('pulumi_azure_native.securityinsights')
@@ -16377,6 +16380,24 @@ _utilities.register(
    "azure-native:search/v20240601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:search/v20240601preview:Service": "Service",
    "azure-native:search/v20240601preview:SharedPrivateLinkResource": "SharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "secretsynccontroller",
+  "fqn": "pulumi_azure_native.secretsynccontroller",
+  "classes": {
+   "azure-native:secretsynccontroller:AzureKeyVaultSecretProviderClass": "AzureKeyVaultSecretProviderClass",
+   "azure-native:secretsynccontroller:SecretSync": "SecretSync"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "secretsynccontroller/v20240821preview",
+  "fqn": "pulumi_azure_native.secretsynccontroller.v20240821preview",
+  "classes": {
+   "azure-native:secretsynccontroller/v20240821preview:AzureKeyVaultSecretProviderClass": "AzureKeyVaultSecretProviderClass",
+   "azure-native:secretsynccontroller/v20240821preview:SecretSync": "SecretSync"
   }
  },
  {

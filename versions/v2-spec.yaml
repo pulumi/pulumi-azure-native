@@ -1691,6 +1691,8 @@ Scom:
     tracking: 2023-07-07-preview
 Search:
     tracking: "2022-09-01"
+SecretSyncController:
+    tracking: 2024-08-21-preview
 Security:
     additions:
         APICollection: 2022-11-20-preview
