@@ -1112,6 +1112,7 @@
     "2024-03-01-preview",
     "2024-06-01-preview"
   ],
+  "SecretSyncController": [],
   "Security": [
     "2019-01-01",
     "2019-01-01-preview",

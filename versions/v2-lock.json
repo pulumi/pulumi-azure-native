@@ -2435,6 +2435,10 @@
     "listAdminKey": "2022-09-01",
     "listQueryKeyBySearchService": "2022-09-01"
   },
+  "SecretSyncController": {
+    "AzureKeyVaultSecretProviderClass": "2024-08-21-preview",
+    "SecretSync": "2024-08-21-preview"
+  },
   "Security": {
     "APICollection": "2022-11-20-preview",
     "APICollectionByAzureApiManagementService": "2023-11-15",

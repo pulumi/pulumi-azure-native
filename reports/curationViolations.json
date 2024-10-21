@@ -372,6 +372,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "SecretSyncController",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "ServiceFabric",
     "Detail": "expected no additions but found some"
   },

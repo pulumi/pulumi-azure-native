@@ -21044,6 +21044,12 @@
       "listQueryKeyBySearchService"
     ]
   },
+  "SecretSyncController": {
+    "2024-08-21-preview": [
+      "AzureKeyVaultSecretProviderClass",
+      "SecretSync"
+    ]
+  },
   "Security": {
     "": [],
     "2015-06-01-preview": [
