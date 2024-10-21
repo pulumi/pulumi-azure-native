@@ -441,6 +441,10 @@ var typeNameOverrides = map[string]string{
 	"AwsConnector.RdsDbCluster.Endpoint":    "RdsDbClusterEndpoint",
 	"AwsConnector.RdsDbInstance.Endpoint":   "RdsDbInstanceEndpoint",
 	"AwsConnector.RedshiftCluster.Endpoint": "RedshiftClusterEndpoint",
+	// Upstream commit 1a49c263cc introduced TODO
+	"AwsConnector.DaxCluster.NotificationConfiguration":                  "DaxClusterNotificationConfiguration",
+	"AwsConnector.AutoScalingAutoScalingGroup.NotificationConfiguration": "AutoScalingGroupNotificationConfiguration",
+
 	// SKU for Redis Enterprise is different from SKU for Redis. Keep them as separate types.
 	"Cache.RedisEnterprise.Sku": "EnterpriseSku",
 	// This one is not a disambiguation but a fix for a type name "String" that is not descriptive and leads to
