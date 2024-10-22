@@ -25,29 +25,13 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.LambdaConfigurationResponse> LambdaConfigurations;
         /// <summary>
-        /// A list of event types that send a notification. Event types can include any of the following types.  *Allowed values*:  +   ``autoscaling:EC2_INSTANCE_LAUNCH``   +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR``   +   ``autoscaling:EC2_INSTANCE_TERMINATE``   +   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR``   +   ``autoscaling:TEST_NOTIFICATION``
-        /// </summary>
-        public readonly ImmutableArray<string> NotificationTypes;
-        /// <summary>
         /// The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
         /// </summary>
         public readonly ImmutableArray<Outputs.QueueConfigurationResponse> QueueConfigurations;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic.
-        /// </summary>
-        public readonly string? TopicARN;
-        /// <summary>
-        /// &lt;p&gt;The Amazon Resource Name (ARN) that identifies the topic. &lt;/p&gt;
-        /// </summary>
-        public readonly string? TopicArn;
-        /// <summary>
         /// The topic to which notifications are sent and the events for which notifications are generated.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicConfigurationResponse> TopicConfigurations;
-        /// <summary>
-        /// &lt;p&gt;The current state of the topic. A value of “active” means that notifications will be sent to the topic. A value of “inactive” means that notifications will not be sent to the topic.&lt;/p&gt;
-        /// </summary>
-        public readonly string? TopicStatus;
 
         [OutputConstructor]
         private NotificationConfigurationResponse(
@@ -55,26 +39,14 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201.Outputs
 
             ImmutableArray<Outputs.LambdaConfigurationResponse> lambdaConfigurations,
 
-            ImmutableArray<string> notificationTypes,
-
             ImmutableArray<Outputs.QueueConfigurationResponse> queueConfigurations,
 
-            string? topicARN,
-
-            string? topicArn,
-
-            ImmutableArray<Outputs.TopicConfigurationResponse> topicConfigurations,
-
-            string? topicStatus)
+            ImmutableArray<Outputs.TopicConfigurationResponse> topicConfigurations)
         {
             EventBridgeConfiguration = eventBridgeConfiguration;
             LambdaConfigurations = lambdaConfigurations;
-            NotificationTypes = notificationTypes;
             QueueConfigurations = queueConfigurations;
-            TopicARN = topicARN;
-            TopicArn = topicArn;
             TopicConfigurations = topicConfigurations;
-            TopicStatus = topicStatus;
         }
     }
 }

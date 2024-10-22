@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// &lt;p&gt;Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).&lt;/p&gt;
         /// </summary>
-        public readonly Outputs.NotificationConfigurationResponse? NotificationConfiguration;
+        public readonly Outputs.DaxClusterNotificationConfigurationResponse? NotificationConfiguration;
         /// <summary>
         /// &lt;p&gt;The parameter group being used by nodes in the cluster.&lt;/p&gt;
         /// </summary>
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             ImmutableArray<Outputs.NodeResponse> nodes,
 
-            Outputs.NotificationConfigurationResponse? notificationConfiguration,
+            Outputs.DaxClusterNotificationConfigurationResponse? notificationConfiguration,
 
             Outputs.ParameterGroupStatusResponse? parameterGroup,
 

@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201.Inputs
         /// &lt;p&gt;Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).&lt;/p&gt;
         /// </summary>
         [Input("notificationConfiguration")]
-        public Input<Inputs.NotificationConfigurationArgs>? NotificationConfiguration { get; set; }
+        public Input<Inputs.DaxClusterNotificationConfigurationArgs>? NotificationConfiguration { get; set; }
 
         /// <summary>
         /// &lt;p&gt;The parameter group being used by nodes in the cluster.&lt;/p&gt;

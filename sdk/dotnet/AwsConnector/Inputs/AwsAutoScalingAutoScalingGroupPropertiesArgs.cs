@@ -175,17 +175,17 @@ namespace Pulumi.AzureNative.AwsConnector.Inputs
         /// A structure that specifies an Amazon SNS notification configuration for the ``NotificationConfigurations`` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. For an example template snippet, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html). For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
         /// </summary>
         [Input("notificationConfiguration")]
-        public Input<Inputs.NotificationConfigurationArgs>? NotificationConfiguration { get; set; }
+        public Input<Inputs.AutoScalingGroupNotificationConfigurationArgs>? NotificationConfiguration { get; set; }
 
         [Input("notificationConfigurations")]
-        private InputList<Inputs.NotificationConfigurationArgs>? _notificationConfigurations;
+        private InputList<Inputs.AutoScalingGroupNotificationConfigurationArgs>? _notificationConfigurations;
 
         /// <summary>
         /// Configures an Auto Scaling group to send notifications when specified events take place.
         /// </summary>
-        public InputList<Inputs.NotificationConfigurationArgs> NotificationConfigurations
+        public InputList<Inputs.AutoScalingGroupNotificationConfigurationArgs> NotificationConfigurations
         {
-            get => _notificationConfigurations ?? (_notificationConfigurations = new InputList<Inputs.NotificationConfigurationArgs>());
+            get => _notificationConfigurations ?? (_notificationConfigurations = new InputList<Inputs.AutoScalingGroupNotificationConfigurationArgs>());
             set => _notificationConfigurations = value;
         }
 

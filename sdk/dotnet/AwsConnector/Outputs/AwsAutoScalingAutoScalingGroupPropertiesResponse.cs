@@ -107,11 +107,11 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// A structure that specifies an Amazon SNS notification configuration for the ``NotificationConfigurations`` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. For an example template snippet, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html). For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
         /// </summary>
-        public readonly Outputs.NotificationConfigurationResponse? NotificationConfiguration;
+        public readonly Outputs.AutoScalingGroupNotificationConfigurationResponse? NotificationConfiguration;
         /// <summary>
         /// Configures an Auto Scaling group to send notifications when specified events take place.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NotificationConfigurationResponse> NotificationConfigurations;
+        public readonly ImmutableArray<Outputs.AutoScalingGroupNotificationConfigurationResponse> NotificationConfigurations;
         /// <summary>
         /// The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide for Linux Instances*.  A *cluster* placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group.
         /// </summary>
@@ -183,9 +183,9 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             bool? newInstancesProtectedFromScaleIn,
 
-            Outputs.NotificationConfigurationResponse? notificationConfiguration,
+            Outputs.AutoScalingGroupNotificationConfigurationResponse? notificationConfiguration,
 
-            ImmutableArray<Outputs.NotificationConfigurationResponse> notificationConfigurations,
+            ImmutableArray<Outputs.AutoScalingGroupNotificationConfigurationResponse> notificationConfigurations,
 
             string? placementGroup,
 
