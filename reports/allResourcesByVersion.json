@@ -4166,6 +4166,16 @@
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
+    ],
+    "2024-11-01": [
+      "AccessPolicy",
+      "AccessPolicyAssignment",
+      "FirewallRule",
+      "LinkedServer",
+      "PatchSchedule",
+      "PrivateEndpointConnection",
+      "Redis",
+      "listRedisKeys"
     ]
   },
   "Capacity": {
@@ -7170,6 +7180,16 @@
       "ViewByScope"
     ],
     "2023-11-01": [
+      "Budget",
+      "CostAllocationRule",
+      "Export",
+      "ScheduledAction",
+      "ScheduledActionByScope",
+      "SettingByScope",
+      "View",
+      "ViewByScope"
+    ],
+    "2024-08-01": [
       "Budget",
       "CostAllocationRule",
       "Export",
