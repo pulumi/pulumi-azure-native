@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.Cache.V20230401
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230801:LinkedServer" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240301:LinkedServer" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240401preview:LinkedServer" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20241101:LinkedServer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

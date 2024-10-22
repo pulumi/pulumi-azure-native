@@ -224,6 +224,7 @@ namespace Pulumi.AzureNative.Cache.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230501preview:Redis" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230801:Redis" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240401preview:Redis" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20241101:Redis" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

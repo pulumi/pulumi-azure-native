@@ -212,7 +212,7 @@ def get_scheduled_action(name: Optional[str] = None,
     Get the private scheduled action by name.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
+    Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
 
 
     :param str name: Scheduled action name.
@@ -243,7 +243,7 @@ def get_scheduled_action_output(name: Optional[pulumi.Input[str]] = None,
     Get the private scheduled action by name.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
+    Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
 
 
     :param str name: Scheduled action name.

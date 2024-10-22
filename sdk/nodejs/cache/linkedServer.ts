@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Response to put/get linked server (with properties) for Redis cache.
  * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
  *
- * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
  */
 export class LinkedServer extends pulumi.CustomResource {
     /**
@@ -120,7 +120,7 @@ export class LinkedServer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20170201:LinkedServer" }, { type: "azure-native:cache/v20171001:LinkedServer" }, { type: "azure-native:cache/v20180301:LinkedServer" }, { type: "azure-native:cache/v20190701:LinkedServer" }, { type: "azure-native:cache/v20200601:LinkedServer" }, { type: "azure-native:cache/v20201201:LinkedServer" }, { type: "azure-native:cache/v20210601:LinkedServer" }, { type: "azure-native:cache/v20220501:LinkedServer" }, { type: "azure-native:cache/v20220601:LinkedServer" }, { type: "azure-native:cache/v20230401:LinkedServer" }, { type: "azure-native:cache/v20230501preview:LinkedServer" }, { type: "azure-native:cache/v20230801:LinkedServer" }, { type: "azure-native:cache/v20240301:LinkedServer" }, { type: "azure-native:cache/v20240401preview:LinkedServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20170201:LinkedServer" }, { type: "azure-native:cache/v20171001:LinkedServer" }, { type: "azure-native:cache/v20180301:LinkedServer" }, { type: "azure-native:cache/v20190701:LinkedServer" }, { type: "azure-native:cache/v20200601:LinkedServer" }, { type: "azure-native:cache/v20201201:LinkedServer" }, { type: "azure-native:cache/v20210601:LinkedServer" }, { type: "azure-native:cache/v20220501:LinkedServer" }, { type: "azure-native:cache/v20220601:LinkedServer" }, { type: "azure-native:cache/v20230401:LinkedServer" }, { type: "azure-native:cache/v20230501preview:LinkedServer" }, { type: "azure-native:cache/v20230801:LinkedServer" }, { type: "azure-native:cache/v20240301:LinkedServer" }, { type: "azure-native:cache/v20240401preview:LinkedServer" }, { type: "azure-native:cache/v20241101:LinkedServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedServer.__pulumiType, name, resourceInputs, opts);
     }

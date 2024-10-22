@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Cache
         /// Gets the patching schedule of a redis cache.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
         /// </summary>
         public static Task<GetPatchScheduleResult> InvokeAsync(GetPatchScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPatchScheduleResult>("azure-native:cache:getPatchSchedule", args ?? new GetPatchScheduleArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Cache
         /// Gets the patching schedule of a redis cache.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
         /// </summary>
         public static Output<GetPatchScheduleResult> Invoke(GetPatchScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPatchScheduleResult>("azure-native:cache:getPatchSchedule", args ?? new GetPatchScheduleInvokeArgs(), options.WithDefaults());

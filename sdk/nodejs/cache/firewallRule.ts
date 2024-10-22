@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
  * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
  *
- * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -91,7 +91,7 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20160401:FirewallRule" }, { type: "azure-native:cache/v20170201:FirewallRule" }, { type: "azure-native:cache/v20171001:FirewallRule" }, { type: "azure-native:cache/v20180301:FirewallRule" }, { type: "azure-native:cache/v20190701:FirewallRule" }, { type: "azure-native:cache/v20200601:FirewallRule" }, { type: "azure-native:cache/v20201201:FirewallRule" }, { type: "azure-native:cache/v20210601:FirewallRule" }, { type: "azure-native:cache/v20220501:FirewallRule" }, { type: "azure-native:cache/v20220601:FirewallRule" }, { type: "azure-native:cache/v20230401:FirewallRule" }, { type: "azure-native:cache/v20230501preview:FirewallRule" }, { type: "azure-native:cache/v20230801:FirewallRule" }, { type: "azure-native:cache/v20240301:FirewallRule" }, { type: "azure-native:cache/v20240401preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20160401:FirewallRule" }, { type: "azure-native:cache/v20170201:FirewallRule" }, { type: "azure-native:cache/v20171001:FirewallRule" }, { type: "azure-native:cache/v20180301:FirewallRule" }, { type: "azure-native:cache/v20190701:FirewallRule" }, { type: "azure-native:cache/v20200601:FirewallRule" }, { type: "azure-native:cache/v20201201:FirewallRule" }, { type: "azure-native:cache/v20210601:FirewallRule" }, { type: "azure-native:cache/v20220501:FirewallRule" }, { type: "azure-native:cache/v20220601:FirewallRule" }, { type: "azure-native:cache/v20230401:FirewallRule" }, { type: "azure-native:cache/v20230501preview:FirewallRule" }, { type: "azure-native:cache/v20230801:FirewallRule" }, { type: "azure-native:cache/v20240301:FirewallRule" }, { type: "azure-native:cache/v20240401preview:FirewallRule" }, { type: "azure-native:cache/v20241101:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }

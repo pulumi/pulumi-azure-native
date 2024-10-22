@@ -197,7 +197,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:cache/v20230501preview:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:cache/v20240301:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:cache/v20240401preview:AccessPolicyAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:cache/v20230501preview:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:cache/v20240301:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:cache/v20240401preview:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:cache/v20241101:AccessPolicyAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessPolicyAssignment, __self__).__init__(
             'azure-native:cache/v20230801:AccessPolicyAssignment',

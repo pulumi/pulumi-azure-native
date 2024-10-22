@@ -4228,6 +4228,20 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cache/v20241101",
+  "fqn": "pulumi_azure_native.cache.v20241101",
+  "classes": {
+   "azure-native:cache/v20241101:AccessPolicy": "AccessPolicy",
+   "azure-native:cache/v20241101:AccessPolicyAssignment": "AccessPolicyAssignment",
+   "azure-native:cache/v20241101:FirewallRule": "FirewallRule",
+   "azure-native:cache/v20241101:LinkedServer": "LinkedServer",
+   "azure-native:cache/v20241101:PatchSchedule": "PatchSchedule",
+   "azure-native:cache/v20241101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cache/v20241101:Redis": "Redis"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cdn",
   "fqn": "pulumi_azure_native.cdn",
   "classes": {
@@ -6380,6 +6394,21 @@ _utilities.register(
    "azure-native:costmanagement/v20231101:TagInheritanceSetting": "TagInheritanceSetting",
    "azure-native:costmanagement/v20231101:View": "View",
    "azure-native:costmanagement/v20231101:ViewByScope": "ViewByScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "costmanagement/v20240801",
+  "fqn": "pulumi_azure_native.costmanagement.v20240801",
+  "classes": {
+   "azure-native:costmanagement/v20240801:Budget": "Budget",
+   "azure-native:costmanagement/v20240801:CostAllocationRule": "CostAllocationRule",
+   "azure-native:costmanagement/v20240801:Export": "Export",
+   "azure-native:costmanagement/v20240801:ScheduledAction": "ScheduledAction",
+   "azure-native:costmanagement/v20240801:ScheduledActionByScope": "ScheduledActionByScope",
+   "azure-native:costmanagement/v20240801:TagInheritanceSetting": "TagInheritanceSetting",
+   "azure-native:costmanagement/v20240801:View": "View",
+   "azure-native:costmanagement/v20240801:ViewByScope": "ViewByScope"
   }
  },
  {
