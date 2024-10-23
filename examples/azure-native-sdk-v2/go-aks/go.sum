@@ -155,8 +155,8 @@ github.com/pulumi/pulumi-random/sdk/v4 v4.16.3 h1:nlN42MRSIuDh5Pc5nLq4b0lwZaX2ZU
 github.com/pulumi/pulumi-random/sdk/v4 v4.16.3/go.mod h1:yRfWJSLEAVZvkwgXajr3S9OmFkAZTxfO44Ef2HfixXQ=
 github.com/pulumi/pulumi-tls/sdk/v4 v4.11.1 h1:tXemWrzeVTqG8zq6hBdv1TdPFXjgZ+dob63a/6GlF1o=
 github.com/pulumi/pulumi-tls/sdk/v4 v4.11.1/go.mod h1:hODo3iEmmXDFOXqPK+V+vwI0a3Ww7BLjs5Tgamp86Ng=
-github.com/pulumi/pulumi/sdk/v3 v3.130.0 h1:gGJNd+akPqhZ+vrsZmAjSNJn6kGJkitjjkwrmIQMmn8=
-github.com/pulumi/pulumi/sdk/v3 v3.130.0/go.mod h1:p1U24en3zt51agx+WlNboSOV8eLlPWYAkxMzVEXKbnY=
+github.com/pulumi/pulumi/sdk/v3 v3.137.0 h1:bxhYpOY7Z4xt+VmezEpHuhjpOekkaMqOjzxFg/1OhCw=
+github.com/pulumi/pulumi/sdk/v3 v3.137.0/go.mod h1:PvKsX88co8XuwuPdzolMvew5lZV+4JmZfkeSjj7A6dI=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
 github.com/rivo/uniseg v0.4.7/go.mod h1:FN3SvrM+Zdj16jyLfmOkMNblXMcoc8DfTHruCPUcx88=
@@ -188,8 +188,6 @@ github.com/stretchr/testify v1.9.0 h1:HtqpIVDClZ4nwg75+f6Lvsy/wHu+3BoSGCbBAcpTsT
 github.com/stretchr/testify v1.9.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
 github.com/texttheater/golang-levenshtein v1.0.1 h1:+cRNoVrfiwufQPhoMzB6N0Yf/Mqajr6t1lOv8GyGE2U=
 github.com/texttheater/golang-levenshtein v1.0.1/go.mod h1:PYAKrbF5sAiq9wd+H82hs7gNaen0CplQ9uvm6+enD/8=
-github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 h1:X9dsIWPuuEJlPX//UmRKophhOKCGXc46RVIGuttks68=
-github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7/go.mod h1:UxoP3EypF8JfGEjAII8jx1q8rQyDnX8qdTCs/UQBVIE=
 github.com/uber/jaeger-client-go v2.30.0+incompatible h1:D6wyKGCecFaSRUpo8lCVbaOOb6ThwMmTEbhRwtKR97o=
 github.com/uber/jaeger-client-go v2.30.0+incompatible/go.mod h1:WVhlPFC8FDjOFMMWRy2pZqQJSXxYSwNYOkTr/Z6d3Kk=
 github.com/uber/jaeger-lib v2.4.1+incompatible h1:td4jdvLcExb4cBISKIpHuGoVXh+dVKhn2Um6rjCsSsg=
