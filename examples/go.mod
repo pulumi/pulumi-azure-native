@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-azure-native/examples
 
-go 1.21
+go 1.23
 
 require (
 	github.com/pulumi/examples/misc/test v0.0.0-20240224092907-9f1d92c3e166
