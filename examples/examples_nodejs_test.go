@@ -357,6 +357,8 @@ func TestAccPIMRoleManagementPolicies(t *testing.T) {
 
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
+			DebugLogLevel:        9,
+			Verbose:              true,
 			Dir:                  filepath.Join(getCwd(t), "pim-rolemanagementpolicies"),
 			Config:               map[string]string{"policy": policyId},
 			ExpectRefreshChanges: false,
