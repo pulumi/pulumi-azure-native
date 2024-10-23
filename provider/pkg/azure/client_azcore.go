@@ -61,6 +61,32 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 	opts.Retry.RetryDelay = 20 * time.Second
 	opts.Retry.MaxRetryDelay = 120 * time.Second
 
+	// These are the same as the default values in sdk/azcore/runtime/policy_retry.go setDefaults
+	retryableStatusCodes := []int{
+		http.StatusRequestTimeout,      // 408
+		http.StatusTooManyRequests,     // 429
+		http.StatusInternalServerError, // 500
+		http.StatusBadGateway,          // 502
+		http.StatusServiceUnavailable,  // 503
+		http.StatusGatewayTimeout,      // 504
+	}
+
+	opts.Retry.ShouldRetry = func(resp *http.Response, err error) bool {
+		if err != nil {
+			return true
+		}
+		// Replicate default retry behaviour first.
+		if runtime.HasStatusCode(resp, retryableStatusCodes...) {
+			return true
+		}
+
+		if shouldRetryConflict(resp) {
+			return true
+		}
+
+		return false
+	}
+
 	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", version.Version, tokenCredential,
 		runtime.PipelineOptions{}, opts)
 	if err != nil {
@@ -74,6 +100,18 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 		deletePollingIntervalSeconds: 30, // same as autorest.DefaultPollingDelay
 		updatePollingIntervalSeconds: 10,
 	}, nil
+}
+
+func shouldRetryConflict(resp *http.Response) bool {
+	if runtime.HasStatusCode(resp, http.StatusConflict) {
+		err := runtime.NewResponseError(resp)
+		if responseErr, ok := err.(*azcore.ResponseError); ok {
+			if responseErr.ErrorCode == "AnotherOperationInProgress" {
+				return true
+			}
+		}
+	}
+	return false
 }
 
 func (c *azCoreClient) setHeaders(req *policy.Request, contentTypeJson bool) {
