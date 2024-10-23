@@ -159,13 +159,13 @@ func BuildCustomResources(env *azureEnv.Environment,
 	tokenAuth autorest.Authorizer,
 	kvBearerAuth autorest.Authorizer,
 	userAgent string,
-	tokenFactory azcore.TokenCredential) (map[string]*CustomResource, error) {
+	tokenCred azcore.TokenCredential) (map[string]*CustomResource, error) {
 
 	kvClient := keyvault.New()
 	kvClient.Authorizer = kvBearerAuth
 	kvClient.UserAgent = userAgent
 
-	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenFactory, &arm.ClientOptions{})
+	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenCred, &arm.ClientOptions{})
 	if err != nil {
 		return nil, err
 	}
