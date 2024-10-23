@@ -2396,6 +2396,7 @@ _utilities.register(
    "azure-native:authorization:ResourceManagementPrivateLink": "ResourceManagementPrivateLink",
    "azure-native:authorization:RoleAssignment": "RoleAssignment",
    "azure-native:authorization:RoleDefinition": "RoleDefinition",
+   "azure-native:authorization:RoleManagementPolicy": "RoleManagementPolicy",
    "azure-native:authorization:RoleManagementPolicyAssignment": "RoleManagementPolicyAssignment",
    "azure-native:authorization:ScopeAccessReviewHistoryDefinitionById": "ScopeAccessReviewHistoryDefinitionById",
    "azure-native:authorization:ScopeAccessReviewScheduleDefinitionById": "ScopeAccessReviewScheduleDefinitionById",
@@ -2476,6 +2477,7 @@ _utilities.register(
   "mod": "authorization/v20201001",
   "fqn": "pulumi_azure_native.authorization.v20201001",
   "classes": {
+   "azure-native:authorization/v20201001:RoleManagementPolicy": "RoleManagementPolicy",
    "azure-native:authorization/v20201001:RoleManagementPolicyAssignment": "RoleManagementPolicyAssignment"
   }
  },
@@ -2484,6 +2486,7 @@ _utilities.register(
   "mod": "authorization/v20201001preview",
   "fqn": "pulumi_azure_native.authorization.v20201001preview",
   "classes": {
+   "azure-native:authorization/v20201001preview:RoleManagementPolicy": "RoleManagementPolicy",
    "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment": "RoleManagementPolicyAssignment"
   }
  },
@@ -2573,6 +2576,7 @@ _utilities.register(
   "mod": "authorization/v20240201preview",
   "fqn": "pulumi_azure_native.authorization.v20240201preview",
   "classes": {
+   "azure-native:authorization/v20240201preview:RoleManagementPolicy": "RoleManagementPolicy",
    "azure-native:authorization/v20240201preview:RoleManagementPolicyAssignment": "RoleManagementPolicyAssignment"
   }
  },
@@ -2605,6 +2609,7 @@ _utilities.register(
   "mod": "authorization/v20240901preview",
   "fqn": "pulumi_azure_native.authorization.v20240901preview",
   "classes": {
+   "azure-native:authorization/v20240901preview:RoleManagementPolicy": "RoleManagementPolicy",
    "azure-native:authorization/v20240901preview:RoleManagementPolicyAssignment": "RoleManagementPolicyAssignment"
   }
  },

@@ -8,18 +8,27 @@ __all__ = [
     'AccessReviewRecurrencePatternType',
     'AccessReviewRecurrenceRangeType',
     'AccessReviewResult',
+    'ApprovalMode',
     'AssignmentScopeValidation',
     'DefaultDecisionType',
+    'EnablementRules',
     'EnforcementMode',
+    'ExcludedPrincipalTypes',
     'ExemptionCategory',
     'LockLevel',
+    'NotificationDeliveryMechanism',
+    'NotificationLevel',
     'OverrideKind',
+    'PIMOnlyMode',
     'ParameterType',
     'PolicyType',
     'PrincipalType',
     'PublicNetworkAccessOptions',
+    'RecipientType',
     'ResourceIdentityType',
+    'RoleManagementPolicyRuleType',
     'SelectorKind',
+    'UserType',
 ]
 
 
@@ -51,6 +60,16 @@ class AccessReviewResult(str, Enum):
     NOT_NOTIFIED = "NotNotified"
 
 
+class ApprovalMode(str, Enum):
+    """
+    The type of rule
+    """
+    SINGLE_STAGE = "SingleStage"
+    SERIAL = "Serial"
+    PARALLEL = "Parallel"
+    NO_APPROVAL = "NoApproval"
+
+
 class AssignmentScopeValidation(str, Enum):
     """
     The option whether validate the exemption is at or under the assignment scope.
@@ -74,6 +93,15 @@ class DefaultDecisionType(str, Enum):
     RECOMMENDATION = "Recommendation"
 
 
+class EnablementRules(str, Enum):
+    """
+    The type of enablement rule
+    """
+    MULTI_FACTOR_AUTHENTICATION = "MultiFactorAuthentication"
+    JUSTIFICATION = "Justification"
+    TICKETING = "Ticketing"
+
+
 class EnforcementMode(str, Enum):
     """
     The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
@@ -86,6 +114,11 @@ class EnforcementMode(str, Enum):
     """
     The policy effect is not enforced during resource creation or update.
     """
+
+
+class ExcludedPrincipalTypes(str, Enum):
+    SERVICE_PRINCIPALS_AS_TARGET = "ServicePrincipalsAsTarget"
+    SERVICE_PRINCIPALS_AS_REQUESTOR = "ServicePrincipalsAsRequestor"
 
 
 class ExemptionCategory(str, Enum):
@@ -111,6 +144,22 @@ class LockLevel(str, Enum):
     READ_ONLY = "ReadOnly"
 
 
+class NotificationDeliveryMechanism(str, Enum):
+    """
+    The type of notification.
+    """
+    EMAIL = "Email"
+
+
+class NotificationLevel(str, Enum):
+    """
+    The notification level.
+    """
+    NONE = "None"
+    CRITICAL = "Critical"
+    ALL = "All"
+
+
 class OverrideKind(str, Enum):
     """
     The override kind.
@@ -119,6 +168,15 @@ class OverrideKind(str, Enum):
     """
     It will override the policy effect type.
     """
+
+
+class PIMOnlyMode(str, Enum):
+    """
+    Determines whether the setting is enabled, disabled or report only.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+    REPORT_ONLY = "ReportOnly"
 
 
 class ParameterType(str, Enum):
@@ -160,6 +218,15 @@ class PublicNetworkAccessOptions(str, Enum):
     DISABLED = "Disabled"
 
 
+class RecipientType(str, Enum):
+    """
+    The recipient type.
+    """
+    REQUESTOR = "Requestor"
+    APPROVER = "Approver"
+    ADMIN = "Admin"
+
+
 class ResourceIdentityType(str, Enum):
     """
     The identity type. This is the only required field when adding a system or user assigned identity to a resource.
@@ -176,6 +243,18 @@ class ResourceIdentityType(str, Enum):
     """
     Indicates that no identity is associated with the resource or that the existing identity should be removed.
     """
+
+
+class RoleManagementPolicyRuleType(str, Enum):
+    """
+    The type of rule
+    """
+    ROLE_MANAGEMENT_POLICY_APPROVAL_RULE = "RoleManagementPolicyApprovalRule"
+    ROLE_MANAGEMENT_POLICY_AUTHENTICATION_CONTEXT_RULE = "RoleManagementPolicyAuthenticationContextRule"
+    ROLE_MANAGEMENT_POLICY_ENABLEMENT_RULE = "RoleManagementPolicyEnablementRule"
+    ROLE_MANAGEMENT_POLICY_EXPIRATION_RULE = "RoleManagementPolicyExpirationRule"
+    ROLE_MANAGEMENT_POLICY_NOTIFICATION_RULE = "RoleManagementPolicyNotificationRule"
+    ROLE_MANAGEMENT_POLICY_PIM_ONLY_MODE_RULE = "RoleManagementPolicyPimOnlyModeRule"
 
 
 class SelectorKind(str, Enum):
@@ -198,3 +277,12 @@ class SelectorKind(str, Enum):
     """
     The selector kind to filter policies by the policy definition reference ID.
     """
+
+
+class UserType(str, Enum):
+    """
+    The type of user.
+    """
+    USER = "User"
+    GROUP = "Group"
+    SERVICE_PRINCIPAL = "ServicePrincipal"
