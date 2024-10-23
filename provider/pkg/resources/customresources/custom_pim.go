@@ -109,7 +109,7 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 		},
 
 		// PIM Role Management Policies cannot be deleted. Instead, we reset the policy to its default.
-		Delete: func(ctx context.Context, id string, properties, state resource.PropertyMap) error {
+		Delete: func(ctx context.Context, id string, previousInputs, state resource.PropertyMap) error {
 			queryParams := map[string]any{"api-version": client.ApiVersion()}
 			if !state.HasValue(OriginalStateKey) {
 				logging.V(3).Infof("Warning: no original state found for %s, cannot reset", id)

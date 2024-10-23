@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ApprovalSettingsResponse',
@@ -23,6 +24,8 @@ __all__ = [
     'PolicyAssignmentPropertiesResponsePolicy',
     'PolicyAssignmentPropertiesResponseRoleDefinition',
     'PolicyAssignmentPropertiesResponseScope',
+    'PolicyPropertiesResponse',
+    'PolicyPropertiesResponseScope',
     'PrincipalResponse',
     'RoleManagementPolicyApprovalRuleResponse',
     'RoleManagementPolicyAuthenticationContextRuleResponse',
@@ -518,6 +521,92 @@ class PolicyAssignmentPropertiesResponseScope(dict):
 
     def get(self, key: str, default = None) -> Any:
         PolicyAssignmentPropertiesResponseScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Details of the resource scope
+        :param str display_name: Display name of the resource
+        :param str id: Scope id of the resource
+        :param str type: Type of the resource
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of the resource
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Scope id of the resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the resource
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PolicyPropertiesResponse(dict):
+    """
+    Expanded info of resource scope
+    """
+    def __init__(__self__, *,
+                 scope: 'outputs.PolicyPropertiesResponseScope'):
+        """
+        Expanded info of resource scope
+        :param 'PolicyPropertiesResponseScope' scope: Details of the resource scope
+        """
+        pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> 'outputs.PolicyPropertiesResponseScope':
+        """
+        Details of the resource scope
+        """
+        return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class PolicyPropertiesResponseScope(dict):
+    """
+    Details of the resource scope
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPropertiesResponseScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPropertiesResponseScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPropertiesResponseScope.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
