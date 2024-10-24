@@ -2788,10 +2788,12 @@
       "PolicySetDefinitionAtManagementGroup"
     ],
     "2020-10-01": [
+      "RoleManagementPolicy",
       "RoleManagementPolicyAssignment"
     ],
     "2020-10-01-preview": [
       "RoleAssignment",
+      "RoleManagementPolicy",
       "RoleManagementPolicyAssignment"
     ],
     "2021-03-01-preview": [
@@ -2854,6 +2856,7 @@
       "listPolicySetDefinitionVersionAllBuiltins"
     ],
     "2024-02-01-preview": [
+      "RoleManagementPolicy",
       "RoleManagementPolicyAssignment"
     ],
     "2024-04-01": [
@@ -2877,6 +2880,7 @@
       "listPolicySetDefinitionVersionAllBuiltins"
     ],
     "2024-09-01-preview": [
+      "RoleManagementPolicy",
       "RoleManagementPolicyAssignment"
     ]
   },

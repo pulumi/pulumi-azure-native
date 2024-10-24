@@ -299,6 +299,7 @@
     "ResourceManagementPrivateLink": "2020-05-01",
     "RoleAssignment": "2022-04-01",
     "RoleDefinition": "2022-05-01-preview",
+    "RoleManagementPolicy": "2024-09-01-preview",
     "RoleManagementPolicyAssignment": "2020-10-01",
     "ScopeAccessReviewHistoryDefinitionById": "2021-12-01-preview",
     "ScopeAccessReviewScheduleDefinitionById": "2021-12-01-preview",

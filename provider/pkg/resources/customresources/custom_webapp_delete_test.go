@@ -53,7 +53,7 @@ func TestSetsDeleteParam(t *testing.T) {
 
 	custom, err := webApp(nil, azureClient, mockResourceLookup)
 	require.NoError(t, err)
-	custom.Delete(context.Background(), "id", resource.PropertyMap{})
+	custom.Delete(context.Background(), "id", resource.PropertyMap{}, resource.PropertyMap{})
 	assert.Len(t, azureClient.queryParamsOfLastDelete, 1)
 	assert.Contains(t, azureClient.queryParamsOfLastDelete, "deleteEmptyServerFarm")
 }

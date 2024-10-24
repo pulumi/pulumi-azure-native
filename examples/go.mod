@@ -3,6 +3,8 @@ module github.com/pulumi/pulumi-azure-native/examples
 go 1.23
 
 require (
+	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.7.0
+	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/authorization/armauthorization/v2 v2.2.0
 	github.com/pulumi/examples/misc/test v0.0.0-20240224092907-9f1d92c3e166
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v2 v2.28.0
 	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v2 v2.28.0
@@ -22,7 +24,6 @@ require (
 	cloud.google.com/go/storage v1.39.1 // indirect
 	dario.cat/mergo v1.0.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.12.0 // indirect
-	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.7.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/internal v1.9.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/keyvault/azkeys v0.10.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/keyvault/internal v0.7.1 // indirect

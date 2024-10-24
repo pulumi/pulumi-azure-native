@@ -15,7 +15,6 @@ import (
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
-
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -58,7 +57,8 @@ type CustomResource struct {
 	// Deprecated: Use Schema instead.
 	MetaTypeOverrides map[string]AzureAPIType
 	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
-	Create func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
+	Create    func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
+	CanCreate func(ctx context.Context, id string) error
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
 	// resource outputs. If the requested resource does not exist, the second result is false. In that case, the
 	// error must be nil.
@@ -66,7 +66,7 @@ type CustomResource struct {
 	// Update an existing resource with a map of input values. Returns a map of resource outputs that match the schema shape.
 	Update func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]interface{}, error)
 	// Delete an existing resource. Constructs the resource ID based on input values.
-	Delete func(ctx context.Context, id string, properties resource.PropertyMap) error
+	Delete func(ctx context.Context, id string, previousInputs, state resource.PropertyMap) error
 }
 
 // ResourceDefinition is a combination of the external schema and runtime metadata
@@ -183,6 +183,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 		return nil, err
 	}
 
+	pimRoleManagementPolicy, err := pimRoleManagementPolicy(lookupResource, crudClientFactory)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		// Azure KeyVault resources.
 		keyVaultSecret(env.KeyVaultDNSSuffix, &kvClient),
@@ -196,6 +201,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		portalDashboard(),
 		customWebApp,
 		customWebAppSlot,
+		pimRoleManagementPolicy,
 	}
 
 	result := map[string]*CustomResource{}
@@ -207,6 +213,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 
 // featureLookup is a map of custom resource to lookup their capabilities.
 var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil, nil, nil, "", nil)
+
+func IsCustomResource(path string) bool {
+	_, ok := featureLookup[path]
+	return ok
+}
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {

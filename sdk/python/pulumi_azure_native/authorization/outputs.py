@@ -28,6 +28,7 @@ __all__ = [
     'ManagementLockOwnerResponse',
     'NonComplianceMessageResponse',
     'OverrideResponse',
+    'PIMOnlyModeSettingsResponse',
     'ParameterDefinitionsValueResponse',
     'ParameterDefinitionsValueResponseMetadata',
     'ParameterValuesValueResponse',
@@ -39,6 +40,8 @@ __all__ = [
     'PolicyDefinitionGroupResponse',
     'PolicyDefinitionReferenceResponse',
     'PolicyDefinitionVersionResponse',
+    'PolicyPropertiesResponse',
+    'PolicyPropertiesResponseScope',
     'PolicySetDefinitionVersionResponse',
     'PolicyVariableColumnResponse',
     'PolicyVariableValueColumnValueResponse',
@@ -51,10 +54,12 @@ __all__ = [
     'RoleManagementPolicyEnablementRuleResponse',
     'RoleManagementPolicyExpirationRuleResponse',
     'RoleManagementPolicyNotificationRuleResponse',
+    'RoleManagementPolicyPimOnlyModeRuleResponse',
     'RoleManagementPolicyRuleTargetResponse',
     'SelectorResponse',
     'SystemDataResponse',
     'UserSetResponse',
+    'UsersOrServicePrincipalSetResponse',
 ]
 
 @pulumi.output_type
@@ -1045,6 +1050,70 @@ class OverrideResponse(dict):
 
 
 @pulumi.output_type
+class PIMOnlyModeSettingsResponse(dict):
+    """
+    The PIM Only Mode settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedAssignmentTypes":
+            suggest = "excluded_assignment_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PIMOnlyModeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PIMOnlyModeSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PIMOnlyModeSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 excluded_assignment_types: Optional[Sequence[str]] = None,
+                 excludes: Optional[Sequence['outputs.UsersOrServicePrincipalSetResponse']] = None,
+                 mode: Optional[str] = None):
+        """
+        The PIM Only Mode settings.
+        :param Sequence[str] excluded_assignment_types: The list of excluded assignment types allowed.
+        :param Sequence['UsersOrServicePrincipalSetResponse'] excludes: The list of excluded entities that the rule does not apply to.
+        :param str mode: Determines whether the setting is enabled, disabled or report only.
+        """
+        if excluded_assignment_types is not None:
+            pulumi.set(__self__, "excluded_assignment_types", excluded_assignment_types)
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter(name="excludedAssignmentTypes")
+    def excluded_assignment_types(self) -> Optional[Sequence[str]]:
+        """
+        The list of excluded assignment types allowed.
+        """
+        return pulumi.get(self, "excluded_assignment_types")
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence['outputs.UsersOrServicePrincipalSetResponse']]:
+        """
+        The list of excluded entities that the rule does not apply to.
+        """
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Determines whether the setting is enabled, disabled or report only.
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
 class ParameterDefinitionsValueResponse(dict):
     """
     The definition of a parameter that can be provided to the policy.
@@ -1934,6 +2003,92 @@ class PolicyDefinitionVersionResponse(dict):
 
 
 @pulumi.output_type
+class PolicyPropertiesResponse(dict):
+    """
+    Expanded info of resource scope
+    """
+    def __init__(__self__, *,
+                 scope: 'outputs.PolicyPropertiesResponseScope'):
+        """
+        Expanded info of resource scope
+        :param 'PolicyPropertiesResponseScope' scope: Details of the resource scope
+        """
+        pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> 'outputs.PolicyPropertiesResponseScope':
+        """
+        Details of the resource scope
+        """
+        return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class PolicyPropertiesResponseScope(dict):
+    """
+    Details of the resource scope
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPropertiesResponseScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPropertiesResponseScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPropertiesResponseScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Details of the resource scope
+        :param str display_name: Display name of the resource
+        :param str id: Scope id of the resource
+        :param str type: Type of the resource
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of the resource
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Scope id of the resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the resource
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class PolicySetDefinitionVersionResponse(dict):
     """
     The policy set definition version.
@@ -2656,6 +2811,8 @@ class RoleManagementPolicyExpirationRuleResponse(dict):
         suggest = None
         if key == "ruleType":
             suggest = "rule_type"
+        elif key == "exceptionMembers":
+            suggest = "exception_members"
         elif key == "isExpirationRequired":
             suggest = "is_expiration_required"
         elif key == "maximumDuration":
@@ -2674,6 +2831,7 @@ class RoleManagementPolicyExpirationRuleResponse(dict):
 
     def __init__(__self__, *,
                  rule_type: str,
+                 exception_members: Optional[Sequence['outputs.UserSetResponse']] = None,
                  id: Optional[str] = None,
                  is_expiration_required: Optional[bool] = None,
                  maximum_duration: Optional[str] = None,
@@ -2682,12 +2840,15 @@ class RoleManagementPolicyExpirationRuleResponse(dict):
         The role management policy expiration rule.
         :param str rule_type: The type of rule
                Expected value is 'RoleManagementPolicyExpirationRule'.
+        :param Sequence['UserSetResponse'] exception_members: The members not restricted by expiration rule.
         :param str id: The id of the rule.
         :param bool is_expiration_required: The value indicating whether expiration is required.
         :param str maximum_duration: The maximum duration of expiration in timespan.
         :param 'RoleManagementPolicyRuleTargetResponse' target: The target of the current rule.
         """
         pulumi.set(__self__, "rule_type", 'RoleManagementPolicyExpirationRule')
+        if exception_members is not None:
+            pulumi.set(__self__, "exception_members", exception_members)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if is_expiration_required is not None:
@@ -2705,6 +2866,14 @@ class RoleManagementPolicyExpirationRuleResponse(dict):
         Expected value is 'RoleManagementPolicyExpirationRule'.
         """
         return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter(name="exceptionMembers")
+    def exception_members(self) -> Optional[Sequence['outputs.UserSetResponse']]:
+        """
+        The members not restricted by expiration rule.
+        """
+        return pulumi.get(self, "exception_members")
 
     @property
     @pulumi.getter
@@ -2864,6 +3033,85 @@ class RoleManagementPolicyNotificationRuleResponse(dict):
         The recipient type.
         """
         return pulumi.get(self, "recipient_type")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional['outputs.RoleManagementPolicyRuleTargetResponse']:
+        """
+        The target of the current rule.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class RoleManagementPolicyPimOnlyModeRuleResponse(dict):
+    """
+    The role management policy PIM only mode rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleType":
+            suggest = "rule_type"
+        elif key == "pimOnlyModeSettings":
+            suggest = "pim_only_mode_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoleManagementPolicyPimOnlyModeRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoleManagementPolicyPimOnlyModeRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoleManagementPolicyPimOnlyModeRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_type: str,
+                 id: Optional[str] = None,
+                 pim_only_mode_settings: Optional['outputs.PIMOnlyModeSettingsResponse'] = None,
+                 target: Optional['outputs.RoleManagementPolicyRuleTargetResponse'] = None):
+        """
+        The role management policy PIM only mode rule.
+        :param str rule_type: The type of rule
+               Expected value is 'RoleManagementPolicyPimOnlyModeRule'.
+        :param str id: The id of the rule.
+        :param 'PIMOnlyModeSettingsResponse' pim_only_mode_settings: The PIM Only Mode settings
+        :param 'RoleManagementPolicyRuleTargetResponse' target: The target of the current rule.
+        """
+        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyPimOnlyModeRule')
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if pim_only_mode_settings is not None:
+            pulumi.set(__self__, "pim_only_mode_settings", pim_only_mode_settings)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> str:
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyPimOnlyModeRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The id of the rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="pimOnlyModeSettings")
+    def pim_only_mode_settings(self) -> Optional['outputs.PIMOnlyModeSettingsResponse']:
+        """
+        The PIM Only Mode settings
+        """
+        return pulumi.get(self, "pim_only_mode_settings")
 
     @property
     @pulumi.getter
@@ -3230,5 +3478,69 @@ class UserSetResponse(dict):
         The type of user.
         """
         return pulumi.get(self, "user_type")
+
+
+@pulumi.output_type
+class UsersOrServicePrincipalSetResponse(dict):
+    """
+    The detail of a subject.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UsersOrServicePrincipalSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UsersOrServicePrincipalSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UsersOrServicePrincipalSetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 display_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The detail of a subject.
+        :param str display_name: The display Name of the entity.
+        :param str id: The object id of the entity.
+        :param str type: The type of user.
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display Name of the entity.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The object id of the entity.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of user.
+        """
+        return pulumi.get(self, "type")
 
 

@@ -914,7 +914,16 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	switch {
 	case isCustom && customRes.Create != nil:
 		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here.
-		_, exists, err := customRes.Read(ctx, id, inputs)
+		var exists bool
+		if customRes.CanCreate != nil {
+			err = customRes.CanCreate(ctx, id)
+			exists = err != nil
+		} else if customRes.Read != nil {
+			_, exists, err = customRes.Read(ctx, id, inputs)
+		} else {
+			err = crudClient.CanCreate(ctx, id)
+			exists = err != nil
+		}
 		if err != nil {
 			return nil, err
 		}
@@ -1184,6 +1193,12 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	var outputsWithoutIgnores = outputs
+
+	plainOldState := oldState.Mappable()
+	if oldState.HasValue(customresources.OriginalStateKey) {
+		outputsWithoutIgnores[customresources.OriginalStateKey] = plainOldState[customresources.OriginalStateKey]
+	}
+
 	if inputs == nil {
 		// There may be no old state (i.e., importing a new resource).
 		// Extract inputs from resource's ID and response body.
@@ -1207,7 +1222,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 
 		// 1. If we previously reset inputs to their default value, remove them so we don't get them in
 		// the projected output. This would cause unnecessary changes on refresh.
-		plainOldState := mappableOldState(*res, oldState)
+		removeDefaults(*res, plainOldState)
 		// 2. Project old outputs to their corresponding input shape (exclude read-only properties).
 		oldInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, plainOldState)
 		// 3a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
@@ -1247,12 +1262,11 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	return &rpc.ReadResponse{Id: id, Properties: checkpoint, Inputs: inputsRecord}, nil
 }
 
-// Converts oldState into a serializable object map, with the resource's default values from metadata removed.
-func mappableOldState(res resources.AzureAPIResource, oldState resource.PropertyMap) map[string]interface{} {
-	plainOldState := oldState.Mappable()
+// removeDefaults removes the resource's default values from the given state, modifying the map in place.
+func removeDefaults(res resources.AzureAPIResource, plainOldState map[string]any) {
 	previousInputsRaw, ok := plainOldState["__inputs"]
 	if !ok {
-		return plainOldState
+		return
 	}
 	previousInputs := previousInputsRaw.(map[string]interface{})
 
@@ -1264,7 +1278,6 @@ func mappableOldState(res resources.AzureAPIResource, oldState resource.Property
 			delete(plainOldState, property)
 		}
 	}
-	return plainOldState
 }
 
 // removeUnsetSubResourceProperties resets sub-resource properties in the outputs if they weren't set in the old inputs.
@@ -1464,7 +1477,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			return nil, errors.Wrapf(err, "resource %s inputs are empty", label)
 		}
 		// Our hand-crafted implementation of DELETE operation.
-		err = customRes.Delete(ctx, id, inputs)
+		err = customRes.Delete(ctx, id, inputs, state)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
@@ -1577,6 +1590,9 @@ func azureContext(ctx context.Context, timeoutSeconds float64) (context.Context,
 func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
 	object := resource.NewPropertyMapFromMap(outputs)
 	object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
+	if object.HasValue(customresources.OriginalStateKey) {
+		object[customresources.OriginalStateKey] = resource.MakeSecret(object[customresources.OriginalStateKey])
+	}
 	return object
 }
 

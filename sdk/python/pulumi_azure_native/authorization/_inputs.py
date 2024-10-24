@@ -24,6 +24,10 @@ __all__ = [
     'AccessReviewReviewerArgsDict',
     'AccessReviewScopeArgs',
     'AccessReviewScopeArgsDict',
+    'ApprovalSettingsArgs',
+    'ApprovalSettingsArgsDict',
+    'ApprovalStageArgs',
+    'ApprovalStageArgsDict',
     'IdentityArgs',
     'IdentityArgsDict',
     'ManagementLockOwnerArgs',
@@ -32,6 +36,8 @@ __all__ = [
     'NonComplianceMessageArgsDict',
     'OverrideArgs',
     'OverrideArgsDict',
+    'PIMOnlyModeSettingsArgs',
+    'PIMOnlyModeSettingsArgsDict',
     'ParameterDefinitionsValueMetadataArgs',
     'ParameterDefinitionsValueMetadataArgsDict',
     'ParameterDefinitionsValueArgs',
@@ -52,8 +58,26 @@ __all__ = [
     'PrivateLinkAssociationPropertiesArgsDict',
     'ResourceSelectorArgs',
     'ResourceSelectorArgsDict',
+    'RoleManagementPolicyApprovalRuleArgs',
+    'RoleManagementPolicyApprovalRuleArgsDict',
+    'RoleManagementPolicyAuthenticationContextRuleArgs',
+    'RoleManagementPolicyAuthenticationContextRuleArgsDict',
+    'RoleManagementPolicyEnablementRuleArgs',
+    'RoleManagementPolicyEnablementRuleArgsDict',
+    'RoleManagementPolicyExpirationRuleArgs',
+    'RoleManagementPolicyExpirationRuleArgsDict',
+    'RoleManagementPolicyNotificationRuleArgs',
+    'RoleManagementPolicyNotificationRuleArgsDict',
+    'RoleManagementPolicyPimOnlyModeRuleArgs',
+    'RoleManagementPolicyPimOnlyModeRuleArgsDict',
+    'RoleManagementPolicyRuleTargetArgs',
+    'RoleManagementPolicyRuleTargetArgsDict',
     'SelectorArgs',
     'SelectorArgsDict',
+    'UserSetArgs',
+    'UserSetArgsDict',
+    'UsersOrServicePrincipalSetArgs',
+    'UsersOrServicePrincipalSetArgsDict',
 ]
 
 MYPY = False
@@ -463,6 +487,258 @@ class AccessReviewScopeArgs:
 
 
 if not MYPY:
+    class ApprovalSettingsArgsDict(TypedDict):
+        """
+        The approval settings.
+        """
+        approval_mode: NotRequired[pulumi.Input[Union[str, 'ApprovalMode']]]
+        """
+        The type of rule
+        """
+        approval_stages: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApprovalStageArgsDict']]]]
+        """
+        The approval stages of the request.
+        """
+        is_approval_required: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether approval is required or not.
+        """
+        is_approval_required_for_extension: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether approval is required for assignment extension.
+        """
+        is_requestor_justification_required: NotRequired[pulumi.Input[bool]]
+        """
+        Determine whether requestor justification is required.
+        """
+elif False:
+    ApprovalSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApprovalSettingsArgs:
+    def __init__(__self__, *,
+                 approval_mode: Optional[pulumi.Input[Union[str, 'ApprovalMode']]] = None,
+                 approval_stages: Optional[pulumi.Input[Sequence[pulumi.Input['ApprovalStageArgs']]]] = None,
+                 is_approval_required: Optional[pulumi.Input[bool]] = None,
+                 is_approval_required_for_extension: Optional[pulumi.Input[bool]] = None,
+                 is_requestor_justification_required: Optional[pulumi.Input[bool]] = None):
+        """
+        The approval settings.
+        :param pulumi.Input[Union[str, 'ApprovalMode']] approval_mode: The type of rule
+        :param pulumi.Input[Sequence[pulumi.Input['ApprovalStageArgs']]] approval_stages: The approval stages of the request.
+        :param pulumi.Input[bool] is_approval_required: Determines whether approval is required or not.
+        :param pulumi.Input[bool] is_approval_required_for_extension: Determines whether approval is required for assignment extension.
+        :param pulumi.Input[bool] is_requestor_justification_required: Determine whether requestor justification is required.
+        """
+        if approval_mode is not None:
+            pulumi.set(__self__, "approval_mode", approval_mode)
+        if approval_stages is not None:
+            pulumi.set(__self__, "approval_stages", approval_stages)
+        if is_approval_required is not None:
+            pulumi.set(__self__, "is_approval_required", is_approval_required)
+        if is_approval_required_for_extension is not None:
+            pulumi.set(__self__, "is_approval_required_for_extension", is_approval_required_for_extension)
+        if is_requestor_justification_required is not None:
+            pulumi.set(__self__, "is_requestor_justification_required", is_requestor_justification_required)
+
+    @property
+    @pulumi.getter(name="approvalMode")
+    def approval_mode(self) -> Optional[pulumi.Input[Union[str, 'ApprovalMode']]]:
+        """
+        The type of rule
+        """
+        return pulumi.get(self, "approval_mode")
+
+    @approval_mode.setter
+    def approval_mode(self, value: Optional[pulumi.Input[Union[str, 'ApprovalMode']]]):
+        pulumi.set(self, "approval_mode", value)
+
+    @property
+    @pulumi.getter(name="approvalStages")
+    def approval_stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApprovalStageArgs']]]]:
+        """
+        The approval stages of the request.
+        """
+        return pulumi.get(self, "approval_stages")
+
+    @approval_stages.setter
+    def approval_stages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApprovalStageArgs']]]]):
+        pulumi.set(self, "approval_stages", value)
+
+    @property
+    @pulumi.getter(name="isApprovalRequired")
+    def is_approval_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether approval is required or not.
+        """
+        return pulumi.get(self, "is_approval_required")
+
+    @is_approval_required.setter
+    def is_approval_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_approval_required", value)
+
+    @property
+    @pulumi.getter(name="isApprovalRequiredForExtension")
+    def is_approval_required_for_extension(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether approval is required for assignment extension.
+        """
+        return pulumi.get(self, "is_approval_required_for_extension")
+
+    @is_approval_required_for_extension.setter
+    def is_approval_required_for_extension(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_approval_required_for_extension", value)
+
+    @property
+    @pulumi.getter(name="isRequestorJustificationRequired")
+    def is_requestor_justification_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determine whether requestor justification is required.
+        """
+        return pulumi.get(self, "is_requestor_justification_required")
+
+    @is_requestor_justification_required.setter
+    def is_requestor_justification_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_requestor_justification_required", value)
+
+
+if not MYPY:
+    class ApprovalStageArgsDict(TypedDict):
+        """
+        The approval stage.
+        """
+        approval_stage_time_out_in_days: NotRequired[pulumi.Input[int]]
+        """
+        The time in days when approval request would be timed out
+        """
+        escalation_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSetArgsDict']]]]
+        """
+        The escalation approver of the request.
+        """
+        escalation_time_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The time in minutes when the approval request would be escalated if the primary approver does not approve
+        """
+        is_approver_justification_required: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether approver need to provide justification for his decision.
+        """
+        is_escalation_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The value determine whether escalation feature is enabled.
+        """
+        primary_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSetArgsDict']]]]
+        """
+        The primary approver of the request.
+        """
+elif False:
+    ApprovalStageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApprovalStageArgs:
+    def __init__(__self__, *,
+                 approval_stage_time_out_in_days: Optional[pulumi.Input[int]] = None,
+                 escalation_approvers: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]] = None,
+                 escalation_time_in_minutes: Optional[pulumi.Input[int]] = None,
+                 is_approver_justification_required: Optional[pulumi.Input[bool]] = None,
+                 is_escalation_enabled: Optional[pulumi.Input[bool]] = None,
+                 primary_approvers: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]] = None):
+        """
+        The approval stage.
+        :param pulumi.Input[int] approval_stage_time_out_in_days: The time in days when approval request would be timed out
+        :param pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]] escalation_approvers: The escalation approver of the request.
+        :param pulumi.Input[int] escalation_time_in_minutes: The time in minutes when the approval request would be escalated if the primary approver does not approve
+        :param pulumi.Input[bool] is_approver_justification_required: Determines whether approver need to provide justification for his decision.
+        :param pulumi.Input[bool] is_escalation_enabled: The value determine whether escalation feature is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]] primary_approvers: The primary approver of the request.
+        """
+        if approval_stage_time_out_in_days is not None:
+            pulumi.set(__self__, "approval_stage_time_out_in_days", approval_stage_time_out_in_days)
+        if escalation_approvers is not None:
+            pulumi.set(__self__, "escalation_approvers", escalation_approvers)
+        if escalation_time_in_minutes is not None:
+            pulumi.set(__self__, "escalation_time_in_minutes", escalation_time_in_minutes)
+        if is_approver_justification_required is not None:
+            pulumi.set(__self__, "is_approver_justification_required", is_approver_justification_required)
+        if is_escalation_enabled is not None:
+            pulumi.set(__self__, "is_escalation_enabled", is_escalation_enabled)
+        if primary_approvers is not None:
+            pulumi.set(__self__, "primary_approvers", primary_approvers)
+
+    @property
+    @pulumi.getter(name="approvalStageTimeOutInDays")
+    def approval_stage_time_out_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time in days when approval request would be timed out
+        """
+        return pulumi.get(self, "approval_stage_time_out_in_days")
+
+    @approval_stage_time_out_in_days.setter
+    def approval_stage_time_out_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "approval_stage_time_out_in_days", value)
+
+    @property
+    @pulumi.getter(name="escalationApprovers")
+    def escalation_approvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]:
+        """
+        The escalation approver of the request.
+        """
+        return pulumi.get(self, "escalation_approvers")
+
+    @escalation_approvers.setter
+    def escalation_approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]):
+        pulumi.set(self, "escalation_approvers", value)
+
+    @property
+    @pulumi.getter(name="escalationTimeInMinutes")
+    def escalation_time_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time in minutes when the approval request would be escalated if the primary approver does not approve
+        """
+        return pulumi.get(self, "escalation_time_in_minutes")
+
+    @escalation_time_in_minutes.setter
+    def escalation_time_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "escalation_time_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="isApproverJustificationRequired")
+    def is_approver_justification_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether approver need to provide justification for his decision.
+        """
+        return pulumi.get(self, "is_approver_justification_required")
+
+    @is_approver_justification_required.setter
+    def is_approver_justification_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_approver_justification_required", value)
+
+    @property
+    @pulumi.getter(name="isEscalationEnabled")
+    def is_escalation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value determine whether escalation feature is enabled.
+        """
+        return pulumi.get(self, "is_escalation_enabled")
+
+    @is_escalation_enabled.setter
+    def is_escalation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_escalation_enabled", value)
+
+    @property
+    @pulumi.getter(name="primaryApprovers")
+    def primary_approvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]:
+        """
+        The primary approver of the request.
+        """
+        return pulumi.get(self, "primary_approvers")
+
+    @primary_approvers.setter
+    def primary_approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]):
+        pulumi.set(self, "primary_approvers", value)
+
+
+if not MYPY:
     class IdentityArgsDict(TypedDict):
         """
         Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
@@ -683,6 +959,82 @@ class OverrideArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class PIMOnlyModeSettingsArgsDict(TypedDict):
+        """
+        The PIM Only Mode settings.
+        """
+        excluded_assignment_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExcludedPrincipalTypes']]]]]
+        """
+        The list of excluded assignment types allowed.
+        """
+        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgsDict']]]]
+        """
+        The list of excluded entities that the rule does not apply to.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'PIMOnlyMode']]]
+        """
+        Determines whether the setting is enabled, disabled or report only.
+        """
+elif False:
+    PIMOnlyModeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PIMOnlyModeSettingsArgs:
+    def __init__(__self__, *,
+                 excluded_assignment_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExcludedPrincipalTypes']]]]] = None,
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgs']]]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'PIMOnlyMode']]] = None):
+        """
+        The PIM Only Mode settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExcludedPrincipalTypes']]]] excluded_assignment_types: The list of excluded assignment types allowed.
+        :param pulumi.Input[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgs']]] excludes: The list of excluded entities that the rule does not apply to.
+        :param pulumi.Input[Union[str, 'PIMOnlyMode']] mode: Determines whether the setting is enabled, disabled or report only.
+        """
+        if excluded_assignment_types is not None:
+            pulumi.set(__self__, "excluded_assignment_types", excluded_assignment_types)
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter(name="excludedAssignmentTypes")
+    def excluded_assignment_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExcludedPrincipalTypes']]]]]:
+        """
+        The list of excluded assignment types allowed.
+        """
+        return pulumi.get(self, "excluded_assignment_types")
+
+    @excluded_assignment_types.setter
+    def excluded_assignment_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExcludedPrincipalTypes']]]]]):
+        pulumi.set(self, "excluded_assignment_types", value)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgs']]]]:
+        """
+        The list of excluded entities that the rule does not apply to.
+        """
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UsersOrServicePrincipalSetArgs']]]]):
+        pulumi.set(self, "excludes", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'PIMOnlyMode']]]:
+        """
+        Determines whether the setting is enabled, disabled or report only.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'PIMOnlyMode']]]):
+        pulumi.set(self, "mode", value)
 
 
 if not MYPY:
@@ -1450,6 +1802,870 @@ class ResourceSelectorArgs:
 
 
 if not MYPY:
+    class RoleManagementPolicyApprovalRuleArgsDict(TypedDict):
+        """
+        The role management policy approval rule.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyApprovalRule'.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the rule.
+        """
+        setting: NotRequired[pulumi.Input['ApprovalSettingsArgsDict']]
+        """
+        The approval setting
+        """
+        target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+        """
+        The target of the current rule.
+        """
+elif False:
+    RoleManagementPolicyApprovalRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoleManagementPolicyApprovalRuleArgs:
+    def __init__(__self__, *,
+                 rule_type: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 setting: Optional[pulumi.Input['ApprovalSettingsArgs']] = None,
+                 target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
+        """
+        The role management policy approval rule.
+        :param pulumi.Input[str] rule_type: The type of rule
+               Expected value is 'RoleManagementPolicyApprovalRule'.
+        :param pulumi.Input[str] id: The id of the rule.
+        :param pulumi.Input['ApprovalSettingsArgs'] setting: The approval setting
+        :param pulumi.Input['RoleManagementPolicyRuleTargetArgs'] target: The target of the current rule.
+        """
+        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyApprovalRule')
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if setting is not None:
+            pulumi.set(__self__, "setting", setting)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> pulumi.Input[str]:
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyApprovalRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the rule.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def setting(self) -> Optional[pulumi.Input['ApprovalSettingsArgs']]:
+        """
+        The approval setting
+        """
+        return pulumi.get(self, "setting")
+
+    @setting.setter
+    def setting(self, value: Optional[pulumi.Input['ApprovalSettingsArgs']]):
+        pulumi.set(self, "setting", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]:
+        """
+        The target of the current rule.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]):
+        pulumi.set(self, "target", value)
+
+
+if not MYPY:
+    class RoleManagementPolicyAuthenticationContextRuleArgsDict(TypedDict):
+        """
+        The role management policy authentication context rule.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyAuthenticationContextRule'.
+        """
+        claim_value: NotRequired[pulumi.Input[str]]
+        """
+        The claim value.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the rule.
+        """
+        is_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating if rule is enabled.
+        """
+        target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+        """
+        The target of the current rule.
+        """
+elif False:
+    RoleManagementPolicyAuthenticationContextRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoleManagementPolicyAuthenticationContextRuleArgs:
+    def __init__(__self__, *,
+                 rule_type: pulumi.Input[str],
+                 claim_value: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
+        """
+        The role management policy authentication context rule.
+        :param pulumi.Input[str] rule_type: The type of rule
+               Expected value is 'RoleManagementPolicyAuthenticationContextRule'.
+        :param pulumi.Input[str] claim_value: The claim value.
+        :param pulumi.Input[str] id: The id of the rule.
+        :param pulumi.Input[bool] is_enabled: The value indicating if rule is enabled.
+        :param pulumi.Input['RoleManagementPolicyRuleTargetArgs'] target: The target of the current rule.
+        """
+        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyAuthenticationContextRule')
+        if claim_value is not None:
+            pulumi.set(__self__, "claim_value", claim_value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> pulumi.Input[str]:
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyAuthenticationContextRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_type", value)
+
+    @property
+    @pulumi.getter(name="claimValue")
+    def claim_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The claim value.
+        """
+        return pulumi.get(self, "claim_value")
+
+    @claim_value.setter
+    def claim_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "claim_value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the rule.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value indicating if rule is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]:
+        """
+        The target of the current rule.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]):
+        pulumi.set(self, "target", value)
+
+
+if not MYPY:
+    class RoleManagementPolicyEnablementRuleArgsDict(TypedDict):
+        """
+        The role management policy enablement rule.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyEnablementRule'.
+        """
+        enabled_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EnablementRules']]]]]
+        """
+        The list of enabled rules.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the rule.
+        """
+        target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+        """
+        The target of the current rule.
+        """
+elif False:
+    RoleManagementPolicyEnablementRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoleManagementPolicyEnablementRuleArgs:
+    def __init__(__self__, *,
+                 rule_type: pulumi.Input[str],
+                 enabled_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EnablementRules']]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
+        """
+        The role management policy enablement rule.
+        :param pulumi.Input[str] rule_type: The type of rule
+               Expected value is 'RoleManagementPolicyEnablementRule'.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'EnablementRules']]]] enabled_rules: The list of enabled rules.
+        :param pulumi.Input[str] id: The id of the rule.
+        :param pulumi.Input['RoleManagementPolicyRuleTargetArgs'] target: The target of the current rule.
+        """
+        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyEnablementRule')
+        if enabled_rules is not None:
+            pulumi.set(__self__, "enabled_rules", enabled_rules)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> pulumi.Input[str]:
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyEnablementRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_type", value)
+
+    @property
+    @pulumi.getter(name="enabledRules")
+    def enabled_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EnablementRules']]]]]:
+        """
+        The list of enabled rules.
+        """
+        return pulumi.get(self, "enabled_rules")
+
+    @enabled_rules.setter
+    def enabled_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EnablementRules']]]]]):
+        pulumi.set(self, "enabled_rules", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the rule.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]:
+        """
+        The target of the current rule.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]):
+        pulumi.set(self, "target", value)
+
+
+if not MYPY:
+    class RoleManagementPolicyExpirationRuleArgsDict(TypedDict):
+        """
+        The role management policy expiration rule.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyExpirationRule'.
+        """
+        exception_members: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSetArgsDict']]]]
+        """
+        The members not restricted by expiration rule.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the rule.
+        """
+        is_expiration_required: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether expiration is required.
+        """
+        maximum_duration: NotRequired[pulumi.Input[str]]
+        """
+        The maximum duration of expiration in timespan.
+        """
+        target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+        """
+        The target of the current rule.
+        """
+elif False:
+    RoleManagementPolicyExpirationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoleManagementPolicyExpirationRuleArgs:
+    def __init__(__self__, *,
+                 rule_type: pulumi.Input[str],
+                 exception_members: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 is_expiration_required: Optional[pulumi.Input[bool]] = None,
+                 maximum_duration: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
+        """
+        The role management policy expiration rule.
+        :param pulumi.Input[str] rule_type: The type of rule
+               Expected value is 'RoleManagementPolicyExpirationRule'.
+        :param pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]] exception_members: The members not restricted by expiration rule.
+        :param pulumi.Input[str] id: The id of the rule.
+        :param pulumi.Input[bool] is_expiration_required: The value indicating whether expiration is required.
+        :param pulumi.Input[str] maximum_duration: The maximum duration of expiration in timespan.
+        :param pulumi.Input['RoleManagementPolicyRuleTargetArgs'] target: The target of the current rule.
+        """
+        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyExpirationRule')
+        if exception_members is not None:
+            pulumi.set(__self__, "exception_members", exception_members)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if is_expiration_required is not None:
+            pulumi.set(__self__, "is_expiration_required", is_expiration_required)
+        if maximum_duration is not None:
+            pulumi.set(__self__, "maximum_duration", maximum_duration)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> pulumi.Input[str]:
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyExpirationRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_type", value)
+
+    @property
+    @pulumi.getter(name="exceptionMembers")
+    def exception_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]:
+        """
+        The members not restricted by expiration rule.
+        """
+        return pulumi.get(self, "exception_members")
+
+    @exception_members.setter
+    def exception_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSetArgs']]]]):
+        pulumi.set(self, "exception_members", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the rule.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="isExpirationRequired")
+    def is_expiration_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value indicating whether expiration is required.
+        """
+        return pulumi.get(self, "is_expiration_required")
+
+    @is_expiration_required.setter
+    def is_expiration_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_expiration_required", value)
+
+    @property
+    @pulumi.getter(name="maximumDuration")
+    def maximum_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum duration of expiration in timespan.
+        """
+        return pulumi.get(self, "maximum_duration")
+
+    @maximum_duration.setter
+    def maximum_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maximum_duration", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]:
+        """
+        The target of the current rule.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]):
+        pulumi.set(self, "target", value)
+
+
+if not MYPY:
+    class RoleManagementPolicyNotificationRuleArgsDict(TypedDict):
+        """
+        The role management policy notification rule.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyNotificationRule'.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the rule.
+        """
+        is_default_recipients_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Determines if the notification will be sent to the recipient type specified in the policy rule.
+        """
+        notification_level: NotRequired[pulumi.Input[Union[str, 'NotificationLevel']]]
+        """
+        The notification level.
+        """
+        notification_recipients: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of notification recipients.
+        """
+        notification_type: NotRequired[pulumi.Input[Union[str, 'NotificationDeliveryMechanism']]]
+        """
+        The type of notification.
+        """
+        recipient_type: NotRequired[pulumi.Input[Union[str, 'RecipientType']]]
+        """
+        The recipient type.
+        """
+        target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+        """
+        The target of the current rule.
+        """
+elif False:
+    RoleManagementPolicyNotificationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRuleArgs:
+    def __init__(__self__, *,
+                 rule_type: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 is_default_recipients_enabled: Optional[pulumi.Input[bool]] = None,
+                 notification_level: Optional[pulumi.Input[Union[str, 'NotificationLevel']]] = None,
+                 notification_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 notification_type: Optional[pulumi.Input[Union[str, 'NotificationDeliveryMechanism']]] = None,
+                 recipient_type: Optional[pulumi.Input[Union[str, 'RecipientType']]] = None,
+                 target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
+        """
+        The role management policy notification rule.
+        :param pulumi.Input[str] rule_type: The type of rule
+               Expected value is 'RoleManagementPolicyNotificationRule'.
+        :param pulumi.Input[str] id: The id of the rule.
+        :param pulumi.Input[bool] is_default_recipients_enabled: Determines if the notification will be sent to the recipient type specified in the policy rule.
+        :param pulumi.Input[Union[str, 'NotificationLevel']] notification_level: The notification level.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_recipients: The list of notification recipients.
+        :param pulumi.Input[Union[str, 'NotificationDeliveryMechanism']] notification_type: The type of notification.
+        :param pulumi.Input[Union[str, 'RecipientType']] recipient_type: The recipient type.
+        :param pulumi.Input['RoleManagementPolicyRuleTargetArgs'] target: The target of the current rule.
+        """
+        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyNotificationRule')
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if is_default_recipients_enabled is not None:
+            pulumi.set(__self__, "is_default_recipients_enabled", is_default_recipients_enabled)
+        if notification_level is not None:
+            pulumi.set(__self__, "notification_level", notification_level)
+        if notification_recipients is not None:
+            pulumi.set(__self__, "notification_recipients", notification_recipients)
+        if notification_type is not None:
+            pulumi.set(__self__, "notification_type", notification_type)
+        if recipient_type is not None:
+            pulumi.set(__self__, "recipient_type", recipient_type)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> pulumi.Input[str]:
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyNotificationRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the rule.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="isDefaultRecipientsEnabled")
+    def is_default_recipients_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if the notification will be sent to the recipient type specified in the policy rule.
+        """
+        return pulumi.get(self, "is_default_recipients_enabled")
+
+    @is_default_recipients_enabled.setter
+    def is_default_recipients_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_default_recipients_enabled", value)
+
+    @property
+    @pulumi.getter(name="notificationLevel")
+    def notification_level(self) -> Optional[pulumi.Input[Union[str, 'NotificationLevel']]]:
+        """
+        The notification level.
+        """
+        return pulumi.get(self, "notification_level")
+
+    @notification_level.setter
+    def notification_level(self, value: Optional[pulumi.Input[Union[str, 'NotificationLevel']]]):
+        pulumi.set(self, "notification_level", value)
+
+    @property
+    @pulumi.getter(name="notificationRecipients")
+    def notification_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of notification recipients.
+        """
+        return pulumi.get(self, "notification_recipients")
+
+    @notification_recipients.setter
+    def notification_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "notification_recipients", value)
+
+    @property
+    @pulumi.getter(name="notificationType")
+    def notification_type(self) -> Optional[pulumi.Input[Union[str, 'NotificationDeliveryMechanism']]]:
+        """
+        The type of notification.
+        """
+        return pulumi.get(self, "notification_type")
+
+    @notification_type.setter
+    def notification_type(self, value: Optional[pulumi.Input[Union[str, 'NotificationDeliveryMechanism']]]):
+        pulumi.set(self, "notification_type", value)
+
+    @property
+    @pulumi.getter(name="recipientType")
+    def recipient_type(self) -> Optional[pulumi.Input[Union[str, 'RecipientType']]]:
+        """
+        The recipient type.
+        """
+        return pulumi.get(self, "recipient_type")
+
+    @recipient_type.setter
+    def recipient_type(self, value: Optional[pulumi.Input[Union[str, 'RecipientType']]]):
+        pulumi.set(self, "recipient_type", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]:
+        """
+        The target of the current rule.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]):
+        pulumi.set(self, "target", value)
+
+
+if not MYPY:
+    class RoleManagementPolicyPimOnlyModeRuleArgsDict(TypedDict):
+        """
+        The role management policy PIM only mode rule.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyPimOnlyModeRule'.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the rule.
+        """
+        pim_only_mode_settings: NotRequired[pulumi.Input['PIMOnlyModeSettingsArgsDict']]
+        """
+        The PIM Only Mode settings
+        """
+        target: NotRequired[pulumi.Input['RoleManagementPolicyRuleTargetArgsDict']]
+        """
+        The target of the current rule.
+        """
+elif False:
+    RoleManagementPolicyPimOnlyModeRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoleManagementPolicyPimOnlyModeRuleArgs:
+    def __init__(__self__, *,
+                 rule_type: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 pim_only_mode_settings: Optional[pulumi.Input['PIMOnlyModeSettingsArgs']] = None,
+                 target: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']] = None):
+        """
+        The role management policy PIM only mode rule.
+        :param pulumi.Input[str] rule_type: The type of rule
+               Expected value is 'RoleManagementPolicyPimOnlyModeRule'.
+        :param pulumi.Input[str] id: The id of the rule.
+        :param pulumi.Input['PIMOnlyModeSettingsArgs'] pim_only_mode_settings: The PIM Only Mode settings
+        :param pulumi.Input['RoleManagementPolicyRuleTargetArgs'] target: The target of the current rule.
+        """
+        pulumi.set(__self__, "rule_type", 'RoleManagementPolicyPimOnlyModeRule')
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if pim_only_mode_settings is not None:
+            pulumi.set(__self__, "pim_only_mode_settings", pim_only_mode_settings)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> pulumi.Input[str]:
+        """
+        The type of rule
+        Expected value is 'RoleManagementPolicyPimOnlyModeRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the rule.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="pimOnlyModeSettings")
+    def pim_only_mode_settings(self) -> Optional[pulumi.Input['PIMOnlyModeSettingsArgs']]:
+        """
+        The PIM Only Mode settings
+        """
+        return pulumi.get(self, "pim_only_mode_settings")
+
+    @pim_only_mode_settings.setter
+    def pim_only_mode_settings(self, value: Optional[pulumi.Input['PIMOnlyModeSettingsArgs']]):
+        pulumi.set(self, "pim_only_mode_settings", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]:
+        """
+        The target of the current rule.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input['RoleManagementPolicyRuleTargetArgs']]):
+        pulumi.set(self, "target", value)
+
+
+if not MYPY:
+    class RoleManagementPolicyRuleTargetArgsDict(TypedDict):
+        """
+        The role management policy rule target.
+        """
+        caller: NotRequired[pulumi.Input[str]]
+        """
+        The caller of the setting.
+        """
+        enforced_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of enforced settings.
+        """
+        inheritable_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of inheritable settings.
+        """
+        level: NotRequired[pulumi.Input[str]]
+        """
+        The assignment level to which rule is applied.
+        """
+        operations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The type of operation.
+        """
+        target_objects: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of target objects.
+        """
+elif False:
+    RoleManagementPolicyRuleTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoleManagementPolicyRuleTargetArgs:
+    def __init__(__self__, *,
+                 caller: Optional[pulumi.Input[str]] = None,
+                 enforced_settings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 inheritable_settings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 operations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The role management policy rule target.
+        :param pulumi.Input[str] caller: The caller of the setting.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enforced_settings: The list of enforced settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inheritable_settings: The list of inheritable settings.
+        :param pulumi.Input[str] level: The assignment level to which rule is applied.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] operations: The type of operation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_objects: The list of target objects.
+        """
+        if caller is not None:
+            pulumi.set(__self__, "caller", caller)
+        if enforced_settings is not None:
+            pulumi.set(__self__, "enforced_settings", enforced_settings)
+        if inheritable_settings is not None:
+            pulumi.set(__self__, "inheritable_settings", inheritable_settings)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if operations is not None:
+            pulumi.set(__self__, "operations", operations)
+        if target_objects is not None:
+            pulumi.set(__self__, "target_objects", target_objects)
+
+    @property
+    @pulumi.getter
+    def caller(self) -> Optional[pulumi.Input[str]]:
+        """
+        The caller of the setting.
+        """
+        return pulumi.get(self, "caller")
+
+    @caller.setter
+    def caller(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "caller", value)
+
+    @property
+    @pulumi.getter(name="enforcedSettings")
+    def enforced_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of enforced settings.
+        """
+        return pulumi.get(self, "enforced_settings")
+
+    @enforced_settings.setter
+    def enforced_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "enforced_settings", value)
+
+    @property
+    @pulumi.getter(name="inheritableSettings")
+    def inheritable_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of inheritable settings.
+        """
+        return pulumi.get(self, "inheritable_settings")
+
+    @inheritable_settings.setter
+    def inheritable_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "inheritable_settings", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The assignment level to which rule is applied.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The type of operation.
+        """
+        return pulumi.get(self, "operations")
+
+    @operations.setter
+    def operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "operations", value)
+
+    @property
+    @pulumi.getter(name="targetObjects")
+    def target_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of target objects.
+        """
+        return pulumi.get(self, "target_objects")
+
+    @target_objects.setter
+    def target_objects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "target_objects", value)
+
+
+if not MYPY:
     class SelectorArgsDict(TypedDict):
         """
         The selector expression.
@@ -1523,5 +2739,177 @@ class SelectorArgs:
     @not_in.setter
     def not_in(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "not_in", value)
+
+
+if not MYPY:
+    class UserSetArgsDict(TypedDict):
+        """
+        The detail of a user.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the user.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the user.
+        """
+        is_backup: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicating whether the user is a backup fallback approver
+        """
+        user_type: NotRequired[pulumi.Input[Union[str, 'UserType']]]
+        """
+        The type of user.
+        """
+elif False:
+    UserSetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserSetArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 is_backup: Optional[pulumi.Input[bool]] = None,
+                 user_type: Optional[pulumi.Input[Union[str, 'UserType']]] = None):
+        """
+        The detail of a user.
+        :param pulumi.Input[str] description: The description of the user.
+        :param pulumi.Input[str] id: The object id of the user.
+        :param pulumi.Input[bool] is_backup: The value indicating whether the user is a backup fallback approver
+        :param pulumi.Input[Union[str, 'UserType']] user_type: The type of user.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if is_backup is not None:
+            pulumi.set(__self__, "is_backup", is_backup)
+        if user_type is not None:
+            pulumi.set(__self__, "user_type", user_type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the user.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object id of the user.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="isBackup")
+    def is_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value indicating whether the user is a backup fallback approver
+        """
+        return pulumi.get(self, "is_backup")
+
+    @is_backup.setter
+    def is_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_backup", value)
+
+    @property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> Optional[pulumi.Input[Union[str, 'UserType']]]:
+        """
+        The type of user.
+        """
+        return pulumi.get(self, "user_type")
+
+    @user_type.setter
+    def user_type(self, value: Optional[pulumi.Input[Union[str, 'UserType']]]):
+        pulumi.set(self, "user_type", value)
+
+
+if not MYPY:
+    class UsersOrServicePrincipalSetArgsDict(TypedDict):
+        """
+        The detail of a subject.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display Name of the entity.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the entity.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'UserType']]]
+        """
+        The type of user.
+        """
+elif False:
+    UsersOrServicePrincipalSetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UsersOrServicePrincipalSetArgs:
+    def __init__(__self__, *,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'UserType']]] = None):
+        """
+        The detail of a subject.
+        :param pulumi.Input[str] display_name: The display Name of the entity.
+        :param pulumi.Input[str] id: The object id of the entity.
+        :param pulumi.Input[Union[str, 'UserType']] type: The type of user.
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display Name of the entity.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object id of the entity.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'UserType']]]:
+        """
+        The type of user.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'UserType']]]):
+        pulumi.set(self, "type", value)
 
 
