@@ -3,10 +3,14 @@
 package convert
 
 import (
+	"bufio"
+	"bytes"
 	"fmt"
+	"os"
 	"testing"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	"github.com/stretchr/testify/assert"
 	"pgregory.net/rapid"
 )
@@ -54,6 +58,29 @@ func TestSdkInputsToRequestBodySubResource(t *testing.T) {
 	assert.Equal(t, expectedBody, actualBody)
 }
 
+func captureStderr(f func()) string {
+	// Create a pipe
+	r, w, _ := os.Pipe()
+	// Save the original stderr
+	originalStderr := os.Stderr
+	// Redirect stderr to the write end of the pipe
+	os.Stderr = w
+
+	// Run the target function
+	f()
+
+	// Close the write end of the pipe and restore stderr
+	w.Close()
+	os.Stderr = originalStderr
+
+	// Read the output from the read end of the pipe
+	var buf bytes.Buffer
+	reader := bufio.NewReader(r)
+	buf.ReadFrom(reader)
+
+	return buf.String()
+}
+
 func TestSdkInputsToRequestBody(t *testing.T) {
 	type testCaseArgs struct {
 		id     string
@@ -94,20 +121,31 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 	})
 
 	t.Run("unmatched inputs are reported", func(t *testing.T) {
-		actual, err := convertWithError(testCaseArgs{
-			props: map[string]resources.AzureAPIProperty{
-				"propA": {
-					Type: "string",
+		prevLogToStderr := logging.LogToStderr
+		prevVerbose := logging.Verbose
+		prevLogFlow := logging.LogFlow
+		logging.InitLogging(true, 9, true)
+		defer func() {
+			logging.InitLogging(prevLogToStderr, prevVerbose, prevLogFlow)
+		}()
+
+		var actual map[string]any
+		stderr := captureStderr(func() {
+			actual = convert(testCaseArgs{
+				props: map[string]resources.AzureAPIProperty{
+					"propA": {
+						Type: "string",
+					},
 				},
-			},
-			inputs: map[string]interface{}{
-				"propA": "a",
-				"propB": "b",
-			},
+				inputs: map[string]interface{}{
+					"propA": "a",
+					"propB": "b",
+				},
+			})
 		})
 
 		assert.Equal(t, map[string]interface{}{"propA": "a"}, actual)
-		assert.Equal(t, err, fmt.Errorf("unrecognized properties: [propB]"))
+		assert.Contains(t, stderr, "Unrecognized properties in SdkInputsToRequestBody: [propB]")
 	})
 
 	t.Run("untyped non-empty values remain unchanged", rapid.MakeCheck(func(t *rapid.T) {
