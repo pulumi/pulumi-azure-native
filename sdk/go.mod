@@ -2,5 +2,3 @@
 module github.com/pulumi/pulumi-azure-native/sdk
 
 go 1.23
-
-toolchain go1.22.6
