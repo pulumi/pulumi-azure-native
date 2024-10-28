@@ -91,7 +91,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:Group" }, { type: "azure-native:migrate/v20230315:Group" }, { type: "azure-native:migrate/v20230401preview:Group" }, { type: "azure-native:migrate/v20230501preview:Group" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:Group" }, { type: "azure-native:migrate/v20230315:Group" }, { type: "azure-native:migrate/v20230401preview:Group" }, { type: "azure-native:migrate/v20230501preview:Group" }, { type: "azure-native:migrate/v20230909preview:Group" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Group.__pulumiType, name, resourceInputs, opts);
     }

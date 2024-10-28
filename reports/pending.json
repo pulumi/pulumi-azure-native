@@ -193,6 +193,7 @@
     "2024-04-01-preview",
     "2024-06-01-preview",
     "2024-09-01-preview",
+    "2024-10-01",
     "2024-11-01"
   ],
   "Capacity": [],
@@ -497,7 +498,8 @@
     "2024-01-16-preview",
     "2024-03-06-preview",
     "2024-04-03",
-    "2024-04-08-preview"
+    "2024-04-08-preview",
+    "2024-08-08-preview"
   ],
   "DevCenter": [
     "2023-08-01-preview",
@@ -560,6 +562,7 @@
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
   "Easm": [],
+  "Edge": [],
   "EdgeMarketplace": [],
   "EdgeOrder": [
     "2022-05-01-preview",
@@ -742,7 +745,8 @@
   ],
   "IoTOperations": [
     "2024-08-15-preview",
-    "2024-09-15-preview"
+    "2024-09-15-preview",
+    "2024-11-01"
   ],
   "IoTOperationsDataProcessor": [],
   "IoTOperationsMQ": [],
@@ -896,7 +900,8 @@
     "2023-03-15",
     "2023-04-01-preview",
     "2023-05-01-preview",
-    "2023-08-01"
+    "2023-08-01",
+    "2023-09-09-preview"
   ],
   "MixedReality": [
     "2021-03-01-preview"
@@ -928,7 +933,8 @@
     "2024-03-01-preview",
     "2024-05-01",
     "2024-05-01-preview",
-    "2024-07-01"
+    "2024-07-01",
+    "2024-07-01-preview"
   ],
   "Network": [
     "2018-06-01",
@@ -1050,7 +1056,9 @@
   "Quantum": [
     "2023-11-13-preview"
   ],
-  "Quota": [],
+  "Quota": [
+    "2024-10-15-preview"
+  ],
   "RecommendationsService": [
     "2022-03-01-preview"
   ],
@@ -1145,7 +1153,8 @@
     "2024-04-01",
     "2024-05-15-preview",
     "2024-07-01-preview",
-    "2024-08-01"
+    "2024-08-01",
+    "2024-10-01-preview"
   ],
   "SecurityAndCompliance": [],
   "SecurityInsights": [

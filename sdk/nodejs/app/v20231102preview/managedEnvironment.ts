@@ -42,9 +42,7 @@ export class ManagedEnvironment extends pulumi.CustomResource {
      */
     public readonly appInsightsConfiguration!: pulumi.Output<outputs.app.v20231102preview.AppInsightsConfigurationResponse | undefined>;
     /**
-     * Cluster configuration which enables the log daemon to export
-     * app logs to a destination. Currently only "log-analytics" is
-     * supported
+     * Cluster configuration which enables the log daemon to export app logs to configured destination.
      */
     public readonly appLogsConfiguration!: pulumi.Output<outputs.app.v20231102preview.AppLogsConfigurationResponse | undefined>;
     /**
@@ -224,9 +222,7 @@ export interface ManagedEnvironmentArgs {
      */
     appInsightsConfiguration?: pulumi.Input<inputs.app.v20231102preview.AppInsightsConfigurationArgs>;
     /**
-     * Cluster configuration which enables the log daemon to export
-     * app logs to a destination. Currently only "log-analytics" is
-     * supported
+     * Cluster configuration which enables the log daemon to export app logs to configured destination.
      */
     appLogsConfiguration?: pulumi.Input<inputs.app.v20231102preview.AppLogsConfigurationArgs>;
     /**

@@ -86,6 +86,8 @@ class DefenderForStorage(pulumi.CustomResource):
         The Defender for Storage resource.
         Azure REST API version: 2022-12-01-preview.
 
+        Other available API versions: 2024-10-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DefenderForStorageSettingPropertiesArgs', 'DefenderForStorageSettingPropertiesArgsDict']] properties: Defender for Storage resource properties.
@@ -101,6 +103,8 @@ class DefenderForStorage(pulumi.CustomResource):
         """
         The Defender for Storage resource.
         Azure REST API version: 2022-12-01-preview.
+
+        Other available API versions: 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DefenderForStorageArgs args: The arguments to use to populate this resource's properties.
@@ -136,7 +140,7 @@ class DefenderForStorage(pulumi.CustomResource):
             __props__.__dict__["setting_name"] = setting_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20221201preview:DefenderForStorage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20221201preview:DefenderForStorage"), pulumi.Alias(type_="azure-native:security/v20241001preview:DefenderForStorage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefenderForStorage, __self__).__init__(
             'azure-native:security:DefenderForStorage',

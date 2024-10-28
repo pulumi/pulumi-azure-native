@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a BrokerAuthenticationResource
         /// Azure REST API version: 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
+        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
         /// </summary>
         public static Task<GetBrokerAuthenticationResult> InvokeAsync(GetBrokerAuthenticationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerAuthenticationResult>("azure-native:iotoperations:getBrokerAuthentication", args ?? new GetBrokerAuthenticationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a BrokerAuthenticationResource
         /// Azure REST API version: 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
+        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
         /// </summary>
         public static Output<GetBrokerAuthenticationResult> Invoke(GetBrokerAuthenticationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerAuthenticationResult>("azure-native:iotoperations:getBrokerAuthentication", args ?? new GetBrokerAuthenticationInvokeArgs(), options.WithDefaults());

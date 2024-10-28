@@ -875,6 +875,8 @@ Dynamics365Fraudprotection:
 DynamicsTelemetry: {}
 Easm:
     tracking: 2023-04-01-preview
+Edge:
+    tracking: 2024-02-01-preview
 EdgeMarketplace:
     tracking: 2023-08-01-preview
 EdgeOrder:
@@ -1286,6 +1288,9 @@ Migrate:
         - provider: Migrate
           resourcename: AssessmentsOperation
           detail: version 2023-05-01-preview is greater than 2023-03-15
+        - provider: Migrate
+          resourcename: AssessmentsOperation
+          detail: version 2023-09-09-preview is greater than 2023-03-15
 MixedReality:
     tracking: "2021-01-01"
     additions:

@@ -56,6 +56,7 @@ namespace Pulumi.AzureNative.Migrate
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:VMwareCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:VMwareCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:VMwareCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:VMwareCollector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -93,6 +93,8 @@ def get_defender_for_storage(resource_id: Optional[str] = None,
     Gets the Defender for Storage settings for the specified storage account.
     Azure REST API version: 2022-12-01-preview.
 
+    Other available API versions: 2024-10-01-preview.
+
 
     :param str resource_id: The identifier of the resource.
     :param str setting_name: Defender for Storage setting name.
@@ -114,6 +116,8 @@ def get_defender_for_storage_output(resource_id: Optional[pulumi.Input[str]] = N
     """
     Gets the Defender for Storage settings for the specified storage account.
     Azure REST API version: 2022-12-01-preview.
+
+    Other available API versions: 2024-10-01-preview.
 
 
     :param str resource_id: The identifier of the resource.

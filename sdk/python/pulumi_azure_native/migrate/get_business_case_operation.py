@@ -142,7 +142,7 @@ def get_business_case_operation(business_case_name: Optional[str] = None,
     Get a BusinessCase
     Azure REST API version: 2023-04-01-preview.
 
-    Other available API versions: 2023-05-01-preview.
+    Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
 
 
     :param str business_case_name: Business case ARM name
@@ -173,7 +173,7 @@ def get_business_case_operation_output(business_case_name: Optional[pulumi.Input
     Get a BusinessCase
     Azure REST API version: 2023-04-01-preview.
 
-    Other available API versions: 2023-05-01-preview.
+    Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
 
 
     :param str business_case_name: Business case ARM name

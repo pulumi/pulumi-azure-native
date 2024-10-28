@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a AvsAssessment
  * Azure REST API version: 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
  */
 export function getAvsAssessmentsOperation(args: GetAvsAssessmentsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetAvsAssessmentsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -237,7 +237,7 @@ export interface GetAvsAssessmentsOperationResult {
  * Get a AvsAssessment
  * Azure REST API version: 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
  */
 export function getAvsAssessmentsOperationOutput(args: GetAvsAssessmentsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvsAssessmentsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

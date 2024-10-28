@@ -199,7 +199,7 @@ class SqlCollectorOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate:SqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:SqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:SqlCollectorOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate:SqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:SqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:SqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:SqlCollectorOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlCollectorOperation, __self__).__init__(
             'azure-native:migrate/v20230315:SqlCollectorOperation',

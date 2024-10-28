@@ -109,7 +109,7 @@ export class WebAppCollectorOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate:WebAppCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:WebAppCollectorOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate:WebAppCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:WebAppCollectorOperation" }, { type: "azure-native:migrate/v20230909preview:WebAppCollectorOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppCollectorOperation.__pulumiType, name, resourceInputs, opts);
     }

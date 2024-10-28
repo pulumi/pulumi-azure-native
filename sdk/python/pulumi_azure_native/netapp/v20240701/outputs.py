@@ -1402,9 +1402,7 @@ class ReplicationObjectResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "remoteVolumeResourceId":
-            suggest = "remote_volume_resource_id"
-        elif key == "replicationId":
+        if key == "replicationId":
             suggest = "replication_id"
         elif key == "endpointType":
             suggest = "endpoint_type"
@@ -1412,6 +1410,8 @@ class ReplicationObjectResponse(dict):
             suggest = "remote_path"
         elif key == "remoteVolumeRegion":
             suggest = "remote_volume_region"
+        elif key == "remoteVolumeResourceId":
+            suggest = "remote_volume_resource_id"
         elif key == "replicationSchedule":
             suggest = "replication_schedule"
 
@@ -1427,22 +1427,21 @@ class ReplicationObjectResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 remote_volume_resource_id: str,
                  replication_id: str,
                  endpoint_type: Optional[str] = None,
                  remote_path: Optional['outputs.RemotePathResponse'] = None,
                  remote_volume_region: Optional[str] = None,
+                 remote_volume_resource_id: Optional[str] = None,
                  replication_schedule: Optional[str] = None):
         """
         Replication properties
-        :param str remote_volume_resource_id: The resource ID of the remote volume.
         :param str replication_id: Id
         :param str endpoint_type: Indicates whether the local volume is the source or destination for the Volume Replication
         :param 'RemotePathResponse' remote_path: The full path to a volume that is to be migrated into ANF. Required for Migration volumes
         :param str remote_volume_region: The remote region for the other end of the Volume Replication.
+        :param str remote_volume_resource_id: The resource ID of the remote volume. Required for cross region and cross zone replication
         :param str replication_schedule: Schedule
         """
-        pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
         pulumi.set(__self__, "replication_id", replication_id)
         if endpoint_type is not None:
             pulumi.set(__self__, "endpoint_type", endpoint_type)
@@ -1450,16 +1449,10 @@ class ReplicationObjectResponse(dict):
             pulumi.set(__self__, "remote_path", remote_path)
         if remote_volume_region is not None:
             pulumi.set(__self__, "remote_volume_region", remote_volume_region)
+        if remote_volume_resource_id is not None:
+            pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
         if replication_schedule is not None:
             pulumi.set(__self__, "replication_schedule", replication_schedule)
-
-    @property
-    @pulumi.getter(name="remoteVolumeResourceId")
-    def remote_volume_resource_id(self) -> str:
-        """
-        The resource ID of the remote volume.
-        """
-        return pulumi.get(self, "remote_volume_resource_id")
 
     @property
     @pulumi.getter(name="replicationId")
@@ -1492,6 +1485,14 @@ class ReplicationObjectResponse(dict):
         The remote region for the other end of the Volume Replication.
         """
         return pulumi.get(self, "remote_volume_region")
+
+    @property
+    @pulumi.getter(name="remoteVolumeResourceId")
+    def remote_volume_resource_id(self) -> Optional[str]:
+        """
+        The resource ID of the remote volume. Required for cross region and cross zone replication
+        """
+        return pulumi.get(self, "remote_volume_resource_id")
 
     @property
     @pulumi.getter(name="replicationSchedule")

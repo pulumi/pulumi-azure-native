@@ -34,10 +34,10 @@ namespace Pulumi.AzureNative.NetApp.V20240701.Inputs
         public Input<string>? RemoteVolumeRegion { get; set; }
 
         /// <summary>
-        /// The resource ID of the remote volume.
+        /// The resource ID of the remote volume. Required for cross region and cross zone replication
         /// </summary>
-        [Input("remoteVolumeResourceId", required: true)]
-        public Input<string> RemoteVolumeResourceId { get; set; } = null!;
+        [Input("remoteVolumeResourceId")]
+        public Input<string>? RemoteVolumeResourceId { get; set; }
 
         /// <summary>
         /// Schedule

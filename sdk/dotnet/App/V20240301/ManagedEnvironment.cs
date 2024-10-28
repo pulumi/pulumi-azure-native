@@ -16,9 +16,7 @@ namespace Pulumi.AzureNative.App.V20240301
     public partial class ManagedEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Cluster configuration which enables the log daemon to export
-        /// app logs to a destination. Currently only "log-analytics" is
-        /// supported
+        /// Cluster configuration which enables the log daemon to export app logs to configured destination.
         /// </summary>
         [Output("appLogsConfiguration")]
         public Output<Outputs.AppLogsConfigurationResponse?> AppLogsConfiguration { get; private set; } = null!;
@@ -217,9 +215,7 @@ namespace Pulumi.AzureNative.App.V20240301
     public sealed class ManagedEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cluster configuration which enables the log daemon to export
-        /// app logs to a destination. Currently only "log-analytics" is
-        /// supported
+        /// Cluster configuration which enables the log daemon to export app logs to configured destination.
         /// </summary>
         [Input("appLogsConfiguration")]
         public Input<Inputs.AppLogsConfigurationArgs>? AppLogsConfiguration { get; set; }

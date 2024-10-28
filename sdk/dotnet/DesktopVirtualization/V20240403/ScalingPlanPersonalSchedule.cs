@@ -222,6 +222,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240403
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240116preview:ScalingPlanPersonalSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240306preview:ScalingPlanPersonalSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:ScalingPlanPersonalSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240808preview:ScalingPlanPersonalSchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

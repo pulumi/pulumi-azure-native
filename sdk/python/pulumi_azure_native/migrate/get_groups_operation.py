@@ -202,7 +202,7 @@ def get_groups_operation(group_name: Optional[str] = None,
     Get a Group
     Azure REST API version: 2023-03-15.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
 
 
     :param str group_name: Group ARM name
@@ -238,7 +238,7 @@ def get_groups_operation_output(group_name: Optional[pulumi.Input[str]] = None,
     Get a Group
     Azure REST API version: 2023-03-15.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
 
 
     :param str group_name: Group ARM name

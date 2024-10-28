@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate
     /// Machine assessment resource.
     /// Azure REST API version: 2023-04-01-preview.
     /// 
-    /// Other available API versions: 2023-03-15, 2023-05-01-preview.
+    /// Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AssessmentsOperation")]
     public partial class AssessmentsOperation : global::Pulumi.CustomResource
@@ -329,6 +329,7 @@ namespace Pulumi.AzureNative.Migrate
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

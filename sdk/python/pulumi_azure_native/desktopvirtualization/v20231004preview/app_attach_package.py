@@ -263,7 +263,7 @@ class AppAttachPackage(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:AppAttachPackage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:AppAttachPackage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppAttachPackage, __self__).__init__(
             'azure-native:desktopvirtualization/v20231004preview:AppAttachPackage',

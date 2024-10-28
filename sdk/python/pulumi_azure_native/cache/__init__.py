@@ -65,6 +65,8 @@ if typing.TYPE_CHECKING:
     v20240601preview = __v20240601preview
     import pulumi_azure_native.cache.v20240901preview as __v20240901preview
     v20240901preview = __v20240901preview
+    import pulumi_azure_native.cache.v20241001 as __v20241001
+    v20241001 = __v20241001
     import pulumi_azure_native.cache.v20241101 as __v20241101
     v20241101 = __v20241101
 else:
@@ -84,5 +86,6 @@ else:
     v20240401preview = _utilities.lazy_import('pulumi_azure_native.cache.v20240401preview')
     v20240601preview = _utilities.lazy_import('pulumi_azure_native.cache.v20240601preview')
     v20240901preview = _utilities.lazy_import('pulumi_azure_native.cache.v20240901preview')
+    v20241001 = _utilities.lazy_import('pulumi_azure_native.cache.v20241001')
     v20241101 = _utilities.lazy_import('pulumi_azure_native.cache.v20241101')
 

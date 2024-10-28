@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.IoTOperations.V20240815Preview
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations:Instance" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:Instance" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:Instance" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:Instance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

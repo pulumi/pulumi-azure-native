@@ -653,7 +653,7 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
             __props__.__dict__["total_storage_in_gb"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate:AvsAssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:AvsAssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AvsAssessmentsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate:AvsAssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:AvsAssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AvsAssessmentsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AvsAssessmentsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AvsAssessmentsOperation, __self__).__init__(
             'azure-native:migrate/v20230501preview:AvsAssessmentsOperation',

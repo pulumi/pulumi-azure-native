@@ -38,9 +38,7 @@ class ManagedEnvironmentArgs:
         """
         The set of arguments for constructing a ManagedEnvironment resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['AppLogsConfigurationArgs'] app_logs_configuration: Cluster configuration which enables the log daemon to export
-               app logs to a destination. Currently only "log-analytics" is
-               supported
+        :param pulumi.Input['AppLogsConfigurationArgs'] app_logs_configuration: Cluster configuration which enables the log daemon to export app logs to configured destination.
         :param pulumi.Input['CustomDomainConfigurationArgs'] custom_domain_configuration: Custom domain configuration for the environment
         :param pulumi.Input[str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
@@ -98,9 +96,7 @@ class ManagedEnvironmentArgs:
     @pulumi.getter(name="appLogsConfiguration")
     def app_logs_configuration(self) -> Optional[pulumi.Input['AppLogsConfigurationArgs']]:
         """
-        Cluster configuration which enables the log daemon to export
-        app logs to a destination. Currently only "log-analytics" is
-        supported
+        Cluster configuration which enables the log daemon to export app logs to configured destination.
         """
         return pulumi.get(self, "app_logs_configuration")
 
@@ -278,9 +274,7 @@ class ManagedEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']] app_logs_configuration: Cluster configuration which enables the log daemon to export
-               app logs to a destination. Currently only "log-analytics" is
-               supported
+        :param pulumi.Input[Union['AppLogsConfigurationArgs', 'AppLogsConfigurationArgsDict']] app_logs_configuration: Cluster configuration which enables the log daemon to export app logs to configured destination.
         :param pulumi.Input[Union['CustomDomainConfigurationArgs', 'CustomDomainConfigurationArgsDict']] custom_domain_configuration: Custom domain configuration for the environment
         :param pulumi.Input[str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
@@ -420,9 +414,7 @@ class ManagedEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="appLogsConfiguration")
     def app_logs_configuration(self) -> pulumi.Output[Optional['outputs.AppLogsConfigurationResponse']]:
         """
-        Cluster configuration which enables the log daemon to export
-        app logs to a destination. Currently only "log-analytics" is
-        supported
+        Cluster configuration which enables the log daemon to export app logs to configured destination.
         """
         return pulumi.get(self, "app_logs_configuration")
 

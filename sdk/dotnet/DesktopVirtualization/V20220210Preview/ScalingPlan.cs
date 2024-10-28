@@ -164,6 +164,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240306preview:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240403:ScalingPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240408preview:ScalingPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240808preview:ScalingPlan" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

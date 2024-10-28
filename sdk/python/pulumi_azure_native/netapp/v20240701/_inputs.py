@@ -1571,10 +1571,6 @@ if not MYPY:
         """
         Replication properties
         """
-        remote_volume_resource_id: pulumi.Input[str]
-        """
-        The resource ID of the remote volume.
-        """
         endpoint_type: NotRequired[pulumi.Input[Union[str, 'EndpointType']]]
         """
         Indicates whether the local volume is the source or destination for the Volume Replication
@@ -1587,6 +1583,10 @@ if not MYPY:
         """
         The remote region for the other end of the Volume Replication.
         """
+        remote_volume_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the remote volume. Required for cross region and cross zone replication
+        """
         replication_schedule: NotRequired[pulumi.Input[Union[str, 'ReplicationSchedule']]]
         """
         Schedule
@@ -1597,40 +1597,29 @@ elif False:
 @pulumi.input_type
 class ReplicationObjectArgs:
     def __init__(__self__, *,
-                 remote_volume_resource_id: pulumi.Input[str],
                  endpoint_type: Optional[pulumi.Input[Union[str, 'EndpointType']]] = None,
                  remote_path: Optional[pulumi.Input['RemotePathArgs']] = None,
                  remote_volume_region: Optional[pulumi.Input[str]] = None,
+                 remote_volume_resource_id: Optional[pulumi.Input[str]] = None,
                  replication_schedule: Optional[pulumi.Input[Union[str, 'ReplicationSchedule']]] = None):
         """
         Replication properties
-        :param pulumi.Input[str] remote_volume_resource_id: The resource ID of the remote volume.
         :param pulumi.Input[Union[str, 'EndpointType']] endpoint_type: Indicates whether the local volume is the source or destination for the Volume Replication
         :param pulumi.Input['RemotePathArgs'] remote_path: The full path to a volume that is to be migrated into ANF. Required for Migration volumes
         :param pulumi.Input[str] remote_volume_region: The remote region for the other end of the Volume Replication.
+        :param pulumi.Input[str] remote_volume_resource_id: The resource ID of the remote volume. Required for cross region and cross zone replication
         :param pulumi.Input[Union[str, 'ReplicationSchedule']] replication_schedule: Schedule
         """
-        pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
         if endpoint_type is not None:
             pulumi.set(__self__, "endpoint_type", endpoint_type)
         if remote_path is not None:
             pulumi.set(__self__, "remote_path", remote_path)
         if remote_volume_region is not None:
             pulumi.set(__self__, "remote_volume_region", remote_volume_region)
+        if remote_volume_resource_id is not None:
+            pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
         if replication_schedule is not None:
             pulumi.set(__self__, "replication_schedule", replication_schedule)
-
-    @property
-    @pulumi.getter(name="remoteVolumeResourceId")
-    def remote_volume_resource_id(self) -> pulumi.Input[str]:
-        """
-        The resource ID of the remote volume.
-        """
-        return pulumi.get(self, "remote_volume_resource_id")
-
-    @remote_volume_resource_id.setter
-    def remote_volume_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "remote_volume_resource_id", value)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -1667,6 +1656,18 @@ class ReplicationObjectArgs:
     @remote_volume_region.setter
     def remote_volume_region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "remote_volume_region", value)
+
+    @property
+    @pulumi.getter(name="remoteVolumeResourceId")
+    def remote_volume_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the remote volume. Required for cross region and cross zone replication
+        """
+        return pulumi.get(self, "remote_volume_resource_id")
+
+    @remote_volume_resource_id.setter
+    def remote_volume_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_volume_resource_id", value)
 
     @property
     @pulumi.getter(name="replicationSchedule")

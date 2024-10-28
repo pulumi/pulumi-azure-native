@@ -2171,6 +2171,8 @@
     "Alerts_UpdateSubscriptionLevelStateToInProgress": "/subscriptions/{subscriptionId}/providers/Microsoft.Security/locations/{ascLocation}/alerts/{alertName}/inProgress",
     "Alerts_UpdateSubscriptionLevelStateToResolve": "/subscriptions/{subscriptionId}/providers/Microsoft.Security/locations/{ascLocation}/alerts/{alertName}/resolve",
     "Automations_Validate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/automations/{automationName}/validate",
+    "DefenderForStorage_CancelMalwareScan": "/{resourceId}/providers/Microsoft.Security/defenderForStorageSettings/{settingName}/malwareScans/{scanId}/cancelMalwareScan",
+    "DefenderForStorage_StartMalwareScan": "/{resourceId}/providers/Microsoft.Security/defenderForStorageSettings/{settingName}/startMalwareScan",
     "GovernanceRules_Execute": "/{scope}/providers/Microsoft.Security/governanceRules/{ruleId}/execute",
     "IoTSecuritySolutionsAnalyticsAggregatedAlert_Dismiss": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/iotSecuritySolutions/{solutionName}/analyticsModels/default/aggregatedAlerts/{aggregatedAlertName}/dismiss",
     "IotSecuritySolutionsAnalyticsAggregatedAlert_Dismiss": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/iotSecuritySolutions/{solutionName}/analyticsModels/default/aggregatedAlerts/{aggregatedAlertName}/dismiss",

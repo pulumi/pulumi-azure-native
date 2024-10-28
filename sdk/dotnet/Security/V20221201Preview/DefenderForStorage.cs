@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.Security.V20221201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security:DefenderForStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20241001preview:DefenderForStorage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

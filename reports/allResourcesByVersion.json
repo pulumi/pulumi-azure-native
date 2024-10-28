@@ -4167,6 +4167,12 @@
       "RedisEnterprise",
       "listDatabaseKeys"
     ],
+    "2024-10-01": [
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
+    ],
     "2024-11-01": [
       "AccessPolicy",
       "AccessPolicyAssignment",
@@ -8716,6 +8722,21 @@
       "Workspace",
       "getHostPoolRegistrationToken",
       "listHostPoolRegistrationTokens"
+    ],
+    "2024-08-08-preview": [
+      "AppAttachPackage",
+      "Application",
+      "ApplicationGroup",
+      "HostPool",
+      "MSIXPackage",
+      "PrivateEndpointConnectionByHostPool",
+      "PrivateEndpointConnectionByWorkspace",
+      "ScalingPlan",
+      "ScalingPlanPersonalSchedule",
+      "ScalingPlanPooledSchedule",
+      "Workspace",
+      "getHostPoolRegistrationToken",
+      "listHostPoolRegistrationTokens"
     ]
   },
   "DevCenter": {
@@ -10630,6 +10651,12 @@
       "Workspace"
     ]
   },
+  "Edge": {
+    "2024-02-01-preview": [
+      "Site",
+      "SitesBySubscription"
+    ]
+  },
   "EdgeMarketplace": {
     "2023-08-01": [
       "getOfferAccessToken"
@@ -12469,6 +12496,16 @@
       "Instance"
     ],
     "2024-09-15-preview": [
+      "Broker",
+      "BrokerAuthentication",
+      "BrokerAuthorization",
+      "BrokerListener",
+      "Dataflow",
+      "DataflowEndpoint",
+      "DataflowProfile",
+      "Instance"
+    ],
+    "2024-11-01": [
       "Broker",
       "BrokerAuthentication",
       "BrokerAuthorization",
@@ -14794,6 +14831,24 @@
     "2023-08-01": [
       "MoveCollection",
       "MoveResource"
+    ],
+    "2023-09-09-preview": [
+      "AksAssessmentOperation",
+      "AssessmentProjectsOperation",
+      "AssessmentsOperation",
+      "AvsAssessmentsOperation",
+      "BusinessCaseOperation",
+      "GroupsOperation",
+      "HypervCollectorsOperation",
+      "ImportCollectorsOperation",
+      "PrivateEndpointConnectionOperation",
+      "ServerCollectorsOperation",
+      "SqlAssessmentV2Operation",
+      "SqlCollectorOperation",
+      "VmwareCollectorsOperation",
+      "WebAppAssessmentV2Operation",
+      "WebAppCollectorOperation",
+      "getBusinessCaseOperationReportDownloadUrl"
     ]
   },
   "MixedReality": {
@@ -15413,6 +15468,24 @@
       "VolumeQuotaRule",
       "getSubvolumeMetadata",
       "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2024-07-01-preview": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getAccountChangeKeyVaultInformation",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeQuotaReport",
       "listVolumeReplications"
     ]
   },
@@ -19916,6 +19989,10 @@
     "2023-06-01-preview": [
       "GroupQuota",
       "GroupQuotaSubscription"
+    ],
+    "2024-10-15-preview": [
+      "GroupQuota",
+      "GroupQuotaSubscription"
     ]
   },
   "RecommendationsService": {
@@ -21201,6 +21278,9 @@
       "CustomRecommendation",
       "SecurityStandard",
       "StandardAssignment"
+    ],
+    "2024-10-01-preview": [
+      "DefenderForStorage"
     ]
   },
   "SecurityAndCompliance": {

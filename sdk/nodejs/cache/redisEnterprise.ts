@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes the RedisEnterprise cluster
  * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
  *
- * Other available API versions: 2020-10-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2020-10-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
  */
 export class RedisEnterprise extends pulumi.CustomResource {
     /**
@@ -153,7 +153,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20201001preview:RedisEnterprise" }, { type: "azure-native:cache/v20210201preview:RedisEnterprise" }, { type: "azure-native:cache/v20210301:RedisEnterprise" }, { type: "azure-native:cache/v20210801:RedisEnterprise" }, { type: "azure-native:cache/v20220101:RedisEnterprise" }, { type: "azure-native:cache/v20221101preview:RedisEnterprise" }, { type: "azure-native:cache/v20230301preview:RedisEnterprise" }, { type: "azure-native:cache/v20230701:RedisEnterprise" }, { type: "azure-native:cache/v20230801preview:RedisEnterprise" }, { type: "azure-native:cache/v20231001preview:RedisEnterprise" }, { type: "azure-native:cache/v20231101:RedisEnterprise" }, { type: "azure-native:cache/v20240201:RedisEnterprise" }, { type: "azure-native:cache/v20240301preview:RedisEnterprise" }, { type: "azure-native:cache/v20240601preview:RedisEnterprise" }, { type: "azure-native:cache/v20240901preview:RedisEnterprise" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20201001preview:RedisEnterprise" }, { type: "azure-native:cache/v20210201preview:RedisEnterprise" }, { type: "azure-native:cache/v20210301:RedisEnterprise" }, { type: "azure-native:cache/v20210801:RedisEnterprise" }, { type: "azure-native:cache/v20220101:RedisEnterprise" }, { type: "azure-native:cache/v20221101preview:RedisEnterprise" }, { type: "azure-native:cache/v20230301preview:RedisEnterprise" }, { type: "azure-native:cache/v20230701:RedisEnterprise" }, { type: "azure-native:cache/v20230801preview:RedisEnterprise" }, { type: "azure-native:cache/v20231001preview:RedisEnterprise" }, { type: "azure-native:cache/v20231101:RedisEnterprise" }, { type: "azure-native:cache/v20240201:RedisEnterprise" }, { type: "azure-native:cache/v20240301preview:RedisEnterprise" }, { type: "azure-native:cache/v20240601preview:RedisEnterprise" }, { type: "azure-native:cache/v20240901preview:RedisEnterprise" }, { type: "azure-native:cache/v20241001:RedisEnterprise" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RedisEnterprise.__pulumiType, name, resourceInputs, opts);
     }

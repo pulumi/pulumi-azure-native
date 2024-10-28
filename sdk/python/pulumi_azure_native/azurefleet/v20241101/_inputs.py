@@ -3390,6 +3390,7 @@ if not MYPY:
         local_storage_support: NotRequired[pulumi.Input[Union[str, 'VMAttributeSupport']]]
         """
         Specifies whether the VMSize supporting local storage should be used to build Fleet or not.
+        Included - Default if not specified as most Azure VMs support local storage.
         """
         memory_in_gi_b_per_v_cpu: NotRequired[pulumi.Input['VMAttributeMinMaxDoubleArgsDict']]
         """
@@ -3468,6 +3469,7 @@ class VMAttributesArgs:
         :param pulumi.Input['VMAttributeMinMaxDoubleArgs'] local_storage_in_gi_b: LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
                If localStorageSupport is "Excluded", this VMAttribute can not be used.
         :param pulumi.Input[Union[str, 'VMAttributeSupport']] local_storage_support: Specifies whether the VMSize supporting local storage should be used to build Fleet or not.
+               Included - Default if not specified as most Azure VMs support local storage.
         :param pulumi.Input['VMAttributeMinMaxDoubleArgs'] memory_in_gi_b_per_v_cpu: The range of memory in GiB per vCPU specified from min to max. Optional parameter. Either Min or Max is required if specified.
         :param pulumi.Input['VMAttributeMinMaxDoubleArgs'] network_bandwidth_in_mbps: The range of network bandwidth in Mbps specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
         :param pulumi.Input['VMAttributeMinMaxIntegerArgs'] network_interface_count: The range of network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
@@ -3686,6 +3688,7 @@ class VMAttributesArgs:
     def local_storage_support(self) -> Optional[pulumi.Input[Union[str, 'VMAttributeSupport']]]:
         """
         Specifies whether the VMSize supporting local storage should be used to build Fleet or not.
+        Included - Default if not specified as most Azure VMs support local storage.
         """
         return pulumi.get(self, "local_storage_support")
 

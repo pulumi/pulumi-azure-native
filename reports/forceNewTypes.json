@@ -2856,6 +2856,34 @@
     "Property": "name"
   },
   {
+    "Module": "cache/v20241001",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "Module": "cache/v20241001",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "Module": "cache/v20241001",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "Module": "cache/v20241001",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
     "Module": "confluent/v20230822",
     "Provider": "Confluent",
     "ResourceName": "Organization",
@@ -5965,6 +5993,41 @@
   },
   {
     "Module": "iotoperations/v20240915preview",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "BrokerProperties",
+    "Property": "memoryProfile"
+  },
+  {
+    "Module": "iotoperations/v20241101",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "AdvancedSettings",
+    "Property": "advanced"
+  },
+  {
+    "Module": "iotoperations/v20241101",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "Cardinality",
+    "Property": "cardinality"
+  },
+  {
+    "Module": "iotoperations/v20241101",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "DiskBackedMessageBuffer",
+    "Property": "diskBackedMessageBuffer"
+  },
+  {
+    "Module": "iotoperations/v20241101",
+    "Provider": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "GenerateResourceLimits",
+    "Property": "generateResourceLimits"
+  },
+  {
+    "Module": "iotoperations/v20241101",
     "Provider": "IoTOperations",
     "ResourceName": "Broker",
     "ReferenceName": "BrokerProperties",
@@ -50793,6 +50856,69 @@
   },
   {
     "Module": "netapp/v20240701",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
+    "Module": "netapp/v20240701preview",
+    "Provider": "NetApp",
+    "ResourceName": "Volume",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "Module": "netapp/v20240701preview",
+    "Provider": "NetApp",
+    "ResourceName": "Volume",
+    "ReferenceName": "replicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "Module": "netapp/v20240701preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "acceptGrowCapacityPoolForShortTermCloneSplit"
+  },
+  {
+    "Module": "netapp/v20240701preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "Module": "netapp/v20240701preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "Module": "netapp/v20240701preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "replicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "Module": "netapp/v20240701preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "Module": "netapp/v20240701preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "Module": "netapp/v20240701preview",
     "Provider": "NetApp",
     "ResourceName": "VolumeGroup",
     "ReferenceName": "volumeGroupVolumeProperties",

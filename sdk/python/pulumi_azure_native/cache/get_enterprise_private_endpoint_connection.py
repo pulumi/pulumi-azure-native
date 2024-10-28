@@ -130,7 +130,7 @@ def get_enterprise_private_endpoint_connection(cluster_name: Optional[str] = Non
     Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
     Azure REST API version: 2023-03-01-preview.
 
-    Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
@@ -160,7 +160,7 @@ def get_enterprise_private_endpoint_connection_output(cluster_name: Optional[pul
     Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
     Azure REST API version: 2023-03-01-preview.
 
-    Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.

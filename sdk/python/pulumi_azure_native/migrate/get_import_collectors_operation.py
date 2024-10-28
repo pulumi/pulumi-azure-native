@@ -142,7 +142,7 @@ def get_import_collectors_operation(import_collector_name: Optional[str] = None,
     Get a ImportCollector
     Azure REST API version: 2023-03-15.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
 
 
     :param str import_collector_name: Import collector ARM name
@@ -173,7 +173,7 @@ def get_import_collectors_operation_output(import_collector_name: Optional[pulum
     Get a ImportCollector
     Azure REST API version: 2023-03-15.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
 
 
     :param str import_collector_name: Import collector ARM name

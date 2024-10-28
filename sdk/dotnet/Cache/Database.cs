@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache
     /// Describes a database on the RedisEnterprise cluster
     /// Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+    /// Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:Database")]
     public partial class Database : global::Pulumi.CustomResource
@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.Cache
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240301preview:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240601preview:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240901preview:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20241001:Database" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

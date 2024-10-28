@@ -362,9 +362,9 @@ IoTCentral:
 IoTOperations:
   exclusions:
     # These only vary by case and also conflict with the existing versions.
-    Dataflow: 2024-09-15-preview
-    DataflowEndpoint: 2024-09-15-preview
-    DataflowProfile: 2024-09-15-preview
+    Dataflow: "2024-11-01"
+    DataflowEndpoint: "2024-11-01"
+    DataflowProfile: "2024-11-01"
 IoTSecurity:
   expectTracking: preview
   notes: Only single preview version

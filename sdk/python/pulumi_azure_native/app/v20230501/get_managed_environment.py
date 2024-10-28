@@ -102,9 +102,7 @@ class GetManagedEnvironmentResult:
     @pulumi.getter(name="appLogsConfiguration")
     def app_logs_configuration(self) -> Optional['outputs.AppLogsConfigurationResponse']:
         """
-        Cluster configuration which enables the log daemon to export
-        app logs to a destination. Currently only "log-analytics" is
-        supported
+        Cluster configuration which enables the log daemon to export app logs to configured destination.
         """
         return pulumi.get(self, "app_logs_configuration")
 

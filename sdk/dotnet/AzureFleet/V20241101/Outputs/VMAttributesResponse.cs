@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Outputs
         public readonly Outputs.VMAttributeMinMaxDoubleResponse? LocalStorageInGiB;
         /// <summary>
         /// Specifies whether the VMSize supporting local storage should be used to build Fleet or not.
+        /// Included - Default if not specified as most Azure VMs support local storage.
         /// </summary>
         public readonly string? LocalStorageSupport;
         /// <summary>

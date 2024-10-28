@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Returns report of quotas for the volume
  * Azure REST API version: 2024-03-01-preview.
  *
- * Other available API versions: 2024-05-01-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-07-01-preview.
  */
 export function listVolumeQuotaReport(args: ListVolumeQuotaReportArgs, opts?: pulumi.InvokeOptions): Promise<ListVolumeQuotaReportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,7 +59,7 @@ export interface ListVolumeQuotaReportResult {
  * Returns report of quotas for the volume
  * Azure REST API version: 2024-03-01-preview.
  *
- * Other available API versions: 2024-05-01-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-07-01-preview.
  */
 export function listVolumeQuotaReportOutput(args: ListVolumeQuotaReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeQuotaReportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

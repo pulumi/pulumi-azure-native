@@ -15,6 +15,7 @@ import * as v20240116preview from "./v20240116preview";
 import * as v20240306preview from "./v20240306preview";
 import * as v20240403 from "./v20240403";
 import * as v20240408preview from "./v20240408preview";
+import * as v20240808preview from "./v20240808preview";
 
 export {
     v20210201preview,
@@ -30,6 +31,7 @@ export {
     v20240306preview,
     v20240403,
     v20240408preview,
+    v20240808preview,
 };
 
 export const ApplicationGroupType = {
