@@ -45,3 +45,5 @@ DEBUG_CODEGEN_EXAMPLE_HCL
 
 p-examples/
 .mono
+go.work*
+*.sln
