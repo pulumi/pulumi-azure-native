@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTOperations
     /// A Instance resource is a logical container for a set of child resources.
     /// Azure REST API version: 2024-07-01-preview.
     /// 
-    /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview.
+    /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperations:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.IoTOperations
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:Instance" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:Instance" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:Instance" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:Instance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

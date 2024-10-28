@@ -102,6 +102,7 @@ import * as documentdb from "./documentdb";
 import * as domainregistration from "./domainregistration";
 import * as dynamics365fraudprotection from "./dynamics365fraudprotection";
 import * as easm from "./easm";
+import * as edge from "./edge";
 import * as edgemarketplace from "./edgemarketplace";
 import * as edgeorder from "./edgeorder";
 import * as education from "./education";
@@ -337,6 +338,7 @@ export {
     domainregistration,
     dynamics365fraudprotection,
     easm,
+    edge,
     edgemarketplace,
     edgeorder,
     education,

@@ -1217,6 +1217,10 @@
     "LabelByWorkspace": "2023-04-01-preview",
     "Workspace": "2023-04-01-preview"
   },
+  "Edge": {
+    "Site": "2024-02-01-preview",
+    "SitesBySubscription": "2024-02-01-preview"
+  },
   "EdgeMarketplace": {
     "getOfferAccessToken": "2023-08-01-preview"
   },

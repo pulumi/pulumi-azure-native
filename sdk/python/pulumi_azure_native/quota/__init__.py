@@ -17,6 +17,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.quota.v20230601preview as __v20230601preview
     v20230601preview = __v20230601preview
+    import pulumi_azure_native.quota.v20241015preview as __v20241015preview
+    v20241015preview = __v20241015preview
 else:
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.quota.v20230601preview')
+    v20241015preview = _utilities.lazy_import('pulumi_azure_native.quota.v20241015preview')
 

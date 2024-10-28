@@ -2985,6 +2985,7 @@ class VMAttributesResponse(dict):
         :param 'VMAttributeMinMaxDoubleResponse' local_storage_in_gi_b: LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
                If localStorageSupport is "Excluded", this VMAttribute can not be used.
         :param str local_storage_support: Specifies whether the VMSize supporting local storage should be used to build Fleet or not.
+               Included - Default if not specified as most Azure VMs support local storage.
         :param 'VMAttributeMinMaxDoubleResponse' memory_in_gi_b_per_v_cpu: The range of memory in GiB per vCPU specified from min to max. Optional parameter. Either Min or Max is required if specified.
         :param 'VMAttributeMinMaxDoubleResponse' network_bandwidth_in_mbps: The range of network bandwidth in Mbps specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
         :param 'VMAttributeMinMaxIntegerResponse' network_interface_count: The range of network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
@@ -3151,6 +3152,7 @@ class VMAttributesResponse(dict):
     def local_storage_support(self) -> Optional[str]:
         """
         Specifies whether the VMSize supporting local storage should be used to build Fleet or not.
+        Included - Default if not specified as most Azure VMs support local storage.
         """
         return pulumi.get(self, "local_storage_support")
 

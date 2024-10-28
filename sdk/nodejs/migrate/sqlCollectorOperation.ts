@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The SQL collector REST object.
  * Azure REST API version: 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
  */
 export class SqlCollectorOperation extends pulumi.CustomResource {
     /**
@@ -112,7 +112,7 @@ export class SqlCollectorOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:SqlCollectorOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230909preview:SqlCollectorOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlCollectorOperation.__pulumiType, name, resourceInputs, opts);
     }

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Gets the Defender for Storage settings for the specified storage account.
         /// Azure REST API version: 2022-12-01-preview.
+        /// 
+        /// Other available API versions: 2024-10-01-preview.
         /// </summary>
         public static Task<GetDefenderForStorageResult> InvokeAsync(GetDefenderForStorageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefenderForStorageResult>("azure-native:security:getDefenderForStorage", args ?? new GetDefenderForStorageArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Gets the Defender for Storage settings for the specified storage account.
         /// Azure REST API version: 2022-12-01-preview.
+        /// 
+        /// Other available API versions: 2024-10-01-preview.
         /// </summary>
         public static Output<GetDefenderForStorageResult> Invoke(GetDefenderForStorageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefenderForStorageResult>("azure-native:security:getDefenderForStorage", args ?? new GetDefenderForStorageInvokeArgs(), options.WithDefaults());

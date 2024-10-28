@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Quota.V20230601Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:quota:GroupQuota" },
+                    new global::Pulumi.Alias { Type = "azure-native:quota/v20241015preview:GroupQuota" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

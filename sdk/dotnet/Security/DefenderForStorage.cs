@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// The Defender for Storage resource.
     /// Azure REST API version: 2022-12-01-preview.
+    /// 
+    /// Other available API versions: 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:DefenderForStorage")]
     public partial class DefenderForStorage : global::Pulumi.CustomResource
@@ -60,6 +62,7 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20221201preview:DefenderForStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20241001preview:DefenderForStorage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

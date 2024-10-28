@@ -27,16 +27,13 @@ class GetCloudHsmClusterResult:
     """
     Resource information with extended details.
     """
-    def __init__(__self__, activation_state=None, auto_generated_domain_name_label_scope=None, fips_approved_mode=None, hsms=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status_message=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, activation_state=None, auto_generated_domain_name_label_scope=None, hsms=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status_message=None, system_data=None, tags=None, type=None):
         if activation_state and not isinstance(activation_state, str):
             raise TypeError("Expected argument 'activation_state' to be a str")
         pulumi.set(__self__, "activation_state", activation_state)
         if auto_generated_domain_name_label_scope and not isinstance(auto_generated_domain_name_label_scope, str):
             raise TypeError("Expected argument 'auto_generated_domain_name_label_scope' to be a str")
         pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
-        if fips_approved_mode and not isinstance(fips_approved_mode, bool):
-            raise TypeError("Expected argument 'fips_approved_mode' to be a bool")
-        pulumi.set(__self__, "fips_approved_mode", fips_approved_mode)
         if hsms and not isinstance(hsms, list):
             raise TypeError("Expected argument 'hsms' to be a list")
         pulumi.set(__self__, "hsms", hsms)
@@ -92,14 +89,6 @@ class GetCloudHsmClusterResult:
         The Cloud HSM Cluster's auto-generated Domain Name Label Scope
         """
         return pulumi.get(self, "auto_generated_domain_name_label_scope")
-
-    @property
-    @pulumi.getter(name="fipsApprovedMode")
-    def fips_approved_mode(self) -> Optional[bool]:
-        """
-        False: Non-FIPS Mode with single-factor authentication. True: FIPS Approved Mode with single-factor authentication
-        """
-        return pulumi.get(self, "fips_approved_mode")
 
     @property
     @pulumi.getter
@@ -214,7 +203,6 @@ class AwaitableGetCloudHsmClusterResult(GetCloudHsmClusterResult):
         return GetCloudHsmClusterResult(
             activation_state=self.activation_state,
             auto_generated_domain_name_label_scope=self.auto_generated_domain_name_label_scope,
-            fips_approved_mode=self.fips_approved_mode,
             hsms=self.hsms,
             id=self.id,
             identity=self.identity,
@@ -249,7 +237,6 @@ def get_cloud_hsm_cluster(cloud_hsm_cluster_name: Optional[str] = None,
     return AwaitableGetCloudHsmClusterResult(
         activation_state=pulumi.get(__ret__, 'activation_state'),
         auto_generated_domain_name_label_scope=pulumi.get(__ret__, 'auto_generated_domain_name_label_scope'),
-        fips_approved_mode=pulumi.get(__ret__, 'fips_approved_mode'),
         hsms=pulumi.get(__ret__, 'hsms'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -281,7 +268,6 @@ def get_cloud_hsm_cluster_output(cloud_hsm_cluster_name: Optional[pulumi.Input[s
     return __ret__.apply(lambda __response__: GetCloudHsmClusterResult(
         activation_state=pulumi.get(__response__, 'activation_state'),
         auto_generated_domain_name_label_scope=pulumi.get(__response__, 'auto_generated_domain_name_label_scope'),
-        fips_approved_mode=pulumi.get(__response__, 'fips_approved_mode'),
         hsms=pulumi.get(__response__, 'hsms'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

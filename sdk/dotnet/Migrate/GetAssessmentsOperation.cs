@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a Assessment
         /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-03-15, 2023-05-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview.
         /// </summary>
         public static Task<GetAssessmentsOperationResult> InvokeAsync(GetAssessmentsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentsOperationResult>("azure-native:migrate:getAssessmentsOperation", args ?? new GetAssessmentsOperationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a Assessment
         /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-03-15, 2023-05-01-preview.
+        /// Other available API versions: 2023-03-15, 2023-05-01-preview, 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentsOperationResult> Invoke(GetAssessmentsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentsOperationResult>("azure-native:migrate:getAssessmentsOperation", args ?? new GetAssessmentsOperationInvokeArgs(), options.WithDefaults());

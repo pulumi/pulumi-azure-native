@@ -38,9 +38,7 @@ export interface GetManagedEnvironmentResult {
      */
     readonly appInsightsConfiguration?: outputs.app.v20240802preview.AppInsightsConfigurationResponse;
     /**
-     * Cluster configuration which enables the log daemon to export
-     * app logs to a destination. Currently only "log-analytics" is
-     * supported
+     * Cluster configuration which enables the log daemon to export app logs to configured destination.
      */
     readonly appLogsConfiguration?: outputs.app.v20240802preview.AppLogsConfigurationResponse;
     /**

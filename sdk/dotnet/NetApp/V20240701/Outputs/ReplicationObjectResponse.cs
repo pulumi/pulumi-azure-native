@@ -29,9 +29,9 @@ namespace Pulumi.AzureNative.NetApp.V20240701.Outputs
         /// </summary>
         public readonly string? RemoteVolumeRegion;
         /// <summary>
-        /// The resource ID of the remote volume.
+        /// The resource ID of the remote volume. Required for cross region and cross zone replication
         /// </summary>
-        public readonly string RemoteVolumeResourceId;
+        public readonly string? RemoteVolumeResourceId;
         /// <summary>
         /// Id
         /// </summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.NetApp.V20240701.Outputs
 
             string? remoteVolumeRegion,
 
-            string remoteVolumeResourceId,
+            string? remoteVolumeResourceId,
 
             string replicationId,
 

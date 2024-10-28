@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
  * Azure REST API version: 2023-06-01-preview.
+ *
+ * Other available API versions: 2024-10-15-preview.
  */
 export function getGroupQuota(args: GetGroupQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupQuotaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,6 +60,8 @@ export interface GetGroupQuotaResult {
 /**
  * Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
  * Azure REST API version: 2023-06-01-preview.
+ *
+ * Other available API versions: 2024-10-15-preview.
  */
 export function getGroupQuotaOutput(args: GetGroupQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupQuotaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

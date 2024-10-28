@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the Defender for Storage settings for the specified storage account.
  * Azure REST API version: 2022-12-01-preview.
+ *
+ * Other available API versions: 2024-10-01-preview.
  */
 export function getDefenderForStorage(args: GetDefenderForStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetDefenderForStorageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,6 +56,8 @@ export interface GetDefenderForStorageResult {
 /**
  * Gets the Defender for Storage settings for the specified storage account.
  * Azure REST API version: 2022-12-01-preview.
+ *
+ * Other available API versions: 2024-10-01-preview.
  */
 export function getDefenderForStorageOutput(args: GetDefenderForStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefenderForStorageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

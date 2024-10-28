@@ -103,7 +103,7 @@ export class ImportCollectorsOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate:ImportCollectorsOperation" }, { type: "azure-native:migrate/v20191001:ImportCollectorsOperation" }, { type: "azure-native:migrate/v20230315:ImportCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:ImportCollectorsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate:ImportCollectorsOperation" }, { type: "azure-native:migrate/v20191001:ImportCollectorsOperation" }, { type: "azure-native:migrate/v20230315:ImportCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:ImportCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:ImportCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ImportCollectorsOperation.__pulumiType, name, resourceInputs, opts);
     }

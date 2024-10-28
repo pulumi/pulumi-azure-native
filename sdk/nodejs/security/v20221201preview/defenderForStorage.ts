@@ -75,7 +75,7 @@ export class DefenderForStorage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security:DefenderForStorage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:DefenderForStorage" }, { type: "azure-native:security/v20241001preview:DefenderForStorage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DefenderForStorage.__pulumiType, name, resourceInputs, opts);
     }

@@ -22,9 +22,7 @@ namespace Pulumi.AzureNative.App.V20231102Preview
         public Output<Outputs.AppInsightsConfigurationResponse?> AppInsightsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Cluster configuration which enables the log daemon to export
-        /// app logs to a destination. Currently only "log-analytics" is
-        /// supported
+        /// Cluster configuration which enables the log daemon to export app logs to configured destination.
         /// </summary>
         [Output("appLogsConfiguration")]
         public Output<Outputs.AppLogsConfigurationResponse?> AppLogsConfiguration { get; private set; } = null!;
@@ -235,9 +233,7 @@ namespace Pulumi.AzureNative.App.V20231102Preview
         public Input<Inputs.AppInsightsConfigurationArgs>? AppInsightsConfiguration { get; set; }
 
         /// <summary>
-        /// Cluster configuration which enables the log daemon to export
-        /// app logs to a destination. Currently only "log-analytics" is
-        /// supported
+        /// Cluster configuration which enables the log daemon to export app logs to configured destination.
         /// </summary>
         [Input("appLogsConfiguration")]
         public Input<Inputs.AppLogsConfigurationArgs>? AppLogsConfiguration { get; set; }

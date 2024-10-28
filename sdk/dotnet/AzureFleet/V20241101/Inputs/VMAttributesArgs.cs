@@ -128,6 +128,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
 
         /// <summary>
         /// Specifies whether the VMSize supporting local storage should be used to build Fleet or not.
+        /// Included - Default if not specified as most Azure VMs support local storage.
         /// </summary>
         [Input("localStorageSupport")]
         public InputUnion<string, Pulumi.AzureNative.AzureFleet.V20241101.VMAttributeSupport>? LocalStorageSupport { get; set; }

@@ -109,7 +109,7 @@ export class SqlCollectorOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230315:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:SqlCollectorOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230315:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230909preview:SqlCollectorOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlCollectorOperation.__pulumiType, name, resourceInputs, opts);
     }

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate
     /// Private endpoint connection resource.
     /// Azure REST API version: 2023-03-15.
     /// 
-    /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview.
+    /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:PrivateEndpointConnectionOperation")]
     public partial class PrivateEndpointConnectionOperation : global::Pulumi.CustomResource
@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Migrate
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:PrivateEndpointConnectionOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:PrivateEndpointConnectionOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

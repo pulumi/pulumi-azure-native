@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Quota
     /// <summary>
     /// Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
     /// Azure REST API version: 2023-06-01-preview.
+    /// 
+    /// Other available API versions: 2024-10-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:quota:GroupQuota")]
     public partial class GroupQuota : global::Pulumi.CustomResource
@@ -66,6 +68,7 @@ namespace Pulumi.AzureNative.Quota
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20230601preview:GroupQuota" },
+                    new global::Pulumi.Alias { Type = "azure-native:quota/v20241015preview:GroupQuota" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

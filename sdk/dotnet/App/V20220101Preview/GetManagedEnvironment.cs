@@ -70,9 +70,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     public sealed class GetManagedEnvironmentResult
     {
         /// <summary>
-        /// Cluster configuration which enables the log daemon to export
-        /// app logs to a destination. Currently only "log-analytics" is
-        /// supported
+        /// Cluster configuration which enables the log daemon to export app logs to configured destination.
         /// </summary>
         public readonly Outputs.AppLogsConfigurationResponse? AppLogsConfiguration;
         /// <summary>
