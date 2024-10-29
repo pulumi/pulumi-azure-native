@@ -753,6 +753,7 @@ DBforPostgreSQL:
 Dashboard:
     tracking: "2022-08-01"
     additions:
+        IntegrationFabric: 2023-10-01-preview
         ManagedPrivateEndpoint: 2022-10-01-preview
 DataBox:
     tracking: "2022-12-01"
@@ -1132,6 +1133,7 @@ MachineLearning:
 MachineLearningServices:
     tracking: "2023-04-01"
     additions:
+        CapabilityHost: 2024-10-01-preview
         CapacityReservationGroup: 2023-08-01-preview
         ConnectionDeployment: 2024-04-01-preview
         ConnectionRaiBlocklist: 2024-04-01-preview
@@ -1157,13 +1159,16 @@ MachineLearningServices:
         ServerlessEndpoint: 2023-08-01-preview
         getComputeAllowedResizeSizes: 2023-08-01-preview
         getFeaturesetVersionFeature: 2023-02-01-preview
+        getInferenceGroupDeltaModelsStatusAsync: 2024-10-01-preview
         getInferenceGroupStatus: 2023-08-01-preview
         getInferencePoolStatus: 2023-08-01-preview
         getServerlessEndpointStatus: 2023-08-01-preview
+        listConnectionAllModels: 2024-10-01-preview
         listConnectionModels: 2024-07-01-preview
         listEndpointKeys: 2024-01-01-preview
         listFeaturesetVersionFeatures: 2023-02-01-preview
         listFeaturesetVersionMaterializationJobs: 2023-04-01-preview
+        listInferenceGroupDeltaModelsAsync: 2024-10-01-preview
         listServerlessEndpointKeys: 2023-08-01-preview
         listWorkspaceConnectionModels: 2024-04-01-preview
         listWorkspaceConnectionSecrets: 2023-06-01-preview
