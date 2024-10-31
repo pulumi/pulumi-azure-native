@@ -104,6 +104,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "ConnectedCache",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "ConnectedVMwarevSphere",
     "Detail": "expected no additions but found some"
   },

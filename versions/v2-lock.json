@@ -765,6 +765,17 @@
     "listAccessUsers": "2023-08-22",
     "listOrganizationRegions": "2024-02-13"
   },
+  "ConnectedCache": {
+    "CacheNodesOperation": "2023-05-01-preview",
+    "EnterpriseCustomerOperation": "2023-05-01-preview",
+    "EnterpriseMccCacheNodesOperation": "2023-05-01-preview",
+    "EnterpriseMccCustomer": "2023-05-01-preview",
+    "IspCacheNodesOperation": "2023-05-01-preview",
+    "IspCustomer": "2023-05-01-preview",
+    "getEnterpriseMccCacheNodesOperationCacheNodeInstallDetails": "2023-05-01-preview",
+    "getIspCacheNodesOperationBgpCidrs": "2023-05-01-preview",
+    "getIspCacheNodesOperationCacheNodeInstallDetails": "2023-05-01-preview"
+  },
   "ConnectedVMwarevSphere": {
     "Cluster": "2022-07-15-preview",
     "Datastore": "2022-07-15-preview",
@@ -919,6 +930,7 @@
   },
   "Dashboard": {
     "Grafana": "2022-08-01",
+    "IntegrationFabric": "2023-10-01-preview",
     "ManagedPrivateEndpoint": "2022-10-01-preview",
     "PrivateEndpointConnection": "2022-08-01"
   },
@@ -1686,6 +1698,7 @@
   "MachineLearningServices": {
     "BatchDeployment": "2023-04-01",
     "BatchEndpoint": "2023-04-01",
+    "CapabilityHost": "2024-10-01-preview",
     "CapacityReservationGroup": "2023-08-01-preview",
     "CodeContainer": "2023-04-01",
     "CodeVersion": "2023-04-01",
@@ -1741,6 +1754,7 @@
     "WorkspaceConnection": "2023-04-01",
     "getComputeAllowedResizeSizes": "2023-08-01-preview",
     "getFeaturesetVersionFeature": "2023-02-01-preview",
+    "getInferenceGroupDeltaModelsStatusAsync": "2024-10-01-preview",
     "getInferenceGroupStatus": "2023-08-01-preview",
     "getInferencePoolStatus": "2023-08-01-preview",
     "getOnlineDeploymentLogs": "2023-04-01",
@@ -1749,11 +1763,13 @@
     "listBatchEndpointKeys": "2023-04-01",
     "listComputeKeys": "2023-04-01",
     "listComputeNodes": "2023-04-01",
+    "listConnectionAllModels": "2024-10-01-preview",
     "listConnectionModels": "2024-07-01-preview",
     "listDatastoreSecrets": "2023-04-01",
     "listEndpointKeys": "2024-01-01-preview",
     "listFeaturesetVersionFeatures": "2023-02-01-preview",
     "listFeaturesetVersionMaterializationJobs": "2023-04-01-preview",
+    "listInferenceGroupDeltaModelsAsync": "2024-10-01-preview",
     "listOnlineEndpointKeys": "2023-04-01",
     "listServerlessEndpointKeys": "2023-08-01-preview",
     "listWorkspaceConnectionModels": "2024-04-01-preview",
