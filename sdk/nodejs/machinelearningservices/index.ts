@@ -15,6 +15,11 @@ export type BatchEndpoint = import("./batchEndpoint").BatchEndpoint;
 export const BatchEndpoint: typeof import("./batchEndpoint").BatchEndpoint = null as any;
 utilities.lazyLoad(exports, ["BatchEndpoint"], () => require("./batchEndpoint"));
 
+export { CapabilityHostArgs } from "./capabilityHost";
+export type CapabilityHost = import("./capabilityHost").CapabilityHost;
+export const CapabilityHost: typeof import("./capabilityHost").CapabilityHost = null as any;
+utilities.lazyLoad(exports, ["CapabilityHost"], () => require("./capabilityHost"));
+
 export { CapacityReservationGroupArgs } from "./capacityReservationGroup";
 export type CapacityReservationGroup = import("./capacityReservationGroup").CapacityReservationGroup;
 export const CapacityReservationGroup: typeof import("./capacityReservationGroup").CapacityReservationGroup = null as any;
@@ -129,6 +134,11 @@ export { GetBatchEndpointArgs, GetBatchEndpointResult, GetBatchEndpointOutputArg
 export const getBatchEndpoint: typeof import("./getBatchEndpoint").getBatchEndpoint = null as any;
 export const getBatchEndpointOutput: typeof import("./getBatchEndpoint").getBatchEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getBatchEndpoint","getBatchEndpointOutput"], () => require("./getBatchEndpoint"));
+
+export { GetCapabilityHostArgs, GetCapabilityHostResult, GetCapabilityHostOutputArgs } from "./getCapabilityHost";
+export const getCapabilityHost: typeof import("./getCapabilityHost").getCapabilityHost = null as any;
+export const getCapabilityHostOutput: typeof import("./getCapabilityHost").getCapabilityHostOutput = null as any;
+utilities.lazyLoad(exports, ["getCapabilityHost","getCapabilityHostOutput"], () => require("./getCapabilityHost"));
 
 export { GetCapacityReservationGroupArgs, GetCapacityReservationGroupResult, GetCapacityReservationGroupOutputArgs } from "./getCapacityReservationGroup";
 export const getCapacityReservationGroup: typeof import("./getCapacityReservationGroup").getCapacityReservationGroup = null as any;
@@ -254,6 +264,11 @@ export { GetInferenceGroupArgs, GetInferenceGroupResult, GetInferenceGroupOutput
 export const getInferenceGroup: typeof import("./getInferenceGroup").getInferenceGroup = null as any;
 export const getInferenceGroupOutput: typeof import("./getInferenceGroup").getInferenceGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getInferenceGroup","getInferenceGroupOutput"], () => require("./getInferenceGroup"));
+
+export { GetInferenceGroupDeltaModelsStatusAsyncArgs, GetInferenceGroupDeltaModelsStatusAsyncResult, GetInferenceGroupDeltaModelsStatusAsyncOutputArgs } from "./getInferenceGroupDeltaModelsStatusAsync";
+export const getInferenceGroupDeltaModelsStatusAsync: typeof import("./getInferenceGroupDeltaModelsStatusAsync").getInferenceGroupDeltaModelsStatusAsync = null as any;
+export const getInferenceGroupDeltaModelsStatusAsyncOutput: typeof import("./getInferenceGroupDeltaModelsStatusAsync").getInferenceGroupDeltaModelsStatusAsyncOutput = null as any;
+utilities.lazyLoad(exports, ["getInferenceGroupDeltaModelsStatusAsync","getInferenceGroupDeltaModelsStatusAsyncOutput"], () => require("./getInferenceGroupDeltaModelsStatusAsync"));
 
 export { GetInferenceGroupStatusArgs, GetInferenceGroupStatusResult, GetInferenceGroupStatusOutputArgs } from "./getInferenceGroupStatus";
 export const getInferenceGroupStatus: typeof import("./getInferenceGroupStatus").getInferenceGroupStatus = null as any;
@@ -480,6 +495,11 @@ export const listComputeNodes: typeof import("./listComputeNodes").listComputeNo
 export const listComputeNodesOutput: typeof import("./listComputeNodes").listComputeNodesOutput = null as any;
 utilities.lazyLoad(exports, ["listComputeNodes","listComputeNodesOutput"], () => require("./listComputeNodes"));
 
+export { ListConnectionAllModelsArgs, ListConnectionAllModelsResult, ListConnectionAllModelsOutputArgs } from "./listConnectionAllModels";
+export const listConnectionAllModels: typeof import("./listConnectionAllModels").listConnectionAllModels = null as any;
+export const listConnectionAllModelsOutput: typeof import("./listConnectionAllModels").listConnectionAllModelsOutput = null as any;
+utilities.lazyLoad(exports, ["listConnectionAllModels","listConnectionAllModelsOutput"], () => require("./listConnectionAllModels"));
+
 export { ListConnectionModelsArgs, ListConnectionModelsResult, ListConnectionModelsOutputArgs } from "./listConnectionModels";
 export const listConnectionModels: typeof import("./listConnectionModels").listConnectionModels = null as any;
 export const listConnectionModelsOutput: typeof import("./listConnectionModels").listConnectionModelsOutput = null as any;
@@ -504,6 +524,11 @@ export { ListFeaturesetVersionMaterializationJobsArgs, ListFeaturesetVersionMate
 export const listFeaturesetVersionMaterializationJobs: typeof import("./listFeaturesetVersionMaterializationJobs").listFeaturesetVersionMaterializationJobs = null as any;
 export const listFeaturesetVersionMaterializationJobsOutput: typeof import("./listFeaturesetVersionMaterializationJobs").listFeaturesetVersionMaterializationJobsOutput = null as any;
 utilities.lazyLoad(exports, ["listFeaturesetVersionMaterializationJobs","listFeaturesetVersionMaterializationJobsOutput"], () => require("./listFeaturesetVersionMaterializationJobs"));
+
+export { ListInferenceGroupDeltaModelsAsyncArgs, ListInferenceGroupDeltaModelsAsyncResult, ListInferenceGroupDeltaModelsAsyncOutputArgs } from "./listInferenceGroupDeltaModelsAsync";
+export const listInferenceGroupDeltaModelsAsync: typeof import("./listInferenceGroupDeltaModelsAsync").listInferenceGroupDeltaModelsAsync = null as any;
+export const listInferenceGroupDeltaModelsAsyncOutput: typeof import("./listInferenceGroupDeltaModelsAsync").listInferenceGroupDeltaModelsAsyncOutput = null as any;
+utilities.lazyLoad(exports, ["listInferenceGroupDeltaModelsAsync","listInferenceGroupDeltaModelsAsyncOutput"], () => require("./listInferenceGroupDeltaModelsAsync"));
 
 export { ListOnlineEndpointKeysArgs, ListOnlineEndpointKeysResult, ListOnlineEndpointKeysOutputArgs } from "./listOnlineEndpointKeys";
 export const listOnlineEndpointKeys: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeys = null as any;
@@ -693,6 +718,8 @@ import * as v20240101preview from "./v20240101preview";
 import * as v20240401 from "./v20240401";
 import * as v20240401preview from "./v20240401preview";
 import * as v20240701preview from "./v20240701preview";
+import * as v20241001 from "./v20241001";
+import * as v20241001preview from "./v20241001preview";
 
 export {
     v20200501preview,
@@ -713,6 +740,8 @@ export {
     v20240401,
     v20240401preview,
     v20240701preview,
+    v20241001,
+    v20241001preview,
 };
 
 const _module = {
@@ -723,6 +752,8 @@ const _module = {
                 return new BatchDeployment(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:BatchEndpoint":
                 return new BatchEndpoint(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:CapabilityHost":
+                return new CapabilityHost(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:CapacityReservationGroup":
                 return new CapacityReservationGroup(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:CodeContainer":

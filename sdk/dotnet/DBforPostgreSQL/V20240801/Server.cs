@@ -204,6 +204,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20240801
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230601preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20231201preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240301preview:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20241101preview:Server" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

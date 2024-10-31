@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Dashboard
     /// The managed private endpoint resource type.
     /// Azure REST API version: 2022-10-01-preview.
     /// 
-    /// Other available API versions: 2023-09-01.
+    /// Other available API versions: 2023-09-01, 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard:ManagedPrivateEndpoint")]
     public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource
@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.Dashboard
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20221001preview:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20230901:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:dashboard/v20231001preview:ManagedPrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

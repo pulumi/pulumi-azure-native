@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2024-04-01-preview.
  *
- * Other available API versions: 2024-07-01-preview.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
  */
 export function getConnectionRaiBlocklistItem(args: GetConnectionRaiBlocklistItemArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionRaiBlocklistItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,7 +66,7 @@ export interface GetConnectionRaiBlocklistItemResult {
 /**
  * Azure REST API version: 2024-04-01-preview.
  *
- * Other available API versions: 2024-07-01-preview.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
  */
 export function getConnectionRaiBlocklistItemOutput(args: GetConnectionRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionRaiBlocklistItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

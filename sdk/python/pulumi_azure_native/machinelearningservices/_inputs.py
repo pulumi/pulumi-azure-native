@@ -84,6 +84,8 @@ __all__ = [
     'BindOptionsArgsDict',
     'BuildContextArgs',
     'BuildContextArgsDict',
+    'CapabilityHostArgs',
+    'CapabilityHostArgsDict',
     'CapacityReservationGroupArgs',
     'CapacityReservationGroupArgsDict',
     'CertificateDatastoreCredentialsArgs',
@@ -4118,6 +4120,180 @@ class BuildContextArgs:
     @dockerfile_path.setter
     def dockerfile_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dockerfile_path", value)
+
+
+if not MYPY:
+    class CapabilityHostArgsDict(TypedDict):
+        ai_services_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of AI services connections.
+        """
+        capability_host_kind: NotRequired[pulumi.Input[Union[str, 'CapabilityHostKind']]]
+        """
+        Kind of this capability host.
+        """
+        customer_subnet: NotRequired[pulumi.Input[str]]
+        """
+        Customer subnet info to help set up this capability host.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The asset description text.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The asset property dictionary.
+        """
+        storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Storage connections.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        vector_store_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of VectorStore connections.
+        """
+elif False:
+    CapabilityHostArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityHostArgs:
+    def __init__(__self__, *,
+                 ai_services_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 capability_host_kind: Optional[pulumi.Input[Union[str, 'CapabilityHostKind']]] = None,
+                 customer_subnet: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 storage_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vector_store_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ai_services_connections: List of AI services connections.
+        :param pulumi.Input[Union[str, 'CapabilityHostKind']] capability_host_kind: Kind of this capability host.
+        :param pulumi.Input[str] customer_subnet: Customer subnet info to help set up this capability host.
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_connections: List of Storage connections.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vector_store_connections: List of VectorStore connections.
+        """
+        if ai_services_connections is not None:
+            pulumi.set(__self__, "ai_services_connections", ai_services_connections)
+        if capability_host_kind is None:
+            capability_host_kind = 'Agents'
+        if capability_host_kind is not None:
+            pulumi.set(__self__, "capability_host_kind", capability_host_kind)
+        if customer_subnet is not None:
+            pulumi.set(__self__, "customer_subnet", customer_subnet)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if storage_connections is not None:
+            pulumi.set(__self__, "storage_connections", storage_connections)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vector_store_connections is not None:
+            pulumi.set(__self__, "vector_store_connections", vector_store_connections)
+
+    @property
+    @pulumi.getter(name="aiServicesConnections")
+    def ai_services_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of AI services connections.
+        """
+        return pulumi.get(self, "ai_services_connections")
+
+    @ai_services_connections.setter
+    def ai_services_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ai_services_connections", value)
+
+    @property
+    @pulumi.getter(name="capabilityHostKind")
+    def capability_host_kind(self) -> Optional[pulumi.Input[Union[str, 'CapabilityHostKind']]]:
+        """
+        Kind of this capability host.
+        """
+        return pulumi.get(self, "capability_host_kind")
+
+    @capability_host_kind.setter
+    def capability_host_kind(self, value: Optional[pulumi.Input[Union[str, 'CapabilityHostKind']]]):
+        pulumi.set(self, "capability_host_kind", value)
+
+    @property
+    @pulumi.getter(name="customerSubnet")
+    def customer_subnet(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer subnet info to help set up this capability host.
+        """
+        return pulumi.get(self, "customer_subnet")
+
+    @customer_subnet.setter
+    def customer_subnet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_subnet", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="storageConnections")
+    def storage_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Storage connections.
+        """
+        return pulumi.get(self, "storage_connections")
+
+    @storage_connections.setter
+    def storage_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "storage_connections", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vectorStoreConnections")
+    def vector_store_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of VectorStore connections.
+        """
+        return pulumi.get(self, "vector_store_connections")
+
+    @vector_store_connections.setter
+    def vector_store_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vector_store_connections", value)
 
 
 if not MYPY:

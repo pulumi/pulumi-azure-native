@@ -79,7 +79,7 @@ export interface GetConfigurationResult {
      */
     readonly name: string;
     /**
-     * Source of the configuration.
+     * Source of the configuration. Required to update the configuration.
      */
     readonly source?: string;
     /**
@@ -95,7 +95,7 @@ export interface GetConfigurationResult {
      */
     readonly unit: string;
     /**
-     * Value of the configuration.
+     * Value of the configuration. Required to update the configuration.
      */
     readonly value?: string;
 }

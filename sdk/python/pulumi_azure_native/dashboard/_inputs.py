@@ -20,6 +20,8 @@ __all__ = [
     'AzureMonitorWorkspaceIntegrationArgsDict',
     'GrafanaIntegrationsArgs',
     'GrafanaIntegrationsArgsDict',
+    'IntegrationFabricPropertiesArgs',
+    'IntegrationFabricPropertiesArgsDict',
     'ManagedGrafanaPropertiesArgs',
     'ManagedGrafanaPropertiesArgsDict',
     'ManagedServiceIdentityArgs',
@@ -95,6 +97,78 @@ class GrafanaIntegrationsArgs:
     @azure_monitor_workspace_integrations.setter
     def azure_monitor_workspace_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMonitorWorkspaceIntegrationArgs']]]]):
         pulumi.set(self, "azure_monitor_workspace_integrations", value)
+
+
+if not MYPY:
+    class IntegrationFabricPropertiesArgsDict(TypedDict):
+        data_source_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource Id of the Azure resource which is used to configure Grafana data source. E.g., an Azure Monitor Workspace, an Azure Data Explorer cluster, etc.
+        """
+        scenarios: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of integration scenarios covered by this integration fabric
+        """
+        target_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource Id of the Azure resource being integrated with Azure Managed Grafana. E.g., an Azure Kubernetes Service cluster.
+        """
+elif False:
+    IntegrationFabricPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationFabricPropertiesArgs:
+    def __init__(__self__, *,
+                 data_source_resource_id: Optional[pulumi.Input[str]] = None,
+                 scenarios: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] data_source_resource_id: The resource Id of the Azure resource which is used to configure Grafana data source. E.g., an Azure Monitor Workspace, an Azure Data Explorer cluster, etc.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scenarios: A list of integration scenarios covered by this integration fabric
+        :param pulumi.Input[str] target_resource_id: The resource Id of the Azure resource being integrated with Azure Managed Grafana. E.g., an Azure Kubernetes Service cluster.
+        """
+        if data_source_resource_id is not None:
+            pulumi.set(__self__, "data_source_resource_id", data_source_resource_id)
+        if scenarios is not None:
+            pulumi.set(__self__, "scenarios", scenarios)
+        if target_resource_id is not None:
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
+
+    @property
+    @pulumi.getter(name="dataSourceResourceId")
+    def data_source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource Id of the Azure resource which is used to configure Grafana data source. E.g., an Azure Monitor Workspace, an Azure Data Explorer cluster, etc.
+        """
+        return pulumi.get(self, "data_source_resource_id")
+
+    @data_source_resource_id.setter
+    def data_source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_source_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def scenarios(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of integration scenarios covered by this integration fabric
+        """
+        return pulumi.get(self, "scenarios")
+
+    @scenarios.setter
+    def scenarios(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scenarios", value)
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource Id of the Azure resource being integrated with Azure Managed Grafana. E.g., an Azure Kubernetes Service cluster.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @target_resource_id.setter
+    def target_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_id", value)
 
 
 if not MYPY:

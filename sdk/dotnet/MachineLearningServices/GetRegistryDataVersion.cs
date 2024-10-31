@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Azure Resource Manager resource envelope.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
         /// </summary>
         public static Task<GetRegistryDataVersionResult> InvokeAsync(GetRegistryDataVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryDataVersionResult>("azure-native:machinelearningservices:getRegistryDataVersion", args ?? new GetRegistryDataVersionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Azure Resource Manager resource envelope.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetRegistryDataVersionResult> Invoke(GetRegistryDataVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryDataVersionResult>("azure-native:machinelearningservices:getRegistryDataVersion", args ?? new GetRegistryDataVersionInvokeArgs(), options.WithDefaults());

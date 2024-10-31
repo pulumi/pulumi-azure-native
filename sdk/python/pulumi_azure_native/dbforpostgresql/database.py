@@ -118,7 +118,7 @@ class Database(pulumi.CustomResource):
         Represents a Database.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
 
-        Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+        Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +138,7 @@ class Database(pulumi.CustomResource):
         Represents a Database.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
 
-        Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+        Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -181,7 +181,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20201105preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220120preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221201:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Database")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20201105preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220120preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221201:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure-native:dbforpostgresql:Database',

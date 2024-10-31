@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20240301Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Backup" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240801:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20241101preview:Backup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

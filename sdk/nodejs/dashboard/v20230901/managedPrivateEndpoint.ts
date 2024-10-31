@@ -139,7 +139,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dashboard:ManagedPrivateEndpoint" }, { type: "azure-native:dashboard/v20221001preview:ManagedPrivateEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dashboard:ManagedPrivateEndpoint" }, { type: "azure-native:dashboard/v20221001preview:ManagedPrivateEndpoint" }, { type: "azure-native:dashboard/v20231001preview:ManagedPrivateEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);
     }

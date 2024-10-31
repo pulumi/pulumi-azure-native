@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// 
         /// Azure REST API version: 2023-08-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetInferenceEndpointResult> InvokeAsync(GetInferenceEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferenceEndpointResult>("azure-native:machinelearningservices:getInferenceEndpoint", args ?? new GetInferenceEndpointArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// 
         /// Azure REST API version: 2023-08-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetInferenceEndpointResult> Invoke(GetInferenceEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceEndpointResult>("azure-native:machinelearningservices:getInferenceEndpoint", args ?? new GetInferenceEndpointInvokeArgs(), options.WithDefaults());

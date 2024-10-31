@@ -13,6 +13,7 @@ __all__ = [
     'BatchLoggingLevel',
     'BatchOutputAction',
     'BlockedTransformers',
+    'CapabilityHostKind',
     'ClassificationModels',
     'ClassificationMultilabelPrimaryMetrics',
     'ClassificationPrimaryMetrics',
@@ -223,6 +224,13 @@ class BlockedTransformers(str, Enum):
     """
     Hashing One Hot Encoder can turn categorical variables into a limited number of new features. This is often used for high-cardinality categorical features.
     """
+
+
+class CapabilityHostKind(str, Enum):
+    """
+    Kind of this capability host.
+    """
+    AGENTS = "Agents"
 
 
 class ClassificationModels(str, Enum):

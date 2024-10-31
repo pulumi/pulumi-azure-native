@@ -6,12 +6,14 @@ import * as v20210901preview from "./v20210901preview";
 import * as v20220801 from "./v20220801";
 import * as v20221001preview from "./v20221001preview";
 import * as v20230901 from "./v20230901";
+import * as v20231001preview from "./v20231001preview";
 
 export {
     v20210901preview,
     v20220801,
     v20221001preview,
     v20230901,
+    v20231001preview,
 };
 
 export const ApiKey = {

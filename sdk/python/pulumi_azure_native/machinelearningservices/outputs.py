@@ -62,6 +62,7 @@ __all__ = [
     'BindOptionsResponse',
     'BuildContextResponse',
     'CallRateLimitResponse',
+    'CapabilityHostResponse',
     'CapacityConfigResponse',
     'CapacityReservationGroupResponse',
     'CertificateDatastoreCredentialsResponse',
@@ -122,6 +123,7 @@ __all__ = [
     'DatasetStateResponseDeprecatedBy',
     'DatastoreResponse',
     'DefaultScaleSettingsResponse',
+    'DeltaModelCurrentStateResponse',
     'DeploymentModelResponse',
     'DeploymentResourceConfigurationResponse',
     'DockerBuildResponse',
@@ -5182,6 +5184,149 @@ class CallRateLimitResponse(dict):
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.ThrottlingRuleResponse']]:
         return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class CapabilityHostResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "aiServicesConnections":
+            suggest = "ai_services_connections"
+        elif key == "capabilityHostKind":
+            suggest = "capability_host_kind"
+        elif key == "customerSubnet":
+            suggest = "customer_subnet"
+        elif key == "storageConnections":
+            suggest = "storage_connections"
+        elif key == "vectorStoreConnections":
+            suggest = "vector_store_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapabilityHostResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapabilityHostResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapabilityHostResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 ai_services_connections: Optional[Sequence[str]] = None,
+                 capability_host_kind: Optional[str] = None,
+                 customer_subnet: Optional[str] = None,
+                 description: Optional[str] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 storage_connections: Optional[Sequence[str]] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 vector_store_connections: Optional[Sequence[str]] = None):
+        """
+        :param str provisioning_state: Provisioning state for the CapabilityHost.
+        :param Sequence[str] ai_services_connections: List of AI services connections.
+        :param str capability_host_kind: Kind of this capability host.
+        :param str customer_subnet: Customer subnet info to help set up this capability host.
+        :param str description: The asset description text.
+        :param Mapping[str, str] properties: The asset property dictionary.
+        :param Sequence[str] storage_connections: List of Storage connections.
+        :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
+        :param Sequence[str] vector_store_connections: List of VectorStore connections.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if ai_services_connections is not None:
+            pulumi.set(__self__, "ai_services_connections", ai_services_connections)
+        if capability_host_kind is None:
+            capability_host_kind = 'Agents'
+        if capability_host_kind is not None:
+            pulumi.set(__self__, "capability_host_kind", capability_host_kind)
+        if customer_subnet is not None:
+            pulumi.set(__self__, "customer_subnet", customer_subnet)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if storage_connections is not None:
+            pulumi.set(__self__, "storage_connections", storage_connections)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vector_store_connections is not None:
+            pulumi.set(__self__, "vector_store_connections", vector_store_connections)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state for the CapabilityHost.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="aiServicesConnections")
+    def ai_services_connections(self) -> Optional[Sequence[str]]:
+        """
+        List of AI services connections.
+        """
+        return pulumi.get(self, "ai_services_connections")
+
+    @property
+    @pulumi.getter(name="capabilityHostKind")
+    def capability_host_kind(self) -> Optional[str]:
+        """
+        Kind of this capability host.
+        """
+        return pulumi.get(self, "capability_host_kind")
+
+    @property
+    @pulumi.getter(name="customerSubnet")
+    def customer_subnet(self) -> Optional[str]:
+        """
+        Customer subnet info to help set up this capability host.
+        """
+        return pulumi.get(self, "customer_subnet")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="storageConnections")
+    def storage_connections(self) -> Optional[Sequence[str]]:
+        """
+        List of Storage connections.
+        """
+        return pulumi.get(self, "storage_connections")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vectorStoreConnections")
+    def vector_store_connections(self) -> Optional[Sequence[str]]:
+        """
+        List of VectorStore connections.
+        """
+        return pulumi.get(self, "vector_store_connections")
 
 
 @pulumi.output_type
@@ -11055,6 +11200,55 @@ class DefaultScaleSettingsResponse(dict):
         Expected value is 'Default'.
         """
         return pulumi.get(self, "scale_type")
+
+
+@pulumi.output_type
+class DeltaModelCurrentStateResponse(dict):
+    """
+    Contract for DeltaModelCurrentState.
+    """
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 sample_instance_id: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        Contract for DeltaModelCurrentState.
+        :param int count: Gets or sets Count of instances with model.
+        :param str sample_instance_id: Gets or sets sample of instances with model.
+        :param str status: Gets or sets status.
+        """
+        if count is None:
+            count = 0
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if sample_instance_id is not None:
+            pulumi.set(__self__, "sample_instance_id", sample_instance_id)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        Gets or sets Count of instances with model.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="sampleInstanceID")
+    def sample_instance_id(self) -> Optional[str]:
+        """
+        Gets or sets sample of instances with model.
+        """
+        return pulumi.get(self, "sample_instance_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Gets or sets status.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

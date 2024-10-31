@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Azure OpenAI Content Filters resource.
  * Azure REST API version: 2024-04-01-preview.
  *
- * Other available API versions: 2024-07-01-preview.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
  */
 export class RaiPolicy extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class RaiPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:RaiPolicy" }, { type: "azure-native:machinelearningservices/v20240701preview:RaiPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:RaiPolicy" }, { type: "azure-native:machinelearningservices/v20240701preview:RaiPolicy" }, { type: "azure-native:machinelearningservices/v20241001preview:RaiPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RaiPolicy.__pulumiType, name, resourceInputs, opts);
     }

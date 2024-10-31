@@ -105,6 +105,8 @@ if typing.TYPE_CHECKING:
     config = __config
     import pulumi_azure_native.confluent as __confluent
     confluent = __confluent
+    import pulumi_azure_native.connectedcache as __connectedcache
+    connectedcache = __connectedcache
     import pulumi_azure_native.connectedvmwarevsphere as __connectedvmwarevsphere
     connectedvmwarevsphere = __connectedvmwarevsphere
     import pulumi_azure_native.consumption as __consumption
@@ -524,6 +526,7 @@ else:
     confidentialledger = _utilities.lazy_import('pulumi_azure_native.confidentialledger')
     config = _utilities.lazy_import('pulumi_azure_native.config')
     confluent = _utilities.lazy_import('pulumi_azure_native.confluent')
+    connectedcache = _utilities.lazy_import('pulumi_azure_native.connectedcache')
     connectedvmwarevsphere = _utilities.lazy_import('pulumi_azure_native.connectedvmwarevsphere')
     consumption = _utilities.lazy_import('pulumi_azure_native.consumption')
     containerinstance = _utilities.lazy_import('pulumi_azure_native.containerinstance')
@@ -5307,6 +5310,32 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "connectedcache",
+  "fqn": "pulumi_azure_native.connectedcache",
+  "classes": {
+   "azure-native:connectedcache:CacheNodesOperation": "CacheNodesOperation",
+   "azure-native:connectedcache:EnterpriseCustomerOperation": "EnterpriseCustomerOperation",
+   "azure-native:connectedcache:EnterpriseMccCacheNodesOperation": "EnterpriseMccCacheNodesOperation",
+   "azure-native:connectedcache:EnterpriseMccCustomer": "EnterpriseMccCustomer",
+   "azure-native:connectedcache:IspCacheNodesOperation": "IspCacheNodesOperation",
+   "azure-native:connectedcache:IspCustomer": "IspCustomer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "connectedcache/v20230501preview",
+  "fqn": "pulumi_azure_native.connectedcache.v20230501preview",
+  "classes": {
+   "azure-native:connectedcache/v20230501preview:CacheNodesOperation": "CacheNodesOperation",
+   "azure-native:connectedcache/v20230501preview:EnterpriseCustomerOperation": "EnterpriseCustomerOperation",
+   "azure-native:connectedcache/v20230501preview:EnterpriseMccCacheNodesOperation": "EnterpriseMccCacheNodesOperation",
+   "azure-native:connectedcache/v20230501preview:EnterpriseMccCustomer": "EnterpriseMccCustomer",
+   "azure-native:connectedcache/v20230501preview:IspCacheNodesOperation": "IspCacheNodesOperation",
+   "azure-native:connectedcache/v20230501preview:IspCustomer": "IspCustomer"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "connectedvmwarevsphere",
   "fqn": "pulumi_azure_native.connectedvmwarevsphere",
   "classes": {
@@ -6484,6 +6513,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.dashboard",
   "classes": {
    "azure-native:dashboard:Grafana": "Grafana",
+   "azure-native:dashboard:IntegrationFabric": "IntegrationFabric",
    "azure-native:dashboard:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
    "azure-native:dashboard:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
@@ -6523,6 +6553,17 @@ _utilities.register(
    "azure-native:dashboard/v20230901:Grafana": "Grafana",
    "azure-native:dashboard/v20230901:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
    "azure-native:dashboard/v20230901:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dashboard/v20231001preview",
+  "fqn": "pulumi_azure_native.dashboard.v20231001preview",
+  "classes": {
+   "azure-native:dashboard/v20231001preview:Grafana": "Grafana",
+   "azure-native:dashboard/v20231001preview:IntegrationFabric": "IntegrationFabric",
+   "azure-native:dashboard/v20231001preview:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
+   "azure-native:dashboard/v20231001preview:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -7691,6 +7732,22 @@ _utilities.register(
    "azure-native:dbforpostgresql/v20240801:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:dbforpostgresql/v20240801:Server": "Server",
    "azure-native:dbforpostgresql/v20240801:VirtualEndpoint": "VirtualEndpoint"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dbforpostgresql/v20241101preview",
+  "fqn": "pulumi_azure_native.dbforpostgresql.v20241101preview",
+  "classes": {
+   "azure-native:dbforpostgresql/v20241101preview:Administrator": "Administrator",
+   "azure-native:dbforpostgresql/v20241101preview:Backup": "Backup",
+   "azure-native:dbforpostgresql/v20241101preview:Configuration": "Configuration",
+   "azure-native:dbforpostgresql/v20241101preview:Database": "Database",
+   "azure-native:dbforpostgresql/v20241101preview:FirewallRule": "FirewallRule",
+   "azure-native:dbforpostgresql/v20241101preview:Migration": "Migration",
+   "azure-native:dbforpostgresql/v20241101preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:dbforpostgresql/v20241101preview:Server": "Server",
+   "azure-native:dbforpostgresql/v20241101preview:VirtualEndpoint": "VirtualEndpoint"
   }
  },
  {
@@ -11674,6 +11731,7 @@ _utilities.register(
   "classes": {
    "azure-native:machinelearningservices:BatchDeployment": "BatchDeployment",
    "azure-native:machinelearningservices:BatchEndpoint": "BatchEndpoint",
+   "azure-native:machinelearningservices:CapabilityHost": "CapabilityHost",
    "azure-native:machinelearningservices:CapacityReservationGroup": "CapacityReservationGroup",
    "azure-native:machinelearningservices:CodeContainer": "CodeContainer",
    "azure-native:machinelearningservices:CodeVersion": "CodeVersion",
@@ -12260,6 +12318,108 @@ _utilities.register(
    "azure-native:machinelearningservices/v20240701preview:ServerlessEndpoint": "ServerlessEndpoint",
    "azure-native:machinelearningservices/v20240701preview:Workspace": "Workspace",
    "azure-native:machinelearningservices/v20240701preview:WorkspaceConnection": "WorkspaceConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "machinelearningservices/v20241001",
+  "fqn": "pulumi_azure_native.machinelearningservices.v20241001",
+  "classes": {
+   "azure-native:machinelearningservices/v20241001:BatchDeployment": "BatchDeployment",
+   "azure-native:machinelearningservices/v20241001:BatchEndpoint": "BatchEndpoint",
+   "azure-native:machinelearningservices/v20241001:CodeContainer": "CodeContainer",
+   "azure-native:machinelearningservices/v20241001:CodeVersion": "CodeVersion",
+   "azure-native:machinelearningservices/v20241001:ComponentContainer": "ComponentContainer",
+   "azure-native:machinelearningservices/v20241001:ComponentVersion": "ComponentVersion",
+   "azure-native:machinelearningservices/v20241001:Compute": "Compute",
+   "azure-native:machinelearningservices/v20241001:DataContainer": "DataContainer",
+   "azure-native:machinelearningservices/v20241001:DataVersion": "DataVersion",
+   "azure-native:machinelearningservices/v20241001:Datastore": "Datastore",
+   "azure-native:machinelearningservices/v20241001:EnvironmentContainer": "EnvironmentContainer",
+   "azure-native:machinelearningservices/v20241001:EnvironmentVersion": "EnvironmentVersion",
+   "azure-native:machinelearningservices/v20241001:FeaturesetContainerEntity": "FeaturesetContainerEntity",
+   "azure-native:machinelearningservices/v20241001:FeaturesetVersion": "FeaturesetVersion",
+   "azure-native:machinelearningservices/v20241001:FeaturestoreEntityContainerEntity": "FeaturestoreEntityContainerEntity",
+   "azure-native:machinelearningservices/v20241001:FeaturestoreEntityVersion": "FeaturestoreEntityVersion",
+   "azure-native:machinelearningservices/v20241001:Job": "Job",
+   "azure-native:machinelearningservices/v20241001:ManagedNetworkSettingsRule": "ManagedNetworkSettingsRule",
+   "azure-native:machinelearningservices/v20241001:MarketplaceSubscription": "MarketplaceSubscription",
+   "azure-native:machinelearningservices/v20241001:ModelContainer": "ModelContainer",
+   "azure-native:machinelearningservices/v20241001:ModelVersion": "ModelVersion",
+   "azure-native:machinelearningservices/v20241001:OnlineDeployment": "OnlineDeployment",
+   "azure-native:machinelearningservices/v20241001:OnlineEndpoint": "OnlineEndpoint",
+   "azure-native:machinelearningservices/v20241001:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:machinelearningservices/v20241001:Registry": "Registry",
+   "azure-native:machinelearningservices/v20241001:RegistryCodeContainer": "RegistryCodeContainer",
+   "azure-native:machinelearningservices/v20241001:RegistryCodeVersion": "RegistryCodeVersion",
+   "azure-native:machinelearningservices/v20241001:RegistryComponentContainer": "RegistryComponentContainer",
+   "azure-native:machinelearningservices/v20241001:RegistryComponentVersion": "RegistryComponentVersion",
+   "azure-native:machinelearningservices/v20241001:RegistryDataContainer": "RegistryDataContainer",
+   "azure-native:machinelearningservices/v20241001:RegistryDataVersion": "RegistryDataVersion",
+   "azure-native:machinelearningservices/v20241001:RegistryEnvironmentContainer": "RegistryEnvironmentContainer",
+   "azure-native:machinelearningservices/v20241001:RegistryEnvironmentVersion": "RegistryEnvironmentVersion",
+   "azure-native:machinelearningservices/v20241001:RegistryModelContainer": "RegistryModelContainer",
+   "azure-native:machinelearningservices/v20241001:RegistryModelVersion": "RegistryModelVersion",
+   "azure-native:machinelearningservices/v20241001:Schedule": "Schedule",
+   "azure-native:machinelearningservices/v20241001:ServerlessEndpoint": "ServerlessEndpoint",
+   "azure-native:machinelearningservices/v20241001:Workspace": "Workspace",
+   "azure-native:machinelearningservices/v20241001:WorkspaceConnection": "WorkspaceConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "machinelearningservices/v20241001preview",
+  "fqn": "pulumi_azure_native.machinelearningservices.v20241001preview",
+  "classes": {
+   "azure-native:machinelearningservices/v20241001preview:BatchDeployment": "BatchDeployment",
+   "azure-native:machinelearningservices/v20241001preview:BatchEndpoint": "BatchEndpoint",
+   "azure-native:machinelearningservices/v20241001preview:CapabilityHost": "CapabilityHost",
+   "azure-native:machinelearningservices/v20241001preview:CodeContainer": "CodeContainer",
+   "azure-native:machinelearningservices/v20241001preview:CodeVersion": "CodeVersion",
+   "azure-native:machinelearningservices/v20241001preview:ComponentContainer": "ComponentContainer",
+   "azure-native:machinelearningservices/v20241001preview:ComponentVersion": "ComponentVersion",
+   "azure-native:machinelearningservices/v20241001preview:Compute": "Compute",
+   "azure-native:machinelearningservices/v20241001preview:ConnectionDeployment": "ConnectionDeployment",
+   "azure-native:machinelearningservices/v20241001preview:ConnectionRaiBlocklist": "ConnectionRaiBlocklist",
+   "azure-native:machinelearningservices/v20241001preview:ConnectionRaiBlocklistItem": "ConnectionRaiBlocklistItem",
+   "azure-native:machinelearningservices/v20241001preview:ConnectionRaiPolicy": "ConnectionRaiPolicy",
+   "azure-native:machinelearningservices/v20241001preview:DataContainer": "DataContainer",
+   "azure-native:machinelearningservices/v20241001preview:DataVersion": "DataVersion",
+   "azure-native:machinelearningservices/v20241001preview:Datastore": "Datastore",
+   "azure-native:machinelearningservices/v20241001preview:EndpointDeployment": "EndpointDeployment",
+   "azure-native:machinelearningservices/v20241001preview:EnvironmentContainer": "EnvironmentContainer",
+   "azure-native:machinelearningservices/v20241001preview:EnvironmentVersion": "EnvironmentVersion",
+   "azure-native:machinelearningservices/v20241001preview:FeaturesetContainerEntity": "FeaturesetContainerEntity",
+   "azure-native:machinelearningservices/v20241001preview:FeaturesetVersion": "FeaturesetVersion",
+   "azure-native:machinelearningservices/v20241001preview:FeaturestoreEntityContainerEntity": "FeaturestoreEntityContainerEntity",
+   "azure-native:machinelearningservices/v20241001preview:FeaturestoreEntityVersion": "FeaturestoreEntityVersion",
+   "azure-native:machinelearningservices/v20241001preview:InferenceEndpoint": "InferenceEndpoint",
+   "azure-native:machinelearningservices/v20241001preview:InferenceGroup": "InferenceGroup",
+   "azure-native:machinelearningservices/v20241001preview:InferencePool": "InferencePool",
+   "azure-native:machinelearningservices/v20241001preview:Job": "Job",
+   "azure-native:machinelearningservices/v20241001preview:ManagedNetworkSettingsRule": "ManagedNetworkSettingsRule",
+   "azure-native:machinelearningservices/v20241001preview:MarketplaceSubscription": "MarketplaceSubscription",
+   "azure-native:machinelearningservices/v20241001preview:ModelContainer": "ModelContainer",
+   "azure-native:machinelearningservices/v20241001preview:ModelVersion": "ModelVersion",
+   "azure-native:machinelearningservices/v20241001preview:OnlineDeployment": "OnlineDeployment",
+   "azure-native:machinelearningservices/v20241001preview:OnlineEndpoint": "OnlineEndpoint",
+   "azure-native:machinelearningservices/v20241001preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:machinelearningservices/v20241001preview:RaiPolicy": "RaiPolicy",
+   "azure-native:machinelearningservices/v20241001preview:Registry": "Registry",
+   "azure-native:machinelearningservices/v20241001preview:RegistryCodeContainer": "RegistryCodeContainer",
+   "azure-native:machinelearningservices/v20241001preview:RegistryCodeVersion": "RegistryCodeVersion",
+   "azure-native:machinelearningservices/v20241001preview:RegistryComponentContainer": "RegistryComponentContainer",
+   "azure-native:machinelearningservices/v20241001preview:RegistryComponentVersion": "RegistryComponentVersion",
+   "azure-native:machinelearningservices/v20241001preview:RegistryDataContainer": "RegistryDataContainer",
+   "azure-native:machinelearningservices/v20241001preview:RegistryDataVersion": "RegistryDataVersion",
+   "azure-native:machinelearningservices/v20241001preview:RegistryEnvironmentContainer": "RegistryEnvironmentContainer",
+   "azure-native:machinelearningservices/v20241001preview:RegistryEnvironmentVersion": "RegistryEnvironmentVersion",
+   "azure-native:machinelearningservices/v20241001preview:RegistryModelContainer": "RegistryModelContainer",
+   "azure-native:machinelearningservices/v20241001preview:RegistryModelVersion": "RegistryModelVersion",
+   "azure-native:machinelearningservices/v20241001preview:Schedule": "Schedule",
+   "azure-native:machinelearningservices/v20241001preview:ServerlessEndpoint": "ServerlessEndpoint",
+   "azure-native:machinelearningservices/v20241001preview:Workspace": "Workspace",
+   "azure-native:machinelearningservices/v20241001preview:WorkspaceConnection": "WorkspaceConnection"
   }
  },
  {

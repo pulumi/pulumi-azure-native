@@ -92,7 +92,7 @@ export class ConnectionRaiPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ConnectionRaiPolicy" }, { type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ConnectionRaiPolicy" }, { type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiPolicy" }, { type: "azure-native:machinelearningservices/v20241001preview:ConnectionRaiPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionRaiPolicy.__pulumiType, name, resourceInputs, opts);
     }

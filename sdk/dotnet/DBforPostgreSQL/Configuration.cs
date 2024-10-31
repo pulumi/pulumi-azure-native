@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// Represents a Configuration.
     /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
     /// 
-    /// Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+    /// Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Source of the configuration.
+        /// Source of the configuration. Required to update the configuration.
         /// </summary>
         [Output("source")]
         public Output<string?> Source { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Unit { get; private set; } = null!;
 
         /// <summary>
-        /// Value of the configuration.
+        /// Value of the configuration. Required to update the configuration.
         /// </summary>
         [Output("value")]
         public Output<string?> Value { get; private set; } = null!;
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20231201preview:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240301preview:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240801:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20241101preview:Configuration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,13 +184,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// Source of the configuration.
+        /// Source of the configuration. Required to update the configuration.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
         /// <summary>
-        /// Value of the configuration.
+        /// Value of the configuration. Required to update the configuration.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

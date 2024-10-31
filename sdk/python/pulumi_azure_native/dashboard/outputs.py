@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'AzureMonitorWorkspaceIntegrationResponse',
     'GrafanaIntegrationsResponse',
+    'IntegrationFabricPropertiesResponse',
     'ManagedGrafanaPropertiesResponse',
     'ManagedPrivateEndpointConnectionStateResponse',
     'ManagedServiceIdentityResponse',
@@ -104,6 +105,81 @@ class GrafanaIntegrationsResponse(dict):
     @pulumi.getter(name="azureMonitorWorkspaceIntegrations")
     def azure_monitor_workspace_integrations(self) -> Optional[Sequence['outputs.AzureMonitorWorkspaceIntegrationResponse']]:
         return pulumi.get(self, "azure_monitor_workspace_integrations")
+
+
+@pulumi.output_type
+class IntegrationFabricPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "dataSourceResourceId":
+            suggest = "data_source_resource_id"
+        elif key == "targetResourceId":
+            suggest = "target_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationFabricPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationFabricPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationFabricPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 data_source_resource_id: Optional[str] = None,
+                 scenarios: Optional[Sequence[str]] = None,
+                 target_resource_id: Optional[str] = None):
+        """
+        :param str provisioning_state: Provisioning state of the resource.
+        :param str data_source_resource_id: The resource Id of the Azure resource which is used to configure Grafana data source. E.g., an Azure Monitor Workspace, an Azure Data Explorer cluster, etc.
+        :param Sequence[str] scenarios: A list of integration scenarios covered by this integration fabric
+        :param str target_resource_id: The resource Id of the Azure resource being integrated with Azure Managed Grafana. E.g., an Azure Kubernetes Service cluster.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if data_source_resource_id is not None:
+            pulumi.set(__self__, "data_source_resource_id", data_source_resource_id)
+        if scenarios is not None:
+            pulumi.set(__self__, "scenarios", scenarios)
+        if target_resource_id is not None:
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="dataSourceResourceId")
+    def data_source_resource_id(self) -> Optional[str]:
+        """
+        The resource Id of the Azure resource which is used to configure Grafana data source. E.g., an Azure Monitor Workspace, an Azure Data Explorer cluster, etc.
+        """
+        return pulumi.get(self, "data_source_resource_id")
+
+    @property
+    @pulumi.getter
+    def scenarios(self) -> Optional[Sequence[str]]:
+        """
+        A list of integration scenarios covered by this integration fabric
+        """
+        return pulumi.get(self, "scenarios")
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[str]:
+        """
+        The resource Id of the Azure resource being integrated with Azure Managed Grafana. E.g., an Azure Kubernetes Service cluster.
+        """
+        return pulumi.get(self, "target_resource_id")
 
 
 @pulumi.output_type

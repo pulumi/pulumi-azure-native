@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Source of the configuration.
+        /// Source of the configuration. Required to update the configuration.
         /// </summary>
         [Output("source")]
         public Output<string?> Source { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         public Output<string> Unit { get; private set; } = null!;
 
         /// <summary>
-        /// Value of the configuration.
+        /// Value of the configuration. Required to update the configuration.
         /// </summary>
         [Output("value")]
         public Output<string?> Value { get; private set; } = null!;
@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20231201preview:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240301preview:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240801:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20241101preview:Configuration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -180,13 +181,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// Source of the configuration.
+        /// Source of the configuration. Required to update the configuration.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
         /// <summary>
-        /// Value of the configuration.
+        /// Value of the configuration. Required to update the configuration.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

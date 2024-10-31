@@ -119,7 +119,7 @@ class VirtualEndpoint(pulumi.CustomResource):
         Represents a virtual endpoint for a server.
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+        Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +139,7 @@ class VirtualEndpoint(pulumi.CustomResource):
         Represents a virtual endpoint for a server.
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+        Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VirtualEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -183,7 +183,7 @@ class VirtualEndpoint(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_endpoints"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:VirtualEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:VirtualEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualEndpoint, __self__).__init__(
             'azure-native:dbforpostgresql:VirtualEndpoint',

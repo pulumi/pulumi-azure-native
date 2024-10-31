@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2024-04-01-preview.
  *
- * Other available API versions: 2024-07-01-preview.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
  */
 export class ConnectionDeployment extends pulumi.CustomResource {
     /**
@@ -94,7 +94,7 @@ export class ConnectionDeployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:ConnectionDeployment" }, { type: "azure-native:machinelearningservices/v20240701preview:ConnectionDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:ConnectionDeployment" }, { type: "azure-native:machinelearningservices/v20240701preview:ConnectionDeployment" }, { type: "azure-native:machinelearningservices/v20241001preview:ConnectionDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionDeployment.__pulumiType, name, resourceInputs, opts);
     }

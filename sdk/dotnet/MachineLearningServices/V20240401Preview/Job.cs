@@ -81,6 +81,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:Job" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

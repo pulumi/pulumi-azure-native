@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2024-04-01-preview, 2024-07-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
  */
 export function getEndpointDeployment(args: GetEndpointDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,7 +63,7 @@ export interface GetEndpointDeploymentResult {
 /**
  * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2024-04-01-preview, 2024-07-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
  */
 export function getEndpointDeploymentOutput(args: GetEndpointDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

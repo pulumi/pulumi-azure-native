@@ -18,6 +18,8 @@ import * as v20240101preview from "./v20240101preview";
 import * as v20240401 from "./v20240401";
 import * as v20240401preview from "./v20240401preview";
 import * as v20240701preview from "./v20240701preview";
+import * as v20241001 from "./v20241001";
+import * as v20241001preview from "./v20241001preview";
 
 export {
     v20200501preview,
@@ -36,6 +38,8 @@ export {
     v20240401,
     v20240401preview,
     v20240701preview,
+    v20241001,
+    v20241001preview,
 };
 
 export const AllowedContentLevel = {
@@ -156,6 +160,15 @@ export const BlockedTransformers = {
  * Enum for all classification models supported by AutoML.
  */
 export type BlockedTransformers = (typeof BlockedTransformers)[keyof typeof BlockedTransformers];
+
+export const CapabilityHostKind = {
+    Agents: "Agents",
+} as const;
+
+/**
+ * Kind of this capability host.
+ */
+export type CapabilityHostKind = (typeof CapabilityHostKind)[keyof typeof CapabilityHostKind];
 
 export const ClassificationModels = {
     /**

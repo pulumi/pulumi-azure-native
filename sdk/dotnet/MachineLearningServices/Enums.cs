@@ -295,6 +295,36 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// Kind of this capability host.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapabilityHostKind : IEquatable<CapabilityHostKind>
+    {
+        private readonly string _value;
+
+        private CapabilityHostKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapabilityHostKind Agents { get; } = new CapabilityHostKind("Agents");
+
+        public static bool operator ==(CapabilityHostKind left, CapabilityHostKind right) => left.Equals(right);
+        public static bool operator !=(CapabilityHostKind left, CapabilityHostKind right) => !left.Equals(right);
+
+        public static explicit operator string(CapabilityHostKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapabilityHostKind other && Equals(other);
+        public bool Equals(CapabilityHostKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enum for all classification models supported by AutoML.
     /// </summary>
     [EnumType]

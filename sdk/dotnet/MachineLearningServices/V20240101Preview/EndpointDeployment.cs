@@ -61,6 +61,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240101Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:EndpointDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:EndpointDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:EndpointDeployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:EndpointDeployment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240101Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:InferenceGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:InferenceGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:InferenceGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:InferenceGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

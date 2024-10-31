@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Gets information about a server.
         /// Azure REST API version: 2022-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
         /// </summary>
         public static Task<GetAdministratorResult> InvokeAsync(GetAdministratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdministratorResult>("azure-native:dbforpostgresql:getAdministrator", args ?? new GetAdministratorArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Gets information about a server.
         /// Azure REST API version: 2022-12-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
         /// </summary>
         public static Output<GetAdministratorResult> Invoke(GetAdministratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdministratorResult>("azure-native:dbforpostgresql:getAdministrator", args ?? new GetAdministratorInvokeArgs(), options.WithDefaults());

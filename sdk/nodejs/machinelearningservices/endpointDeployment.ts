@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2024-04-01-preview, 2024-07-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
  */
 export class EndpointDeployment extends pulumi.CustomResource {
     /**
@@ -91,7 +91,7 @@ export class EndpointDeployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240101preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240401preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240701preview:EndpointDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240101preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240401preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240701preview:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20241001preview:EndpointDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EndpointDeployment.__pulumiType, name, resourceInputs, opts);
     }

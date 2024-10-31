@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20240301Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Source of the configuration.
+        /// Source of the configuration. Required to update the configuration.
         /// </summary>
         public readonly string? Source;
         /// <summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20240301Preview
         /// </summary>
         public readonly string Unit;
         /// <summary>
-        /// Value of the configuration.
+        /// Value of the configuration. Required to update the configuration.
         /// </summary>
         public readonly string? Value;
 

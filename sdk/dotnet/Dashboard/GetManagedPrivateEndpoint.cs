@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Dashboard
         /// The managed private endpoint resource type.
         /// Azure REST API version: 2022-10-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2023-09-01, 2023-10-01-preview.
         /// </summary>
         public static Task<GetManagedPrivateEndpointResult> InvokeAsync(GetManagedPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-native:dashboard:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Dashboard
         /// The managed private endpoint resource type.
         /// Azure REST API version: 2022-10-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2023-09-01, 2023-10-01-preview.
         /// </summary>
         public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:dashboard:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithDefaults());

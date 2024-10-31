@@ -63,6 +63,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ConnectionRaiBlocklist" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:ConnectionRaiBlocklist" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:ConnectionRaiBlocklist" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

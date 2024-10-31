@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// 
         /// Azure REST API version: 2024-04-01-preview.
         /// 
-        /// Other available API versions: 2024-07-01-preview.
+        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetConnectionRaiBlocklistItemResult> InvokeAsync(GetConnectionRaiBlocklistItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionRaiBlocklistItemResult>("azure-native:machinelearningservices:getConnectionRaiBlocklistItem", args ?? new GetConnectionRaiBlocklistItemArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// 
         /// Azure REST API version: 2024-04-01-preview.
         /// 
-        /// Other available API versions: 2024-07-01-preview.
+        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetConnectionRaiBlocklistItemResult> Invoke(GetConnectionRaiBlocklistItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionRaiBlocklistItemResult>("azure-native:machinelearningservices:getConnectionRaiBlocklistItem", args ?? new GetConnectionRaiBlocklistItemInvokeArgs(), options.WithDefaults());

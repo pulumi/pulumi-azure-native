@@ -136,7 +136,7 @@ class Administrator(pulumi.CustomResource):
         Represents an Active Directory administrator.
         Azure REST API version: 2022-12-01.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +157,7 @@ class Administrator(pulumi.CustomResource):
         Represents an Active Directory administrator.
         Azure REST API version: 2022-12-01.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AdministratorArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +202,7 @@ class Administrator(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221201:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Administrator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221201:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:Administrator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Administrator, __self__).__init__(
             'azure-native:dbforpostgresql:Administrator',

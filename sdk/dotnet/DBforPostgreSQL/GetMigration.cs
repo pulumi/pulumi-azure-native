@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Gets details of a migration.
         /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+        /// Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
         /// </summary>
         public static Task<GetMigrationResult> InvokeAsync(GetMigrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMigrationResult>("azure-native:dbforpostgresql:getMigration", args ?? new GetMigrationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Gets details of a migration.
         /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+        /// Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
         /// </summary>
         public static Output<GetMigrationResult> Invoke(GetMigrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrationResult>("azure-native:dbforpostgresql:getMigration", args ?? new GetMigrationInvokeArgs(), options.WithDefaults());

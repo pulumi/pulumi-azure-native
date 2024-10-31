@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Azure OpenAI Content Filters resource.
  * Azure REST API version: 2024-04-01-preview.
  *
- * Other available API versions: 2024-07-01-preview.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
  */
 export function getConnectionRaiPolicy(args: GetConnectionRaiPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionRaiPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,7 +71,7 @@ export interface GetConnectionRaiPolicyResult {
  * Azure OpenAI Content Filters resource.
  * Azure REST API version: 2024-04-01-preview.
  *
- * Other available API versions: 2024-07-01-preview.
+ * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
  */
 export function getConnectionRaiPolicyOutput(args: GetConnectionRaiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionRaiPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

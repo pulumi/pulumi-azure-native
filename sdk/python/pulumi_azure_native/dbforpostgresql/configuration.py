@@ -30,8 +30,8 @@ class ConfigurationArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] configuration_name: The name of the server configuration.
-        :param pulumi.Input[str] source: Source of the configuration.
-        :param pulumi.Input[str] value: Value of the configuration.
+        :param pulumi.Input[str] source: Source of the configuration. Required to update the configuration.
+        :param pulumi.Input[str] value: Value of the configuration. Required to update the configuration.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
@@ -82,7 +82,7 @@ class ConfigurationArgs:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        Source of the configuration.
+        Source of the configuration. Required to update the configuration.
         """
         return pulumi.get(self, "source")
 
@@ -94,7 +94,7 @@ class ConfigurationArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        Value of the configuration.
+        Value of the configuration. Required to update the configuration.
         """
         return pulumi.get(self, "value")
 
@@ -118,15 +118,15 @@ class Configuration(pulumi.CustomResource):
         Represents a Configuration.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
 
-        Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+        Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The name of the server configuration.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[str] source: Source of the configuration.
-        :param pulumi.Input[str] value: Value of the configuration.
+        :param pulumi.Input[str] source: Source of the configuration. Required to update the configuration.
+        :param pulumi.Input[str] value: Value of the configuration. Required to update the configuration.
         """
         ...
     @overload
@@ -138,7 +138,7 @@ class Configuration(pulumi.CustomResource):
         Represents a Configuration.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
 
-        Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+        Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -190,7 +190,7 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unit"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210410privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220120preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221201:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Configuration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210410privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220120preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221201:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:Configuration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Configuration, __self__).__init__(
             'azure-native:dbforpostgresql:Configuration',
@@ -306,7 +306,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[Optional[str]]:
         """
-        Source of the configuration.
+        Source of the configuration. Required to update the configuration.
         """
         return pulumi.get(self, "source")
 
@@ -338,7 +338,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[Optional[str]]:
         """
-        Value of the configuration.
+        Value of the configuration. Required to update the configuration.
         """
         return pulumi.get(self, "value")
 

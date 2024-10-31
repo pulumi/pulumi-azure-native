@@ -46,6 +46,7 @@ import * as community from "./community";
 import * as compute from "./compute";
 import * as confidentialledger from "./confidentialledger";
 import * as confluent from "./confluent";
+import * as connectedcache from "./connectedcache";
 import * as connectedvmwarevsphere from "./connectedvmwarevsphere";
 import * as consumption from "./consumption";
 import * as containerinstance from "./containerinstance";
@@ -254,6 +255,7 @@ export {
     compute,
     confidentialledger,
     confluent,
+    connectedcache,
     connectedvmwarevsphere,
     consumption,
     containerinstance,

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// Server backup properties
     /// Azure REST API version: 2024-03-01-preview.
     /// 
-    /// Other available API versions: 2024-08-01.
+    /// Other available API versions: 2024-08-01, 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Backup")]
     public partial class Backup : global::Pulumi.CustomResource
@@ -81,6 +81,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240301preview:Backup" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240801:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20241101preview:Backup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

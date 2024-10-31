@@ -158,7 +158,7 @@ class GetConfigurationResult:
     @pulumi.getter
     def source(self) -> Optional[str]:
         """
-        Source of the configuration.
+        Source of the configuration. Required to update the configuration.
         """
         return pulumi.get(self, "source")
 
@@ -190,7 +190,7 @@ class GetConfigurationResult:
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Value of the configuration.
+        Value of the configuration. Required to update the configuration.
         """
         return pulumi.get(self, "value")
 
@@ -226,7 +226,7 @@ def get_configuration(configuration_name: Optional[str] = None,
     Gets information about a configuration of server.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+    Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
 
     :param str configuration_name: The name of the server configuration.
@@ -264,7 +264,7 @@ def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = N
     Gets information about a configuration of server.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01.
+    Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
 
 
     :param str configuration_name: The name of the server configuration.

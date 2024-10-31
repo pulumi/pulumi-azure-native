@@ -158,7 +158,7 @@ class GetConfigurationResult:
     @pulumi.getter
     def source(self) -> Optional[str]:
         """
-        Source of the configuration.
+        Source of the configuration. Required to update the configuration.
         """
         return pulumi.get(self, "source")
 
@@ -190,7 +190,7 @@ class GetConfigurationResult:
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Value of the configuration.
+        Value of the configuration. Required to update the configuration.
         """
         return pulumi.get(self, "value")
 
