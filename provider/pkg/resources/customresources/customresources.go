@@ -195,7 +195,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The
 	// `azCoreTokenCredential` adapter that we use elsewhere to translate legacy token sources to azidentity doesn't
 	// work here because KV needs a different token source for the KV endpoint.
-	useLegacyAuth := os.Getenv("PULUMI_USE_LEGACY_AUTH") != "false"
+	useLegacyAuth := os.Getenv("PULUMI_ENABLE_AZCORE_BACKEND") != "true"
 	if useLegacyAuth {
 		kvClient := keyvault.New()
 		kvClient.Authorizer = kvBearerAuth
