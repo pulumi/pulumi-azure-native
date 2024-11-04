@@ -7408,6 +7408,10 @@
     ],
     "2024-06-01-preview": [
       "Server"
+    ],
+    "2024-10-01-preview": [
+      "Server",
+      "getGetPrivateDnsZoneSuffixExecute"
     ]
   },
   "DBforPostgreSQL": {
