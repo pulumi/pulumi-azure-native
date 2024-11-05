@@ -15,6 +15,7 @@ import (
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
@@ -161,10 +162,6 @@ func BuildCustomResources(env *azureEnv.Environment,
 	userAgent string,
 	tokenCred azcore.TokenCredential) (map[string]*CustomResource, error) {
 
-	kvClient := keyvault.New()
-	kvClient.Authorizer = kvBearerAuth
-	kvClient.UserAgent = userAgent
-
 	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenCred, &arm.ClientOptions{})
 	if err != nil {
 		return nil, err
@@ -184,9 +181,6 @@ func BuildCustomResources(env *azureEnv.Environment,
 	}
 
 	resources := []*CustomResource{
-		// Azure KeyVault resources.
-		keyVaultSecret(env.KeyVaultDNSSuffix, &kvClient),
-		keyVaultKey(env.KeyVaultDNSSuffix, &kvClient),
 		keyVaultAccessPolicy(armKVClient),
 		// Storage resources.
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
@@ -196,6 +190,20 @@ func BuildCustomResources(env *azureEnv.Environment,
 		portalDashboard(),
 		customWebApp,
 		customWebAppSlot,
+	}
+
+	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The
+	// `azCoreTokenCredential` adapter that we use elsewhere to translate legacy token sources to azidentity doesn't
+	// work here because KV needs a different token source for the KV endpoint.
+	if util.EnableAzcoreBackend() {
+		resources = append(resources, keyVaultSecret(env.KeyVaultDNSSuffix, tokenCred))
+		resources = append(resources, keyVaultKey(env.KeyVaultDNSSuffix, tokenCred))
+	} else {
+		kvClient := keyvault.New()
+		kvClient.Authorizer = kvBearerAuth
+		kvClient.UserAgent = userAgent
+		resources = append(resources, keyVaultSecret_autorest(env.KeyVaultDNSSuffix, &kvClient))
+		resources = append(resources, keyVaultKey_autorest(env.KeyVaultDNSSuffix, &kvClient))
 	}
 
 	result := map[string]*CustomResource{}

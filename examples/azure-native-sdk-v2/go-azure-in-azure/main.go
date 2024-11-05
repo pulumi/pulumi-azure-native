@@ -113,10 +113,10 @@ func main() {
 			return err
 		}
 
+		// clientId is required for user-assigned identity to disambiguate between several identities.
+		var clientId pulumi.StringOutput = pulumi.String("").ToStringOutput()
 		vmIdentity := &compute.VirtualMachineIdentityArgs{Type: compute.ResourceIdentityTypeSystemAssigned}
-
 		var umi *managedidentity.UserAssignedIdentity
-		var umiClientId pulumi.StringOutput = pulumi.String("").ToStringOutput()
 		if os.Getenv("PULUMI_TEST_USER_IDENTITY") == "true" {
 			fmt.Printf("go-azure-in-azure: using user-assigned identity\n")
 
@@ -126,7 +126,7 @@ func main() {
 			if err != nil {
 				return err
 			}
-			umiClientId = umi.ClientId
+			clientId = umi.ClientId
 
 			// Create a second user-assigned identity to test multiple identities. With multiple identities, the one to
 			// use needs to be specified via clientId.
@@ -286,8 +286,9 @@ func main() {
 		}
 
 		// Pass feature flags into the VM.
-		useAutorest := os.Getenv("PULUMI_USE_AUTOREST")
-		useLegacyAuth := os.Getenv("PULUMI_USE_LEGACY_AUTH")
+		useAzcore := os.Getenv("PULUMI_ENABLE_AZCORE_BACKEND")
+
+		var tenantId pulumi.StringOutput = pulumi.String(os.Getenv("ARM_TENANT_ID")).ToStringOutput()
 
 		// We pass the resource group's ID into the inner program via config so the program can
 		// create a resource in the resource group.
@@ -297,19 +298,20 @@ export ARM_USE_MSI=true && \
 export ARM_SUBSCRIPTION_ID=%s && \
 export PATH="$HOME/.pulumi/bin:$PATH" && \
 export PULUMI_CONFIG_PASSPHRASE=pass && \
-export PULUMI_USE_AUTOREST=%s && \
-export PULUMI_USE_LEGACY_AUTH=%s && \
+export PULUMI_ENABLE_AZCORE_BACKEND=%s && \
 rand=$(openssl rand -hex 4) && \
 stackname="%s-$rand" && \
 pulumi login --local && \
 pulumi stack init $stackname && \
 pulumi config set azure-native:clientId "%s" -s $stackname && \
+pulumi config set azure-native:tenantId "%s" -s $stackname && \
+pulumi config set objectId "%s" -s $stackname && \
 pulumi config set rgId "%s" -s $stackname && \
 pulumi config -s $stackname && \
 pulumi up -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi down -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi stack rm --yes $stackname && \
-pulumi logout --local`, innerProgram, clientConf.SubscriptionId, useAutorest, useLegacyAuth, innerProgram, umiClientId, rg.ID())
+pulumi logout --local`, innerProgram, clientConf.SubscriptionId, useAzcore, innerProgram, clientId, tenantId, principalId, rg.ID())
 
 		pulumiPreview, err := remote.NewCommand(ctx, "pulumiUpDown", &remote.CommandArgs{
 			Connection: sshConn,
