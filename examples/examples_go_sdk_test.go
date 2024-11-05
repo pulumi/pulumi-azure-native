@@ -92,6 +92,10 @@ func TestServicebusRecreateSdk(t *testing.T) {
 }
 
 func TestAzureInAzureWithSystemManagedIdentity(t *testing.T) {
+	// This test fails on the autorest backend, see #2432
+	if os.Getenv("PULUMI_ENABLE_AZCORE_BACKEND") != "true" {
+		t.Skip("Skipping test because azcore backend is not enabled")
+	}
 	test := getGoBaseOptionsSdk(t, testDir(t, "go-azure-in-azure"))
 	integration.ProgramTest(t, &test)
 }
