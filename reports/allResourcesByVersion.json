@@ -7057,6 +7057,17 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2024-09-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -7408,6 +7419,10 @@
     ],
     "2024-06-01-preview": [
       "Server"
+    ],
+    "2024-10-01-preview": [
+      "Server",
+      "getGetPrivateDnsZoneSuffixExecute"
     ]
   },
   "DBforPostgreSQL": {
@@ -12460,6 +12475,9 @@
     ],
     "2024-01-01-preview": [
       "ScheduledQueryRule"
+    ],
+    "2024-10-01-preview": [
+      "ActionGroup"
     ]
   },
   "IntegrationSpaces": {
