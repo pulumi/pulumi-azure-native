@@ -285,7 +285,7 @@ dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(P
 	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
 	@touch $@
 
-.make/prebuild:
+.make/prebuild: .pulumi/bin/pulumi
 	cp -v versions/v2-lock.json provider/pkg/versionLookup/
 	@touch $@
 
