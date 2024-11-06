@@ -376,7 +376,7 @@ class Server(pulumi.CustomResource):
         Represents a server.
         Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
 
-        Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview.
+        Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -411,7 +411,7 @@ class Server(pulumi.CustomResource):
         Represents a server.
         Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
 
-        Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview.
+        Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.
@@ -485,7 +485,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20200701preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20200701privatepreview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20210501:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20210501preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20211201preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20220101:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20220930preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20230601preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20230630:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20231001preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20231201preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20231230:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20240201preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20240601preview:Server")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20200701preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20200701privatepreview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20210501:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20210501preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20211201preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20220101:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20220930preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20230601preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20230630:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20231001preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20231201preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20231230:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20240201preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20240601preview:Server"), pulumi.Alias(type_="azure-native:dbformysql/v20241001preview:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
             'azure-native:dbformysql:Server',

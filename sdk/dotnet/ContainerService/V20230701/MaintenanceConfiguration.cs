@@ -139,6 +139,7 @@ namespace Pulumi.AzureNative.ContainerService.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240701:MaintenanceConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240702preview:MaintenanceConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240801:MaintenanceConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240901:MaintenanceConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

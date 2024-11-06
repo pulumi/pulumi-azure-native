@@ -54,6 +54,10 @@ export interface GetRedisEnterpriseResult {
      */
     readonly identity?: outputs.cache.v20240901preview.ManagedServiceIdentityResponse;
     /**
+     * Distinguishes the kind of cluster. Read-only.
+     */
+    readonly kind: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;

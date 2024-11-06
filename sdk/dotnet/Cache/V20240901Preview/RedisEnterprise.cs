@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Cache.V20240901Preview
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Distinguishes the kind of cluster. Read-only.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]

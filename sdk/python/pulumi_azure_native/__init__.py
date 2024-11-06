@@ -6216,6 +6216,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20240901",
+  "fqn": "pulumi_azure_native.containerservice.v20240901",
+  "classes": {
+   "azure-native:containerservice/v20240901:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20240901:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20240901:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20240901:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20240901:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20240901:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerstorage",
   "fqn": "pulumi_azure_native.containerstorage",
   "classes": {
@@ -7514,6 +7527,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.dbformysql.v20240601preview",
   "classes": {
    "azure-native:dbformysql/v20240601preview:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dbformysql/v20241001preview",
+  "fqn": "pulumi_azure_native.dbformysql.v20241001preview",
+  "classes": {
+   "azure-native:dbformysql/v20241001preview:Server": "Server"
   }
  },
  {
@@ -10816,6 +10837,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.insights.v20240101preview",
   "classes": {
    "azure-native:insights/v20240101preview:ScheduledQueryRule": "ScheduledQueryRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "insights/v20241001preview",
+  "fqn": "pulumi_azure_native.insights.v20241001preview",
+  "classes": {
+   "azure-native:insights/v20241001preview:ActionGroup": "ActionGroup"
   }
  },
  {

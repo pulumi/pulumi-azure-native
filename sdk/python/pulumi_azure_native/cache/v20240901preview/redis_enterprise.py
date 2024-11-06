@@ -275,6 +275,7 @@ class RedisEnterprise(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones
             __props__.__dict__["host_name"] = None
+            __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -310,6 +311,7 @@ class RedisEnterprise(pulumi.CustomResource):
         __props__.__dict__["high_availability"] = None
         __props__.__dict__["host_name"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["minimum_tls_version"] = None
         __props__.__dict__["name"] = None
@@ -355,6 +357,14 @@ class RedisEnterprise(pulumi.CustomResource):
         The identity of the resource.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[str]:
+        """
+        Distinguishes the kind of cluster. Read-only.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter

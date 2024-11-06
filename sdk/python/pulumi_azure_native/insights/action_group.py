@@ -324,7 +324,7 @@ class ActionGroup(pulumi.CustomResource):
         An action group resource.
         Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2019-06-01.
 
-        Other available API versions: 2023-09-01-preview.
+        Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -356,7 +356,7 @@ class ActionGroup(pulumi.CustomResource):
         An action group resource.
         Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2019-06-01.
 
-        Other available API versions: 2023-09-01-preview.
+        Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ActionGroupInitArgs args: The arguments to use to populate this resource's properties.
@@ -426,7 +426,7 @@ class ActionGroup(pulumi.CustomResource):
             __props__.__dict__["webhook_receivers"] = webhook_receivers
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20170401:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20180301:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20180901:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20190301:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20190601:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20210901:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20220401:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20220601:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20230101:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20230901preview:ActionGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20170401:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20180301:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20180901:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20190301:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20190601:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20210901:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20220401:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20220601:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20230101:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20230901preview:ActionGroup"), pulumi.Alias(type_="azure-native:insights/v20241001preview:ActionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ActionGroup, __self__).__init__(
             'azure-native:insights:ActionGroup',

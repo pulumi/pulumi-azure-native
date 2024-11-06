@@ -49,6 +49,10 @@ runs:
       run: tar -zxf ${{github.workspace}}/sdk/${{ inputs.language  }}.tar.gz -C ${{github.workspace}}/sdk/${{ inputs.language  }}
       shell: bash
 
+    - name: Mark SDK as built
+      run: make --touch build_${{ inputs.language }}
+      shell: bash
+
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
       shell: bash

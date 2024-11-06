@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An action group resource.
  * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2019-06-01.
  *
- * Other available API versions: 2023-09-01-preview.
+ * Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
  */
 export class ActionGroup extends pulumi.CustomResource {
     /**
@@ -168,7 +168,7 @@ export class ActionGroup extends pulumi.CustomResource {
             resourceInputs["webhookReceivers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20170401:ActionGroup" }, { type: "azure-native:insights/v20180301:ActionGroup" }, { type: "azure-native:insights/v20180901:ActionGroup" }, { type: "azure-native:insights/v20190301:ActionGroup" }, { type: "azure-native:insights/v20190601:ActionGroup" }, { type: "azure-native:insights/v20210901:ActionGroup" }, { type: "azure-native:insights/v20220401:ActionGroup" }, { type: "azure-native:insights/v20220601:ActionGroup" }, { type: "azure-native:insights/v20230101:ActionGroup" }, { type: "azure-native:insights/v20230901preview:ActionGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20170401:ActionGroup" }, { type: "azure-native:insights/v20180301:ActionGroup" }, { type: "azure-native:insights/v20180901:ActionGroup" }, { type: "azure-native:insights/v20190301:ActionGroup" }, { type: "azure-native:insights/v20190601:ActionGroup" }, { type: "azure-native:insights/v20210901:ActionGroup" }, { type: "azure-native:insights/v20220401:ActionGroup" }, { type: "azure-native:insights/v20220601:ActionGroup" }, { type: "azure-native:insights/v20230101:ActionGroup" }, { type: "azure-native:insights/v20230901preview:ActionGroup" }, { type: "azure-native:insights/v20241001preview:ActionGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActionGroup.__pulumiType, name, resourceInputs, opts);
     }

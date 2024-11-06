@@ -54,6 +54,10 @@ export class RedisEnterprise extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.cache.v20240901preview.ManagedServiceIdentityResponse | undefined>;
     /**
+     * Distinguishes the kind of cluster. Read-only.
+     */
+    public /*out*/ readonly kind!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -130,6 +134,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -142,6 +147,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
             resourceInputs["highAvailability"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["minimumTlsVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

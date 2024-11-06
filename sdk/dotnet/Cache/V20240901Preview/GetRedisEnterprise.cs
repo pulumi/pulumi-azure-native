@@ -90,6 +90,10 @@ namespace Pulumi.AzureNative.Cache.V20240901Preview
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
+        /// Distinguishes the kind of cluster. Read-only.
+        /// </summary>
+        public readonly string Kind;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.Cache.V20240901Preview
 
             Outputs.ManagedServiceIdentityResponse? identity,
 
+            string kind,
+
             string location,
 
             string? minimumTlsVersion,
@@ -179,6 +185,7 @@ namespace Pulumi.AzureNative.Cache.V20240901Preview
             HostName = hostName;
             Id = id;
             Identity = identity;
+            Kind = kind;
             Location = location;
             MinimumTlsVersion = minimumTlsVersion;
             Name = name;

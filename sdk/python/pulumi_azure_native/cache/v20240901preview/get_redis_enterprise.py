@@ -27,7 +27,7 @@ class GetRedisEnterpriseResult:
     """
     Describes the Redis Enterprise cluster
     """
-    def __init__(__self__, encryption=None, high_availability=None, host_name=None, id=None, identity=None, location=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, redis_version=None, redundancy_mode=None, resource_state=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, encryption=None, high_availability=None, host_name=None, id=None, identity=None, kind=None, location=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, redis_version=None, redundancy_mode=None, resource_state=None, sku=None, tags=None, type=None, zones=None):
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -43,6 +43,9 @@ class GetRedisEnterpriseResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -119,6 +122,14 @@ class GetRedisEnterpriseResult:
         The identity of the resource.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Distinguishes the kind of cluster. Read-only.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -228,6 +239,7 @@ class AwaitableGetRedisEnterpriseResult(GetRedisEnterpriseResult):
             host_name=self.host_name,
             id=self.id,
             identity=self.identity,
+            kind=self.kind,
             location=self.location,
             minimum_tls_version=self.minimum_tls_version,
             name=self.name,
@@ -264,6 +276,7 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
         host_name=pulumi.get(__ret__, 'host_name'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
+        kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         minimum_tls_version=pulumi.get(__ret__, 'minimum_tls_version'),
         name=pulumi.get(__ret__, 'name'),
@@ -297,6 +310,7 @@ def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[str]] = None
         host_name=pulumi.get(__response__, 'host_name'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
+        kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
         minimum_tls_version=pulumi.get(__response__, 'minimum_tls_version'),
         name=pulumi.get(__response__, 'name'),

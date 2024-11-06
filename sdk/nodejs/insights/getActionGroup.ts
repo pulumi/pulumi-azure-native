@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get an action group.
  * Azure REST API version: 2023-01-01.
  *
- * Other available API versions: 2023-09-01-preview.
+ * Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -113,7 +113,7 @@ export interface GetActionGroupResult {
  * Get an action group.
  * Azure REST API version: 2023-01-01.
  *
- * Other available API versions: 2023-09-01-preview.
+ * Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
  */
 export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
