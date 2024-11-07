@@ -102,6 +102,10 @@ func TestAzureInAzureWithSystemManagedIdentity(t *testing.T) {
 
 func TestAzureInAzureWithUserManagedIdentity(t *testing.T) {
 	skipIfShort(t)
+	// This test fails on the autorest backend, see #2432
+	if os.Getenv("PULUMI_ENABLE_AZCORE_BACKEND") != "true" {
+		t.Skip("Skipping test because azcore backend is not enabled")
+	}
 
 	test := getGoBaseOptionsSdk(t, testDir(t, "go-azure-in-azure")).
 		With(integration.ProgramTestOptions{
