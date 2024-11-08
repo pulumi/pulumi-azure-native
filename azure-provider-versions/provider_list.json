@@ -25325,6 +25325,13 @@
         ]
       },
       {
+        "resourceType": "locations/usages",
+        "apiVersions": [
+          "2023-11-01",
+          "2022-07-01-preview"
+        ]
+      },
+      {
         "resourceType": "operations",
         "apiVersions": [
           "2023-11-01",
