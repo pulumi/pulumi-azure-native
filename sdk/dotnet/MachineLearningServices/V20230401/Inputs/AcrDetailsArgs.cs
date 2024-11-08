@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401.Inputs
         [Input("systemCreatedAcrAccount")]
         public Input<Inputs.SystemCreatedAcrAccountArgs>? SystemCreatedAcrAccount { get; set; }
 
-        /// <summary>
-        /// Details of user created ACR account to be used for the Registry
-        /// </summary>
-        [Input("userCreatedAcrAccount")]
-        public Input<Inputs.UserCreatedAcrAccountArgs>? UserCreatedAcrAccount { get; set; }
-
         public AcrDetailsArgs()
         {
         }

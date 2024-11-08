@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class MySqlLinkedServiceResponse
     {
         /// <summary>
+        /// This allows the special “zero” date value 0000-00-00 to be retrieved from the database. Type: boolean.
+        /// </summary>
+        public readonly object? AllowZeroDateTime;
+        /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
@@ -28,6 +32,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
         public readonly object? ConnectionString;
+        /// <summary>
+        /// The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error. Type: integer.
+        /// </summary>
+        public readonly object? ConnectionTimeout;
+        /// <summary>
+        /// True to return DateTime.MinValue for date or datetime columns that have disallowed values. Type: boolean.
+        /// </summary>
+        public readonly object? ConvertZeroDateTime;
         /// <summary>
         /// Database name for connection. Type: string.
         /// </summary>
@@ -45,6 +57,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? EncryptedCredential;
         /// <summary>
+        /// Determines which column type (if any) should be read as a GUID. Type: string. None: No column types are automatically read as a Guid; Char36: All CHAR(36) columns are read/written as a Guid using lowercase hex with hyphens, which matches UUID.
+        /// </summary>
+        public readonly object? GuidFormat;
+        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
@@ -61,9 +77,21 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? Server;
         /// <summary>
+        /// The path to the client’s SSL certificate file in PEM format. SslKey must also be specified. Type: string.
+        /// </summary>
+        public readonly object? SslCert;
+        /// <summary>
+        /// The path to the client’s SSL private key in PEM format. SslCert must also be specified. Type: string.
+        /// </summary>
+        public readonly object? SslKey;
+        /// <summary>
         /// SSL mode for connection. Type: integer. 0: disable, 1: prefer, 2: require, 3: verify-ca, 4: verify-full.
         /// </summary>
         public readonly object? SslMode;
+        /// <summary>
+        /// When set to true, TINYINT(1) values are returned as booleans. Type: bool.
+        /// </summary>
+        public readonly object? TreatTinyAsBoolean;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'MySql'.
@@ -84,11 +112,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private MySqlLinkedServiceResponse(
+            object? allowZeroDateTime,
+
             ImmutableArray<object> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             object? connectionString,
+
+            object? connectionTimeout,
+
+            object? convertZeroDateTime,
 
             object? database,
 
@@ -98,6 +132,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? encryptedCredential,
 
+            object? guidFormat,
+
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Outputs.AzureKeyVaultSecretReferenceResponse? password,
@@ -106,7 +142,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? server,
 
+            object? sslCert,
+
+            object? sslKey,
+
             object? sslMode,
+
+            object? treatTinyAsBoolean,
 
             string type,
 
@@ -116,18 +158,25 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? version)
         {
+            AllowZeroDateTime = allowZeroDateTime;
             Annotations = annotations;
             ConnectVia = connectVia;
             ConnectionString = connectionString;
+            ConnectionTimeout = connectionTimeout;
+            ConvertZeroDateTime = convertZeroDateTime;
             Database = database;
             Description = description;
             DriverVersion = driverVersion;
             EncryptedCredential = encryptedCredential;
+            GuidFormat = guidFormat;
             Parameters = parameters;
             Password = password;
             Port = port;
             Server = server;
+            SslCert = sslCert;
+            SslKey = sslKey;
             SslMode = sslMode;
+            TreatTinyAsBoolean = treatTinyAsBoolean;
             Type = type;
             UseSystemTrustStore = useSystemTrustStore;
             Username = username;

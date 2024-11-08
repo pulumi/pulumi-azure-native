@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
-        /// Compute instance type.
+        /// Compute instance type. Default: Standard_F4s_v2.
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>

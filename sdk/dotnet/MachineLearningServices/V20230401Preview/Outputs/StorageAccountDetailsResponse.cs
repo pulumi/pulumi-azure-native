@@ -20,19 +20,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview.Outputs
         /// Details of system created storage account to be used for the registry
         /// </summary>
         public readonly Outputs.SystemCreatedStorageAccountResponse? SystemCreatedStorageAccount;
-        /// <summary>
-        /// Details of user created storage account to be used for the registry
-        /// </summary>
-        public readonly Outputs.UserCreatedStorageAccountResponse? UserCreatedStorageAccount;
 
         [OutputConstructor]
-        private StorageAccountDetailsResponse(
-            Outputs.SystemCreatedStorageAccountResponse? systemCreatedStorageAccount,
-
-            Outputs.UserCreatedStorageAccountResponse? userCreatedStorageAccount)
+        private StorageAccountDetailsResponse(Outputs.SystemCreatedStorageAccountResponse? systemCreatedStorageAccount)
         {
             SystemCreatedStorageAccount = systemCreatedStorageAccount;
-            UserCreatedStorageAccount = userCreatedStorageAccount;
         }
     }
 }

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
+        /// The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer.
+        /// </summary>
+        [Input("commandTimeout")]
+        public Input<object>? CommandTimeout { get; set; }
+
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -40,10 +46,22 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? ConnectionString { get; set; }
 
         /// <summary>
+        /// Database name for connection. Type: string.
+        /// </summary>
+        [Input("database")]
+        public Input<object>? Database { get; set; }
+
+        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. Type: string
+        /// </summary>
+        [Input("encoding")]
+        public Input<object>? Encoding { get; set; }
 
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
@@ -70,11 +88,59 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? Password { get; set; }
 
         /// <summary>
+        /// The port for the connection. Type: integer.
+        /// </summary>
+        [Input("port")]
+        public Input<object>? Port { get; set; }
+
+        /// <summary>
+        /// Determines the size of the internal buffer uses when reading. Increasing may improve performance if transferring large values from the database. Type: integer.
+        /// </summary>
+        [Input("readBufferSize")]
+        public Input<object>? ReadBufferSize { get; set; }
+
+        /// <summary>
+        /// Server name for connection. Type: string.
+        /// </summary>
+        [Input("server")]
+        public Input<object>? Server { get; set; }
+
+        /// <summary>
+        /// SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer.
+        /// </summary>
+        [Input("sslMode")]
+        public Input<object>? SslMode { get; set; }
+
+        /// <summary>
+        /// The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. Type: integer.
+        /// </summary>
+        [Input("timeout")]
+        public Input<object>? Timeout { get; set; }
+
+        /// <summary>
+        /// Gets or sets the session timezone. Type: string.
+        /// </summary>
+        [Input("timezone")]
+        public Input<object>? Timezone { get; set; }
+
+        /// <summary>
+        /// Whether to trust the server certificate without validating it. Type: boolean.
+        /// </summary>
+        [Input("trustServerCertificate")]
+        public Input<object>? TrustServerCertificate { get; set; }
+
+        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzurePostgreSql'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Username for authentication. Type: string.
+        /// </summary>
+        [Input("username")]
+        public Input<object>? Username { get; set; }
 
         /// <summary>
         /// Version of the linked service.

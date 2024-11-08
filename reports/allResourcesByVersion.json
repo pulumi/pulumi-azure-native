@@ -20775,6 +20775,15 @@
       "ProtectionIntent",
       "ProtectionPolicy",
       "ResourceGuardProxy"
+    ],
+    "2024-10-01": [
+      "PrivateEndpointConnection",
+      "ProtectedItem",
+      "ProtectionContainer",
+      "ProtectionIntent",
+      "ProtectionPolicy",
+      "ResourceGuardProxy",
+      "Vault"
     ]
   },
   "RedHatOpenShift": {

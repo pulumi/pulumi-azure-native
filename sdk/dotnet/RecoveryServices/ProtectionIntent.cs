@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Base class for backup ProtectionIntent.
     /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01.
     /// 
-    /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview.
+    /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ProtectionIntent")]
     public partial class ProtectionIntent : global::Pulumi.CustomResource
@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240401:ProtectionIntent" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240430preview:ProtectionIntent" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240730preview:ProtectionIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20241001:ProtectionIntent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

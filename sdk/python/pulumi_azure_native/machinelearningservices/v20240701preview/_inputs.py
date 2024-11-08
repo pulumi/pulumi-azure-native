@@ -582,10 +582,6 @@ __all__ = [
     'UriFolderJobOutputArgsDict',
     'UserAccountCredentialsArgs',
     'UserAccountCredentialsArgsDict',
-    'UserCreatedAcrAccountArgs',
-    'UserCreatedAcrAccountArgsDict',
-    'UserCreatedStorageAccountArgs',
-    'UserCreatedStorageAccountArgsDict',
     'UserIdentityArgs',
     'UserIdentityArgsDict',
     'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs',
@@ -1643,27 +1639,19 @@ if not MYPY:
         """
         Details of system created ACR account to be used for the Registry
         """
-        user_created_acr_account: NotRequired[pulumi.Input['UserCreatedAcrAccountArgsDict']]
-        """
-        Details of user created ACR account to be used for the Registry
-        """
 elif False:
     AcrDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AcrDetailsArgs:
     def __init__(__self__, *,
-                 system_created_acr_account: Optional[pulumi.Input['SystemCreatedAcrAccountArgs']] = None,
-                 user_created_acr_account: Optional[pulumi.Input['UserCreatedAcrAccountArgs']] = None):
+                 system_created_acr_account: Optional[pulumi.Input['SystemCreatedAcrAccountArgs']] = None):
         """
         Details of ACR account to be used for the Registry
         :param pulumi.Input['SystemCreatedAcrAccountArgs'] system_created_acr_account: Details of system created ACR account to be used for the Registry
-        :param pulumi.Input['UserCreatedAcrAccountArgs'] user_created_acr_account: Details of user created ACR account to be used for the Registry
         """
         if system_created_acr_account is not None:
             pulumi.set(__self__, "system_created_acr_account", system_created_acr_account)
-        if user_created_acr_account is not None:
-            pulumi.set(__self__, "user_created_acr_account", user_created_acr_account)
 
     @property
     @pulumi.getter(name="systemCreatedAcrAccount")
@@ -1676,18 +1664,6 @@ class AcrDetailsArgs:
     @system_created_acr_account.setter
     def system_created_acr_account(self, value: Optional[pulumi.Input['SystemCreatedAcrAccountArgs']]):
         pulumi.set(self, "system_created_acr_account", value)
-
-    @property
-    @pulumi.getter(name="userCreatedAcrAccount")
-    def user_created_acr_account(self) -> Optional[pulumi.Input['UserCreatedAcrAccountArgs']]:
-        """
-        Details of user created ACR account to be used for the Registry
-        """
-        return pulumi.get(self, "user_created_acr_account")
-
-    @user_created_acr_account.setter
-    def user_created_acr_account(self, value: Optional[pulumi.Input['UserCreatedAcrAccountArgs']]):
-        pulumi.set(self, "user_created_acr_account", value)
 
 
 if not MYPY:
@@ -32019,27 +31995,19 @@ if not MYPY:
         """
         Details of system created storage account to be used for the registry
         """
-        user_created_storage_account: NotRequired[pulumi.Input['UserCreatedStorageAccountArgsDict']]
-        """
-        Details of user created storage account to be used for the registry
-        """
 elif False:
     StorageAccountDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageAccountDetailsArgs:
     def __init__(__self__, *,
-                 system_created_storage_account: Optional[pulumi.Input['SystemCreatedStorageAccountArgs']] = None,
-                 user_created_storage_account: Optional[pulumi.Input['UserCreatedStorageAccountArgs']] = None):
+                 system_created_storage_account: Optional[pulumi.Input['SystemCreatedStorageAccountArgs']] = None):
         """
         Details of storage account to be used for the Registry
         :param pulumi.Input['SystemCreatedStorageAccountArgs'] system_created_storage_account: Details of system created storage account to be used for the registry
-        :param pulumi.Input['UserCreatedStorageAccountArgs'] user_created_storage_account: Details of user created storage account to be used for the registry
         """
         if system_created_storage_account is not None:
             pulumi.set(__self__, "system_created_storage_account", system_created_storage_account)
-        if user_created_storage_account is not None:
-            pulumi.set(__self__, "user_created_storage_account", user_created_storage_account)
 
     @property
     @pulumi.getter(name="systemCreatedStorageAccount")
@@ -32052,18 +32020,6 @@ class StorageAccountDetailsArgs:
     @system_created_storage_account.setter
     def system_created_storage_account(self, value: Optional[pulumi.Input['SystemCreatedStorageAccountArgs']]):
         pulumi.set(self, "system_created_storage_account", value)
-
-    @property
-    @pulumi.getter(name="userCreatedStorageAccount")
-    def user_created_storage_account(self) -> Optional[pulumi.Input['UserCreatedStorageAccountArgs']]:
-        """
-        Details of user created storage account to be used for the registry
-        """
-        return pulumi.get(self, "user_created_storage_account")
-
-    @user_created_storage_account.setter
-    def user_created_storage_account(self, value: Optional[pulumi.Input['UserCreatedStorageAccountArgs']]):
-        pulumi.set(self, "user_created_storage_account", value)
 
 
 if not MYPY:
@@ -35505,70 +35461,6 @@ class UserAccountCredentialsArgs:
     @admin_user_ssh_public_key.setter
     def admin_user_ssh_public_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_user_ssh_public_key", value)
-
-
-if not MYPY:
-    class UserCreatedAcrAccountArgsDict(TypedDict):
-        arm_resource_id: NotRequired[pulumi.Input['ArmResourceIdArgsDict']]
-        """
-        ARM ResourceId of a resource
-        """
-elif False:
-    UserCreatedAcrAccountArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class UserCreatedAcrAccountArgs:
-    def __init__(__self__, *,
-                 arm_resource_id: Optional[pulumi.Input['ArmResourceIdArgs']] = None):
-        """
-        :param pulumi.Input['ArmResourceIdArgs'] arm_resource_id: ARM ResourceId of a resource
-        """
-        if arm_resource_id is not None:
-            pulumi.set(__self__, "arm_resource_id", arm_resource_id)
-
-    @property
-    @pulumi.getter(name="armResourceId")
-    def arm_resource_id(self) -> Optional[pulumi.Input['ArmResourceIdArgs']]:
-        """
-        ARM ResourceId of a resource
-        """
-        return pulumi.get(self, "arm_resource_id")
-
-    @arm_resource_id.setter
-    def arm_resource_id(self, value: Optional[pulumi.Input['ArmResourceIdArgs']]):
-        pulumi.set(self, "arm_resource_id", value)
-
-
-if not MYPY:
-    class UserCreatedStorageAccountArgsDict(TypedDict):
-        arm_resource_id: NotRequired[pulumi.Input['ArmResourceIdArgsDict']]
-        """
-        ARM ResourceId of a resource
-        """
-elif False:
-    UserCreatedStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class UserCreatedStorageAccountArgs:
-    def __init__(__self__, *,
-                 arm_resource_id: Optional[pulumi.Input['ArmResourceIdArgs']] = None):
-        """
-        :param pulumi.Input['ArmResourceIdArgs'] arm_resource_id: ARM ResourceId of a resource
-        """
-        if arm_resource_id is not None:
-            pulumi.set(__self__, "arm_resource_id", arm_resource_id)
-
-    @property
-    @pulumi.getter(name="armResourceId")
-    def arm_resource_id(self) -> Optional[pulumi.Input['ArmResourceIdArgs']]:
-        """
-        ARM ResourceId of a resource
-        """
-        return pulumi.get(self, "arm_resource_id")
-
-    @arm_resource_id.setter
-    def arm_resource_id(self, value: Optional[pulumi.Input['ArmResourceIdArgs']]):
-        pulumi.set(self, "arm_resource_id", value)
 
 
 if not MYPY:

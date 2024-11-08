@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
+        /// The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer.
+        /// </summary>
+        public readonly object? CommandTimeout;
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -29,9 +33,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? ConnectionString;
         /// <summary>
+        /// Database name for connection. Type: string.
+        /// </summary>
+        public readonly object? Database;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. Type: string
+        /// </summary>
+        public readonly object? Encoding;
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
@@ -45,10 +57,42 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.AzureKeyVaultSecretReferenceResponse? Password;
         /// <summary>
+        /// The port for the connection. Type: integer.
+        /// </summary>
+        public readonly object? Port;
+        /// <summary>
+        /// Determines the size of the internal buffer uses when reading. Increasing may improve performance if transferring large values from the database. Type: integer.
+        /// </summary>
+        public readonly object? ReadBufferSize;
+        /// <summary>
+        /// Server name for connection. Type: string.
+        /// </summary>
+        public readonly object? Server;
+        /// <summary>
+        /// SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer.
+        /// </summary>
+        public readonly object? SslMode;
+        /// <summary>
+        /// The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. Type: integer.
+        /// </summary>
+        public readonly object? Timeout;
+        /// <summary>
+        /// Gets or sets the session timezone. Type: string.
+        /// </summary>
+        public readonly object? Timezone;
+        /// <summary>
+        /// Whether to trust the server certificate without validating it. Type: boolean.
+        /// </summary>
+        public readonly object? TrustServerCertificate;
+        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzurePostgreSql'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Username for authentication. Type: string.
+        /// </summary>
+        public readonly object? Username;
         /// <summary>
         /// Version of the linked service.
         /// </summary>
@@ -58,11 +102,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private AzurePostgreSqlLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
+            object? commandTimeout,
+
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             object? connectionString,
 
+            object? database,
+
             string? description,
+
+            object? encoding,
 
             string? encryptedCredential,
 
@@ -70,18 +120,45 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.AzureKeyVaultSecretReferenceResponse? password,
 
+            object? port,
+
+            object? readBufferSize,
+
+            object? server,
+
+            object? sslMode,
+
+            object? timeout,
+
+            object? timezone,
+
+            object? trustServerCertificate,
+
             string type,
+
+            object? username,
 
             string? version)
         {
             Annotations = annotations;
+            CommandTimeout = commandTimeout;
             ConnectVia = connectVia;
             ConnectionString = connectionString;
+            Database = database;
             Description = description;
+            Encoding = encoding;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             Password = password;
+            Port = port;
+            ReadBufferSize = readBufferSize;
+            Server = server;
+            SslMode = sslMode;
+            Timeout = timeout;
+            Timezone = timezone;
+            TrustServerCertificate = trustServerCertificate;
             Type = type;
+            Username = username;
             Version = version;
         }
     }

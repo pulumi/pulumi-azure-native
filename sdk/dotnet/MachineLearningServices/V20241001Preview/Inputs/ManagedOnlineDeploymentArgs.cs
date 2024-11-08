@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Inputs
         }
 
         /// <summary>
-        /// Compute instance type.
+        /// Compute instance type. Default: Standard_F4s_v2.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Inputs
         {
             AppInsightsEnabled = false;
             EgressPublicNetworkAccess = "Enabled";
+            InstanceType = "Standard_F4s_v2";
         }
         public static new ManagedOnlineDeploymentArgs Empty => new ManagedOnlineDeploymentArgs();
     }

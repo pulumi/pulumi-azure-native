@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230601Preview.Inputs
         [Input("systemCreatedStorageAccount")]
         public Input<Inputs.SystemCreatedStorageAccountArgs>? SystemCreatedStorageAccount { get; set; }
 
-        /// <summary>
-        /// Details of user created storage account to be used for the registry.  Not supported in most cases and will throw 400 error if provided.
-        /// </summary>
-        [Input("userCreatedStorageAccount")]
-        public Input<Inputs.UserCreatedStorageAccountArgs>? UserCreatedStorageAccount { get; set; }
-
         public StorageAccountDetailsArgs()
         {
         }

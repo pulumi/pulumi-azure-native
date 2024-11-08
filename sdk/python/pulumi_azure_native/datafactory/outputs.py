@@ -13926,12 +13926,20 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "connectVia":
+        if key == "commandTimeout":
+            suggest = "command_timeout"
+        elif key == "connectVia":
             suggest = "connect_via"
         elif key == "connectionString":
             suggest = "connection_string"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "readBufferSize":
+            suggest = "read_buffer_size"
+        elif key == "sslMode":
+            suggest = "ssl_mode"
+        elif key == "trustServerCertificate":
+            suggest = "trust_server_certificate"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzurePostgreSqlLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -13947,41 +13955,85 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
+                 command_timeout: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
+                 database: Optional[Any] = None,
                  description: Optional[str] = None,
+                 encoding: Optional[Any] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 port: Optional[Any] = None,
+                 read_buffer_size: Optional[Any] = None,
+                 server: Optional[Any] = None,
+                 ssl_mode: Optional[Any] = None,
+                 timeout: Optional[Any] = None,
+                 timezone: Optional[Any] = None,
+                 trust_server_certificate: Optional[Any] = None,
+                 username: Optional[Any] = None,
                  version: Optional[str] = None):
         """
         Azure PostgreSQL linked service.
         :param str type: Type of linked service.
                Expected value is 'AzurePostgreSql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any command_timeout: The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any database: Database name for connection. Type: string.
         :param str description: Linked service description.
+        :param Any encoding: Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. Type: string
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
+        :param Any port: The port for the connection. Type: integer.
+        :param Any read_buffer_size: Determines the size of the internal buffer uses when reading. Increasing may improve performance if transferring large values from the database. Type: integer.
+        :param Any server: Server name for connection. Type: string.
+        :param Any ssl_mode: SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer.
+        :param Any timeout: The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. Type: integer.
+        :param Any timezone: Gets or sets the session timezone. Type: string.
+        :param Any trust_server_certificate: Whether to trust the server certificate without validating it. Type: boolean.
+        :param Any username: Username for authentication. Type: string.
         :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'AzurePostgreSql')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if command_timeout is not None:
+            pulumi.set(__self__, "command_timeout", command_timeout)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if read_buffer_size is not None:
+            pulumi.set(__self__, "read_buffer_size", read_buffer_size)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if trust_server_certificate is not None:
+            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -14003,6 +14055,14 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         return pulumi.get(self, "annotations")
 
     @property
+    @pulumi.getter(name="commandTimeout")
+    def command_timeout(self) -> Optional[Any]:
+        """
+        The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer.
+        """
+        return pulumi.get(self, "command_timeout")
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
         """
@@ -14020,11 +14080,27 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
+    def database(self) -> Optional[Any]:
+        """
+        Database name for connection. Type: string.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[str]:
         """
         Linked service description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[Any]:
+        """
+        Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. Type: string
+        """
+        return pulumi.get(self, "encoding")
 
     @property
     @pulumi.getter(name="encryptedCredential")
@@ -14049,6 +14125,70 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[Any]:
+        """
+        The port for the connection. Type: integer.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="readBufferSize")
+    def read_buffer_size(self) -> Optional[Any]:
+        """
+        Determines the size of the internal buffer uses when reading. Increasing may improve performance if transferring large values from the database. Type: integer.
+        """
+        return pulumi.get(self, "read_buffer_size")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        Server name for connection. Type: string.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional[Any]:
+        """
+        SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[Any]:
+        """
+        The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. Type: integer.
+        """
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[Any]:
+        """
+        Gets or sets the session timezone. Type: string.
+        """
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter(name="trustServerCertificate")
+    def trust_server_certificate(self) -> Optional[Any]:
+        """
+        Whether to trust the server certificate without validating it. Type: boolean.
+        """
+        return pulumi.get(self, "trust_server_certificate")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[Any]:
+        """
+        Username for authentication. Type: string.
+        """
+        return pulumi.get(self, "username")
 
     @property
     @pulumi.getter
@@ -53599,16 +53739,30 @@ class MySqlLinkedServiceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "connectVia":
+        if key == "allowZeroDateTime":
+            suggest = "allow_zero_date_time"
+        elif key == "connectVia":
             suggest = "connect_via"
         elif key == "connectionString":
             suggest = "connection_string"
+        elif key == "connectionTimeout":
+            suggest = "connection_timeout"
+        elif key == "convertZeroDateTime":
+            suggest = "convert_zero_date_time"
         elif key == "driverVersion":
             suggest = "driver_version"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "guidFormat":
+            suggest = "guid_format"
+        elif key == "sslCert":
+            suggest = "ssl_cert"
+        elif key == "sslKey":
+            suggest = "ssl_key"
         elif key == "sslMode":
             suggest = "ssl_mode"
+        elif key == "treatTinyAsBoolean":
+            suggest = "treat_tiny_as_boolean"
         elif key == "useSystemTrustStore":
             suggest = "use_system_trust_store"
 
@@ -53625,18 +53779,25 @@ class MySqlLinkedServiceResponse(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 allow_zero_date_time: Optional[Any] = None,
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
+                 connection_timeout: Optional[Any] = None,
+                 convert_zero_date_time: Optional[Any] = None,
                  database: Optional[Any] = None,
                  description: Optional[str] = None,
                  driver_version: Optional[Any] = None,
                  encrypted_credential: Optional[str] = None,
+                 guid_format: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
                  port: Optional[Any] = None,
                  server: Optional[Any] = None,
+                 ssl_cert: Optional[Any] = None,
+                 ssl_key: Optional[Any] = None,
                  ssl_mode: Optional[Any] = None,
+                 treat_tiny_as_boolean: Optional[Any] = None,
                  use_system_trust_store: Optional[Any] = None,
                  username: Optional[Any] = None,
                  version: Optional[str] = None):
@@ -53644,29 +53805,42 @@ class MySqlLinkedServiceResponse(dict):
         Linked service for MySQL data source.
         :param str type: Type of linked service.
                Expected value is 'MySql'.
+        :param Any allow_zero_date_time: This allows the special “zero” date value 0000-00-00 to be retrieved from the database. Type: boolean.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_timeout: The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error. Type: integer.
+        :param Any convert_zero_date_time: True to return DateTime.MinValue for date or datetime columns that have disallowed values. Type: boolean.
         :param Any database: Database name for connection. Type: string.
         :param str description: Linked service description.
         :param Any driver_version: The version of the MySQL driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any guid_format: Determines which column type (if any) should be read as a GUID. Type: string. None: No column types are automatically read as a Guid; Char36: All CHAR(36) columns are read/written as a Guid using lowercase hex with hyphens, which matches UUID.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         :param Any port: The port for the connection. Type: integer.
         :param Any server: Server name for connection. Type: string.
+        :param Any ssl_cert: The path to the client’s SSL certificate file in PEM format. SslKey must also be specified. Type: string.
+        :param Any ssl_key: The path to the client’s SSL private key in PEM format. SslCert must also be specified. Type: string.
         :param Any ssl_mode: SSL mode for connection. Type: integer. 0: disable, 1: prefer, 2: require, 3: verify-ca, 4: verify-full.
+        :param Any treat_tiny_as_boolean: When set to true, TINYINT(1) values are returned as booleans. Type: bool.
         :param Any use_system_trust_store: Use system trust store for connection. Type: integer. 0: enable, 1: disable.
         :param Any username: Username for authentication. Type: string.
         :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'MySql')
+        if allow_zero_date_time is not None:
+            pulumi.set(__self__, "allow_zero_date_time", allow_zero_date_time)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if connection_timeout is not None:
+            pulumi.set(__self__, "connection_timeout", connection_timeout)
+        if convert_zero_date_time is not None:
+            pulumi.set(__self__, "convert_zero_date_time", convert_zero_date_time)
         if database is not None:
             pulumi.set(__self__, "database", database)
         if description is not None:
@@ -53675,6 +53849,8 @@ class MySqlLinkedServiceResponse(dict):
             pulumi.set(__self__, "driver_version", driver_version)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if guid_format is not None:
+            pulumi.set(__self__, "guid_format", guid_format)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
@@ -53683,8 +53859,14 @@ class MySqlLinkedServiceResponse(dict):
             pulumi.set(__self__, "port", port)
         if server is not None:
             pulumi.set(__self__, "server", server)
+        if ssl_cert is not None:
+            pulumi.set(__self__, "ssl_cert", ssl_cert)
+        if ssl_key is not None:
+            pulumi.set(__self__, "ssl_key", ssl_key)
         if ssl_mode is not None:
             pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if treat_tiny_as_boolean is not None:
+            pulumi.set(__self__, "treat_tiny_as_boolean", treat_tiny_as_boolean)
         if use_system_trust_store is not None:
             pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
         if username is not None:
@@ -53700,6 +53882,14 @@ class MySqlLinkedServiceResponse(dict):
         Expected value is 'MySql'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="allowZeroDateTime")
+    def allow_zero_date_time(self) -> Optional[Any]:
+        """
+        This allows the special “zero” date value 0000-00-00 to be retrieved from the database. Type: boolean.
+        """
+        return pulumi.get(self, "allow_zero_date_time")
 
     @property
     @pulumi.getter
@@ -53724,6 +53914,22 @@ class MySqlLinkedServiceResponse(dict):
         The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="connectionTimeout")
+    def connection_timeout(self) -> Optional[Any]:
+        """
+        The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error. Type: integer.
+        """
+        return pulumi.get(self, "connection_timeout")
+
+    @property
+    @pulumi.getter(name="convertZeroDateTime")
+    def convert_zero_date_time(self) -> Optional[Any]:
+        """
+        True to return DateTime.MinValue for date or datetime columns that have disallowed values. Type: boolean.
+        """
+        return pulumi.get(self, "convert_zero_date_time")
 
     @property
     @pulumi.getter
@@ -53758,6 +53964,14 @@ class MySqlLinkedServiceResponse(dict):
         return pulumi.get(self, "encrypted_credential")
 
     @property
+    @pulumi.getter(name="guidFormat")
+    def guid_format(self) -> Optional[Any]:
+        """
+        Determines which column type (if any) should be read as a GUID. Type: string. None: No column types are automatically read as a Guid; Char36: All CHAR(36) columns are read/written as a Guid using lowercase hex with hyphens, which matches UUID.
+        """
+        return pulumi.get(self, "guid_format")
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
         """
@@ -53790,12 +54004,36 @@ class MySqlLinkedServiceResponse(dict):
         return pulumi.get(self, "server")
 
     @property
+    @pulumi.getter(name="sslCert")
+    def ssl_cert(self) -> Optional[Any]:
+        """
+        The path to the client’s SSL certificate file in PEM format. SslKey must also be specified. Type: string.
+        """
+        return pulumi.get(self, "ssl_cert")
+
+    @property
+    @pulumi.getter(name="sslKey")
+    def ssl_key(self) -> Optional[Any]:
+        """
+        The path to the client’s SSL private key in PEM format. SslCert must also be specified. Type: string.
+        """
+        return pulumi.get(self, "ssl_key")
+
+    @property
     @pulumi.getter(name="sslMode")
     def ssl_mode(self) -> Optional[Any]:
         """
         SSL mode for connection. Type: integer. 0: disable, 1: prefer, 2: require, 3: verify-ca, 4: verify-full.
         """
         return pulumi.get(self, "ssl_mode")
+
+    @property
+    @pulumi.getter(name="treatTinyAsBoolean")
+    def treat_tiny_as_boolean(self) -> Optional[Any]:
+        """
+        When set to true, TINYINT(1) values are returned as booleans. Type: bool.
+        """
+        return pulumi.get(self, "treat_tiny_as_boolean")
 
     @property
     @pulumi.getter(name="useSystemTrustStore")

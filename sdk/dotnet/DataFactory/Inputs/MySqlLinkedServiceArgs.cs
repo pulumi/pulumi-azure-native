@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class MySqlLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This allows the special “zero” date value 0000-00-00 to be retrieved from the database. Type: boolean.
+        /// </summary>
+        [Input("allowZeroDateTime")]
+        public Input<object>? AllowZeroDateTime { get; set; }
+
         [Input("annotations")]
         private InputList<object>? _annotations;
 
@@ -40,6 +46,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? ConnectionString { get; set; }
 
         /// <summary>
+        /// The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error. Type: integer.
+        /// </summary>
+        [Input("connectionTimeout")]
+        public Input<object>? ConnectionTimeout { get; set; }
+
+        /// <summary>
+        /// True to return DateTime.MinValue for date or datetime columns that have disallowed values. Type: boolean.
+        /// </summary>
+        [Input("convertZeroDateTime")]
+        public Input<object>? ConvertZeroDateTime { get; set; }
+
+        /// <summary>
         /// Database name for connection. Type: string.
         /// </summary>
         [Input("database")]
@@ -62,6 +80,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("encryptedCredential")]
         public Input<string>? EncryptedCredential { get; set; }
+
+        /// <summary>
+        /// Determines which column type (if any) should be read as a GUID. Type: string. None: No column types are automatically read as a Guid; Char36: All CHAR(36) columns are read/written as a Guid using lowercase hex with hyphens, which matches UUID.
+        /// </summary>
+        [Input("guidFormat")]
+        public Input<object>? GuidFormat { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -94,10 +118,28 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? Server { get; set; }
 
         /// <summary>
+        /// The path to the client’s SSL certificate file in PEM format. SslKey must also be specified. Type: string.
+        /// </summary>
+        [Input("sslCert")]
+        public Input<object>? SslCert { get; set; }
+
+        /// <summary>
+        /// The path to the client’s SSL private key in PEM format. SslCert must also be specified. Type: string.
+        /// </summary>
+        [Input("sslKey")]
+        public Input<object>? SslKey { get; set; }
+
+        /// <summary>
         /// SSL mode for connection. Type: integer. 0: disable, 1: prefer, 2: require, 3: verify-ca, 4: verify-full.
         /// </summary>
         [Input("sslMode")]
         public Input<object>? SslMode { get; set; }
+
+        /// <summary>
+        /// When set to true, TINYINT(1) values are returned as booleans. Type: bool.
+        /// </summary>
+        [Input("treatTinyAsBoolean")]
+        public Input<object>? TreatTinyAsBoolean { get; set; }
 
         /// <summary>
         /// Type of linked service.

@@ -4015,7 +4015,7 @@ class BatchEndpointResponse(dict):
                  properties: Optional[Mapping[str, str]] = None):
         """
         Batch endpoint configuration.
-        :param str auth_mode: [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+        :param str auth_mode: [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
         :param str provisioning_state: Provisioning state for the endpoint.
         :param str scoring_uri: Endpoint URI.
         :param str swagger_uri: Endpoint Swagger URI.
@@ -4038,7 +4038,7 @@ class BatchEndpointResponse(dict):
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> str:
         """
-        [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+        [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
         """
         return pulumi.get(self, "auth_mode")
 
@@ -16797,7 +16797,7 @@ class KubernetesOnlineDeploymentResponse(dict):
         :param str egress_public_network_access: If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
         :param str environment_id: ARM resource ID or AssetId of the environment specification for the endpoint deployment.
         :param Mapping[str, str] environment_variables: Environment variables configuration for the deployment.
-        :param str instance_type: Compute instance type.
+        :param str instance_type: Compute instance type. Default: Standard_F4s_v2.
         :param 'ProbeSettingsResponse' liveness_probe: Liveness probe monitors the health of the container regularly.
         :param str model: The URI path to the model.
         :param str model_mount_path: The path to mount the model in custom container.
@@ -16831,6 +16831,8 @@ class KubernetesOnlineDeploymentResponse(dict):
             pulumi.set(__self__, "environment_id", environment_id)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if instance_type is None:
+            instance_type = 'Standard_F4s_v2'
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if liveness_probe is not None:
@@ -16933,7 +16935,7 @@ class KubernetesOnlineDeploymentResponse(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         """
-        Compute instance type.
+        Compute instance type. Default: Standard_F4s_v2.
         """
         return pulumi.get(self, "instance_type")
 
@@ -18374,7 +18376,7 @@ class ManagedOnlineDeploymentResponse(dict):
         :param str egress_public_network_access: If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
         :param str environment_id: ARM resource ID or AssetId of the environment specification for the endpoint deployment.
         :param Mapping[str, str] environment_variables: Environment variables configuration for the deployment.
-        :param str instance_type: Compute instance type.
+        :param str instance_type: Compute instance type. Default: Standard_F4s_v2.
         :param 'ProbeSettingsResponse' liveness_probe: Liveness probe monitors the health of the container regularly.
         :param str model: The URI path to the model.
         :param str model_mount_path: The path to mount the model in custom container.
@@ -18406,6 +18408,8 @@ class ManagedOnlineDeploymentResponse(dict):
             pulumi.set(__self__, "environment_id", environment_id)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if instance_type is None:
+            instance_type = 'Standard_F4s_v2'
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if liveness_probe is not None:
@@ -18500,7 +18504,7 @@ class ManagedOnlineDeploymentResponse(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         """
-        Compute instance type.
+        Compute instance type. Default: Standard_F4s_v2.
         """
         return pulumi.get(self, "instance_type")
 
@@ -20796,7 +20800,7 @@ class OnlineEndpointResponse(dict):
                  traffic: Optional[Mapping[str, int]] = None):
         """
         Online endpoint configuration
-        :param str auth_mode: [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+        :param str auth_mode: [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
         :param str provisioning_state: Provisioning state for the endpoint.
         :param str scoring_uri: Endpoint URI.
         :param str swagger_uri: Endpoint Swagger URI.
@@ -20831,7 +20835,7 @@ class OnlineEndpointResponse(dict):
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> str:
         """
-        [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+        [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
         """
         return pulumi.get(self, "auth_mode")
 
