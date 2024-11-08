@@ -167,10 +167,6 @@ func BuildCustomResources(env *azureEnv.Environment,
 		return nil, err
 	}
 
-	storageAccountsClient := storage.NewAccountsClientWithBaseURI(env.ResourceManagerEndpoint, subscriptionID)
-	storageAccountsClient.Authorizer = tokenAuth
-	storageAccountsClient.UserAgent = userAgent
-
 	customWebApp, err := webApp(crudClientFactory, azureClient, lookupResource)
 	if err != nil {
 		return nil, err
@@ -182,9 +178,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 
 	resources := []*CustomResource{
 		keyVaultAccessPolicy(armKVClient),
-		// Storage resources.
-		newStorageAccountStaticWebsite(env, &storageAccountsClient),
-		newBlob(env, &storageAccountsClient),
+
 		// Customization of regular resources
 		blobContainerLegalHold(azureClient),
 		portalDashboard(),
@@ -198,12 +192,23 @@ func BuildCustomResources(env *azureEnv.Environment,
 	if util.EnableAzcoreBackend() {
 		resources = append(resources, keyVaultSecret(env.KeyVaultDNSSuffix, tokenCred))
 		resources = append(resources, keyVaultKey(env.KeyVaultDNSSuffix, tokenCred))
+
+		cloud := azure.GetCloudByName(env.Name)
+		resources = append(resources, storageAccountStaticWebsite_azidentity(cloud, tokenCred))
+		resources = append(resources, newBlob_azidentity(cloud, tokenCred))
 	} else {
 		kvClient := keyvault.New()
 		kvClient.Authorizer = kvBearerAuth
 		kvClient.UserAgent = userAgent
 		resources = append(resources, keyVaultSecret_autorest(env.KeyVaultDNSSuffix, &kvClient))
 		resources = append(resources, keyVaultKey_autorest(env.KeyVaultDNSSuffix, &kvClient))
+
+		// Storage resources.
+		storageAccountsClient := storage.NewAccountsClientWithBaseURI(env.ResourceManagerEndpoint, subscriptionID)
+		storageAccountsClient.Authorizer = tokenAuth
+		storageAccountsClient.UserAgent = userAgent
+		resources = append(resources, newStorageAccountStaticWebsite(env, &storageAccountsClient))
+		resources = append(resources, newBlob(env, &storageAccountsClient))
 	}
 
 	result := map[string]*CustomResource{}
