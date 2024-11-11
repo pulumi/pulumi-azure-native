@@ -8,13 +8,10 @@ import (
 	"regexp"
 	"strings"
 
-	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
-
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/tombuildsstuff/giovanni/storage/2018-11-09/blob/accounts"
 	"github.com/tombuildsstuff/giovanni/storage/2018-11-09/blob/blobs"
@@ -27,70 +24,14 @@ func newStorageAccountStaticWebsite(env *azure.Environment, accountsClient *stor
 		accountsClient: accountsClient,
 	}
 	return &CustomResource{
-		path:   staticWebsitePath,
-		tok:    "azure-native:storage:StorageAccountStaticWebsite",
-		Create: r.createOrUpdate,
-		Update: r.update,
-		Read:   r.read,
-		Delete: r.delete,
-		LegacySchema: &schema.ResourceSpec{
-			ObjectTypeSpec: schema.ObjectTypeSpec{
-				Description: "Enables the static website feature of a storage account.",
-				Type:        "object",
-				Properties: map[string]schema.PropertySpec{
-					containerName: {
-						Description: "The name of the container to upload blobs to.",
-						TypeSpec:    schema.TypeSpec{Type: "string"},
-					},
-					indexDocument: {
-						Description: "The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.",
-						TypeSpec:    schema.TypeSpec{Type: "string"},
-					},
-					error404Document: {
-						Description: "The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.",
-						TypeSpec:    schema.TypeSpec{Type: "string"},
-					},
-				},
-				Required: []string{containerName},
-			},
-			InputProperties: map[string]schema.PropertySpec{
-				resourceGroupName: {
-					Description: "The name of the resource group within the user's subscription. The name is case insensitive.",
-					TypeSpec:    schema.TypeSpec{Type: "string"},
-				},
-				accountName: {
-					Description: "The name of the storage account within the specified resource group.",
-					TypeSpec:    schema.TypeSpec{Type: "string"},
-				},
-				indexDocument: {
-					Description: "The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.",
-					TypeSpec:    schema.TypeSpec{Type: "string"},
-				},
-				error404Document: {
-					Description: "The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.",
-					TypeSpec:    schema.TypeSpec{Type: "string"},
-				},
-			},
-			RequiredInputs: []string{resourceGroupName, accountName},
-		},
-		Meta: &AzureAPIResource{
-			Path: staticWebsitePath,
-			PutParameters: []AzureAPIParameter{
-				{Name: subscriptionId, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
-				{Name: resourceGroupName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
-				{Name: accountName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
-				{
-					Name:     "properties",
-					Location: "body",
-					Body: &AzureAPIType{
-						Properties: map[string]AzureAPIProperty{
-							indexDocument:    {Type: "string"},
-							error404Document: {Type: "string"},
-						},
-					},
-				},
-			},
-		},
+		path:         staticWebsitePath,
+		tok:          "azure-native:storage:StorageAccountStaticWebsite",
+		Create:       r.createOrUpdate,
+		Update:       r.update,
+		Read:         r.read,
+		Delete:       r.delete,
+		LegacySchema: getStorageAccountStaticWebsiteSchema(),
+		Meta:         getStorageAccountStaticWebsiteMetadata(),
 	}
 }
 
@@ -232,163 +173,15 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 		accountsClient: accountsClient,
 	}
 	return &CustomResource{
-		path:   blobPath,
-		tok:    "azure-native:storage:Blob",
-		Create: r.create,
-		Update: r.update,
-		Delete: r.delete,
-		Read:   r.read,
-		Types: map[string]schema.ComplexTypeSpec{
-			"azure-native:storage:BlobAccessTier": {
-				ObjectTypeSpec: schema.ObjectTypeSpec{
-					Description: "The access tier of a storage blob.",
-					Type:        "string",
-				},
-				Enum: []schema.EnumValueSpec{
-					{
-						Value:       "Hot",
-						Description: "Optimized for storing data that is accessed frequently.",
-					},
-					{
-						Value:       "Cool",
-						Description: "Optimized for storing data that is infrequently accessed and stored for at least 30 days.",
-					},
-					{
-						Value:       "Archive",
-						Description: "Optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements, on the order of hours.",
-					},
-				},
-			},
-			"azure-native:storage:BlobType": {
-				ObjectTypeSpec: schema.ObjectTypeSpec{
-					Description: "The type of a storage blob to be created.",
-					Type:        "string",
-				},
-				Enum: []schema.EnumValueSpec{
-					{
-						Value:       "Block",
-						Description: "Block blobs store text and binary data. Block blobs are made up of blocks of data that can be managed individually.",
-					},
-					{
-						Value:       "Append",
-						Description: "Append blobs are made up of blocks like block blobs, but are optimized for append operations.",
-					},
-				},
-			},
-		},
-		LegacySchema: &schema.ResourceSpec{
-			ObjectTypeSpec: schema.ObjectTypeSpec{
-				Description: "Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).",
-				Type:        "object",
-				Properties: map[string]schema.PropertySpec{
-					accessTier: {
-						Description: "The access tier of the storage blob. Only supported for standard storage accounts, not premium.",
-						TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-native:storage:BlobAccessTier"},
-					},
-					contentMd5: {
-						Description: "The MD5 sum of the blob contents.",
-						TypeSpec:    schema.TypeSpec{Type: "string"},
-					},
-					contentType: {
-						Description: "The content type of the storage blob.",
-						TypeSpec:    schema.TypeSpec{Type: "string"},
-					},
-					metadata: {
-						Description: "A map of custom blob metadata.",
-						TypeSpec:    schema.TypeSpec{Type: "object", AdditionalProperties: &schema.TypeSpec{Type: "string"}},
-					},
-					nameProp: {
-						Description: "The name of the storage blob.",
-						TypeSpec:    schema.TypeSpec{Type: "string"},
-					},
-					typeProp: {
-						Description: "The type of the storage blob to be created.",
-						TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-native:storage:BlobType"},
-					},
-					url: {
-						Description: "The URL of the blob.",
-						TypeSpec:    schema.TypeSpec{Type: "string"},
-					},
-				},
-				Required: []string{metadata, nameProp, typeProp, url},
-			},
-			InputProperties: map[string]schema.PropertySpec{
-				accessTier: {
-					Description: "The access tier of the storage blob. Only supported for standard storage accounts, not premium.",
-					TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-native:storage:BlobAccessTier"},
-				},
-				accountName: {
-					Description:          "Specifies the storage account in which to create the storage container.",
-					TypeSpec:             schema.TypeSpec{Type: "string"},
-					WillReplaceOnChanges: true,
-				},
-				blobName: {
-					Description:          "The name of the storage blob. Must be unique within the storage container the blob is located. If this property is not specified it will be set to the name of the resource.",
-					TypeSpec:             schema.TypeSpec{Type: "string"},
-					WillReplaceOnChanges: true,
-				},
-				containerName: {
-					Description:          "The name of the storage container in which this blob should be created.",
-					TypeSpec:             schema.TypeSpec{Type: "string"},
-					WillReplaceOnChanges: true,
-				},
-				contentMd5: {
-					Description:          "The MD5 sum of the blob contents. Cannot be defined if blob type is Append.",
-					TypeSpec:             schema.TypeSpec{Type: "string"},
-					WillReplaceOnChanges: true,
-				},
-				contentType: {
-					Description: "The content type of the storage blob. Defaults to `application/octet-stream`.",
-					TypeSpec:    schema.TypeSpec{Type: "string"},
-				},
-				metadata: {
-					Description: "A map of custom blob metadata.",
-					TypeSpec:    schema.TypeSpec{Type: "object", AdditionalProperties: &schema.TypeSpec{Type: "string"}},
-				},
-				resourceGroupName: {
-					Description:          "The name of the resource group within the user's subscription.",
-					TypeSpec:             schema.TypeSpec{Type: "string"},
-					WillReplaceOnChanges: true,
-				},
-				source: {
-					Description:          "An asset to copy to the blob contents. This field cannot be specified for Append blobs.",
-					TypeSpec:             schema.TypeSpec{Ref: "pulumi.json#/Asset"},
-					WillReplaceOnChanges: true,
-				},
-				typeProp: {
-					Description:          "The type of the storage blob to be created. Defaults to 'Block'.",
-					TypeSpec:             schema.TypeSpec{Ref: "#/types/azure-native:storage:BlobType"},
-					Default:              "Block",
-					WillReplaceOnChanges: true,
-				},
-			},
-			RequiredInputs: []string{resourceGroupName, accountName, containerName},
-		},
-		Meta: &AzureAPIResource{
-			Path: blobPath,
-			PutParameters: []AzureAPIParameter{
-				{Name: subscriptionId, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
-				{Name: resourceGroupName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
-				{Name: accountName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
-				{Name: containerName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
-				{Name: blobName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string", AutoName: "copy"}},
-				{
-					Name:     "properties",
-					Location: "body",
-					Body: &AzureAPIType{
-						Properties: map[string]AzureAPIProperty{
-							accessTier:  {Type: "string"},
-							contentMd5:  {Type: "string", ForceNew: true},
-							contentType: {Type: "string"},
-							metadata:    {Type: "object", AdditionalProperties: &AzureAPIProperty{Type: "string"}},
-							source:      {Ref: "pulumi.json#/Asset", ForceNew: true},
-							typeProp:    {Type: "string", ForceNew: true},
-						},
-						RequiredProperties: []string{resourceGroupName, accountName, containerName, blobName, typeProp},
-					},
-				},
-			},
-		},
+		path:         blobPath,
+		tok:          "azure-native:storage:Blob",
+		Create:       r.create,
+		Update:       r.update,
+		Delete:       r.delete,
+		Read:         r.read,
+		Types:        getBlobTypes(),
+		LegacySchema: getBlobSchema(),
+		Meta:         getBlobMetadata(),
 	}
 }
 
