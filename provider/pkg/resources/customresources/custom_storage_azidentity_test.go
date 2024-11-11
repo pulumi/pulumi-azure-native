@@ -77,3 +77,33 @@ func TestBlobUrls(t *testing.T) {
 		assert.Error(t, err)
 	})
 }
+
+func TestPopulateAzureBlobMetadata(t *testing.T) {
+	t.Run("no metadata", func(t *testing.T) {
+		properties := resource.PropertyMap{}
+		m := populateAzureBlobMetadata(properties)
+		assert.Empty(t, m)
+	})
+
+	t.Run("metadata is not an object", func(t *testing.T) {
+		properties := resource.PropertyMap{
+			metadata: resource.NewStringProperty("not an object"),
+		}
+		m := populateAzureBlobMetadata(properties)
+		assert.Empty(t, m)
+	})
+
+	t.Run("metadata with mixed properties", func(t *testing.T) {
+		properties := resource.PropertyMap{
+			metadata: resource.NewObjectProperty(resource.PropertyMap{
+				"k1": resource.NewStringProperty("v1"),
+				"k2": resource.NewNumberProperty(42),
+				"k3": resource.NewObjectProperty(resource.PropertyMap{}),
+			}),
+		}
+		m := populateAzureBlobMetadata(properties)
+		assert.Len(t, m, 2)
+		assert.Equal(t, "v1", *m["k1"])
+		assert.Equal(t, "42", *m["k2"])
+	})
+}

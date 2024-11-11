@@ -21,6 +21,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -143,7 +144,7 @@ func (r *staticWebsite_azidentity) update(ctx context.Context, id string, proper
 }
 
 func (r *staticWebsite_azidentity) createOrUpdate(ctx context.Context, id string, properties resource.PropertyMap) (map[string]interface{}, error) {
-	dataClient, err := r.newStorageAccountClient(properties)
+	accountClient, err := r.newStorageAccountClient(properties)
 	if err != nil {
 		return nil, err
 	}
@@ -160,7 +161,7 @@ func (r *staticWebsite_azidentity) createOrUpdate(ctx context.Context, id string
 		siteProps.StaticWebsite.ErrorDocument404Path = pulumi.StringRef(p.StringValue())
 	}
 
-	if _, err := dataClient.ServiceClient().SetProperties(ctx, siteProps); err != nil {
+	if _, err := accountClient.ServiceClient().SetProperties(ctx, siteProps); err != nil {
 		acc := properties[accountName].StringValue()
 		return nil, errors.Wrapf(err, "error updating storage account %q service properties", acc)
 	}
@@ -211,13 +212,13 @@ func (r *staticWebsite_azidentity) read(ctx context.Context, id string, properti
 }
 
 func (r *staticWebsite_azidentity) delete(ctx context.Context, id string, properties resource.PropertyMap) error {
-	dataClient, err := r.newStorageAccountClient(properties)
+	accountClient, err := r.newStorageAccountClient(properties)
 	if err != nil {
 		return err
 	}
 
 	// Storage Account does not exist => delete is a no-op.
-	_, err = dataClient.ServiceClient().GetAccountInfo(ctx, nil)
+	_, err = accountClient.ServiceClient().GetAccountInfo(ctx, nil)
 	if err != nil {
 		if is404StorageError(err) {
 			return nil
@@ -233,7 +234,7 @@ func (r *staticWebsite_azidentity) delete(ctx context.Context, id string, proper
 		},
 	}
 
-	if _, err := dataClient.ServiceClient().SetProperties(ctx, siteProps); err != nil {
+	if _, err := accountClient.ServiceClient().SetProperties(ctx, siteProps); err != nil {
 		return errors.Wrapf(err, "error updating storage account %q service properties", acc)
 	}
 
@@ -469,6 +470,27 @@ func getBlobURL(properties resource.PropertyMap, env cloud.Configuration) (strin
 	return fmt.Sprintf("%s/%s/%s", saUrl, container.StringValue(), blobName.StringValue()), nil
 }
 
+func populateAzureBlobMetadata(properties resource.PropertyMap) map[string]*string {
+	metaData := make(map[string]*string)
+	if properties[metadata].HasValue() {
+		metadataRaw := properties[metadata]
+		if !metadataRaw.IsObject() {
+			logging.V(5).Infof("Warning: property 'metadata' is not an object, skipping: %v", metadataRaw)
+			return metaData
+		}
+		for k, v := range metadataRaw.ObjectValue() {
+			if v.IsString() {
+				metaData[string(k)] = pulumi.StringRef(v.StringValue())
+			} else if v.IsNumber() || v.IsBool() {
+				metaData[string(k)] = pulumi.StringRef(fmt.Sprintf("%v", v.NumberValue()))
+			} else {
+				logging.V(5).Infof("Warning: metadata for key '%q' is not a string, skipping: %v", k, v)
+			}
+		}
+	}
+	return metaData
+}
+
 func (r *blob_azidentity) create(ctx context.Context, id string, properties resource.PropertyMap) (map[string]interface{}, error) {
 	blobClient, err := r.newBlobClient(properties)
 	if err != nil {
@@ -478,13 +500,7 @@ func (r *blob_azidentity) create(ctx context.Context, id string, properties reso
 	acc := properties[accountName].StringValue()
 	container := properties[containerName].StringValue()
 	name := properties[blobName].StringValue()
-
-	metaData := make(map[string]*string)
-	if properties[metadata].HasValue() {
-		for k, v := range properties[metadata].ObjectValue().Mappable() {
-			metaData[k] = v.(*string)
-		}
-	}
+	metaData := populateAzureBlobMetadata(properties)
 
 	var ct string
 	if properties[contentType].HasValue() {
@@ -577,15 +593,14 @@ func (r *blob_azidentity) update(ctx context.Context, id string, properties, old
 			return nil, errors.Wrapf(err, "updating properties for blob %q (container %q / account %q)", name, container, acc)
 		}
 	}
-	if properties[metadata].HasValue() {
-		metaData := make(map[string]*string)
-		for k, v := range properties[metadata].ObjectValue().Mappable() {
-			metaData[k] = v.(*string)
-		}
-		if _, err := dataClient.SetMetadata(ctx, metaData, nil); err != nil {
+
+	meta := populateAzureBlobMetadata(properties)
+	if len(meta) > 0 {
+		if _, err := dataClient.SetMetadata(ctx, meta, nil); err != nil {
 			return nil, errors.Wrapf(err, "updating metadata for blob %q (container %q / account %q)", name, container, acc)
 		}
 	}
+
 	if properties[accessTier].HasValue() {
 		tier := azureblob.AccessTier(properties[accessTier].StringValue())
 		if _, err := dataClient.SetTier(ctx, tier, nil); err != nil {
