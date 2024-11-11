@@ -1,11 +1,15 @@
 package customresources
 
 import (
+	"crypto/md5"
 	"testing"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	azureblob "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestStorageAccountUrls(t *testing.T) {
@@ -102,8 +106,75 @@ func TestPopulateAzureBlobMetadata(t *testing.T) {
 			}),
 		}
 		m := populateAzureBlobMetadata(properties)
-		assert.Len(t, m, 2)
+		assert.Len(t, m, 1)
 		assert.Equal(t, "v1", *m["k1"])
-		assert.Equal(t, "42", *m["k2"])
 	})
 }
+
+func TestAzblobToPulumiProperties(t *testing.T) {
+	rg := "myrg"
+	storageAccount := "mystorageaccount"
+	container := "mycontainer"
+	name := "myblob"
+	blobUrl := "https://mystorageaccount.blob.core.windows.net/mycontainer/myblob"
+
+	setup := func() azureblob.GetPropertiesResponse {
+		md5Sum := md5.Sum([]byte("content"))
+		return azureblob.GetPropertiesResponse{
+			AccessTier:  ref(string(azureblob.AccessTierHot)),
+			BlobType:    ref(azureblob.BlobTypeBlockBlob),
+			ContentMD5:  md5Sum[:],
+			ContentType: ref("text/plain"),
+			Metadata: map[string]*string{
+				"k1": ref("v1"),
+			},
+		}
+	}
+
+	t.Run("all properties", func(t *testing.T) {
+		azblob := setup()
+		pulumiBlob := azblobToPulumiProperties(name, rg, storageAccount, container, blobUrl, azblob)
+
+		assert.Contains(t, pulumiBlob, accountName)
+		assert.Equal(t, storageAccount, pulumiBlob[accountName])
+
+		assert.Contains(t, pulumiBlob, containerName)
+		assert.Equal(t, container, pulumiBlob[containerName])
+
+		assert.Contains(t, pulumiBlob, blobName)
+		assert.Equal(t, name, pulumiBlob[blobName])
+
+		assert.Contains(t, pulumiBlob, accessTier)
+		assert.Equal(t, string(azureblob.AccessTierHot), pulumiBlob[accessTier])
+
+		assert.Contains(t, pulumiBlob, typeProp)
+		assert.Equal(t, "Block", pulumiBlob[typeProp])
+
+		assert.Contains(t, pulumiBlob, contentMd5)
+
+		assert.Contains(t, pulumiBlob, contentType)
+		assert.Equal(t, "text/plain", pulumiBlob[contentType])
+
+		require.Contains(t, pulumiBlob, metadata)
+		m := pulumiBlob[metadata].(map[string]*string)
+		assert.Equal(t, ref("v1"), m["k1"])
+
+		assert.Contains(t, pulumiBlob, url)
+		assert.Equal(t, blobUrl, pulumiBlob[url])
+	})
+
+	t.Run("no access tier", func(t *testing.T) {
+		azblob := setup()
+
+		azblob.AccessTier = nil
+		pulumiBlob := azblobToPulumiProperties(name, rg, storageAccount, container, blobUrl, azblob)
+		assert.NotContains(t, pulumiBlob, accessTier)
+
+		azblob.AccessTier = ref("")
+		pulumiBlob = azblobToPulumiProperties(name, rg, storageAccount, container, blobUrl, azblob)
+		assert.NotContains(t, pulumiBlob, accessTier)
+
+	})
+}
+
+func ref[T any](t T) *T { return &t }

@@ -601,7 +601,7 @@ func (r *blob) read(ctx context.Context, id string, properties resource.Property
 		true, nil
 }
 
-func sdkBlobToPulumiProperties(name, rg, account, container, azureResourceId string, props blobs.GetPropertiesResult) map[string]any {
+func sdkBlobToPulumiProperties(name, rg, account, container, blobUrl string, props blobs.GetPropertiesResult) map[string]any {
 	result := map[string]interface{}{
 		resourceGroupName: rg,
 		accountName:       account,
@@ -612,7 +612,7 @@ func sdkBlobToPulumiProperties(name, rg, account, container, azureResourceId str
 		contentType:       props.ContentType,
 		metadata:          props.MetaData,
 		typeProp:          strings.TrimSuffix(string(props.BlobType), "Blob"),
-		url:               azureResourceId,
+		url:               blobUrl,
 	}
 	// We can't serialize an empty string as that would be an invalid enum value.
 	if props.AccessTier != "" {

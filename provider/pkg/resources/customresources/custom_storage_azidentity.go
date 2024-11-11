@@ -481,8 +481,6 @@ func populateAzureBlobMetadata(properties resource.PropertyMap) map[string]*stri
 		for k, v := range metadataRaw.ObjectValue() {
 			if v.IsString() {
 				metaData[string(k)] = pulumi.StringRef(v.StringValue())
-			} else if v.IsNumber() || v.IsBool() {
-				metaData[string(k)] = pulumi.StringRef(fmt.Sprintf("%v", v.NumberValue()))
 			} else {
 				logging.V(5).Infof("Warning: metadata for key '%q' is not a string, skipping: %v", k, v)
 			}
@@ -695,9 +693,8 @@ func azblobToPulumiProperties(name, rg, account, container, azureResourceId stri
 		url:               azureResourceId,
 	}
 	// We can't serialize an empty string as that would be an invalid enum value.
-	at := *props.AccessTier
-	if at != "" {
-		result[accessTier] = at
+	if props.AccessTier != nil && *props.AccessTier != "" {
+		result[accessTier] = *props.AccessTier
 	}
 	return result
 }
