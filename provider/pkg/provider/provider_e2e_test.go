@@ -15,6 +15,8 @@ import (
 
 	"google.golang.org/grpc"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
+
 	rp "github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil"
@@ -34,9 +36,9 @@ func TestRequiredContainers(t *testing.T) {
 }
 
 func TestParallelSubnetCreation(t *testing.T) {
-	// Force this test to use the new AZCore client
-	// We have to set this here rather than in the ProgramTest config because the provider is started up before starting the test.
-	os.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "true")
+	if !util.EnableAzcoreBackend() {
+		t.Skip("Skipping test because it requires the AZCore backend")
+	}
 	runTestProgram(t, "parallel-subnet-creation")
 }
 
