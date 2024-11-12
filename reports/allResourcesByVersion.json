@@ -328,6 +328,17 @@
       "MetadataSchema",
       "Service",
       "Workspace"
+    ],
+    "2024-06-01-preview": [
+      "Api",
+      "ApiDefinition",
+      "ApiSource",
+      "ApiVersion",
+      "Deployment",
+      "Environment",
+      "MetadataSchema",
+      "Service",
+      "Workspace"
     ]
   },
   "ApiManagement": {
@@ -7068,6 +7079,19 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2024-09-02-preview": [
+      "AgentPool",
+      "LoadBalancer",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -10579,6 +10603,33 @@
       "listDatabaseAccountConnectionStrings",
       "listDatabaseAccountKeys",
       "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2024-11-15": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "DatabaseAccount",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listNotebookWorkspaceConnectionInfo"
     ]
   },
   "DomainRegistration": {
@@ -10677,6 +10728,12 @@
       "DomainOwnershipIdentifier",
       "listDomainRecommendations",
       "listTopLevelDomainAgreements"
+    ]
+  },
+  "DurableTask": {
+    "2024-10-01-preview": [
+      "Scheduler",
+      "TaskHub"
     ]
   },
   "Dynamics365Fraudprotection": {
@@ -12123,6 +12180,16 @@
       "MachineRunCommand",
       "PrivateEndpointConnection",
       "PrivateLinkScope"
+    ],
+    "2024-09-10-preview": [
+      "Gateway",
+      "License",
+      "LicenseProfile",
+      "Machine",
+      "MachineExtension",
+      "MachineRunCommand",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
     ]
   },
   "HybridConnectivity": {
@@ -12257,6 +12324,13 @@
       "listArtifactManifestCredential",
       "listArtifactStoreNetworkFabricControllerPrivateEndPoints",
       "listArtifactStorePrivateEndPoints"
+    ]
+  },
+  "Impact": {
+    "2024-05-01-preview": [
+      "Connector",
+      "Insight",
+      "WorkloadImpact"
     ]
   },
   "ImportExport": {
@@ -15156,20 +15230,6 @@
       "Site",
       "Slice",
       "listMobileNetworkSimGroups"
-    ]
-  },
-  "MobilePacketCore": {
-    "2023-05-15-preview": [
-      "NetworkFunction"
-    ],
-    "2023-10-15-preview": [
-      "AmfDeployment",
-      "ClusterService",
-      "NrfDeployment",
-      "NssfDeployment",
-      "ObservabilityService",
-      "SmfDeployment",
-      "UpfDeployment"
     ]
   },
   "Monitor": {
@@ -20782,6 +20842,17 @@
       "ProtectionContainer",
       "ProtectionIntent",
       "ProtectionPolicy",
+      "ReplicationFabric",
+      "ReplicationMigrationItem",
+      "ReplicationNetworkMapping",
+      "ReplicationPolicy",
+      "ReplicationProtectedItem",
+      "ReplicationProtectionCluster",
+      "ReplicationProtectionContainerMapping",
+      "ReplicationRecoveryPlan",
+      "ReplicationRecoveryServicesProvider",
+      "ReplicationStorageClassificationMapping",
+      "ReplicationvCenter",
       "ResourceGuardProxy",
       "Vault"
     ]
@@ -22739,6 +22810,16 @@
       "getmanagedMaintenanceWindowStatus"
     ],
     "2024-06-01-preview": [
+      "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType",
+      "getmanagedAzResiliencyStatus",
+      "getmanagedMaintenanceWindowStatus"
+    ],
+    "2024-09-01-preview": [
       "ManagedCluster",
       "ManagedClusterApplication",
       "ManagedClusterApplicationType",

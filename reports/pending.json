@@ -30,7 +30,8 @@
   ],
   "ApiCenter": [
     "2024-03-01",
-    "2024-03-15-preview"
+    "2024-03-15-preview",
+    "2024-06-01-preview"
   ],
   "ApiManagement": [
     "2021-08-01",
@@ -376,7 +377,8 @@
     "2024-07-01",
     "2024-07-02-preview",
     "2024-08-01",
-    "2024-09-01"
+    "2024-09-01",
+    "2024-09-02-preview"
   ],
   "ContainerStorage": [],
   "Contoso": [],
@@ -557,13 +559,15 @@
     "2024-06-01-preview",
     "2024-07-01",
     "2024-08-15",
-    "2024-09-01-preview"
+    "2024-09-01-preview",
+    "2024-11-15"
   ],
   "DomainRegistration": [
     "2023-01-01",
     "2023-12-01",
     "2024-04-01"
   ],
+  "DurableTask": [],
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
   "Easm": [],
@@ -671,7 +675,8 @@
     "2024-03-31-preview",
     "2024-05-20-preview",
     "2024-07-10",
-    "2024-07-31-preview"
+    "2024-07-31-preview",
+    "2024-09-10-preview"
   ],
   "HybridConnectivity": [
     "2024-12-01"
@@ -685,6 +690,7 @@
     "2023-09-01",
     "2024-04-15"
   ],
+  "Impact": [],
   "ImportExport": [],
   "Insights": [
     "2016-03-01",
@@ -920,9 +926,6 @@
     "2023-09-01",
     "2024-02-01",
     "2024-04-01"
-  ],
-  "MobilePacketCore": [
-    "2023-10-15-preview"
   ],
   "Monitor": [
     "2023-10-01-preview",
@@ -1199,7 +1202,8 @@
     "2023-12-01-preview",
     "2024-02-01-preview",
     "2024-04-01",
-    "2024-06-01-preview"
+    "2024-06-01-preview",
+    "2024-09-01-preview"
   ],
   "ServiceFabricMesh": [],
   "ServiceLinker": [

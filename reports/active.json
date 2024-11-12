@@ -18405,7 +18405,9 @@
       "2024-06-01-preview",
       "2024-07-01",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-10-01-preview",
+      "2024-12-01-preview"
     ],
     "cassandraclusters": [
       "2021-03-01-preview",
@@ -18557,6 +18559,9 @@
       "2024-08-15",
       "2024-09-01-preview"
     ],
+    "garnetclusters": [
+      "2024-12-01-preview"
+    ],
     "locations": [
       "2014-04-01",
       "2015-04-08",
@@ -18612,7 +18617,8 @@
       "2024-02-15-preview",
       "2024-03-01-preview",
       "2024-06-01-preview",
-      "2024-07-01"
+      "2024-07-01",
+      "2024-10-01-preview"
     ],
     "locations/deletevirtualnetworkorsubnets": [
       "2014-04-01",
@@ -18669,7 +18675,8 @@
       "2024-02-15-preview",
       "2024-03-01-preview",
       "2024-06-01-preview",
-      "2024-07-01"
+      "2024-07-01",
+      "2024-10-01-preview"
     ],
     "locations/mongoclusteroperationresults": [
       "2022-10-15-preview",
@@ -18680,7 +18687,8 @@
       "2024-02-15-preview",
       "2024-03-01-preview",
       "2024-06-01-preview",
-      "2024-07-01"
+      "2024-07-01",
+      "2024-10-01-preview"
     ],
     "locations/notifynetworksecurityperimeterupdatesavailable": [
       "2022-08-15",
@@ -18833,7 +18841,8 @@
       "2024-02-15-preview",
       "2024-03-01-preview",
       "2024-06-01-preview",
-      "2024-07-01"
+      "2024-07-01",
+      "2024-10-01-preview"
     ],
     "operationresults": [
       "2014-04-01",
@@ -18928,7 +18937,8 @@
       "2024-06-01-preview",
       "2024-07-01",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-10-01-preview"
     ],
     "operationsstatus": [
       "2014-04-01",
@@ -19191,13 +19201,16 @@
   },
   "durabletask": {
     "": [
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-10-01-preview"
     ],
     "locations": [
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-10-01-preview"
     ],
     "operations": [
-      "2024-02-01-preview"
+      "2024-02-01-preview",
+      "2024-10-01-preview"
     ]
   },
   "easm": {
@@ -39642,7 +39655,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "clusters": [
       "2016-03-01",
@@ -39823,7 +39837,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "locations/managedclusteroperationresults": [
       "2020-01-01-preview",
@@ -39844,7 +39859,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "locations/managedclusteroperations": [
       "2020-01-01-preview",
@@ -39865,7 +39881,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "locations/managedclusterversions": [
       "2020-01-01-preview",
@@ -39886,7 +39903,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "locations/managedunsupportedvmsizes": [
       "2020-01-01-preview",
@@ -39907,7 +39925,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "locations/operationresults": [
       "2016-03-01",
@@ -40000,7 +40019,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "managedclusters/applications": [
       "2021-01-01-preview",
@@ -40020,7 +40040,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "managedclusters/applications/services": [
       "2021-01-01-preview",
@@ -40040,7 +40061,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "managedclusters/applicationtypes": [
       "2021-01-01-preview",
@@ -40060,7 +40082,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "managedclusters/applicationtypes/versions": [
       "2021-01-01-preview",
@@ -40080,7 +40103,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "managedclusters/nodetypes": [
       "2020-01-01-preview",
@@ -40101,7 +40125,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ],
     "operations": [
       "2016-03-01",
@@ -40140,7 +40165,8 @@
       "2023-12-01-preview",
       "2024-02-01-preview",
       "2024-04-01",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2024-09-01-preview"
     ]
   },
   "servicefabricmesh": {

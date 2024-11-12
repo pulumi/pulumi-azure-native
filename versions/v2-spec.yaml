@@ -31,6 +31,7 @@ ApiCenter:
     additions:
         Api: "2024-03-01"
         ApiDefinition: "2024-03-01"
+        ApiSource: 2024-06-01-preview
         ApiVersion: "2024-03-01"
         Deployment: "2024-03-01"
         Environment: "2024-03-01"
@@ -891,6 +892,8 @@ DocumentDB:
         listMongoClusterConnectionStrings: 2023-03-15-preview
 DomainRegistration:
     tracking: "2022-09-01"
+DurableTask:
+    tracking: 2024-10-01-preview
 Dynamics365Fraudprotection:
     tracking: 2021-02-01-preview
 DynamicsTelemetry: {}
@@ -1020,6 +1023,8 @@ HybridNetwork:
         listArtifactManifestCredential: "2023-09-01"
         listArtifactStoreNetworkFabricControllerPrivateEndPoints: "2024-04-15"
         listArtifactStorePrivateEndPoints: "2024-04-15"
+Impact:
+    tracking: 2024-05-01-preview
 ImportExport:
     tracking: "2021-01-01"
 Insights:
@@ -1326,16 +1331,6 @@ MobileNetwork:
     additions:
         listMobileNetworkSimGroups: "2024-04-01"
         listMobileNetworkSimIds: 2022-04-01-preview
-MobilePacketCore:
-    tracking: 2023-05-15-preview
-    additions:
-        AmfDeployment: 2023-10-15-preview
-        ClusterService: 2023-10-15-preview
-        NrfDeployment: 2023-10-15-preview
-        NssfDeployment: 2023-10-15-preview
-        ObservabilityService: 2023-10-15-preview
-        SmfDeployment: 2023-10-15-preview
-        UpfDeployment: 2023-10-15-preview
 Monitor:
     tracking: "2023-04-03"
     additions:
