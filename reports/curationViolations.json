@@ -168,6 +168,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "DurableTask",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "Edge",
     "Detail": "expected tracking stable but found preview"
   },
@@ -238,6 +242,10 @@
   {
     "Provider": "HybridNetwork",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "Impact",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "Provider": "IntegrationSpaces",
@@ -313,14 +321,6 @@
   },
   {
     "Provider": "MixedReality",
-    "Detail": "expected no additions but found some"
-  },
-  {
-    "Provider": "MobilePacketCore",
-    "Detail": "expected tracking stable but found preview"
-  },
-  {
-    "Provider": "MobilePacketCore",
     "Detail": "expected no additions but found some"
   },
   {
