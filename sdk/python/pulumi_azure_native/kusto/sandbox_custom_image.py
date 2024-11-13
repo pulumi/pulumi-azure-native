@@ -133,6 +133,8 @@ class SandboxCustomImage(pulumi.CustomResource):
         Class representing a Kusto sandbox custom image.
         Azure REST API version: 2023-08-15.
 
+        Other available API versions: 2024-04-13.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
@@ -151,6 +153,8 @@ class SandboxCustomImage(pulumi.CustomResource):
         """
         Class representing a Kusto sandbox custom image.
         Azure REST API version: 2023-08-15.
+
+        Other available API versions: 2024-04-13.
 
         :param str resource_name: The name of the resource.
         :param SandboxCustomImageArgs args: The arguments to use to populate this resource's properties.
@@ -199,7 +203,7 @@ class SandboxCustomImage(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20230815:SandboxCustomImage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20230815:SandboxCustomImage"), pulumi.Alias(type_="azure-native:kusto/v20240413:SandboxCustomImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SandboxCustomImage, __self__).__init__(
             'azure-native:kusto:SandboxCustomImage',

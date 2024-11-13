@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Kusto
         /// Gets a Kusto cluster.
         /// Azure REST API version: 2022-12-29.
         /// 
-        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:kusto:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Kusto
         /// Gets a Kusto cluster.
         /// Azure REST API version: 2022-12-29.
         /// 
-        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:kusto:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

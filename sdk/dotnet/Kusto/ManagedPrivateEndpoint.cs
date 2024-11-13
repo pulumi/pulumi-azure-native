@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto
     /// Class representing a managed private endpoint.
     /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-08-27.
     /// 
-    /// Other available API versions: 2023-05-02, 2023-08-15.
+    /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ManagedPrivateEndpoint")]
     public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource
@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:ManagedPrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

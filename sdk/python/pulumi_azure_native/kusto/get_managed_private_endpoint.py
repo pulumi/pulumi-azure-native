@@ -154,7 +154,7 @@ def get_managed_private_endpoint(cluster_name: Optional[str] = None,
     Gets a managed private endpoint.
     Azure REST API version: 2022-12-29.
 
-    Other available API versions: 2023-05-02, 2023-08-15.
+    Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -186,7 +186,7 @@ def get_managed_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]
     Gets a managed private endpoint.
     Azure REST API version: 2022-12-29.
 
-    Other available API versions: 2023-05-02, 2023-08-15.
+    Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.

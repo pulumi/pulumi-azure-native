@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a Kusto cluster.
  * Azure REST API version: 2022-12-29.
  *
- * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+ * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -173,7 +173,7 @@ export interface GetClusterResult {
  * Gets a Kusto cluster.
  * Azure REST API version: 2022-12-29.
  *
- * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+ * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

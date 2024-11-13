@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20240331Preview
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240520preview:LicenseProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240710:LicenseProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:LicenseProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240910preview:LicenseProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

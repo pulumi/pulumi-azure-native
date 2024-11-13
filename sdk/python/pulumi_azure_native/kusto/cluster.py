@@ -478,7 +478,7 @@ class Cluster(pulumi.CustomResource):
         Class representing a Kusto cluster.
         Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
 
-        Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+        Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -518,7 +518,7 @@ class Cluster(pulumi.CustomResource):
         Class representing a Kusto cluster.
         Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
 
-        Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+        Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -626,7 +626,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uri"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200918:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20210101:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20210827:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20220201:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20220707:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20221111:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20221229:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20230502:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20230815:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20170907privatepreview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190121:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190515:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20190907:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20191109:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200215:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200614:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20200918:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20210101:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20210827:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20220201:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20220707:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20221111:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20221229:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20230502:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20230815:Cluster"), pulumi.Alias(type_="azure-native:kusto/v20240413:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:kusto:Cluster',

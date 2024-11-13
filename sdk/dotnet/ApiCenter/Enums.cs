@@ -200,6 +200,47 @@ namespace Pulumi.AzureNative.ApiCenter
     }
 
     /// <summary>
+    /// Indicates if the specification should be imported along with metadata.
+    /// </summary>
+    [EnumType]
+    public readonly struct ImportSpecificationOptions : IEquatable<ImportSpecificationOptions>
+    {
+        private readonly string _value;
+
+        private ImportSpecificationOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates that the specification should be never be imported.
+        /// </summary>
+        public static ImportSpecificationOptions Never { get; } = new ImportSpecificationOptions("never");
+        /// <summary>
+        /// Indicates that the specification should be imported only by request.
+        /// </summary>
+        public static ImportSpecificationOptions OnDemand { get; } = new ImportSpecificationOptions("ondemand");
+        /// <summary>
+        /// Indicates that the specification should always be imported along with metadata.
+        /// </summary>
+        public static ImportSpecificationOptions Always { get; } = new ImportSpecificationOptions("always");
+
+        public static bool operator ==(ImportSpecificationOptions left, ImportSpecificationOptions right) => left.Equals(right);
+        public static bool operator !=(ImportSpecificationOptions left, ImportSpecificationOptions right) => !left.Equals(right);
+
+        public static explicit operator string(ImportSpecificationOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImportSpecificationOptions other && Equals(other);
+        public bool Equals(ImportSpecificationOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Current lifecycle stage of the API.
     /// </summary>
     [EnumType]

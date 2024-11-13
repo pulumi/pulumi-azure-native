@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AzureApiManagementSourceArgs',
+    'AzureApiManagementSourceArgsDict',
     'ContactArgs',
     'ContactArgsDict',
     'DeploymentServerArgs',
@@ -37,6 +39,61 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AzureApiManagementSourceArgsDict(TypedDict):
+        """
+        API source configuration for Azure API Management.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        API Management service resource ID.
+        """
+        msi_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the managed identity that has access to the API Management instance.
+        """
+elif False:
+    AzureApiManagementSourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureApiManagementSourceArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[str],
+                 msi_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        API source configuration for Azure API Management.
+        :param pulumi.Input[str] resource_id: API Management service resource ID.
+        :param pulumi.Input[str] msi_resource_id: The resource ID of the managed identity that has access to the API Management instance.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        if msi_resource_id is not None:
+            pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        API Management service resource ID.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="msiResourceId")
+    def msi_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the managed identity that has access to the API Management instance.
+        """
+        return pulumi.get(self, "msi_resource_id")
+
+    @msi_resource_id.setter
+    def msi_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "msi_resource_id", value)
+
 
 if not MYPY:
     class ContactArgsDict(TypedDict):

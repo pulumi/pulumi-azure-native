@@ -18,6 +18,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Inputs
         [Input("dockerArgs")]
         public Input<string>? DockerArgs { get; set; }
 
+        [Input("dockerArgsList")]
+        private InputList<string>? _dockerArgsList;
+
+        /// <summary>
+        /// Extra arguments to pass to the Docker run command, as a collection. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
+        /// </summary>
+        public InputList<string> DockerArgsList
+        {
+            get => _dockerArgsList ?? (_dockerArgsList = new InputList<string>());
+            set => _dockerArgsList = value;
+        }
+
         /// <summary>
         /// Optional number of instances or nodes used by the compute target.
         /// </summary>

@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'AcceptedAudiencesResponse',
     'AzureSkuResponse',
+    'CalloutPolicyResponse',
     'DatabasePrincipalResponse',
     'DatabaseStatisticsResponse',
     'FollowerDatabaseDefinitionResponse',
@@ -103,6 +104,64 @@ class AzureSkuResponse(dict):
         The number of instances of the cluster.
         """
         return pulumi.get(self, "capacity")
+
+
+@pulumi.output_type
+class CalloutPolicyResponse(dict):
+    """
+    Configuration for external callout policies, including URI patterns, access types, and service types.
+    """
+    def __init__(__self__, *,
+                 callout_id: str,
+                 callout_type: Optional[str] = None,
+                 callout_uri_regex: Optional[str] = None,
+                 outbound_access: Optional[str] = None):
+        """
+        Configuration for external callout policies, including URI patterns, access types, and service types.
+        :param str callout_id: Unique identifier for the callout configuration.
+        :param str callout_type: Type of the callout service, specifying the kind of external resource or service being accessed.
+        :param str callout_uri_regex: Regular expression or FQDN pattern for the callout URI.
+        :param str outbound_access: Indicates whether outbound access is permitted for the specified URI pattern.
+        """
+        pulumi.set(__self__, "callout_id", callout_id)
+        if callout_type is not None:
+            pulumi.set(__self__, "callout_type", callout_type)
+        if callout_uri_regex is not None:
+            pulumi.set(__self__, "callout_uri_regex", callout_uri_regex)
+        if outbound_access is not None:
+            pulumi.set(__self__, "outbound_access", outbound_access)
+
+    @property
+    @pulumi.getter(name="calloutId")
+    def callout_id(self) -> str:
+        """
+        Unique identifier for the callout configuration.
+        """
+        return pulumi.get(self, "callout_id")
+
+    @property
+    @pulumi.getter(name="calloutType")
+    def callout_type(self) -> Optional[str]:
+        """
+        Type of the callout service, specifying the kind of external resource or service being accessed.
+        """
+        return pulumi.get(self, "callout_type")
+
+    @property
+    @pulumi.getter(name="calloutUriRegex")
+    def callout_uri_regex(self) -> Optional[str]:
+        """
+        Regular expression or FQDN pattern for the callout URI.
+        """
+        return pulumi.get(self, "callout_uri_regex")
+
+    @property
+    @pulumi.getter(name="outboundAccess")
+    def outbound_access(self) -> Optional[str]:
+        """
+        Indicates whether outbound access is permitted for the specified URI pattern.
+        """
+        return pulumi.get(self, "outbound_access")
 
 
 @pulumi.output_type

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The service entity.
  * Azure REST API version: 2023-07-01-preview.
  *
- * Other available API versions: 2024-03-01, 2024-03-15-preview.
+ * Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20230701preview:Service" }, { type: "azure-native:apicenter/v20240301:Service" }, { type: "azure-native:apicenter/v20240315preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20230701preview:Service" }, { type: "azure-native:apicenter/v20240301:Service" }, { type: "azure-native:apicenter/v20240315preview:Service" }, { type: "azure-native:apicenter/v20240601preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

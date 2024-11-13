@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Kusto
         /// Returns an attached database configuration.
         /// Azure REST API version: 2022-12-29.
         /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15.
+        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
         /// </summary>
         public static Task<GetAttachedDatabaseConfigurationResult> InvokeAsync(GetAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Kusto
         /// Returns an attached database configuration.
         /// Azure REST API version: 2022-12-29.
         /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15.
+        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
         /// </summary>
         public static Output<GetAttachedDatabaseConfigurationResult> Invoke(GetAttachedDatabaseConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationInvokeArgs(), options.WithDefaults());

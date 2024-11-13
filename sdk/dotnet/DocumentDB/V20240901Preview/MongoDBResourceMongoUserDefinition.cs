@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20240901Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240515:MongoDBResourceMongoUserDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240515preview:MongoDBResourceMongoUserDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240815:MongoDBResourceMongoUserDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241115:MongoDBResourceMongoUserDefinition" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

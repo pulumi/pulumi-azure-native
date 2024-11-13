@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiCenter
     /// API version entity.
     /// Azure REST API version: 2024-03-01.
     /// 
-    /// Other available API versions: 2024-03-15-preview.
+    /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apicenter:ApiVersion")]
     public partial class ApiVersion : global::Pulumi.CustomResource
@@ -75,6 +75,7 @@ namespace Pulumi.AzureNative.ApiCenter
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240301:ApiVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240315preview:ApiVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240601preview:ApiVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

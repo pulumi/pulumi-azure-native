@@ -5138,6 +5138,97 @@
     "Property": "restoreParameters"
   },
   {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "clusterNameOverride"
+  },
+  {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "delegatedManagementSubnetId"
+  },
+  {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "initialCassandraAdminPassword"
+  },
+  {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "restoreFromBackupId"
+  },
+  {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "dataCenterLocation"
+  },
+  {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "delegatedSubnetId"
+  },
+  {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "GremlinResourceGremlinDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "GremlinResourceGremlinGraph",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoDBResourceMongoDBCollection",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoDBResourceMongoDBDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "SqlResourceSqlContainer",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "SqlResourceSqlDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20241115",
+    "Provider": "DocumentDB",
+    "ResourceName": "TableResourceTable",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
     "Module": "elastic",
     "Provider": "Elastic",
     "ResourceName": "Monitor",
@@ -5545,6 +5636,13 @@
   },
   {
     "Module": "hybridcompute/v20240731preview",
+    "Provider": "HybridCompute",
+    "ResourceName": "Machine",
+    "ReferenceName": "TrackedResource",
+    "Property": "location"
+  },
+  {
+    "Module": "hybridcompute/v20240910preview",
     "Provider": "HybridCompute",
     "ResourceName": "Machine",
     "ReferenceName": "TrackedResource",
@@ -6182,6 +6280,27 @@
   },
   {
     "Module": "kusto/v20230815",
+    "Provider": "Kusto",
+    "ResourceName": "Cluster",
+    "ReferenceName": "VirtualNetworkConfiguration",
+    "Property": "subnetId"
+  },
+  {
+    "Module": "kusto/v20240413",
+    "Provider": "Kusto",
+    "ResourceName": "Cluster",
+    "ReferenceName": "VirtualNetworkConfiguration",
+    "Property": "dataManagementPublicIpId"
+  },
+  {
+    "Module": "kusto/v20240413",
+    "Provider": "Kusto",
+    "ResourceName": "Cluster",
+    "ReferenceName": "VirtualNetworkConfiguration",
+    "Property": "enginePublicIpId"
+  },
+  {
+    "Module": "kusto/v20240413",
     "Provider": "Kusto",
     "ResourceName": "Cluster",
     "ReferenceName": "VirtualNetworkConfiguration",
@@ -54555,6 +54674,13 @@
     "Provider": "MachineLearningServices",
     "ResourceName": "Job",
     "ReferenceName": "JobResourceConfiguration",
+    "Property": "dockerArgsList"
+  },
+  {
+    "Module": "machinelearningservices/v20241001preview",
+    "Provider": "MachineLearningServices",
+    "ResourceName": "Job",
+    "ReferenceName": "JobResourceConfiguration",
     "Property": "shmSize"
   },
   {
@@ -56852,6 +56978,13 @@
     "ResourceName": "Schedule",
     "ReferenceName": "JobResourceConfiguration",
     "Property": "dockerArgs"
+  },
+  {
+    "Module": "machinelearningservices/v20241001preview",
+    "Provider": "MachineLearningServices",
+    "ResourceName": "Schedule",
+    "ReferenceName": "JobResourceConfiguration",
+    "Property": "dockerArgsList"
   },
   {
     "Module": "machinelearningservices/v20241001preview",

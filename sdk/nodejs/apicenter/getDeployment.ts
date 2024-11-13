@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Returns details of the API deployment.
  * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-03-15-preview.
+ * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -100,7 +100,7 @@ export interface GetDeploymentResult {
  * Returns details of the API deployment.
  * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-03-15-preview.
+ * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

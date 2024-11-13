@@ -18688,6 +18688,8 @@ class JobResourceConfigurationResponse(dict):
         suggest = None
         if key == "dockerArgs":
             suggest = "docker_args"
+        elif key == "dockerArgsList":
+            suggest = "docker_args_list"
         elif key == "instanceCount":
             suggest = "instance_count"
         elif key == "instanceType":
@@ -18708,12 +18710,14 @@ class JobResourceConfigurationResponse(dict):
 
     def __init__(__self__, *,
                  docker_args: Optional[str] = None,
+                 docker_args_list: Optional[Sequence[str]] = None,
                  instance_count: Optional[int] = None,
                  instance_type: Optional[str] = None,
                  properties: Optional[Mapping[str, Any]] = None,
                  shm_size: Optional[str] = None):
         """
         :param str docker_args: Extra arguments to pass to the Docker run command. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
+        :param Sequence[str] docker_args_list: Extra arguments to pass to the Docker run command, as a collection. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
         :param int instance_count: Optional number of instances or nodes used by the compute target.
         :param str instance_type: Optional type of VM used as supported by the compute target.
         :param Mapping[str, Any] properties: Additional properties bag.
@@ -18721,6 +18725,8 @@ class JobResourceConfigurationResponse(dict):
         """
         if docker_args is not None:
             pulumi.set(__self__, "docker_args", docker_args)
+        if docker_args_list is not None:
+            pulumi.set(__self__, "docker_args_list", docker_args_list)
         if instance_count is None:
             instance_count = 1
         if instance_count is not None:
@@ -18741,6 +18747,14 @@ class JobResourceConfigurationResponse(dict):
         Extra arguments to pass to the Docker run command. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
         """
         return pulumi.get(self, "docker_args")
+
+    @property
+    @pulumi.getter(name="dockerArgsList")
+    def docker_args_list(self) -> Optional[Sequence[str]]:
+        """
+        Extra arguments to pass to the Docker run command, as a collection. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
+        """
+        return pulumi.get(self, "docker_args_list")
 
     @property
     @pulumi.getter(name="instanceCount")

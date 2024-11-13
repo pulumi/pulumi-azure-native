@@ -8,11 +8,13 @@ import typing
 from ._enums import *
 from .api import *
 from .api_definition import *
+from .api_source import *
 from .api_version import *
 from .deployment import *
 from .environment import *
 from .get_api import *
 from .get_api_definition import *
+from .get_api_source import *
 from .get_api_version import *
 from .get_deployment import *
 from .get_environment import *
@@ -33,8 +35,11 @@ if typing.TYPE_CHECKING:
     v20240301 = __v20240301
     import pulumi_azure_native.apicenter.v20240315preview as __v20240315preview
     v20240315preview = __v20240315preview
+    import pulumi_azure_native.apicenter.v20240601preview as __v20240601preview
+    v20240601preview = __v20240601preview
 else:
     v20230701preview = _utilities.lazy_import('pulumi_azure_native.apicenter.v20230701preview')
     v20240301 = _utilities.lazy_import('pulumi_azure_native.apicenter.v20240301')
     v20240315preview = _utilities.lazy_import('pulumi_azure_native.apicenter.v20240315preview')
+    v20240601preview = _utilities.lazy_import('pulumi_azure_native.apicenter.v20240601preview')
 

@@ -198,7 +198,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:Gateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:Gateway"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:Gateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gateway, __self__).__init__(
             'azure-native:hybridcompute/v20240520preview:Gateway',

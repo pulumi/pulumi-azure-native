@@ -58,7 +58,7 @@ def list_database_principals(cluster_name: Optional[str] = None,
     Returns a list of database principals of the given Kusto cluster and database.
     Azure REST API version: 2022-12-29.
 
-    Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+    Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -82,7 +82,7 @@ def list_database_principals_output(cluster_name: Optional[pulumi.Input[str]] = 
     Returns a list of database principals of the given Kusto cluster and database.
     Azure REST API version: 2022-12-29.
 
-    Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+    Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.

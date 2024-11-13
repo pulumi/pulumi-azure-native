@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Dashboard.V20231001Preview.Inputs
     public sealed class GrafanaConfigurationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Grafana security settings
+        /// </summary>
+        [Input("security")]
+        public Input<Inputs.SecurityArgs>? Security { get; set; }
+
+        /// <summary>
         /// Email server settings.
         /// https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
         /// </summary>

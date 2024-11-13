@@ -167,7 +167,7 @@ def get_environment(environment_name: Optional[str] = None,
     Returns details of the environment.
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2024-03-15-preview.
+    Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
 
 
     :param str environment_name: The name of the environment.
@@ -203,7 +203,7 @@ def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
     Returns details of the environment.
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2024-03-15-preview.
+    Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
 
 
     :param str environment_name: The name of the environment.

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kusto
     /// Class representing a database principal assignment.
     /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
     /// 
-    /// Other available API versions: 2023-05-02, 2023-08-15.
+    /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:DatabasePrincipalAssignment")]
     public partial class DatabasePrincipalAssignment : global::Pulumi.CustomResource
@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:DatabasePrincipalAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:DatabasePrincipalAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:DatabasePrincipalAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:DatabasePrincipalAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Returns details of the metadata schema.
  * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-03-15-preview.
+ * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
  */
 export function getMetadataSchema(args: GetMetadataSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,7 +70,7 @@ export interface GetMetadataSchemaResult {
  * Returns details of the metadata schema.
  * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-03-15-preview.
+ * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
  */
 export function getMetadataSchemaOutput(args: GetMetadataSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

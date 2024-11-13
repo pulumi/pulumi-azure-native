@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20240731Preview
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute:Gateway" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240331preview:Gateway" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240520preview:Gateway" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240910preview:Gateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

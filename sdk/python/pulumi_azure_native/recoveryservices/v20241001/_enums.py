@@ -6,22 +6,33 @@ from enum import Enum
 
 __all__ = [
     'AcquireStorageAccountLock',
+    'AgentAutoUpdateStatus',
     'AlertsState',
+    'AutoProtectionOfDataDisk',
+    'AutomationAccountAuthenticationType',
     'BackupItemType',
     'BackupManagementType',
     'CreateMode',
     'CrossRegionRestore',
     'CrossSubscriptionRestoreState',
     'DayOfWeek',
+    'DiskAccountType',
     'EnhancedSecurityState',
+    'ExtendedLocationType',
+    'FailoverDeploymentModel',
+    'HealthErrorCustomerResolvability',
     'IAASVMPolicyType',
     'IaasVMSnapshotConsistencyType',
     'ImmutabilityState',
     'InfrastructureEncryptionState',
     'LastBackupStatus',
+    'LicenseType',
+    'LinuxLicenseType',
     'MonthOfYear',
+    'MultiVmGroupCreateOption',
     'OperationType',
     'PolicyType',
+    'PossibleOperationsDirections',
     'PrivateEndpointConnectionStatus',
     'ProtectableContainerType',
     'ProtectedItemHealthStatus',
@@ -31,13 +42,20 @@ __all__ = [
     'ProtectionStatus',
     'ProvisioningState',
     'PublicNetworkAccess',
+    'RecoveryPlanActionLocation',
+    'RecoveryPlanGroupType',
+    'ReplicationProtectedItemOperation',
     'ResourceHealthStatus',
     'ResourceIdentityType',
     'RetentionDurationType',
     'RetentionScheduleFormat',
     'ScheduleRunType',
+    'SecurityConfiguration',
+    'SecurityType',
+    'SetMultiVmSyncStatus',
     'SkuName',
     'SoftDeleteState',
+    'SqlServerLicenseType',
     'StandardTierStorageRedundancy',
     'TieringMode',
     'VaultSubResourceType',
@@ -55,9 +73,33 @@ class AcquireStorageAccountLock(str, Enum):
     NOT_ACQUIRE = "NotAcquire"
 
 
+class AgentAutoUpdateStatus(str, Enum):
+    """
+    A value indicating whether the auto update is enabled.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
 class AlertsState(str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class AutoProtectionOfDataDisk(str, Enum):
+    """
+    A value indicating whether the disk auto protection is enabled.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class AutomationAccountAuthenticationType(str, Enum):
+    """
+    A value indicating the type authentication to use for automation Account.
+    """
+    RUN_AS_ACCOUNT = "RunAsAccount"
+    SYSTEM_ASSIGNED_IDENTITY = "SystemAssignedIdentity"
 
 
 class BackupItemType(str, Enum):
@@ -130,11 +172,48 @@ class DayOfWeek(str, Enum):
     SATURDAY = "Saturday"
 
 
+class DiskAccountType(str, Enum):
+    """
+    The disk type.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    PREMIUM_LRS = "Premium_LRS"
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    PREMIUM_V2_LRS = "PremiumV2_LRS"
+    ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
+    PREMIUM_ZRS = "Premium_ZRS"
+
+
 class EnhancedSecurityState(str, Enum):
     INVALID = "Invalid"
     ENABLED = "Enabled"
     DISABLED = "Disabled"
     ALWAYS_ON = "AlwaysON"
+
+
+class ExtendedLocationType(str, Enum):
+    """
+    The extended location type.
+    """
+    EDGE_ZONE = "EdgeZone"
+
+
+class FailoverDeploymentModel(str, Enum):
+    """
+    The failover deployment model.
+    """
+    NOT_APPLICABLE = "NotApplicable"
+    CLASSIC = "Classic"
+    RESOURCE_MANAGER = "ResourceManager"
+
+
+class HealthErrorCustomerResolvability(str, Enum):
+    """
+    Value indicating whether the health error is customer resolvable.
+    """
+    ALLOWED = "Allowed"
+    NOT_ALLOWED = "NotAllowed"
 
 
 class IAASVMPolicyType(str, Enum):
@@ -171,6 +250,24 @@ class LastBackupStatus(str, Enum):
     IR_PENDING = "IRPending"
 
 
+class LicenseType(str, Enum):
+    """
+    The license type.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    NO_LICENSE_TYPE = "NoLicenseType"
+    WINDOWS_SERVER = "WindowsServer"
+
+
+class LinuxLicenseType(str, Enum):
+    """
+    The license type for Linux VM's.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    NO_LICENSE_TYPE = "NoLicenseType"
+    LINUX_SERVER = "LinuxServer"
+
+
 class MonthOfYear(str, Enum):
     INVALID = "Invalid"
     JANUARY = "January"
@@ -185,6 +282,14 @@ class MonthOfYear(str, Enum):
     OCTOBER = "October"
     NOVEMBER = "November"
     DECEMBER = "December"
+
+
+class MultiVmGroupCreateOption(str, Enum):
+    """
+    Whether Multi VM group is auto created or specified by user.
+    """
+    AUTO_CREATED = "AutoCreated"
+    USER_SPECIFIED = "UserSpecified"
 
 
 class OperationType(str, Enum):
@@ -208,6 +313,11 @@ class PolicyType(str, Enum):
     INCREMENTAL = "Incremental"
     SNAPSHOT_FULL = "SnapshotFull"
     SNAPSHOT_COPY_ONLY_FULL = "SnapshotCopyOnlyFull"
+
+
+class PossibleOperationsDirections(str, Enum):
+    PRIMARY_TO_RECOVERY = "PrimaryToRecovery"
+    RECOVERY_TO_PRIMARY = "RecoveryToPrimary"
 
 
 class PrivateEndpointConnectionStatus(str, Enum):
@@ -325,6 +435,40 @@ class PublicNetworkAccess(str, Enum):
     DISABLED = "Disabled"
 
 
+class RecoveryPlanActionLocation(str, Enum):
+    """
+    The fabric location.
+    """
+    PRIMARY = "Primary"
+    RECOVERY = "Recovery"
+
+
+class RecoveryPlanGroupType(str, Enum):
+    """
+    The group type.
+    """
+    SHUTDOWN = "Shutdown"
+    BOOT = "Boot"
+    FAILOVER = "Failover"
+
+
+class ReplicationProtectedItemOperation(str, Enum):
+    REVERSE_REPLICATE = "ReverseReplicate"
+    COMMIT = "Commit"
+    PLANNED_FAILOVER = "PlannedFailover"
+    UNPLANNED_FAILOVER = "UnplannedFailover"
+    DISABLE_PROTECTION = "DisableProtection"
+    TEST_FAILOVER = "TestFailover"
+    TEST_FAILOVER_CLEANUP = "TestFailoverCleanup"
+    FAILBACK = "Failback"
+    FINALIZE_FAILBACK = "FinalizeFailback"
+    CANCEL_FAILOVER = "CancelFailover"
+    CHANGE_PIT = "ChangePit"
+    REPAIR_REPLICATION = "RepairReplication"
+    SWITCH_PROTECTION = "SwitchProtection"
+    COMPLETE_MIGRATION = "CompleteMigration"
+
+
 class ResourceHealthStatus(str, Enum):
     """
     Resource Health Status
@@ -378,6 +522,31 @@ class ScheduleRunType(str, Enum):
     HOURLY = "Hourly"
 
 
+class SecurityConfiguration(str, Enum):
+    """
+    A value indicating whether trusted platform module to be enabled.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class SecurityType(str, Enum):
+    """
+    The target VM security type.
+    """
+    NONE = "None"
+    TRUSTED_LAUNCH = "TrustedLaunch"
+    CONFIDENTIAL_VM = "ConfidentialVM"
+
+
+class SetMultiVmSyncStatus(str, Enum):
+    """
+    A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+    """
+    ENABLE = "Enable"
+    DISABLE = "Disable"
+
+
 class SkuName(str, Enum):
     """
     Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
@@ -391,6 +560,16 @@ class SoftDeleteState(str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
     ALWAYS_ON = "AlwaysON"
+
+
+class SqlServerLicenseType(str, Enum):
+    """
+    The SQL Server license type.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    NO_LICENSE_TYPE = "NoLicenseType"
+    PAYG = "PAYG"
+    AHUB = "AHUB"
 
 
 class StandardTierStorageRedundancy(str, Enum):

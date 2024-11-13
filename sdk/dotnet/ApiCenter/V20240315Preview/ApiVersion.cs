@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.ApiCenter.V20240315Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apicenter:ApiVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240301:ApiVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240601preview:ApiVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

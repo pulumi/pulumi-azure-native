@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * API version entity.
  * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-03-15-preview.
+ * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
  */
 export class ApiVersion extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class ApiVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240301:ApiVersion" }, { type: "azure-native:apicenter/v20240315preview:ApiVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240301:ApiVersion" }, { type: "azure-native:apicenter/v20240315preview:ApiVersion" }, { type: "azure-native:apicenter/v20240601preview:ApiVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiVersion.__pulumiType, name, resourceInputs, opts);
     }

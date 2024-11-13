@@ -249,6 +249,7 @@ namespace Pulumi.AzureNative.Kusto.V20220707
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

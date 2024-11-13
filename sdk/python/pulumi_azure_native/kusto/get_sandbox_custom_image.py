@@ -129,6 +129,8 @@ def get_sandbox_custom_image(cluster_name: Optional[str] = None,
     Returns a sandbox custom image
     Azure REST API version: 2023-08-15.
 
+    Other available API versions: 2024-04-13.
+
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -156,6 +158,8 @@ def get_sandbox_custom_image_output(cluster_name: Optional[pulumi.Input[str]] = 
     """
     Returns a sandbox custom image
     Azure REST API version: 2023-08-15.
+
+    Other available API versions: 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.

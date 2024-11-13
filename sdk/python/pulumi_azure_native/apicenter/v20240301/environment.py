@@ -280,7 +280,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apicenter:Environment"), pulumi.Alias(type_="azure-native:apicenter/v20240315preview:Environment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apicenter:Environment"), pulumi.Alias(type_="azure-native:apicenter/v20240315preview:Environment"), pulumi.Alias(type_="azure-native:apicenter/v20240601preview:Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Environment, __self__).__init__(
             'azure-native:apicenter/v20240301:Environment',

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiCenter
     /// The service entity.
     /// Azure REST API version: 2023-07-01-preview.
     /// 
-    /// Other available API versions: 2024-03-01, 2024-03-15-preview.
+    /// Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apicenter:Service")]
     public partial class Service : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.ApiCenter
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20230701preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240301:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240315preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240601preview:Service" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

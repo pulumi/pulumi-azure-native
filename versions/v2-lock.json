@@ -60,6 +60,7 @@
   "ApiCenter": {
     "Api": "2024-03-01",
     "ApiDefinition": "2024-03-01",
+    "ApiSource": "2024-06-01-preview",
     "ApiVersion": "2024-03-01",
     "Deployment": "2024-03-01",
     "Environment": "2024-03-01",
@@ -1221,6 +1222,10 @@
     "listDomainRecommendations": "2022-09-01",
     "listTopLevelDomainAgreements": "2022-09-01"
   },
+  "DurableTask": {
+    "Scheduler": "2024-10-01-preview",
+    "TaskHub": "2024-10-01-preview"
+  },
   "Dynamics365Fraudprotection": {
     "InstanceDetails": "2021-02-01-preview"
   },
@@ -1470,6 +1475,11 @@
     "listDeviceRegistrationKey": "2022-01-01-preview",
     "listVendorSkusCredential": "2022-01-01-preview"
   },
+  "Impact": {
+    "Connector": "2024-05-01-preview",
+    "Insight": "2024-05-01-preview",
+    "WorkloadImpact": "2024-05-01-preview"
+  },
   "ImportExport": {
     "Job": "2021-01-01",
     "listBitLockerKey": "2021-01-01"
@@ -1605,6 +1615,7 @@
     "PrivateEndpointConnection": "2022-12-29",
     "SandboxCustomImage": "2023-08-15",
     "Script": "2022-12-29",
+    "listClusterCalloutPolicies": "2024-04-13",
     "listClusterFollowerDatabases": "2022-12-29",
     "listClusterLanguageExtensions": "2022-12-29",
     "listDatabasePrincipals": "2022-12-29"
@@ -1951,16 +1962,6 @@
     "Slice": "2023-06-01",
     "listMobileNetworkSimGroups": "2024-04-01",
     "listMobileNetworkSimIds": "2022-04-01-preview"
-  },
-  "MobilePacketCore": {
-    "AmfDeployment": "2023-10-15-preview",
-    "ClusterService": "2023-10-15-preview",
-    "NetworkFunction": "2023-05-15-preview",
-    "NrfDeployment": "2023-10-15-preview",
-    "NssfDeployment": "2023-10-15-preview",
-    "ObservabilityService": "2023-10-15-preview",
-    "SmfDeployment": "2023-10-15-preview",
-    "UpfDeployment": "2023-10-15-preview"
   },
   "Monitor": {
     "AzureMonitorWorkspace": "2023-04-03",

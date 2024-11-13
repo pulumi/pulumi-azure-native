@@ -30,6 +30,7 @@ from .get_read_write_database import *
 from .get_sandbox_custom_image import *
 from .get_script import *
 from .iot_hub_data_connection import *
+from .list_cluster_callout_policies import *
 from .list_cluster_follower_databases import *
 from .list_cluster_language_extensions import *
 from .list_database_principals import *
@@ -64,6 +65,8 @@ if typing.TYPE_CHECKING:
     v20230502 = __v20230502
     import pulumi_azure_native.kusto.v20230815 as __v20230815
     v20230815 = __v20230815
+    import pulumi_azure_native.kusto.v20240413 as __v20240413
+    v20240413 = __v20240413
 else:
     v20180907preview = _utilities.lazy_import('pulumi_azure_native.kusto.v20180907preview')
     v20190515 = _utilities.lazy_import('pulumi_azure_native.kusto.v20190515')
@@ -75,4 +78,5 @@ else:
     v20221229 = _utilities.lazy_import('pulumi_azure_native.kusto.v20221229')
     v20230502 = _utilities.lazy_import('pulumi_azure_native.kusto.v20230502')
     v20230815 = _utilities.lazy_import('pulumi_azure_native.kusto.v20230815')
+    v20240413 = _utilities.lazy_import('pulumi_azure_native.kusto.v20240413')
 

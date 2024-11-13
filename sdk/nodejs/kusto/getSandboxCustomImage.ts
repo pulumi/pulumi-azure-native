@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Returns a sandbox custom image
  * Azure REST API version: 2023-08-15.
+ *
+ * Other available API versions: 2024-04-13.
  */
 export function getSandboxCustomImage(args: GetSandboxCustomImageArgs, opts?: pulumi.InvokeOptions): Promise<GetSandboxCustomImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,6 +70,8 @@ export interface GetSandboxCustomImageResult {
 /**
  * Returns a sandbox custom image
  * Azure REST API version: 2023-08-15.
+ *
+ * Other available API versions: 2024-04-13.
  */
 export function getSandboxCustomImageOutput(args: GetSandboxCustomImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSandboxCustomImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

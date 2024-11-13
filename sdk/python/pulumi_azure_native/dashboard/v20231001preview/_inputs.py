@@ -34,6 +34,8 @@ __all__ = [
     'PrivateLinkServiceConnectionStateArgsDict',
     'ResourceSkuArgs',
     'ResourceSkuArgsDict',
+    'SecurityArgs',
+    'SecurityArgsDict',
     'SmtpArgs',
     'SmtpArgsDict',
     'SnapshotsArgs',
@@ -141,6 +143,10 @@ if not MYPY:
         """
         Server configurations of a Grafana instance
         """
+        security: NotRequired[pulumi.Input['SecurityArgsDict']]
+        """
+        Grafana security settings
+        """
         smtp: NotRequired[pulumi.Input['SmtpArgsDict']]
         """
         Email server settings.
@@ -160,22 +166,38 @@ elif False:
 @pulumi.input_type
 class GrafanaConfigurationsArgs:
     def __init__(__self__, *,
+                 security: Optional[pulumi.Input['SecurityArgs']] = None,
                  smtp: Optional[pulumi.Input['SmtpArgs']] = None,
                  snapshots: Optional[pulumi.Input['SnapshotsArgs']] = None,
                  users: Optional[pulumi.Input['UsersArgs']] = None):
         """
         Server configurations of a Grafana instance
+        :param pulumi.Input['SecurityArgs'] security: Grafana security settings
         :param pulumi.Input['SmtpArgs'] smtp: Email server settings.
                https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
         :param pulumi.Input['SnapshotsArgs'] snapshots: Grafana Snapshots settings
         :param pulumi.Input['UsersArgs'] users: Grafana users settings
         """
+        if security is not None:
+            pulumi.set(__self__, "security", security)
         if smtp is not None:
             pulumi.set(__self__, "smtp", smtp)
         if snapshots is not None:
             pulumi.set(__self__, "snapshots", snapshots)
         if users is not None:
             pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def security(self) -> Optional[pulumi.Input['SecurityArgs']]:
+        """
+        Grafana security settings
+        """
+        return pulumi.get(self, "security")
+
+    @security.setter
+    def security(self, value: Optional[pulumi.Input['SecurityArgs']]):
+        pulumi.set(self, "security", value)
 
     @property
     @pulumi.getter
@@ -683,6 +705,42 @@ class ResourceSkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class SecurityArgsDict(TypedDict):
+        """
+        Grafana security settings
+        """
+        csrf_always_check: NotRequired[pulumi.Input[bool]]
+        """
+        Set to true to execute the CSRF check even if the login cookie is not in a request (default false).
+        """
+elif False:
+    SecurityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecurityArgs:
+    def __init__(__self__, *,
+                 csrf_always_check: Optional[pulumi.Input[bool]] = None):
+        """
+        Grafana security settings
+        :param pulumi.Input[bool] csrf_always_check: Set to true to execute the CSRF check even if the login cookie is not in a request (default false).
+        """
+        if csrf_always_check is not None:
+            pulumi.set(__self__, "csrf_always_check", csrf_always_check)
+
+    @property
+    @pulumi.getter(name="csrfAlwaysCheck")
+    def csrf_always_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to execute the CSRF check even if the login cookie is not in a request (default false).
+        """
+        return pulumi.get(self, "csrf_always_check")
+
+    @csrf_always_check.setter
+    def csrf_always_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "csrf_always_check", value)
 
 
 if not MYPY:

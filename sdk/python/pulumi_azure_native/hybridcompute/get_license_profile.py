@@ -202,7 +202,7 @@ def get_license_profile(license_profile_name: Optional[str] = None,
     Retrieves information about the view of a license profile.
     Azure REST API version: 2023-06-20-preview.
 
-    Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview.
+    Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview.
 
 
     :param str license_profile_name: The name of the license profile.
@@ -238,7 +238,7 @@ def get_license_profile_output(license_profile_name: Optional[pulumi.Input[str]]
     Retrieves information about the view of a license profile.
     Azure REST API version: 2023-06-20-preview.
 
-    Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview.
+    Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview.
 
 
     :param str license_profile_name: The name of the license profile.

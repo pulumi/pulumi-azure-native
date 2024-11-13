@@ -60,6 +60,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240201
                 {
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationProtectionCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240401:ReplicationProtectionCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20241001:ReplicationProtectionCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

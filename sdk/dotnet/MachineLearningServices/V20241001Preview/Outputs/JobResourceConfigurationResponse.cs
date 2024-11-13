@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Outputs
         /// </summary>
         public readonly string? DockerArgs;
         /// <summary>
+        /// Extra arguments to pass to the Docker run command, as a collection. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
+        /// </summary>
+        public readonly ImmutableArray<string> DockerArgsList;
+        /// <summary>
         /// Optional number of instances or nodes used by the compute target.
         /// </summary>
         public readonly int? InstanceCount;
@@ -38,6 +42,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Outputs
         private JobResourceConfigurationResponse(
             string? dockerArgs,
 
+            ImmutableArray<string> dockerArgsList,
+
             int? instanceCount,
 
             string? instanceType,
@@ -47,6 +53,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Outputs
             string? shmSize)
         {
             DockerArgs = dockerArgs;
+            DockerArgsList = dockerArgsList;
             InstanceCount = instanceCount;
             InstanceType = instanceType;
             Properties = properties;

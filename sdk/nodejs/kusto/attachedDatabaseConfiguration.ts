@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Class representing an attached database configuration.
  * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
  *
- * Other available API versions: 2023-05-02, 2023-08-15.
+ * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
  */
 export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**
@@ -139,7 +139,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200918:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210101:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210827:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20220201:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20220707:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20221111:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20221229:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20230502:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20230815:AttachedDatabaseConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200918:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210101:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210827:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20220201:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20220707:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20221111:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20221229:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20230502:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20230815:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20240413:AttachedDatabaseConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttachedDatabaseConfiguration.__pulumiType, name, resourceInputs, opts);
     }

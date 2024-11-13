@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Class representing a cluster principal assignment.
  * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
  *
- * Other available API versions: 2023-05-02, 2023-08-15.
+ * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
  */
 export class ClusterPrincipalAssignment extends pulumi.CustomResource {
     /**
@@ -133,7 +133,7 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20191109:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200215:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200614:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200918:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20210101:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20210827:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20220201:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20220707:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20221111:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20221229:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20230502:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20230815:ClusterPrincipalAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20191109:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200215:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200614:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200918:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20210101:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20210827:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20220201:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20220707:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20221111:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20221229:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20230502:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20230815:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20240413:ClusterPrincipalAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ClusterPrincipalAssignment.__pulumiType, name, resourceInputs, opts);
     }

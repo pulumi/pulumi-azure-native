@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.Kusto.V20230502
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:ReadWriteDatabase" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -109,6 +109,7 @@ import * as hybridconnectivity from "./hybridconnectivity";
 import * as hybridcontainerservice from "./hybridcontainerservice";
 import * as hybriddata from "./hybriddata";
 import * as hybridnetwork from "./hybridnetwork";
+import * as impact from "./impact";
 import * as importexport from "./importexport";
 import * as insights from "./insights";
 import * as iotcentral from "./iotcentral";
@@ -138,7 +139,6 @@ import * as media from "./media";
 import * as migrate from "./migrate";
 import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
-import * as mobilepacketcore from "./mobilepacketcore";
 import * as monitor from "./monitor";
 import * as netapp from "./netapp";
 import * as network from "./network";
@@ -318,6 +318,7 @@ export {
     hybridcontainerservice,
     hybriddata,
     hybridnetwork,
+    impact,
     importexport,
     insights,
     iotcentral,
@@ -347,7 +348,6 @@ export {
     migrate,
     mixedreality,
     mobilenetwork,
-    mobilepacketcore,
     monitor,
     netapp,
     network,

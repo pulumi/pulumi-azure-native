@@ -30,6 +30,7 @@ __all__ = [
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ResourceSkuResponse',
+    'SecurityResponse',
     'SmtpResponse',
     'SnapshotsResponse',
     'SystemDataResponse',
@@ -137,22 +138,34 @@ class GrafanaConfigurationsResponse(dict):
     Server configurations of a Grafana instance
     """
     def __init__(__self__, *,
+                 security: Optional['outputs.SecurityResponse'] = None,
                  smtp: Optional['outputs.SmtpResponse'] = None,
                  snapshots: Optional['outputs.SnapshotsResponse'] = None,
                  users: Optional['outputs.UsersResponse'] = None):
         """
         Server configurations of a Grafana instance
+        :param 'SecurityResponse' security: Grafana security settings
         :param 'SmtpResponse' smtp: Email server settings.
                https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
         :param 'SnapshotsResponse' snapshots: Grafana Snapshots settings
         :param 'UsersResponse' users: Grafana users settings
         """
+        if security is not None:
+            pulumi.set(__self__, "security", security)
         if smtp is not None:
             pulumi.set(__self__, "smtp", smtp)
         if snapshots is not None:
             pulumi.set(__self__, "snapshots", snapshots)
         if users is not None:
             pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def security(self) -> Optional['outputs.SecurityResponse']:
+        """
+        Grafana security settings
+        """
+        return pulumi.get(self, "security")
 
     @property
     @pulumi.getter
@@ -891,6 +904,46 @@ class ResourceSkuResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SecurityResponse(dict):
+    """
+    Grafana security settings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "csrfAlwaysCheck":
+            suggest = "csrf_always_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 csrf_always_check: Optional[bool] = None):
+        """
+        Grafana security settings
+        :param bool csrf_always_check: Set to true to execute the CSRF check even if the login cookie is not in a request (default false).
+        """
+        if csrf_always_check is not None:
+            pulumi.set(__self__, "csrf_always_check", csrf_always_check)
+
+    @property
+    @pulumi.getter(name="csrfAlwaysCheck")
+    def csrf_always_check(self) -> Optional[bool]:
+        """
+        Set to true to execute the CSRF check even if the login cookie is not in a request (default false).
+        """
+        return pulumi.get(self, "csrf_always_check")
 
 
 @pulumi.output_type

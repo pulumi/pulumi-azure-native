@@ -111,6 +111,7 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:Database" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

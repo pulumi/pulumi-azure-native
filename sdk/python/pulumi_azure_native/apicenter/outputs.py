@@ -18,11 +18,13 @@ from ._enums import *
 
 __all__ = [
     'ApiDefinitionPropertiesSpecificationResponse',
+    'AzureApiManagementSourceResponse',
     'ContactResponse',
     'DeploymentServerResponse',
     'EnvironmentServerResponse',
     'ExternalDocumentationResponse',
     'LicenseResponse',
+    'LinkStateResponse',
     'ManagedServiceIdentityResponse',
     'MetadataAssignmentResponse',
     'OnboardingResponse',
@@ -64,6 +66,59 @@ class ApiDefinitionPropertiesSpecificationResponse(dict):
         Specification version.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class AzureApiManagementSourceResponse(dict):
+    """
+    API source configuration for Azure API Management.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "msiResourceId":
+            suggest = "msi_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureApiManagementSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureApiManagementSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureApiManagementSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: str,
+                 msi_resource_id: Optional[str] = None):
+        """
+        API source configuration for Azure API Management.
+        :param str resource_id: API Management service resource ID.
+        :param str msi_resource_id: The resource ID of the managed identity that has access to the API Management instance.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        if msi_resource_id is not None:
+            pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        API Management service resource ID.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="msiResourceId")
+    def msi_resource_id(self) -> Optional[str]:
+        """
+        The resource ID of the managed identity that has access to the API Management instance.
+        """
+        return pulumi.get(self, "msi_resource_id")
 
 
 @pulumi.output_type
@@ -300,6 +355,69 @@ class LicenseResponse(dict):
         identifier field.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class LinkStateResponse(dict):
+    """
+    The link state.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedOn":
+            suggest = "last_updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_updated_on: str,
+                 message: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        The link state.
+        :param str last_updated_on: The timestamp of the last update of the link state.
+        :param str message: The state message.
+        :param str state: The state of the link.
+        """
+        pulumi.set(__self__, "last_updated_on", last_updated_on)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="lastUpdatedOn")
+    def last_updated_on(self) -> str:
+        """
+        The timestamp of the last update of the link state.
+        """
+        return pulumi.get(self, "last_updated_on")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The state message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state of the link.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Kusto
     /// <summary>
     /// Class representing a Kusto sandbox custom image.
     /// Azure REST API version: 2023-08-15.
+    /// 
+    /// Other available API versions: 2024-04-13.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:SandboxCustomImage")]
     public partial class SandboxCustomImage : global::Pulumi.CustomResource
@@ -78,6 +80,7 @@ namespace Pulumi.AzureNative.Kusto
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:SandboxCustomImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:SandboxCustomImage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the details of an ASR replication protection cluster.
  * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2024-04-01, 2024-10-01.
  */
 export function getReplicationProtectionCluster(args: GetReplicationProtectionClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectionClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,7 +72,7 @@ export interface GetReplicationProtectionClusterResult {
  * Gets the details of an ASR replication protection cluster.
  * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2024-04-01, 2024-10-01.
  */
 export function getReplicationProtectionClusterOutput(args: GetReplicationProtectionClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectionClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

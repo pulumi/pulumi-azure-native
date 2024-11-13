@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Class representing a database principal assignment.
  * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
  *
- * Other available API versions: 2023-05-02, 2023-08-15.
+ * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
  */
 export class DatabasePrincipalAssignment extends pulumi.CustomResource {
     /**
@@ -137,7 +137,7 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20191109:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200215:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200614:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200918:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20210101:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20210827:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20220201:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20220707:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20221111:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20221229:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20230502:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20230815:DatabasePrincipalAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20191109:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200215:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200614:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200918:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20210101:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20210827:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20220201:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20220707:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20221111:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20221229:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20230502:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20230815:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20240413:DatabasePrincipalAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabasePrincipalAssignment.__pulumiType, name, resourceInputs, opts);
     }

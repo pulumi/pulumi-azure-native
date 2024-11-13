@@ -198,7 +198,7 @@ class ReplicationProtectionCluster(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20240401:ReplicationProtectionCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20240401:ReplicationProtectionCluster"), pulumi.Alias(type_="azure-native:recoveryservices/v20241001:ReplicationProtectionCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationProtectionCluster, __self__).__init__(
             'azure-native:recoveryservices/v20240201:ReplicationProtectionCluster',

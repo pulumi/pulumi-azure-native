@@ -125,6 +125,11 @@ export type IotHubDataConnection = import("./iotHubDataConnection").IotHubDataCo
 export const IotHubDataConnection: typeof import("./iotHubDataConnection").IotHubDataConnection = null as any;
 utilities.lazyLoad(exports, ["IotHubDataConnection"], () => require("./iotHubDataConnection"));
 
+export { ListClusterCalloutPoliciesArgs, ListClusterCalloutPoliciesResult, ListClusterCalloutPoliciesOutputArgs } from "./listClusterCalloutPolicies";
+export const listClusterCalloutPolicies: typeof import("./listClusterCalloutPolicies").listClusterCalloutPolicies = null as any;
+export const listClusterCalloutPoliciesOutput: typeof import("./listClusterCalloutPolicies").listClusterCalloutPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["listClusterCalloutPolicies","listClusterCalloutPoliciesOutput"], () => require("./listClusterCalloutPolicies"));
+
 export { ListClusterFollowerDatabasesArgs, ListClusterFollowerDatabasesResult, ListClusterFollowerDatabasesOutputArgs } from "./listClusterFollowerDatabases";
 export const listClusterFollowerDatabases: typeof import("./listClusterFollowerDatabases").listClusterFollowerDatabases = null as any;
 export const listClusterFollowerDatabasesOutput: typeof import("./listClusterFollowerDatabases").listClusterFollowerDatabasesOutput = null as any;
@@ -185,6 +190,7 @@ import * as v20220707 from "./v20220707";
 import * as v20221229 from "./v20221229";
 import * as v20230502 from "./v20230502";
 import * as v20230815 from "./v20230815";
+import * as v20240413 from "./v20240413";
 
 export {
     v20180907preview,
@@ -197,6 +203,7 @@ export {
     v20221229,
     v20230502,
     v20230815,
+    v20240413,
 };
 
 const _module = {

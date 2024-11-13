@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Class representing a Kusto sandbox custom image.
  * Azure REST API version: 2023-08-15.
+ *
+ * Other available API versions: 2024-04-13.
  */
 export class SandboxCustomImage extends pulumi.CustomResource {
     /**
@@ -104,7 +106,7 @@ export class SandboxCustomImage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20230815:SandboxCustomImage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20230815:SandboxCustomImage" }, { type: "azure-native:kusto/v20240413:SandboxCustomImage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SandboxCustomImage.__pulumiType, name, resourceInputs, opts);
     }

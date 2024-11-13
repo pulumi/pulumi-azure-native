@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Class representing a Kusto cluster.
  * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
  *
- * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15.
+ * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -256,7 +256,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20170907privatepreview:Cluster" }, { type: "azure-native:kusto/v20180907preview:Cluster" }, { type: "azure-native:kusto/v20190121:Cluster" }, { type: "azure-native:kusto/v20190515:Cluster" }, { type: "azure-native:kusto/v20190907:Cluster" }, { type: "azure-native:kusto/v20191109:Cluster" }, { type: "azure-native:kusto/v20200215:Cluster" }, { type: "azure-native:kusto/v20200614:Cluster" }, { type: "azure-native:kusto/v20200918:Cluster" }, { type: "azure-native:kusto/v20210101:Cluster" }, { type: "azure-native:kusto/v20210827:Cluster" }, { type: "azure-native:kusto/v20220201:Cluster" }, { type: "azure-native:kusto/v20220707:Cluster" }, { type: "azure-native:kusto/v20221111:Cluster" }, { type: "azure-native:kusto/v20221229:Cluster" }, { type: "azure-native:kusto/v20230502:Cluster" }, { type: "azure-native:kusto/v20230815:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20170907privatepreview:Cluster" }, { type: "azure-native:kusto/v20180907preview:Cluster" }, { type: "azure-native:kusto/v20190121:Cluster" }, { type: "azure-native:kusto/v20190515:Cluster" }, { type: "azure-native:kusto/v20190907:Cluster" }, { type: "azure-native:kusto/v20191109:Cluster" }, { type: "azure-native:kusto/v20200215:Cluster" }, { type: "azure-native:kusto/v20200614:Cluster" }, { type: "azure-native:kusto/v20200918:Cluster" }, { type: "azure-native:kusto/v20210101:Cluster" }, { type: "azure-native:kusto/v20210827:Cluster" }, { type: "azure-native:kusto/v20220201:Cluster" }, { type: "azure-native:kusto/v20220707:Cluster" }, { type: "azure-native:kusto/v20221111:Cluster" }, { type: "azure-native:kusto/v20221229:Cluster" }, { type: "azure-native:kusto/v20230502:Cluster" }, { type: "azure-native:kusto/v20230815:Cluster" }, { type: "azure-native:kusto/v20240413:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

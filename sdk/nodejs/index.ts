@@ -101,6 +101,7 @@ import * as devtestlab from "./devtestlab";
 import * as digitaltwins from "./digitaltwins";
 import * as documentdb from "./documentdb";
 import * as domainregistration from "./domainregistration";
+import * as durabletask from "./durabletask";
 import * as dynamics365fraudprotection from "./dynamics365fraudprotection";
 import * as easm from "./easm";
 import * as edge from "./edge";
@@ -130,6 +131,7 @@ import * as hybridconnectivity from "./hybridconnectivity";
 import * as hybridcontainerservice from "./hybridcontainerservice";
 import * as hybriddata from "./hybriddata";
 import * as hybridnetwork from "./hybridnetwork";
+import * as impact from "./impact";
 import * as importexport from "./importexport";
 import * as insights from "./insights";
 import * as integrationspaces from "./integrationspaces";
@@ -165,7 +167,6 @@ import * as media from "./media";
 import * as migrate from "./migrate";
 import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
-import * as mobilepacketcore from "./mobilepacketcore";
 import * as monitor from "./monitor";
 import * as netapp from "./netapp";
 import * as network from "./network";
@@ -338,6 +339,7 @@ export {
     digitaltwins,
     documentdb,
     domainregistration,
+    durabletask,
     dynamics365fraudprotection,
     easm,
     edge,
@@ -367,6 +369,7 @@ export {
     hybridcontainerservice,
     hybriddata,
     hybridnetwork,
+    impact,
     importexport,
     insights,
     integrationspaces,
@@ -402,7 +405,6 @@ export {
     migrate,
     mixedreality,
     mobilenetwork,
-    mobilepacketcore,
     monitor,
     netapp,
     network,

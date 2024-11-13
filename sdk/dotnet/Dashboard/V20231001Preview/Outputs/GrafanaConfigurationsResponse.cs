@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Dashboard.V20231001Preview.Outputs
     public sealed class GrafanaConfigurationsResponse
     {
         /// <summary>
+        /// Grafana security settings
+        /// </summary>
+        public readonly Outputs.SecurityResponse? Security;
+        /// <summary>
         /// Email server settings.
         /// https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
         /// </summary>
@@ -32,12 +36,15 @@ namespace Pulumi.AzureNative.Dashboard.V20231001Preview.Outputs
 
         [OutputConstructor]
         private GrafanaConfigurationsResponse(
+            Outputs.SecurityResponse? security,
+
             Outputs.SmtpResponse? smtp,
 
             Outputs.SnapshotsResponse? snapshots,
 
             Outputs.UsersResponse? users)
         {
+            Security = security;
             Smtp = smtp;
             Snapshots = snapshots;
             Users = users;

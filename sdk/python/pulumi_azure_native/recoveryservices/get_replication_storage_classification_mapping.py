@@ -108,7 +108,7 @@ def get_replication_storage_classification_mapping(fabric_name: Optional[str] = 
     Gets the details of the specified storage classification mapping.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
 
 
     :param str fabric_name: Fabric name.
@@ -142,7 +142,7 @@ def get_replication_storage_classification_mapping_output(fabric_name: Optional[
     Gets the details of the specified storage classification mapping.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
 
 
     :param str fabric_name: Fabric name.

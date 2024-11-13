@@ -21041,6 +21041,10 @@ if not MYPY:
         """
         Extra arguments to pass to the Docker run command. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
         """
+        docker_args_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Extra arguments to pass to the Docker run command, as a collection. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
+        """
         instance_count: NotRequired[pulumi.Input[int]]
         """
         Optional number of instances or nodes used by the compute target.
@@ -21064,12 +21068,14 @@ elif False:
 class JobResourceConfigurationArgs:
     def __init__(__self__, *,
                  docker_args: Optional[pulumi.Input[str]] = None,
+                 docker_args_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  shm_size: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] docker_args: Extra arguments to pass to the Docker run command. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] docker_args_list: Extra arguments to pass to the Docker run command, as a collection. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
         :param pulumi.Input[int] instance_count: Optional number of instances or nodes used by the compute target.
         :param pulumi.Input[str] instance_type: Optional type of VM used as supported by the compute target.
         :param pulumi.Input[Mapping[str, Any]] properties: Additional properties bag.
@@ -21077,6 +21083,8 @@ class JobResourceConfigurationArgs:
         """
         if docker_args is not None:
             pulumi.set(__self__, "docker_args", docker_args)
+        if docker_args_list is not None:
+            pulumi.set(__self__, "docker_args_list", docker_args_list)
         if instance_count is None:
             instance_count = 1
         if instance_count is not None:
@@ -21101,6 +21109,18 @@ class JobResourceConfigurationArgs:
     @docker_args.setter
     def docker_args(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "docker_args", value)
+
+    @property
+    @pulumi.getter(name="dockerArgsList")
+    def docker_args_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Extra arguments to pass to the Docker run command, as a collection. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
+        """
+        return pulumi.get(self, "docker_args_list")
+
+    @docker_args_list.setter
+    def docker_args_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "docker_args_list", value)
 
     @property
     @pulumi.getter(name="instanceCount")

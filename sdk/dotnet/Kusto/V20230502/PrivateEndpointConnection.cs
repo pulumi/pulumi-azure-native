@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Kusto.V20230502
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

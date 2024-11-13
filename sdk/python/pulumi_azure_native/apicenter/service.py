@@ -121,7 +121,7 @@ class Service(pulumi.CustomResource):
         The service entity.
         Azure REST API version: 2023-07-01-preview.
 
-        Other available API versions: 2024-03-01, 2024-03-15-preview.
+        Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +141,7 @@ class Service(pulumi.CustomResource):
         The service entity.
         Azure REST API version: 2023-07-01-preview.
 
-        Other available API versions: 2024-03-01, 2024-03-15-preview.
+        Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -183,7 +183,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apicenter/v20230701preview:Service"), pulumi.Alias(type_="azure-native:apicenter/v20240301:Service"), pulumi.Alias(type_="azure-native:apicenter/v20240315preview:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apicenter/v20230701preview:Service"), pulumi.Alias(type_="azure-native:apicenter/v20240301:Service"), pulumi.Alias(type_="azure-native:apicenter/v20240315preview:Service"), pulumi.Alias(type_="azure-native:apicenter/v20240601preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-native:apicenter:Service',

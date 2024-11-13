@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Class representing a managed private endpoint.
  * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-08-27.
  *
- * Other available API versions: 2023-05-02, 2023-08-15.
+ * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
  */
 export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
@@ -118,7 +118,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20210827:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20220201:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20220707:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20221111:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20221229:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20230502:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20230815:ManagedPrivateEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20210827:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20220201:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20220707:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20221111:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20221229:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20230502:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20230815:ManagedPrivateEndpoint" }, { type: "azure-native:kusto/v20240413:ManagedPrivateEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);
     }

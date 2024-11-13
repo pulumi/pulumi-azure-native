@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Class representing a database script.
  * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
  *
- * Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15.
+ * Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15, 2024-04-13.
  */
 export class Script extends pulumi.CustomResource {
     /**
@@ -112,7 +112,7 @@ export class Script extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20210101:Script" }, { type: "azure-native:kusto/v20210827:Script" }, { type: "azure-native:kusto/v20220201:Script" }, { type: "azure-native:kusto/v20220707:Script" }, { type: "azure-native:kusto/v20221111:Script" }, { type: "azure-native:kusto/v20221229:Script" }, { type: "azure-native:kusto/v20230502:Script" }, { type: "azure-native:kusto/v20230815:Script" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20210101:Script" }, { type: "azure-native:kusto/v20210827:Script" }, { type: "azure-native:kusto/v20220201:Script" }, { type: "azure-native:kusto/v20220707:Script" }, { type: "azure-native:kusto/v20221111:Script" }, { type: "azure-native:kusto/v20221229:Script" }, { type: "azure-native:kusto/v20230502:Script" }, { type: "azure-native:kusto/v20230815:Script" }, { type: "azure-native:kusto/v20240413:Script" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Script.__pulumiType, name, resourceInputs, opts);
     }
