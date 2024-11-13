@@ -1,4 +1,6 @@
-name: azcore-scheduled
+# This workflow runs the standard (full) CI test suite once a day or on demand,
+# using the legacy autorest backend.
+name: autorest-scheduled
 
 on:
   schedule:
@@ -19,4 +21,4 @@ jobs:
       version: ${{ needs.version.outputs.version }}
       short_test: false
       retention_days: 7
-      use_azcore: true
+      use_azcore: false

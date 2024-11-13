@@ -25,7 +25,7 @@ on:
       use_azcore:
         type: boolean
         description: Whether to use the newer azcore+azidentity backend for REST and auth, or the older autorest
-        default: false
+        default: true
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
