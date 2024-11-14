@@ -112,8 +112,9 @@ update_submodules:
 		echo "Updating submodule $$submodule" ; \
 		(cd $$submodule && git checkout main && git pull origin main); \
 	done
-	rm ./azure-provider-versions/provider_list.json
-	az provider list | jq 'map({ namespace: .namespace, resourceTypes: .resourceTypes | map({ resourceType: .resourceType, apiVersions: .apiVersions }) | sort_by(.resourceType) }) | sort_by(.namespace)' > ./azure-provider-versions/provider_list.json
+	rm versions/az-provider-list.json
+	# Use query option to remove all except specific fields and sort to reduce diff noise
+	az provider list --query 'sort_by([*].{ namespace: namespace, resourceTypes: sort_by(resourceTypes[*].{ resourceType: resourceType, defaultApiVersion: defaultApiVersion, apiVersions: apiVersions, locations: locations }, &resourceType) }, &namespace)' > versions/az-provider-list.json
 
 # Use PROVIDER_TEST_TAGS=all to run all tests including examples integrate tests
 PROVIDER_TEST_TAGS ?= unit # Default to unit tests only for quick local feedback
@@ -220,7 +221,7 @@ bin/$(CODEGEN): bin/pulumictl .make/prebuild .make/provider_mod_download provide
 
 # Writes schema-full.json and metadata-compact.json to bin/
 # Also re-calculates files in versions/ at same time
-bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v1-lock.json versions/v2-config.yaml versions/v2-spec.yaml versions/v2-removed-resources.json
+bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) versions/az-provider-list.json versions/v1-lock.json versions/v2-config.yaml versions/v2-spec.yaml versions/v2-removed-resources.json
 	bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
 # Docs schema - treat as phony becasuse it's committed so we always need to rebuild it.
