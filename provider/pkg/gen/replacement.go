@@ -37,6 +37,9 @@ var forceNewMap = map[string]map[string]codegen.StringSet{
 			"vmSize",
 		),
 	},
+	"DocumentDB": {
+		"SqlResourceSqlRoleAssignment": codegen.NewStringSet("principalId", "scope"),
+	},
 	"Insights": {
 		"Component": codegen.NewStringSet(), // covered by x-ms-mutability
 	},
