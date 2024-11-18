@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Authorization.V20240501
     public sealed class GetPolicySetDefinitionVersionAtManagementGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the management group. The name is case insensitive.
         /// </summary>
         [Input("managementGroupName", required: true)]
@@ -53,6 +59,12 @@ namespace Pulumi.AzureNative.Authorization.V20240501
 
     public sealed class GetPolicySetDefinitionVersionAtManagementGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
         /// <summary>
         /// The name of the management group. The name is case insensitive.
         /// </summary>

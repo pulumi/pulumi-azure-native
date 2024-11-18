@@ -255,7 +255,7 @@ class AppResiliency(pulumi.CustomResource):
             __props__.__dict__["timeout_policy"] = timeout_policy
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20230801preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20240202preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20240802preview:AppResiliency")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20230801preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20240202preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20240802preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20241002preview:AppResiliency")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppResiliency, __self__).__init__(
             'azure-native:app/v20231102preview:AppResiliency',

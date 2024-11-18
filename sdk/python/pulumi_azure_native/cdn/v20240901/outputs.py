@@ -6779,21 +6779,20 @@ class UrlSigningKeyParametersResponse(dict):
     def __init__(__self__, *,
                  key_id: str,
                  secret_source: 'outputs.ResourceReferenceResponse',
-                 type: str,
-                 secret_version: Optional[str] = None):
+                 secret_version: str,
+                 type: str):
         """
         Url signing key parameters
         :param str key_id: Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
         :param 'ResourceReferenceResponse' secret_source: Resource reference to the Azure Key Vault secret. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{secretName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+        :param str secret_version: Version of the secret to be used
         :param str type: The type of the secret resource.
                Expected value is 'UrlSigningKey'.
-        :param str secret_version: Version of the secret to be used
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "secret_source", secret_source)
+        pulumi.set(__self__, "secret_version", secret_version)
         pulumi.set(__self__, "type", 'UrlSigningKey')
-        if secret_version is not None:
-            pulumi.set(__self__, "secret_version", secret_version)
 
     @property
     @pulumi.getter(name="keyId")
@@ -6812,6 +6811,14 @@ class UrlSigningKeyParametersResponse(dict):
         return pulumi.get(self, "secret_source")
 
     @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> str:
+        """
+        Version of the secret to be used
+        """
+        return pulumi.get(self, "secret_version")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -6819,14 +6826,6 @@ class UrlSigningKeyParametersResponse(dict):
         Expected value is 'UrlSigningKey'.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="secretVersion")
-    def secret_version(self) -> Optional[str]:
-        """
-        Version of the secret to be used
-        """
-        return pulumi.get(self, "secret_version")
 
 
 @pulumi.output_type

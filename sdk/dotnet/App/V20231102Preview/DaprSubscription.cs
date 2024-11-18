@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.App.V20231102Preview
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:DaprSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:DaprSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:DaprSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:DaprSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

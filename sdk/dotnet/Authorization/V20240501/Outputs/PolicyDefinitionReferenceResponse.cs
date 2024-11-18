@@ -21,9 +21,17 @@ namespace Pulumi.AzureNative.Authorization.V20240501.Outputs
         /// </summary>
         public readonly string? DefinitionVersion;
         /// <summary>
+        /// The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
+        /// </summary>
+        public readonly string EffectiveDefinitionVersion;
+        /// <summary>
         /// The name of the groups that this policy definition reference belongs to.
         /// </summary>
         public readonly ImmutableArray<string> GroupNames;
+        /// <summary>
+        /// The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
+        /// </summary>
+        public readonly string LatestDefinitionVersion;
         /// <summary>
         /// The parameter values for the referenced policy rule. The keys are the parameter names.
         /// </summary>
@@ -41,7 +49,11 @@ namespace Pulumi.AzureNative.Authorization.V20240501.Outputs
         private PolicyDefinitionReferenceResponse(
             string? definitionVersion,
 
+            string effectiveDefinitionVersion,
+
             ImmutableArray<string> groupNames,
+
+            string latestDefinitionVersion,
 
             ImmutableDictionary<string, Outputs.ParameterValuesValueResponse>? parameters,
 
@@ -50,7 +62,9 @@ namespace Pulumi.AzureNative.Authorization.V20240501.Outputs
             string? policyDefinitionReferenceId)
         {
             DefinitionVersion = definitionVersion;
+            EffectiveDefinitionVersion = effectiveDefinitionVersion;
             GroupNames = groupNames;
+            LatestDefinitionVersion = latestDefinitionVersion;
             Parameters = parameters;
             PolicyDefinitionId = policyDefinitionId;
             PolicyDefinitionReferenceId = policyDefinitionReferenceId;

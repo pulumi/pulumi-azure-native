@@ -53,7 +53,8 @@
     "2023-11-02-preview",
     "2024-02-02-preview",
     "2024-03-01",
-    "2024-08-02-preview"
+    "2024-08-02-preview",
+    "2024-10-02-preview"
   ],
   "AppComplianceAutomation": [
     "2024-06-27"
@@ -282,7 +283,8 @@
   "ContainerInstance": [
     "2024-05-01-preview",
     "2024-09-01-preview",
-    "2024-10-01-preview"
+    "2024-10-01-preview",
+    "2024-11-01-preview"
   ],
   "ContainerRegistry": [
     "2019-12-01-preview",

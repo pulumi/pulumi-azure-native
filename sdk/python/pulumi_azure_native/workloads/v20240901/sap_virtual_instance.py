@@ -26,7 +26,7 @@ class SapVirtualInstanceArgs:
                  environment: pulumi.Input[Union[str, 'SAPEnvironmentType']],
                  resource_group_name: pulumi.Input[str],
                  sap_product: pulumi.Input[Union[str, 'SAPProductType']],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['SAPVirtualInstanceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_configuration: Optional[pulumi.Input['ManagedRGConfigurationArgs']] = None,
                  managed_resources_network_access_type: Optional[pulumi.Input[Union[str, 'ManagedResourcesNetworkAccessType']]] = None,
@@ -38,7 +38,7 @@ class SapVirtualInstanceArgs:
         :param pulumi.Input[Union[str, 'SAPEnvironmentType']] environment: Defines the environment type - Production/Non Production.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'SAPProductType']] sap_product: Defines the SAP Product type.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input['SAPVirtualInstanceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['ManagedRGConfigurationArgs'] managed_resource_group_configuration: Managed resource group configuration
         :param pulumi.Input[Union[str, 'ManagedResourcesNetworkAccessType']] managed_resources_network_access_type: Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
@@ -112,14 +112,14 @@ class SapVirtualInstanceArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['SAPVirtualInstanceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['SAPVirtualInstanceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -190,7 +190,7 @@ class SapVirtualInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[Union[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict'], Union['DeploymentWithOSConfigurationArgs', 'DeploymentWithOSConfigurationArgsDict'], Union['DiscoveryConfigurationArgs', 'DiscoveryConfigurationArgsDict']]]] = None,
                  environment: Optional[pulumi.Input[Union[str, 'SAPEnvironmentType']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['SAPVirtualInstanceIdentityArgs', 'SAPVirtualInstanceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']]] = None,
                  managed_resources_network_access_type: Optional[pulumi.Input[Union[str, 'ManagedResourcesNetworkAccessType']]] = None,
@@ -206,7 +206,7 @@ class SapVirtualInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict'], Union['DeploymentWithOSConfigurationArgs', 'DeploymentWithOSConfigurationArgsDict'], Union['DiscoveryConfigurationArgs', 'DiscoveryConfigurationArgsDict']]] configuration: Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
         :param pulumi.Input[Union[str, 'SAPEnvironmentType']] environment: Defines the environment type - Production/Non Production.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[Union['SAPVirtualInstanceIdentityArgs', 'SAPVirtualInstanceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']] managed_resource_group_configuration: Managed resource group configuration
         :param pulumi.Input[Union[str, 'ManagedResourcesNetworkAccessType']] managed_resources_network_access_type: Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
@@ -241,7 +241,7 @@ class SapVirtualInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[Union[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict'], Union['DeploymentWithOSConfigurationArgs', 'DeploymentWithOSConfigurationArgsDict'], Union['DiscoveryConfigurationArgs', 'DiscoveryConfigurationArgsDict']]]] = None,
                  environment: Optional[pulumi.Input[Union[str, 'SAPEnvironmentType']]] = None,
-                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['SAPVirtualInstanceIdentityArgs', 'SAPVirtualInstanceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']]] = None,
                  managed_resources_network_access_type: Optional[pulumi.Input[Union[str, 'ManagedResourcesNetworkAccessType']]] = None,
@@ -360,7 +360,7 @@ class SapVirtualInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.SAPVirtualInstanceIdentityResponse']]:
         """
         The managed service identities assigned to this resource.
         """

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Cdn.V20240901.Outputs
         /// <summary>
         /// Version of the secret to be used
         /// </summary>
-        public readonly string? SecretVersion;
+        public readonly string SecretVersion;
         /// <summary>
         /// The type of the secret resource.
         /// Expected value is 'UrlSigningKey'.
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Cdn.V20240901.Outputs
 
             Outputs.ResourceReferenceResponse secretSource,
 
-            string? secretVersion,
+            string secretVersion,
 
             string type)
         {

@@ -6,8 +6,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .cg_profile import *
 from .container_group import *
 from .container_group_profile import *
+from .get_cg_profile import *
 from .get_container_group import *
 from .get_container_group_profile import *
 from .get_n_group import *
@@ -31,6 +33,8 @@ if typing.TYPE_CHECKING:
     v20240901preview = __v20240901preview
     import pulumi_azure_native.containerinstance.v20241001preview as __v20241001preview
     v20241001preview = __v20241001preview
+    import pulumi_azure_native.containerinstance.v20241101preview as __v20241101preview
+    v20241101preview = __v20241101preview
 else:
     v20210301 = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20210301')
     v20210701 = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20210701')
@@ -39,4 +43,5 @@ else:
     v20240501preview = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20240501preview')
     v20240901preview = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20240901preview')
     v20241001preview = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20241001preview')
+    v20241101preview = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20241101preview')
 

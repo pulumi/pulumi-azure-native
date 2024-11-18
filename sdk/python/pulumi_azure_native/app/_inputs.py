@@ -142,6 +142,18 @@ __all__ = [
     'HttpGetArgsDict',
     'HttpRetryPolicyArgs',
     'HttpRetryPolicyArgsDict',
+    'HttpRouteActionArgs',
+    'HttpRouteActionArgsDict',
+    'HttpRouteConfigPropertiesArgs',
+    'HttpRouteConfigPropertiesArgsDict',
+    'HttpRouteMatchArgs',
+    'HttpRouteMatchArgsDict',
+    'HttpRouteRuleArgs',
+    'HttpRouteRuleArgsDict',
+    'HttpRouteTargetArgs',
+    'HttpRouteTargetArgsDict',
+    'HttpRouteArgs',
+    'HttpRouteArgsDict',
     'HttpScaleRuleArgs',
     'HttpScaleRuleArgsDict',
     'HttpSettingsRoutesArgs',
@@ -220,6 +232,8 @@ __all__ = [
     'ScaleRuleArgsDict',
     'ScaleArgs',
     'ScaleArgsDict',
+    'ScheduledEntryArgs',
+    'ScheduledEntryArgsDict',
     'SecretVolumeItemArgs',
     'SecretVolumeItemArgsDict',
     'SecretArgs',
@@ -2963,7 +2977,7 @@ if not MYPY:
         """
         certificate_id: NotRequired[pulumi.Input[str]]
         """
-        Resource Id of the Certificate to be bound to this hostname.
+        Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment.
         """
 elif False:
     CustomDomainArgsDict: TypeAlias = Mapping[str, Any]
@@ -2978,7 +2992,7 @@ class CustomDomainArgs:
         Custom Domain of a Container App
         :param pulumi.Input[str] name: Hostname.
         :param pulumi.Input[Union[str, 'BindingType']] binding_type: Custom Domain binding type.
-        :param pulumi.Input[str] certificate_id: Resource Id of the Certificate to be bound to this hostname.
+        :param pulumi.Input[str] certificate_id: Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment.
         """
         pulumi.set(__self__, "name", name)
         if binding_type is not None:
@@ -3014,7 +3028,7 @@ class CustomDomainArgs:
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource Id of the Certificate to be bound to this hostname.
+        Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment.
         """
         return pulumi.get(self, "certificate_id")
 
@@ -5256,6 +5270,421 @@ class HttpRetryPolicyArgs:
     @max_retries.setter
     def max_retries(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_retries", value)
+
+
+if not MYPY:
+    class HttpRouteActionArgsDict(TypedDict):
+        """
+        Action to perform once matching of routes is done
+        """
+        prefix_rewrite: NotRequired[pulumi.Input[str]]
+        """
+        Rewrite prefix, default is no rewrites
+        """
+elif False:
+    HttpRouteActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HttpRouteActionArgs:
+    def __init__(__self__, *,
+                 prefix_rewrite: Optional[pulumi.Input[str]] = None):
+        """
+        Action to perform once matching of routes is done
+        :param pulumi.Input[str] prefix_rewrite: Rewrite prefix, default is no rewrites
+        """
+        if prefix_rewrite is not None:
+            pulumi.set(__self__, "prefix_rewrite", prefix_rewrite)
+
+    @property
+    @pulumi.getter(name="prefixRewrite")
+    def prefix_rewrite(self) -> Optional[pulumi.Input[str]]:
+        """
+        Rewrite prefix, default is no rewrites
+        """
+        return pulumi.get(self, "prefix_rewrite")
+
+    @prefix_rewrite.setter
+    def prefix_rewrite(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_rewrite", value)
+
+
+if not MYPY:
+    class HttpRouteConfigPropertiesArgsDict(TypedDict):
+        """
+        Http Route Config properties
+        """
+        custom_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomDomainArgsDict']]]]
+        """
+        Custom domain bindings for http Routes' hostnames.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['HttpRouteRuleArgsDict']]]]
+        """
+        Routing Rules for http route resource.
+        """
+elif False:
+    HttpRouteConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HttpRouteConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainArgs']]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteRuleArgs']]]] = None):
+        """
+        Http Route Config properties
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainArgs']]] custom_domains: Custom domain bindings for http Routes' hostnames.
+        :param pulumi.Input[Sequence[pulumi.Input['HttpRouteRuleArgs']]] rules: Routing Rules for http route resource.
+        """
+        if custom_domains is not None:
+            pulumi.set(__self__, "custom_domains", custom_domains)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainArgs']]]]:
+        """
+        Custom domain bindings for http Routes' hostnames.
+        """
+        return pulumi.get(self, "custom_domains")
+
+    @custom_domains.setter
+    def custom_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainArgs']]]]):
+        pulumi.set(self, "custom_domains", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteRuleArgs']]]]:
+        """
+        Routing Rules for http route resource.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+if not MYPY:
+    class HttpRouteMatchArgsDict(TypedDict):
+        """
+        Criteria to match on
+        """
+        case_sensitive: NotRequired[pulumi.Input[bool]]
+        """
+        path case sensitive, default is true
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        match on exact path
+        """
+        path_separated_prefix: NotRequired[pulumi.Input[str]]
+        """
+        match on all prefix's. Not exact
+        """
+        prefix: NotRequired[pulumi.Input[str]]
+        """
+        match on all prefix's. Not exact
+        """
+elif False:
+    HttpRouteMatchArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HttpRouteMatchArgs:
+    def __init__(__self__, *,
+                 case_sensitive: Optional[pulumi.Input[bool]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 path_separated_prefix: Optional[pulumi.Input[str]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None):
+        """
+        Criteria to match on
+        :param pulumi.Input[bool] case_sensitive: path case sensitive, default is true
+        :param pulumi.Input[str] path: match on exact path
+        :param pulumi.Input[str] path_separated_prefix: match on all prefix's. Not exact
+        :param pulumi.Input[str] prefix: match on all prefix's. Not exact
+        """
+        if case_sensitive is not None:
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if path_separated_prefix is not None:
+            pulumi.set(__self__, "path_separated_prefix", path_separated_prefix)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="caseSensitive")
+    def case_sensitive(self) -> Optional[pulumi.Input[bool]]:
+        """
+        path case sensitive, default is true
+        """
+        return pulumi.get(self, "case_sensitive")
+
+    @case_sensitive.setter
+    def case_sensitive(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "case_sensitive", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        match on exact path
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="pathSeparatedPrefix")
+    def path_separated_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        match on all prefix's. Not exact
+        """
+        return pulumi.get(self, "path_separated_prefix")
+
+    @path_separated_prefix.setter
+    def path_separated_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path_separated_prefix", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        match on all prefix's. Not exact
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+
+if not MYPY:
+    class HttpRouteRuleArgsDict(TypedDict):
+        """
+        Http Route rule.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of rule. Optional.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['HttpRouteArgsDict']]]]
+        """
+        Routing configuration that will allow matches on specific paths/headers.
+        """
+        targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['HttpRouteTargetArgsDict']]]]
+        """
+        Targets- container apps, revisions, labels
+        """
+elif False:
+    HttpRouteRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HttpRouteRuleArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteArgs']]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteTargetArgs']]]] = None):
+        """
+        Http Route rule.
+        :param pulumi.Input[str] description: Description of rule. Optional.
+        :param pulumi.Input[Sequence[pulumi.Input['HttpRouteArgs']]] routes: Routing configuration that will allow matches on specific paths/headers.
+        :param pulumi.Input[Sequence[pulumi.Input['HttpRouteTargetArgs']]] targets: Targets- container apps, revisions, labels
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of rule. Optional.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteArgs']]]]:
+        """
+        Routing configuration that will allow matches on specific paths/headers.
+        """
+        return pulumi.get(self, "routes")
+
+    @routes.setter
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteArgs']]]]):
+        pulumi.set(self, "routes", value)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteTargetArgs']]]]:
+        """
+        Targets- container apps, revisions, labels
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteTargetArgs']]]]):
+        pulumi.set(self, "targets", value)
+
+
+if not MYPY:
+    class HttpRouteTargetArgsDict(TypedDict):
+        """
+        Targets - Container App Names, Revision Names, Labels.
+        """
+        container_app: pulumi.Input[str]
+        """
+        Container App Name to route requests to
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Label/Revision to route requests to
+        """
+        revision: NotRequired[pulumi.Input[str]]
+        """
+        Revision to route requests to
+        """
+        weight: NotRequired[pulumi.Input[int]]
+        """
+        Weighted routing
+        """
+elif False:
+    HttpRouteTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HttpRouteTargetArgs:
+    def __init__(__self__, *,
+                 container_app: pulumi.Input[str],
+                 label: Optional[pulumi.Input[str]] = None,
+                 revision: Optional[pulumi.Input[str]] = None,
+                 weight: Optional[pulumi.Input[int]] = None):
+        """
+        Targets - Container App Names, Revision Names, Labels.
+        :param pulumi.Input[str] container_app: Container App Name to route requests to
+        :param pulumi.Input[str] label: Label/Revision to route requests to
+        :param pulumi.Input[str] revision: Revision to route requests to
+        :param pulumi.Input[int] weight: Weighted routing
+        """
+        pulumi.set(__self__, "container_app", container_app)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="containerApp")
+    def container_app(self) -> pulumi.Input[str]:
+        """
+        Container App Name to route requests to
+        """
+        return pulumi.get(self, "container_app")
+
+    @container_app.setter
+    def container_app(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_app", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        Label/Revision to route requests to
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[pulumi.Input[str]]:
+        """
+        Revision to route requests to
+        """
+        return pulumi.get(self, "revision")
+
+    @revision.setter
+    def revision(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revision", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        Weighted routing
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
+
+
+if not MYPY:
+    class HttpRouteArgsDict(TypedDict):
+        """
+        Http Routes configuration, including paths to match on and whether or not rewrites are to be done.
+        """
+        action: NotRequired[pulumi.Input['HttpRouteActionArgsDict']]
+        """
+        Once route is matched, what is the desired action
+        """
+        match: NotRequired[pulumi.Input['HttpRouteMatchArgsDict']]
+        """
+        Conditions route will match on
+        """
+elif False:
+    HttpRouteArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HttpRouteArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input['HttpRouteActionArgs']] = None,
+                 match: Optional[pulumi.Input['HttpRouteMatchArgs']] = None):
+        """
+        Http Routes configuration, including paths to match on and whether or not rewrites are to be done.
+        :param pulumi.Input['HttpRouteActionArgs'] action: Once route is matched, what is the desired action
+        :param pulumi.Input['HttpRouteMatchArgs'] match: Conditions route will match on
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if match is not None:
+            pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['HttpRouteActionArgs']]:
+        """
+        Once route is matched, what is the desired action
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['HttpRouteActionArgs']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def match(self) -> Optional[pulumi.Input['HttpRouteMatchArgs']]:
+        """
+        Conditions route will match on
+        """
+        return pulumi.get(self, "match")
+
+    @match.setter
+    def match(self, value: Optional[pulumi.Input['HttpRouteMatchArgs']]):
+        pulumi.set(self, "match", value)
 
 
 if not MYPY:
@@ -8419,6 +8848,79 @@ class ScaleArgs:
     @rules.setter
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]]):
         pulumi.set(self, "rules", value)
+
+
+if not MYPY:
+    class ScheduledEntryArgsDict(TypedDict):
+        """
+        Maintenance schedule entry for a managed environment.
+        """
+        duration_hours: pulumi.Input[int]
+        """
+        Length of maintenance window range from 8 to 24 hours.
+        """
+        start_hour_utc: pulumi.Input[int]
+        """
+        Start hour after which managed environment maintenance can start from 0 to 23 hour.
+        """
+        week_day: pulumi.Input['WeekDay']
+        """
+        Day of the week when a managed environment can be patched.
+        """
+elif False:
+    ScheduledEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScheduledEntryArgs:
+    def __init__(__self__, *,
+                 duration_hours: pulumi.Input[int],
+                 start_hour_utc: pulumi.Input[int],
+                 week_day: pulumi.Input['WeekDay']):
+        """
+        Maintenance schedule entry for a managed environment.
+        :param pulumi.Input[int] duration_hours: Length of maintenance window range from 8 to 24 hours.
+        :param pulumi.Input[int] start_hour_utc: Start hour after which managed environment maintenance can start from 0 to 23 hour.
+        :param pulumi.Input['WeekDay'] week_day: Day of the week when a managed environment can be patched.
+        """
+        pulumi.set(__self__, "duration_hours", duration_hours)
+        pulumi.set(__self__, "start_hour_utc", start_hour_utc)
+        pulumi.set(__self__, "week_day", week_day)
+
+    @property
+    @pulumi.getter(name="durationHours")
+    def duration_hours(self) -> pulumi.Input[int]:
+        """
+        Length of maintenance window range from 8 to 24 hours.
+        """
+        return pulumi.get(self, "duration_hours")
+
+    @duration_hours.setter
+    def duration_hours(self, value: pulumi.Input[int]):
+        pulumi.set(self, "duration_hours", value)
+
+    @property
+    @pulumi.getter(name="startHourUtc")
+    def start_hour_utc(self) -> pulumi.Input[int]:
+        """
+        Start hour after which managed environment maintenance can start from 0 to 23 hour.
+        """
+        return pulumi.get(self, "start_hour_utc")
+
+    @start_hour_utc.setter
+    def start_hour_utc(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_hour_utc", value)
+
+    @property
+    @pulumi.getter(name="weekDay")
+    def week_day(self) -> pulumi.Input['WeekDay']:
+        """
+        Day of the week when a managed environment can be patched.
+        """
+        return pulumi.get(self, "week_day")
+
+    @week_day.setter
+    def week_day(self, value: pulumi.Input['WeekDay']):
+        pulumi.set(self, "week_day", value)
 
 
 if not MYPY:

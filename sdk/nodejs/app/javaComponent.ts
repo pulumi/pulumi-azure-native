@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Java Component.
  * Azure REST API version: 2023-11-02-preview.
  *
- * Other available API versions: 2024-02-02-preview, 2024-08-02-preview.
+ * Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
  */
 export class JavaComponent extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class JavaComponent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20231102preview:JavaComponent" }, { type: "azure-native:app/v20240202preview:JavaComponent" }, { type: "azure-native:app/v20240802preview:JavaComponent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20231102preview:JavaComponent" }, { type: "azure-native:app/v20240202preview:JavaComponent" }, { type: "azure-native:app/v20240802preview:JavaComponent" }, { type: "azure-native:app/v20241002preview:JavaComponent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JavaComponent.__pulumiType, name, resourceInputs, opts);
     }

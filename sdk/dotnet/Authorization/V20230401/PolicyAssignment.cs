@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Authorization.V20230401
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
+        /// </summary>
+        [Output("effectiveDefinitionVersion")]
+        public Output<string> EffectiveDefinitionVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
         /// </summary>
         [Output("enforcementMode")]
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNative.Authorization.V20230401
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
+        /// </summary>
+        [Output("latestDefinitionVersion")]
+        public Output<string> LatestDefinitionVersion { get; private set; } = null!;
 
         /// <summary>
         /// The location of the policy assignment. Only required when utilizing managed identity.

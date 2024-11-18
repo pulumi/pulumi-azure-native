@@ -12,6 +12,7 @@ import * as v20231102preview from "./v20231102preview";
 import * as v20240202preview from "./v20240202preview";
 import * as v20240301 from "./v20240301";
 import * as v20240802preview from "./v20240802preview";
+import * as v20241002preview from "./v20241002preview";
 
 export {
     v20220101preview,
@@ -24,6 +25,7 @@ export {
     v20240202preview,
     v20240301,
     v20240802preview,
+    v20241002preview,
 };
 
 export const AccessMode = {
@@ -70,6 +72,7 @@ export type AppProtocol = (typeof AppProtocol)[keyof typeof AppProtocol];
 export const BindingType = {
     Disabled: "Disabled",
     SniEnabled: "SniEnabled",
+    Auto: "Auto",
 } as const;
 
 /**
@@ -326,3 +329,20 @@ export const UnauthenticatedClientActionV2 = {
  * The action to take when an unauthenticated client attempts to access the app.
  */
 export type UnauthenticatedClientActionV2 = (typeof UnauthenticatedClientActionV2)[keyof typeof UnauthenticatedClientActionV2];
+
+export const WeekDay = {
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+    Sunday: "Sunday",
+    Everyday: "Everyday",
+    Weekend: "Weekend",
+} as const;
+
+/**
+ * Day of the week when a managed environment can be patched.
+ */
+export type WeekDay = (typeof WeekDay)[keyof typeof WeekDay];

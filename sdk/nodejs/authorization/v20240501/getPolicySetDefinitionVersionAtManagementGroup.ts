@@ -13,6 +13,7 @@ import * as utilities from "../../utilities";
 export function getPolicySetDefinitionVersionAtManagementGroup(args: GetPolicySetDefinitionVersionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionVersionAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20240501:getPolicySetDefinitionVersionAtManagementGroup", {
+        "expand": args.expand,
         "managementGroupName": args.managementGroupName,
         "policyDefinitionVersion": args.policyDefinitionVersion,
         "policySetDefinitionName": args.policySetDefinitionName,
@@ -20,6 +21,10 @@ export function getPolicySetDefinitionVersionAtManagementGroup(args: GetPolicySe
 }
 
 export interface GetPolicySetDefinitionVersionAtManagementGroupArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: string;
     /**
      * The name of the management group. The name is case insensitive.
      */
@@ -93,6 +98,7 @@ export interface GetPolicySetDefinitionVersionAtManagementGroupResult {
 export function getPolicySetDefinitionVersionAtManagementGroupOutput(args: GetPolicySetDefinitionVersionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionVersionAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20240501:getPolicySetDefinitionVersionAtManagementGroup", {
+        "expand": args.expand,
         "managementGroupName": args.managementGroupName,
         "policyDefinitionVersion": args.policyDefinitionVersion,
         "policySetDefinitionName": args.policySetDefinitionName,
@@ -100,6 +106,10 @@ export function getPolicySetDefinitionVersionAtManagementGroupOutput(args: GetPo
 }
 
 export interface GetPolicySetDefinitionVersionAtManagementGroupOutputArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: pulumi.Input<string>;
     /**
      * The name of the management group. The name is case insensitive.
      */

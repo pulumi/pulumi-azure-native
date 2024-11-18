@@ -122,7 +122,7 @@ class GetSapVirtualInstanceResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.SAPVirtualInstanceIdentityResponse']:
         """
         The managed service identities assigned to this resource.
         """

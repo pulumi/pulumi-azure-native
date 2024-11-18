@@ -1695,7 +1695,11 @@ class PolicyDefinitionReferenceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "policyDefinitionId":
+        if key == "effectiveDefinitionVersion":
+            suggest = "effective_definition_version"
+        elif key == "latestDefinitionVersion":
+            suggest = "latest_definition_version"
+        elif key == "policyDefinitionId":
             suggest = "policy_definition_id"
         elif key == "definitionVersion":
             suggest = "definition_version"
@@ -1716,6 +1720,8 @@ class PolicyDefinitionReferenceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 effective_definition_version: str,
+                 latest_definition_version: str,
                  policy_definition_id: str,
                  definition_version: Optional[str] = None,
                  group_names: Optional[Sequence[str]] = None,
@@ -1723,12 +1729,16 @@ class PolicyDefinitionReferenceResponse(dict):
                  policy_definition_reference_id: Optional[str] = None):
         """
         The policy definition reference.
+        :param str effective_definition_version: The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
+        :param str latest_definition_version: The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
         :param str policy_definition_id: The ID of the policy definition or policy set definition.
         :param str definition_version: The version of the policy definition to use.
         :param Sequence[str] group_names: The name of the groups that this policy definition reference belongs to.
         :param Mapping[str, 'ParameterValuesValueResponse'] parameters: The parameter values for the referenced policy rule. The keys are the parameter names.
         :param str policy_definition_reference_id: A unique id (within the policy set definition) for this policy definition reference.
         """
+        pulumi.set(__self__, "effective_definition_version", effective_definition_version)
+        pulumi.set(__self__, "latest_definition_version", latest_definition_version)
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if definition_version is not None:
             pulumi.set(__self__, "definition_version", definition_version)
@@ -1738,6 +1748,22 @@ class PolicyDefinitionReferenceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if policy_definition_reference_id is not None:
             pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+
+    @property
+    @pulumi.getter(name="effectiveDefinitionVersion")
+    def effective_definition_version(self) -> str:
+        """
+        The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
+        """
+        return pulumi.get(self, "effective_definition_version")
+
+    @property
+    @pulumi.getter(name="latestDefinitionVersion")
+    def latest_definition_version(self) -> str:
+        """
+        The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
+        """
+        return pulumi.get(self, "latest_definition_version")
 
     @property
     @pulumi.getter(name="policyDefinitionId")

@@ -58,8 +58,6 @@ __all__ = [
     'LoadBalancerResourceNamesArgsDict',
     'ManagedRGConfigurationArgs',
     'ManagedRGConfigurationArgsDict',
-    'ManagedServiceIdentityArgs',
-    'ManagedServiceIdentityArgsDict',
     'MountFileShareConfigurationArgs',
     'MountFileShareConfigurationArgsDict',
     'NetworkConfigurationArgs',
@@ -72,6 +70,8 @@ __all__ = [
     'OsSapConfigurationArgsDict',
     'SAPInstallWithoutOSConfigSoftwareConfigurationArgs',
     'SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict',
+    'SAPVirtualInstanceIdentityArgs',
+    'SAPVirtualInstanceIdentityArgsDict',
     'ServiceInitiatedSoftwareConfigurationArgs',
     'ServiceInitiatedSoftwareConfigurationArgsDict',
     'SharedStorageResourceNamesArgs',
@@ -1641,61 +1641,6 @@ class ManagedRGConfigurationArgs:
 
 
 if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ManagedServiceIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "user_assigned_identities", value)
-
-
-if not MYPY:
     class MountFileShareConfigurationArgsDict(TypedDict):
         """
         Gets or sets the file share configuration where the transport directory fileshare already exists, and user wishes to mount the fileshare as a part of the create infra flow.
@@ -2090,6 +2035,61 @@ class SAPInstallWithoutOSConfigSoftwareConfigurationArgs:
     @high_availability_software_configuration.setter
     def high_availability_software_configuration(self, value: Optional[pulumi.Input['HighAvailabilitySoftwareConfigurationArgs']]):
         pulumi.set(self, "high_availability_software_configuration", value)
+
+
+if not MYPY:
+    class SAPVirtualInstanceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'SAPVirtualInstanceIdentityType']]
+        """
+        The type of managed identity assigned to this resource.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The identities assigned to this resource by the user.
+        """
+elif False:
+    SAPVirtualInstanceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SAPVirtualInstanceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'SAPVirtualInstanceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (user assigned identities)
+        :param pulumi.Input[Union[str, 'SAPVirtualInstanceIdentityType']] type: The type of managed identity assigned to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The identities assigned to this resource by the user.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'SAPVirtualInstanceIdentityType']]:
+        """
+        The type of managed identity assigned to this resource.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'SAPVirtualInstanceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The identities assigned to this resource by the user.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 if not MYPY:

@@ -7953,14 +7953,14 @@ if not MYPY:
         """
         Resource reference to the Azure Key Vault secret. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{secretName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
         """
+        secret_version: pulumi.Input[str]
+        """
+        Version of the secret to be used
+        """
         type: pulumi.Input[str]
         """
         The type of the secret resource.
         Expected value is 'UrlSigningKey'.
-        """
-        secret_version: NotRequired[pulumi.Input[str]]
-        """
-        Version of the secret to be used
         """
 elif False:
     UrlSigningKeyParametersArgsDict: TypeAlias = Mapping[str, Any]
@@ -7970,21 +7970,20 @@ class UrlSigningKeyParametersArgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[str],
                  secret_source: pulumi.Input['ResourceReferenceArgs'],
-                 type: pulumi.Input[str],
-                 secret_version: Optional[pulumi.Input[str]] = None):
+                 secret_version: pulumi.Input[str],
+                 type: pulumi.Input[str]):
         """
         Url signing key parameters
         :param pulumi.Input[str] key_id: Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
         :param pulumi.Input['ResourceReferenceArgs'] secret_source: Resource reference to the Azure Key Vault secret. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{secretName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+        :param pulumi.Input[str] secret_version: Version of the secret to be used
         :param pulumi.Input[str] type: The type of the secret resource.
                Expected value is 'UrlSigningKey'.
-        :param pulumi.Input[str] secret_version: Version of the secret to be used
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "secret_source", secret_source)
+        pulumi.set(__self__, "secret_version", secret_version)
         pulumi.set(__self__, "type", 'UrlSigningKey')
-        if secret_version is not None:
-            pulumi.set(__self__, "secret_version", secret_version)
 
     @property
     @pulumi.getter(name="keyId")
@@ -8011,6 +8010,18 @@ class UrlSigningKeyParametersArgs:
         pulumi.set(self, "secret_source", value)
 
     @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> pulumi.Input[str]:
+        """
+        Version of the secret to be used
+        """
+        return pulumi.get(self, "secret_version")
+
+    @secret_version.setter
+    def secret_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_version", value)
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
@@ -8022,18 +8033,6 @@ class UrlSigningKeyParametersArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="secretVersion")
-    def secret_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Version of the secret to be used
-        """
-        return pulumi.get(self, "secret_version")
-
-    @secret_version.setter
-    def secret_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secret_version", value)
 
 
 if not MYPY:

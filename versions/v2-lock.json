@@ -199,9 +199,11 @@
     "DaprComponentResiliencyPolicy": "2023-08-01-preview",
     "DaprSubscription": "2023-08-01-preview",
     "DotNetComponent": "2023-11-02-preview",
+    "HttpRouteConfig": "2024-10-02-preview",
     "JavaComponent": "2023-11-02-preview",
     "Job": "2023-04-01-preview",
     "LogicApp": "2024-02-02-preview",
+    "MaintenanceConfiguration": "2024-10-02-preview",
     "ManagedCertificate": "2023-04-01-preview",
     "ManagedEnvironment": "2022-10-01",
     "ManagedEnvironmentPrivateEndpointConnection": "2024-02-02-preview",
@@ -797,6 +799,7 @@
     "Budget": "2023-05-01"
   },
   "ContainerInstance": {
+    "CGProfile": "2024-11-01-preview",
     "ContainerGroup": "2023-05-01",
     "ContainerGroupProfile": "2024-05-01-preview",
     "NGroup": "2024-09-01-preview"

@@ -33,6 +33,7 @@ __all__ = [
     'TriggerType',
     'Type',
     'UnauthenticatedClientActionV2',
+    'WeekDay',
 ]
 
 
@@ -75,6 +76,7 @@ class BindingType(str, Enum):
     """
     DISABLED = "Disabled"
     SNI_ENABLED = "SniEnabled"
+    AUTO = "Auto"
 
 
 class ClientCredentialMethod(str, Enum):
@@ -279,3 +281,18 @@ class UnauthenticatedClientActionV2(str, Enum):
     ALLOW_ANONYMOUS = "AllowAnonymous"
     RETURN401 = "Return401"
     RETURN403 = "Return403"
+
+
+class WeekDay(str, Enum):
+    """
+    Day of the week when a managed environment can be patched.
+    """
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+    SUNDAY = "Sunday"
+    EVERYDAY = "Everyday"
+    WEEKEND = "Weekend"

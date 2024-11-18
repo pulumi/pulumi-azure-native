@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.App.Inputs
         public InputUnion<string, Pulumi.AzureNative.App.BindingType>? BindingType { get; set; }
 
         /// <summary>
-        /// Resource Id of the Certificate to be bound to this hostname.
+        /// Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment.
         /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }

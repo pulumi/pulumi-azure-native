@@ -177,6 +177,8 @@ def get_n_group(ngroups_name: Optional[str] = None,
     Get the properties of the specified n group.
     Azure REST API version: 2024-09-01-preview.
 
+    Other available API versions: 2024-11-01-preview.
+
 
     :param str ngroups_name: The N Groups name.
     :param str resource_group_name: The name of the resource group.
@@ -205,6 +207,8 @@ def get_n_group_output(ngroups_name: Optional[pulumi.Input[str]] = None,
     """
     Get the properties of the specified n group.
     Azure REST API version: 2024-09-01-preview.
+
+    Other available API versions: 2024-11-01-preview.
 
 
     :param str ngroups_name: The N Groups name.

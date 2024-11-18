@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Authorization.V20240501
     public sealed class GetPolicySetDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the policy set definition to get.
         /// </summary>
         [Input("policySetDefinitionName", required: true)]
@@ -41,6 +47,12 @@ namespace Pulumi.AzureNative.Authorization.V20240501
 
     public sealed class GetPolicySetDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
         /// <summary>
         /// The name of the policy set definition to get.
         /// </summary>

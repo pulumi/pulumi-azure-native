@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// Get the properties of the specified n group.
         /// Azure REST API version: 2024-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-11-01-preview.
         /// </summary>
         public static Task<GetNGroupResult> InvokeAsync(GetNGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNGroupResult>("azure-native:containerinstance:getNGroup", args ?? new GetNGroupArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// Get the properties of the specified n group.
         /// Azure REST API version: 2024-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-11-01-preview.
         /// </summary>
         public static Output<GetNGroupResult> Invoke(GetNGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNGroupResult>("azure-native:containerinstance:getNGroup", args ?? new GetNGroupInvokeArgs(), options.WithDefaults());

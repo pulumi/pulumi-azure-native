@@ -182,7 +182,8 @@ class AwaitableGetPolicySetDefinitionVersionAtManagementGroupResult(GetPolicySet
             version=self.version)
 
 
-def get_policy_set_definition_version_at_management_group(management_group_name: Optional[str] = None,
+def get_policy_set_definition_version_at_management_group(expand: Optional[str] = None,
+                                                          management_group_name: Optional[str] = None,
                                                           policy_definition_version: Optional[str] = None,
                                                           policy_set_definition_name: Optional[str] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionVersionAtManagementGroupResult:
@@ -193,11 +194,13 @@ def get_policy_set_definition_version_at_management_group(management_group_name:
     Other available API versions: 2024-05-01.
 
 
+    :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param str management_group_name: The name of the management group. The name is case insensitive.
     :param str policy_definition_version: The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
     :param str policy_set_definition_name: The name of the policy set definition.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['managementGroupName'] = management_group_name
     __args__['policyDefinitionVersion'] = policy_definition_version
     __args__['policySetDefinitionName'] = policy_set_definition_name
@@ -217,7 +220,8 @@ def get_policy_set_definition_version_at_management_group(management_group_name:
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_policy_set_definition_version_at_management_group_output(management_group_name: Optional[pulumi.Input[str]] = None,
+def get_policy_set_definition_version_at_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                                                 management_group_name: Optional[pulumi.Input[str]] = None,
                                                                  policy_definition_version: Optional[pulumi.Input[str]] = None,
                                                                  policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionVersionAtManagementGroupResult]:
@@ -228,11 +232,13 @@ def get_policy_set_definition_version_at_management_group_output(management_grou
     Other available API versions: 2024-05-01.
 
 
+    :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param str management_group_name: The name of the management group. The name is case insensitive.
     :param str policy_definition_version: The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
     :param str policy_set_definition_name: The name of the policy set definition.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['managementGroupName'] = management_group_name
     __args__['policyDefinitionVersion'] = policy_definition_version
     __args__['policySetDefinitionName'] = policy_set_definition_name

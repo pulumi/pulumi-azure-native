@@ -56,7 +56,7 @@ export interface GetSapVirtualInstanceResult {
     /**
      * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.workloads.v20240901.ManagedServiceIdentityResponse;
+    readonly identity?: outputs.workloads.v20240901.SAPVirtualInstanceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */

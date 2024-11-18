@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CGProfileArgs } from "./cgprofile";
+export type CGProfile = import("./cgprofile").CGProfile;
+export const CGProfile: typeof import("./cgprofile").CGProfile = null as any;
+utilities.lazyLoad(exports, ["CGProfile"], () => require("./cgprofile"));
+
 export { ContainerGroupArgs } from "./containerGroup";
 export type ContainerGroup = import("./containerGroup").ContainerGroup;
 export const ContainerGroup: typeof import("./containerGroup").ContainerGroup = null as any;
@@ -14,6 +19,11 @@ export { ContainerGroupProfileArgs } from "./containerGroupProfile";
 export type ContainerGroupProfile = import("./containerGroupProfile").ContainerGroupProfile;
 export const ContainerGroupProfile: typeof import("./containerGroupProfile").ContainerGroupProfile = null as any;
 utilities.lazyLoad(exports, ["ContainerGroupProfile"], () => require("./containerGroupProfile"));
+
+export { GetCGProfileArgs, GetCGProfileResult, GetCGProfileOutputArgs } from "./getCGProfile";
+export const getCGProfile: typeof import("./getCGProfile").getCGProfile = null as any;
+export const getCGProfileOutput: typeof import("./getCGProfile").getCGProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getCGProfile","getCGProfileOutput"], () => require("./getCGProfile"));
 
 export { GetContainerGroupArgs, GetContainerGroupResult, GetContainerGroupOutputArgs } from "./getContainerGroup";
 export const getContainerGroup: typeof import("./getContainerGroup").getContainerGroup = null as any;
@@ -47,6 +57,7 @@ import * as v20230501 from "./v20230501";
 import * as v20240501preview from "./v20240501preview";
 import * as v20240901preview from "./v20240901preview";
 import * as v20241001preview from "./v20241001preview";
+import * as v20241101preview from "./v20241101preview";
 
 export {
     v20210301,
@@ -56,12 +67,15 @@ export {
     v20240501preview,
     v20240901preview,
     v20241001preview,
+    v20241101preview,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:containerinstance:CGProfile":
+                return new CGProfile(name, <any>undefined, { urn })
             case "azure-native:containerinstance:ContainerGroup":
                 return new ContainerGroup(name, <any>undefined, { urn })
             case "azure-native:containerinstance:ContainerGroupProfile":

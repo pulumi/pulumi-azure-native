@@ -13,11 +13,16 @@ import * as utilities from "../../utilities";
 export function getPolicySetDefinition(args: GetPolicySetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20240501:getPolicySetDefinition", {
+        "expand": args.expand,
         "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }
 
 export interface GetPolicySetDefinitionArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: string;
     /**
      * The name of the policy set definition to get.
      */
@@ -87,11 +92,16 @@ export interface GetPolicySetDefinitionResult {
 export function getPolicySetDefinitionOutput(args: GetPolicySetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20240501:getPolicySetDefinition", {
+        "expand": args.expand,
         "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }
 
 export interface GetPolicySetDefinitionOutputArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: pulumi.Input<string>;
     /**
      * The name of the policy set definition to get.
      */

@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.App.V20240802Preview
                     new global::Pulumi.Alias { Type = "azure-native:app:DotNetComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20231102preview:DotNetComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:DotNetComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:DotNetComponent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Authorization.V20240501
     public sealed class GetPolicySetDefinitionVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
         /// </summary>
         [Input("policyDefinitionVersion", required: true)]
@@ -47,6 +53,12 @@ namespace Pulumi.AzureNative.Authorization.V20240501
 
     public sealed class GetPolicySetDefinitionVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
         /// <summary>
         /// The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
         /// </summary>

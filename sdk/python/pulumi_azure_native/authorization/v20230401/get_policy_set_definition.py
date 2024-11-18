@@ -194,15 +194,18 @@ class AwaitableGetPolicySetDefinitionResult(GetPolicySetDefinitionResult):
             versions=self.versions)
 
 
-def get_policy_set_definition(policy_set_definition_name: Optional[str] = None,
+def get_policy_set_definition(expand: Optional[str] = None,
+                              policy_set_definition_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionResult:
     """
     This operation retrieves the policy set definition in the given subscription with the given name.
 
 
+    :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param str policy_set_definition_name: The name of the policy set definition to get.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['policySetDefinitionName'] = policy_set_definition_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20230401:getPolicySetDefinition', __args__, opts=opts, typ=GetPolicySetDefinitionResult).value
@@ -221,15 +224,18 @@ def get_policy_set_definition(policy_set_definition_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'),
         versions=pulumi.get(__ret__, 'versions'))
-def get_policy_set_definition_output(policy_set_definition_name: Optional[pulumi.Input[str]] = None,
+def get_policy_set_definition_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                     policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionResult]:
     """
     This operation retrieves the policy set definition in the given subscription with the given name.
 
 
+    :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param str policy_set_definition_name: The name of the policy set definition to get.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['policySetDefinitionName'] = policy_set_definition_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20230401:getPolicySetDefinition', __args__, opts=opts, typ=GetPolicySetDefinitionResult)

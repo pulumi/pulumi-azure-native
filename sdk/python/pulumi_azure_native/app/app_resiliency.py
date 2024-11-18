@@ -187,7 +187,7 @@ class AppResiliency(pulumi.CustomResource):
         Configuration to setup App Resiliency
         Azure REST API version: 2023-08-01-preview.
 
-        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview.
+        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +211,7 @@ class AppResiliency(pulumi.CustomResource):
         Configuration to setup App Resiliency
         Azure REST API version: 2023-08-01-preview.
 
-        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview.
+        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
 
         :param str resource_name: The name of the resource.
         :param AppResiliencyArgs args: The arguments to use to populate this resource's properties.
@@ -261,7 +261,7 @@ class AppResiliency(pulumi.CustomResource):
             __props__.__dict__["timeout_policy"] = timeout_policy
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20230801preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20231102preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20240202preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20240802preview:AppResiliency")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20230801preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20231102preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20240202preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20240802preview:AppResiliency"), pulumi.Alias(type_="azure-native:app/v20241002preview:AppResiliency")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppResiliency, __self__).__init__(
             'azure-native:app:AppResiliency',

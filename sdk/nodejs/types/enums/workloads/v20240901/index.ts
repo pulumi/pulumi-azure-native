@@ -74,18 +74,6 @@ export const ManagedResourcesNetworkAccessType = {
  */
 export type ManagedResourcesNetworkAccessType = (typeof ManagedResourcesNetworkAccessType)[keyof typeof ManagedResourcesNetworkAccessType];
 
-export const ManagedServiceIdentityType = {
-    None: "None",
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
-} as const;
-
-/**
- * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
- */
-export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
-
 export const NamingPatternType = {
     /**
      * Full resource names that will be created by service.
@@ -249,3 +237,19 @@ export const SAPSoftwareInstallationType = {
  * The SAP software installation type.
  */
 export type SAPSoftwareInstallationType = (typeof SAPSoftwareInstallationType)[keyof typeof SAPSoftwareInstallationType];
+
+export const SAPVirtualInstanceIdentityType = {
+    /**
+     * No managed identity.
+     */
+    None: "None",
+    /**
+     * User assigned managed identity.
+     */
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * The type of managed identity assigned to this resource.
+ */
+export type SAPVirtualInstanceIdentityType = (typeof SAPVirtualInstanceIdentityType)[keyof typeof SAPVirtualInstanceIdentityType];

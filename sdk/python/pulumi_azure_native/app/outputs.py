@@ -85,6 +85,13 @@ __all__ = [
     'HttpConnectionPoolResponse',
     'HttpGetResponse',
     'HttpRetryPolicyResponse',
+    'HttpRouteActionResponse',
+    'HttpRouteConfigResponseProperties',
+    'HttpRouteMatchResponse',
+    'HttpRouteProvisioningErrorsResponse',
+    'HttpRouteResponse',
+    'HttpRouteRuleResponse',
+    'HttpRouteTargetResponse',
     'HttpScaleRuleResponse',
     'HttpSettingsResponse',
     'HttpSettingsRoutesResponse',
@@ -125,6 +132,7 @@ __all__ = [
     'ScaleResponse',
     'ScaleRuleAuthResponse',
     'ScaleRuleResponse',
+    'ScheduledEntryResponse',
     'SecretResponse',
     'SecretVolumeItemResponse',
     'SessionContainerResourcesResponse',
@@ -2512,7 +2520,7 @@ class CustomDomainResponse(dict):
         Custom Domain of a Container App
         :param str name: Hostname.
         :param str binding_type: Custom Domain binding type.
-        :param str certificate_id: Resource Id of the Certificate to be bound to this hostname.
+        :param str certificate_id: Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment.
         """
         pulumi.set(__self__, "name", name)
         if binding_type is not None:
@@ -2540,7 +2548,7 @@ class CustomDomainResponse(dict):
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> Optional[str]:
         """
-        Resource Id of the Certificate to be bound to this hostname.
+        Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment.
         """
         return pulumi.get(self, "certificate_id")
 
@@ -4560,6 +4568,403 @@ class HttpRetryPolicyResponse(dict):
         Maximum number of times a request will retry
         """
         return pulumi.get(self, "max_retries")
+
+
+@pulumi.output_type
+class HttpRouteActionResponse(dict):
+    """
+    Action to perform once matching of routes is done
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "prefixRewrite":
+            suggest = "prefix_rewrite"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpRouteActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpRouteActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpRouteActionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefix_rewrite: Optional[str] = None):
+        """
+        Action to perform once matching of routes is done
+        :param str prefix_rewrite: Rewrite prefix, default is no rewrites
+        """
+        if prefix_rewrite is not None:
+            pulumi.set(__self__, "prefix_rewrite", prefix_rewrite)
+
+    @property
+    @pulumi.getter(name="prefixRewrite")
+    def prefix_rewrite(self) -> Optional[str]:
+        """
+        Rewrite prefix, default is no rewrites
+        """
+        return pulumi.get(self, "prefix_rewrite")
+
+
+@pulumi.output_type
+class HttpRouteConfigResponseProperties(dict):
+    """
+    Http Route Config properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningErrors":
+            suggest = "provisioning_errors"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "customDomains":
+            suggest = "custom_domains"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpRouteConfigResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpRouteConfigResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpRouteConfigResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fqdn: str,
+                 provisioning_errors: Sequence['outputs.HttpRouteProvisioningErrorsResponse'],
+                 provisioning_state: str,
+                 custom_domains: Optional[Sequence['outputs.CustomDomainResponse']] = None,
+                 rules: Optional[Sequence['outputs.HttpRouteRuleResponse']] = None):
+        """
+        Http Route Config properties
+        :param str fqdn: FQDN of the route resource.
+        :param Sequence['HttpRouteProvisioningErrorsResponse'] provisioning_errors: List of errors when trying to reconcile http routes
+        :param str provisioning_state: The provisioning state of the Http Route Config in cluster
+        :param Sequence['CustomDomainResponse'] custom_domains: Custom domain bindings for http Routes' hostnames.
+        :param Sequence['HttpRouteRuleResponse'] rules: Routing Rules for http route resource.
+        """
+        pulumi.set(__self__, "fqdn", fqdn)
+        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if custom_domains is not None:
+            pulumi.set(__self__, "custom_domains", custom_domains)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        FQDN of the route resource.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="provisioningErrors")
+    def provisioning_errors(self) -> Sequence['outputs.HttpRouteProvisioningErrorsResponse']:
+        """
+        List of errors when trying to reconcile http routes
+        """
+        return pulumi.get(self, "provisioning_errors")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the Http Route Config in cluster
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> Optional[Sequence['outputs.CustomDomainResponse']]:
+        """
+        Custom domain bindings for http Routes' hostnames.
+        """
+        return pulumi.get(self, "custom_domains")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.HttpRouteRuleResponse']]:
+        """
+        Routing Rules for http route resource.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class HttpRouteMatchResponse(dict):
+    """
+    Criteria to match on
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caseSensitive":
+            suggest = "case_sensitive"
+        elif key == "pathSeparatedPrefix":
+            suggest = "path_separated_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpRouteMatchResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpRouteMatchResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpRouteMatchResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 case_sensitive: Optional[bool] = None,
+                 path: Optional[str] = None,
+                 path_separated_prefix: Optional[str] = None,
+                 prefix: Optional[str] = None):
+        """
+        Criteria to match on
+        :param bool case_sensitive: path case sensitive, default is true
+        :param str path: match on exact path
+        :param str path_separated_prefix: match on all prefix's. Not exact
+        :param str prefix: match on all prefix's. Not exact
+        """
+        if case_sensitive is not None:
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if path_separated_prefix is not None:
+            pulumi.set(__self__, "path_separated_prefix", path_separated_prefix)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="caseSensitive")
+    def case_sensitive(self) -> Optional[bool]:
+        """
+        path case sensitive, default is true
+        """
+        return pulumi.get(self, "case_sensitive")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        match on exact path
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="pathSeparatedPrefix")
+    def path_separated_prefix(self) -> Optional[str]:
+        """
+        match on all prefix's. Not exact
+        """
+        return pulumi.get(self, "path_separated_prefix")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        match on all prefix's. Not exact
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class HttpRouteProvisioningErrorsResponse(dict):
+    """
+    List of provisioning errors for a http route config object
+    """
+    def __init__(__self__, *,
+                 message: str,
+                 timestamp: str):
+        """
+        List of provisioning errors for a http route config object
+        :param str message: Description or error message
+        :param str timestamp: Timestamp error occured at
+        """
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Description or error message
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> str:
+        """
+        Timestamp error occured at
+        """
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
+class HttpRouteResponse(dict):
+    """
+    Http Routes configuration, including paths to match on and whether or not rewrites are to be done.
+    """
+    def __init__(__self__, *,
+                 action: Optional['outputs.HttpRouteActionResponse'] = None,
+                 match: Optional['outputs.HttpRouteMatchResponse'] = None):
+        """
+        Http Routes configuration, including paths to match on and whether or not rewrites are to be done.
+        :param 'HttpRouteActionResponse' action: Once route is matched, what is the desired action
+        :param 'HttpRouteMatchResponse' match: Conditions route will match on
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if match is not None:
+            pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.HttpRouteActionResponse']:
+        """
+        Once route is matched, what is the desired action
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def match(self) -> Optional['outputs.HttpRouteMatchResponse']:
+        """
+        Conditions route will match on
+        """
+        return pulumi.get(self, "match")
+
+
+@pulumi.output_type
+class HttpRouteRuleResponse(dict):
+    """
+    Http Route rule.
+    """
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 routes: Optional[Sequence['outputs.HttpRouteResponse']] = None,
+                 targets: Optional[Sequence['outputs.HttpRouteTargetResponse']] = None):
+        """
+        Http Route rule.
+        :param str description: Description of rule. Optional.
+        :param Sequence['HttpRouteResponse'] routes: Routing configuration that will allow matches on specific paths/headers.
+        :param Sequence['HttpRouteTargetResponse'] targets: Targets- container apps, revisions, labels
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of rule. Optional.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[Sequence['outputs.HttpRouteResponse']]:
+        """
+        Routing configuration that will allow matches on specific paths/headers.
+        """
+        return pulumi.get(self, "routes")
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Optional[Sequence['outputs.HttpRouteTargetResponse']]:
+        """
+        Targets- container apps, revisions, labels
+        """
+        return pulumi.get(self, "targets")
+
+
+@pulumi.output_type
+class HttpRouteTargetResponse(dict):
+    """
+    Targets - Container App Names, Revision Names, Labels.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerApp":
+            suggest = "container_app"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpRouteTargetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpRouteTargetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpRouteTargetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_app: str,
+                 label: Optional[str] = None,
+                 revision: Optional[str] = None,
+                 weight: Optional[int] = None):
+        """
+        Targets - Container App Names, Revision Names, Labels.
+        :param str container_app: Container App Name to route requests to
+        :param str label: Label/Revision to route requests to
+        :param str revision: Revision to route requests to
+        :param int weight: Weighted routing
+        """
+        pulumi.set(__self__, "container_app", container_app)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="containerApp")
+    def container_app(self) -> str:
+        """
+        Container App Name to route requests to
+        """
+        return pulumi.get(self, "container_app")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Label/Revision to route requests to
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[str]:
+        """
+        Revision to route requests to
+        """
+        return pulumi.get(self, "revision")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[int]:
+        """
+        Weighted routing
+        """
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type
@@ -7268,6 +7673,71 @@ class ScaleRuleResponse(dict):
         Tcp requests based scaling.
         """
         return pulumi.get(self, "tcp")
+
+
+@pulumi.output_type
+class ScheduledEntryResponse(dict):
+    """
+    Maintenance schedule entry for a managed environment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationHours":
+            suggest = "duration_hours"
+        elif key == "startHourUtc":
+            suggest = "start_hour_utc"
+        elif key == "weekDay":
+            suggest = "week_day"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledEntryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledEntryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledEntryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration_hours: int,
+                 start_hour_utc: int,
+                 week_day: str):
+        """
+        Maintenance schedule entry for a managed environment.
+        :param int duration_hours: Length of maintenance window range from 8 to 24 hours.
+        :param int start_hour_utc: Start hour after which managed environment maintenance can start from 0 to 23 hour.
+        :param str week_day: Day of the week when a managed environment can be patched.
+        """
+        pulumi.set(__self__, "duration_hours", duration_hours)
+        pulumi.set(__self__, "start_hour_utc", start_hour_utc)
+        pulumi.set(__self__, "week_day", week_day)
+
+    @property
+    @pulumi.getter(name="durationHours")
+    def duration_hours(self) -> int:
+        """
+        Length of maintenance window range from 8 to 24 hours.
+        """
+        return pulumi.get(self, "duration_hours")
+
+    @property
+    @pulumi.getter(name="startHourUtc")
+    def start_hour_utc(self) -> int:
+        """
+        Start hour after which managed environment maintenance can start from 0 to 23 hour.
+        """
+        return pulumi.get(self, "start_hour_utc")
+
+    @property
+    @pulumi.getter(name="weekDay")
+    def week_day(self) -> str:
+        """
+        Day of the week when a managed environment can be patched.
+        """
+        return pulumi.get(self, "week_day")
 
 
 @pulumi.output_type

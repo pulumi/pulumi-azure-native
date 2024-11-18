@@ -40,14 +40,17 @@ from .get_dapr_component import *
 from .get_dapr_component_resiliency_policy import *
 from .get_dapr_subscription import *
 from .get_dot_net_component import *
+from .get_http_route_config import *
 from .get_java_component import *
 from .get_job import *
 from .get_logic_app import *
+from .get_maintenance_configuration import *
 from .get_managed_certificate import *
 from .get_managed_environment import *
 from .get_managed_environment_auth_token import *
 from .get_managed_environment_private_endpoint_connection import *
 from .get_managed_environments_storage import *
+from .http_route_config import *
 from .java_component import *
 from .job import *
 from .list_build_auth_token import *
@@ -58,6 +61,7 @@ from .list_dapr_component_secrets import *
 from .list_job_secrets import *
 from .list_logic_app_workflows_connections import *
 from .logic_app import *
+from .maintenance_configuration import *
 from .managed_certificate import *
 from .managed_environment import *
 from .managed_environment_private_endpoint_connection import *
@@ -87,6 +91,8 @@ if typing.TYPE_CHECKING:
     v20240301 = __v20240301
     import pulumi_azure_native.app.v20240802preview as __v20240802preview
     v20240802preview = __v20240802preview
+    import pulumi_azure_native.app.v20241002preview as __v20241002preview
+    v20241002preview = __v20241002preview
 else:
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.app.v20220101preview')
     v20221001 = _utilities.lazy_import('pulumi_azure_native.app.v20221001')
@@ -98,4 +104,5 @@ else:
     v20240202preview = _utilities.lazy_import('pulumi_azure_native.app.v20240202preview')
     v20240301 = _utilities.lazy_import('pulumi_azure_native.app.v20240301')
     v20240802preview = _utilities.lazy_import('pulumi_azure_native.app.v20240802preview')
+    v20241002preview = _utilities.lazy_import('pulumi_azure_native.app.v20241002preview')
 

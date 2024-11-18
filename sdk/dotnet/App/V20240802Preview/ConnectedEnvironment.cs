@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.App.V20240802Preview
                     new global::Pulumi.Alias { Type = "azure-native:app/v20231102preview:ConnectedEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:ConnectedEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:ConnectedEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ConnectedEnvironment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

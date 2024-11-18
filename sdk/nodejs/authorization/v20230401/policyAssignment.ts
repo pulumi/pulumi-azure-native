@@ -50,6 +50,10 @@ export class PolicyAssignment extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
+     * The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
+     */
+    public /*out*/ readonly effectiveDefinitionVersion!: pulumi.Output<string>;
+    /**
      * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
      */
     public readonly enforcementMode!: pulumi.Output<string | undefined>;
@@ -57,6 +61,10 @@ export class PolicyAssignment extends pulumi.CustomResource {
      * The managed identity associated with the policy assignment.
      */
     public readonly identity!: pulumi.Output<outputs.authorization.v20230401.IdentityResponse | undefined>;
+    /**
+     * The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
+     */
+    public /*out*/ readonly latestDefinitionVersion!: pulumi.Output<string>;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
@@ -135,6 +143,8 @@ export class PolicyAssignment extends pulumi.CustomResource {
             resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["effectiveDefinitionVersion"] = undefined /*out*/;
+            resourceInputs["latestDefinitionVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -142,8 +152,10 @@ export class PolicyAssignment extends pulumi.CustomResource {
             resourceInputs["definitionVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["effectiveDefinitionVersion"] = undefined /*out*/;
             resourceInputs["enforcementMode"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["latestDefinitionVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

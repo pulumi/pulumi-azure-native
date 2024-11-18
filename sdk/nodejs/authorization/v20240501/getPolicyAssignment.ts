@@ -13,12 +13,17 @@ import * as utilities from "../../utilities";
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20240501:getPolicyAssignment", {
+        "expand": args.expand,
         "policyAssignmentName": args.policyAssignmentName,
         "scope": args.scope,
     }, opts);
 }
 
 export interface GetPolicyAssignmentArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: string;
     /**
      * The name of the policy assignment to get.
      */
@@ -50,6 +55,10 @@ export interface GetPolicyAssignmentResult {
      */
     readonly displayName?: string;
     /**
+     * The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
+     */
+    readonly effectiveDefinitionVersion: string;
+    /**
      * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
      */
     readonly enforcementMode?: string;
@@ -61,6 +70,10 @@ export interface GetPolicyAssignmentResult {
      * The managed identity associated with the policy assignment.
      */
     readonly identity?: outputs.authorization.v20240501.IdentityResponse;
+    /**
+     * The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
+     */
+    readonly latestDefinitionVersion: string;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
@@ -116,12 +129,17 @@ export interface GetPolicyAssignmentResult {
 export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20240501:getPolicyAssignment", {
+        "expand": args.expand,
         "policyAssignmentName": args.policyAssignmentName,
         "scope": args.scope,
     }, opts);
 }
 
 export interface GetPolicyAssignmentOutputArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: pulumi.Input<string>;
     /**
      * The name of the policy assignment to get.
      */

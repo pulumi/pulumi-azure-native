@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App
     /// The Private Endpoint Connection resource.
     /// Azure REST API version: 2024-02-02-preview.
     /// 
-    /// Other available API versions: 2024-08-02-preview.
+    /// Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ManagedEnvironmentPrivateEndpointConnection")]
     public partial class ManagedEnvironmentPrivateEndpointConnection : global::Pulumi.CustomResource
@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.App
                 {
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:ManagedEnvironmentPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ManagedEnvironmentPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ManagedEnvironmentPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

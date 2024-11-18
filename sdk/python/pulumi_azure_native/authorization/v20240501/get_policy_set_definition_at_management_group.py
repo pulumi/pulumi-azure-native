@@ -194,17 +194,20 @@ class AwaitableGetPolicySetDefinitionAtManagementGroupResult(GetPolicySetDefinit
             versions=self.versions)
 
 
-def get_policy_set_definition_at_management_group(management_group_id: Optional[str] = None,
+def get_policy_set_definition_at_management_group(expand: Optional[str] = None,
+                                                  management_group_id: Optional[str] = None,
                                                   policy_set_definition_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionAtManagementGroupResult:
     """
     This operation retrieves the policy set definition in the given management group with the given name.
 
 
+    :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param str management_group_id: The ID of the management group.
     :param str policy_set_definition_name: The name of the policy set definition to get.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['managementGroupId'] = management_group_id
     __args__['policySetDefinitionName'] = policy_set_definition_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -224,17 +227,20 @@ def get_policy_set_definition_at_management_group(management_group_id: Optional[
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'),
         versions=pulumi.get(__ret__, 'versions'))
-def get_policy_set_definition_at_management_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
+def get_policy_set_definition_at_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                                         management_group_id: Optional[pulumi.Input[str]] = None,
                                                          policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionAtManagementGroupResult]:
     """
     This operation retrieves the policy set definition in the given management group with the given name.
 
 
+    :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param str management_group_id: The ID of the management group.
     :param str policy_set_definition_name: The name of the policy set definition to get.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['managementGroupId'] = management_group_id
     __args__['policySetDefinitionName'] = policy_set_definition_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

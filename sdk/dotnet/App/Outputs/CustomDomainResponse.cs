@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string? BindingType;
         /// <summary>
-        /// Resource Id of the Certificate to be bound to this hostname.
+        /// Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment.
         /// </summary>
         public readonly string? CertificateId;
         /// <summary>

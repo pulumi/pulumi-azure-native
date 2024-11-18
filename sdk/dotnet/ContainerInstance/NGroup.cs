@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.ContainerInstance
     /// <summary>
     /// Describes a nGroup.
     /// Azure REST API version: 2024-09-01-preview.
+    /// 
+    /// Other available API versions: 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:NGroup")]
     public partial class NGroup : global::Pulumi.CustomResource
@@ -102,6 +104,7 @@ namespace Pulumi.AzureNative.ContainerInstance
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20240901preview:NGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20241101preview:NGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

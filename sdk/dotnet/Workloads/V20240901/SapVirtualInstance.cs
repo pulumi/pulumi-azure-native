@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Workloads.V20240901
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.SAPVirtualInstanceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.Workloads.V20240901
         /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.SAPVirtualInstanceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -377,6 +377,8 @@ class PolicyAssignment(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["effective_definition_version"] = None
+            __props__.__dict__["latest_definition_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -407,8 +409,10 @@ class PolicyAssignment(pulumi.CustomResource):
         __props__.__dict__["definition_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
+        __props__.__dict__["effective_definition_version"] = None
         __props__.__dict__["enforcement_mode"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["latest_definition_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
@@ -448,6 +452,14 @@ class PolicyAssignment(pulumi.CustomResource):
         return pulumi.get(self, "display_name")
 
     @property
+    @pulumi.getter(name="effectiveDefinitionVersion")
+    def effective_definition_version(self) -> pulumi.Output[str]:
+        """
+        The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
+        """
+        return pulumi.get(self, "effective_definition_version")
+
+    @property
     @pulumi.getter(name="enforcementMode")
     def enforcement_mode(self) -> pulumi.Output[Optional[str]]:
         """
@@ -462,6 +474,14 @@ class PolicyAssignment(pulumi.CustomResource):
         The managed identity associated with the policy assignment.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="latestDefinitionVersion")
+    def latest_definition_version(self) -> pulumi.Output[str]:
+        """
+        The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
+        """
+        return pulumi.get(self, "latest_definition_version")
 
     @property
     @pulumi.getter

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App
     /// Storage resource for connectedEnvironment.
     /// Azure REST API version: 2022-10-01.
     /// 
-    /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview.
+    /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ConnectedEnvironmentsStorage")]
     public partial class ConnectedEnvironmentsStorage : global::Pulumi.CustomResource
@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:ConnectedEnvironmentsStorage" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:ConnectedEnvironmentsStorage" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ConnectedEnvironmentsStorage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

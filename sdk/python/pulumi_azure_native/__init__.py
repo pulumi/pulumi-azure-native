@@ -1778,9 +1778,11 @@ _utilities.register(
    "azure-native:app:DaprComponentResiliencyPolicy": "DaprComponentResiliencyPolicy",
    "azure-native:app:DaprSubscription": "DaprSubscription",
    "azure-native:app:DotNetComponent": "DotNetComponent",
+   "azure-native:app:HttpRouteConfig": "HttpRouteConfig",
    "azure-native:app:JavaComponent": "JavaComponent",
    "azure-native:app:Job": "Job",
    "azure-native:app:LogicApp": "LogicApp",
+   "azure-native:app:MaintenanceConfiguration": "MaintenanceConfiguration",
    "azure-native:app:ManagedCertificate": "ManagedCertificate",
    "azure-native:app:ManagedEnvironment": "ManagedEnvironment",
    "azure-native:app:ManagedEnvironmentPrivateEndpointConnection": "ManagedEnvironmentPrivateEndpointConnection",
@@ -2009,6 +2011,38 @@ _utilities.register(
    "azure-native:app/v20240802preview:ManagedEnvironment": "ManagedEnvironment",
    "azure-native:app/v20240802preview:ManagedEnvironmentPrivateEndpointConnection": "ManagedEnvironmentPrivateEndpointConnection",
    "azure-native:app/v20240802preview:ManagedEnvironmentsStorage": "ManagedEnvironmentsStorage"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "app/v20241002preview",
+  "fqn": "pulumi_azure_native.app.v20241002preview",
+  "classes": {
+   "azure-native:app/v20241002preview:AppResiliency": "AppResiliency",
+   "azure-native:app/v20241002preview:Build": "Build",
+   "azure-native:app/v20241002preview:Builder": "Builder",
+   "azure-native:app/v20241002preview:Certificate": "Certificate",
+   "azure-native:app/v20241002preview:ConnectedEnvironment": "ConnectedEnvironment",
+   "azure-native:app/v20241002preview:ConnectedEnvironmentsCertificate": "ConnectedEnvironmentsCertificate",
+   "azure-native:app/v20241002preview:ConnectedEnvironmentsDaprComponent": "ConnectedEnvironmentsDaprComponent",
+   "azure-native:app/v20241002preview:ConnectedEnvironmentsStorage": "ConnectedEnvironmentsStorage",
+   "azure-native:app/v20241002preview:ContainerApp": "ContainerApp",
+   "azure-native:app/v20241002preview:ContainerAppsAuthConfig": "ContainerAppsAuthConfig",
+   "azure-native:app/v20241002preview:ContainerAppsSessionPool": "ContainerAppsSessionPool",
+   "azure-native:app/v20241002preview:ContainerAppsSourceControl": "ContainerAppsSourceControl",
+   "azure-native:app/v20241002preview:DaprComponent": "DaprComponent",
+   "azure-native:app/v20241002preview:DaprComponentResiliencyPolicy": "DaprComponentResiliencyPolicy",
+   "azure-native:app/v20241002preview:DaprSubscription": "DaprSubscription",
+   "azure-native:app/v20241002preview:DotNetComponent": "DotNetComponent",
+   "azure-native:app/v20241002preview:HttpRouteConfig": "HttpRouteConfig",
+   "azure-native:app/v20241002preview:JavaComponent": "JavaComponent",
+   "azure-native:app/v20241002preview:Job": "Job",
+   "azure-native:app/v20241002preview:LogicApp": "LogicApp",
+   "azure-native:app/v20241002preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:app/v20241002preview:ManagedCertificate": "ManagedCertificate",
+   "azure-native:app/v20241002preview:ManagedEnvironment": "ManagedEnvironment",
+   "azure-native:app/v20241002preview:ManagedEnvironmentPrivateEndpointConnection": "ManagedEnvironmentPrivateEndpointConnection",
+   "azure-native:app/v20241002preview:ManagedEnvironmentsStorage": "ManagedEnvironmentsStorage"
   }
  },
  {
@@ -5494,6 +5528,7 @@ _utilities.register(
   "mod": "containerinstance",
   "fqn": "pulumi_azure_native.containerinstance",
   "classes": {
+   "azure-native:containerinstance:CGProfile": "CGProfile",
    "azure-native:containerinstance:ContainerGroup": "ContainerGroup",
    "azure-native:containerinstance:ContainerGroupProfile": "ContainerGroupProfile",
    "azure-native:containerinstance:NGroup": "NGroup"
@@ -5555,6 +5590,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.containerinstance.v20241001preview",
   "classes": {
    "azure-native:containerinstance/v20241001preview:ContainerGroup": "ContainerGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerinstance/v20241101preview",
+  "fqn": "pulumi_azure_native.containerinstance.v20241101preview",
+  "classes": {
+   "azure-native:containerinstance/v20241101preview:CGProfile": "CGProfile",
+   "azure-native:containerinstance/v20241101preview:ContainerGroup": "ContainerGroup",
+   "azure-native:containerinstance/v20241101preview:NGroup": "NGroup"
   }
  },
  {

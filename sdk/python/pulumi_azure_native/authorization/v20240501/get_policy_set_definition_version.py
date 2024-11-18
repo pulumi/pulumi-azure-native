@@ -182,17 +182,20 @@ class AwaitableGetPolicySetDefinitionVersionResult(GetPolicySetDefinitionVersion
             version=self.version)
 
 
-def get_policy_set_definition_version(policy_definition_version: Optional[str] = None,
+def get_policy_set_definition_version(expand: Optional[str] = None,
+                                      policy_definition_version: Optional[str] = None,
                                       policy_set_definition_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionVersionResult:
     """
     This operation retrieves the policy set definition version in the given subscription with the given name and version.
 
 
+    :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param str policy_definition_version: The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
     :param str policy_set_definition_name: The name of the policy set definition.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['policyDefinitionVersion'] = policy_definition_version
     __args__['policySetDefinitionName'] = policy_set_definition_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -211,17 +214,20 @@ def get_policy_set_definition_version(policy_definition_version: Optional[str] =
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_policy_set_definition_version_output(policy_definition_version: Optional[pulumi.Input[str]] = None,
+def get_policy_set_definition_version_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                             policy_definition_version: Optional[pulumi.Input[str]] = None,
                                              policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionVersionResult]:
     """
     This operation retrieves the policy set definition version in the given subscription with the given name and version.
 
 
+    :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param str policy_definition_version: The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
     :param str policy_set_definition_name: The name of the policy set definition.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['policyDefinitionVersion'] = policy_definition_version
     __args__['policySetDefinitionName'] = policy_set_definition_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

@@ -13,12 +13,17 @@ import * as utilities from "../../utilities";
 export function getPolicySetDefinitionAtManagementGroup(args: GetPolicySetDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization/v20240501:getPolicySetDefinitionAtManagementGroup", {
+        "expand": args.expand,
         "managementGroupId": args.managementGroupId,
         "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }
 
 export interface GetPolicySetDefinitionAtManagementGroupArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: string;
     /**
      * The ID of the management group.
      */
@@ -92,12 +97,17 @@ export interface GetPolicySetDefinitionAtManagementGroupResult {
 export function getPolicySetDefinitionAtManagementGroupOutput(args: GetPolicySetDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20240501:getPolicySetDefinitionAtManagementGroup", {
+        "expand": args.expand,
         "managementGroupId": args.managementGroupId,
         "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }
 
 export interface GetPolicySetDefinitionAtManagementGroupOutputArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: pulumi.Input<string>;
     /**
      * The ID of the management group.
      */

@@ -56,7 +56,7 @@ export class SapVirtualInstance extends pulumi.CustomResource {
     /**
      * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.workloads.v20240901.ManagedServiceIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.workloads.v20240901.SAPVirtualInstanceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -183,7 +183,7 @@ export interface SapVirtualInstanceArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.workloads.v20240901.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.workloads.v20240901.SAPVirtualInstanceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

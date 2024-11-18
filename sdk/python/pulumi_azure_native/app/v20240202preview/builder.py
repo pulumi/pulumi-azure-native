@@ -218,7 +218,7 @@ class Builder(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:Builder"), pulumi.Alias(type_="azure-native:app/v20230801preview:Builder"), pulumi.Alias(type_="azure-native:app/v20231102preview:Builder"), pulumi.Alias(type_="azure-native:app/v20240802preview:Builder")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:Builder"), pulumi.Alias(type_="azure-native:app/v20230801preview:Builder"), pulumi.Alias(type_="azure-native:app/v20231102preview:Builder"), pulumi.Alias(type_="azure-native:app/v20240802preview:Builder"), pulumi.Alias(type_="azure-native:app/v20241002preview:Builder")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Builder, __self__).__init__(
             'azure-native:app/v20240202preview:Builder',

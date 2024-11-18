@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.App
         /// Container App session pool.
         /// Azure REST API version: 2024-02-02-preview.
         /// 
-        /// Other available API versions: 2024-08-02-preview.
+        /// Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
         /// </summary>
         public static Task<GetContainerAppsSessionPoolResult> InvokeAsync(GetContainerAppsSessionPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppsSessionPoolResult>("azure-native:app:getContainerAppsSessionPool", args ?? new GetContainerAppsSessionPoolArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.App
         /// Container App session pool.
         /// Azure REST API version: 2024-02-02-preview.
         /// 
-        /// Other available API versions: 2024-08-02-preview.
+        /// Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
         /// </summary>
         public static Output<GetContainerAppsSessionPoolResult> Invoke(GetContainerAppsSessionPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppsSessionPoolResult>("azure-native:app:getContainerAppsSessionPool", args ?? new GetContainerAppsSessionPoolInvokeArgs(), options.WithDefaults());

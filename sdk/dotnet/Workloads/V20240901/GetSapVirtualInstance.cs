@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Workloads.V20240901
         /// <summary>
         /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.SAPVirtualInstanceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.Workloads.V20240901
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.SAPVirtualInstanceIdentityResponse? identity,
 
             string location,
 

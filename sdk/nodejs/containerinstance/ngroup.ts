@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Describes a nGroup.
  * Azure REST API version: 2024-09-01-preview.
+ *
+ * Other available API versions: 2024-11-01-preview.
  */
 export class NGroup extends pulumi.CustomResource {
     /**
@@ -118,7 +120,7 @@ export class NGroup extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance/v20240901preview:NGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance/v20240901preview:NGroup" }, { type: "azure-native:containerinstance/v20241101preview:NGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NGroup.__pulumiType, name, resourceInputs, opts);
     }

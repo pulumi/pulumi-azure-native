@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch.V20240701.Inputs
     public sealed class InboundNatPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 22, 3389, 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
+        /// This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
         /// </summary>
         [Input("backendPort", required: true)]
         public Input<int> BackendPort { get; set; } = null!;

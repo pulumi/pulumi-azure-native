@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.App
 
         public static BindingType Disabled { get; } = new BindingType("Disabled");
         public static BindingType SniEnabled { get; } = new BindingType("SniEnabled");
+        public static BindingType Auto { get; } = new BindingType("Auto");
 
         public static bool operator ==(BindingType left, BindingType right) => left.Equals(right);
         public static bool operator !=(BindingType left, BindingType right) => !left.Equals(right);
@@ -889,6 +890,44 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UnauthenticatedClientActionV2 other && Equals(other);
         public bool Equals(UnauthenticatedClientActionV2 other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Day of the week when a managed environment can be patched.
+    /// </summary>
+    [EnumType]
+    public readonly struct WeekDay : IEquatable<WeekDay>
+    {
+        private readonly string _value;
+
+        private WeekDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WeekDay Monday { get; } = new WeekDay("Monday");
+        public static WeekDay Tuesday { get; } = new WeekDay("Tuesday");
+        public static WeekDay Wednesday { get; } = new WeekDay("Wednesday");
+        public static WeekDay Thursday { get; } = new WeekDay("Thursday");
+        public static WeekDay Friday { get; } = new WeekDay("Friday");
+        public static WeekDay Saturday { get; } = new WeekDay("Saturday");
+        public static WeekDay Sunday { get; } = new WeekDay("Sunday");
+        public static WeekDay Everyday { get; } = new WeekDay("Everyday");
+        public static WeekDay Weekend { get; } = new WeekDay("Weekend");
+
+        public static bool operator ==(WeekDay left, WeekDay right) => left.Equals(right);
+        public static bool operator !=(WeekDay left, WeekDay right) => !left.Equals(right);
+
+        public static explicit operator string(WeekDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WeekDay other && Equals(other);
+        public bool Equals(WeekDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

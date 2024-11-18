@@ -16,12 +16,17 @@ import * as utilities from "../utilities";
 export function getPolicySetDefinitionVersion(args: GetPolicySetDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getPolicySetDefinitionVersion", {
+        "expand": args.expand,
         "policyDefinitionVersion": args.policyDefinitionVersion,
         "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }
 
 export interface GetPolicySetDefinitionVersionArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: string;
     /**
      * The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
      */
@@ -94,12 +99,17 @@ export interface GetPolicySetDefinitionVersionResult {
 export function getPolicySetDefinitionVersionOutput(args: GetPolicySetDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getPolicySetDefinitionVersion", {
+        "expand": args.expand,
         "policyDefinitionVersion": args.policyDefinitionVersion,
         "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }
 
 export interface GetPolicySetDefinitionVersionOutputArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: pulumi.Input<string>;
     /**
      * The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
      */

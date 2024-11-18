@@ -8,7 +8,6 @@ __all__ = [
     'DiskSkuName',
     'FileShareConfigurationType',
     'ManagedResourcesNetworkAccessType',
-    'ManagedServiceIdentityType',
     'NamingPatternType',
     'OSType',
     'SAPConfigurationType',
@@ -19,6 +18,7 @@ __all__ = [
     'SAPHighAvailabilityType',
     'SAPProductType',
     'SAPSoftwareInstallationType',
+    'SAPVirtualInstanceIdentityType',
 ]
 
 
@@ -86,16 +86,6 @@ class ManagedResourcesNetworkAccessType(str, Enum):
     """
     Managed resources will be deployed with public network access disabled.
     """
-
-
-class ManagedServiceIdentityType(str, Enum):
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class NamingPatternType(str, Enum):
@@ -239,4 +229,18 @@ class SAPSoftwareInstallationType(str, Enum):
     EXTERNAL = "External"
     """
     External software installation type.
+    """
+
+
+class SAPVirtualInstanceIdentityType(str, Enum):
+    """
+    The type of managed identity assigned to this resource.
+    """
+    NONE = "None"
+    """
+    No managed identity.
+    """
+    USER_ASSIGNED = "UserAssigned"
+    """
+    User assigned managed identity.
     """
