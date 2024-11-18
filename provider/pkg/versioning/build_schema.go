@@ -69,6 +69,7 @@ type BuildSchemaResult struct {
 	Metadata    resources.AzureAPIMetadata
 	Version     VersionMetadata
 	Reports     BuildSchemaReports
+	Providers   openapi.AzureProviders
 }
 
 func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
@@ -153,6 +154,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		Metadata:    *metadata,
 		Version:     versionMetadata,
 		Reports:     buildSchemaReports,
+		Providers:   providers,
 	}, nil
 }
 

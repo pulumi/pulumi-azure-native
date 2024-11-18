@@ -113,7 +113,7 @@ func calculateVersionMetadata(versionSources VersionSources, providers openapi.A
 	// provider->resource->[]version
 	allResourceVersionsByResource := FormatResourceVersions(allResourcesByVersion)
 
-	removedInvokes := ResourceRemovals(findRemovedInvokesFromResources(providers, openapi.RemovableResources(versionSources.ResourcesToRemove)))
+	removedInvokes := ResourceRemovals(FindRemovedInvokesFromResources(providers, openapi.RemovableResources(versionSources.ResourcesToRemove)))
 
 	return VersionMetadata{
 		VersionSources:                versionSources,
@@ -270,7 +270,7 @@ func ReadRequiredExplicitResources(path string) ([]string, error) {
 	return lines, nil
 }
 
-func findRemovedInvokesFromResources(providers openapi.AzureProviders, removedResources openapi.RemovableResources) openapi.RemovableResources {
+func FindRemovedInvokesFromResources(providers openapi.AzureProviders, removedResources openapi.RemovableResources) openapi.RemovableResources {
 	removableInvokes := openapi.RemovableResources{}
 	for provider, versions := range providers {
 		for version, resources := range versions {

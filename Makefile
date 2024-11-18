@@ -164,7 +164,7 @@ test_nodejs: provider install_nodejs_sdk
 	cd examples && go test -v -tags=nodejs -timeout 2h $(TEST_RUN)
 
 .PHONY: schema_squeeze
-schema_squeeze: bin/$(CODEGEN) bin/schema-full.json
+schema_squeeze: bin/$(CODEGEN)
 	bin/$(CODEGEN) squeeze $(VERSION_GENERIC)
 
 .PHONY: explode_schema
