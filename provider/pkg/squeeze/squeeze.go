@@ -12,6 +12,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
+// CompareAll returns a map of resource tokens to be removed with an optional token to a resource it should be replaced with.
 func CompareAll(sch *schema.PackageSpec) (map[string]string, error) {
 	resourceMap := map[string]mapset.Set[string]{}
 	for name := range sch.Resources {
