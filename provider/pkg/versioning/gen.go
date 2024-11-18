@@ -19,13 +19,15 @@ import (
 
 type VersionMetadata struct {
 	VersionSources
-	AllResourcesByVersion         ProvidersVersionResources
+	// provider->resource->[]version
 	AllResourceVersionsByResource ProviderResourceVersions
-	Active                        providerlist.ProviderPathVersionsJson
-	Pending                       openapi.ProviderVersionList
-	Spec                          Spec
-	Lock                          openapi.DefaultVersionLock
-	CurationViolations            []CurationViolation
+	// map[LoweredProviderName]map[ResourcePath]ApiVersions
+	Active providerlist.ProviderPathVersionsJson
+	// map[ProviderName][]ApiVersion
+	Pending            openapi.ProviderVersionList
+	Spec               Spec
+	Lock               openapi.DefaultVersionLock
+	CurationViolations []CurationViolation
 }
 
 // Ensure our VersionMetadata type implements the gen.Versioning interface
@@ -74,7 +76,7 @@ func (v VersionMetadata) GetAllVersions(provider openapi.ProviderName, resource 
 }
 
 func LoadVersionMetadata(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
-	versionSources, err := ReadVersionSources(rootDir, majorVersion)
+	versionSources, err := ReadVersionSources(rootDir, providers, majorVersion)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
@@ -86,8 +88,7 @@ func calculateVersionMetadata(versionSources VersionSources, providers openapi.A
 	activePathVersions := versionSources.activePathVersions
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 
-	// provider->version->[]resource
-	allResourcesByVersion := FindAllResources(providers)
+	allResourcesByVersion := versionSources.AllResourcesByVersion
 
 	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(allResourcesByVersion, versionSources.RemovedVersions)
 
@@ -114,7 +115,6 @@ func calculateVersionMetadata(versionSources VersionSources, providers openapi.A
 
 	return VersionMetadata{
 		VersionSources:                versionSources,
-		AllResourcesByVersion:         allResourcesByVersion,
 		AllResourceVersionsByResource: allResourceVersionsByResource,
 		Active:                        activePathVersionsJson,
 		Pending:                       FindNewerVersions(allResourcesByVersion, v2Lock),
@@ -143,12 +143,15 @@ type VersionSources struct {
 	Spec                      Spec
 	Config                    Curations
 	ConfigPath                string
-	ResourcesToRemove         ResourceRemovals
-	RemovedInvokes            ResourceRemovals
-	NextResourcesToRemove     ResourceRemovals
+	// provider->version->[]resource
+	AllResourcesByVersion ProvidersVersionResources
+	// map[TokenToRemove]TokenReplacedWith
+	ResourcesToRemove     ResourceRemovals
+	RemovedInvokes        ResourceRemovals
+	NextResourcesToRemove ResourceRemovals
 }
 
-func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error) {
+func ReadVersionSources(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionSources, error) {
 	activePathVersions, err := providerlist.ReadProviderList(filepath.Join(rootDir, "azure-provider-versions", "provider_list.json"))
 	if err != nil {
 		return VersionSources{}, err
@@ -212,6 +215,7 @@ func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error
 		Spec:                      spec,
 		Config:                    config,
 		ConfigPath:                configPath,
+		AllResourcesByVersion:     FindAllResources(providers),
 		ResourcesToRemove:         resourcesToRemove,
 		RemovedInvokes:            removedInvokes,
 		NextResourcesToRemove:     nextResourcesToRemove,
