@@ -28,7 +28,7 @@ func BenchmarkGen(b *testing.B) {
 		b.Fatal(err)
 	}
 
-	versionMetadata, err := calculateVersionMetadata(versionSources, specs)
+	versionMetadata, err := calculateVersionMetadata(versionSources)
 	if err != nil {
 		b.Fatal(err)
 	}

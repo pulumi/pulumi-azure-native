@@ -80,10 +80,10 @@ func LoadVersionMetadata(rootDir string, providers openapi.AzureProviders, major
 	if err != nil {
 		return VersionMetadata{}, err
 	}
-	return calculateVersionMetadata(versionSources, providers)
+	return calculateVersionMetadata(versionSources)
 }
 
-func calculateVersionMetadata(versionSources VersionSources, providers openapi.AzureProviders) (VersionMetadata, error) {
+func calculateVersionMetadata(versionSources VersionSources) (VersionMetadata, error) {
 	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(versionSources.AllResourcesByVersion, versionSources.RemovedVersions)
 
 	spec := versionSources.Spec
