@@ -34,9 +34,6 @@ func CompareAll(sch *schema.PackageSpec) (map[string]string, error) {
 		group := resourceMap[name]
 		unique := calculateUniqueVersions(sch, group)
 		reduced := group.Difference(unique)
-		for r := range reduced.Iter() {
-			fmt.Println(r)
-		}
 		for k := range reduced.Iter() {
 			for _, a := range mapset.Sorted(unique) {
 				if a > k {
