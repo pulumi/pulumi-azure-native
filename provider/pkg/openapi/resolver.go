@@ -5,6 +5,7 @@ package openapi
 import (
 	"fmt"
 	"net/url"
+	"reflect"
 	"regexp"
 
 	"github.com/go-openapi/jsonreference"
@@ -162,7 +163,8 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 	if len(s.Discriminator) > 0 {
 		return nil, errors.New("'Discriminator' defined as a sibling to a $ref")
 	}
-	if len(s.Enum) > 0 {
+	// Don't error if the sibling enum matches the resolved schema's enum.
+	if len(s.Enum) > 0 && !reflect.DeepEqual(s.Enum, resolvedSchema.Enum) {
 		return nil, errors.New("'Enum' defined as a sibling to a $ref")
 	}
 	if s.Items != nil {
