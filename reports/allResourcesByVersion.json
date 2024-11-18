@@ -1981,6 +1981,43 @@
       "listDaprComponentSecrets",
       "listJobSecrets",
       "listLogicAppWorkflowsConnections"
+    ],
+    "2024-10-02-preview": [
+      "AppResiliency",
+      "Build",
+      "Builder",
+      "Certificate",
+      "ConnectedEnvironment",
+      "ConnectedEnvironmentsCertificate",
+      "ConnectedEnvironmentsDaprComponent",
+      "ConnectedEnvironmentsStorage",
+      "ContainerApp",
+      "ContainerAppsAuthConfig",
+      "ContainerAppsSessionPool",
+      "ContainerAppsSourceControl",
+      "DaprComponent",
+      "DaprComponentResiliencyPolicy",
+      "DaprSubscription",
+      "DotNetComponent",
+      "HttpRouteConfig",
+      "JavaComponent",
+      "Job",
+      "LogicApp",
+      "MaintenanceConfiguration",
+      "ManagedCertificate",
+      "ManagedEnvironment",
+      "ManagedEnvironmentPrivateEndpointConnection",
+      "ManagedEnvironmentsStorage",
+      "getContainerAppAuthToken",
+      "getCustomDomainVerificationId",
+      "getManagedEnvironmentAuthToken",
+      "listBuildAuthToken",
+      "listConnectedEnvironmentsDaprComponentSecrets",
+      "listContainerAppCustomHostNameAnalysis",
+      "listContainerAppSecrets",
+      "listDaprComponentSecrets",
+      "listJobSecrets",
+      "listLogicAppWorkflowsConnections"
     ]
   },
   "AppComplianceAutomation": {
@@ -5929,6 +5966,11 @@
     ],
     "2024-10-01-preview": [
       "ContainerGroup"
+    ],
+    "2024-11-01-preview": [
+      "CGProfile",
+      "ContainerGroup",
+      "NGroup"
     ]
   },
   "ContainerRegistry": {

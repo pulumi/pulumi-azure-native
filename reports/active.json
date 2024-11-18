@@ -14186,6 +14186,9 @@
       "2023-09-01",
       "2023-10-01-preview"
     ],
+    "grafana/integrationfabrics": [
+      "2023-10-01-preview"
+    ],
     "grafana/managedprivateendpoints": [
       "2022-10-01-preview",
       "2023-09-01",
@@ -18407,6 +18410,7 @@
       "2024-08-15",
       "2024-09-01-preview",
       "2024-10-01-preview",
+      "2024-11-15",
       "2024-12-01-preview"
     ],
     "cassandraclusters": [
@@ -18436,7 +18440,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "databaseaccountnames": [
       "2014-04-01",
@@ -18482,7 +18488,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "databaseaccounts": [
       "2014-04-01",
@@ -18528,7 +18536,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "databaseaccounts/encryptionscopes": [
       "2021-03-01-preview",
@@ -18557,7 +18567,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "garnetclusters": [
       "2024-12-01-preview"
@@ -18606,7 +18618,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "locations/checkmongoclusternameavailability": [
       "2022-10-15-preview",
@@ -18664,7 +18678,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "locations/mongoclusterazureasyncoperation": [
       "2022-10-15-preview",
@@ -18707,7 +18723,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "locations/operationresults": [
       "2014-04-01",
@@ -18753,7 +18771,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "locations/operationsstatus": [
       "2014-04-01",
@@ -18799,7 +18819,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "locations/restorabledatabaseaccounts": [
       "2020-06-01-preview",
@@ -18830,7 +18852,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "mongoclusters": [
       "2022-10-15-preview",
@@ -18888,7 +18912,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "operations": [
       "2014-04-01",
@@ -18938,7 +18964,9 @@
       "2024-07-01",
       "2024-08-15",
       "2024-09-01-preview",
-      "2024-10-01-preview"
+      "2024-10-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "operationsstatus": [
       "2014-04-01",
@@ -18984,7 +19012,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "restorabledatabaseaccounts": [
       "2020-06-01-preview",
@@ -19015,7 +19045,9 @@
       "2024-05-15",
       "2024-05-15-preview",
       "2024-08-15",
-      "2024-09-01-preview"
+      "2024-09-01-preview",
+      "2024-11-15",
+      "2024-12-01-preview"
     ],
     "throughputpools": [
       "2023-11-15-preview",
@@ -29346,18 +29378,6 @@
       "2018-05-01",
       "2023-07-01-preview"
     ],
-    "dnsresolverdomainlists": [
-      "2023-07-01-preview"
-    ],
-    "dnsresolverpolicies": [
-      "2023-07-01-preview"
-    ],
-    "dnsresolverpolicies/dnssecurityrules": [
-      "2023-07-01-preview"
-    ],
-    "dnsresolverpolicies/virtualnetworklinks": [
-      "2023-07-01-preview"
-    ],
     "dnsresolvers": [
       "2020-04-01-preview",
       "2022-07-01",
@@ -33316,9 +33336,6 @@
       "2020-04-01-preview",
       "2022-07-01",
       "2023-07-01",
-      "2023-07-01-preview"
-    ],
-    "virtualnetworks/listdnsresolverpolicies": [
       "2023-07-01-preview"
     ],
     "virtualnetworks/listdnsresolvers": [
@@ -37791,6 +37808,7 @@
       "2024-05-01-preview",
       "2024-07-01-preview",
       "2024-08-01",
+      "2024-08-01-preview",
       "2024-10-01-preview"
     ],
     "advancedthreatprotectionsettings": [
@@ -38036,7 +38054,8 @@
       "2023-03-01-preview",
       "2023-10-01-preview",
       "2024-03-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-08-01-preview"
     ],
     "securityconnectors/devops": [
       "2023-09-01-preview",
@@ -48971,6 +48990,9 @@
       "2024-04-01-preview",
       "2024-06-01-preview",
       "2024-09-01",
+      "2024-10-01-preview"
+    ],
+    "configurationvalidationresults": [
       "2024-10-01-preview"
     ],
     "connectors": [

@@ -18816,6 +18816,12 @@
         ]
       },
       {
+        "resourceType": "grafana/integrationFabrics",
+        "apiVersions": [
+          "2023-10-01-preview"
+        ]
+      },
+      {
         "resourceType": "grafana/managedPrivateEndpoints",
         "apiVersions": [
           "2023-10-01-preview",
@@ -22727,6 +22733,8 @@
       {
         "resourceType": "cassandraClusters",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -22759,6 +22767,8 @@
       {
         "resourceType": "databaseAccountNames",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -22808,6 +22818,8 @@
       {
         "resourceType": "databaseAccounts",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -22857,6 +22869,8 @@
       {
         "resourceType": "databaseAccounts/encryptionScopes",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -22895,6 +22909,8 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -22959,6 +22975,8 @@
       {
         "resourceType": "locations/deleteVirtualNetworkOrSubnets",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -23038,6 +23056,8 @@
       {
         "resourceType": "locations/notifyNetworkSecurityPerimeterUpdatesAvailable",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -23060,6 +23080,8 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -23109,6 +23131,8 @@
       {
         "resourceType": "locations/operationsStatus",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -23158,6 +23182,8 @@
       {
         "resourceType": "locations/restorableDatabaseAccounts",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -23207,6 +23233,8 @@
       {
         "resourceType": "operationResults",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -23256,6 +23284,8 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-10-01-preview",
           "2024-09-01-preview",
           "2024-08-15",
@@ -23309,6 +23339,8 @@
       {
         "resourceType": "operationsStatus",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -23358,6 +23390,8 @@
       {
         "resourceType": "restorableDatabaseAccounts",
         "apiVersions": [
+          "2024-12-01-preview",
+          "2024-11-15",
           "2024-09-01-preview",
           "2024-08-15",
           "2024-05-15-preview",
@@ -35042,30 +35076,6 @@
         ]
       },
       {
-        "resourceType": "dnsResolverDomainLists",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "dnsResolverPolicies",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "dnsResolverPolicies/dnsSecurityRules",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "dnsResolverPolicies/virtualNetworkLinks",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
         "resourceType": "dnsResolvers",
         "apiVersions": [
           "2023-07-01-preview",
@@ -39502,12 +39512,6 @@
           "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
-        ]
-      },
-      {
-        "resourceType": "virtualNetworks/listDnsResolverPolicies",
-        "apiVersions": [
-          "2023-07-01-preview"
         ]
       },
       {
@@ -45220,6 +45224,7 @@
       {
         "resourceType": "securityConnectors",
         "apiVersions": [
+          "2024-08-01-preview",
           "2024-07-01-preview",
           "2024-03-01-preview",
           "2023-10-01-preview",
@@ -57877,6 +57882,12 @@
         ]
       },
       {
+        "resourceType": "configurationValidationResults",
+        "apiVersions": [
+          "2024-10-01-preview"
+        ]
+      },
+      {
         "resourceType": "connectors",
         "apiVersions": [
           "2023-10-01-preview"
@@ -58788,53 +58799,6 @@
         "apiVersions": [
           "2023-08-23-preview",
           "2023-01-01-preview"
-        ]
-      }
-    ]
-  },
-  {
-    "namespace": "SplitIO.Experimentation",
-    "resourceTypes": [
-      {
-        "resourceType": "checkNameAvailability",
-        "apiVersions": [
-          "2024-07-01-preview",
-          "2024-03-01-preview"
-        ]
-      },
-      {
-        "resourceType": "experimentationWorkspaces",
-        "apiVersions": [
-          "2024-07-01-preview",
-          "2024-03-01-preview"
-        ]
-      },
-      {
-        "resourceType": "experimentationWorkspaces/dataPlaneApplications",
-        "apiVersions": [
-          "2024-07-01-preview",
-          "2024-03-01-preview"
-        ]
-      },
-      {
-        "resourceType": "locations",
-        "apiVersions": [
-          "2024-07-01-preview",
-          "2024-03-01-preview"
-        ]
-      },
-      {
-        "resourceType": "locations/operationStatuses",
-        "apiVersions": [
-          "2024-07-01-preview",
-          "2024-03-01-preview"
-        ]
-      },
-      {
-        "resourceType": "operations",
-        "apiVersions": [
-          "2024-07-01-preview",
-          "2024-03-01-preview"
         ]
       }
     ]
