@@ -25,7 +25,6 @@ type VersionMetadata struct {
 	Pending                       openapi.ProviderVersionList
 	Spec                          Spec
 	Lock                          openapi.DefaultVersionLock
-	RemovedInvokes                ResourceRemovals
 	CurationViolations            []CurationViolation
 }
 
@@ -113,8 +112,6 @@ func calculateVersionMetadata(versionSources VersionSources, providers openapi.A
 	// provider->resource->[]version
 	allResourceVersionsByResource := FormatResourceVersions(allResourcesByVersion)
 
-	removedInvokes := ResourceRemovals(FindRemovedInvokesFromResources(providers, openapi.RemovableResources(versionSources.ResourcesToRemove)))
-
 	return VersionMetadata{
 		VersionSources:                versionSources,
 		AllResourcesByVersion:         allResourcesByVersion,
@@ -123,7 +120,6 @@ func calculateVersionMetadata(versionSources VersionSources, providers openapi.A
 		Pending:                       FindNewerVersions(allResourcesByVersion, v2Lock),
 		Spec:                          spec,
 		Lock:                          v2Lock,
-		RemovedInvokes:                removedInvokes,
 		CurationViolations:            violations,
 	}, nil
 }
@@ -132,11 +128,9 @@ func (v VersionMetadata) WriteTo(outputDir string) ([]string, error) {
 	filePrefix := fmt.Sprintf("v%d-", v.MajorVersion)
 	specPath := filePrefix + "spec.yaml"
 	lockPath := filePrefix + "lock.json"
-	removedInvokesPath := filePrefix + "removed-invokes.yaml"
 	return gen.EmitFiles(outputDir, gen.FileMap{
-		specPath:           v.Spec,
-		lockPath:           v.Lock,
-		removedInvokesPath: v.RemovedInvokes,
+		specPath: v.Spec,
+		lockPath: v.Lock,
 	})
 }
 
@@ -150,6 +144,7 @@ type VersionSources struct {
 	Config                    Curations
 	ConfigPath                string
 	ResourcesToRemove         ResourceRemovals
+	RemovedInvokes            ResourceRemovals
 	NextResourcesToRemove     ResourceRemovals
 }
 
@@ -195,6 +190,12 @@ func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error
 		return VersionSources{}, fmt.Errorf("could not read %s: %v", resourcesToRemovePath, err)
 	}
 
+	removedInvokesPath := path.Join(rootDir, "versions", filePrefix+"removed-invokes.yaml")
+	removedInvokes, err := ReadResourceRemovals(removedInvokesPath)
+	if err != nil {
+		return VersionSources{}, fmt.Errorf("could not read %s: %v", removedInvokesPath, err)
+	}
+
 	nextVersionFilePrefix := fmt.Sprintf("v%d-", majorVersion+1)
 	nextResourcesToRemovePath := path.Join(rootDir, "versions", nextVersionFilePrefix+"removed-resources.yaml")
 	nextResourcesToRemove, err := ReadResourceRemovals(nextResourcesToRemovePath)
@@ -212,6 +213,7 @@ func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error
 		Config:                    config,
 		ConfigPath:                configPath,
 		ResourcesToRemove:         resourcesToRemove,
+		RemovedInvokes:            removedInvokes,
 		NextResourcesToRemove:     nextResourcesToRemove,
 	}, nil
 }
