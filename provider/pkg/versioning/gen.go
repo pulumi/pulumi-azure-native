@@ -84,13 +84,7 @@ func LoadVersionMetadata(rootDir string, providers openapi.AzureProviders, major
 }
 
 func calculateVersionMetadata(versionSources VersionSources, providers openapi.AzureProviders) (VersionMetadata, error) {
-	// map[LoweredProviderName]map[ResourcePath]ApiVersions
-	activePathVersions := versionSources.activePathVersions
-	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
-
-	allResourcesByVersion := versionSources.AllResourcesByVersion
-
-	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(allResourcesByVersion, versionSources.RemovedVersions)
+	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(versionSources.AllResourcesByVersion, versionSources.RemovedVersions)
 
 	spec := versionSources.Spec
 
@@ -110,14 +104,11 @@ func calculateVersionMetadata(versionSources VersionSources, providers openapi.A
 		return VersionMetadata{}, wrapped
 	}
 
-	// provider->resource->[]version
-	allResourceVersionsByResource := FormatResourceVersions(allResourcesByVersion)
-
 	return VersionMetadata{
 		VersionSources:                versionSources,
-		AllResourceVersionsByResource: allResourceVersionsByResource,
-		Active:                        activePathVersionsJson,
-		Pending:                       FindNewerVersions(allResourcesByVersion, v2Lock),
+		AllResourceVersionsByResource: FormatResourceVersions(versionSources.AllResourcesByVersion),
+		Active:                        providerlist.FormatProviderPathVersionsJson(versionSources.activePathVersions),
+		Pending:                       FindNewerVersions(versionSources.AllResourcesByVersion, v2Lock),
 		Spec:                          spec,
 		Lock:                          v2Lock,
 		CurationViolations:            violations,
