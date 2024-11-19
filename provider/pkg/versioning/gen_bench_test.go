@@ -18,17 +18,17 @@ func BenchmarkGen(b *testing.B) {
 
 	b.ResetTimer()
 
-	versionSources, err := ReadVersionSources(rootDir, 2)
-	if err != nil {
-		b.Fatal(err)
-	}
-
 	specs, _, err := openapi.ReadAzureProviders(path.Join(rootDir, "azure-rest-api-specs"), "*", "")
 	if err != nil {
 		b.Fatal(err)
 	}
 
-	versionMetadata, err := calculateVersionMetadata(versionSources, specs, 2)
+	versionSources, err := ReadVersionSources(rootDir, specs, 2)
+	if err != nil {
+		b.Fatal(err)
+	}
+
+	versionMetadata, err := calculateVersionMetadata(versionSources)
 	if err != nil {
 		b.Fatal(err)
 	}

@@ -19,14 +19,15 @@ import (
 
 type VersionMetadata struct {
 	VersionSources
-	AllResourcesByVersion         ProvidersVersionResources
+	// provider->resource->[]version
 	AllResourceVersionsByResource ProviderResourceVersions
-	Active                        providerlist.ProviderPathVersionsJson
-	Pending                       openapi.ProviderVersionList
-	Spec                          Spec
-	Lock                          openapi.DefaultVersionLock
-	RemovedInvokes                ResourceRemovals
-	CurationViolations            []CurationViolation
+	// map[LoweredProviderName]map[ResourcePath]ApiVersions
+	Active providerlist.ProviderPathVersionsJson
+	// map[ProviderName][]ApiVersion
+	Pending            openapi.ProviderVersionList
+	Spec               Spec
+	Lock               openapi.DefaultVersionLock
+	CurationViolations []CurationViolation
 }
 
 // Ensure our VersionMetadata type implements the gen.Versioning interface
@@ -75,22 +76,15 @@ func (v VersionMetadata) GetAllVersions(provider openapi.ProviderName, resource 
 }
 
 func LoadVersionMetadata(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
-	versionSources, err := ReadVersionSources(rootDir, majorVersion)
+	versionSources, err := ReadVersionSources(rootDir, providers, majorVersion)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
-	return calculateVersionMetadata(versionSources, providers, majorVersion)
+	return calculateVersionMetadata(versionSources)
 }
 
-func calculateVersionMetadata(versionSources VersionSources, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
-	// map[LoweredProviderName]map[ResourcePath]ApiVersions
-	activePathVersions := versionSources.activePathVersions
-	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
-
-	// provider->version->[]resource
-	allResourcesByVersion := FindAllResources(providers)
-
-	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(allResourcesByVersion, versionSources.RemovedVersions)
+func calculateVersionMetadata(versionSources VersionSources) (VersionMetadata, error) {
+	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(versionSources.AllResourcesByVersion, versionSources.RemovedVersions)
 
 	spec := versionSources.Spec
 
@@ -110,20 +104,13 @@ func calculateVersionMetadata(versionSources VersionSources, providers openapi.A
 		return VersionMetadata{}, wrapped
 	}
 
-	// provider->resource->[]version
-	allResourceVersionsByResource := FormatResourceVersions(allResourcesByVersion)
-
-	removedInvokes := ResourceRemovals(findRemovedInvokesFromResources(providers, openapi.RemovableResources(versionSources.ResourcesToRemove)))
-
 	return VersionMetadata{
 		VersionSources:                versionSources,
-		AllResourcesByVersion:         allResourcesByVersion,
-		AllResourceVersionsByResource: allResourceVersionsByResource,
-		Active:                        activePathVersionsJson,
-		Pending:                       FindNewerVersions(allResourcesByVersion, v2Lock),
+		AllResourceVersionsByResource: FormatResourceVersions(versionSources.AllResourcesByVersion),
+		Active:                        providerlist.FormatProviderPathVersionsJson(versionSources.activePathVersions),
+		Pending:                       FindNewerVersions(versionSources.AllResourcesByVersion, v2Lock),
 		Spec:                          spec,
 		Lock:                          v2Lock,
-		RemovedInvokes:                removedInvokes,
 		CurationViolations:            violations,
 	}, nil
 }
@@ -132,11 +119,9 @@ func (v VersionMetadata) WriteTo(outputDir string) ([]string, error) {
 	filePrefix := fmt.Sprintf("v%d-", v.MajorVersion)
 	specPath := filePrefix + "spec.yaml"
 	lockPath := filePrefix + "lock.json"
-	removedInvokesPath := filePrefix + "removed-invokes.yaml"
 	return gen.EmitFiles(outputDir, gen.FileMap{
-		specPath:           v.Spec,
-		lockPath:           v.Lock,
-		removedInvokesPath: v.RemovedInvokes,
+		specPath: v.Spec,
+		lockPath: v.Lock,
 	})
 }
 
@@ -149,11 +134,15 @@ type VersionSources struct {
 	Spec                      Spec
 	Config                    Curations
 	ConfigPath                string
-	ResourcesToRemove         ResourceRemovals
-	NextResourcesToRemove     ResourceRemovals
+	// provider->version->[]resource
+	AllResourcesByVersion ProvidersVersionResources
+	// map[TokenToRemove]TokenReplacedWith
+	ResourcesToRemove     ResourceRemovals
+	RemovedInvokes        ResourceRemovals
+	NextResourcesToRemove ResourceRemovals
 }
 
-func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error) {
+func ReadVersionSources(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionSources, error) {
 	activePathVersions, err := providerlist.ReadProviderList(filepath.Join(rootDir, "azure-provider-versions", "provider_list.json"))
 	if err != nil {
 		return VersionSources{}, err
@@ -195,6 +184,12 @@ func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error
 		return VersionSources{}, fmt.Errorf("could not read %s: %v", resourcesToRemovePath, err)
 	}
 
+	removedInvokesPath := path.Join(rootDir, "versions", filePrefix+"removed-invokes.yaml")
+	removedInvokes, err := ReadResourceRemovals(removedInvokesPath)
+	if err != nil {
+		return VersionSources{}, fmt.Errorf("could not read %s: %v", removedInvokesPath, err)
+	}
+
 	nextVersionFilePrefix := fmt.Sprintf("v%d-", majorVersion+1)
 	nextResourcesToRemovePath := path.Join(rootDir, "versions", nextVersionFilePrefix+"removed-resources.yaml")
 	nextResourcesToRemove, err := ReadResourceRemovals(nextResourcesToRemovePath)
@@ -211,7 +206,9 @@ func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error
 		Spec:                      spec,
 		Config:                    config,
 		ConfigPath:                configPath,
+		AllResourcesByVersion:     FindAllResources(providers),
 		ResourcesToRemove:         resourcesToRemove,
+		RemovedInvokes:            removedInvokes,
 		NextResourcesToRemove:     nextResourcesToRemove,
 	}, nil
 }
@@ -270,7 +267,7 @@ func ReadRequiredExplicitResources(path string) ([]string, error) {
 	return lines, nil
 }
 
-func findRemovedInvokesFromResources(providers openapi.AzureProviders, removedResources openapi.RemovableResources) openapi.RemovableResources {
+func FindRemovedInvokesFromResources(providers openapi.AzureProviders, removedResources openapi.RemovableResources) openapi.RemovableResources {
 	removableInvokes := openapi.RemovableResources{}
 	for provider, versions := range providers {
 		for version, resources := range versions {

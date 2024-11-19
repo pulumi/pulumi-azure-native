@@ -164,9 +164,8 @@ test_nodejs: provider install_nodejs_sdk
 	cd examples && go test -v -tags=nodejs -timeout 2h $(TEST_RUN)
 
 .PHONY: schema_squeeze
-schema_squeeze: bin/$(CODEGEN) bin/schema-tools bin/schema-full.json
-	bin/$(CODEGEN) raw-schema $(VERSION_GENERIC)
-	./bin/schema-tools squeeze -s bin/raw-schema.json --out versions/v2-removed-resources.json
+schema_squeeze: bin/$(CODEGEN)
+	bin/$(CODEGEN) squeeze $(VERSION_GENERIC)
 
 .PHONY: explode_schema
 explode_schema: dist/docs-schema.json
@@ -204,17 +203,6 @@ bin/pulumictl: .pulumictl.version
 bin/pulumi-java-gen: .pulumi-java-gen.version bin/pulumictl
 	@mkdir -p bin
 	bin/pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
-
-# Download local copy of schema-tools based on the version in .schema-tools.version
-bin/schema-tools: SCHEMA_TOOLS_VERSION := $(shell cat .schema-tools.version)
-bin/schema-tools: PLAT := $(shell go version | sed -En "s/go version go.* (.*)\/(.*)/\1-\2/p")
-bin/schema-tools: SCHEMA_TOOLS_URL := "https://github.com/pulumi/schema-tools/releases/download/v$(SCHEMA_TOOLS_VERSION)/schema-tools-v$(SCHEMA_TOOLS_VERSION)-$(PLAT).tar.gz"
-bin/schema-tools: .schema-tools.version
-	@echo "Installing schema-tools"
-	@mkdir -p bin
-	wget -q -O - "$(SCHEMA_TOOLS_URL)" | tar -xzf - -C $(WORKING_DIR)/bin schema-tools
-	@touch bin/schema-tools
-	@echo "schema-tools" $$(./bin/schema-tools version)
 
 dist/docs-schema.json: bin/schema-full.json
 	rm -rf bin/schema

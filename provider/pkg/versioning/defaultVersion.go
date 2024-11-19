@@ -1,9 +1,11 @@
 package versioning
 
 import (
+	"cmp"
 	"fmt"
 	"io"
 	"os"
+	"slices"
 	"sort"
 	"strings"
 	"time"
@@ -402,15 +404,16 @@ func timeBetweenVersions(from, to openapi.ApiVersion) (diff time.Duration, err e
 	return toTime.Sub(fromTime), err
 }
 
-func maxKey[K comparable, V any](m map[K]V) *K {
+func maxKey[K cmp.Ordered, V any](m map[K]V) *K {
 	keys := keys(m)
 	if len(keys) == 0 {
 		return nil
 	}
-	last := keys[len(keys)-1]
-	return &last
+	max := slices.Max(keys)
+	return &max
 }
 
+// Returns an unordered slice of keys from a map
 func keys[K comparable, V any](m map[K]V) []K {
 	keys := make([]K, 0, len(m))
 	for k := range m {

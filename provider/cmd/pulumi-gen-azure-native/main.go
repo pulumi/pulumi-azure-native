@@ -8,6 +8,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"strings"
 	"text/template"
 
 	"github.com/segmentio/encoding/json"
@@ -17,6 +18,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/squeeze"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/versioning"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -135,16 +137,23 @@ func main() {
 			panic(err)
 		}
 
-	case "raw-schema":
+	case "squeeze":
 		buildSchemaArgs.OnlyExplicitVersions = true
 		buildSchemaResult, err := versioning.BuildSchema(buildSchemaArgs)
 		if err != nil {
 			panic(err)
 		}
-		if codegenSchemaOutputPath == "" {
-			codegenSchemaOutputPath = path.Join(".", "bin", "raw-schema.json")
+		squeezedResources, err := squeeze.CompareAll(&buildSchemaResult.PackageSpec)
+		if err != nil {
+			panic(err)
 		}
-		err = emitDocsSchema(&buildSchemaResult.PackageSpec, codegenSchemaOutputPath)
+		squeezedInvokes := versioning.FindRemovedInvokesFromResources(buildSchemaResult.Providers, squeezedResources)
+		majorVersion := strings.Split(version, ".")[0]
+		err = gen.EmitFile(path.Join("versions", fmt.Sprintf("v%s-removed-resources.json", majorVersion)), squeezedResources)
+		if err != nil {
+			panic(err)
+		}
+		err = gen.EmitFile(path.Join("versions", fmt.Sprintf("v%s-removed-invokes.yaml", majorVersion)), squeezedInvokes)
 		if err != nil {
 			panic(err)
 		}
