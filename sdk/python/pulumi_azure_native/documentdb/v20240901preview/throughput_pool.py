@@ -175,7 +175,7 @@ class ThroughputPool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:ThroughputPool"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:ThroughputPool"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:ThroughputPool"), pulumi.Alias(type_="azure-native:documentdb/v20240515preview:ThroughputPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:ThroughputPool"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:ThroughputPool"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:ThroughputPool"), pulumi.Alias(type_="azure-native:documentdb/v20240515preview:ThroughputPool"), pulumi.Alias(type_="azure-native:documentdb/v20241201preview:ThroughputPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ThroughputPool, __self__).__init__(
             'azure-native:documentdb/v20240901preview:ThroughputPool',

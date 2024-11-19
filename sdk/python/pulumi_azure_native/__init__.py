@@ -8749,6 +8749,8 @@ _utilities.register(
    "azure-native:documentdb:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
    "azure-native:documentdb:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
    "azure-native:documentdb:TableResourceTable": "TableResourceTable",
+   "azure-native:documentdb:TableResourceTableRoleAssignment": "TableResourceTableRoleAssignment",
+   "azure-native:documentdb:TableResourceTableRoleDefinition": "TableResourceTableRoleDefinition",
    "azure-native:documentdb:ThroughputPool": "ThroughputPool",
    "azure-native:documentdb:ThroughputPoolAccount": "ThroughputPoolAccount"
   }
@@ -9172,6 +9174,41 @@ _utilities.register(
    "azure-native:documentdb/v20241115:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
    "azure-native:documentdb/v20241115:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
    "azure-native:documentdb/v20241115:TableResourceTable": "TableResourceTable"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "documentdb/v20241201preview",
+  "fqn": "pulumi_azure_native.documentdb.v20241201preview",
+  "classes": {
+   "azure-native:documentdb/v20241201preview:CassandraCluster": "CassandraCluster",
+   "azure-native:documentdb/v20241201preview:CassandraDataCenter": "CassandraDataCenter",
+   "azure-native:documentdb/v20241201preview:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20241201preview:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20241201preview:CassandraResourceCassandraView": "CassandraResourceCassandraView",
+   "azure-native:documentdb/v20241201preview:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20241201preview:GraphResourceGraph": "GraphResourceGraph",
+   "azure-native:documentdb/v20241201preview:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20241201preview:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20241201preview:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20241201preview:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20241201preview:MongoDBResourceMongoRoleDefinition": "MongoDBResourceMongoRoleDefinition",
+   "azure-native:documentdb/v20241201preview:MongoDBResourceMongoUserDefinition": "MongoDBResourceMongoUserDefinition",
+   "azure-native:documentdb/v20241201preview:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20241201preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20241201preview:Service": "Service",
+   "azure-native:documentdb/v20241201preview:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20241201preview:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20241201preview:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20241201preview:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20241201preview:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20241201preview:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20241201preview:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20241201preview:TableResourceTable": "TableResourceTable",
+   "azure-native:documentdb/v20241201preview:TableResourceTableRoleAssignment": "TableResourceTableRoleAssignment",
+   "azure-native:documentdb/v20241201preview:TableResourceTableRoleDefinition": "TableResourceTableRoleDefinition",
+   "azure-native:documentdb/v20241201preview:ThroughputPool": "ThroughputPool",
+   "azure-native:documentdb/v20241201preview:ThroughputPoolAccount": "ThroughputPoolAccount"
   }
  },
  {

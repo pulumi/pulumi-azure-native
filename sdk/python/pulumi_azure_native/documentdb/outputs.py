@@ -4643,14 +4643,18 @@ class PermissionResponse(dict):
 
     def __init__(__self__, *,
                  data_actions: Optional[Sequence[str]] = None,
+                 id: Optional[str] = None,
                  not_data_actions: Optional[Sequence[str]] = None):
         """
         The set of data plane operations permitted through this Role Definition.
         :param Sequence[str] data_actions: An array of data actions that are allowed.
+        :param str id: The id for the permission.
         :param Sequence[str] not_data_actions: An array of data actions that are denied.
         """
         if data_actions is not None:
             pulumi.set(__self__, "data_actions", data_actions)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if not_data_actions is not None:
             pulumi.set(__self__, "not_data_actions", not_data_actions)
 
@@ -4661,6 +4665,14 @@ class PermissionResponse(dict):
         An array of data actions that are allowed.
         """
         return pulumi.get(self, "data_actions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The id for the permission.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="notDataActions")

@@ -1212,6 +1212,8 @@
     "SqlResourceSqlTrigger": "2023-04-15",
     "SqlResourceSqlUserDefinedFunction": "2023-04-15",
     "TableResourceTable": "2023-04-15",
+    "TableResourceTableRoleAssignment": "2024-12-01-preview",
+    "TableResourceTableRoleDefinition": "2024-12-01-preview",
     "ThroughputPool": "2023-11-15-preview",
     "ThroughputPoolAccount": "2023-11-15-preview",
     "listDatabaseAccountConnectionStrings": "2023-04-15",

@@ -890,6 +890,8 @@ DocumentDB:
         GraphResourceGraph: 2023-03-15-preview
         MongoCluster: 2023-03-15-preview
         MongoClusterFirewallRule: 2023-03-15-preview
+        TableResourceTableRoleAssignment: 2024-12-01-preview
+        TableResourceTableRoleDefinition: 2024-12-01-preview
         ThroughputPool: 2023-11-15-preview
         ThroughputPoolAccount: 2023-11-15-preview
         listMongoClusterConnectionStrings: 2023-03-15-preview

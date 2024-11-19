@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An Azure Cosmos DB Cassandra view.
  * Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
  *
- * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
+ * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
  */
 export class CassandraResourceCassandraView extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class CassandraResourceCassandraView extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210701preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20211015preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20211115preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20220215preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20220515preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20220815preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20221115preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20230301preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20230315preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20230915preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20231115preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20240215preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20240515preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20240901preview:CassandraResourceCassandraView" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210701preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20211015preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20211115preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20220215preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20220515preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20220815preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20221115preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20230301preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20230315preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20230915preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20231115preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20240215preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20240515preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20240901preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20241201preview:CassandraResourceCassandraView" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CassandraResourceCassandraView.__pulumiType, name, resourceInputs, opts);
     }

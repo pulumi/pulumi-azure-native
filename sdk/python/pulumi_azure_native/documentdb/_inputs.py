@@ -3967,6 +3967,10 @@ if not MYPY:
         """
         An array of data actions that are allowed.
         """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id for the permission.
+        """
         not_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         An array of data actions that are denied.
@@ -3978,14 +3982,18 @@ elif False:
 class PermissionArgs:
     def __init__(__self__, *,
                  data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
                  not_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of data plane operations permitted through this Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_actions: An array of data actions that are allowed.
+        :param pulumi.Input[str] id: The id for the permission.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_data_actions: An array of data actions that are denied.
         """
         if data_actions is not None:
             pulumi.set(__self__, "data_actions", data_actions)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if not_data_actions is not None:
             pulumi.set(__self__, "not_data_actions", not_data_actions)
 
@@ -4000,6 +4008,18 @@ class PermissionArgs:
     @data_actions.setter
     def data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "data_actions", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id for the permission.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter(name="notDataActions")

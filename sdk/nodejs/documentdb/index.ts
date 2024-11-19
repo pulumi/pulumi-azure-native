@@ -175,6 +175,16 @@ export const getTableResourceTable: typeof import("./getTableResourceTable").get
 export const getTableResourceTableOutput: typeof import("./getTableResourceTable").getTableResourceTableOutput = null as any;
 utilities.lazyLoad(exports, ["getTableResourceTable","getTableResourceTableOutput"], () => require("./getTableResourceTable"));
 
+export { GetTableResourceTableRoleAssignmentArgs, GetTableResourceTableRoleAssignmentResult, GetTableResourceTableRoleAssignmentOutputArgs } from "./getTableResourceTableRoleAssignment";
+export const getTableResourceTableRoleAssignment: typeof import("./getTableResourceTableRoleAssignment").getTableResourceTableRoleAssignment = null as any;
+export const getTableResourceTableRoleAssignmentOutput: typeof import("./getTableResourceTableRoleAssignment").getTableResourceTableRoleAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getTableResourceTableRoleAssignment","getTableResourceTableRoleAssignmentOutput"], () => require("./getTableResourceTableRoleAssignment"));
+
+export { GetTableResourceTableRoleDefinitionArgs, GetTableResourceTableRoleDefinitionResult, GetTableResourceTableRoleDefinitionOutputArgs } from "./getTableResourceTableRoleDefinition";
+export const getTableResourceTableRoleDefinition: typeof import("./getTableResourceTableRoleDefinition").getTableResourceTableRoleDefinition = null as any;
+export const getTableResourceTableRoleDefinitionOutput: typeof import("./getTableResourceTableRoleDefinition").getTableResourceTableRoleDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getTableResourceTableRoleDefinition","getTableResourceTableRoleDefinitionOutput"], () => require("./getTableResourceTableRoleDefinition"));
+
 export { GetThroughputPoolArgs, GetThroughputPoolResult, GetThroughputPoolOutputArgs } from "./getThroughputPool";
 export const getThroughputPool: typeof import("./getThroughputPool").getThroughputPool = null as any;
 export const getThroughputPoolOutput: typeof import("./getThroughputPool").getThroughputPoolOutput = null as any;
@@ -305,6 +315,16 @@ export type TableResourceTable = import("./tableResourceTable").TableResourceTab
 export const TableResourceTable: typeof import("./tableResourceTable").TableResourceTable = null as any;
 utilities.lazyLoad(exports, ["TableResourceTable"], () => require("./tableResourceTable"));
 
+export { TableResourceTableRoleAssignmentArgs } from "./tableResourceTableRoleAssignment";
+export type TableResourceTableRoleAssignment = import("./tableResourceTableRoleAssignment").TableResourceTableRoleAssignment;
+export const TableResourceTableRoleAssignment: typeof import("./tableResourceTableRoleAssignment").TableResourceTableRoleAssignment = null as any;
+utilities.lazyLoad(exports, ["TableResourceTableRoleAssignment"], () => require("./tableResourceTableRoleAssignment"));
+
+export { TableResourceTableRoleDefinitionArgs } from "./tableResourceTableRoleDefinition";
+export type TableResourceTableRoleDefinition = import("./tableResourceTableRoleDefinition").TableResourceTableRoleDefinition;
+export const TableResourceTableRoleDefinition: typeof import("./tableResourceTableRoleDefinition").TableResourceTableRoleDefinition = null as any;
+utilities.lazyLoad(exports, ["TableResourceTableRoleDefinition"], () => require("./tableResourceTableRoleDefinition"));
+
 export { ThroughputPoolArgs } from "./throughputPool";
 export type ThroughputPool = import("./throughputPool").ThroughputPool;
 export const ThroughputPool: typeof import("./throughputPool").ThroughputPool = null as any;
@@ -338,6 +358,7 @@ import * as v20240701 from "./v20240701";
 import * as v20240815 from "./v20240815";
 import * as v20240901preview from "./v20240901preview";
 import * as v20241115 from "./v20241115";
+import * as v20241201preview from "./v20241201preview";
 
 export {
     v20210401preview,
@@ -358,6 +379,7 @@ export {
     v20240815,
     v20240901preview,
     v20241115,
+    v20241201preview,
 };
 
 const _module = {
@@ -418,6 +440,10 @@ const _module = {
                 return new SqlResourceSqlUserDefinedFunction(name, <any>undefined, { urn })
             case "azure-native:documentdb:TableResourceTable":
                 return new TableResourceTable(name, <any>undefined, { urn })
+            case "azure-native:documentdb:TableResourceTableRoleAssignment":
+                return new TableResourceTableRoleAssignment(name, <any>undefined, { urn })
+            case "azure-native:documentdb:TableResourceTableRoleDefinition":
+                return new TableResourceTableRoleDefinition(name, <any>undefined, { urn })
             case "azure-native:documentdb:ThroughputPool":
                 return new ThroughputPool(name, <any>undefined, { urn })
             case "azure-native:documentdb:ThroughputPoolAccount":

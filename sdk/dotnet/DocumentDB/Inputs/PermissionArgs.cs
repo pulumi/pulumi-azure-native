@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
             set => _dataActions = value;
         }
 
+        /// <summary>
+        /// The id for the permission.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         [Input("notDataActions")]
         private InputList<string>? _notDataActions;
 

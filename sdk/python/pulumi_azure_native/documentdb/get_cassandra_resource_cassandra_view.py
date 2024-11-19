@@ -137,7 +137,7 @@ def get_cassandra_resource_cassandra_view(account_name: Optional[str] = None,
     Gets the Cassandra view under an existing Azure Cosmos DB database account.
     Azure REST API version: 2023-03-15-preview.
 
-    Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
+    Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -171,7 +171,7 @@ def get_cassandra_resource_cassandra_view_output(account_name: Optional[pulumi.I
     Gets the Cassandra view under an existing Azure Cosmos DB database account.
     Azure REST API version: 2023-03-15-preview.
 
-    Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
+    Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
 
 
     :param str account_name: Cosmos DB database account name.

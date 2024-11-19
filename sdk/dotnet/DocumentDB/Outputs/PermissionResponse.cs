@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DataActions;
         /// <summary>
+        /// The id for the permission.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// An array of data actions that are denied.
         /// </summary>
         public readonly ImmutableArray<string> NotDataActions;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         private PermissionResponse(
             ImmutableArray<string> dataActions,
 
+            string? id,
+
             ImmutableArray<string> notDataActions)
         {
             DataActions = dataActions;
+            Id = id;
             NotDataActions = notDataActions;
         }
     }
