@@ -37,7 +37,7 @@ class BlobArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input['BlobAccessTier'] access_tier: The access tier of the storage blob. Only supported for standard storage accounts, not premium.
         :param pulumi.Input[str] blob_name: The name of the storage blob. Must be unique within the storage container the blob is located. If this property is not specified it will be set to the name of the resource.
-        :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if blob type is Append.
+        :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents, base64-encoded. Cannot be defined if blob type is Append.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An asset to copy to the blob contents. This field cannot be specified for Append blobs.
@@ -127,7 +127,7 @@ class BlobArgs:
     @pulumi.getter(name="contentMd5")
     def content_md5(self) -> Optional[pulumi.Input[str]]:
         """
-        The MD5 sum of the blob contents. Cannot be defined if blob type is Append.
+        The MD5 sum of the blob contents, base64-encoded. Cannot be defined if blob type is Append.
         """
         return pulumi.get(self, "content_md5")
 
@@ -209,7 +209,7 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Specifies the storage account in which to create the storage container.
         :param pulumi.Input[str] blob_name: The name of the storage blob. Must be unique within the storage container the blob is located. If this property is not specified it will be set to the name of the resource.
         :param pulumi.Input[str] container_name: The name of the storage container in which this blob should be created.
-        :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if blob type is Append.
+        :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents, base64-encoded. Cannot be defined if blob type is Append.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.

@@ -24185,7 +24185,7 @@
      "willReplaceOnChanges": true
     },
     "contentMd5": {
-     "description": "The MD5 sum of the blob contents. Cannot be defined if blob type is Append.",
+     "description": "The MD5 sum of the blob contents, base64-encoded. Cannot be defined if blob type is Append.",
      "type": "string",
      "willReplaceOnChanges": true
     },

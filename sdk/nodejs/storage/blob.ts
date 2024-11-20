@@ -133,7 +133,7 @@ export interface BlobArgs {
      */
     containerName: pulumi.Input<string>;
     /**
-     * The MD5 sum of the blob contents. Cannot be defined if blob type is Append.
+     * The MD5 sum of the blob contents, base64-encoded. Cannot be defined if blob type is Append.
      */
     contentMd5?: pulumi.Input<string>;
     /**
