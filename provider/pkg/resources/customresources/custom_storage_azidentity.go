@@ -4,6 +4,7 @@ package customresources
 
 import (
 	"context"
+	"encoding/base64"
 	"fmt"
 	"net/http"
 	neturl "net/url"
@@ -348,7 +349,7 @@ func getBlobSchema() *schema.ResourceSpec {
 				WillReplaceOnChanges: true,
 			},
 			contentMd5: {
-				Description:          "The MD5 sum of the blob contents. Cannot be defined if blob type is Append.",
+				Description:          "The MD5 sum of the blob contents, base64-encoded. Cannot be defined if blob type is Append.",
 				TypeSpec:             schema.TypeSpec{Type: "string"},
 				WillReplaceOnChanges: true,
 			},
@@ -560,7 +561,11 @@ func (r *blob_azidentity) create(ctx context.Context, id string, properties reso
 
 		if properties[contentMd5].HasValue() {
 			md5 := properties[contentMd5].StringValue()
-			opts.HTTPHeaders.BlobContentMD5 = []byte(md5)
+			md5Bytes, err := base64.StdEncoding.DecodeString(md5)
+			if err != nil {
+				return nil, err
+			}
+			opts.HTTPHeaders.BlobContentMD5 = md5Bytes
 		}
 
 		input := []byte{}
@@ -706,7 +711,7 @@ func azblobToPulumiProperties(name, rg, account, container, azureResourceId stri
 		containerName:     container,
 		blobName:          name,
 		nameProp:          name,
-		contentMd5:        fmt.Sprintf("%x", props.ContentMD5), // the binary hash needs to be hex-encoded
+		contentMd5:        base64.StdEncoding.EncodeToString(props.ContentMD5),
 		contentType:       *props.ContentType,
 		metadata:          props.Metadata,
 		typeProp:          strings.TrimSuffix(string(*props.BlobType), "Blob"),

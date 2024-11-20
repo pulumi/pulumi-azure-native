@@ -2,6 +2,7 @@ package customresources
 
 import (
 	"crypto/md5"
+	"encoding/base64"
 	"testing"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
@@ -151,6 +152,7 @@ func TestAzblobToPulumiProperties(t *testing.T) {
 		assert.Equal(t, "Block", pulumiBlob[typeProp])
 
 		assert.Contains(t, pulumiBlob, contentMd5)
+		assert.Equal(t, base64.StdEncoding.EncodeToString(azblob.ContentMD5), pulumiBlob[contentMd5])
 
 		assert.Contains(t, pulumiBlob, contentType)
 		assert.Equal(t, "text/plain", pulumiBlob[contentType])
