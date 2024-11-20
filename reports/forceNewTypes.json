@@ -65875,5 +65875,54 @@
     "ResourceName": "ProviderInstance",
     "ReferenceName": "ProviderSpecificProperties",
     "Property": "providerType"
+  },
+  {
+    "Module": "workloads/v20240201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
+  },
+  {
+    "Module": "workloads/v20240201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
+  },
+  {
+    "Module": "workloads/v20240201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
+  },
+  {
+    "Module": "workloads/v20240201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
+  },
+  {
+    "Module": "workloads/v20240201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
+  },
+  {
+    "Module": "workloads/v20240201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
+  },
+  {
+    "Module": "workloads/v20240201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
   }
 ]

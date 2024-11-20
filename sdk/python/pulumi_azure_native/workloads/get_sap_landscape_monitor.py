@@ -129,7 +129,7 @@ def get_sap_landscape_monitor(monitor_name: Optional[str] = None,
     Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-10-01-preview, 2023-12-01-preview.
+    Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
 
 
     :param str monitor_name: Name of the SAP monitor resource.
@@ -156,7 +156,7 @@ def get_sap_landscape_monitor_output(monitor_name: Optional[pulumi.Input[str]] =
     Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-10-01-preview, 2023-12-01-preview.
+    Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
 
 
     :param str monitor_name: Name of the SAP monitor resource.

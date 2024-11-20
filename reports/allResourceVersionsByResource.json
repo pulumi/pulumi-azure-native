@@ -28318,11 +28318,15 @@
     "ACSSBackupConnection": [
       "2023-10-01-preview"
     ],
+    "Alert": [
+      "2024-02-01-preview"
+    ],
     "Connector": [
       "2023-10-01-preview"
     ],
     "Monitor": [
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "PhpWorkload": [
       "2021-12-01-preview"
@@ -28332,7 +28336,8 @@
       "2022-11-01-preview",
       "2023-04-01",
       "2023-10-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "SAPApplicationServerInstance": [
       "2021-12-01-preview",
@@ -28377,7 +28382,8 @@
       "2022-11-01-preview",
       "2023-04-01",
       "2023-10-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "SapVirtualInstance": [
       "2024-09-01"

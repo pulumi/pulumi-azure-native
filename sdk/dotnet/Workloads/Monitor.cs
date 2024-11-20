@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
     /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
     /// 
-    /// Other available API versions: 2023-12-01-preview.
+    /// Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
@@ -150,6 +150,8 @@ namespace Pulumi.AzureNative.Workloads
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231201preview:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231201preview:monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240201preview:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240201preview:monitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

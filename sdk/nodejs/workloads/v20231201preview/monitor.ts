@@ -159,7 +159,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["zoneRedundancyPreference"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads:Monitor" }, { type: "azure-native:workloads/v20211201preview:Monitor" }, { type: "azure-native:workloads/v20221101preview:Monitor" }, { type: "azure-native:workloads/v20230401:Monitor" }, { type: "azure-native:workloads/v20231001preview:Monitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads:Monitor" }, { type: "azure-native:workloads/v20211201preview:Monitor" }, { type: "azure-native:workloads/v20221101preview:Monitor" }, { type: "azure-native:workloads/v20230401:Monitor" }, { type: "azure-native:workloads/v20231001preview:Monitor" }, { type: "azure-native:workloads/v20240201preview:Monitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
     }

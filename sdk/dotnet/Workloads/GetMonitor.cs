@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:workloads:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview.
+        /// Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:workloads:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());

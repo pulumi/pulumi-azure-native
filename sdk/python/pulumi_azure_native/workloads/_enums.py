@@ -5,8 +5,11 @@
 from enum import Enum
 
 __all__ = [
+    'AlertAutoMitigate',
+    'AlertRuleStatus',
     'AppServicePlanTier',
     'BackupType',
+    'ConditionalOperator',
     'ConfigurationType',
     'DayOfWeek',
     'DiskSkuName',
@@ -37,6 +40,34 @@ __all__ = [
 ]
 
 
+class AlertAutoMitigate(str, Enum):
+    """
+    The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
+    """
+    ENABLE = "Enable"
+    """
+    The alert should be automatically resolved.
+    """
+    DISABLE = "Disable"
+    """
+    The alert should not be automatically resolved.
+    """
+
+
+class AlertRuleStatus(str, Enum):
+    """
+    Indicates whether the alert is in an enabled state.
+    """
+    ENABLED = "Enabled"
+    """
+    The scheduled query rule is enabled
+    """
+    DISABLED = "Disabled"
+    """
+    The scheduled query rule is disabled
+    """
+
+
 class AppServicePlanTier(str, Enum):
     """
     The App Service plan tier.
@@ -58,6 +89,32 @@ class BackupType(str, Enum):
     VM = "VM"
     SQL = "SQL"
     HANA = "HANA"
+
+
+class ConditionalOperator(str, Enum):
+    """
+    The threshold operator of the alert.
+    """
+    LESS_THAN = "LessThan"
+    """
+    The value is less than the specified value.
+    """
+    GREATER_THAN = "GreaterThan"
+    """
+    The value is greater than the specified value.
+    """
+    EQUAL = "Equal"
+    """
+    The value is equal to the specified value.
+    """
+    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
+    """
+    The value is greater than or equal to the specified value.
+    """
+    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
+    """
+    The value is less than or equal to the specified value.
+    """
 
 
 class ConfigurationType(str, Enum):

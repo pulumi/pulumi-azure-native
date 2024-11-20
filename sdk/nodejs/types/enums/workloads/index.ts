@@ -7,6 +7,7 @@ import * as v20221101preview from "./v20221101preview";
 import * as v20230401 from "./v20230401";
 import * as v20231001preview from "./v20231001preview";
 import * as v20231201preview from "./v20231201preview";
+import * as v20240201preview from "./v20240201preview";
 import * as v20240901 from "./v20240901";
 
 export {
@@ -15,8 +16,41 @@ export {
     v20230401,
     v20231001preview,
     v20231201preview,
+    v20240201preview,
     v20240901,
 };
+
+export const AlertAutoMitigate = {
+    /**
+     * The alert should be automatically resolved.
+     */
+    Enable: "Enable",
+    /**
+     * The alert should not be automatically resolved.
+     */
+    Disable: "Disable",
+} as const;
+
+/**
+ * The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
+ */
+export type AlertAutoMitigate = (typeof AlertAutoMitigate)[keyof typeof AlertAutoMitigate];
+
+export const AlertRuleStatus = {
+    /**
+     * The scheduled query rule is enabled
+     */
+    Enabled: "Enabled",
+    /**
+     * The scheduled query rule is disabled
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether the alert is in an enabled state.
+ */
+export type AlertRuleStatus = (typeof AlertRuleStatus)[keyof typeof AlertRuleStatus];
 
 export const AppServicePlanTier = {
     /**
@@ -44,6 +78,34 @@ export const BackupType = {
  * The type of backup, VM, SQL or HANA.
  */
 export type BackupType = (typeof BackupType)[keyof typeof BackupType];
+
+export const ConditionalOperator = {
+    /**
+     * The value is less than the specified value.
+     */
+    LessThan: "LessThan",
+    /**
+     * The value is greater than the specified value.
+     */
+    GreaterThan: "GreaterThan",
+    /**
+     * The value is equal to the specified value.
+     */
+    Equal: "Equal",
+    /**
+     * The value is greater than or equal to the specified value.
+     */
+    GreaterThanOrEqual: "GreaterThanOrEqual",
+    /**
+     * The value is less than or equal to the specified value.
+     */
+    LessThanOrEqual: "LessThanOrEqual",
+} as const;
+
+/**
+ * The threshold operator of the alert.
+ */
+export type ConditionalOperator = (typeof ConditionalOperator)[keyof typeof ConditionalOperator];
 
 export const ConfigurationType = {
     Skip: "Skip",

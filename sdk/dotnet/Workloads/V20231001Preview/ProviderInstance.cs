@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:ProviderInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:ProviderInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231201preview:ProviderInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240201preview:ProviderInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

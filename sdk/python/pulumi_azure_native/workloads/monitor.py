@@ -223,7 +223,7 @@ class Monitor(pulumi.CustomResource):
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
 
-        Other available API versions: 2023-12-01-preview.
+        Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,7 +249,7 @@ class Monitor(pulumi.CustomResource):
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
 
-        Other available API versions: 2023-12-01-preview.
+        Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.
@@ -306,7 +306,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["storage_account_arm_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads:monitor"), pulumi.Alias(type_="azure-native:workloads/v20211201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20211201preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:monitor"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20231201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20231201preview:monitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads:monitor"), pulumi.Alias(type_="azure-native:workloads/v20211201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20211201preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:monitor"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20231201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20231201preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20240201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20240201preview:monitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Monitor, __self__).__init__(
             'azure-native:workloads:Monitor',

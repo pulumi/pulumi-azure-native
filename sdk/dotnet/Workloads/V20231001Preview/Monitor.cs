@@ -147,6 +147,8 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231201preview:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231201preview:monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240201preview:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240201preview:monitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,8 +7,10 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .acss_backup_connection import *
+from .alert import *
 from .connector import *
 from .get_acss_backup_connection import *
+from .get_alert import *
 from .get_connector import *
 from .get_monitor import *
 from .get_provider_instance import *
@@ -53,6 +55,8 @@ if typing.TYPE_CHECKING:
     v20231001preview = __v20231001preview
     import pulumi_azure_native.workloads.v20231201preview as __v20231201preview
     v20231201preview = __v20231201preview
+    import pulumi_azure_native.workloads.v20240201preview as __v20240201preview
+    v20240201preview = __v20240201preview
     import pulumi_azure_native.workloads.v20240901 as __v20240901
     v20240901 = __v20240901
 else:
@@ -61,5 +65,6 @@ else:
     v20230401 = _utilities.lazy_import('pulumi_azure_native.workloads.v20230401')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.workloads.v20231001preview')
     v20231201preview = _utilities.lazy_import('pulumi_azure_native.workloads.v20231201preview')
+    v20240201preview = _utilities.lazy_import('pulumi_azure_native.workloads.v20240201preview')
     v20240901 = _utilities.lazy_import('pulumi_azure_native.workloads.v20240901')
 

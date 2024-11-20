@@ -16,6 +16,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AlertQueryParameterArgs',
+    'AlertQueryParameterArgsDict',
+    'AlertRulePropertiesArgs',
+    'AlertRulePropertiesArgsDict',
     'ApplicationServerConfigurationArgs',
     'ApplicationServerConfigurationArgsDict',
     'ApplicationServerFullResourceNamesArgs',
@@ -189,6 +193,338 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AlertQueryParameterArgsDict(TypedDict):
+        """
+        Defines the Alert Query Parameter.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the alert query parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the alert query parameter.
+        """
+elif False:
+    AlertQueryParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AlertQueryParameterArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the Alert Query Parameter.
+        :param pulumi.Input[str] name: The name of the alert query parameter.
+        :param pulumi.Input[str] value: The value of the alert query parameter.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the alert query parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the alert query parameter.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class AlertRulePropertiesArgsDict(TypedDict):
+        """
+        Describes the properties of an alert.
+        """
+        action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Action Group resource Ids to invoke when the alert fires
+        """
+        alert_query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertQueryParameterArgsDict']]]]
+        """
+        The alert query parameters.
+        """
+        auto_mitigate: NotRequired[pulumi.Input[Union[str, 'AlertAutoMitigate']]]
+        """
+        The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
+        """
+        dimension: NotRequired[pulumi.Input[str]]
+        """
+        Evaluation of metric on a particular column.
+        """
+        evaluation_frequency: NotRequired[pulumi.Input[int]]
+        """
+        How often the scheduled query rule is evaluated.
+        """
+        failing_periods_operator: NotRequired[pulumi.Input[Union[str, 'ConditionalOperator']]]
+        """
+        The operator for failing periods.
+        """
+        failing_periods_to_alert: NotRequired[pulumi.Input[int]]
+        """
+        The number of failing periods to trigger an alert.
+        """
+        mute_actions_duration: NotRequired[pulumi.Input[int]]
+        """
+        Mute actions for the chosen period of time after the alert is fired.
+        """
+        severity: NotRequired[pulumi.Input[int]]
+        """
+        Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'AlertRuleStatus']]]
+        """
+        Indicates whether the alert is in an enabled state.
+        """
+        threshold: NotRequired[pulumi.Input[int]]
+        """
+        The threshold of the alert.
+        """
+        threshold_operator: NotRequired[pulumi.Input[Union[str, 'ConditionalOperator']]]
+        """
+        The threshold operator of the alert.
+        """
+        window_size: NotRequired[pulumi.Input[int]]
+        """
+        The period of time on which the Alert query will be executed.
+        """
+elif False:
+    AlertRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AlertRulePropertiesArgs:
+    def __init__(__self__, *,
+                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 alert_query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AlertQueryParameterArgs']]]] = None,
+                 auto_mitigate: Optional[pulumi.Input[Union[str, 'AlertAutoMitigate']]] = None,
+                 dimension: Optional[pulumi.Input[str]] = None,
+                 evaluation_frequency: Optional[pulumi.Input[int]] = None,
+                 failing_periods_operator: Optional[pulumi.Input[Union[str, 'ConditionalOperator']]] = None,
+                 failing_periods_to_alert: Optional[pulumi.Input[int]] = None,
+                 mute_actions_duration: Optional[pulumi.Input[int]] = None,
+                 severity: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'AlertRuleStatus']]] = None,
+                 threshold: Optional[pulumi.Input[int]] = None,
+                 threshold_operator: Optional[pulumi.Input[Union[str, 'ConditionalOperator']]] = None,
+                 window_size: Optional[pulumi.Input[int]] = None):
+        """
+        Describes the properties of an alert.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] action_groups: Action Group resource Ids to invoke when the alert fires
+        :param pulumi.Input[Sequence[pulumi.Input['AlertQueryParameterArgs']]] alert_query_parameters: The alert query parameters.
+        :param pulumi.Input[Union[str, 'AlertAutoMitigate']] auto_mitigate: The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
+        :param pulumi.Input[str] dimension: Evaluation of metric on a particular column.
+        :param pulumi.Input[int] evaluation_frequency: How often the scheduled query rule is evaluated.
+        :param pulumi.Input[Union[str, 'ConditionalOperator']] failing_periods_operator: The operator for failing periods.
+        :param pulumi.Input[int] failing_periods_to_alert: The number of failing periods to trigger an alert.
+        :param pulumi.Input[int] mute_actions_duration: Mute actions for the chosen period of time after the alert is fired.
+        :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest.
+        :param pulumi.Input[Union[str, 'AlertRuleStatus']] status: Indicates whether the alert is in an enabled state.
+        :param pulumi.Input[int] threshold: The threshold of the alert.
+        :param pulumi.Input[Union[str, 'ConditionalOperator']] threshold_operator: The threshold operator of the alert.
+        :param pulumi.Input[int] window_size: The period of time on which the Alert query will be executed.
+        """
+        if action_groups is not None:
+            pulumi.set(__self__, "action_groups", action_groups)
+        if alert_query_parameters is not None:
+            pulumi.set(__self__, "alert_query_parameters", alert_query_parameters)
+        if auto_mitigate is not None:
+            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+        if evaluation_frequency is not None:
+            pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+        if failing_periods_operator is not None:
+            pulumi.set(__self__, "failing_periods_operator", failing_periods_operator)
+        if failing_periods_to_alert is not None:
+            pulumi.set(__self__, "failing_periods_to_alert", failing_periods_to_alert)
+        if mute_actions_duration is not None:
+            pulumi.set(__self__, "mute_actions_duration", mute_actions_duration)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+        if threshold_operator is not None:
+            pulumi.set(__self__, "threshold_operator", threshold_operator)
+        if window_size is not None:
+            pulumi.set(__self__, "window_size", window_size)
+
+    @property
+    @pulumi.getter(name="actionGroups")
+    def action_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Action Group resource Ids to invoke when the alert fires
+        """
+        return pulumi.get(self, "action_groups")
+
+    @action_groups.setter
+    def action_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "action_groups", value)
+
+    @property
+    @pulumi.getter(name="alertQueryParameters")
+    def alert_query_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertQueryParameterArgs']]]]:
+        """
+        The alert query parameters.
+        """
+        return pulumi.get(self, "alert_query_parameters")
+
+    @alert_query_parameters.setter
+    def alert_query_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertQueryParameterArgs']]]]):
+        pulumi.set(self, "alert_query_parameters", value)
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[pulumi.Input[Union[str, 'AlertAutoMitigate']]]:
+        """
+        The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @auto_mitigate.setter
+    def auto_mitigate(self, value: Optional[pulumi.Input[Union[str, 'AlertAutoMitigate']]]):
+        pulumi.set(self, "auto_mitigate", value)
+
+    @property
+    @pulumi.getter
+    def dimension(self) -> Optional[pulumi.Input[str]]:
+        """
+        Evaluation of metric on a particular column.
+        """
+        return pulumi.get(self, "dimension")
+
+    @dimension.setter
+    def dimension(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dimension", value)
+
+    @property
+    @pulumi.getter(name="evaluationFrequency")
+    def evaluation_frequency(self) -> Optional[pulumi.Input[int]]:
+        """
+        How often the scheduled query rule is evaluated.
+        """
+        return pulumi.get(self, "evaluation_frequency")
+
+    @evaluation_frequency.setter
+    def evaluation_frequency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "evaluation_frequency", value)
+
+    @property
+    @pulumi.getter(name="failingPeriodsOperator")
+    def failing_periods_operator(self) -> Optional[pulumi.Input[Union[str, 'ConditionalOperator']]]:
+        """
+        The operator for failing periods.
+        """
+        return pulumi.get(self, "failing_periods_operator")
+
+    @failing_periods_operator.setter
+    def failing_periods_operator(self, value: Optional[pulumi.Input[Union[str, 'ConditionalOperator']]]):
+        pulumi.set(self, "failing_periods_operator", value)
+
+    @property
+    @pulumi.getter(name="failingPeriodsToAlert")
+    def failing_periods_to_alert(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of failing periods to trigger an alert.
+        """
+        return pulumi.get(self, "failing_periods_to_alert")
+
+    @failing_periods_to_alert.setter
+    def failing_periods_to_alert(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failing_periods_to_alert", value)
+
+    @property
+    @pulumi.getter(name="muteActionsDuration")
+    def mute_actions_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        Mute actions for the chosen period of time after the alert is fired.
+        """
+        return pulumi.get(self, "mute_actions_duration")
+
+    @mute_actions_duration.setter
+    def mute_actions_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "mute_actions_duration", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest.
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'AlertRuleStatus']]]:
+        """
+        Indicates whether the alert is in an enabled state.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'AlertRuleStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        The threshold of the alert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="thresholdOperator")
+    def threshold_operator(self) -> Optional[pulumi.Input[Union[str, 'ConditionalOperator']]]:
+        """
+        The threshold operator of the alert.
+        """
+        return pulumi.get(self, "threshold_operator")
+
+    @threshold_operator.setter
+    def threshold_operator(self, value: Optional[pulumi.Input[Union[str, 'ConditionalOperator']]]):
+        pulumi.set(self, "threshold_operator", value)
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The period of time on which the Alert query will be executed.
+        """
+        return pulumi.get(self, "window_size")
+
+    @window_size.setter
+    def window_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "window_size", value)
+
 
 if not MYPY:
     class ApplicationServerConfigurationArgsDict(TypedDict):

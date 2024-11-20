@@ -20959,6 +20959,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.workloads",
   "classes": {
    "azure-native:workloads:ACSSBackupConnection": "ACSSBackupConnection",
+   "azure-native:workloads:Alert": "Alert",
    "azure-native:workloads:Connector": "Connector",
    "azure-native:workloads:Monitor": "Monitor",
    "azure-native:workloads:ProviderInstance": "ProviderInstance",
@@ -21023,6 +21024,17 @@ _utilities.register(
    "azure-native:workloads/v20231201preview:Monitor": "Monitor",
    "azure-native:workloads/v20231201preview:ProviderInstance": "ProviderInstance",
    "azure-native:workloads/v20231201preview:SapLandscapeMonitor": "SapLandscapeMonitor"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "workloads/v20240201preview",
+  "fqn": "pulumi_azure_native.workloads.v20240201preview",
+  "classes": {
+   "azure-native:workloads/v20240201preview:Alert": "Alert",
+   "azure-native:workloads/v20240201preview:Monitor": "Monitor",
+   "azure-native:workloads/v20240201preview:ProviderInstance": "ProviderInstance",
+   "azure-native:workloads/v20240201preview:SapLandscapeMonitor": "SapLandscapeMonitor"
   }
  },
  {

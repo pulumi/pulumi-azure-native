@@ -17,6 +17,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AlertQueryParameterResponse',
+    'AlertRulePropertiesResponse',
     'ApplicationServerConfigurationResponse',
     'ApplicationServerFullResourceNamesResponse',
     'ApplicationServerVmDetailsResponse',
@@ -46,7 +48,9 @@ __all__ = [
     'DiskVolumeConfigurationResponse',
     'EnqueueReplicationServerPropertiesResponse',
     'EnqueueServerPropertiesResponse',
+    'ErrorAdditionalInfoResponse',
     'ErrorDefinitionResponse',
+    'ErrorDetailResponse',
     'ErrorResponse',
     'ErrorResponseInnerError',
     'ExcelPerformanceDataResponse',
@@ -129,6 +133,241 @@ __all__ = [
     'WindowsConfigurationResponse',
     'YearlyRetentionScheduleResponse',
 ]
+
+@pulumi.output_type
+class AlertQueryParameterResponse(dict):
+    """
+    Defines the Alert Query Parameter.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Defines the Alert Query Parameter.
+        :param str name: The name of the alert query parameter.
+        :param str value: The value of the alert query parameter.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the alert query parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the alert query parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AlertRulePropertiesResponse(dict):
+    """
+    Describes the properties of an alert.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroups":
+            suggest = "action_groups"
+        elif key == "alertQueryParameters":
+            suggest = "alert_query_parameters"
+        elif key == "autoMitigate":
+            suggest = "auto_mitigate"
+        elif key == "evaluationFrequency":
+            suggest = "evaluation_frequency"
+        elif key == "failingPeriodsOperator":
+            suggest = "failing_periods_operator"
+        elif key == "failingPeriodsToAlert":
+            suggest = "failing_periods_to_alert"
+        elif key == "muteActionsDuration":
+            suggest = "mute_actions_duration"
+        elif key == "thresholdOperator":
+            suggest = "threshold_operator"
+        elif key == "windowSize":
+            suggest = "window_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_groups: Optional[Sequence[str]] = None,
+                 alert_query_parameters: Optional[Sequence['outputs.AlertQueryParameterResponse']] = None,
+                 auto_mitigate: Optional[str] = None,
+                 dimension: Optional[str] = None,
+                 evaluation_frequency: Optional[int] = None,
+                 failing_periods_operator: Optional[str] = None,
+                 failing_periods_to_alert: Optional[int] = None,
+                 mute_actions_duration: Optional[int] = None,
+                 severity: Optional[int] = None,
+                 status: Optional[str] = None,
+                 threshold: Optional[int] = None,
+                 threshold_operator: Optional[str] = None,
+                 window_size: Optional[int] = None):
+        """
+        Describes the properties of an alert.
+        :param Sequence[str] action_groups: Action Group resource Ids to invoke when the alert fires
+        :param Sequence['AlertQueryParameterResponse'] alert_query_parameters: The alert query parameters.
+        :param str auto_mitigate: The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
+        :param str dimension: Evaluation of metric on a particular column.
+        :param int evaluation_frequency: How often the scheduled query rule is evaluated.
+        :param str failing_periods_operator: The operator for failing periods.
+        :param int failing_periods_to_alert: The number of failing periods to trigger an alert.
+        :param int mute_actions_duration: Mute actions for the chosen period of time after the alert is fired.
+        :param int severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest.
+        :param str status: Indicates whether the alert is in an enabled state.
+        :param int threshold: The threshold of the alert.
+        :param str threshold_operator: The threshold operator of the alert.
+        :param int window_size: The period of time on which the Alert query will be executed.
+        """
+        if action_groups is not None:
+            pulumi.set(__self__, "action_groups", action_groups)
+        if alert_query_parameters is not None:
+            pulumi.set(__self__, "alert_query_parameters", alert_query_parameters)
+        if auto_mitigate is not None:
+            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+        if evaluation_frequency is not None:
+            pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+        if failing_periods_operator is not None:
+            pulumi.set(__self__, "failing_periods_operator", failing_periods_operator)
+        if failing_periods_to_alert is not None:
+            pulumi.set(__self__, "failing_periods_to_alert", failing_periods_to_alert)
+        if mute_actions_duration is not None:
+            pulumi.set(__self__, "mute_actions_duration", mute_actions_duration)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+        if threshold_operator is not None:
+            pulumi.set(__self__, "threshold_operator", threshold_operator)
+        if window_size is not None:
+            pulumi.set(__self__, "window_size", window_size)
+
+    @property
+    @pulumi.getter(name="actionGroups")
+    def action_groups(self) -> Optional[Sequence[str]]:
+        """
+        Action Group resource Ids to invoke when the alert fires
+        """
+        return pulumi.get(self, "action_groups")
+
+    @property
+    @pulumi.getter(name="alertQueryParameters")
+    def alert_query_parameters(self) -> Optional[Sequence['outputs.AlertQueryParameterResponse']]:
+        """
+        The alert query parameters.
+        """
+        return pulumi.get(self, "alert_query_parameters")
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[str]:
+        """
+        The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @property
+    @pulumi.getter
+    def dimension(self) -> Optional[str]:
+        """
+        Evaluation of metric on a particular column.
+        """
+        return pulumi.get(self, "dimension")
+
+    @property
+    @pulumi.getter(name="evaluationFrequency")
+    def evaluation_frequency(self) -> Optional[int]:
+        """
+        How often the scheduled query rule is evaluated.
+        """
+        return pulumi.get(self, "evaluation_frequency")
+
+    @property
+    @pulumi.getter(name="failingPeriodsOperator")
+    def failing_periods_operator(self) -> Optional[str]:
+        """
+        The operator for failing periods.
+        """
+        return pulumi.get(self, "failing_periods_operator")
+
+    @property
+    @pulumi.getter(name="failingPeriodsToAlert")
+    def failing_periods_to_alert(self) -> Optional[int]:
+        """
+        The number of failing periods to trigger an alert.
+        """
+        return pulumi.get(self, "failing_periods_to_alert")
+
+    @property
+    @pulumi.getter(name="muteActionsDuration")
+    def mute_actions_duration(self) -> Optional[int]:
+        """
+        Mute actions for the chosen period of time after the alert is fired.
+        """
+        return pulumi.get(self, "mute_actions_duration")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[int]:
+        """
+        Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether the alert is in an enabled state.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[int]:
+        """
+        The threshold of the alert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="thresholdOperator")
+    def threshold_operator(self) -> Optional[str]:
+        """
+        The threshold operator of the alert.
+        """
+        return pulumi.get(self, "threshold_operator")
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> Optional[int]:
+        """
+        The period of time on which the Alert query will be executed.
+        """
+        return pulumi.get(self, "window_size")
+
 
 @pulumi.output_type
 class ApplicationServerConfigurationResponse(dict):
@@ -2253,6 +2492,39 @@ class EnqueueServerPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: str):
+        """
+        The resource management error additional info.
+        :param Any info: The additional info.
+        :param str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ErrorDefinitionResponse(dict):
     """
     Error definition.
@@ -2305,6 +2577,89 @@ class ErrorDefinitionResponse(dict):
         Description of the recommendation.
         """
         return pulumi.get(self, "recommendation")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: str,
+                 target: str):
+        """
+        The error detail.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param str message: The error message.
+        :param str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type

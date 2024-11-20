@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * SAP monitor info on Azure (ARM properties and SAP monitor properties)
  * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
  *
- * Other available API versions: 2023-12-01-preview.
+ * Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
  */
 export class Monitor extends pulumi.CustomResource {
     /**
@@ -156,7 +156,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["zoneRedundancyPreference"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads:monitor" }, { type: "azure-native:workloads/v20211201preview:Monitor" }, { type: "azure-native:workloads/v20211201preview:monitor" }, { type: "azure-native:workloads/v20221101preview:Monitor" }, { type: "azure-native:workloads/v20221101preview:monitor" }, { type: "azure-native:workloads/v20230401:Monitor" }, { type: "azure-native:workloads/v20230401:monitor" }, { type: "azure-native:workloads/v20231001preview:Monitor" }, { type: "azure-native:workloads/v20231001preview:monitor" }, { type: "azure-native:workloads/v20231201preview:Monitor" }, { type: "azure-native:workloads/v20231201preview:monitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads:monitor" }, { type: "azure-native:workloads/v20211201preview:Monitor" }, { type: "azure-native:workloads/v20211201preview:monitor" }, { type: "azure-native:workloads/v20221101preview:Monitor" }, { type: "azure-native:workloads/v20221101preview:monitor" }, { type: "azure-native:workloads/v20230401:Monitor" }, { type: "azure-native:workloads/v20230401:monitor" }, { type: "azure-native:workloads/v20231001preview:Monitor" }, { type: "azure-native:workloads/v20231001preview:monitor" }, { type: "azure-native:workloads/v20231201preview:Monitor" }, { type: "azure-native:workloads/v20231201preview:monitor" }, { type: "azure-native:workloads/v20240201preview:Monitor" }, { type: "azure-native:workloads/v20240201preview:monitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
     }

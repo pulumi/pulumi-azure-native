@@ -8,6 +8,80 @@ using Pulumi;
 namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
+    /// The value that indicates whether the alert should be automatically resolved or not. The default is Disable.
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertAutoMitigate : IEquatable<AlertAutoMitigate>
+    {
+        private readonly string _value;
+
+        private AlertAutoMitigate(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The alert should be automatically resolved.
+        /// </summary>
+        public static AlertAutoMitigate Enable { get; } = new AlertAutoMitigate("Enable");
+        /// <summary>
+        /// The alert should not be automatically resolved.
+        /// </summary>
+        public static AlertAutoMitigate Disable { get; } = new AlertAutoMitigate("Disable");
+
+        public static bool operator ==(AlertAutoMitigate left, AlertAutoMitigate right) => left.Equals(right);
+        public static bool operator !=(AlertAutoMitigate left, AlertAutoMitigate right) => !left.Equals(right);
+
+        public static explicit operator string(AlertAutoMitigate value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertAutoMitigate other && Equals(other);
+        public bool Equals(AlertAutoMitigate other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the alert is in an enabled state.
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertRuleStatus : IEquatable<AlertRuleStatus>
+    {
+        private readonly string _value;
+
+        private AlertRuleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The scheduled query rule is enabled
+        /// </summary>
+        public static AlertRuleStatus Enabled { get; } = new AlertRuleStatus("Enabled");
+        /// <summary>
+        /// The scheduled query rule is disabled
+        /// </summary>
+        public static AlertRuleStatus Disabled { get; } = new AlertRuleStatus("Disabled");
+
+        public static bool operator ==(AlertRuleStatus left, AlertRuleStatus right) => left.Equals(right);
+        public static bool operator !=(AlertRuleStatus left, AlertRuleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AlertRuleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertRuleStatus other && Equals(other);
+        public bool Equals(AlertRuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The App Service plan tier.
     /// </summary>
     [EnumType]
@@ -69,6 +143,55 @@ namespace Pulumi.AzureNative.Workloads
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BackupType other && Equals(other);
         public bool Equals(BackupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The threshold operator of the alert.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConditionalOperator : IEquatable<ConditionalOperator>
+    {
+        private readonly string _value;
+
+        private ConditionalOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The value is less than the specified value.
+        /// </summary>
+        public static ConditionalOperator LessThan { get; } = new ConditionalOperator("LessThan");
+        /// <summary>
+        /// The value is greater than the specified value.
+        /// </summary>
+        public static ConditionalOperator GreaterThan { get; } = new ConditionalOperator("GreaterThan");
+        /// <summary>
+        /// The value is equal to the specified value.
+        /// </summary>
+        public static ConditionalOperator Equal { get; } = new ConditionalOperator("Equal");
+        /// <summary>
+        /// The value is greater than or equal to the specified value.
+        /// </summary>
+        public static ConditionalOperator GreaterThanOrEqual { get; } = new ConditionalOperator("GreaterThanOrEqual");
+        /// <summary>
+        /// The value is less than or equal to the specified value.
+        /// </summary>
+        public static ConditionalOperator LessThanOrEqual { get; } = new ConditionalOperator("LessThanOrEqual");
+
+        public static bool operator ==(ConditionalOperator left, ConditionalOperator right) => left.Equals(right);
+        public static bool operator !=(ConditionalOperator left, ConditionalOperator right) => !left.Equals(right);
+
+        public static explicit operator string(ConditionalOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConditionalOperator other && Equals(other);
+        public bool Equals(ConditionalOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

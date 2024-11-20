@@ -2067,6 +2067,7 @@ Workloads:
     tracking: "2023-04-01"
     additions:
         ACSSBackupConnection: 2023-10-01-preview
+        Alert: 2024-02-01-preview
         Connector: 2023-10-01-preview
         Monitor: 2023-12-01-preview
         SapDiscoverySite: 2023-10-01-preview
