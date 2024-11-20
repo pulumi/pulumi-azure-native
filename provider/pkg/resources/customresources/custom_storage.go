@@ -428,6 +428,7 @@ func parseBlobIdProperties(id string) (resource.PropertyMap, bool) {
 	}
 
 	clientProperties := resource.PropertyMap{}
+	clientProperties[subscriptionId] = resource.NewStringProperty(match[1])
 	clientProperties[resourceGroupName] = resource.NewStringProperty(match[2])
 	clientProperties[accountName] = resource.NewStringProperty(match[3])
 	clientProperties[containerName] = resource.NewStringProperty(match[4])
