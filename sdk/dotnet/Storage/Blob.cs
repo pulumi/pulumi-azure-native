@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.Storage
         public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
-        /// The MD5 sum of the blob contents. Cannot be defined if blob type is Append.
+        /// The MD5 sum of the blob contents, base64-encoded. Cannot be defined if blob type is Append.
         /// </summary>
         [Input("contentMd5")]
         public Input<string>? ContentMd5 { get; set; }
