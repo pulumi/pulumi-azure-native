@@ -677,3 +677,23 @@ func (errorReadCloser) Read(p []byte) (n int, err error) {
 func (errorReadCloser) Close() error {
 	return nil
 }
+
+func TestPostResponsesCanBeAnything(t *testing.T) {
+	t.Run("string", func(t *testing.T) {
+		resp := &http.Response{
+			Body: io.NopCloser(strings.NewReader(`"hello"`)),
+		}
+		val, err := readResponse(resp)
+		require.NoError(t, err)
+		assert.Equal(t, "hello", val)
+	})
+
+	t.Run("object", func(t *testing.T) {
+		resp := &http.Response{
+			Body: io.NopCloser(strings.NewReader(`{"k": 1}`)),
+		}
+		val, err := readResponse(resp)
+		require.NoError(t, err)
+		assert.Equal(t, map[string]any{"k": 1.0}, val)
+	})
+}
