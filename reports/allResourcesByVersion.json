@@ -27282,6 +27282,12 @@
       "ProviderInstance",
       "SapLandscapeMonitor"
     ],
+    "2024-02-01-preview": [
+      "Alert",
+      "Monitor",
+      "ProviderInstance",
+      "SapLandscapeMonitor"
+    ],
     "2024-09-01": [
       "SapApplicationServerInstance",
       "SapCentralServerInstance",
