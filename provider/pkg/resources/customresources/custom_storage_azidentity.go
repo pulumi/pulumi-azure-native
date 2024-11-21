@@ -8,12 +8,14 @@ import (
 	"fmt"
 	"net/http"
 	neturl "net/url"
+	"regexp"
 	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
 	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
 	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/appendblob"
 	azureblob "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob"
@@ -429,45 +431,131 @@ func newBlob_azidentity(env cloud.Configuration, creds azcore.TokenCredential) *
 	}
 }
 
+var subscriptionIDPattern = regexp.MustCompile(`(?i)^/subscriptions/(.+?)/`)
+
+func parseSubscriptionID(resourceID string) string {
+	match := subscriptionIDPattern.FindStringSubmatch(resourceID)
+	if len(match) == 0 {
+		return ""
+	}
+	return match[1]
+}
+
 type blob_azidentity struct {
 	creds azcore.TokenCredential
 	env   cloud.Configuration
 }
 
-func (r *blob_azidentity) newBlobClient(properties resource.PropertyMap) (*azureblob.Client, error) {
-	return newBlobClient(properties, r.env, r.creds)
+func (r *blob_azidentity) newBlobClient(ctx context.Context, properties resource.PropertyMap, subID string) (*azureblob.Client, error) {
+	return newBlobClient(ctx, properties, subID, r.env, r.creds)
 }
 
-func (r *blob_azidentity) newAppendBlobClient(properties resource.PropertyMap) (*appendblob.Client, error) {
-	return newAppendBlobClient(properties, r.env, r.creds)
+func (r *blob_azidentity) newAppendBlobClient(ctx context.Context, properties resource.PropertyMap, subID string) (*appendblob.Client, error) {
+	return newAppendBlobClient(ctx, properties, subID, r.env, r.creds)
 }
 
-func (r *blob_azidentity) newBlockBlobClient(properties resource.PropertyMap) (*blockblob.Client, error) {
-	return newBlockBlobClient(properties, r.env, r.creds)
+func (r *blob_azidentity) newBlockBlobClient(ctx context.Context, properties resource.PropertyMap, subID string) (*blockblob.Client, error) {
+	return newBlockBlobClient(ctx, properties, subID, r.env, r.creds)
 }
 
-func newBlobClient(properties resource.PropertyMap, env cloud.Configuration, creds azcore.TokenCredential) (*azureblob.Client, error) {
-	blobUrl, err := getBlobURL(properties, env)
+func newBlobClient(ctx context.Context, properties resource.PropertyMap, subID string, env cloud.Configuration, creds azcore.TokenCredential) (*azureblob.Client, error) {
+	saUrl, keyCred, err := blobClientDependencies(ctx, properties, subID, env, creds)
 	if err != nil {
 		return nil, err
 	}
-	return azureblob.NewClient(blobUrl, creds, nil)
+
+	return azureblob.NewClientWithSharedKeyCredential(saUrl, keyCred, nil)
 }
 
-func newAppendBlobClient(properties resource.PropertyMap, env cloud.Configuration, creds azcore.TokenCredential) (*appendblob.Client, error) {
-	blobUrl, err := getBlobURL(properties, env)
+func newAppendBlobClient(ctx context.Context, properties resource.PropertyMap, subID string, env cloud.Configuration, creds azcore.TokenCredential) (*appendblob.Client, error) {
+	saUrl, keyCred, err := blobClientDependencies(ctx, properties, subID, env, creds)
 	if err != nil {
 		return nil, err
 	}
-	return appendblob.NewClient(blobUrl, creds, nil)
+
+	return appendblob.NewClientWithSharedKeyCredential(saUrl, keyCred, nil)
 }
 
-func newBlockBlobClient(properties resource.PropertyMap, env cloud.Configuration, creds azcore.TokenCredential) (*blockblob.Client, error) {
-	blobUrl, err := getBlobURL(properties, env)
+func newBlockBlobClient(ctx context.Context, properties resource.PropertyMap, subID string, env cloud.Configuration, creds azcore.TokenCredential) (*blockblob.Client, error) {
+	saUrl, keyCred, err := blobClientDependencies(ctx, properties, subID, env, creds)
 	if err != nil {
 		return nil, err
 	}
-	return blockblob.NewClient(blobUrl, creds, nil)
+
+	return blockblob.NewClientWithSharedKeyCredential(saUrl, keyCred, nil)
+}
+
+// blobClientDependencies retrieves the necessary dependencies for creating a blob client: the
+// blob's URL and a shared key credential.
+func blobClientDependencies(ctx context.Context, properties resource.PropertyMap, subId string, env cloud.Configuration, creds azcore.TokenCredential) (string, *azblob.SharedKeyCredential, error) {
+	accName, rgName, err := parseStorageAccountInput(properties)
+	if err != nil {
+		return "", nil, err
+	}
+
+	blobUrl, err := getBlobURL(properties, env)
+	if err != nil {
+		return blobUrl, nil, err
+	}
+
+	keyCred, err := newSharedKeyCredential(ctx, subId, accName, rgName, creds)
+	if err != nil {
+		return blobUrl, nil, err
+	}
+
+	return blobUrl, keyCred, nil
+}
+
+func parseStorageAccountInput(properties resource.PropertyMap) (accName, rgName string, err error) {
+	acc := properties[accountName]
+	if !acc.HasValue() || !acc.IsString() {
+		err = errors.Errorf("%q not found in resource state", accountName)
+		return
+	}
+	accName = acc.StringValue()
+
+	rg := properties[resourceGroupName]
+	if !rg.HasValue() || !rg.IsString() {
+		err = errors.Errorf("%q not found in resource state", resourceGroupName)
+		return
+	}
+	rgName = rg.StringValue()
+
+	return
+}
+
+// getStorageAccountKey retrieves the primary key for the given storage account.
+func getStorageAccountKey(ctx context.Context, accClient *armstorage.AccountsClient, rgName, accName string) (*string, error) {
+	keys, err := accClient.ListKeys(ctx, rgName, accName, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(keys.Keys) == 0 || keys.Keys[0].Value == nil {
+		return nil, errors.Errorf("no keys for storage account %q (resource group %q)", accName, rgName)
+	}
+
+	return keys.Keys[0].Value, nil
+}
+
+// newSharedKeyCredential creates a credential for the given storage account using the primary storage account key.
+func newSharedKeyCredential(ctx context.Context, subId, accName, rgName string, creds azcore.TokenCredential) (*azblob.SharedKeyCredential, error) {
+	accClient, err := armstorage.NewAccountsClient(subId, creds, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return newSharedKeyCredentialWithClient(ctx, accName, rgName, accClient)
+}
+
+// separate for test, otherwise called from newSharedKeyCredential
+func newSharedKeyCredentialWithClient(ctx context.Context, accName, rgName string, accClient *armstorage.AccountsClient) (*azblob.SharedKeyCredential, error) {
+	accountKey, err := getStorageAccountKey(ctx, accClient, rgName, accName)
+	if err != nil {
+		return nil, err
+	}
+
+	return azblob.NewSharedKeyCredential(accName, *accountKey)
 }
 
 func getBlobURL(properties resource.PropertyMap, env cloud.Configuration) (string, error) {
@@ -511,7 +599,8 @@ func populateAzureBlobMetadata(properties resource.PropertyMap) map[string]*stri
 }
 
 func (r *blob_azidentity) create(ctx context.Context, id string, properties resource.PropertyMap) (map[string]interface{}, error) {
-	blobClient, err := r.newBlobClient(properties)
+	subID := parseSubscriptionID(id)
+	blobClient, err := r.newBlobClient(ctx, properties, subID)
 	if err != nil {
 		return nil, err
 	}
@@ -533,7 +622,7 @@ func (r *blob_azidentity) create(ctx context.Context, id string, properties reso
 			return nil, errors.New("a source cannot be specified for an Append blob")
 		}
 
-		appendClient, err := r.newAppendBlobClient(properties)
+		appendClient, err := r.newAppendBlobClient(ctx, properties, subID)
 		if err != nil {
 			return nil, err
 		}
@@ -547,7 +636,7 @@ func (r *blob_azidentity) create(ctx context.Context, id string, properties reso
 			return nil, err
 		}
 	case "block":
-		blockClient, err := r.newBlockBlobClient(properties)
+		blockClient, err := r.newBlockBlobClient(ctx, properties, subID)
 		if err != nil {
 			return nil, err
 		}
@@ -591,7 +680,7 @@ func (r *blob_azidentity) create(ctx context.Context, id string, properties reso
 		}
 	}
 
-	state, found, err := r.read(ctx, "", properties)
+	state, found, err := r.readBlob(ctx, properties, blobPropertiesReaderFromClient(blobClient))
 	if !found {
 		return nil, errors.New("newly created blob is not found")
 	}
@@ -599,7 +688,8 @@ func (r *blob_azidentity) create(ctx context.Context, id string, properties reso
 }
 
 func (r *blob_azidentity) update(ctx context.Context, id string, properties, oldState resource.PropertyMap) (map[string]interface{}, error) {
-	dataClient, err := r.newBlobClient(properties)
+	subID := parseSubscriptionID(id)
+	dataClient, err := r.newBlobClient(ctx, properties, subID)
 	if err != nil {
 		return nil, err
 	}
@@ -631,7 +721,7 @@ func (r *blob_azidentity) update(ctx context.Context, id string, properties, old
 		}
 	}
 
-	state, found, err := r.read(ctx, "", properties)
+	state, found, err := r.readBlob(ctx, properties, blobPropertiesReaderFromClient(dataClient))
 	if !found {
 		return nil, errors.New("newly created blob is not found")
 	}
@@ -639,7 +729,8 @@ func (r *blob_azidentity) update(ctx context.Context, id string, properties, old
 }
 
 func (r *blob_azidentity) delete(ctx context.Context, id string, properties resource.PropertyMap) error {
-	blobsClient, err := r.newBlobClient(properties)
+	subID := parseSubscriptionID(id)
+	blobsClient, err := r.newBlobClient(ctx, properties, subID)
 	if err != nil {
 		return err
 	}
@@ -664,21 +755,40 @@ func (r *blob_azidentity) delete(ctx context.Context, id string, properties reso
 }
 
 func (r *blob_azidentity) read(ctx context.Context, id string, properties resource.PropertyMap) (map[string]interface{}, bool, error) {
+	var subID string
 	if len(properties) == 0 && id != "" {
 		if idProps, ok := parseBlobIdProperties(id); ok {
 			properties = idProps
+			subID = properties[subscriptionId].StringValue()
 		}
 	}
+	if subID == "" {
+		subID = parseSubscriptionID(id)
+	}
 
-	blobsClient, err := r.newBlobClient(properties)
+	blobsClient, err := r.newBlobClient(ctx, properties, subID)
 	if err != nil {
 		return nil, false, err
 	}
 
+	return r.readBlob(ctx, properties, blobPropertiesReaderFromClient(blobsClient))
+}
+
+// An abstraction over Client.GetProperties() to allow substituting a fake in testing.
+type blobPropertiesReader func(ctx context.Context) (azureblob.GetPropertiesResponse, error)
+
+func blobPropertiesReaderFromClient(client *azureblob.Client) blobPropertiesReader {
+	return func(ctx context.Context) (azureblob.GetPropertiesResponse, error) {
+		return client.GetProperties(ctx, nil)
+	}
+}
+
+func (r *blob_azidentity) readBlob(ctx context.Context, properties resource.PropertyMap, reader blobPropertiesReader) (map[string]any, bool, error) {
 	acc := properties[accountName].StringValue()
 	container := properties[containerName].StringValue()
 	name := properties[blobName].StringValue()
-	props, err := blobsClient.GetProperties(ctx, nil)
+
+	props, err := reader(ctx)
 	if err != nil {
 		if is404StorageError(err) {
 			return nil, false, nil

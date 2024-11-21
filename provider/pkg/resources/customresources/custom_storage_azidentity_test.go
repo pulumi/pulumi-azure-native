@@ -1,17 +1,150 @@
 package customresources
 
 import (
+	"context"
 	"crypto/md5"
 	"encoding/base64"
+	"net/http"
 	"testing"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	azfake "github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage/fake"
 	azureblob "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+func TestReadWithClient(t *testing.T) {
+	blob := blob_azidentity{
+		creds: &azfake.TokenCredential{},
+		env:   cloud.AzurePublic,
+	}
+
+	properties := resource.NewPropertyMapFromMap(map[string]any{
+		accountName:       "myaccount",
+		blobName:          "myblob",
+		containerName:     "mycontainer",
+		resourceGroupName: "myrg",
+	})
+
+	azureProperties := azureblob.GetPropertiesResponse{
+		BlobType:    ref(azureblob.BlobTypeBlockBlob),
+		ContentMD5:  []byte("contentMD5"),
+		ContentType: ref("text/plain"),
+		Metadata: map[string]*string{
+			"meta1": ref("value1"),
+		},
+	}
+
+	var reader blobPropertiesReader = func(ctx context.Context) (azureblob.GetPropertiesResponse, error) {
+		return azureProperties, nil
+	}
+
+	blobProperties, found, err := blob.readBlob(context.Background(), properties, reader)
+	require.NoError(t, err)
+	assert.True(t, found)
+
+	assert.NotNil(t, blobProperties)
+	assert.Equal(t, "myrg", blobProperties[resourceGroupName])
+	assert.Equal(t, "myaccount", blobProperties[accountName])
+	assert.Equal(t, "mycontainer", blobProperties[containerName])
+	assert.Equal(t, "myblob", blobProperties[blobName])
+	assert.Equal(t, "myblob", blobProperties[nameProp])
+
+	assert.Equal(t, "Block", blobProperties[typeProp])
+	assert.Equal(t, "Y29udGVudE1ENQ==", blobProperties[contentMd5])
+	assert.Equal(t, "text/plain", blobProperties[contentType])
+	assert.Equal(t, azureProperties.Metadata, blobProperties[metadata])
+
+	assert.Equal(t, "https://myaccount.blob.core.windows.net/mycontainer/myblob", blobProperties[url])
+}
+
+func fakeListKeysStorageAccountServer(keys []*armstorage.AccountKey) fake.AccountsServer {
+	return fake.AccountsServer{
+		ListKeys: func(ctx context.Context, resourceGroupName string, accountName string, options *armstorage.AccountsClientListKeysOptions) (resp azfake.Responder[armstorage.AccountsClientListKeysResponse], errResp azfake.ErrorResponder) {
+			keysResp := armstorage.AccountsClientListKeysResponse{
+				AccountListKeysResult: armstorage.AccountListKeysResult{
+					Keys: keys,
+				},
+			}
+			resp.SetResponse(http.StatusOK, keysResp, nil)
+			return
+		},
+	}
+}
+
+func TestNewSharedKeyCredentialWithClient(t *testing.T) {
+	t.Run("happy path", func(t *testing.T) {
+		base64Key := base64.StdEncoding.EncodeToString([]byte("key1valueasfgasgfdsfgdafgfadlgjas"))
+		accountsServer := fakeListKeysStorageAccountServer([]*armstorage.AccountKey{
+			{
+				KeyName: ref("key1"),
+				Value:   ref(base64Key),
+			},
+		})
+
+		client, err := armstorage.NewAccountsClient("subscriptionID", &azfake.TokenCredential{}, &arm.ClientOptions{
+			ClientOptions: azcore.ClientOptions{
+				Transport: fake.NewAccountsServerTransport(&accountsServer),
+			},
+		})
+		require.NoError(t, err)
+
+		c, err := newSharedKeyCredentialWithClient(context.Background(), "myaccount", "myrg", client)
+		require.NoError(t, err)
+		require.NotNil(t, c)
+	})
+
+	t.Run("no keys", func(t *testing.T) {
+		accountsServer := fakeListKeysStorageAccountServer([]*armstorage.AccountKey{})
+
+		client, err := armstorage.NewAccountsClient("subscriptionID", &azfake.TokenCredential{}, &arm.ClientOptions{
+			ClientOptions: azcore.ClientOptions{
+				Transport: fake.NewAccountsServerTransport(&accountsServer),
+			},
+		})
+		require.NoError(t, err)
+
+		_, err = newSharedKeyCredentialWithClient(context.Background(), "myaccount", "myrg", client)
+		require.Error(t, err)
+		require.Contains(t, err.Error(), "no keys")
+	})
+}
+
+func TestParseStorageAccountInput(t *testing.T) {
+	t.Run("happy path", func(t *testing.T) {
+		props := resource.NewPropertyMapFromMap(map[string]any{
+			accountName:       "myaccount",
+			resourceGroupName: "myrg",
+		})
+		account, rg, err := parseStorageAccountInput(props)
+		require.NoError(t, err)
+		assert.Equal(t, "myaccount", account)
+		assert.Equal(t, "myrg", rg)
+	})
+
+	t.Run("no account", func(t *testing.T) {
+		props := resource.NewPropertyMapFromMap(map[string]any{
+			resourceGroupName: "myrg",
+		})
+		_, _, err := parseStorageAccountInput(props)
+		require.Error(t, err)
+	})
+
+	t.Run("no RG", func(t *testing.T) {
+		props := resource.NewPropertyMapFromMap(map[string]any{
+			accountName: "myaccount",
+		})
+		_, _, err := parseStorageAccountInput(props)
+		require.Error(t, err)
+	})
+}
 
 func TestStorageAccountUrls(t *testing.T) {
 	t.Run("empty account", func(t *testing.T) {
