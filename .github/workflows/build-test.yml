@@ -26,6 +26,10 @@ on:
         type: boolean
         description: Whether to use the newer azcore+azidentity backend for REST and auth, or the older autorest
         default: true
+      upload_codecov:
+        type: boolean
+        description: Whether to upload coverage reports to Codecov
+        default: true
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -330,6 +334,7 @@ jobs:
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
+        if: inputs.upload_codecov
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
