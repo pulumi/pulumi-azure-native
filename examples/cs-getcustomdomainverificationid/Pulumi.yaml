@@ -1,0 +1,7 @@
+name: cs-getcustomdomainverificationid
+description: An Azure Native C# Pulumi program calling the App.GetCustomDomainVerificationId invoke
+runtime: dotnet
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: azure-csharp

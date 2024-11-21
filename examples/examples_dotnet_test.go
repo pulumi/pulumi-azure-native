@@ -51,6 +51,15 @@ func TestPortalDashboardDotnet(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestGetCustomDomainVerificationId(t *testing.T) {
+	test := getCsharpBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "cs-getcustomdomainverificationid"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestPulumiExamples(t *testing.T) {
 	for _, example := range pexamples.GetTestsByTags(pexamples.AzureNativeProvider, pexamples.CS) {
 		t.Run(example.Dir, func(t *testing.T) {
