@@ -58176,6 +58176,41 @@
     ]
   },
   {
+    "namespace": "Neon.Postgres",
+    "resourceTypes": [
+      {
+        "resourceType": "checkNameAvailability",
+        "apiVersions": [
+          "2024-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2024-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/OperationStatuses",
+        "apiVersions": [
+          "2024-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2024-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "organizations",
+        "apiVersions": [
+          "2024-08-01-preview"
+        ]
+      }
+    ]
+  },
+  {
     "namespace": "NewRelic.Observability",
     "resourceTypes": [
       {
