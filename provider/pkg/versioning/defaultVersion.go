@@ -177,15 +177,13 @@ func buildSpec(providerName string, versions VersionResources, curations Curatio
 		}
 	}
 
+	sortedVersions := keys(versions)
+	openapi.SortApiVersions(sortedVersions)
+
 	existingAdditions := map[openapi.ResourceName]openapi.ApiVersion{}
 	if existing.Additions != nil {
 		existingAdditions = *existing.Additions
 	}
-	sortedVersions := []string{}
-	for version := range versions {
-		sortedVersions = append(sortedVersions, version)
-	}
-	openapi.SortApiVersions(sortedVersions)
 	additions := map[openapi.ResourceName]openapi.ApiVersion{}
 	// Loop through every version in order, skipping excluded and private versions
 	// and overwriting additions from previous versions.
