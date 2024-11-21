@@ -13,6 +13,7 @@ import (
 	"github.com/hashicorp/go-multierror"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"gopkg.in/yaml.v3"
 )
@@ -37,11 +38,11 @@ type ExclusionError struct {
 type Spec map[openapi.ProviderName]ProviderSpec
 
 // BuildSpec calculates a Spec from available API versions and manual curations (config).
-func BuildSpec(spec ProvidersVersionResources, curations Curations, existingConfig Spec) Spec {
+func BuildSpec(spec ProvidersVersionResources, curations Curations, existingConfig Spec, providerList providerlist.ProviderListActiveVersionChecker) Spec {
 	specs := Spec{}
 	for providerName, versionResources := range spec {
 		existing := existingConfig[providerName]
-		specs[providerName] = buildSpec(providerName, versionResources, curations, existing)
+		specs[providerName] = buildSpec(providerName, versionResources, curations, existing, providerList)
 	}
 	return specs
 }
@@ -112,6 +113,22 @@ func ReadSpec(path string) (Spec, error) {
 	return curatedVersion, err
 }
 
+func FindInactiveDefaultVersions(defaultVersionLock openapi.DefaultVersionLock, activeVersions providerlist.ProviderListActiveVersionChecker) map[openapi.ProviderName][]openapi.ApiVersion {
+	result := map[openapi.ProviderName][]openapi.ApiVersion{}
+	for providerName, versions := range defaultVersionLock {
+		inactiveVersions := codegen.NewStringSet()
+		for _, version := range versions {
+			if !activeVersions.HasProviderVersion(providerName, version) {
+				inactiveVersions.Add(version)
+			}
+		}
+		if len(inactiveVersions) > 0 {
+			result[providerName] = inactiveVersions.SortedValues()
+		}
+	}
+	return result
+}
+
 func DefaultConfigToDefaultVersionLock(spec ProvidersVersionResources, defaultConfig Spec) (openapi.DefaultVersionLock, error) {
 	var err error
 	defaultVersionLock := openapi.DefaultVersionLock{}
@@ -152,7 +169,7 @@ func DefaultConfigToDefaultVersionLock(spec ProvidersVersionResources, defaultCo
 	return defaultVersionLock, multierror.Flatten(err)
 }
 
-func buildSpec(providerName string, versions VersionResources, curations Curations, existing ProviderSpec) ProviderSpec {
+func buildSpec(providerName string, versions VersionResources, curations Curations, existing ProviderSpec, providerList providerlist.ProviderListActiveVersionChecker) ProviderSpec {
 	var additionsPtr *map[string]string
 	var trackingPtr *string
 	var exclusionErrors []ExclusionError
