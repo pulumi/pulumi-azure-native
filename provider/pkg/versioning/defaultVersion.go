@@ -326,14 +326,12 @@ func filterCandidateVersions(versions VersionResources, previewPolicy string) []
 }
 
 func isMoreThanOneYearOld(version openapi.ApiVersion) (bool, error) {
-	if len(version) < 10 {
-		return false, fmt.Errorf("invalid version string")
-	}
-	asTime, err := time.Parse("2006-01-02", version[:10])
+	asTime, err := openapi.ApiVersionToDate(version)
 	if err != nil {
-		return false, err
+		return false, fmt.Errorf("failed parsing version as date: %s", version)
 	}
 	diff := time.Since(asTime)
+	// Round up to 366 to account for leap years
 	return diff.Hours() > 24*366, nil
 }
 
