@@ -353,8 +353,12 @@ func (c *azCoreClient) Post(ctx context.Context, id string, bodyProps map[string
 		return nil, runtime.NewResponseError(resp)
 	}
 
-	var responseBody map[string]interface{}
-	err = runtime.UnmarshalAsJSON(resp, &responseBody)
+	return readResponse(resp)
+}
+
+func readResponse(resp *http.Response) (any, error) {
+	var responseBody any
+	err := runtime.UnmarshalAsJSON(resp, &responseBody)
 	return responseBody, handleAzCoreResponseError(err, resp)
 }
 
