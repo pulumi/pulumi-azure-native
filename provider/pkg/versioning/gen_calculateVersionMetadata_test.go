@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -37,8 +38,25 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		}), result.Spec)
 	})
 
-	t.Run("New module with partial latest version includes additions", func(t *testing.T) {
+	t.Run("New module with partial latest version includes additions if live", func(t *testing.T) {
 		sources := VersionSources{
+			ProviderList: providerlist.ProviderList{
+				Providers: []providerlist.Provider{
+					{
+						Namespace: "Microsoft.Module",
+						ResourceTypes: []providerlist.ResourceType{
+							{
+								ResourceType: "Resource1",
+								ApiVersions:  []string{"2020-01-01", "2021-01-01"},
+							},
+							{
+								ResourceType: "Resource2",
+								ApiVersions:  []string{"2020-01-01"},
+							},
+						},
+					},
+				},
+			},
 			AllResourcesByVersion: map[string]map[string][]string{
 				"Module": {
 					"2020-01-01": {"Resource1", "Resource2"},
@@ -116,6 +134,48 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		}), result.Spec)
 	})
 
+	t.Run("New resource ignored if not live", func(t *testing.T) {
+		sources := VersionSources{
+			ProviderList: providerlist.ProviderList{
+				Providers: []providerlist.Provider{
+					{
+						Namespace: "Microsoft.Module",
+						ResourceTypes: []providerlist.ResourceType{
+							{
+								ResourceType: "Resource1",
+								ApiVersions:  []string{"2020-01-01"},
+							},
+							{
+								ResourceType: "Resource2",
+								ApiVersions:  []string{"2020-01-01"},
+							},
+						},
+					},
+				},
+			},
+			Spec: map[openapi.ProviderName]ProviderSpec{
+				"Module": {
+					Tracking: strptr("2020-01-01"),
+				},
+			},
+			AllResourcesByVersion: map[string]map[string][]string{
+				"Module": {
+					"2020-01-01": {"Resource1"},
+					"2021-01-01": {"Resource1", "Resource2"},
+				},
+			},
+		}
+
+		result, err := calculateVersionMetadata(sources)
+
+		assert.NoError(t, err)
+		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+			"Module": {
+				Tracking: strptr("2020-01-01"),
+			},
+		}), result.Spec)
+	})
+
 	t.Run("New version ignored if already tracking during upgrade", func(t *testing.T) {
 		sources := VersionSources{
 			Spec: map[openapi.ProviderName]ProviderSpec{
@@ -141,8 +201,25 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		}), result.Spec)
 	})
 
-	t.Run("New resource in new version added during upgrade", func(t *testing.T) {
+	t.Run("New resource in new version added during upgrade if live", func(t *testing.T) {
 		sources := VersionSources{
+			ProviderList: providerlist.ProviderList{
+				Providers: []providerlist.Provider{
+					{
+						Namespace: "Microsoft.Module",
+						ResourceTypes: []providerlist.ResourceType{
+							{
+								ResourceType: "Resource1",
+								ApiVersions:  []string{"2020-01-01", "2021-01-01"},
+							},
+							{
+								ResourceType: "Resource2",
+								ApiVersions:  []string{"2021-01-01"},
+							},
+						},
+					},
+				},
+			},
 			Spec: map[openapi.ProviderName]ProviderSpec{
 				"Module": {
 					Tracking: strptr("2020-01-01"),
