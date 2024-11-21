@@ -128,7 +128,7 @@ lint_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go $(PROVI
 .PHONY: clean
 clean:
 	rm -rf nuget
-	rm -rf .make
+	rm -rf .make/*
 	rm -rf bin
 	rm -rf dist
 	cd provider/cmd/pulumi-resource-azure-native && rm -f metadata-compact.json schema-full.json
