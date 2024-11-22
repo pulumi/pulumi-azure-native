@@ -2136,6 +2136,8 @@
     "getVirtualNetworkGatewayAdvertisedRoutes": "2023-02-01",
     "getVirtualNetworkGatewayBgpPeerStatus": "2023-02-01",
     "getVirtualNetworkGatewayConnectionIkeSas": "2023-02-01",
+    "getVirtualNetworkGatewayFailoverAllTestDetails": "2024-05-01",
+    "getVirtualNetworkGatewayFailoverSingleTestDetails": "2024-05-01",
     "getVirtualNetworkGatewayLearnedRoutes": "2023-02-01",
     "getVirtualNetworkGatewayVpnProfilePackageUrl": "2023-02-01",
     "getVirtualNetworkGatewayVpnclientConnectionHealth": "2023-02-01",

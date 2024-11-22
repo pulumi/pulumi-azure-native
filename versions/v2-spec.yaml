@@ -1494,6 +1494,8 @@ Network:
         getVirtualNetworkGatewayAdvertisedRoutes: "2023-02-01"
         getVirtualNetworkGatewayBgpPeerStatus: "2023-02-01"
         getVirtualNetworkGatewayConnectionIkeSas: "2023-02-01"
+        getVirtualNetworkGatewayFailoverAllTestDetails: "2024-05-01"
+        getVirtualNetworkGatewayFailoverSingleTestDetails: "2024-05-01"
         getVirtualNetworkGatewayLearnedRoutes: "2023-02-01"
         getVirtualNetworkGatewayVpnProfilePackageUrl: "2023-02-01"
         getVirtualNetworkGatewayVpnclientConnectionHealth: "2023-02-01"
@@ -1548,6 +1550,9 @@ Network:
         - provider: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-03-01 is greater than 2022-09-01
+        - provider: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2024-05-01 is greater than 2022-09-01
 NetworkAnalytics:
     tracking: "2023-11-15"
 NetworkCloud:
