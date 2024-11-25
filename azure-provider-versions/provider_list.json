@@ -1205,50 +1205,19 @@
     ]
   },
   {
-    "namespace": "Microsoft.AnyBuild",
-    "resourceTypes": [
-      {
-        "resourceType": "Locations",
-        "apiVersions": [
-          "2021-11-01",
-          "2020-08-26"
-        ]
-      },
-      {
-        "resourceType": "Locations/OperationStatuses",
-        "apiVersions": [
-          "2021-11-01",
-          "2020-08-26"
-        ]
-      },
-      {
-        "resourceType": "Operations",
-        "apiVersions": [
-          "2021-11-01",
-          "2020-08-26"
-        ]
-      },
-      {
-        "resourceType": "clusters",
-        "apiVersions": [
-          "2021-11-01",
-          "2020-08-26"
-        ]
-      }
-    ]
-  },
-  {
     "namespace": "Microsoft.ApiCenter",
     "resourceTypes": [
       {
         "resourceType": "deletedServices",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-15-preview"
         ]
       },
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-15-preview",
           "2024-03-01",
           "2023-07-01-preview"
@@ -1257,6 +1226,7 @@
       {
         "resourceType": "services",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-15-preview",
           "2024-03-01",
           "2023-07-01-preview"
@@ -1265,6 +1235,7 @@
       {
         "resourceType": "services/eventGridFilters",
         "apiVersions": [
+          "2024-06-01-preview",
           "2024-03-01"
         ]
       }
@@ -5200,8 +5171,6 @@
       {
         "resourceType": "connections",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -5212,8 +5181,6 @@
       {
         "resourceType": "connections/flows",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -5224,8 +5191,6 @@
       {
         "resourceType": "listApprovedSchemas",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview"
@@ -5234,8 +5199,6 @@
       {
         "resourceType": "locations",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -5246,8 +5209,6 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -5258,8 +5219,6 @@
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -5270,8 +5229,6 @@
       {
         "resourceType": "pipelines",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -5282,8 +5239,6 @@
       {
         "resourceType": "validateSchema",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview"
@@ -18812,6 +18767,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2024-10-01",
           "2023-10-01-preview",
           "2023-09-01",
           "2022-10-01-preview",
@@ -18823,6 +18779,7 @@
       {
         "resourceType": "grafana",
         "apiVersions": [
+          "2024-10-01",
           "2023-10-01-preview",
           "2023-09-01",
           "2022-10-01-preview",
@@ -18834,12 +18791,14 @@
       {
         "resourceType": "grafana/integrationFabrics",
         "apiVersions": [
+          "2024-10-01",
           "2023-10-01-preview"
         ]
       },
       {
         "resourceType": "grafana/managedPrivateEndpoints",
         "apiVersions": [
+          "2024-10-01",
           "2023-10-01-preview",
           "2023-09-01",
           "2022-10-01-preview"
@@ -18848,6 +18807,7 @@
       {
         "resourceType": "grafana/privateEndpointConnections",
         "apiVersions": [
+          "2024-10-01",
           "2023-10-01-preview",
           "2023-09-01",
           "2022-10-01-preview",
@@ -18858,6 +18818,7 @@
       {
         "resourceType": "grafana/privateLinkResources",
         "apiVersions": [
+          "2024-10-01",
           "2023-10-01-preview",
           "2023-09-01",
           "2022-10-01-preview",
@@ -18868,6 +18829,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-10-01",
           "2023-10-01-preview",
           "2023-09-01",
           "2022-10-01-preview",
@@ -18879,6 +18841,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2024-10-01",
           "2023-10-01-preview",
           "2023-09-01",
           "2022-10-01-preview",
@@ -18890,6 +18853,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2024-10-01",
           "2023-10-01-preview",
           "2023-09-01",
           "2022-10-01-preview",
@@ -18901,6 +18865,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-10-01",
           "2023-10-01-preview",
           "2023-09-01",
           "2022-10-01-preview",
@@ -35116,6 +35081,30 @@
         ]
       },
       {
+        "resourceType": "dnsResolverDomainLists",
+        "apiVersions": [
+          "2023-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "dnsResolverPolicies",
+        "apiVersions": [
+          "2023-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "dnsResolverPolicies/dnsSecurityRules",
+        "apiVersions": [
+          "2023-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "dnsResolverPolicies/virtualNetworkLinks",
+        "apiVersions": [
+          "2023-07-01-preview"
+        ]
+      },
+      {
         "resourceType": "dnsResolvers",
         "apiVersions": [
           "2023-07-01-preview",
@@ -39552,6 +39541,12 @@
           "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualNetworks/listDnsResolverPolicies",
+        "apiVersions": [
+          "2023-07-01-preview"
         ]
       },
       {
@@ -58171,6 +58166,41 @@
           "2022-11-01-preview",
           "2022-08-01",
           "2021-05-01-preview"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "Neon.Postgres",
+    "resourceTypes": [
+      {
+        "resourceType": "checkNameAvailability",
+        "apiVersions": [
+          "2024-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2024-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/OperationStatuses",
+        "apiVersions": [
+          "2024-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2024-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "organizations",
+        "apiVersions": [
+          "2024-08-01-preview"
         ]
       }
     ]
