@@ -14,6 +14,7 @@ require (
 	github.com/Azure/go-autorest/autorest v0.11.29
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/brianvoe/gofakeit/v6 v6.16.0
+	github.com/deckarep/golang-set/v2 v2.5.0
 	github.com/gedex/inflector v0.0.0-20170307190818-16278e9db813
 	github.com/gkampitakis/go-snaps v0.4.10
 	github.com/go-openapi/jsonreference v0.19.6
@@ -29,8 +30,8 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi-java/pkg v0.17.0
 	github.com/pulumi/pulumi-yaml v1.11.2
-	github.com/pulumi/pulumi/pkg/v3 v3.138.0
-	github.com/pulumi/pulumi/sdk/v3 v3.138.0
+	github.com/pulumi/pulumi/pkg/v3 v3.140.0
+	github.com/pulumi/pulumi/sdk/v3 v3.140.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/stretchr/testify v1.9.0
@@ -67,7 +68,6 @@ require (
 	github.com/cloudflare/circl v1.3.7 // indirect
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect
 	github.com/cyphar/filepath-securejoin v0.2.4 // indirect
-	github.com/deckarep/golang-set/v2 v2.5.0 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/gkampitakis/ciinfo v0.2.5 // indirect
 	github.com/gkampitakis/go-diff v1.3.2 // indirect
