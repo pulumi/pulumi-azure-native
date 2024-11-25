@@ -320,6 +320,8 @@ Compute:
         GalleryApplicationVersion: "2022-03-03"
         GalleryImage: "2022-03-03"
         GalleryImageVersion: "2022-03-03"
+        GalleryInVMAccessControlProfile: "2024-03-03"
+        GalleryInVMAccessControlProfileVersion: "2024-03-03"
         Image: "2023-03-01"
         ProximityPlacementGroup: "2023-03-01"
         RestorePoint: "2023-03-01"
@@ -1494,6 +1496,8 @@ Network:
         getVirtualNetworkGatewayAdvertisedRoutes: "2023-02-01"
         getVirtualNetworkGatewayBgpPeerStatus: "2023-02-01"
         getVirtualNetworkGatewayConnectionIkeSas: "2023-02-01"
+        getVirtualNetworkGatewayFailoverAllTestDetails: "2024-05-01"
+        getVirtualNetworkGatewayFailoverSingleTestDetails: "2024-05-01"
         getVirtualNetworkGatewayLearnedRoutes: "2023-02-01"
         getVirtualNetworkGatewayVpnProfilePackageUrl: "2023-02-01"
         getVirtualNetworkGatewayVpnclientConnectionHealth: "2023-02-01"
@@ -1548,6 +1552,9 @@ Network:
         - provider: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-03-01 is greater than 2022-09-01
+        - provider: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2024-05-01 is greater than 2022-09-01
 NetworkAnalytics:
     tracking: "2023-11-15"
 NetworkCloud:
