@@ -23,6 +23,7 @@ import * as v20230901 from "./v20230901";
 import * as v20231002 from "./v20231002";
 import * as v20240301 from "./v20240301";
 import * as v20240302 from "./v20240302";
+import * as v20240303 from "./v20240303";
 import * as v20240701 from "./v20240701";
 
 export {
@@ -47,8 +48,20 @@ export {
     v20231002,
     v20240301,
     v20240302,
+    v20240303,
     v20240701,
 };
+
+export const AccessControlRulesMode = {
+    Audit: "Audit",
+    Enforce: "Enforce",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * This property allows you to specify whether the access control rules are in Audit mode, in Enforce mode or Disabled. Possible values are: 'Audit', 'Enforce' or 'Disabled'.
+ */
+export type AccessControlRulesMode = (typeof AccessControlRulesMode)[keyof typeof AccessControlRulesMode];
 
 export const Architecture = {
     X64: "x64",
@@ -109,6 +122,7 @@ export const ConfidentialVMEncryptionType = {
     EncryptedVMGuestStateOnlyWithPmk: "EncryptedVMGuestStateOnlyWithPmk",
     EncryptedWithPmk: "EncryptedWithPmk",
     EncryptedWithCmk: "EncryptedWithCmk",
+    NonPersistedTPM: "NonPersistedTPM",
 } as const;
 
 /**
@@ -406,6 +420,26 @@ export const EncryptionType = {
  * The type of key used to encrypt the data of the disk.
  */
 export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+export const EndpointAccess = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
+ */
+export type EndpointAccess = (typeof EndpointAccess)[keyof typeof EndpointAccess];
+
+export const EndpointTypes = {
+    WireServer: "WireServer",
+    IMDS: "IMDS",
+} as const;
+
+/**
+ * This property allows you to specify the Endpoint type for which this profile is defining the access control for. Possible values are: 'WireServer' or 'IMDS'
+ */
+export type EndpointTypes = (typeof EndpointTypes)[keyof typeof EndpointTypes];
 
 export const ExtendedLocationTypes = {
     EdgeZone: "EdgeZone",
@@ -812,6 +846,7 @@ export const StorageAccountType = {
     Standard_LRS: "Standard_LRS",
     Standard_ZRS: "Standard_ZRS",
     Premium_LRS: "Premium_LRS",
+    PremiumV2_LRS: "PremiumV2_LRS",
 } as const;
 
 /**

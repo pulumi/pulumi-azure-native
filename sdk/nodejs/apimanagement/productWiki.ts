@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Wiki properties
  * Azure REST API version: 2022-08-01.
  *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export class ProductWiki extends pulumi.CustomResource {
     /**
@@ -85,7 +85,7 @@ export class ProductWiki extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220801:ProductWiki" }, { type: "azure-native:apimanagement/v20220901preview:ProductWiki" }, { type: "azure-native:apimanagement/v20230301preview:ProductWiki" }, { type: "azure-native:apimanagement/v20230501preview:ProductWiki" }, { type: "azure-native:apimanagement/v20230901preview:ProductWiki" }, { type: "azure-native:apimanagement/v20240501:ProductWiki" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220801:ProductWiki" }, { type: "azure-native:apimanagement/v20220901preview:ProductWiki" }, { type: "azure-native:apimanagement/v20230301preview:ProductWiki" }, { type: "azure-native:apimanagement/v20230501preview:ProductWiki" }, { type: "azure-native:apimanagement/v20230901preview:ProductWiki" }, { type: "azure-native:apimanagement/v20240501:ProductWiki" }, { type: "azure-native:apimanagement/v20240601preview:ProductWiki" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductWiki.__pulumiType, name, resourceInputs, opts);
     }

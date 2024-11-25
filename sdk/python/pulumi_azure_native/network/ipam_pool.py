@@ -136,6 +136,8 @@ class IpamPool(pulumi.CustomResource):
         Instance of Pool resource.
         Azure REST API version: 2024-01-01-preview.
 
+        Other available API versions: 2024-05-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -154,6 +156,8 @@ class IpamPool(pulumi.CustomResource):
         """
         Instance of Pool resource.
         Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param IpamPoolArgs args: The arguments to use to populate this resource's properties.
@@ -198,7 +202,7 @@ class IpamPool(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20240101preview:IpamPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20240101preview:IpamPool"), pulumi.Alias(type_="azure-native:network/v20240501:IpamPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IpamPool, __self__).__init__(
             'azure-native:network:IpamPool',

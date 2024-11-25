@@ -81,6 +81,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20240501
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:WorkspaceGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:WorkspaceGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:WorkspaceGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:WorkspaceGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -538,6 +538,8 @@ __all__ = [
     'SynapseSparkPropertiesArgsDict',
     'SynapseSparkArgs',
     'SynapseSparkArgsDict',
+    'SyndicatedRegistryArgs',
+    'SyndicatedRegistryArgsDict',
     'SystemCreatedAcrAccountArgs',
     'SystemCreatedAcrAccountArgsDict',
     'SystemCreatedStorageAccountArgs',
@@ -28038,6 +28040,10 @@ if not MYPY:
         """
         Private endpoint connections info used for pending connections in private link portal
         """
+        syndicated_registries: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['SyndicatedRegistryArgsDict']]]]
+        """
+        Dictionary of syndicated registries. Key is Guid and value is a SyndicatedRegistry
+        """
 elif False:
     RegistryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -28050,7 +28056,8 @@ class RegistryArgs:
                  ml_flow_registry_uri: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  region_details: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]] = None,
-                 registry_private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]] = None):
+                 registry_private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]] = None,
+                 syndicated_registries: Optional[pulumi.Input[Mapping[str, pulumi.Input['SyndicatedRegistryArgs']]]] = None):
         """
         Details of the Registry
         :param pulumi.Input[str] discovery_url: Discovery URL for the Registry
@@ -28061,6 +28068,7 @@ class RegistryArgs:
                Possible values: "Enabled" or "Disabled"
         :param pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]] region_details: Details of each region the registry is in
         :param pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]] registry_private_endpoint_connections: Private endpoint connections info used for pending connections in private link portal
+        :param pulumi.Input[Mapping[str, pulumi.Input['SyndicatedRegistryArgs']]] syndicated_registries: Dictionary of syndicated registries. Key is Guid and value is a SyndicatedRegistry
         """
         if discovery_url is not None:
             pulumi.set(__self__, "discovery_url", discovery_url)
@@ -28076,6 +28084,8 @@ class RegistryArgs:
             pulumi.set(__self__, "region_details", region_details)
         if registry_private_endpoint_connections is not None:
             pulumi.set(__self__, "registry_private_endpoint_connections", registry_private_endpoint_connections)
+        if syndicated_registries is not None:
+            pulumi.set(__self__, "syndicated_registries", syndicated_registries)
 
     @property
     @pulumi.getter(name="discoveryUrl")
@@ -28161,6 +28171,18 @@ class RegistryArgs:
     @registry_private_endpoint_connections.setter
     def registry_private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]]):
         pulumi.set(self, "registry_private_endpoint_connections", value)
+
+    @property
+    @pulumi.getter(name="syndicatedRegistries")
+    def syndicated_registries(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['SyndicatedRegistryArgs']]]]:
+        """
+        Dictionary of syndicated registries. Key is Guid and value is a SyndicatedRegistry
+        """
+        return pulumi.get(self, "syndicated_registries")
+
+    @syndicated_registries.setter
+    def syndicated_registries(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['SyndicatedRegistryArgs']]]]):
+        pulumi.set(self, "syndicated_registries", value)
 
 
 if not MYPY:
@@ -32925,6 +32947,42 @@ class SynapseSparkArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class SyndicatedRegistryArgsDict(TypedDict):
+        """
+        A registry that is syndicated
+        """
+        registry_id: NotRequired[pulumi.Input[str]]
+        """
+        The Registry Id of the syndicated Registry
+        """
+elif False:
+    SyndicatedRegistryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SyndicatedRegistryArgs:
+    def __init__(__self__, *,
+                 registry_id: Optional[pulumi.Input[str]] = None):
+        """
+        A registry that is syndicated
+        :param pulumi.Input[str] registry_id: The Registry Id of the syndicated Registry
+        """
+        if registry_id is not None:
+            pulumi.set(__self__, "registry_id", registry_id)
+
+    @property
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Registry Id of the syndicated Registry
+        """
+        return pulumi.get(self, "registry_id")
+
+    @registry_id.setter
+    def registry_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_id", value)
 
 
 if not MYPY:

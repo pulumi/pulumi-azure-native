@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Authorization Provider contract.
  * Azure REST API version: 2022-08-01.
  *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export class AuthorizationProvider extends pulumi.CustomResource {
     /**
@@ -94,7 +94,7 @@ export class AuthorizationProvider extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220401preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20220801:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20220901preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20230301preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20230501preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20230901preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20240501:AuthorizationProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220401preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20220801:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20220901preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20230301preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20230501preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20230901preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20240501:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20240601preview:AuthorizationProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AuthorizationProvider.__pulumiType, name, resourceInputs, opts);
     }

@@ -130,6 +130,8 @@ def get_verifier_workspace(network_manager_name: Optional[str] = None,
     Instance of Verifier Workspace.
     Azure REST API version: 2024-01-01-preview.
 
+    Other available API versions: 2024-05-01.
+
 
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group.
@@ -157,6 +159,8 @@ def get_verifier_workspace_output(network_manager_name: Optional[pulumi.Input[st
     """
     Instance of Verifier Workspace.
     Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2024-05-01.
 
 
     :param str network_manager_name: The name of the network manager.

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// A single API Management gateway resource in List or Get response.
     /// Azure REST API version: 2023-09-01-preview.
     /// 
-    /// Other available API versions: 2024-05-01.
+    /// Other available API versions: 2024-05-01, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiGatewayConfigConnection")]
     public partial class ApiGatewayConfigConnection : global::Pulumi.CustomResource
@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:ApiGatewayConfigConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:ApiGatewayConfigConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:ApiGatewayConfigConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

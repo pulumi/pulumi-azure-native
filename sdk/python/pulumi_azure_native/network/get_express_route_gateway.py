@@ -177,7 +177,7 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
     Fetches the details of a ExpressRoute gateway in a resource group.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
+    Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
 
 
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
@@ -208,7 +208,7 @@ def get_express_route_gateway_output(express_route_gateway_name: Optional[pulumi
     Fetches the details of a ExpressRoute gateway in a resource group.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
+    Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
 
 
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.

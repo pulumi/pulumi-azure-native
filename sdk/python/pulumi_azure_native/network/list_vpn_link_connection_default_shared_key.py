@@ -95,6 +95,8 @@ def list_vpn_link_connection_default_shared_key(connection_name: Optional[str] =
     Gets the value of the shared key of VpnLink connection specified.
     Azure REST API version: 2024-03-01.
 
+    Other available API versions: 2024-05-01.
+
 
     :param str connection_name: The name of the vpn connection.
     :param str gateway_name: The name of the gateway.
@@ -122,6 +124,8 @@ def list_vpn_link_connection_default_shared_key_output(connection_name: Optional
     """
     Gets the value of the shared key of VpnLink connection specified.
     Azure REST API version: 2024-03-01.
+
+    Other available API versions: 2024-05-01.
 
 
     :param str connection_name: The name of the vpn connection.

@@ -130,7 +130,7 @@ export class PolicySetDefinitionVersionAtManagementGroup extends pulumi.CustomRe
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicySetDefinitionVersionAtManagementGroup" }, { type: "azure-native:authorization/v20240501:PolicySetDefinitionVersionAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicySetDefinitionVersionAtManagementGroup" }, { type: "azure-native:authorization/v20240501:PolicySetDefinitionVersionAtManagementGroup" }, { type: "azure-native:authorization/v20250101:PolicySetDefinitionVersionAtManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicySetDefinitionVersionAtManagementGroup.__pulumiType, name, resourceInputs, opts);
     }

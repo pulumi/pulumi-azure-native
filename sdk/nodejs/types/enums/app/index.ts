@@ -338,8 +338,6 @@ export const WeekDay = {
     Friday: "Friday",
     Saturday: "Saturday",
     Sunday: "Sunday",
-    Everyday: "Everyday",
-    Weekend: "Weekend",
 } as const;
 
 /**

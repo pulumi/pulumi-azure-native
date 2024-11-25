@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.Network.V20230601
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:IpGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:IpGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:IpGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:IpGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

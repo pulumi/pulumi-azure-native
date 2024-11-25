@@ -105,7 +105,7 @@ def get_documentation(documentation_id: Optional[str] = None,
     Gets the details of the Documentation specified by its identifier.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str documentation_id: Documentation identifier. Must be unique in the current API Management service instance.
@@ -133,7 +133,7 @@ def get_documentation_output(documentation_id: Optional[pulumi.Input[str]] = Non
     Gets the details of the Documentation specified by its identifier.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str documentation_id: Documentation identifier. Must be unique in the current API Management service instance.

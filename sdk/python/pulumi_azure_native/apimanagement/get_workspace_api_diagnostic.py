@@ -204,7 +204,7 @@ def get_workspace_api_diagnostic(api_id: Optional[str] = None,
     Gets the details of the Diagnostic for an API specified by its identifier.
     Azure REST API version: 2023-09-01-preview.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-05-01, 2024-06-01-preview.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -246,7 +246,7 @@ def get_workspace_api_diagnostic_output(api_id: Optional[pulumi.Input[str]] = No
     Gets the details of the Diagnostic for an API specified by its identifier.
     Azure REST API version: 2023-09-01-preview.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-05-01, 2024-06-01-preview.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.

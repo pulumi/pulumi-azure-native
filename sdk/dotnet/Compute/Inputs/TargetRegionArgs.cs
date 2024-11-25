@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.Compute.Inputs
     /// </summary>
     public sealed class TargetRegionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalReplicaSets")]
+        private InputList<Inputs.AdditionalReplicaSetArgs>? _additionalReplicaSets;
+
+        /// <summary>
+        /// List of storage sku with replica count to create direct drive replicas.
+        /// </summary>
+        public InputList<Inputs.AdditionalReplicaSetArgs> AdditionalReplicaSets
+        {
+            get => _additionalReplicaSets ?? (_additionalReplicaSets = new InputList<Inputs.AdditionalReplicaSetArgs>());
+            set => _additionalReplicaSets = value;
+        }
+
         /// <summary>
         /// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
         /// </summary>

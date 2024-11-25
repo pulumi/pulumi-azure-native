@@ -153,7 +153,7 @@ class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
         Rule Collection Group resource.
         Azure REST API version: 2023-11-01.
 
-        Other available API versions: 2024-01-01, 2024-03-01.
+        Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +175,7 @@ class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
         Rule Collection Group resource.
         Azure REST API version: 2023-11-01.
 
-        Other available API versions: 2024-01-01, 2024-03-01.
+        Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyRuleCollectionGroupDraftArgs args: The arguments to use to populate this resource's properties.
@@ -223,7 +223,7 @@ class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
             __props__.__dict__["rule_collections"] = rule_collections
             __props__.__dict__["size"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20231101:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native:network/v20240101:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native:network/v20240301:FirewallPolicyRuleCollectionGroupDraft")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20231101:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native:network/v20240101:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native:network/v20240301:FirewallPolicyRuleCollectionGroupDraft"), pulumi.Alias(type_="azure-native:network/v20240501:FirewallPolicyRuleCollectionGroupDraft")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicyRuleCollectionGroupDraft, __self__).__init__(
             'azure-native:network:FirewallPolicyRuleCollectionGroupDraft',

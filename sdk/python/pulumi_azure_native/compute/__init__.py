@@ -21,6 +21,8 @@ from .gallery_application import *
 from .gallery_application_version import *
 from .gallery_image import *
 from .gallery_image_version import *
+from .gallery_in_vm_access_control_profile import *
+from .gallery_in_vm_access_control_profile_version import *
 from .get_availability_set import *
 from .get_capacity_reservation import *
 from .get_capacity_reservation_group import *
@@ -36,6 +38,8 @@ from .get_gallery_application import *
 from .get_gallery_application_version import *
 from .get_gallery_image import *
 from .get_gallery_image_version import *
+from .get_gallery_in_vm_access_control_profile import *
+from .get_gallery_in_vm_access_control_profile_version import *
 from .get_image import *
 from .get_log_analytic_export_request_rate_by_interval import *
 from .get_log_analytic_export_throttled_requests import *
@@ -113,6 +117,8 @@ if typing.TYPE_CHECKING:
     v20240301 = __v20240301
     import pulumi_azure_native.compute.v20240302 as __v20240302
     v20240302 = __v20240302
+    import pulumi_azure_native.compute.v20240303 as __v20240303
+    v20240303 = __v20240303
     import pulumi_azure_native.compute.v20240701 as __v20240701
     v20240701 = __v20240701
 else:
@@ -137,5 +143,6 @@ else:
     v20231002 = _utilities.lazy_import('pulumi_azure_native.compute.v20231002')
     v20240301 = _utilities.lazy_import('pulumi_azure_native.compute.v20240301')
     v20240302 = _utilities.lazy_import('pulumi_azure_native.compute.v20240302')
+    v20240303 = _utilities.lazy_import('pulumi_azure_native.compute.v20240303')
     v20240701 = _utilities.lazy_import('pulumi_azure_native.compute.v20240701')
 

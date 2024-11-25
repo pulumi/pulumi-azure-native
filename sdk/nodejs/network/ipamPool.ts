@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Instance of Pool resource.
  * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export class IpamPool extends pulumi.CustomResource {
     /**
@@ -98,7 +100,7 @@ export class IpamPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240101preview:IpamPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240101preview:IpamPool" }, { type: "azure-native:network/v20240501:IpamPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IpamPool.__pulumiType, name, resourceInputs, opts);
     }

@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.Network.V20240301
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network:NetworkManagerRoutingConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:NetworkManagerRoutingConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

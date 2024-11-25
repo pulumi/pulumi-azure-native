@@ -104,7 +104,7 @@ export class RouteMap extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:RouteMap" }, { type: "azure-native:network/v20220501:RouteMap" }, { type: "azure-native:network/v20220701:RouteMap" }, { type: "azure-native:network/v20220901:RouteMap" }, { type: "azure-native:network/v20221101:RouteMap" }, { type: "azure-native:network/v20230201:RouteMap" }, { type: "azure-native:network/v20230401:RouteMap" }, { type: "azure-native:network/v20230501:RouteMap" }, { type: "azure-native:network/v20230601:RouteMap" }, { type: "azure-native:network/v20230901:RouteMap" }, { type: "azure-native:network/v20231101:RouteMap" }, { type: "azure-native:network/v20240101:RouteMap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:RouteMap" }, { type: "azure-native:network/v20220501:RouteMap" }, { type: "azure-native:network/v20220701:RouteMap" }, { type: "azure-native:network/v20220901:RouteMap" }, { type: "azure-native:network/v20221101:RouteMap" }, { type: "azure-native:network/v20230201:RouteMap" }, { type: "azure-native:network/v20230401:RouteMap" }, { type: "azure-native:network/v20230501:RouteMap" }, { type: "azure-native:network/v20230601:RouteMap" }, { type: "azure-native:network/v20230901:RouteMap" }, { type: "azure-native:network/v20231101:RouteMap" }, { type: "azure-native:network/v20240101:RouteMap" }, { type: "azure-native:network/v20240501:RouteMap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RouteMap.__pulumiType, name, resourceInputs, opts);
     }

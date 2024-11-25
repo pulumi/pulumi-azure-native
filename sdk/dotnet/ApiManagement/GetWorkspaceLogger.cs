@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the logger specified by its identifier.
         /// Azure REST API version: 2023-09-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetWorkspaceLoggerResult> InvokeAsync(GetWorkspaceLoggerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceLoggerResult>("azure-native:apimanagement:getWorkspaceLogger", args ?? new GetWorkspaceLoggerArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the logger specified by its identifier.
         /// Azure REST API version: 2023-09-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetWorkspaceLoggerResult> Invoke(GetWorkspaceLoggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceLoggerResult>("azure-native:apimanagement:getWorkspaceLogger", args ?? new GetWorkspaceLoggerInvokeArgs(), options.WithDefaults());

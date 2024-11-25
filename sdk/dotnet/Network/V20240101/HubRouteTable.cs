@@ -111,6 +111,7 @@ namespace Pulumi.AzureNative.Network.V20240101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:HubRouteTable" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:HubRouteTable" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:HubRouteTable" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:HubRouteTable" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Recipient User details.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export class WorkspaceNotificationRecipientUser extends pulumi.CustomResource {
     /**
@@ -86,7 +86,7 @@ export class WorkspaceNotificationRecipientUser extends pulumi.CustomResource {
             resourceInputs["userId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceNotificationRecipientUser" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceNotificationRecipientUser" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceNotificationRecipientUser" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceNotificationRecipientUser" }, { type: "azure-native:apimanagement/v20240501:WorkspaceNotificationRecipientUser" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceNotificationRecipientUser" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceNotificationRecipientUser" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceNotificationRecipientUser" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceNotificationRecipientUser" }, { type: "azure-native:apimanagement/v20240501:WorkspaceNotificationRecipientUser" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceNotificationRecipientUser" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceNotificationRecipientUser.__pulumiType, name, resourceInputs, opts);
     }

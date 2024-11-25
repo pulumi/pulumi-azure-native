@@ -156,7 +156,7 @@ class ProductWiki(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ProductWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ProductWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ProductWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:ProductWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:ProductWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:ProductWiki")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ProductWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ProductWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ProductWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:ProductWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:ProductWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:ProductWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:ProductWiki")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProductWiki, __self__).__init__(
             'azure-native:apimanagement/v20230901preview:ProductWiki',

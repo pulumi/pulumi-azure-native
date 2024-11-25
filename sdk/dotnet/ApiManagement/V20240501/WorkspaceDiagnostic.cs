@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20240501
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:WorkspaceDiagnostic" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:WorkspaceDiagnostic" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:WorkspaceDiagnostic" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

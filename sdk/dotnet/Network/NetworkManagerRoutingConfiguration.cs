@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Defines the routing configuration
     /// Azure REST API version: 2024-03-01.
+    /// 
+    /// Other available API versions: 2024-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkManagerRoutingConfiguration")]
     public partial class NetworkManagerRoutingConfiguration : global::Pulumi.CustomResource
@@ -84,6 +86,7 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:NetworkManagerRoutingConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:NetworkManagerRoutingConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

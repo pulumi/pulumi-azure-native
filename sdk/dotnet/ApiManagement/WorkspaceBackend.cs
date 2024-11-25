@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Backend details.
     /// Azure REST API version: 2023-09-01-preview.
     /// 
-    /// Other available API versions: 2024-05-01.
+    /// Other available API versions: 2024-05-01, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceBackend")]
     public partial class WorkspaceBackend : global::Pulumi.CustomResource
@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:WorkspaceBackend" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:WorkspaceBackend" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:WorkspaceBackend" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

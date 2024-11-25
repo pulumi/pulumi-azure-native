@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified load balancer.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2015-05-01-preview, 2018-06-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
+        /// Other available API versions: 2015-05-01-preview, 2018-06-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-native:network:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified load balancer.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2015-05-01-preview, 2018-06-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
+        /// Other available API versions: 2015-05-01-preview, 2018-06-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:network:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());

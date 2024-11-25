@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Instance of Verifier Workspace.
  * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getVerifierWorkspace(args: GetVerifierWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetVerifierWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,6 +73,8 @@ export interface GetVerifierWorkspaceResult {
 /**
  * Instance of Verifier Workspace.
  * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getVerifierWorkspaceOutput(args: GetVerifierWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVerifierWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

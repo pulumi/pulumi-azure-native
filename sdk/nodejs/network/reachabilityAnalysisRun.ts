@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Configuration information for analysis run.
  * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export class ReachabilityAnalysisRun extends pulumi.CustomResource {
     /**
@@ -93,7 +95,7 @@ export class ReachabilityAnalysisRun extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240101preview:ReachabilityAnalysisRun" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240101preview:ReachabilityAnalysisRun" }, { type: "azure-native:network/v20240501:ReachabilityAnalysisRun" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReachabilityAnalysisRun.__pulumiType, name, resourceInputs, opts);
     }

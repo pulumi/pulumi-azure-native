@@ -154,7 +154,7 @@ def get_hub_route_table(resource_group_name: Optional[str] = None,
     Retrieves the details of a RouteTable.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
+    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHub.
@@ -186,7 +186,7 @@ def get_hub_route_table_output(resource_group_name: Optional[pulumi.Input[str]] 
     Retrieves the details of a RouteTable.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
+    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHub.

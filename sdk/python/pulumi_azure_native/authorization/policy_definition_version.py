@@ -208,7 +208,7 @@ class PolicyDefinitionVersion(pulumi.CustomResource):
         The ID of the policy definition version.
         Azure REST API version: 2023-04-01.
 
-        Other available API versions: 2024-05-01.
+        Other available API versions: 2024-05-01, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,7 +233,7 @@ class PolicyDefinitionVersion(pulumi.CustomResource):
         The ID of the policy definition version.
         Azure REST API version: 2023-04-01.
 
-        Other available API versions: 2024-05-01.
+        Other available API versions: 2024-05-01, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param PolicyDefinitionVersionArgs args: The arguments to use to populate this resource's properties.
@@ -286,7 +286,7 @@ class PolicyDefinitionVersion(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20230401:PolicyDefinitionVersion"), pulumi.Alias(type_="azure-native:authorization/v20240501:PolicyDefinitionVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20230401:PolicyDefinitionVersion"), pulumi.Alias(type_="azure-native:authorization/v20240501:PolicyDefinitionVersion"), pulumi.Alias(type_="azure-native:authorization/v20250101:PolicyDefinitionVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyDefinitionVersion, __self__).__init__(
             'azure-native:authorization:PolicyDefinitionVersion',

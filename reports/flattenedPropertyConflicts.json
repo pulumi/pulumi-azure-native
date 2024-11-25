@@ -111,6 +111,13 @@
     "properties.etag": {},
     "properties.name": {}
   },
+  "azure-native:network/v20240501:NetworkVirtualApplianceConnection": {
+    "properties.name": {}
+  },
+  "azure-native:network/v20240501:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
   "azure-native:network:P2sVpnServerConfiguration": {
     "properties.etag": {},
     "properties.name": {}

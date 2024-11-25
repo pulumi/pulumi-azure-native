@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * ExpressRoutePort Authorization resource definition.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-01-01.
  *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
+ * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
  */
 export class ExpressRoutePortAuthorization extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class ExpressRoutePortAuthorization extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210801:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220101:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220501:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220701:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220901:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20221101:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20230201:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20230401:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20230501:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20230601:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20230901:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20231101:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20240101:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20240301:ExpressRoutePortAuthorization" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210801:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220101:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220501:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220701:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20220901:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20221101:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20230201:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20230401:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20230501:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20230601:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20230901:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20231101:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20240101:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20240301:ExpressRoutePortAuthorization" }, { type: "azure-native:network/v20240501:ExpressRoutePortAuthorization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExpressRoutePortAuthorization.__pulumiType, name, resourceInputs, opts);
     }

@@ -70,6 +70,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240701Preview.Inputs
             set => _registryPrivateEndpointConnections = value;
         }
 
+        [Input("syndicatedRegistries")]
+        private InputMap<Inputs.SyndicatedRegistryArgs>? _syndicatedRegistries;
+
+        /// <summary>
+        /// Dictionary of syndicated registries. Key is Guid and value is a SyndicatedRegistry
+        /// </summary>
+        public InputMap<Inputs.SyndicatedRegistryArgs> SyndicatedRegistries
+        {
+            get => _syndicatedRegistries ?? (_syndicatedRegistries = new InputMap<Inputs.SyndicatedRegistryArgs>());
+            set => _syndicatedRegistries = value;
+        }
+
         public RegistryArgs()
         {
         }

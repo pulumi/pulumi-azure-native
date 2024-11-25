@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Logger details.
     /// Azure REST API version: 2023-09-01-preview.
     /// 
-    /// Other available API versions: 2024-05-01.
+    /// Other available API versions: 2024-05-01, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceLogger")]
     public partial class WorkspaceLogger : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:WorkspaceLogger" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:WorkspaceLogger" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:WorkspaceLogger" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

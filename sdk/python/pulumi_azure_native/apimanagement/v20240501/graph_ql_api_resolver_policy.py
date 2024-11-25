@@ -221,7 +221,7 @@ class GraphQLApiResolverPolicy(pulumi.CustomResource):
             __props__.__dict__["value"] = value
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GraphQLApiResolverPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GraphQLApiResolverPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GraphQLApiResolverPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:GraphQLApiResolverPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:GraphQLApiResolverPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:GraphQLApiResolverPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GraphQLApiResolverPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GraphQLApiResolverPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GraphQLApiResolverPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:GraphQLApiResolverPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:GraphQLApiResolverPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:GraphQLApiResolverPolicy"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:GraphQLApiResolverPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GraphQLApiResolverPolicy, __self__).__init__(
             'azure-native:apimanagement/v20240501:GraphQLApiResolverPolicy',

@@ -96,7 +96,7 @@ export class AuthorizationAccessPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20220801:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20220901preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20230301preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20230501preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20230901preview:AuthorizationAccessPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20220801:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20220901preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20230301preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20230501preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20230901preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20240601preview:AuthorizationAccessPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AuthorizationAccessPolicy.__pulumiType, name, resourceInputs, opts);
     }

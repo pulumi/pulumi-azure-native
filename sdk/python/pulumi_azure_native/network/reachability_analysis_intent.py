@@ -118,6 +118,8 @@ class ReachabilityAnalysisIntent(pulumi.CustomResource):
         Configuration information or intent on which to do the analysis on.
         Azure REST API version: 2024-01-01-preview.
 
+        Other available API versions: 2024-05-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
@@ -135,6 +137,8 @@ class ReachabilityAnalysisIntent(pulumi.CustomResource):
         """
         Configuration information or intent on which to do the analysis on.
         Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param ReachabilityAnalysisIntentArgs args: The arguments to use to populate this resource's properties.
@@ -181,7 +185,7 @@ class ReachabilityAnalysisIntent(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20240101preview:ReachabilityAnalysisIntent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20240101preview:ReachabilityAnalysisIntent"), pulumi.Alias(type_="azure-native:network/v20240501:ReachabilityAnalysisIntent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReachabilityAnalysisIntent, __self__).__init__(
             'azure-native:network:ReachabilityAnalysisIntent',

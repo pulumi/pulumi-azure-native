@@ -158,7 +158,7 @@ export class DefaultUserRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:DefaultUserRule" }, { type: "azure-native:network/v20210501preview:DefaultUserRule" }, { type: "azure-native:network/v20220201preview:DefaultUserRule" }, { type: "azure-native:network/v20220401preview:DefaultUserRule" }, { type: "azure-native:network/v20240301:DefaultUserRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:DefaultUserRule" }, { type: "azure-native:network/v20210501preview:DefaultUserRule" }, { type: "azure-native:network/v20220201preview:DefaultUserRule" }, { type: "azure-native:network/v20220401preview:DefaultUserRule" }, { type: "azure-native:network/v20240301:DefaultUserRule" }, { type: "azure-native:network/v20240501:DefaultUserRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DefaultUserRule.__pulumiType, name, resourceInputs, opts);
     }

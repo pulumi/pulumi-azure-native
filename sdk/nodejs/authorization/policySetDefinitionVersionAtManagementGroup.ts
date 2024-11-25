@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The policy set definition version.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2024-05-01.
+ * Other available API versions: 2024-05-01, 2025-01-01.
  */
 export class PolicySetDefinitionVersionAtManagementGroup extends pulumi.CustomResource {
     /**
@@ -133,7 +133,7 @@ export class PolicySetDefinitionVersionAtManagementGroup extends pulumi.CustomRe
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20230401:PolicySetDefinitionVersionAtManagementGroup" }, { type: "azure-native:authorization/v20240501:PolicySetDefinitionVersionAtManagementGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20230401:PolicySetDefinitionVersionAtManagementGroup" }, { type: "azure-native:authorization/v20240501:PolicySetDefinitionVersionAtManagementGroup" }, { type: "azure-native:authorization/v20250101:PolicySetDefinitionVersionAtManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicySetDefinitionVersionAtManagementGroup.__pulumiType, name, resourceInputs, opts);
     }

@@ -17,7 +17,13 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccessControlRulesIdentityResponse',
+    'AccessControlRulesPrivilegeResponse',
+    'AccessControlRulesResponse',
+    'AccessControlRulesRoleAssignmentResponse',
+    'AccessControlRulesRoleResponse',
     'AdditionalCapabilitiesResponse',
+    'AdditionalReplicaSetResponse',
     'AdditionalUnattendContentResponse',
     'ApiEntityReferenceResponse',
     'ApiErrorBaseResponse',
@@ -88,6 +94,7 @@ __all__ = [
     'GalleryImageVersionPublishingProfileResponse',
     'GalleryImageVersionSafetyProfileResponse',
     'GalleryImageVersionStorageProfileResponse',
+    'GalleryInVMAccessControlProfilePropertiesResponse',
     'GalleryOSDiskImageResponse',
     'GalleryTargetExtendedLocationResponse',
     'HardwareProfileResponse',
@@ -228,6 +235,303 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class AccessControlRulesIdentityResponse(dict):
+    """
+    The properties of an Access Control Rule Identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exePath":
+            suggest = "exe_path"
+        elif key == "groupName":
+            suggest = "group_name"
+        elif key == "processName":
+            suggest = "process_name"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessControlRulesIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessControlRulesIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessControlRulesIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 exe_path: Optional[str] = None,
+                 group_name: Optional[str] = None,
+                 process_name: Optional[str] = None,
+                 user_name: Optional[str] = None):
+        """
+        The properties of an Access Control Rule Identity.
+        :param str name: The name of the identity.
+        :param str exe_path: The path to the executable.
+        :param str group_name: The groupName corresponding to this identity.
+        :param str process_name: The process name of the executable.
+        :param str user_name: The username corresponding to this identity.
+        """
+        pulumi.set(__self__, "name", name)
+        if exe_path is not None:
+            pulumi.set(__self__, "exe_path", exe_path)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+        if process_name is not None:
+            pulumi.set(__self__, "process_name", process_name)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the identity.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="exePath")
+    def exe_path(self) -> Optional[str]:
+        """
+        The path to the executable.
+        """
+        return pulumi.get(self, "exe_path")
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[str]:
+        """
+        The groupName corresponding to this identity.
+        """
+        return pulumi.get(self, "group_name")
+
+    @property
+    @pulumi.getter(name="processName")
+    def process_name(self) -> Optional[str]:
+        """
+        The process name of the executable.
+        """
+        return pulumi.get(self, "process_name")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+        The username corresponding to this identity.
+        """
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class AccessControlRulesPrivilegeResponse(dict):
+    """
+    The properties of an Access Control Rule Privilege.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryParameters":
+            suggest = "query_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessControlRulesPrivilegeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessControlRulesPrivilegeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessControlRulesPrivilegeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 path: str,
+                 query_parameters: Optional[Mapping[str, str]] = None):
+        """
+        The properties of an Access Control Rule Privilege.
+        :param str name: The name of the privilege.
+        :param str path: The HTTP path corresponding to the privilege.
+        :param Mapping[str, str] query_parameters: The query parameters to match in the path.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the privilege.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The HTTP path corresponding to the privilege.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="queryParameters")
+    def query_parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        The query parameters to match in the path.
+        """
+        return pulumi.get(self, "query_parameters")
+
+
+@pulumi.output_type
+class AccessControlRulesResponse(dict):
+    """
+    This is the Access Control Rules specification for an inVMAccessControlProfile version.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleAssignments":
+            suggest = "role_assignments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessControlRulesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessControlRulesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessControlRulesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identities: Optional[Sequence['outputs.AccessControlRulesIdentityResponse']] = None,
+                 privileges: Optional[Sequence['outputs.AccessControlRulesPrivilegeResponse']] = None,
+                 role_assignments: Optional[Sequence['outputs.AccessControlRulesRoleAssignmentResponse']] = None,
+                 roles: Optional[Sequence['outputs.AccessControlRulesRoleResponse']] = None):
+        """
+        This is the Access Control Rules specification for an inVMAccessControlProfile version.
+        :param Sequence['AccessControlRulesIdentityResponse'] identities: A list of identities.
+        :param Sequence['AccessControlRulesPrivilegeResponse'] privileges: A list of privileges.
+        :param Sequence['AccessControlRulesRoleAssignmentResponse'] role_assignments: A list of role assignments.
+        :param Sequence['AccessControlRulesRoleResponse'] roles: A list of roles.
+        """
+        if identities is not None:
+            pulumi.set(__self__, "identities", identities)
+        if privileges is not None:
+            pulumi.set(__self__, "privileges", privileges)
+        if role_assignments is not None:
+            pulumi.set(__self__, "role_assignments", role_assignments)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Optional[Sequence['outputs.AccessControlRulesIdentityResponse']]:
+        """
+        A list of identities.
+        """
+        return pulumi.get(self, "identities")
+
+    @property
+    @pulumi.getter
+    def privileges(self) -> Optional[Sequence['outputs.AccessControlRulesPrivilegeResponse']]:
+        """
+        A list of privileges.
+        """
+        return pulumi.get(self, "privileges")
+
+    @property
+    @pulumi.getter(name="roleAssignments")
+    def role_assignments(self) -> Optional[Sequence['outputs.AccessControlRulesRoleAssignmentResponse']]:
+        """
+        A list of role assignments.
+        """
+        return pulumi.get(self, "role_assignments")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence['outputs.AccessControlRulesRoleResponse']]:
+        """
+        A list of roles.
+        """
+        return pulumi.get(self, "roles")
+
+
+@pulumi.output_type
+class AccessControlRulesRoleAssignmentResponse(dict):
+    """
+    The properties of an Access Control Rule RoleAssignment.
+    """
+    def __init__(__self__, *,
+                 identities: Sequence[str],
+                 role: str):
+        """
+        The properties of an Access Control Rule RoleAssignment.
+        :param Sequence[str] identities: A list of identities that can access the privileges defined by the role.
+        :param str role: The name of the role.
+        """
+        pulumi.set(__self__, "identities", identities)
+        pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence[str]:
+        """
+        A list of identities that can access the privileges defined by the role.
+        """
+        return pulumi.get(self, "identities")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        The name of the role.
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class AccessControlRulesRoleResponse(dict):
+    """
+    The properties of an Access Control Rule Role.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 privileges: Sequence[str]):
+        """
+        The properties of an Access Control Rule Role.
+        :param str name: The name of the role.
+        :param Sequence[str] privileges: A list of privileges needed by this role.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "privileges", privileges)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the role.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def privileges(self) -> Sequence[str]:
+        """
+        A list of privileges needed by this role.
+        """
+        return pulumi.get(self, "privileges")
+
+
+@pulumi.output_type
 class AdditionalCapabilitiesResponse(dict):
     """
     Enables or disables a capability on the virtual machine or virtual machine scale set.
@@ -279,6 +583,60 @@ class AdditionalCapabilitiesResponse(dict):
         The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS. Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
+
+
+@pulumi.output_type
+class AdditionalReplicaSetResponse(dict):
+    """
+    Describes the additional replica set information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionalReplicaCount":
+            suggest = "regional_replica_count"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdditionalReplicaSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdditionalReplicaSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdditionalReplicaSetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 regional_replica_count: Optional[int] = None,
+                 storage_account_type: Optional[str] = None):
+        """
+        Describes the additional replica set information.
+        :param int regional_replica_count: The number of direct drive replicas of the Image Version to be created.This Property is updatable
+        :param str storage_account_type: Specifies the storage account type to be used to create the direct drive replicas
+        """
+        if regional_replica_count is not None:
+            pulumi.set(__self__, "regional_replica_count", regional_replica_count)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+
+    @property
+    @pulumi.getter(name="regionalReplicaCount")
+    def regional_replica_count(self) -> Optional[int]:
+        """
+        The number of direct drive replicas of the Image Version to be created.This Property is updatable
+        """
+        return pulumi.get(self, "regional_replica_count")
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[str]:
+        """
+        Specifies the storage account type to be used to create the direct drive replicas
+        """
+        return pulumi.get(self, "storage_account_type")
 
 
 @pulumi.output_type
@@ -4726,6 +5084,83 @@ class GalleryImageVersionStorageProfileResponse(dict):
         The source of the gallery artifact version.
         """
         return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class GalleryInVMAccessControlProfilePropertiesResponse(dict):
+    """
+    Describes the properties of a gallery inVMAccessControlProfile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicableHostEndpoint":
+            suggest = "applicable_host_endpoint"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GalleryInVMAccessControlProfilePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GalleryInVMAccessControlProfilePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GalleryInVMAccessControlProfilePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 applicable_host_endpoint: str,
+                 os_type: str,
+                 provisioning_state: str,
+                 description: Optional[str] = None):
+        """
+        Describes the properties of a gallery inVMAccessControlProfile.
+        :param str applicable_host_endpoint: This property allows you to specify the Endpoint type for which this profile is defining the access control for. Possible values are: 'WireServer' or 'IMDS'
+        :param str os_type: This property allows you to specify the OS type of the VMs/VMSS for which this profile can be used against. Possible values are: 'Windows' or 'Linux'
+        :param str provisioning_state: The provisioning state, which only appears in the response.
+        :param str description: The description of this gallery inVMAccessControlProfile resources. This property is updatable.
+        """
+        pulumi.set(__self__, "applicable_host_endpoint", applicable_host_endpoint)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="applicableHostEndpoint")
+    def applicable_host_endpoint(self) -> str:
+        """
+        This property allows you to specify the Endpoint type for which this profile is defining the access control for. Possible values are: 'WireServer' or 'IMDS'
+        """
+        return pulumi.get(self, "applicable_host_endpoint")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        This property allows you to specify the OS type of the VMs/VMSS for which this profile can be used against. Possible values are: 'Windows' or 'Linux'
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of this gallery inVMAccessControlProfile resources. This property is updatable.
+        """
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type
@@ -10164,7 +10599,9 @@ class TargetRegionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "excludeFromLatest":
+        if key == "additionalReplicaSets":
+            suggest = "additional_replica_sets"
+        elif key == "excludeFromLatest":
             suggest = "exclude_from_latest"
         elif key == "regionalReplicaCount":
             suggest = "regional_replica_count"
@@ -10184,6 +10621,7 @@ class TargetRegionResponse(dict):
 
     def __init__(__self__, *,
                  name: str,
+                 additional_replica_sets: Optional[Sequence['outputs.AdditionalReplicaSetResponse']] = None,
                  encryption: Optional['outputs.EncryptionImagesResponse'] = None,
                  exclude_from_latest: Optional[bool] = None,
                  regional_replica_count: Optional[int] = None,
@@ -10191,12 +10629,15 @@ class TargetRegionResponse(dict):
         """
         Describes the target region information.
         :param str name: The name of the region.
+        :param Sequence['AdditionalReplicaSetResponse'] additional_replica_sets: List of storage sku with replica count to create direct drive replicas.
         :param 'EncryptionImagesResponse' encryption: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
         :param bool exclude_from_latest: Contains the flag setting to hide an image when users specify version='latest'
         :param int regional_replica_count: The number of replicas of the Image Version to be created per region. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         """
         pulumi.set(__self__, "name", name)
+        if additional_replica_sets is not None:
+            pulumi.set(__self__, "additional_replica_sets", additional_replica_sets)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if exclude_from_latest is not None:
@@ -10213,6 +10654,14 @@ class TargetRegionResponse(dict):
         The name of the region.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="additionalReplicaSets")
+    def additional_replica_sets(self) -> Optional[Sequence['outputs.AdditionalReplicaSetResponse']]:
+        """
+        List of storage sku with replica count to create direct drive replicas.
+        """
+        return pulumi.get(self, "additional_replica_sets")
 
     @property
     @pulumi.getter

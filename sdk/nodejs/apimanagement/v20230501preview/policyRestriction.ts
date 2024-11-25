@@ -85,7 +85,7 @@ export class PolicyRestriction extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:PolicyRestriction" }, { type: "azure-native:apimanagement/v20230901preview:PolicyRestriction" }, { type: "azure-native:apimanagement/v20240501:PolicyRestriction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:PolicyRestriction" }, { type: "azure-native:apimanagement/v20230901preview:PolicyRestriction" }, { type: "azure-native:apimanagement/v20240501:PolicyRestriction" }, { type: "azure-native:apimanagement/v20240601preview:PolicyRestriction" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyRestriction.__pulumiType, name, resourceInputs, opts);
     }

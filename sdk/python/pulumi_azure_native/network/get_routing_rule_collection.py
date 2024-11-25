@@ -167,6 +167,8 @@ def get_routing_rule_collection(configuration_name: Optional[str] = None,
     Gets a network manager routing configuration rule collection.
     Azure REST API version: 2024-03-01.
 
+    Other available API versions: 2024-05-01.
+
 
     :param str configuration_name: The name of the network manager Routing Configuration.
     :param str network_manager_name: The name of the network manager.
@@ -200,6 +202,8 @@ def get_routing_rule_collection_output(configuration_name: Optional[pulumi.Input
     """
     Gets a network manager routing configuration rule collection.
     Azure REST API version: 2024-03-01.
+
+    Other available API versions: 2024-05-01.
 
 
     :param str configuration_name: The name of the network manager Routing Configuration.

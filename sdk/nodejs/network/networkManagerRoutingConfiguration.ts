@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Defines the routing configuration
  * Azure REST API version: 2024-03-01.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export class NetworkManagerRoutingConfiguration extends pulumi.CustomResource {
     /**
@@ -104,7 +106,7 @@ export class NetworkManagerRoutingConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240301:NetworkManagerRoutingConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240301:NetworkManagerRoutingConfiguration" }, { type: "azure-native:network/v20240501:NetworkManagerRoutingConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkManagerRoutingConfiguration.__pulumiType, name, resourceInputs, opts);
     }

@@ -152,6 +152,8 @@ class RoutingRuleCollection(pulumi.CustomResource):
         Defines the routing rule collection.
         Azure REST API version: 2024-03-01.
 
+        Other available API versions: 2024-05-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerRoutingGroupItemArgs', 'NetworkManagerRoutingGroupItemArgsDict']]]] applies_to: Groups for configuration
@@ -171,6 +173,8 @@ class RoutingRuleCollection(pulumi.CustomResource):
         """
         Defines the routing rule collection.
         Azure REST API version: 2024-03-01.
+
+        Other available API versions: 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param RoutingRuleCollectionArgs args: The arguments to use to populate this resource's properties.
@@ -224,7 +228,7 @@ class RoutingRuleCollection(pulumi.CustomResource):
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20240301:RoutingRuleCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20240301:RoutingRuleCollection"), pulumi.Alias(type_="azure-native:network/v20240501:RoutingRuleCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoutingRuleCollection, __self__).__init__(
             'azure-native:network:RoutingRuleCollection',

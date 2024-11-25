@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a network manager routing configuration routing rule.
  * Azure REST API version: 2024-03-01.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getRoutingRule(args: GetRoutingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,6 +95,8 @@ export interface GetRoutingRuleResult {
 /**
  * Gets a network manager routing configuration routing rule.
  * Azure REST API version: 2024-03-01.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getRoutingRuleOutput(args: GetRoutingRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

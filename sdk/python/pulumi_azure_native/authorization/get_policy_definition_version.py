@@ -189,7 +189,7 @@ def get_policy_definition_version(policy_definition_name: Optional[str] = None,
     This operation retrieves the policy definition version in the given subscription with the given name.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-05-01, 2025-01-01.
 
 
     :param str policy_definition_name: The name of the policy definition.
@@ -221,7 +221,7 @@ def get_policy_definition_version_output(policy_definition_name: Optional[pulumi
     This operation retrieves the policy definition version in the given subscription with the given name.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-05-01, 2025-01-01.
 
 
     :param str policy_definition_name: The name of the policy definition.

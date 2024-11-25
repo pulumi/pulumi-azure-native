@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * IpamPool usage information.
  * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getIpamPoolUsage(args: GetIpamPoolUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamPoolUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,6 +81,8 @@ export interface GetIpamPoolUsageResult {
 /**
  * IpamPool usage information.
  * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function getIpamPoolUsageOutput(args: GetIpamPoolUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPoolUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

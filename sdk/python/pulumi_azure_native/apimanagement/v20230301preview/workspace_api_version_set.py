@@ -257,7 +257,7 @@ class WorkspaceApiVersionSet(pulumi.CustomResource):
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceApiVersionSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceApiVersionSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceApiVersionSet, __self__).__init__(
             'azure-native:apimanagement/v20230301preview:WorkspaceApiVersionSet',

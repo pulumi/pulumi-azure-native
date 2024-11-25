@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Get Rule Collection Group Draft.
         /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-03-01.
+        /// Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
         /// </summary>
         public static Task<GetFirewallPolicyRuleCollectionGroupDraftResult> InvokeAsync(GetFirewallPolicyRuleCollectionGroupDraftArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyRuleCollectionGroupDraftResult>("azure-native:network:getFirewallPolicyRuleCollectionGroupDraft", args ?? new GetFirewallPolicyRuleCollectionGroupDraftArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Get Rule Collection Group Draft.
         /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-03-01.
+        /// Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
         /// </summary>
         public static Output<GetFirewallPolicyRuleCollectionGroupDraftResult> Invoke(GetFirewallPolicyRuleCollectionGroupDraftInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyRuleCollectionGroupDraftResult>("azure-native:network:getFirewallPolicyRuleCollectionGroupDraft", args ?? new GetFirewallPolicyRuleCollectionGroupDraftInvokeArgs(), options.WithDefaults());

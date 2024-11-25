@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * API Version Set Contract details.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export class WorkspaceApiVersionSet extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class WorkspaceApiVersionSet extends pulumi.CustomResource {
             resourceInputs["versioningScheme"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceApiVersionSet" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceApiVersionSet" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceApiVersionSet" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceApiVersionSet" }, { type: "azure-native:apimanagement/v20240501:WorkspaceApiVersionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceApiVersionSet" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceApiVersionSet" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceApiVersionSet" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceApiVersionSet" }, { type: "azure-native:apimanagement/v20240501:WorkspaceApiVersionSet" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceApiVersionSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceApiVersionSet.__pulumiType, name, resourceInputs, opts);
     }

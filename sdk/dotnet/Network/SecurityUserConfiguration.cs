@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     /// Defines the security user configuration
     /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
     /// 
-    /// Other available API versions: 2021-05-01-preview, 2024-03-01.
+    /// Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityUserConfiguration")]
     public partial class SecurityUserConfiguration : global::Pulumi.CustomResource
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:SecurityUserConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:SecurityUserConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

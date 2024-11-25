@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Network security user rule.
     /// Azure REST API version: 2024-03-01.
+    /// 
+    /// Other available API versions: 2024-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityUserRule")]
     public partial class SecurityUserRule : global::Pulumi.CustomResource
@@ -124,6 +126,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:SecurityUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:SecurityUserRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

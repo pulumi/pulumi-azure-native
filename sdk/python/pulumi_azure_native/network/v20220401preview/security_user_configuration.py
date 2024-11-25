@@ -178,7 +178,7 @@ class SecurityUserConfiguration(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:SecurityUserConfiguration"), pulumi.Alias(type_="azure-native:network/v20210201preview:SecurityUserConfiguration"), pulumi.Alias(type_="azure-native:network/v20210501preview:SecurityUserConfiguration"), pulumi.Alias(type_="azure-native:network/v20220201preview:SecurityUserConfiguration"), pulumi.Alias(type_="azure-native:network/v20240301:SecurityUserConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:SecurityUserConfiguration"), pulumi.Alias(type_="azure-native:network/v20210201preview:SecurityUserConfiguration"), pulumi.Alias(type_="azure-native:network/v20210501preview:SecurityUserConfiguration"), pulumi.Alias(type_="azure-native:network/v20220201preview:SecurityUserConfiguration"), pulumi.Alias(type_="azure-native:network/v20240301:SecurityUserConfiguration"), pulumi.Alias(type_="azure-native:network/v20240501:SecurityUserConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityUserConfiguration, __self__).__init__(
             'azure-native:network/v20220401preview:SecurityUserConfiguration',

@@ -1138,8 +1138,6 @@ namespace Pulumi.AzureNative.App.V20241002Preview
         public static WeekDay Friday { get; } = new WeekDay("Friday");
         public static WeekDay Saturday { get; } = new WeekDay("Saturday");
         public static WeekDay Sunday { get; } = new WeekDay("Sunday");
-        public static WeekDay Everyday { get; } = new WeekDay("Everyday");
-        public static WeekDay Weekend { get; } = new WeekDay("Weekend");
 
         public static bool operator ==(WeekDay left, WeekDay right) => left.Equals(right);
         public static bool operator !=(WeekDay left, WeekDay right) => !left.Equals(right);

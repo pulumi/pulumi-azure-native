@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20240501
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GatewayHostnameConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:GatewayHostnameConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:GatewayHostnameConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:GatewayHostnameConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

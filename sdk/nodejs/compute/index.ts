@@ -80,6 +80,16 @@ export type GalleryImageVersion = import("./galleryImageVersion").GalleryImageVe
 export const GalleryImageVersion: typeof import("./galleryImageVersion").GalleryImageVersion = null as any;
 utilities.lazyLoad(exports, ["GalleryImageVersion"], () => require("./galleryImageVersion"));
 
+export { GalleryInVMAccessControlProfileArgs } from "./galleryInVMAccessControlProfile";
+export type GalleryInVMAccessControlProfile = import("./galleryInVMAccessControlProfile").GalleryInVMAccessControlProfile;
+export const GalleryInVMAccessControlProfile: typeof import("./galleryInVMAccessControlProfile").GalleryInVMAccessControlProfile = null as any;
+utilities.lazyLoad(exports, ["GalleryInVMAccessControlProfile"], () => require("./galleryInVMAccessControlProfile"));
+
+export { GalleryInVMAccessControlProfileVersionArgs } from "./galleryInVMAccessControlProfileVersion";
+export type GalleryInVMAccessControlProfileVersion = import("./galleryInVMAccessControlProfileVersion").GalleryInVMAccessControlProfileVersion;
+export const GalleryInVMAccessControlProfileVersion: typeof import("./galleryInVMAccessControlProfileVersion").GalleryInVMAccessControlProfileVersion = null as any;
+utilities.lazyLoad(exports, ["GalleryInVMAccessControlProfileVersion"], () => require("./galleryInVMAccessControlProfileVersion"));
+
 export { GetAvailabilitySetArgs, GetAvailabilitySetResult, GetAvailabilitySetOutputArgs } from "./getAvailabilitySet";
 export const getAvailabilitySet: typeof import("./getAvailabilitySet").getAvailabilitySet = null as any;
 export const getAvailabilitySetOutput: typeof import("./getAvailabilitySet").getAvailabilitySetOutput = null as any;
@@ -154,6 +164,16 @@ export { GetGalleryImageVersionArgs, GetGalleryImageVersionResult, GetGalleryIma
 export const getGalleryImageVersion: typeof import("./getGalleryImageVersion").getGalleryImageVersion = null as any;
 export const getGalleryImageVersionOutput: typeof import("./getGalleryImageVersion").getGalleryImageVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getGalleryImageVersion","getGalleryImageVersionOutput"], () => require("./getGalleryImageVersion"));
+
+export { GetGalleryInVMAccessControlProfileArgs, GetGalleryInVMAccessControlProfileResult, GetGalleryInVMAccessControlProfileOutputArgs } from "./getGalleryInVMAccessControlProfile";
+export const getGalleryInVMAccessControlProfile: typeof import("./getGalleryInVMAccessControlProfile").getGalleryInVMAccessControlProfile = null as any;
+export const getGalleryInVMAccessControlProfileOutput: typeof import("./getGalleryInVMAccessControlProfile").getGalleryInVMAccessControlProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getGalleryInVMAccessControlProfile","getGalleryInVMAccessControlProfileOutput"], () => require("./getGalleryInVMAccessControlProfile"));
+
+export { GetGalleryInVMAccessControlProfileVersionArgs, GetGalleryInVMAccessControlProfileVersionResult, GetGalleryInVMAccessControlProfileVersionOutputArgs } from "./getGalleryInVMAccessControlProfileVersion";
+export const getGalleryInVMAccessControlProfileVersion: typeof import("./getGalleryInVMAccessControlProfileVersion").getGalleryInVMAccessControlProfileVersion = null as any;
+export const getGalleryInVMAccessControlProfileVersionOutput: typeof import("./getGalleryInVMAccessControlProfileVersion").getGalleryInVMAccessControlProfileVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getGalleryInVMAccessControlProfileVersion","getGalleryInVMAccessControlProfileVersionOutput"], () => require("./getGalleryInVMAccessControlProfileVersion"));
 
 export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
 export const getImage: typeof import("./getImage").getImage = null as any;
@@ -331,6 +351,7 @@ import * as v20230901 from "./v20230901";
 import * as v20231002 from "./v20231002";
 import * as v20240301 from "./v20240301";
 import * as v20240302 from "./v20240302";
+import * as v20240303 from "./v20240303";
 import * as v20240701 from "./v20240701";
 
 export {
@@ -355,6 +376,7 @@ export {
     v20231002,
     v20240301,
     v20240302,
+    v20240303,
     v20240701,
 };
 
@@ -392,6 +414,10 @@ const _module = {
                 return new GalleryImage(name, <any>undefined, { urn })
             case "azure-native:compute:GalleryImageVersion":
                 return new GalleryImageVersion(name, <any>undefined, { urn })
+            case "azure-native:compute:GalleryInVMAccessControlProfile":
+                return new GalleryInVMAccessControlProfile(name, <any>undefined, { urn })
+            case "azure-native:compute:GalleryInVMAccessControlProfileVersion":
+                return new GalleryInVMAccessControlProfileVersion(name, <any>undefined, { urn })
             case "azure-native:compute:Image":
                 return new Image(name, <any>undefined, { urn })
             case "azure-native:compute:ProximityPlacementGroup":

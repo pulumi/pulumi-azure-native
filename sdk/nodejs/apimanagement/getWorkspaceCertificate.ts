@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the details of the certificate specified by its identifier.
  * Azure REST API version: 2023-09-01-preview.
  *
- * Other available API versions: 2024-05-01.
+ * Other available API versions: 2024-05-01, 2024-06-01-preview.
  */
 export function getWorkspaceCertificate(args: GetWorkspaceCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,7 +79,7 @@ export interface GetWorkspaceCertificateResult {
  * Gets the details of the certificate specified by its identifier.
  * Azure REST API version: 2023-09-01-preview.
  *
- * Other available API versions: 2024-05-01.
+ * Other available API versions: 2024-05-01, 2024-06-01-preview.
  */
 export function getWorkspaceCertificateOutput(args: GetWorkspaceCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

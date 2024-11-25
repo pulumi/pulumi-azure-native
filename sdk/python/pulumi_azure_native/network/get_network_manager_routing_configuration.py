@@ -142,6 +142,8 @@ def get_network_manager_routing_configuration(configuration_name: Optional[str] 
     Retrieves a network manager routing configuration.
     Azure REST API version: 2024-03-01.
 
+    Other available API versions: 2024-05-01.
+
 
     :param str configuration_name: The name of the network manager Routing Configuration.
     :param str network_manager_name: The name of the network manager.
@@ -170,6 +172,8 @@ def get_network_manager_routing_configuration_output(configuration_name: Optiona
     """
     Retrieves a network manager routing configuration.
     Azure REST API version: 2024-03-01.
+
+    Other available API versions: 2024-05-01.
 
 
     :param str configuration_name: The name of the network manager Routing Configuration.

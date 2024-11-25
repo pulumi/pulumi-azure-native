@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * List of PoolAssociation
  * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function listIpamPoolAssociatedResources(args: ListIpamPoolAssociatedResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListIpamPoolAssociatedResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +50,8 @@ export interface ListIpamPoolAssociatedResourcesResult {
 /**
  * List of PoolAssociation
  * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export function listIpamPoolAssociatedResourcesOutput(args: ListIpamPoolAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIpamPoolAssociatedResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

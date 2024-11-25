@@ -287,7 +287,7 @@ class WorkspaceApiDiagnostic(pulumi.CustomResource):
         Diagnostic details.
         Azure REST API version: 2023-09-01-preview.
 
-        Other available API versions: 2024-05-01.
+        Other available API versions: 2024-05-01, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,7 +317,7 @@ class WorkspaceApiDiagnostic(pulumi.CustomResource):
         Diagnostic details.
         Azure REST API version: 2023-09-01-preview.
 
-        Other available API versions: 2024-05-01.
+        Other available API versions: 2024-05-01, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceApiDiagnosticArgs args: The arguments to use to populate this resource's properties.
@@ -385,7 +385,7 @@ class WorkspaceApiDiagnostic(pulumi.CustomResource):
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceApiDiagnostic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceApiDiagnostic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceApiDiagnostic, __self__).__init__(
             'azure-native:apimanagement:WorkspaceApiDiagnostic',

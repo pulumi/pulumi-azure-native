@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Instance of Pool resource.
     /// Azure REST API version: 2024-01-01-preview.
+    /// 
+    /// Other available API versions: 2024-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:IpamPool")]
     public partial class IpamPool : global::Pulumi.CustomResource
@@ -78,6 +80,7 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101preview:IpamPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:IpamPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

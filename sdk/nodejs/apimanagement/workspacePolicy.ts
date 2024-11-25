@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Policy Contract details.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export class WorkspacePolicy extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class WorkspacePolicy extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspacePolicy" }, { type: "azure-native:apimanagement/v20230301preview:WorkspacePolicy" }, { type: "azure-native:apimanagement/v20230501preview:WorkspacePolicy" }, { type: "azure-native:apimanagement/v20230901preview:WorkspacePolicy" }, { type: "azure-native:apimanagement/v20240501:WorkspacePolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspacePolicy" }, { type: "azure-native:apimanagement/v20230301preview:WorkspacePolicy" }, { type: "azure-native:apimanagement/v20230501preview:WorkspacePolicy" }, { type: "azure-native:apimanagement/v20230901preview:WorkspacePolicy" }, { type: "azure-native:apimanagement/v20240501:WorkspacePolicy" }, { type: "azure-native:apimanagement/v20240601preview:WorkspacePolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspacePolicy.__pulumiType, name, resourceInputs, opts);
     }

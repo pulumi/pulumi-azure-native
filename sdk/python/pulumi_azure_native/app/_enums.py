@@ -294,5 +294,3 @@ class WeekDay(str, Enum):
     FRIDAY = "Friday"
     SATURDAY = "Saturday"
     SUNDAY = "Sunday"
-    EVERYDAY = "Everyday"
-    WEEKEND = "Weekend"

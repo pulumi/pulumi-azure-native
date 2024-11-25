@@ -154,7 +154,7 @@ class ApiGateway(pulumi.CustomResource):
         A single API Management gateway resource in List or Get response.
         Azure REST API version: 2023-09-01-preview.
 
-        Other available API versions: 2024-05-01.
+        Other available API versions: 2024-05-01, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,7 +176,7 @@ class ApiGateway(pulumi.CustomResource):
         A single API Management gateway resource in List or Get response.
         Azure REST API version: 2023-09-01-preview.
 
-        Other available API versions: 2024-05-01.
+        Other available API versions: 2024-05-01, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ApiGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -229,7 +229,7 @@ class ApiGateway(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["target_provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:ApiGateway"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:ApiGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:ApiGateway"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:ApiGateway"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:ApiGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiGateway, __self__).__init__(
             'azure-native:apimanagement:ApiGateway',

@@ -141,7 +141,7 @@ def get_express_route_port_authorization(authorization_name: Optional[str] = Non
     Gets the specified authorization from the specified express route port.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
+    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
 
 
     :param str authorization_name: The name of the authorization.
@@ -172,7 +172,7 @@ def get_express_route_port_authorization_output(authorization_name: Optional[pul
     Gets the specified authorization from the specified express route port.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
+    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
 
 
     :param str authorization_name: The name of the authorization.

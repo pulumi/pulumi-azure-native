@@ -219,7 +219,7 @@ class WorkspaceCertificate(pulumi.CustomResource):
             __props__.__dict__["subject"] = None
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceCertificate"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceCertificate"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceCertificate"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceCertificate, __self__).__init__(
             'azure-native:apimanagement/v20230901preview:WorkspaceCertificate',

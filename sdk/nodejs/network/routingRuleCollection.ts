@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Defines the routing rule collection.
  * Azure REST API version: 2024-03-01.
+ *
+ * Other available API versions: 2024-05-01.
  */
 export class RoutingRuleCollection extends pulumi.CustomResource {
     /**
@@ -123,7 +125,7 @@ export class RoutingRuleCollection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240301:RoutingRuleCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240301:RoutingRuleCollection" }, { type: "azure-native:network/v20240501:RoutingRuleCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoutingRuleCollection.__pulumiType, name, resourceInputs, opts);
     }

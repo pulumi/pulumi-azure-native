@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
+    /// This property allows you to specify whether the access control rules are in Audit mode, in Enforce mode or Disabled. Possible values are: 'Audit', 'Enforce' or 'Disabled'.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessControlRulesMode : IEquatable<AccessControlRulesMode>
+    {
+        private readonly string _value;
+
+        private AccessControlRulesMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessControlRulesMode Audit { get; } = new AccessControlRulesMode("Audit");
+        public static AccessControlRulesMode Enforce { get; } = new AccessControlRulesMode("Enforce");
+        public static AccessControlRulesMode Disabled { get; } = new AccessControlRulesMode("Disabled");
+
+        public static bool operator ==(AccessControlRulesMode left, AccessControlRulesMode right) => left.Equals(right);
+        public static bool operator !=(AccessControlRulesMode left, AccessControlRulesMode right) => !left.Equals(right);
+
+        public static explicit operator string(AccessControlRulesMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessControlRulesMode other && Equals(other);
+        public bool Equals(AccessControlRulesMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// CPU architecture supported by an OS disk.
     /// </summary>
     [EnumType]
@@ -183,6 +215,7 @@ namespace Pulumi.AzureNative.Compute
         public static ConfidentialVMEncryptionType EncryptedVMGuestStateOnlyWithPmk { get; } = new ConfidentialVMEncryptionType("EncryptedVMGuestStateOnlyWithPmk");
         public static ConfidentialVMEncryptionType EncryptedWithPmk { get; } = new ConfidentialVMEncryptionType("EncryptedWithPmk");
         public static ConfidentialVMEncryptionType EncryptedWithCmk { get; } = new ConfidentialVMEncryptionType("EncryptedWithCmk");
+        public static ConfidentialVMEncryptionType NonPersistedTPM { get; } = new ConfidentialVMEncryptionType("NonPersistedTPM");
 
         public static bool operator ==(ConfidentialVMEncryptionType left, ConfidentialVMEncryptionType right) => left.Equals(right);
         public static bool operator !=(ConfidentialVMEncryptionType left, ConfidentialVMEncryptionType right) => !left.Equals(right);
@@ -861,6 +894,68 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EncryptionType other && Equals(other);
         public bool Equals(EncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
+    /// </summary>
+    [EnumType]
+    public readonly struct EndpointAccess : IEquatable<EndpointAccess>
+    {
+        private readonly string _value;
+
+        private EndpointAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EndpointAccess Allow { get; } = new EndpointAccess("Allow");
+        public static EndpointAccess Deny { get; } = new EndpointAccess("Deny");
+
+        public static bool operator ==(EndpointAccess left, EndpointAccess right) => left.Equals(right);
+        public static bool operator !=(EndpointAccess left, EndpointAccess right) => !left.Equals(right);
+
+        public static explicit operator string(EndpointAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EndpointAccess other && Equals(other);
+        public bool Equals(EndpointAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This property allows you to specify the Endpoint type for which this profile is defining the access control for. Possible values are: 'WireServer' or 'IMDS'
+    /// </summary>
+    [EnumType]
+    public readonly struct EndpointTypes : IEquatable<EndpointTypes>
+    {
+        private readonly string _value;
+
+        private EndpointTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EndpointTypes WireServer { get; } = new EndpointTypes("WireServer");
+        public static EndpointTypes IMDS { get; } = new EndpointTypes("IMDS");
+
+        public static bool operator ==(EndpointTypes left, EndpointTypes right) => left.Equals(right);
+        public static bool operator !=(EndpointTypes left, EndpointTypes right) => !left.Equals(right);
+
+        public static explicit operator string(EndpointTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EndpointTypes other && Equals(other);
+        public bool Equals(EndpointTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2020,6 +2115,7 @@ namespace Pulumi.AzureNative.Compute
         public static StorageAccountType Standard_LRS { get; } = new StorageAccountType("Standard_LRS");
         public static StorageAccountType Standard_ZRS { get; } = new StorageAccountType("Standard_ZRS");
         public static StorageAccountType Premium_LRS { get; } = new StorageAccountType("Premium_LRS");
+        public static StorageAccountType PremiumV2_LRS { get; } = new StorageAccountType("PremiumV2_LRS");
 
         public static bool operator ==(StorageAccountType left, StorageAccountType right) => left.Equals(right);
         public static bool operator !=(StorageAccountType left, StorageAccountType right) => !left.Equals(right);

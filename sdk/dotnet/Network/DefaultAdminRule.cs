@@ -169,6 +169,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:DefaultAdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101preview:DefaultAdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:DefaultAdminRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

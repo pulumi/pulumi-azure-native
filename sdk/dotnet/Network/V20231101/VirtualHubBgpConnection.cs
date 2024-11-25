@@ -110,6 +110,7 @@ namespace Pulumi.AzureNative.Network.V20231101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:VirtualHubBgpConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:VirtualHubBgpConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:VirtualHubBgpConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:VirtualHubBgpConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

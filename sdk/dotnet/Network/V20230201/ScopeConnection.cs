@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.Network.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:ScopeConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:ScopeConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:ScopeConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:ScopeConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

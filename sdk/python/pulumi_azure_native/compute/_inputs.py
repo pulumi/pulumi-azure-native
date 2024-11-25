@@ -16,8 +16,20 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AccessControlRulesIdentityArgs',
+    'AccessControlRulesIdentityArgsDict',
+    'AccessControlRulesPrivilegeArgs',
+    'AccessControlRulesPrivilegeArgsDict',
+    'AccessControlRulesRoleAssignmentArgs',
+    'AccessControlRulesRoleAssignmentArgsDict',
+    'AccessControlRulesRoleArgs',
+    'AccessControlRulesRoleArgsDict',
+    'AccessControlRulesArgs',
+    'AccessControlRulesArgsDict',
     'AdditionalCapabilitiesArgs',
     'AdditionalCapabilitiesArgsDict',
+    'AdditionalReplicaSetArgs',
+    'AdditionalReplicaSetArgsDict',
     'AdditionalUnattendContentArgs',
     'AdditionalUnattendContentArgsDict',
     'ApiEntityReferenceArgs',
@@ -124,6 +136,8 @@ __all__ = [
     'GalleryImageVersionSafetyProfileArgsDict',
     'GalleryImageVersionStorageProfileArgs',
     'GalleryImageVersionStorageProfileArgsDict',
+    'GalleryInVMAccessControlProfilePropertiesArgs',
+    'GalleryInVMAccessControlProfilePropertiesArgsDict',
     'GalleryOSDiskImageArgs',
     'GalleryOSDiskImageArgsDict',
     'GalleryTargetExtendedLocationArgs',
@@ -349,6 +363,399 @@ __all__ = [
 MYPY = False
 
 if not MYPY:
+    class AccessControlRulesIdentityArgsDict(TypedDict):
+        """
+        The properties of an Access Control Rule Identity.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the identity.
+        """
+        exe_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the executable.
+        """
+        group_name: NotRequired[pulumi.Input[str]]
+        """
+        The groupName corresponding to this identity.
+        """
+        process_name: NotRequired[pulumi.Input[str]]
+        """
+        The process name of the executable.
+        """
+        user_name: NotRequired[pulumi.Input[str]]
+        """
+        The username corresponding to this identity.
+        """
+elif False:
+    AccessControlRulesIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessControlRulesIdentityArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 exe_path: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 process_name: Optional[pulumi.Input[str]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of an Access Control Rule Identity.
+        :param pulumi.Input[str] name: The name of the identity.
+        :param pulumi.Input[str] exe_path: The path to the executable.
+        :param pulumi.Input[str] group_name: The groupName corresponding to this identity.
+        :param pulumi.Input[str] process_name: The process name of the executable.
+        :param pulumi.Input[str] user_name: The username corresponding to this identity.
+        """
+        pulumi.set(__self__, "name", name)
+        if exe_path is not None:
+            pulumi.set(__self__, "exe_path", exe_path)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+        if process_name is not None:
+            pulumi.set(__self__, "process_name", process_name)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the identity.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="exePath")
+    def exe_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the executable.
+        """
+        return pulumi.get(self, "exe_path")
+
+    @exe_path.setter
+    def exe_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exe_path", value)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The groupName corresponding to this identity.
+        """
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_name", value)
+
+    @property
+    @pulumi.getter(name="processName")
+    def process_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The process name of the executable.
+        """
+        return pulumi.get(self, "process_name")
+
+    @process_name.setter
+    def process_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "process_name", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username corresponding to this identity.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
+
+
+if not MYPY:
+    class AccessControlRulesPrivilegeArgsDict(TypedDict):
+        """
+        The properties of an Access Control Rule Privilege.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the privilege.
+        """
+        path: pulumi.Input[str]
+        """
+        The HTTP path corresponding to the privilege.
+        """
+        query_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The query parameters to match in the path.
+        """
+elif False:
+    AccessControlRulesPrivilegeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessControlRulesPrivilegeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 query_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The properties of an Access Control Rule Privilege.
+        :param pulumi.Input[str] name: The name of the privilege.
+        :param pulumi.Input[str] path: The HTTP path corresponding to the privilege.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] query_parameters: The query parameters to match in the path.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the privilege.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The HTTP path corresponding to the privilege.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="queryParameters")
+    def query_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The query parameters to match in the path.
+        """
+        return pulumi.get(self, "query_parameters")
+
+    @query_parameters.setter
+    def query_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "query_parameters", value)
+
+
+if not MYPY:
+    class AccessControlRulesRoleAssignmentArgsDict(TypedDict):
+        """
+        The properties of an Access Control Rule RoleAssignment.
+        """
+        identities: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of identities that can access the privileges defined by the role.
+        """
+        role: pulumi.Input[str]
+        """
+        The name of the role.
+        """
+elif False:
+    AccessControlRulesRoleAssignmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessControlRulesRoleAssignmentArgs:
+    def __init__(__self__, *,
+                 identities: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 role: pulumi.Input[str]):
+        """
+        The properties of an Access Control Rule RoleAssignment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identities: A list of identities that can access the privileges defined by the role.
+        :param pulumi.Input[str] role: The name of the role.
+        """
+        pulumi.set(__self__, "identities", identities)
+        pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def identities(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of identities that can access the privileges defined by the role.
+        """
+        return pulumi.get(self, "identities")
+
+    @identities.setter
+    def identities(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "identities", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> pulumi.Input[str]:
+        """
+        The name of the role.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role", value)
+
+
+if not MYPY:
+    class AccessControlRulesRoleArgsDict(TypedDict):
+        """
+        The properties of an Access Control Rule Role.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the role.
+        """
+        privileges: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of privileges needed by this role.
+        """
+elif False:
+    AccessControlRulesRoleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessControlRulesRoleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 privileges: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        The properties of an Access Control Rule Role.
+        :param pulumi.Input[str] name: The name of the role.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: A list of privileges needed by this role.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "privileges", privileges)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the role.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def privileges(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of privileges needed by this role.
+        """
+        return pulumi.get(self, "privileges")
+
+    @privileges.setter
+    def privileges(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "privileges", value)
+
+
+if not MYPY:
+    class AccessControlRulesArgsDict(TypedDict):
+        """
+        This is the Access Control Rules specification for an inVMAccessControlProfile version.
+        """
+        identities: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesIdentityArgsDict']]]]
+        """
+        A list of identities.
+        """
+        privileges: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesPrivilegeArgsDict']]]]
+        """
+        A list of privileges.
+        """
+        role_assignments: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesRoleAssignmentArgsDict']]]]
+        """
+        A list of role assignments.
+        """
+        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesRoleArgsDict']]]]
+        """
+        A list of roles.
+        """
+elif False:
+    AccessControlRulesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessControlRulesArgs:
+    def __init__(__self__, *,
+                 identities: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesIdentityArgs']]]] = None,
+                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesPrivilegeArgs']]]] = None,
+                 role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesRoleAssignmentArgs']]]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesRoleArgs']]]] = None):
+        """
+        This is the Access Control Rules specification for an inVMAccessControlProfile version.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessControlRulesIdentityArgs']]] identities: A list of identities.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessControlRulesPrivilegeArgs']]] privileges: A list of privileges.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessControlRulesRoleAssignmentArgs']]] role_assignments: A list of role assignments.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessControlRulesRoleArgs']]] roles: A list of roles.
+        """
+        if identities is not None:
+            pulumi.set(__self__, "identities", identities)
+        if privileges is not None:
+            pulumi.set(__self__, "privileges", privileges)
+        if role_assignments is not None:
+            pulumi.set(__self__, "role_assignments", role_assignments)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesIdentityArgs']]]]:
+        """
+        A list of identities.
+        """
+        return pulumi.get(self, "identities")
+
+    @identities.setter
+    def identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesIdentityArgs']]]]):
+        pulumi.set(self, "identities", value)
+
+    @property
+    @pulumi.getter
+    def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesPrivilegeArgs']]]]:
+        """
+        A list of privileges.
+        """
+        return pulumi.get(self, "privileges")
+
+    @privileges.setter
+    def privileges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesPrivilegeArgs']]]]):
+        pulumi.set(self, "privileges", value)
+
+    @property
+    @pulumi.getter(name="roleAssignments")
+    def role_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesRoleAssignmentArgs']]]]:
+        """
+        A list of role assignments.
+        """
+        return pulumi.get(self, "role_assignments")
+
+    @role_assignments.setter
+    def role_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesRoleAssignmentArgs']]]]):
+        pulumi.set(self, "role_assignments", value)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesRoleArgs']]]]:
+        """
+        A list of roles.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlRulesRoleArgs']]]]):
+        pulumi.set(self, "roles", value)
+
+
+if not MYPY:
     class AdditionalCapabilitiesArgsDict(TypedDict):
         """
         Enables or disables a capability on the virtual machine or virtual machine scale set.
@@ -402,6 +809,62 @@ class AdditionalCapabilitiesArgs:
     @ultra_ssd_enabled.setter
     def ultra_ssd_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ultra_ssd_enabled", value)
+
+
+if not MYPY:
+    class AdditionalReplicaSetArgsDict(TypedDict):
+        """
+        Describes the additional replica set information.
+        """
+        regional_replica_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of direct drive replicas of the Image Version to be created.This Property is updatable
+        """
+        storage_account_type: NotRequired[pulumi.Input[Union[str, 'StorageAccountType']]]
+        """
+        Specifies the storage account type to be used to create the direct drive replicas
+        """
+elif False:
+    AdditionalReplicaSetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AdditionalReplicaSetArgs:
+    def __init__(__self__, *,
+                 regional_replica_count: Optional[pulumi.Input[int]] = None,
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None):
+        """
+        Describes the additional replica set information.
+        :param pulumi.Input[int] regional_replica_count: The number of direct drive replicas of the Image Version to be created.This Property is updatable
+        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: Specifies the storage account type to be used to create the direct drive replicas
+        """
+        if regional_replica_count is not None:
+            pulumi.set(__self__, "regional_replica_count", regional_replica_count)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+
+    @property
+    @pulumi.getter(name="regionalReplicaCount")
+    def regional_replica_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of direct drive replicas of the Image Version to be created.This Property is updatable
+        """
+        return pulumi.get(self, "regional_replica_count")
+
+    @regional_replica_count.setter
+    def regional_replica_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "regional_replica_count", value)
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountType']]]:
+        """
+        Specifies the storage account type to be used to create the direct drive replicas
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountType']]]):
+        pulumi.set(self, "storage_account_type", value)
 
 
 if not MYPY:
@@ -4437,6 +4900,80 @@ class GalleryImageVersionStorageProfileArgs:
     @source.setter
     def source(self, value: Optional[pulumi.Input['GalleryArtifactVersionFullSourceArgs']]):
         pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class GalleryInVMAccessControlProfilePropertiesArgsDict(TypedDict):
+        """
+        Describes the properties of a gallery inVMAccessControlProfile.
+        """
+        applicable_host_endpoint: pulumi.Input['EndpointTypes']
+        """
+        This property allows you to specify the Endpoint type for which this profile is defining the access control for. Possible values are: 'WireServer' or 'IMDS'
+        """
+        os_type: pulumi.Input['OperatingSystemTypes']
+        """
+        This property allows you to specify the OS type of the VMs/VMSS for which this profile can be used against. Possible values are: 'Windows' or 'Linux'
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of this gallery inVMAccessControlProfile resources. This property is updatable.
+        """
+elif False:
+    GalleryInVMAccessControlProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GalleryInVMAccessControlProfilePropertiesArgs:
+    def __init__(__self__, *,
+                 applicable_host_endpoint: pulumi.Input['EndpointTypes'],
+                 os_type: pulumi.Input['OperatingSystemTypes'],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the properties of a gallery inVMAccessControlProfile.
+        :param pulumi.Input['EndpointTypes'] applicable_host_endpoint: This property allows you to specify the Endpoint type for which this profile is defining the access control for. Possible values are: 'WireServer' or 'IMDS'
+        :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the OS type of the VMs/VMSS for which this profile can be used against. Possible values are: 'Windows' or 'Linux'
+        :param pulumi.Input[str] description: The description of this gallery inVMAccessControlProfile resources. This property is updatable.
+        """
+        pulumi.set(__self__, "applicable_host_endpoint", applicable_host_endpoint)
+        pulumi.set(__self__, "os_type", os_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="applicableHostEndpoint")
+    def applicable_host_endpoint(self) -> pulumi.Input['EndpointTypes']:
+        """
+        This property allows you to specify the Endpoint type for which this profile is defining the access control for. Possible values are: 'WireServer' or 'IMDS'
+        """
+        return pulumi.get(self, "applicable_host_endpoint")
+
+    @applicable_host_endpoint.setter
+    def applicable_host_endpoint(self, value: pulumi.Input['EndpointTypes']):
+        pulumi.set(self, "applicable_host_endpoint", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> pulumi.Input['OperatingSystemTypes']:
+        """
+        This property allows you to specify the OS type of the VMs/VMSS for which this profile can be used against. Possible values are: 'Windows' or 'Linux'
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: pulumi.Input['OperatingSystemTypes']):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of this gallery inVMAccessControlProfile resources. This property is updatable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 if not MYPY:
@@ -9262,6 +9799,10 @@ if not MYPY:
         """
         The name of the region.
         """
+        additional_replica_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['AdditionalReplicaSetArgsDict']]]]
+        """
+        List of storage sku with replica count to create direct drive replicas.
+        """
         encryption: NotRequired[pulumi.Input['EncryptionImagesArgsDict']]
         """
         Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
@@ -9285,6 +9826,7 @@ elif False:
 class TargetRegionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 additional_replica_sets: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalReplicaSetArgs']]]] = None,
                  encryption: Optional[pulumi.Input['EncryptionImagesArgs']] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  regional_replica_count: Optional[pulumi.Input[int]] = None,
@@ -9292,12 +9834,15 @@ class TargetRegionArgs:
         """
         Describes the target region information.
         :param pulumi.Input[str] name: The name of the region.
+        :param pulumi.Input[Sequence[pulumi.Input['AdditionalReplicaSetArgs']]] additional_replica_sets: List of storage sku with replica count to create direct drive replicas.
         :param pulumi.Input['EncryptionImagesArgs'] encryption: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
         :param pulumi.Input[bool] exclude_from_latest: Contains the flag setting to hide an image when users specify version='latest'
         :param pulumi.Input[int] regional_replica_count: The number of replicas of the Image Version to be created per region. This property is updatable.
         :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         """
         pulumi.set(__self__, "name", name)
+        if additional_replica_sets is not None:
+            pulumi.set(__self__, "additional_replica_sets", additional_replica_sets)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if exclude_from_latest is not None:
@@ -9318,6 +9863,18 @@ class TargetRegionArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="additionalReplicaSets")
+    def additional_replica_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalReplicaSetArgs']]]]:
+        """
+        List of storage sku with replica count to create direct drive replicas.
+        """
+        return pulumi.get(self, "additional_replica_sets")
+
+    @additional_replica_sets.setter
+    def additional_replica_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalReplicaSetArgs']]]]):
+        pulumi.set(self, "additional_replica_sets", value)
 
     @property
     @pulumi.getter

@@ -98,7 +98,7 @@ export class WorkspacePolicyFragment extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspacePolicyFragment" }, { type: "azure-native:apimanagement/v20220901preview:WorkspacePolicyFragment" }, { type: "azure-native:apimanagement/v20230501preview:WorkspacePolicyFragment" }, { type: "azure-native:apimanagement/v20230901preview:WorkspacePolicyFragment" }, { type: "azure-native:apimanagement/v20240501:WorkspacePolicyFragment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspacePolicyFragment" }, { type: "azure-native:apimanagement/v20220901preview:WorkspacePolicyFragment" }, { type: "azure-native:apimanagement/v20230501preview:WorkspacePolicyFragment" }, { type: "azure-native:apimanagement/v20230901preview:WorkspacePolicyFragment" }, { type: "azure-native:apimanagement/v20240501:WorkspacePolicyFragment" }, { type: "azure-native:apimanagement/v20240601preview:WorkspacePolicyFragment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspacePolicyFragment.__pulumiType, name, resourceInputs, opts);
     }

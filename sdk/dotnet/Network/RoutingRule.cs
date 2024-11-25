@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Network routing rule.
     /// Azure REST API version: 2024-03-01.
+    /// 
+    /// Other available API versions: 2024-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RoutingRule")]
     public partial class RoutingRule : global::Pulumi.CustomResource
@@ -96,6 +98,7 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:RoutingRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:RoutingRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

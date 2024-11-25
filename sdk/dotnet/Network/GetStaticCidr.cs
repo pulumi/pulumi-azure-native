@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Instance of StaticCidr resource.
         /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Task<GetStaticCidrResult> InvokeAsync(GetStaticCidrArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticCidrResult>("azure-native:network:getStaticCidr", args ?? new GetStaticCidrArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Instance of StaticCidr resource.
         /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Output<GetStaticCidrResult> Invoke(GetStaticCidrInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticCidrResult>("azure-native:network:getStaticCidr", args ?? new GetStaticCidrInvokeArgs(), options.WithDefaults());

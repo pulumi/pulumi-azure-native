@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class TargetRegionResponse
     {
         /// <summary>
+        /// List of storage sku with replica count to create direct drive replicas.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AdditionalReplicaSetResponse> AdditionalReplicaSets;
+        /// <summary>
         /// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
         /// </summary>
         public readonly Outputs.EncryptionImagesResponse? Encryption;
@@ -39,6 +43,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
         [OutputConstructor]
         private TargetRegionResponse(
+            ImmutableArray<Outputs.AdditionalReplicaSetResponse> additionalReplicaSets,
+
             Outputs.EncryptionImagesResponse? encryption,
 
             bool? excludeFromLatest,
@@ -49,6 +55,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string? storageAccountType)
         {
+            AdditionalReplicaSets = additionalReplicaSets;
             Encryption = encryption;
             ExcludeFromLatest = excludeFromLatest;
             Name = name;

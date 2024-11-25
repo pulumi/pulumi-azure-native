@@ -107,6 +107,8 @@ def get_reachability_analysis_intent(network_manager_name: Optional[str] = None,
     Configuration information or intent on which to do the analysis on.
     Azure REST API version: 2024-01-01-preview.
 
+    Other available API versions: 2024-05-01.
+
 
     :param str network_manager_name: The name of the network manager.
     :param str reachability_analysis_intent_name: Reachability Analysis Intent name.
@@ -135,6 +137,8 @@ def get_reachability_analysis_intent_output(network_manager_name: Optional[pulum
     """
     Configuration information or intent on which to do the analysis on.
     Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2024-05-01.
 
 
     :param str network_manager_name: The name of the network manager.

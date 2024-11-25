@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the value of the shared key of VpnLink connection specified.
         /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Task<ListVpnLinkConnectionDefaultSharedKeyResult> InvokeAsync(ListVpnLinkConnectionDefaultSharedKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListVpnLinkConnectionDefaultSharedKeyResult>("azure-native:network:listVpnLinkConnectionDefaultSharedKey", args ?? new ListVpnLinkConnectionDefaultSharedKeyArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets the value of the shared key of VpnLink connection specified.
         /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Output<ListVpnLinkConnectionDefaultSharedKeyResult> Invoke(ListVpnLinkConnectionDefaultSharedKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVpnLinkConnectionDefaultSharedKeyResult>("azure-native:network:listVpnLinkConnectionDefaultSharedKey", args ?? new ListVpnLinkConnectionDefaultSharedKeyInvokeArgs(), options.WithDefaults());

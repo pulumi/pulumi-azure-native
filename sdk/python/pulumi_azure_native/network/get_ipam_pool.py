@@ -130,6 +130,8 @@ def get_ipam_pool(network_manager_name: Optional[str] = None,
     Instance of Pool resource.
     Azure REST API version: 2024-01-01-preview.
 
+    Other available API versions: 2024-05-01.
+
 
     :param str network_manager_name: The name of the network manager.
     :param str pool_name: Pool resource name.
@@ -157,6 +159,8 @@ def get_ipam_pool_output(network_manager_name: Optional[pulumi.Input[str]] = Non
     """
     Instance of Pool resource.
     Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2024-05-01.
 
 
     :param str network_manager_name: The name of the network manager.

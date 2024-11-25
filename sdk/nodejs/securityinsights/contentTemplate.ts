@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Template resource definition.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01.
  */
 export class ContentTemplate extends pulumi.CustomResource {
     /**
@@ -244,7 +244,7 @@ export class ContentTemplate extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230501preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230601preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230701preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230801preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230901preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20231001preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20231101:ContentTemplate" }, { type: "azure-native:securityinsights/v20231201preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20240101preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20240301:ContentTemplate" }, { type: "azure-native:securityinsights/v20240401preview:ContentTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230501preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230601preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230701preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230801preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20230901preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20231001preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20231101:ContentTemplate" }, { type: "azure-native:securityinsights/v20231201preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20240101preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20240301:ContentTemplate" }, { type: "azure-native:securityinsights/v20240401preview:ContentTemplate" }, { type: "azure-native:securityinsights/v20240901:ContentTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentTemplate.__pulumiType, name, resourceInputs, opts);
     }

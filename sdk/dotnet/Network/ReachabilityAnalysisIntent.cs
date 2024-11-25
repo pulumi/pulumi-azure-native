@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Configuration information or intent on which to do the analysis on.
     /// Azure REST API version: 2024-01-01-preview.
+    /// 
+    /// Other available API versions: 2024-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ReachabilityAnalysisIntent")]
     public partial class ReachabilityAnalysisIntent : global::Pulumi.CustomResource
@@ -66,6 +68,7 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101preview:ReachabilityAnalysisIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:ReachabilityAnalysisIntent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

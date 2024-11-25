@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     /// The network group resource
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
     /// 
-    /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
+    /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkGroup")]
     public partial class NetworkGroup : global::Pulumi.CustomResource
@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:NetworkGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:NetworkGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:NetworkGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:NetworkGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

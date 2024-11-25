@@ -157,6 +157,7 @@ namespace Pulumi.AzureNative.Network.V20240101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:DscpConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:DscpConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:DscpConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:DscpConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// Instance of Verifier Workspace.
     /// Azure REST API version: 2024-01-01-preview.
+    /// 
+    /// Other available API versions: 2024-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VerifierWorkspace")]
     public partial class VerifierWorkspace : global::Pulumi.CustomResource
@@ -78,6 +80,7 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101preview:VerifierWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:VerifierWorkspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

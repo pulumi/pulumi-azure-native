@@ -101,6 +101,8 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
         Defines the routing configuration
         Azure REST API version: 2024-03-01.
 
+        Other available API versions: 2024-05-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The name of the network manager Routing Configuration.
@@ -117,6 +119,8 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
         """
         Defines the routing configuration
         Azure REST API version: 2024-03-01.
+
+        Other available API versions: 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerRoutingConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -160,7 +164,7 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20240301:NetworkManagerRoutingConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20240301:NetworkManagerRoutingConfiguration"), pulumi.Alias(type_="azure-native:network/v20240501:NetworkManagerRoutingConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkManagerRoutingConfiguration, __self__).__init__(
             'azure-native:network:NetworkManagerRoutingConfiguration',

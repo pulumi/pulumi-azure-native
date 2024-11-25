@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Defines the security user configuration
  * Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
  *
- * Other available API versions: 2021-05-01-preview, 2024-03-01.
+ * Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
  */
 export class SecurityUserConfiguration extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class SecurityUserConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20210501preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20220201preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20220401preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20240301:SecurityUserConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20210501preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20220201preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20220401preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20240301:SecurityUserConfiguration" }, { type: "azure-native:network/v20240501:SecurityUserConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityUserConfiguration.__pulumiType, name, resourceInputs, opts);
     }

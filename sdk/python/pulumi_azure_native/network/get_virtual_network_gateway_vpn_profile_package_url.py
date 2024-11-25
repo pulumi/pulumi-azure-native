@@ -50,7 +50,7 @@ def get_virtual_network_gateway_vpn_profile_package_url(resource_group_name: Opt
     Gets pre-generated VPN profile for P2S client of the virtual network gateway in the specified resource group. The profile needs to be generated first using generateVpnProfile.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
+    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -71,7 +71,7 @@ def get_virtual_network_gateway_vpn_profile_package_url_output(resource_group_na
     Gets pre-generated VPN profile for P2S client of the virtual network gateway in the specified resource group. The profile needs to be generated first using generateVpnProfile.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
+    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
 
 
     :param str resource_group_name: The name of the resource group.

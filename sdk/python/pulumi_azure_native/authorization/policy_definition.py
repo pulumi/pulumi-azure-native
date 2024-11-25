@@ -175,7 +175,7 @@ class PolicyDefinition(pulumi.CustomResource):
         The policy definition.
         Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
 
-        Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01.
+        Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +198,7 @@ class PolicyDefinition(pulumi.CustomResource):
         The policy definition.
         Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
 
-        Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01.
+        Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param PolicyDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -245,7 +245,7 @@ class PolicyDefinition(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20151001preview:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20160401:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20161201:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20180301:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20180501:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20190101:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20190601:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20190901:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20200301:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20200901:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20210601:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20230401:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20240501:PolicyDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20151001preview:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20160401:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20161201:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20180301:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20180501:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20190101:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20190601:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20190901:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20200301:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20200901:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20210601:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20230401:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20240501:PolicyDefinition"), pulumi.Alias(type_="azure-native:authorization/v20250101:PolicyDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyDefinition, __self__).__init__(
             'azure-native:authorization:PolicyDefinition',

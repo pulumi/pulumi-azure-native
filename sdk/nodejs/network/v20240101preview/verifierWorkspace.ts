@@ -97,7 +97,7 @@ export class VerifierWorkspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:VerifierWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:VerifierWorkspace" }, { type: "azure-native:network/v20240501:VerifierWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VerifierWorkspace.__pulumiType, name, resourceInputs, opts);
     }

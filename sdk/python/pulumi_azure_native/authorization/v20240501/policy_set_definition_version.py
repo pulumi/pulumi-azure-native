@@ -277,7 +277,7 @@ class PolicySetDefinitionVersion(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization:PolicySetDefinitionVersion"), pulumi.Alias(type_="azure-native:authorization/v20230401:PolicySetDefinitionVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization:PolicySetDefinitionVersion"), pulumi.Alias(type_="azure-native:authorization/v20230401:PolicySetDefinitionVersion"), pulumi.Alias(type_="azure-native:authorization/v20250101:PolicySetDefinitionVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicySetDefinitionVersion, __self__).__init__(
             'azure-native:authorization/v20240501:PolicySetDefinitionVersion',

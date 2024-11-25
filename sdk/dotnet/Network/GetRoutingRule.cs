@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a network manager routing configuration routing rule.
         /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Task<GetRoutingRuleResult> InvokeAsync(GetRoutingRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoutingRuleResult>("azure-native:network:getRoutingRule", args ?? new GetRoutingRuleArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a network manager routing configuration routing rule.
         /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Output<GetRoutingRuleResult> Invoke(GetRoutingRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoutingRuleResult>("azure-native:network:getRoutingRule", args ?? new GetRoutingRuleInvokeArgs(), options.WithDefaults());

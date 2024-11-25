@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AccessControlRulesMode',
     'Architecture',
     'CachingTypes',
     'CloudServiceSlotType',
@@ -29,6 +30,8 @@ __all__ = [
     'DiskStorageAccountTypes',
     'EdgeZoneStorageAccountType',
     'EncryptionType',
+    'EndpointAccess',
+    'EndpointTypes',
     'ExtendedLocationTypes',
     'GalleryApplicationCustomActionParameterType',
     'GalleryExtendedLocationType',
@@ -75,6 +78,15 @@ __all__ = [
     'WindowsVMGuestPatchAutomaticByPlatformRebootSetting',
     'WindowsVMGuestPatchMode',
 ]
+
+
+class AccessControlRulesMode(str, Enum):
+    """
+    This property allows you to specify whether the access control rules are in Audit mode, in Enforce mode or Disabled. Possible values are: 'Audit', 'Enforce' or 'Disabled'.
+    """
+    AUDIT = "Audit"
+    ENFORCE = "Enforce"
+    DISABLED = "Disabled"
 
 
 class Architecture(str, Enum):
@@ -129,6 +141,7 @@ class ConfidentialVMEncryptionType(str, Enum):
     ENCRYPTED_VM_GUEST_STATE_ONLY_WITH_PMK = "EncryptedVMGuestStateOnlyWithPmk"
     ENCRYPTED_WITH_PMK = "EncryptedWithPmk"
     ENCRYPTED_WITH_CMK = "EncryptedWithCmk"
+    NON_PERSISTED_TPM = "NonPersistedTPM"
 
 
 class ConsistencyModeTypes(str, Enum):
@@ -384,6 +397,22 @@ class EncryptionType(str, Enum):
     """
     Disk is encrypted at rest with 2 layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
     """
+
+
+class EndpointAccess(str, Enum):
+    """
+    This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+
+
+class EndpointTypes(str, Enum):
+    """
+    This property allows you to specify the Endpoint type for which this profile is defining the access control for. Possible values are: 'WireServer' or 'IMDS'
+    """
+    WIRE_SERVER = "WireServer"
+    IMDS = "IMDS"
 
 
 class ExtendedLocationTypes(str, Enum):
@@ -724,6 +753,7 @@ class StorageAccountType(str, Enum):
     STANDARD_LRS = "Standard_LRS"
     STANDARD_ZRS = "Standard_ZRS"
     PREMIUM_LRS = "Premium_LRS"
+    PREMIUM_V2_LRS = "PremiumV2_LRS"
 
 
 class StorageAccountTypes(str, Enum):

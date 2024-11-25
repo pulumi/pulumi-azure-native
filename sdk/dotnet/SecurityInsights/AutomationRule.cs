@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// <summary>
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-01-01-preview.
     /// 
-    /// Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview.
+    /// Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:AutomationRule")]
     public partial class AutomationRule : global::Pulumi.CustomResource
@@ -145,6 +145,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:AutomationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240301:AutomationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:AutomationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:AutomationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -163,7 +163,7 @@ export class WorkspaceSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceSubscription" }, { type: "azure-native:apimanagement/v20220901preview:WorkspaceSubscription" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceSubscription" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceSubscription" }, { type: "azure-native:apimanagement/v20240501:WorkspaceSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceSubscription" }, { type: "azure-native:apimanagement/v20220901preview:WorkspaceSubscription" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceSubscription" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceSubscription" }, { type: "azure-native:apimanagement/v20240501:WorkspaceSubscription" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceSubscription.__pulumiType, name, resourceInputs, opts);
     }

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// List of PoolAssociation
         /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Task<ListIpamPoolAssociatedResourcesResult> InvokeAsync(ListIpamPoolAssociatedResourcesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIpamPoolAssociatedResourcesResult>("azure-native:network:listIpamPoolAssociatedResources", args ?? new ListIpamPoolAssociatedResourcesArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// List of PoolAssociation
         /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
         /// </summary>
         public static Output<ListIpamPoolAssociatedResourcesResult> Invoke(ListIpamPoolAssociatedResourcesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIpamPoolAssociatedResourcesResult>("azure-native:network:listIpamPoolAssociatedResources", args ?? new ListIpamPoolAssociatedResourcesInvokeArgs(), options.WithDefaults());
